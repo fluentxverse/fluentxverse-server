@@ -1,0 +1,52 @@
+[
+  {
+    "name": "arrival",
+    "prompt": "Use case: illustration-story. Asset type: English language teaching visual aid for adult Japanese beginner learners, landscape 3:2. An adult Japanese woman with a short black bob, teal cardigan and small suitcase arrives at the entrance of a modern international shared house. An adult woman with curly dark hair and rust-red shirt welcomes her with an open hand. Clear friendly first meeting, eye contact, visible suitcase and doorway. Style: sophisticated clean editorial bitmap illustration, natural human proportions, soft textured shading, crisp readable objects, daylight, balanced teal, rust, mustard and neutral colors. Composition: medium-wide, full activity visible, no cropping of important props or faces. No text, speech bubbles, typography, logos or watermarks. This is an instructional scene, not a UI mockup.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "name": "questions",
+    "prompt": "Use case: illustration-story. Asset type: English language teaching visual aid for adult Japanese beginner learners, landscape 3:2. At the shared-house kitchen table, an adult Japanese woman with short black bob and teal cardigan meets an adult man with short dark hair and mustard yellow shirt. They have blank name badges and are asking each other questions; relaxed attentive faces, two mugs, no writing. Style: sophisticated clean editorial bitmap illustration, natural human proportions, soft textured shading, crisp readable objects, daylight, balanced teal, rust, mustard and neutral colors. Composition: medium-wide, full activity visible, no cropping of important props or faces. No text, speech bubbles, typography, logos or watermarks. This is an instructional scene, not a UI mockup.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "name": "hometown",
+    "prompt": "Use case: illustration-story. Asset type: English language teaching visual aid for adult Japanese beginner learners, landscape 3:2. At a bright shared-house lounge an adult Japanese woman with short black bob and teal cardigan shows a photo album to an adult woman with curly dark hair and rust-red shirt. Visible photos depict a coastal town, a mountain town and a big city, clearly different. No words or labels. Style: sophisticated clean editorial bitmap illustration, natural human proportions, soft textured shading, crisp readable objects, daylight, balanced teal, rust, mustard and neutral colors. Composition: medium-wide, full activity visible, no cropping of important props or faces. No text, speech bubbles, typography, logos or watermarks. This is an instructional scene, not a UI mockup.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "name": "roles",
+    "prompt": "Use case: illustration-story. Asset type: English language teaching visual aid for adult Japanese beginner learners, landscape 3:2. A coherent editorial triptych with three equally wide panels: a woman nurse in a clinic, a man cook preparing food in a cafe kitchen, a woman student with books at a college desk. Adult characters, believable work settings, clear props to identify each role. No written labels. Style: sophisticated clean editorial bitmap illustration, natural human proportions, soft textured shading, crisp readable objects, daylight, balanced teal, rust, mustard and neutral colors. Composition: medium-wide, full activity visible, no cropping of important props or faces. No text, speech bubbles, typography, logos or watermarks. This is an instructional scene, not a UI mockup.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "name": "hobbies",
+    "prompt": "Use case: illustration-story. Asset type: English language teaching visual aid for adult Japanese beginner learners, landscape 3:2. A coherent editorial triptych with three equally wide panels: an adult playing acoustic guitar, an adult taking a photograph in a park, and two adults playing badminton outside. Everyday hobbies clearly visible, distinct activities. No labels. Style: sophisticated clean editorial bitmap illustration, natural human proportions, soft textured shading, crisp readable objects, daylight, balanced teal, rust, mustard and neutral colors. Composition: medium-wide, full activity visible, no cropping of important props or faces. No text, speech bubbles, typography, logos or watermarks. This is an instructional scene, not a UI mockup.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "name": "listening",
+    "prompt": "Use case: illustration-story. Asset type: English language teaching visual aid for adult Japanese beginner learners, landscape 3:2. Two adult friends in a shared-house courtyard talking during a relaxed break. One Japanese woman with short black bob and teal cardigan, one man with short dark hair and mustard shirt. The man gestures toward a small herb garden while she listens attentively. Show natural conversational turn-taking. Style: sophisticated clean editorial bitmap illustration, natural human proportions, soft textured shading, crisp readable objects, daylight, balanced teal, rust, mustard and neutral colors. Composition: medium-wide, full activity visible, no cropping of important props or faces. No text, speech bubbles, typography, logos or watermarks. This is an instructional scene, not a UI mockup.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "name": "introductions",
+    "prompt": "Use case: illustration-story. Asset type: English language teaching visual aid for adult Japanese beginner learners, landscape 3:2. Three adults in a shared-house lounge: a Japanese woman with short black bob and teal cardigan introduces a curly dark-haired woman in a rust-red shirt to a man in a mustard shirt. The introducer gestures between the other two, who smile at each other. Clearly convey introducing a third person. Style: sophisticated clean editorial bitmap illustration, natural human proportions, soft textured shading, crisp readable objects, daylight, balanced teal, rust, mustard and neutral colors. Composition: medium-wide, full activity visible, no cropping of important props or faces. No text, speech bubbles, typography, logos or watermarks. This is an instructional scene, not a UI mockup.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "name": "messages",
+    "prompt": "Use case: illustration-story. Asset type: English language teaching visual aid for adult Japanese beginner learners, landscape 3:2. An adult Japanese woman with short black bob and teal cardigan and an adult curly dark-haired woman in rust-red shirt planning a welcome gathering at a shared-house kitchen table. A blank notepad, simple wall clock, cups and a plate of fruit are visible. No readable text, no phone close-ups. Style: sophisticated clean editorial bitmap illustration, natural human proportions, soft textured shading, crisp readable objects, daylight, balanced teal, rust, mustard and neutral colors. Composition: medium-wide, full activity visible, no cropping of important props or faces. No text, speech bubbles, typography, logos or watermarks. This is an instructional scene, not a UI mockup.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "name": "gathering",
+    "prompt": "Use case: illustration-story. Asset type: English language teaching visual aid for adult Japanese beginner learners, landscape 3:2. A small evening welcome gathering in a bright shared-house living room. Five diverse adults in their twenties or thirties chatting in small groups, fruit and tea on a table. Include short-black-bob Japanese woman in teal cardigan, curly-dark-haired woman in rust-red shirt, and short-dark-haired man in mustard shirt. Welcoming and relaxed. Style: sophisticated clean editorial bitmap illustration, natural human proportions, soft textured shading, crisp readable objects, daylight, balanced teal, rust, mustard and neutral colors. Composition: medium-wide, full activity visible, no cropping of important props or faces. No text, speech bubbles, typography, logos or watermarks. This is an instructional scene, not a UI mockup.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "name": "review",
+    "prompt": "Use case: illustration-story. Asset type: English language teaching visual aid for adult Japanese beginner learners, landscape 3:2. Four adult residents seated around a round table in a bright shared-house courtyard, meeting and sharing interests. A camera, guitar leaning against a chair, books, and tea provide concrete conversation prompts. Include a short-black-bob Japanese woman in teal cardigan, curly-dark-haired woman in rust-red shirt, short-dark-haired man in mustard shirt and a woman in a white blouse. No written text. Style: sophisticated clean editorial bitmap illustration, natural human proportions, soft textured shading, crisp readable objects, daylight, balanced teal, rust, mustard and neutral colors. Composition: medium-wide, full activity visible, no cropping of important props or faces. No text, speech bubbles, typography, logos or watermarks. This is an instructional scene, not a UI mockup.",
+    "tool": "built-in image_gen"
+  }
+]

@@ -1,0 +1,22 @@
+services:
+  review-tally-prover:
+    profiles: [review-tally]
+    image: fluentxverse-review-tally:activation
+    build:
+      context: ../zk/review-tally
+    restart: unless-stopped
+    environment:
+      ANONYMOUS_REVIEW_TALLY_PROVER: /app/review-tally-host
+      ANONYMOUS_REVIEW_TALLY_PROVER_SHA256: ${ANONYMOUS_REVIEW_TALLY_PROVER_SHA256:?Approved binary SHA256 required}
+      ANONYMOUS_REVIEW_TALLY_PROVER_TOKEN: ${ANONYMOUS_REVIEW_TALLY_PROVER_TOKEN:?Dedicated prover token required}
+    expose: ["8092"]
+    mem_limit: 12g
+    cpus: 2
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    logging:
+      driver: json-file
+      options: {max-size: 10m, max-file: "2"}
+    networks: [fluentxverse-network]

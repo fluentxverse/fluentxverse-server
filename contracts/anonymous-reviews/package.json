@@ -1,0 +1,7 @@
+{
+  "name": "fluentxverse-anonymous-review-contract-tests",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node registry.test.mjs" },
+  "devDependencies": { "solc": "0.8.30", "ganache": "7.9.2", "viem": "2.57.1" }
+}

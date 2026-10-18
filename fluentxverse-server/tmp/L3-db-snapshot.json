@@ -1,0 +1,614 @@
+{
+  "chapterName": "Work Introductions",
+  "lessonName": "Tell Me About Yourself",
+  "goalTextEn": "Can talk about yourself using basic personal and job information.",
+  "goalTextKr": "기본적인 개인 정보와 직무 정보를 사용해 자기소개를 할 수 있다.",
+  "beData": {
+    "lessonType": "SPEAKING",
+    "hiddenBlocks": [],
+    "introduce": {
+      "goalEn": "Can talk about yourself using basic personal and job information.",
+      "goalKr": "기본적인 개인 정보와 직무 정보를 사용해 자기소개를 할 수 있다.",
+      "situationEn": "It's your first time meeting your teammates at a new company. Everyone is taking turns introducing themselves. Now it's your turn!",
+      "situationKr": "새 회사에서 팀원들을 처음 만납니다. 모두가 차례대로 자기소개를 하고 있습니다. 당신 차례입니다!",
+      "taskEn": "",
+      "taskKr": "",
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Today, we'll practice talking about yourself. You'll introduce yourself like you're meeting new teammates.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read the lesson goal aloud. Ask the student to repeat."
+        },
+        {
+          "type": "script",
+          "text": "\"Is it clear?\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read the situation. Check the student understands."
+        },
+        {
+          "type": "script",
+          "text": "\"Let's go to the next part.\""
+        },
+        {
+          "type": "tip",
+          "text": "Encourage the student that mistakes are OK. The goal is to practice speaking."
+        }
+      ]
+    },
+    "present": {
+      "patterns": [
+        {
+          "en": "<b>I am</b> Minji. / <b>I'm</b> Minji.",
+          "kr": "저는 민지입니다."
+        },
+        {
+          "en": "<b>I work at</b> Global Corp.",
+          "kr": "저는 글로벌코프에서 일하고 있습니다."
+        },
+        {
+          "en": "<b>I am from</b> Busan.",
+          "kr": "저는 부산 출신입니다."
+        },
+        {
+          "en": "<b>I am a</b> sales assistant.",
+          "kr": "저는 영업 보조입니다."
+        },
+        {
+          "en": "<b>I have worked here for</b> 2 years.",
+          "kr": "저는 여기서 2년 동안 일했습니다."
+        }
+      ],
+      "vocabulary": [
+        {
+          "word": "company",
+          "pos": "noun",
+          "translation": "회사",
+          "definition": "a business organization where people work",
+          "pronunciation": "/ˈkʌmpəni/"
+        },
+        {
+          "word": "position",
+          "pos": "noun",
+          "translation": "직책",
+          "definition": "your job title or role in a company",
+          "pronunciation": "/pəˈzɪʃən/"
+        },
+        {
+          "word": "years",
+          "pos": "noun",
+          "translation": "년(근무 기간)",
+          "definition": "the amount of time you have worked or lived somewhere",
+          "pronunciation": "/jɪrz/"
+        }
+      ],
+      "pronunciation": {
+        "instruction": "Let's practice hearing the difference between /l/ and /r/.",
+        "instructionKr": "/l/과 /r/의 차이를 연습합시다.",
+        "left": {
+          "symbol": "/l/",
+          "words": [
+            {
+              "en": "light",
+              "kr": "빛"
+            },
+            {
+              "en": "long",
+              "kr": "긴"
+            },
+            {
+              "en": "play",
+              "kr": "놀다"
+            },
+            {
+              "en": "glass",
+              "kr": "유리"
+            },
+            {
+              "en": "collect",
+              "kr": "수집하다"
+            }
+          ]
+        },
+        "right": {
+          "symbol": "/r/",
+          "words": [
+            {
+              "en": "right",
+              "kr": "올바른"
+            },
+            {
+              "en": "wrong",
+              "kr": "틀린"
+            },
+            {
+              "en": "pray",
+              "kr": "기도하다"
+            },
+            {
+              "en": "grass",
+              "kr": "잔디"
+            },
+            {
+              "en": "correct",
+              "kr": "정확한"
+            }
+          ]
+        }
+      },
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Let's look at useful phrases for introducing yourself.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read each pattern aloud. Ask the student to repeat."
+        },
+        {
+          "type": "instruction",
+          "text": "Explain the vocabulary words."
+        },
+        {
+          "type": "script",
+          "text": "\"Now let's practice pronunciation.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Some learners confuse /l/ and /r/. Practice slowly and clearly."
+        },
+        {
+          "type": "tip",
+          "text": "Demonstrate tongue position: /l/ = tongue touches roof of mouth, /r/ = tongue curls back."
+        }
+      ]
+    },
+    "understand": {
+      "instruction": "Fill in the blanks with the correct pattern. Then practice the pattern drills.",
+      "instructionKr": "빈칸에 올바른 패턴을 넣으세요. 그런 다음 패턴 드릴을 연습하세요.",
+      "fillRows": [
+        {
+          "parts": [
+            {
+              "text": "I am",
+              "isBlank": true
+            },
+            {
+              "text": " Daniel.",
+              "isBlank": false
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "text": "I work at",
+              "isBlank": true
+            },
+            {
+              "text": " ABC Corporation.",
+              "isBlank": false
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "text": "I am from",
+              "isBlank": true
+            },
+            {
+              "text": " Incheon.",
+              "isBlank": false
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "text": "I am a",
+              "isBlank": true
+            },
+            {
+              "text": " sales assistant.",
+              "isBlank": false
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "text": "I have worked here for",
+              "isBlank": true
+            },
+            {
+              "text": " 2 years.",
+              "isBlank": false
+            }
+          ]
+        }
+      ],
+      "patternDrills": [
+        {
+          "label": "Introducing your name",
+          "labelKr": "이름 소개하기",
+          "template": "I am ___. / I'm ___.",
+          "examples": [
+            {
+              "en": "I am Minji.",
+              "kr": "저는 민지입니다."
+            },
+            {
+              "en": "I'm Kim.",
+              "kr": "저는 김입니다."
+            }
+          ]
+        },
+        {
+          "label": "Saying where you work",
+          "labelKr": "근무처 말하기",
+          "template": "I work at ___.",
+          "examples": [
+            {
+              "en": "I work at Global Corp.",
+              "kr": "저는 글로벌코프에서 일하고 있습니다."
+            },
+            {
+              "en": "I work at a bank.",
+              "kr": "저는 은행에서 일하고 있습니다."
+            }
+          ]
+        },
+        {
+          "label": "Talking about your background",
+          "labelKr": "배경 정보 말하기",
+          "template": "I am from ___. / I am a ___.",
+          "examples": [
+            {
+              "en": "I am from Busan.",
+              "kr": "저는 부산 출신입니다."
+            },
+            {
+              "en": "I am a sales assistant.",
+              "kr": "저는 영업 보조입니다."
+            }
+          ]
+        },
+        {
+          "label": "Saying your work experience",
+          "labelKr": "근무 기간 말하기",
+          "template": "I have worked here for ___ years.",
+          "examples": [
+            {
+              "en": "I have worked here for 2 years.",
+              "kr": "저는 여기서 2년 동안 일했습니다."
+            }
+          ]
+        }
+      ],
+      "activityBlocks": [],
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Now we're going to practice four sentence patterns for introducing yourself in business English.\""
+        },
+        {
+          "type": "script",
+          "text": "\"First, let's read the name pattern: 'I am ___. / I'm ___.'\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read each example in the first table. Ask the student to repeat each sentence."
+        },
+        {
+          "type": "instruction",
+          "text": "Ask the student to fill in the blank with their real name, then say the full sentence aloud."
+        },
+        {
+          "type": "script",
+          "text": "\"Next, let's read the pattern for saying where you work: 'I work at ___.'\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read the examples. Ask the student to repeat, then complete the sentence with their real company, team, bank, store, or office."
+        },
+        {
+          "type": "script",
+          "text": "\"Now let's practice the background pattern: 'I am from ___.' / 'I am a ___.'\""
+        },
+        {
+          "type": "instruction",
+          "text": "Ask the student to answer with real information when possible: hometown and job title or work role."
+        },
+        {
+          "type": "script",
+          "text": "\"Finally, let's read the work experience pattern: 'I have worked here for ___ years.'\""
+        },
+        {
+          "type": "instruction",
+          "text": "Ask the student to use a real number of months or years and say the sentence in one smooth line."
+        },
+        {
+          "type": "instruction",
+          "text": "After the blanks, do the pattern drills one by one. Read each pattern, ask the student to repeat, then ask for one more original example."
+        },
+        {
+          "type": "tip",
+          "text": "Correct pronunciation after the student finishes a full answer. Focus especially on name, company, hometown, and job-title words."
+        },
+        {
+          "type": "tip",
+          "text": "For lower-level students, give one model sentence first and let them change only one part."
+        },
+        {
+          "type": "tip",
+          "text": "If the student is not working now, let them use a recent workplace, school, or a realistic office role."
+        },
+        {
+          "type": "script",
+          "text": "\"Do you have any questions about these patterns?\""
+        },
+        {
+          "type": "script",
+          "text": "\"Great. Let's go to the next part.\""
+        }
+      ]
+    },
+    "practice": {
+      "steps": [
+        {
+          "title": "Step 1 — Repeat After Me",
+          "instructionEn": "Listen and repeat each self-introduction sentence.",
+          "instructionKr": "자기소개 문장을 듣고 반복하세요.",
+          "content": "1. Hi, I'm Minji.<br>2. I work at Global Corp.<br>3. I am a sales assistant.<br>4. I am from Busan.<br>5. I have worked here for 2 years.<br>6. Nice to meet you!",
+          "tutorNotes": [
+            {
+              "type": "instruction",
+              "text": "Read each sentence slowly. Have the student repeat."
+            },
+            {
+              "type": "instruction",
+              "text": "Correct pronunciation gently. Focus on natural rhythm."
+            },
+            {
+              "type": "tip",
+              "text": "Model natural intonation — don't read in a flat tone."
+            }
+          ]
+        },
+        {
+          "title": "Step 2 — Fill in Your Introduction",
+          "instructionEn": "Complete these sentences with your own information.",
+          "instructionKr": "자기 정보로 이 문장들을 완성하세요.",
+          "content": "1. Hi, I'm _______________.<br>2. I work at _______________.<br>3. I am a/an _______________.<br>4. I am from _______________.<br>5. I have worked here for _______________ years.<br>6. Nice to meet you!",
+          "tutorNotes": [
+            {
+              "type": "instruction",
+              "text": "Ask the student to fill in each blank with their real info."
+            },
+            {
+              "type": "instruction",
+              "text": "After filling in, have them read the full introduction aloud."
+            },
+            {
+              "type": "tip",
+              "text": "If the student doesn't work at a company, they can say 'I study at...' or 'I work at home.'"
+            }
+          ]
+        },
+        {
+          "title": "Step 3 — Dialogue Practice",
+          "instructionEn": "Practice the dialogue with your tutor. You are the new team member.",
+          "instructionKr": "선생님과 대화를 연습하세요. 당신은 새로운 팀원입니다.",
+          "dialogue": [
+            {
+              "role": "tutor",
+              "en": "Hi! Welcome to the team. I'm Grace.",
+              "kr": "안녕하세요! 팀에 오신 것을 환영합니다. 저는 그레이스입니다."
+            },
+            {
+              "role": "student",
+              "en": "Hi, I'm (your name). Nice to meet you.",
+              "kr": "안녕하세요, 저는 (당신의 이름)입니다. 만나서 반갑습니다."
+            },
+            {
+              "role": "tutor",
+              "en": "Nice to meet you too. Where are you from?",
+              "kr": "저도 반갑습니다. 어디 출신이세요?"
+            },
+            {
+              "role": "student",
+              "en": "I am from (your hometown).",
+              "kr": "저는 (출신지) 출신입니다."
+            },
+            {
+              "role": "tutor",
+              "en": "What is your position?",
+              "kr": "직책이 무엇인가요?"
+            },
+            {
+              "role": "student",
+              "en": "I am a/an (your position).",
+              "kr": "저는 (직책)입니다."
+            },
+            {
+              "role": "tutor",
+              "en": "How long have you worked here?",
+              "kr": "여기서 얼마나 일하셨어요?"
+            },
+            {
+              "role": "student",
+              "en": "I have worked here for (number) years.",
+              "kr": "저는 여기서 (숫자)년 동안 일했습니다."
+            }
+          ],
+          "tutorNotes": [
+            {
+              "type": "instruction",
+              "text": "Read the tutor lines. The student fills in their own info for the student lines."
+            },
+            {
+              "type": "instruction",
+              "text": "Do it once reading, then once without looking at the screen."
+            },
+            {
+              "type": "tip",
+              "text": "If time permits, switch roles so the student practices asking questions too."
+            }
+          ]
+        },
+        {
+          "title": "Step 4 — Free Introduction",
+          "instructionEn": "Introduce yourself to your tutor without looking at any notes. Try to say at least 5 sentences.",
+          "instructionKr": "메모를 보지 않고 선생님에게 자기소개를 하세요. 5문장 이상 말해 보세요.",
+          "content": "Include:<br>- Your name<br>- Where you're from<br>- Where you work<br>- Your position<br>- How many years you have worked there",
+          "tutorNotes": [
+            {
+              "type": "script",
+              "text": "\"OK, now it's your turn! Introduce yourself to me. Don't look at your notes!\""
+            },
+            {
+              "type": "instruction",
+              "text": "Let the student speak freely. Note any errors but don't interrupt."
+            },
+            {
+              "type": "instruction",
+              "text": "After they finish, give feedback on pronunciation and grammar."
+            },
+            {
+              "type": "tip",
+              "text": "If the student stops after 2-3 sentences, prompt: 'What else? Where are you from?'"
+            }
+          ]
+        }
+      ],
+      "activityBlocks": []
+    },
+    "challenge": {
+      "scenarioEn": "You joined a new project team. Introduce yourself to three new teammates. Your tutor will play each teammate and ask you questions.",
+      "scenarioKr": "새로운 프로젝트 팀에 합류했습니다. 3명의 새 팀원에게 자기소개를 하세요. 선생님이 각 팀원 역할을 하며 질문합니다.",
+      "guideQuestions": [
+        {
+          "text": "Tell them your name."
+        },
+        {
+          "text": "Tell them where you're from."
+        },
+        {
+          "text": "Tell them about your company and position."
+        },
+        {
+          "text": "Tell them how many years you have worked there."
+        },
+        {
+          "text": "Ask them a question too!"
+        }
+      ],
+      "activityBlocks": [],
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Time for the challenge! I'll be three different teammates. Introduce yourself to each one.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Play Teammate 1 (friendly): 'Hi! I'm Alex. What's your name?'"
+        },
+        {
+          "type": "instruction",
+          "text": "Play Teammate 2 (curious): 'Hey there! Welcome! So, where are you from?'"
+        },
+        {
+          "type": "instruction",
+          "text": "Play Teammate 3 (casual): 'Nice to meet you! What is your position?'"
+        },
+        {
+          "type": "tip",
+          "text": "Grade: If the student can introduce themselves smoothly all 3 times, they've achieved the goal."
+        }
+      ]
+    },
+    "discussion": {
+      "instructionEn": "Choose one category, then answer the questions.",
+      "instructionKr": "카테고리를 하나 선택하고 질문에 답하세요.",
+      "categories": [
+        {
+          "title": "FIRST DAY AT WORK",
+          "questions": [
+            "What did you say on your first day?",
+            "Were you nervous?",
+            "Who was the first person you met?"
+          ]
+        },
+        {
+          "title": "YOUR IDEAL INTRODUCTION",
+          "questions": [
+            "What information do you always include?",
+            "Do you talk about hobbies?",
+            "Do you prefer short or long introductions?"
+          ]
+        },
+        {
+          "title": "MEETING NEW PEOPLE",
+          "questions": [
+            "Do you like meeting new people?",
+            "What's a good way to start a conversation?",
+            "What questions do you ask new people?"
+          ]
+        }
+      ],
+      "activityBlocks": [],
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Now let's have a discussion.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Ask the student to choose a category. Discuss for 3-5 minutes."
+        },
+        {
+          "type": "tip",
+          "text": "Encourage the student to use the patterns learned today in their answers."
+        }
+      ]
+    },
+    "feedback": {
+      "goalReviewEn": "Can talk about yourself using basic personal and job information.",
+      "goalReviewKr": "기본적인 개인 정보와 직무 정보를 사용해 자기소개를 할 수 있다.",
+      "feedbackTemplate": "*OVERALL SCORE*<br>Overall: (score)<br>- comment<br><br>*Speaking Fluency*<br>Fluency:<br>- Could introduce themselves smoothly: (yes/partially/no)<br>- Spoke in full sentences: (yes/no)<br><br>*Vocabulary / Phrases*<br>Vocabulary:<br>- word/phrase<br>- word/phrase<br><br>*Pronunciation*<br>Pronunciation:<br>- mispronounced word<br>- mispronounced word",
+      "nextLessonLabel": "CHAPTER 1: WORK INTRODUCTIONS",
+      "nextLessonName": "Lesson 4: Who's Who?",
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Great work today! It's the end of the lesson.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Ask the student to read the lesson goal."
+        },
+        {
+          "type": "script",
+          "text": "\"Were you able to achieve today's lesson goal?\""
+        },
+        {
+          "type": "instruction",
+          "text": "Fill in and send the feedback template via chat."
+        },
+        {
+          "type": "instruction",
+          "text": "Practice mispronounced words with the student."
+        },
+        {
+          "type": "tip",
+          "text": "Encourage the next lesson: 'Next time, you'll learn to introduce your teammates!'"
+        }
+      ]
+    }
+  }
+}

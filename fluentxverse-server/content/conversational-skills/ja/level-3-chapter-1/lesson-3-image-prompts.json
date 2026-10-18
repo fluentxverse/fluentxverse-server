@@ -1,0 +1,16 @@
+{
+  "mode": "photorealistic-natural",
+  "tool": "image_gen",
+  "format": "WebP, 1200 x 800, quality 84",
+  "prompts": {
+    "lesson3-city-bike.webp": "One ordinary city rental bicycle with a simple frame and basket parked at a small neighborhood bicycle-rental storefront in Kyoto, shown clearly from the side. Authentic quiet street, natural daylight, documentary photography, no electric battery, no readable text, no logos.",
+    "lesson3-electric-bike.webp": "A clearly recognizable electric-assist rental bicycle in Kyoto, with a visible frame battery and handlebar control, outside a modest bicycle rental shop. Natural daylight, documentary photography, no readable text or logos.",
+    "lesson3-per-hour.webp": "At a small Kyoto bicycle rental counter, a staff member points to an analog wall clock while a customer holds a bicycle key and checks a wristwatch. Natural documentary photography, no readable text or logos.",
+    "lesson3-helmet-included.webp": "At a Kyoto bicycle rental shop, a staff member hands a clean bicycle helmet to a renter beside a ready city bike. Clear helmet handoff, bright candid photography, no readable signs or logos.",
+    "lesson3-additional-fee.webp": "At a modest bicycle rental counter in Kyoto, a renter is shown an optional detachable bicycle basket beside a blank price tag. Clear basket subject, realistic daylight photography, no readable text or logos.",
+    "lesson3-return-by.webp": "A traveler returning a rental bicycle at a small Kyoto bike shop near closing, late afternoon sunlight and a round wall clock near 6 p.m. Realistic candid photography, no readable text or logos.",
+    "lesson3-apply-rental.webp": "Two adult women at an independent Kyoto bicycle rental shop study a printed service and price sheet on a counter with city bicycles behind them. Natural interaction, honest documentary photography, no readable writing or logos.",
+    "lesson3-challenge-rental.webp": "A different independent bicycle rental shop in Kyoto near a quiet riverside street, several city bikes and electric-assist bikes outside, two adults checking a laminated service sheet. Bright documentary photography, no readable writing or logos.",
+    "lesson3-bike-parking.webp": "A tidy designated bicycle parking area in Kyoto with rows of bicycles in marked racks and a traveler walking a bicycle into a space. Recognizable urban street setting, natural documentary photography, no readable signs or logos."
+  }
+}

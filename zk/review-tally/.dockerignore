@@ -1,0 +1,5 @@
+target/
+methods/guest/target/
+private-input.json
+proof-output.json
+.env*

@@ -1,0 +1,11 @@
+[package]
+name = "review_tally"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+
+[dependencies]
+risc0-zkvm = { version = "=2.3.2", default-features = false, features = ["std"] }
+review-tally-core = { path = "../../core" }
+

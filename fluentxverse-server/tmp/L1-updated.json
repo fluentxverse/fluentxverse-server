@@ -1,0 +1,709 @@
+{
+  "chapterName": "Work Introductions",
+  "lessonName": "Introducing Your Team",
+  "goalTextEn": "Can introduce yourself and your coworker.",
+  "goalTextKr": "자기소개와 동료 소개를 할 수 있게 된다.",
+  "beData": {
+    "lessonType": "LISTENING",
+    "hiddenBlocks": [],
+    "introduce": {
+      "goalEn": "Can introduce yourself and your coworker.",
+      "goalKr": "자기소개와 동료 소개를 할 수 있게 된다.",
+      "situationEn": "A new coworker joins your team. Introduce yourself and another coworker to him/her.",
+      "situationKr": "팀에 새 동료가 합류했습니다. 먼저 자기소개를 하고, 다른 동료 한 명을 그 사람에게 소개해 봅시다.",
+      "taskEn": "Introduce yourself, introduce one coworker, and say that you work together.",
+      "taskKr": "자기소개를 하고, 동료 한 명을 소개한 뒤, 함께 일하는 사이라고 말해 봅시다.",
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Today, we're going to talk about introducing yourself and your coworker.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read the lesson goal aloud."
+        },
+        {
+          "type": "instruction",
+          "text": "Ask the student to repeat the goal."
+        },
+        {
+          "type": "script",
+          "text": "\"Is it clear?\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read the situation clearly."
+        },
+        {
+          "type": "script",
+          "text": "\"Is it clear? Let's go to the next part.\""
+        },
+        {
+          "type": "tip",
+          "text": "For Listening lessons, focus on the student's understanding. Use a slow speaking pace and repeat sections twice or more if needed."
+        }
+      ]
+    },
+    "present": {
+      "patterns": [
+        {
+          "en": "<b>My name is</b> Mina.",
+          "kr": "제 이름은 미나입니다."
+        },
+        {
+          "en": "<b>This is</b> Daniel.",
+          "kr": "이쪽은 다니엘입니다."
+        },
+        {
+          "en": "<b>We are</b> coworkers.",
+          "kr": "우리는 동료입니다."
+        }
+      ],
+      "vocabulary": [
+        {
+          "word": "introduce",
+          "pos": "verb",
+          "translation": "소개하다",
+          "definition": "to tell someone a person's name and who they are",
+          "pronunciation": "/ˌɪntrəˈduːs/"
+        },
+        {
+          "word": "teammate",
+          "pos": "noun",
+          "translation": "팀원",
+          "definition": "a person on the same team as you",
+          "pronunciation": "/ˈtiːmˌmeɪt/"
+        },
+        {
+          "word": "first day",
+          "pos": "phrase",
+          "translation": "첫 출근 날",
+          "definition": "the first day at a new job",
+          "pronunciation": "/fɝːst deɪ/"
+        }
+      ],
+      "pronunciation": {
+        "instruction": "Let's practice saying words with /æ/ and /ʌ/.",
+        "instructionKr": "/æ/와 /ʌ/가 들어간 단어를 함께 발음해 봅시다.",
+        "left": {
+          "symbol": "/æ/",
+          "words": [
+            {
+              "en": "bag",
+              "kr": "가방"
+            },
+            {
+              "en": "fan",
+              "kr": "선풍기"
+            },
+            {
+              "en": "hat",
+              "kr": "모자"
+            },
+            {
+              "en": "cab",
+              "kr": "택시"
+            },
+            {
+              "en": "lack",
+              "kr": "부족한"
+            }
+          ]
+        },
+        "right": {
+          "symbol": "/ʌ/",
+          "words": [
+            {
+              "en": "bug",
+              "kr": "곤충"
+            },
+            {
+              "en": "fun",
+              "kr": "즐거움"
+            },
+            {
+              "en": "hut",
+              "kr": "산장"
+            },
+            {
+              "en": "cub",
+              "kr": "새끼"
+            },
+            {
+              "en": "luck",
+              "kr": "행운"
+            }
+          ]
+        }
+      },
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Let's look at patterns used in introducing yourself and your coworker.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read the first pattern. Ask the student to repeat."
+        },
+        {
+          "type": "script",
+          "text": "\"Use this to introduce yourself.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read the second pattern. Ask the student to repeat."
+        },
+        {
+          "type": "script",
+          "text": "\"Use this to introduce someone.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read the third pattern. Ask the student to repeat."
+        },
+        {
+          "type": "script",
+          "text": "\"Use this to say that you work together.\""
+        },
+        {
+          "type": "script",
+          "text": "\"Do you have any questions about the patterns?\""
+        },
+        {
+          "type": "script",
+          "text": "\"Let's go to the next page.\""
+        }
+      ]
+    },
+    "understand": {
+      "instruction": "You can use these patterns to introduce yourself and a coworker.",
+      "instructionKr": "자기소개를 하거나 동료를 소개할 때 다음 패턴을 사용합니다.",
+      "fillRows": [
+        {
+          "parts": [
+            {
+              "text": "My name is",
+              "isBlank": true
+            },
+            {
+              "text": " Mina.",
+              "isBlank": false
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "text": "My name is",
+              "isBlank": true
+            },
+            {
+              "text": " Leo.",
+              "isBlank": false
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "text": "This is",
+              "isBlank": true
+            },
+            {
+              "text": " Daniel.",
+              "isBlank": false
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "text": "This is",
+              "isBlank": true
+            },
+            {
+              "text": " Emma.",
+              "isBlank": false
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "text": "We are",
+              "isBlank": true
+            },
+            {
+              "text": " coworkers.",
+              "isBlank": false
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "text": "We are",
+              "isBlank": true
+            },
+            {
+              "text": " teammates.",
+              "isBlank": false
+            }
+          ]
+        }
+      ],
+      "patternDrills": [
+        {
+          "label": "Introduce yourself",
+          "labelKr": "자기소개하기",
+          "template": "My name is ___.",
+          "examples": [
+            {
+              "en": "My name is Mina.",
+              "kr": "제 이름은 미나입니다."
+            },
+            {
+              "en": "My name is Leo.",
+              "kr": "제 이름은 레오입니다."
+            },
+            {
+              "en": "My name is Yuna.",
+              "kr": "제 이름은 유나입니다."
+            },
+            {
+              "en": "",
+              "kr": ""
+            },
+            {
+              "en": "",
+              "kr": ""
+            }
+          ]
+        },
+        {
+          "label": "Introduce someone",
+          "labelKr": "누군가를 소개하기",
+          "template": "This is ___.",
+          "examples": [
+            {
+              "en": "This is Daniel.",
+              "kr": "이쪽은 다니엘입니다."
+            },
+            {
+              "en": "This is Emma.",
+              "kr": "이쪽은 엠마입니다."
+            },
+            {
+              "en": "This is Kevin.",
+              "kr": "이쪽은 케빈입니다."
+            },
+            {
+              "en": "",
+              "kr": ""
+            },
+            {
+              "en": "",
+              "kr": ""
+            }
+          ]
+        },
+        {
+          "label": "Say you work together",
+          "labelKr": "함께 일하고 있다고 말하기",
+          "template": "We are ___.",
+          "examples": [
+            {
+              "en": "We are coworkers.",
+              "kr": "우리는 동료입니다."
+            },
+            {
+              "en": "We are teammates.",
+              "kr": "우리는 팀원입니다."
+            },
+            {
+              "en": "We are on the same team.",
+              "kr": "우리는 같은 팀입니다."
+            },
+            {
+              "en": "",
+              "kr": ""
+            },
+            {
+              "en": "",
+              "kr": ""
+            }
+          ]
+        }
+      ],
+      "activityBlocks": [],
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Let's practice saying words with /æ/ and /ʌ/.\"",
+          "group": "soundPractice"
+        },
+        {
+          "type": "instruction",
+          "text": "Practice the /æ/ words first, then the /ʌ/ words. Ask the student to repeat",
+          "group": "soundPractice"
+        },
+        {
+          "type": "instruction",
+          "text": "Teach the student how to pronounce /æ/ and /ʌ/ using mouth movements if needed.",
+          "group": "soundPractice"
+        },
+        {
+          "type": "script",
+          "text": "\"Now, let's look at the word bank.\"",
+          "group": "wordBank"
+        },
+        {
+          "type": "instruction",
+          "text": "Read each word, then ask the student to repeat.",
+          "group": "wordBank"
+        },
+        {
+          "type": "instruction",
+          "text": "Correct mispronounced words after reading.",
+          "group": "soundPractice"
+        },
+        {
+          "type": "script",
+          "text": "\"Now, let's read the patterns in the table.\"",
+          "group": "comprehension"
+        },
+        {
+          "type": "instruction",
+          "text": "Read the instruction.",
+          "group": "comprehension"
+        },
+        {
+          "type": "instruction",
+          "text": "Read the first pattern heading then continue the drill. Ask the student to repeat after you. Do the same for the next patterns",
+          "group": "comprehension"
+        },
+        {
+          "type": "script",
+          "text": "\"Do you have any questions? ...Let's go to the next part!",
+          "group": "comprehension"
+        },
+        {
+          "type": "tip",
+          "text": "For lower-level students, explain how each sentence is used.",
+          "group": "comprehension"
+        },
+        {
+          "type": "instruction",
+          "text": "Correct the student's pronunciation errors if needed.",
+          "group": "wordBank"
+        },
+        {
+          "type": "script",
+          "text": "\" Good job! ...Do you have any questions? ...Let's go to the next part.\"",
+          "group": "soundPractice"
+        },
+        {
+          "type": "tip",
+          "text": "For lower-level students, read the word and the definition, then ask the student to repeat.",
+          "group": "wordBank"
+        },
+        {
+          "type": "script",
+          "text": "\"Do you have any questions? ...Let's go to the next part!\"",
+          "group": "wordBank"
+        }
+      ]
+    },
+    "practice": {
+      "steps": [
+        {
+          "title": "Step 1 — Repeat After Your Tutor",
+          "instructionEn": "Repeat after your tutor.",
+          "instructionKr": "선생님을 따라 반복하세요.",
+          "content": "<b>Introducing Yourself → Introducing Your Coworker</b><br><br>My name is Chen. → This is Robert.<br>My name is Ronald. → This is Janette.<br>My name is Esther. → This is Tony.<br>My name is Rachelle. → This is Carol.<br>My name is Arthur. → This is Jisoo.<br><br><b>We are coworkers. • We are teammates.</b>",
+          "tutorNotes": [
+            {
+              "type": "script",
+              "text": "\"Let's practice today's patterns.\""
+            },
+            {
+              "type": "instruction",
+              "text": "Read the instruction"
+            },
+            {
+              "type": "instruction",
+              "text": "Read each sentence. Ask the student to repeat."
+            },
+            {
+              "type": "instruction",
+              "text": "Adjust speed according to the student's level."
+            },
+            {
+              "type": "instruction",
+              "text": "Correct mispronounced words after reading."
+            },
+            {
+              "type": "script",
+              "text": "Nice! Let's go to the next part."
+            }
+          ]
+        },
+        {
+          "title": "Step 2 — Fill in the Blanks",
+          "instructionEn": "Fill in with \"My name is,\" \"This is,\" or \"We are.\"",
+          "instructionKr": "\"My name is\", \"This is\", \"We are\" 중 하나를 넣으세요.",
+          "content": "<b>Introducing Yourself → Introducing Your Coworker</b><br><br>_______ Chen. → _______ Robert.<br>_______ Ronald. → _______ Janette.<br>_______ Esther. → _______ Tony.<br><br>_______ coworkers. • _______ teammates.",
+          "tutorNotes": [
+            {
+              "type": "instruction",
+              "text": "Read the instruction to the student."
+            },
+            {
+              "type": "script",
+              "text": "\"is it clear?\""
+            },
+            {
+              "type": "tip",
+              "text": "For lower-level students, explain that column 1 uses \"My name is,\" column 2 uses \"This is,\" and the bottom uses \"We are.\""
+            },
+            {
+              "type": "script",
+              "text": "Nice! Let's go to the next part."
+            }
+          ]
+        },
+        {
+          "title": "Step 3 — Read the Dialogue",
+          "instructionEn": "Read the dialogue with your tutor.",
+          "instructionKr": "선생님과 함께 대화를 읽어 봅시다.",
+          "content": "",
+          "dialogue": [
+            {
+              "role": "tutor",
+              "en": "Good morning. My name is Evan. It's my first day today.",
+              "kr": "안녕하세요. 제 이름은 에반입니다. 오늘은 제 첫 출근 날입니다."
+            },
+            {
+              "role": "student",
+              "en": "Pleased to meet you, Evan. My name is Minho. This is Sandra. We are coworkers.",
+              "kr": "만나서 반갑습니다, 에반 씨. 제 이름은 민호입니다. 이쪽은 산드라 씨입니다. 우리는 동료입니다."
+            },
+            {
+              "role": "tutor",
+              "en": "Pleased to meet you, too, Minho and Sandra.",
+              "kr": "민호 씨, 산드라 씨, 저도 만나서 반갑습니다."
+            }
+          ],
+          "tutorNotes": [
+            {
+              "type": "instruction",
+              "text": "Read the instruction."
+            },
+            {
+              "type": "script",
+              "text": "I will read the tutor parts, you will read the student parts."
+            },
+            {
+              "type": "tip",
+              "text": "For lower-level students, read each line first and have them repeat. Then role-play."
+            },
+            {
+              "type": "script",
+              "text": "Nice! Let's go to the next part."
+            }
+          ]
+        },
+        {
+          "title": "Step 4 — Complete the Dialogue",
+          "instructionEn": "Complete the dialogue by filling in the blanks.",
+          "instructionKr": "대화문을 완성하세요.",
+          "content": "",
+          "dialogue": [
+            {
+              "role": "tutor",
+              "en": "Hello. My name is Shirley. I'm the new secretary.",
+              "kr": "안녕하세요. 제 이름은 셜리입니다. 저는 새로운 비서입니다."
+            },
+            {
+              "role": "student",
+              "en": "Pleased to meet you, Shirley. ________________. This is ________________. We are ________________.",
+              "kr": "셜리 씨, 만나서 반갑습니다. 제 이름은 ________________. 이쪽은 ________________. 우리는 ________________."
+            },
+            {
+              "role": "tutor",
+              "en": "Pleased to meet you, too!",
+              "kr": "저도 만나서 반갑습니다."
+            }
+          ],
+          "tutorNotes": [
+            {
+              "type": "instruction",
+              "text": "Read the instruction."
+            },
+            {
+              "type": "script",
+              "text": "\"I will read the tutor parts, you will read the student parts.\""
+            },
+            {
+              "type": "tip",
+              "text": "For lower-level students, guide step by step."
+            },
+            {
+              "type": "script",
+              "text": "\"Good job! ...Do you have any questions? ...Let's go to the next part!"
+            }
+          ]
+        }
+      ],
+      "activityBlocks": []
+    },
+    "challenge": {
+      "scenarioEn": "A new coworker joins your team. Edison is beside you. Using today's key expressions and the table below, introduce yourself and your coworkers.&nbsp; Then, say that you are coworkers.",
+      "scenarioKr": "새 동료가 팀에 합류했습니다. 오늘의 핵심 표현과 아래 표를 사용하여 자기소개를 하고 동료들을 소개해 보세요. 그런 다음 여러분이 동료라는 것도 말해 보세요.",
+      "guideQuestions": [],
+      "roleplayTable": {
+        "you": "Your own name",
+        "coworkers": [
+          "Margaret",
+          "Edison",
+          "Vanessa",
+          "Mila",
+          "Antonia"
+        ]
+      },
+      "activityBlocks": [],
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Now let's do simulation\""
+        },
+        {
+          "type": "script",
+          "text": "\"First please read the Key Expressions. You may use the Key Expressions in the Simulation.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read the simulation."
+        },
+        {
+          "type": "script",
+          "text": "\"Is it clear?\" ...Now let's start our roleplay!"
+        },
+        {
+          "type": "instruction",
+          "text": "Use the prompt questions to guide the roleplay."
+        },
+        {
+          "type": "instruction",
+          "text": "Give feedback after finishing."
+        },
+        {
+          "type": "tip",
+          "text": "This must be a real-life simulation, distinct from Practice. Corrections should only be done after the exercise."
+        },
+        {
+          "type": "question",
+          "text": "Hi! I'm new here. What's your name?"
+        },
+        {
+          "type": "question",
+          "text": "Nice to meet you (Student's name) Who is the person beside you?"
+        },
+        {
+          "type": "question",
+          "text": "Thank you! Who are our teammates?"
+        },
+        {
+          "type": "question",
+          "text": "Thank you! It's nice to meet you all!&nbsp;"
+        }
+      ]
+    },
+    "discussion": {
+      "instructionEn": "Choose one category, then answer the questions.",
+      "instructionKr": "카테고리를 하나 선택하고 질문에 답하세요.",
+      "categories": [
+        {
+          "title": "YOUR JOB",
+          "questions": [
+            "What do you do at work?",
+            "What is one thing you often do in your job?",
+            "What part of your job do you like?"
+          ]
+        },
+        {
+          "title": "YOUR TEAM",
+          "questions": [
+            "Do you work alone or with a team?",
+            "What do you usually do with your team?",
+            "Do you like working with your team? Why?"
+          ]
+        },
+        {
+          "title": "A NEW COWORKER",
+          "questions": [
+            "What would you say when you meet a new coworker?",
+            "What would you ask a new coworker first?",
+            "How can you help a new coworker on the first day?"
+          ]
+        }
+      ],
+      "activityBlocks": [],
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Now, let's have a discussion.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read the instruction."
+        },
+        {
+          "type": "instruction",
+          "text": "Ask the student to choose a category."
+        },
+        {
+          "type": "instruction",
+          "text": "You can ask follow-up questions and have a natural conversation with the student until the time for feedback."
+        }
+      ]
+    },
+    "feedback": {
+      "goalReviewEn": "Can introduce yourself and your coworker.",
+      "goalReviewKr": "자기소개와 동료 소개를 할 수 있게 된다.",
+      "feedbackTemplate": "*OVERALL SCORE*<br>Overall: (score)<br>- comment<br><br>*Vocabulary / Phrases*<br>Vocabulary:<br>- word/phrase<br>- word/phrase<br><br>*Grammar*<br>Grammar:<br>incorrect grammar → correct grammar<br><br>*Pronunciation*<br>Pronunciation:<br>- mispronounced word<br>- mispronounced word",
+      "nextLessonLabel": "CHAPTER 1: WORK INTRODUCTIONS",
+      "nextLessonName": "Lesson 2: A New Coworker",
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"It's the end of the lesson. Great job!\""
+        },
+        {
+          "type": "instruction",
+          "text": "Ask the student to read the lesson goal."
+        },
+        {
+          "type": "script",
+          "text": "\"Were you able to achieve today's lesson goal?\""
+        },
+        {
+          "type": "instruction",
+          "text": "Ask the student to read the patterns."
+        },
+        {
+          "type": "instruction",
+          "text": "Fill in and send the feedback template via chat."
+        },
+        {
+          "type": "instruction",
+          "text": "Practice mispronounced words with the student."
+        },
+        {
+          "type": "tip",
+          "text": "Encourage the next lesson naturally, for example: \"The next lesson will help you practice this more.\""
+        }
+      ]
+    }
+  }
+}

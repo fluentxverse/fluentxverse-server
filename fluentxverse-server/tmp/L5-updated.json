@@ -1,0 +1,586 @@
+{
+  "chapterName": "Work Introductions",
+  "lessonName": "First Impressions",
+  "goalTextEn": "Can use introduction patterns from Lessons 1-4 in a combined scenario.",
+  "goalTextKr": "레슨 1~4의 소개 패턴을 조합한 상황에서 사용할 수 있다.",
+  "beData": {
+    "lessonType": "REVIEW",
+    "hiddenBlocks": [],
+    "introduce": {
+      "goalEn": "Can use introduction patterns from Lessons 1-4 in a combined scenario.",
+      "goalKr": "레슨 1~4의 소개 패턴을 조합한 상황에서 사용할 수 있다.",
+      "situationEn": "Today is a review lesson. You will use everything from Lessons 1-4: greeting people, reading profiles, talking about yourself, and introducing teammates.",
+      "situationKr": "오늘은 복습 레슨입니다. 레슨 1~4에서 배운 모든 것을 사용합니다: 인사, 프로필 읽기, 자기소개, 팀원 소개.",
+      "taskEn": "",
+      "taskKr": "",
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Today is a review lesson! We'll use everything from Lessons 1 to 4.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read the lesson goal aloud. Ask the student to repeat."
+        },
+        {
+          "type": "script",
+          "text": "\"This is a chance to practice everything together. Ready?\""
+        },
+        {
+          "type": "instruction",
+          "text": "Check the student remembers previous lessons. Quick warm-up: 'Can you introduce yourself in 3 sentences?'"
+        },
+        {
+          "type": "tip",
+          "text": "Review lessons should feel lighter and more fun. Less teaching, more practicing."
+        }
+      ]
+    },
+    "present": {
+      "patterns": [
+        {
+          "en": "<b>My name is</b> ___. / <b>I'm</b> ___.",
+          "kr": "제 이름은 ___입니다. / 저는 ___입니다."
+        },
+        {
+          "en": "<b>I am from</b> ___. / <b>I live in</b> ___.",
+          "kr": "저는 ___ 출신입니다. / 저는 ___에 살고 있습니다."
+        },
+        {
+          "en": "<b>I work at</b> ___. / <b>I like</b> ___.",
+          "kr": "저는 ___에서 일하고 있습니다. / 저는 ___을/를 좋아합니다."
+        },
+        {
+          "en": "<b>This is</b> ___. <b>He/She works in</b> the ___ department.",
+          "kr": "이쪽은 ___입니다. 그/그녀는 ___부에서 일하고 있습니다."
+        },
+        {
+          "en": "<b>We work together</b> in ___.",
+          "kr": "우리는 ___에서 함께 일하고 있습니다."
+        },
+        {
+          "en": "<b>He/She is in charge of</b> ___.",
+          "kr": "그/그녀는 ___을/를 담당하고 있습니다."
+        }
+      ],
+      "vocabulary": [
+        {
+          "word": "pleased to meet you",
+          "pos": "phrase",
+          "translation": "만나서 반갑습니다",
+          "definition": "a polite greeting when you meet someone for the first time",
+          "pronunciation": "/pliːzd tə miːt juː/"
+        },
+        {
+          "word": "coworker",
+          "pos": "noun",
+          "translation": "동료",
+          "definition": "a person you work with at the same company",
+          "pronunciation": "/ˈkoʊˌwɜːrkər/"
+        },
+        {
+          "word": "department",
+          "pos": "noun",
+          "translation": "부서",
+          "definition": "a section of a company (e.g., sales, marketing)",
+          "pronunciation": "/dɪˈpɑːrtmənt/"
+        },
+        {
+          "word": "introduce",
+          "pos": "verb",
+          "translation": "소개하다",
+          "definition": "to tell someone your name and information",
+          "pronunciation": "/ˌɪntrəˈduːs/"
+        },
+        {
+          "word": "hobby",
+          "pos": "noun",
+          "translation": "취미",
+          "definition": "an activity you enjoy in your free time",
+          "pronunciation": "/ˈhɑːbi/"
+        },
+        {
+          "word": "in charge of",
+          "pos": "phrase",
+          "translation": "~을/를 담당하고 있는",
+          "definition": "responsible for something",
+          "pronunciation": "/ɪn tʃɑːrdʒ ʌv/"
+        }
+      ],
+      "pronunciation": {
+        "instruction": "Review: Let's practice all the tricky sounds from Lessons 1-4.",
+        "instructionKr": "복습: 레슨 1~4의 어려운 발음을 모두 연습합시다.",
+        "left": {
+          "symbol": "Review Set A",
+          "words": [
+            {
+              "en": "pleased",
+              "kr": "기쁜 (æ→ɛ)"
+            },
+            {
+              "en": "live",
+              "kr": "살다 (/ɪ/)"
+            },
+            {
+              "en": "like",
+              "kr": "좋아하는 (/l/)"
+            },
+            {
+              "en": "this",
+              "kr": "이것 (/θ/)"
+            },
+            {
+              "en": "three",
+              "kr": "3 (/θ/)"
+            }
+          ]
+        },
+        "right": {
+          "symbol": "Review Set B",
+          "words": [
+            {
+              "en": "name",
+              "kr": "이름 (/eɪ/)"
+            },
+            {
+              "en": "read",
+              "kr": "읽다 (/iː/)"
+            },
+            {
+              "en": "right",
+              "kr": "올바른 (/r/)"
+            },
+            {
+              "en": "six",
+              "kr": "6 (/s/)"
+            },
+            {
+              "en": "work",
+              "kr": "일하다 (/ɜːr/)"
+            }
+          ]
+        }
+      },
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Let's quickly review all the patterns from Lessons 1-4.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read each pattern. Ask: 'Do you remember this? Which lesson was it from?'"
+        },
+        {
+          "type": "instruction",
+          "text": "Do a quick vocabulary quiz — say the Korean, student says the English."
+        },
+        {
+          "type": "tip",
+          "text": "Don't spend too long here. This is warm-up for the practice section."
+        }
+      ]
+    },
+    "understand": {
+      "instruction": "Match the pattern to the correct situation. Then complete the fill-in-the-blank review.",
+      "instructionKr": "패턴을 올바른 상황에 맞추세요. 그런 다음 빈칸 채우기 복습을 완성하세요.",
+      "fillRows": [
+        {
+          "parts": [
+            {
+              "text": "My name is",
+              "isBlank": true
+            },
+            {
+              "text": " Minji. Nice to meet you.",
+              "isBlank": false
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "text": "I am from",
+              "isBlank": true
+            },
+            {
+              "text": " Busan.",
+              "isBlank": false
+            },
+            {
+              "text": " I live in",
+              "isBlank": true
+            },
+            {
+              "text": " Seoul.",
+              "isBlank": false
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "text": "This is",
+              "isBlank": true
+            },
+            {
+              "text": " Daniel.",
+              "isBlank": false
+            },
+            {
+              "text": " He works in",
+              "isBlank": true
+            },
+            {
+              "text": " the finance department.",
+              "isBlank": false
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "text": "She is in charge of",
+              "isBlank": true
+            },
+            {
+              "text": " customer support.",
+              "isBlank": false
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "text": "We work together",
+              "isBlank": true
+            },
+            {
+              "text": " at Global Corp.",
+              "isBlank": false
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "text": "I like",
+              "isBlank": true
+            },
+            {
+              "text": " playing soccer.",
+              "isBlank": false
+            },
+            {
+              "text": " My hobby is",
+              "isBlank": true
+            },
+            {
+              "text": " photography.",
+              "isBlank": false
+            }
+          ]
+        }
+      ],
+      "patternDrills": [
+        {
+          "label": "A New Coworker (L1-L3 Review)",
+          "labelKr": "자기 자신에 대해 (L1-L3 복습)",
+          "template": "I am ___. I am from ___. I work at ___. I like ___.",
+          "examples": [
+            {
+              "en": "I am Minji. I am from Busan. I work at Global Corp. I like traveling.",
+              "kr": "저는 민지입니다. 부산 출신입니다. 글로벌코프에서 일하고 있습니다. 여행을 좋아합니다."
+            }
+          ]
+        },
+        {
+          "label": "About Others (L1 & L4 Review)",
+          "labelKr": "다른 사람에 대해 (L1 & L4 복습)",
+          "template": "This is ___. He/She is ___. He/She works in ___.",
+          "examples": [
+            {
+              "en": "This is Daniel. He is our accountant. He works in the finance department.",
+              "kr": "이쪽은 다니엘입니다. 그는 경리 담당입니다. 그는 경리부에서 일하고 있습니다."
+            }
+          ]
+        }
+      ],
+      "activityBlocks": [],
+      "tutorNotes": [
+        {
+          "type": "instruction",
+          "text": "Do the fill-in-the-blank review. This covers ALL patterns from Lessons 1-4."
+        },
+        {
+          "type": "instruction",
+          "text": "If the student struggles with a pattern, note which lesson it's from for extra practice."
+        },
+        {
+          "type": "tip",
+          "text": "Use this as a diagnostic — identify weak areas for extra focus later."
+        }
+      ]
+    },
+    "practice": {
+      "steps": [
+        {
+          "title": "Step 1 — Quick Recall",
+          "instructionEn": "Answer each question using a pattern from Lessons 1-4.",
+          "instructionKr": "레슨 1~4의 패턴을 사용하여 각 질문에 답하세요.",
+          "content": "1. What is your name? → I'm ___.<br>2. Where are you from? → I am from ___.<br>3. Where do you work? → I work at ___.<br>4. What do you like? → I like ___.<br>5. Who is your manager? → This is ___. He/She is ___.<br>6. What department are they in? → He/She works in the ___ department.",
+          "tutorNotes": [
+            {
+              "type": "instruction",
+              "text": "Ask each question quickly. Student should answer with the correct pattern."
+            },
+            {
+              "type": "instruction",
+              "text": "This is a speed drill — encourage quick responses."
+            },
+            {
+              "type": "tip",
+              "text": "If the student answers too slowly on a pattern, mark it for extra practice."
+            }
+          ]
+        },
+        {
+          "title": "Step 2 — Profile Exchange",
+          "instructionEn": "Read this profile, then introduce this person to your tutor.",
+          "instructionKr": "이 프로필을 읽은 다음, 이 사람을 선생님에게 소개하세요.",
+          "content": "Profile: Sujin Lee<br>- From: Daegu<br>- Lives in: Daejeon<br>- Company: Star Electronics<br>- Department: Engineering<br>- Job: Software engineer<br>- In charge of: Mobile app development<br>- Hobby: Yoga<br><br>Introduce Sujin:<br>\"This is Sujin Lee. She is from Daegu. She lives in Daejeon. She works at Star Electronics. She is a software engineer in the engineering department. She is in charge of mobile app development. She likes yoga.\"",
+          "tutorNotes": [
+            {
+              "type": "instruction",
+              "text": "Show the profile. Ask the student to introduce Sujin using the patterns."
+            },
+            {
+              "type": "instruction",
+              "text": "First try: student can look at the profile. Second try: cover the profile."
+            },
+            {
+              "type": "tip",
+              "text": "A model answer is provided, but the student's version doesn't need to be identical."
+            }
+          ]
+        },
+        {
+          "title": "Step 3 — Full Networking Dialogue",
+          "instructionEn": "Practice a complete dialogue. You are at a networking event. Introduce yourself and a colleague.",
+          "instructionKr": "완전한 대화를 연습하세요. 네트워킹 이벤트에 있습니다. 자기 자신과 동료를 소개하세요.",
+          "dialogue": [
+            {
+              "role": "tutor",
+              "en": "Hi there! I'm Sarah from Blue Wave Inc. What's your name?",
+              "kr": "안녕하세요! 블루웨이브의 사라입니다. 이름이 어떻게 되세요?"
+            },
+            {
+              "role": "student",
+              "en": "Hi! I'm (name). I work at (company).",
+              "kr": "안녕하세요! 저는 (이름)입니다. (회사명)에서 일하고 있습니다."
+            },
+            {
+              "role": "tutor",
+              "en": "Nice to meet you! Where are you from?",
+              "kr": "만나서 반갑습니다! 어디 출신이세요?"
+            },
+            {
+              "role": "student",
+              "en": "I am from (hometown). I live in (city) now.",
+              "kr": "(출신지) 출신입니다. 지금은 (도시명)에 살고 있습니다."
+            },
+            {
+              "role": "tutor",
+              "en": "And who is that with you?",
+              "kr": "같이 계신 분은 누구세요?"
+            },
+            {
+              "role": "student",
+              "en": "This is (colleague name). He/She is our (role). He/She works in the (department) department.",
+              "kr": "이쪽은 (동료 이름)입니다. 우리의 (직책)입니다. (부서명)부에서 일하고 있습니다."
+            },
+            {
+              "role": "tutor",
+              "en": "What does your team do?",
+              "kr": "당신의 팀은 무엇을 하고 있나요?"
+            },
+            {
+              "role": "student",
+              "en": "We work together on (project/team). He/She is in charge of (area).",
+              "kr": "우리는 (프로젝트/팀)에서 함께 일하고 있습니다. 그/그녀는 (분야)를 담당하고 있습니다."
+            }
+          ],
+          "tutorNotes": [
+            {
+              "type": "instruction",
+              "text": "This dialogue uses ALL patterns from Lessons 1-4."
+            },
+            {
+              "type": "instruction",
+              "text": "Student fills in with real or imagined information."
+            },
+            {
+              "type": "instruction",
+              "text": "First run: read along. Second run: try from memory."
+            },
+            {
+              "type": "tip",
+              "text": "Pay attention to which patterns the student uses confidently vs. struggles with."
+            }
+          ]
+        },
+        {
+          "title": "Step 4 — Presentation: Your Team",
+          "instructionEn": "Give a short presentation (1-2 minutes). Introduce yourself and your team to the class.",
+          "instructionKr": "짧은 프레젠테이션 (1~2분)을 해 봅시다. 반에 자기 자신과 팀을 소개하세요.",
+          "content": "Your presentation should include:<br>1. Introduce yourself (name, hometown, company, hobby)<br>2. Introduce 2-3 team members (name, role, department, responsibility)<br>3. Describe your team (we work together in...)<br><br>Example:<br>\"Hello! My name is Minji. I am from Busan. I work at Global Corp.<br>This is Daniel. He is our accountant. He works in the finance department.<br>This is Maria. She is a sales assistant. She is in charge of our online store.<br>We work together in the Seoul office. Nice to meet you all!\"",
+          "tutorNotes": [
+            {
+              "type": "script",
+              "text": "\"For the final practice, give me a short presentation about yourself and your team.\""
+            },
+            {
+              "type": "instruction",
+              "text": "Give the student 1-2 minutes to prepare, then present."
+            },
+            {
+              "type": "instruction",
+              "text": "Score: Check if they can use patterns from ALL 4 lessons."
+            },
+            {
+              "type": "tip",
+              "text": "This is the key assessment for the review. Note strengths and weaknesses."
+            }
+          ]
+        }
+      ],
+      "activityBlocks": []
+    },
+    "challenge": {
+      "scenarioEn": "You are the MC at a company welcome party. A new employee and a visiting client have just arrived. Introduce yourself, introduce 3 team members to them, and answer their questions.",
+      "scenarioKr": "회사 환영회의 사회를 보고 있습니다. 신입사원과 방문 고객이 도착했습니다. 자기소개를 하고 팀원 3명을 소개하고 질문에 답하세요.",
+      "guideQuestions": [
+        {
+          "text": "Greet the guests and introduce yourself."
+        },
+        {
+          "text": "Introduce at least 3 team members with names, roles, and departments."
+        },
+        {
+          "text": "Describe what your team does."
+        },
+        {
+          "text": "Answer any follow-up questions."
+        }
+      ],
+      "activityBlocks": [],
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"OK, the final challenge! You're the MC at a welcome party. I'll play the new employee AND the client. Ready?\""
+        },
+        {
+          "type": "instruction",
+          "text": "As new employee: 'Hi! I'm Claire. I just joined. Can you introduce the team?'"
+        },
+        {
+          "type": "instruction",
+          "text": "As client: 'Hello! I'm Robert from ABC Inc. Nice to meet you. Tell me about your team.'"
+        },
+        {
+          "type": "instruction",
+          "text": "Grade: Can the student comfortably combine self-intro + team introductions? Do they use all the key patterns?"
+        },
+        {
+          "type": "tip",
+          "text": "This is the final assessment for Lessons 1-4. If the student does well, they're ready for Chapter 2!"
+        }
+      ]
+    },
+    "discussion": {
+      "instructionEn": "Choose one category, then answer the questions. Use the patterns from Lessons 1-4.",
+      "instructionKr": "카테고리를 하나 선택하고 질문에 답하세요. 레슨 1~4의 패턴을 사용하세요.",
+      "categories": [
+        {
+          "title": "LOOKING BACK",
+          "questions": [
+            "Which lesson was the easiest?",
+            "Which pattern do you use the most?",
+            "What was the most difficult vocabulary word?"
+          ]
+        },
+        {
+          "title": "COMPANY EVENTS",
+          "questions": [
+            "Does your company have welcome parties?",
+            "Have you ever been an MC?",
+            "Do you like company events?"
+          ]
+        },
+        {
+          "title": "FIRST IMPRESSIONS",
+          "questions": [
+            "What makes a good first impression?",
+            "Is a smile important?",
+            "What do you notice first when meeting someone?"
+          ]
+        }
+      ],
+      "activityBlocks": [],
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Let's have a final discussion before we wrap up.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read the instruction."
+        },
+        {
+          "type": "instruction",
+          "text": "Ask the student to choose a category."
+        },
+        {
+          "type": "instruction",
+          "text": "You can ask follow-up questions and have a natural conversation with the student until the time for feedback."
+        }
+      ]
+    },
+    "feedback": {
+      "goalReviewEn": "Can use introduction patterns from Lessons 1-4 in a combined scenario.",
+      "goalReviewKr": "레슨 1~4의 소개 패턴을 조합한 상황에서 사용할 수 있다.",
+      "feedbackTemplate": "*OVERALL SCORE*<br>Overall: (score)<br>- comment<br><br>*Pattern Usage (Review)*<br>Lesson 1 (My name is / This is / We are): (good/needs review)<br>Lesson 2 (I am from / I live in / I like): (good/needs review)<br>Lesson 3 (I am / I work at / I am from): (good/needs review)<br>Lesson 4 (This is / He works in / She is in charge of): (good/needs review)<br><br>*Vocabulary / Phrases*<br>Vocabulary:<br>- word/phrase<br>- word/phrase<br><br>*Pronunciation*<br>Pronunciation:<br>- mispronounced word<br>- mispronounced word<br><br>*Next Steps*<br>- (recommendation)",
+      "nextLessonLabel": "CHAPTER 1: COMPLETE! ✅",
+      "nextLessonName": "Next: Chapter 2 — Office Basics",
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Congratulations! You've completed all 5 lessons in Chapter 1!\""
+        },
+        {
+          "type": "instruction",
+          "text": "Ask the student to read the lesson goal."
+        },
+        {
+          "type": "script",
+          "text": "\"Were you able to achieve today's lesson goal?\""
+        },
+        {
+          "type": "instruction",
+          "text": "Fill in the detailed feedback template. Note which lessons need review."
+        },
+        {
+          "type": "instruction",
+          "text": "Practice mispronounced words."
+        },
+        {
+          "type": "script",
+          "text": "\"Next chapter is about the office — office supplies, rooms, and directions. See you soon!\""
+        },
+        {
+          "type": "tip",
+          "text": "If the student struggled, suggest reviewing specific lessons before moving on."
+        }
+      ]
+    }
+  }
+}

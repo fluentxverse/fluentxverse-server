@@ -1,0 +1,6 @@
+**
+!target/
+!target/release/
+!target/release/review-tally-host
+!prover-server.mjs
+!Dockerfile.prebuilt

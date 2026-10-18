@@ -1,0 +1,205 @@
+// English instructional content with Japanese support for adult beginner learners.
+export interface LessonSpec {
+  number: number;
+  title: string;
+  skill: 'speaking' | 'listening' | 'reading';
+  asset: string;
+  goal: [string, string];
+  intro: [string, string];
+  words: [string, string, string][];
+  learn: 'vocabulary' | 'expressions';
+  focus: 'grammar-tip' | 'pronunciation' | 'speak-your-mind';
+  rule: [string, string];
+  examples: [string, string][];
+  apply: string;
+  applyQuestions: [string, string][];
+  mission: [string, string];
+  task: [string, string];
+  missionText?: string;
+  missionQuestions: [string, string][];
+  choose: [string, string][];
+  change?: [string, string][];
+  rephrase?: [string, string][];
+  practice: 'conversation' | 'multiple-choice' | 'speech';
+  practiceText?: string[];
+  choices?: [string, string, string, string][];
+  discussion: [string, string[]][];
+}
+
+export const specs: LessonSpec[] = [
+  {
+    number: 1, title: 'Introducing Myself', skill: 'speaking', asset: 'arrival',
+    goal: ['I can introduce myself and ask someone their name.', '自己紹介をして、相手の名前を尋ねることができる。'],
+    intro: ['Yuki arrives at Maple House, an international shared house. Maya opens the door. Today, you will practice their first conversation and introduce yourself to a new housemate.', 'ユキが国際シェアハウス「メープルハウス」に到着します。マヤがドアを開けます。二人の最初の会話を練習し、新しいハウスメイトに自己紹介しましょう。'],
+    learn: 'expressions', focus: 'grammar-tip',
+    words: [["I'm ...", '私は〜です。', "I'm Yuki."], ['My name is ...', '私の名前は〜です。', 'My name is Maya.'], ['Nice to meet you.', 'はじめまして。', 'Hi, Yuki. Nice to meet you.']],
+    rule: ['Use I am or I\'m with your name. Ask What\'s your name? to learn someone\'s name.', '自分の名前を伝えるときは I am または I\'m を使います。相手の名前は What\'s your name? で尋ねます。'],
+    examples: [["I'm Yuki.", '私はユキです。'], ["What's your name?", 'お名前は何ですか。']],
+    apply: "Maya: Hi! Welcome to Maple House. I'm Maya.\nYuki: Hello. My name is Yuki.\nMaya: Nice to meet you, Yuki.\nYuki: Nice to meet you, too.\nMaya: I'm a teacher. How about you?\nYuki: I'm a student.\nMaya: Great! Come in.\nYuki: Thank you, Maya.",
+    applyQuestions: [['Who arrives at Maple House?', 'Yuki.'], ['What does Maya do?', 'She is a teacher.'], ['What does Yuki say after Maya says Nice to meet you?', 'Nice to meet you, too.']],
+    mission: ['You arrive at Maple House. Your tutor is a new housemate. Meet each other for the first time.', 'メープルハウスに到着しました。講師は初めて会うハウスメイトです。お互いに自己紹介しましょう。'],
+    task: ['Greet your housemate. Say your name and one thing about yourself. Ask their name. Respond politely. Then switch roles and start again without reading the model.', '挨拶をし、名前と自分について一つ伝えましょう。相手の名前を聞き、丁寧に返事をしましょう。その後、役割を交代して例文を見ずに会話しましょう。'],
+    missionQuestions: [["Hi! I'm Maya. What's your name?", 'Student gives a name.'], ['Where are you from?', 'Student gives a hometown or country.'], ['What is your job?', 'Student gives a job or says that they are a student.']],
+    choose: [['My name (is / are) Yuki.', 'is'], ['I (am / is) a student.', 'am'], ['Nice to meet (you / your).', 'you']],
+    practice: 'conversation', practiceText: ["Hi! My name is _____. What's your name?", "I'm _____. Nice to meet you.", "Nice to meet you, _____. I'm a _____."],
+    discussion: [['NAMES', ['What name do you usually use in English?', 'Is your name easy to pronounce?']], ['FIRST MEETINGS', ['Where do you meet new people?', 'What do you usually say first?']]],
+  },
+  {
+    number: 2, title: 'Listening to New Friends', skill: 'listening', asset: 'questions',
+    goal: ['I can identify names, hometowns, and jobs in short introductions.', '短い自己紹介を聞いて、名前、出身地、仕事を聞き取ることができる。'],
+    intro: ['Yuki meets Leo in the kitchen. Listen for the details people share when they meet. You do not need to understand every word.', 'ユキがキッチンでレオに会います。初対面で伝える情報に注目して聞きましょう。すべての単語を理解する必要はありません。'],
+    learn: 'vocabulary', focus: 'pronunciation',
+    words: [['name', '名前', 'My name is Leo.'], ['from', '〜出身の', "I'm from Bristol."], ['cook', '料理人', "I'm a cook."]],
+    rule: ['Listen for the stressed name, place, and job. The small words between them may be quieter.', '名前、地名、仕事を表す強く発音される語に注目しましょう。その間の短い語は弱く発音されることがあります。'],
+    examples: [["I'm LEO. I'm from BRISTOL.", '私はレオです。ブリストル出身です。'], ["I'm a COOK.", '私は料理人です。']],
+    apply: "Yuki: Hi. I'm Yuki. Are you new here?\nLeo: Yes, I am. My name is Leo.\nYuki: Nice to meet you. Where are you from?\nLeo: I'm from Bristol, in England. How about you?\nYuki: I'm from Osaka, in Japan. Are you a student?\nLeo: No, I'm a cook. I work at a cafe near the house.\nYuki: Great. I'm a student.\nLeo: Nice to meet you, Yuki.",
+    applyQuestions: [['Are the speakers meeting for the first time?', 'Yes.'], ["What is the man's name?", 'Leo.'], ['Where is he from?', 'Bristol, England.'], ['Is he a student?', 'No. He is a cook.']],
+    mission: ['Two new residents introduce themselves. Listen and make a simple profile for each person.', '新しい住人が二人、自己紹介をします。聞いた情報をもとに、それぞれの簡単なプロフィールを作りましょう。'],
+    task: ['Listen once: how many people speak? Listen again: say each person\'s name, hometown, and job or role. Decide whether both people are students.', '一度目は何人が話すか聞き取りましょう。二度目は一人ずつ名前、出身地、仕事や立場を答えましょう。二人とも学生かどうか確認しましょう。'],
+    missionText: "Hello. My name is Sara. I'm from Perth, in Australia. I'm a nurse. I work at a hospital near Maple House. I'm happy to meet you.\nHi, everyone. I'm Ken. I'm from Kyoto, in Japan. I'm a student. I study English in the morning. Nice to meet you all.",
+    missionQuestions: [['How many people speak?', 'Two.'], ['What three details do you hear about Sara?', 'Sara; Perth, Australia; nurse.'], ['What three details do you hear about Ken?', 'Ken; Kyoto, Japan; student.'], ['Are both people students?', 'No. Only Ken is a student.']],
+    choose: [['Where (are / is) you from?', 'are'], ["I'm (from / name) Bristol.", 'from'], ['Leo is a (cook / cooking).', 'cook']],
+    practice: 'multiple-choice', choices: [['You hear: I work at a hospital. I am a nurse. What is the job?', 'A nurse', 'A student', 'A'], ['You hear: My name is Ken. I am from Kyoto. What is the hometown?', 'Ken', 'Kyoto', 'B'], ['You hear: I am a cook, not a student. Is the speaker a student?', 'Yes', 'No', 'B']],
+    discussion: [['LISTENING', ['Which name was easy to hear?', 'Which detail would you like to hear again?']], ['ABOUT YOU', ['What is your hometown?', 'Are you a student, or do you work?']]],
+  },
+  {
+    number: 3, title: "Talking About Where I'm From", skill: 'speaking', asset: 'hometown',
+    goal: ['I can say where I am from and describe my hometown simply.', '出身地を伝え、故郷を簡単に説明することができる。'],
+    intro: ['Yuki and Maya share pictures of their hometowns. A place can be big, small, busy, or quiet. Use a few clear words to help a new friend imagine your hometown.', 'ユキとマヤが故郷の写真を見せ合います。町は大きい、小さい、にぎやか、静かなどの言葉で説明できます。新しい友達が想像できるよう、簡単な言葉で故郷を紹介しましょう。'],
+    learn: 'vocabulary', focus: 'grammar-tip',
+    words: [['city', '都市', 'Osaka is a big city.'], ['quiet', '静かな', 'My hometown is quiet.'], ['near', '〜の近くに', 'It is near the sea.']],
+    rule: ['Use I am from for your hometown. Use I live in for your home now. These places can be different.', '出身地には I am from、現在住んでいる場所には I live in を使います。二つの場所は同じとは限りません。'],
+    examples: [["I'm from Osaka. I live in London now.", '大阪出身です。今はロンドンに住んでいます。'], ['My hometown is busy. It is near the sea.', '私の故郷はにぎやかです。海の近くにあります。']],
+    apply: "Maya: Where are you from, Yuki?\nYuki: I'm from Osaka, in Japan.\nMaya: Is it a big city?\nYuki: Yes, it is. It's busy, and the food is great.\nMaya: Do you live there now?\nYuki: No. I live in London now. How about you?\nMaya: I'm from a small town near Bristol.\nYuki: Is it quiet?\nMaya: Yes, very quiet. I like it.",
+    applyQuestions: [["Where is Yuki from?", 'Osaka.'], ['Does Yuki live in Osaka now?', 'No. She lives in London.'], ["Is Maya's hometown busy or quiet?", 'Quiet.']],
+    mission: ['A new housemate wants to know about your hometown. Use your own information or invent a town.', '新しいハウスメイトがあなたの故郷について知りたがっています。自分の情報を使うか、架空の町を考えましょう。'],
+    task: ['Say where you are from and where you live now. Give two details about your hometown. Ask your partner about their hometown and ask one follow-up question.', '出身地と今住んでいる場所を伝え、故郷について二つ説明しましょう。相手の故郷について尋ね、さらに一つ質問しましょう。'],
+    missionQuestions: [['Where are you from?', 'A place.'], ['What is your hometown like?', 'Two simple details such as size, atmosphere, or location.'], ['Do you live there now?', 'A clear answer about the current home.'], ['What would you like to know about my hometown?', 'A relevant question and one follow-up.']],
+    choose: [], change: [['I am from <u>Osaka</u>. (Use your hometown.)', 'I am from [hometown].'], ['I live in <u>London</u> now. (Use your current home.)', 'I live in [place] now.'], ['My hometown is <u>big and busy</u>. (Use two true words.)', 'My hometown is [adjective] and [adjective].']],
+    practice: 'speech', practiceText: ["I'm from _____. I live in _____ now. My hometown is _____. It is near _____. I like _____ there."],
+    discussion: [['YOUR TOWN', ['What food is popular in your hometown?', 'What place do you like there?']], ['PLACES', ['Do you like big cities or small towns?', 'What town would you like to visit?']]],
+  },
+  {
+    number: 4, title: 'Reading Resident Profiles', skill: 'reading', asset: 'roles',
+    goal: ['I can find jobs and daily routines in short personal profiles.', '短いプロフィールを読んで、仕事と日常の習慣を読み取ることができる。'],
+    intro: ['Maple House has a page where residents introduce themselves. Read three profiles and find out who works, who studies, and when they are free.', 'メープルハウスには住人の自己紹介ページがあります。三つのプロフィールを読み、誰が働き、誰が勉強し、いつ時間があるか確かめましょう。'],
+    learn: 'vocabulary', focus: 'grammar-tip',
+    words: [['nurse', '看護師', 'Sara is a nurse.'], ['student', '学生', 'Yuki is a student.'], ['in the morning', '午前中に', 'Yuki studies in the morning.']],
+    rule: ['Use a before a job or role. With he or she, add -s to many present-tense verbs: works, studies, lives.', '仕事や立場の前には a を使います。主語が he や she の現在形では、多くの動詞に -s を付けます。例：works、studies、lives。'],
+    examples: [['She is a nurse. She works at a hospital.', '彼女は看護師です。病院で働いています。'], ['He is a cook. He works in the evening.', '彼は料理人です。夕方に働いています。']],
+    apply: 'Sara is from Perth. She is a nurse at a hospital. She works in the morning. In the evening, she reads at home.\nLeo is from Bristol. He is a cook at a cafe. He works in the afternoon and evening. He is free in the morning.\nYuki is from Osaka. She is a student. She studies English in the morning. In the afternoon, she is free. She likes walking in the park.',
+    applyQuestions: [['What are these texts: recipes or profiles?', 'Profiles.'], ['Who works at a hospital?', 'Sara.'], ['When is Leo free?', 'In the morning.'], ['Who can walk in the park in the afternoon?', 'Yuki.']],
+    mission: ['Read two new profiles. Help Maya find a partner for a morning walk.', '二つの新しいプロフィールを読みましょう。マヤが朝の散歩に一緒に行ける人を探すのを手伝いましょう。'],
+    task: ['Find each person\'s job and work time. Choose a partner for a walk at 10 a.m. Give a reason using information from the profiles.', 'それぞれの仕事と勤務時間を読み取りましょう。午前10時に散歩できる相手を選び、プロフィールの情報を使って理由を説明しましょう。'],
+    missionText: 'Ken is a student from Kyoto. He studies at college from nine to twelve in the morning. He works at a bookstore in the afternoon. He is free in the evening.\nAisha is a designer from Leeds. She works at home in the afternoon. She is free in the morning. She likes walking and taking photos. She is happy to meet new friends.',
+    missionQuestions: [['What does Ken do?', 'He is a student and works at a bookstore.'], ['When does Aisha work?', 'In the afternoon.'], ['Who can walk at 10 a.m.?', 'Aisha.'], ['Which information supports your choice?', 'Aisha is free in the morning; Ken studies from nine to twelve.']],
+    choose: [['Sara (work / works) at a hospital.', 'works'], ['Yuki is (a / an) student.', 'a'], ['Leo is free (in / on) the morning.', 'in']],
+    practice: 'multiple-choice', choices: [['Ken studies from nine to twelve. At 10 a.m., he is ...', 'at college.', 'free for a walk.', 'A'], ['Aisha works in the afternoon. She is free ...', 'in the morning.', 'at work.', 'A'], ['Sara is a nurse. Her workplace is ...', 'a college.', 'a hospital.', 'B']],
+    discussion: [['ROUTINES', ['When are you usually busy?', 'When are you free?']], ['PEOPLE', ['Do you know someone who works at a cafe?', 'What job would you like to learn about?']]],
+  },
+  {
+    number: 5, title: 'Sharing My Interests', skill: 'speaking', asset: 'hobbies',
+    goal: ['I can talk about my interests and find one interest in common.', '自分の趣味について話し、相手との共通の興味を一つ見つけることができる。'],
+    intro: ['The residents plan a free afternoon. Yuki likes taking photos, and Leo likes music. Ask about interests and find something you can enjoy together.', '住人たちが自由な午後の過ごし方を相談します。ユキは写真を撮ること、レオは音楽が好きです。趣味を尋ねて、一緒に楽しめることを見つけましょう。'],
+    learn: 'expressions', focus: 'speak-your-mind',
+    words: [['I like ...', '私は〜が好きです。', 'I like taking photos.'], ['Do you like ...?', '〜は好きですか。', 'Do you like music?'], ['Me too.', '私もです。', 'I like walking. Me too.']],
+    rule: ['Ask about one interest. React to the answer, then share your own interest. A different answer can still lead to a friendly conversation.', '一つの趣味について尋ね、答えに反応してから自分の趣味を伝えましょう。好みが違っても、楽しく会話を続けられます。'],
+    examples: [['Do you like music? Yes, I do. Me too.', '音楽は好きですか。はい、好きです。私もです。'], ["I don't play badminton, but I like walking.", 'バドミントンはしませんが、散歩は好きです。']],
+    apply: "Yuki: What do you like doing in your free time?\nLeo: I like playing the guitar. How about you?\nYuki: I like taking photos. Do you like walking?\nLeo: Yes, I do.\nYuki: Me too. I often take photos in the park.\nLeo: That sounds nice. Do you play badminton?\nYuki: No, I don't. But I'd like to try.\nLeo: Great! Let's go to the park this weekend.",
+    applyQuestions: [['What does Leo like doing?', 'Playing the guitar.'], ['What interest do both people have?', 'Walking.'], ['Does Yuki play badminton?', "No, but she'd like to try."]],
+    mission: ['Plan a free afternoon with your housemate. You need to find an activity you both enjoy.', 'ハウスメイトと自由な午後の計画を立てましょう。二人とも楽しめる活動を見つけてください。'],
+    task: ['Share two interests. Ask about two interests. Respond to your partner and choose one activity together. You can use the pictures or your own ideas.', '自分の趣味を二つ伝え、相手の趣味を二つ尋ねましょう。相手の答えに反応し、一緒にする活動を一つ選びましょう。写真や自分の考えを使って構いません。'],
+    missionQuestions: [['What do you like doing?', 'Two interests.'], ['Do you like taking photos?', 'A personal answer with a reaction.'], ['Do you like music?', 'A personal answer followed by one question for the tutor.'], ['What can we do together?', 'An activity both participants agree on.']],
+    choose: [], rephrase: [['I enjoy taking photos. (Use like.)', 'I like taking photos.'], ['I like walking, and you like walking. (Respond to: I like walking.)', 'Me too.'], ['Ask whether your partner likes music.', 'Do you like music?']],
+    practice: 'conversation', practiceText: ['What do you like doing in your free time?', 'I like _____. How about you?', 'I like _____. Do you like _____?', '_____. Let\'s _____ together.'],
+    discussion: [['FREE TIME', ['What do you do on weekends?', 'Do you enjoy activities alone or with friends?']], ['TRY SOMETHING', ['What new hobby would you like to try?', 'Who could you try it with?']]],
+  },
+  {
+    number: 6, title: 'Following a Friendly Conversation', skill: 'listening', asset: 'listening',
+    goal: ['I can follow a short conversation and identify a shared interest and a plan.', '短い会話を聞いて、共通の興味と予定を聞き取ることができる。'],
+    intro: ['Yuki and Leo talk in the courtyard. Small replies show interest, but some details tell you the actual plan. Listen for what, when, and where.', 'ユキとレオが中庭で話しています。短い相づちは関心を示し、具体的な情報は予定を伝えます。「何を・いつ・どこで」に注目して聞きましょう。'],
+    learn: 'expressions', focus: 'pronunciation',
+    words: [['Really?', 'そうなんですか。', 'I grow herbs. Really?'], ['How about you?', 'あなたはどうですか。', 'I like cooking. How about you?'], ['That sounds nice.', 'それはいいですね。', 'Let\'s cook together. That sounds nice.']],
+    rule: ['Notice the voice going up in a short question such as Really? Listen for clear stress on the time and place.', 'Really? のような短い質問では声が上がることに注目しましょう。時間や場所を表す語の強調も聞き取りましょう。'],
+    examples: [['Really? On Sunday?', 'そうなんですか。日曜日ですか。'], ["Let's meet at TEN in the KITCHEN.", '10時にキッチンで会いましょう。']],
+    apply: "Yuki: These herbs smell nice. Do you like gardening, Leo?\nLeo: Yes, I do. I like cooking, too. How about you?\nYuki: I like cooking, but I don't know much about herbs.\nLeo: Really? Let's make lunch together on Sunday.\nYuki: That sounds nice. In the courtyard?\nLeo: No, in the kitchen. Let's meet at ten.\nYuki: Sunday at ten, in the kitchen. Great.\nLeo: See you then.",
+    applyQuestions: [['What do both people like?', 'Cooking.'], ['What will they make?', 'Lunch.'], ['On which day and at what time?', 'Sunday at ten.'], ['Will they meet in the courtyard?', 'No. In the kitchen.']],
+    mission: ['Listen to Yuki and Sara plan an activity. One suggestion changes during the conversation.', 'ユキとサラが活動の計画を立てる会話を聞きましょう。途中で提案が一つ変更されます。'],
+    task: ['First, identify the activity. Then listen for the final day, time, and meeting place. Which earlier suggestion changes?', '最初に活動を聞き取りましょう。次に、最終的な曜日、時間、待ち合わせ場所を確認しましょう。最初の提案から何が変わりましたか。'],
+    missionText: "Yuki: Do you like walking, Sara?\nSara: Yes, I do. I like taking photos, too.\nYuki: Me too! Let's go to the park on Saturday.\nSara: Sorry, I work on Saturday. How about Sunday?\nYuki: Sunday is good. At two?\nSara: Yes, two in the afternoon. Let's meet at the front door of Maple House.\nYuki: Great. Sunday at two, at the front door.\nSara: See you then.",
+    missionQuestions: [['What activity do they plan?', 'Walking in the park; taking photos is also a shared interest.'], ['What is the final day?', 'Sunday.'], ['What time and where will they meet?', 'Two in the afternoon, at the front door of Maple House.'], ['Why does the day change?', 'Sara works on Saturday.']],
+    choose: [['How about (you / your)?', 'you'], ['That (sound / sounds) nice.', 'sounds'], ['Meet me (at / on) two.', 'at']],
+    practice: 'multiple-choice', choices: [['You hear: Saturday? Sorry, I work. Sunday is good. The final day is ...', 'Saturday.', 'Sunday.', 'B'], ['You hear: At the park? No, at the front door. They meet ...', 'at the front door.', 'at the park.', 'A'], ['You hear: I like cooking. Me too. The speakers ...', 'both like cooking.', 'do not like cooking.', 'A']],
+    discussion: [['LISTENING', ['Which final detail did you hear clearly?', 'What phrase helps you check a plan?']], ['PLANS', ['When are you free this weekend?', 'Where could you meet a friend?']]],
+  },
+  {
+    number: 7, title: 'Introducing Someone Else', skill: 'speaking', asset: 'introductions',
+    goal: ['I can introduce a friend and share two details about them.', '友達を紹介し、その人について二つの情報を伝えることができる。'],
+    intro: ['Yuki knows Maya and Leo, but they have not met each other yet. Help two people start a conversation by introducing them.', 'ユキはマヤとレオを知っていますが、二人はまだ会ったことがありません。お互いを紹介して、会話を始める手助けをしましょう。'],
+    learn: 'expressions', focus: 'grammar-tip',
+    words: [['This is ...', 'こちらは〜です。', 'This is my friend Maya.'], ['She is ... / He is ...', '彼女は〜です。／彼は〜です。', 'She is a teacher.'], ['You both like ...', 'お二人とも〜が好きです。', 'You both like cooking.']],
+    rule: ['Use This is to introduce a person. Use he or she for that person, and add -s to like: He likes cooking.', '人を紹介するときは This is を使います。その人を指す he や she の後では、like に -s を付けます。例：He likes cooking。'],
+    examples: [['This is Leo. He is a cook.', 'こちらはレオです。料理人です。'], ['Maya likes cooking. You both like cooking.', 'マヤは料理が好きです。お二人とも料理が好きですね。']],
+    apply: "Yuki: Maya, this is my friend Leo.\nMaya: Hi, Leo. Nice to meet you.\nLeo: Nice to meet you, too.\nYuki: Leo is from Bristol. He's a cook.\nMaya: Really? I like cooking.\nYuki: Leo, Maya is a teacher. You both like cooking.\nLeo: Great! What do you like cooking, Maya?\nMaya: I like making soup.\nYuki: I'll leave you two to talk.",
+    applyQuestions: [['Who introduces Maya and Leo?', 'Yuki.'], ['What is Leo\'s job?', 'Cook.'], ['What do Maya and Leo both like?', 'Cooking.']],
+    mission: ['Introduce a friend to a new housemate. Use a real friend or invent a person. Your tutor plays the new housemate.', '新しいハウスメイトに友達を紹介しましょう。実在の友達でも架空の人物でも構いません。講師が新しいハウスメイト役です。'],
+    task: ['Say your friend\'s name and two details. Invite your housemate to respond. Help them find an interest in common. Repeat with another person.', '友達の名前と二つの情報を伝えましょう。ハウスメイトに話しかけてもらい、共通の興味を探す手助けをしましょう。別の人でも練習しましょう。'],
+    missionQuestions: [['Who is your friend?', 'This is [name].'], ['Where is your friend from, or what do they do?', 'Two relevant details across the introduction.'], ['What does your friend like?', 'He/She likes ...'], ['I like that, too. What can you say?', 'You both like ... or an appropriate introduction bridge.']],
+    choose: [], change: [['<u>I am</u> a cook. (Talk about Leo.)', 'He is a cook.'], ['<u>I like</u> music. (Talk about Maya.)', 'She likes music.'], ['<u>My name is Ken.</u> (Introduce Ken.)', 'This is Ken.']],
+    practice: 'speech', practiceText: ['This is my friend _____. He/She is from _____. He/She is a _____. He/She likes _____. You both like _____.'],
+    discussion: [['FRIENDS', ['How did you meet a good friend?', 'What do you enjoy together?']], ['INTRODUCTIONS', ['Who would you like your friends to meet?', 'What can you say about that person?']]],
+  },
+  {
+    number: 8, title: 'Reading Friendly Messages', skill: 'reading', asset: 'messages',
+    goal: ['I can find the time, place, and request in a short invitation.', '短い招待メッセージから、時間、場所、お願いを読み取ることができる。'],
+    intro: ['Maya sends the residents a message about a welcome gathering. Read the details carefully so you know where to go and what to bring.', 'マヤが住人たちに歓迎会のメッセージを送ります。どこへ行き、何を持っていけばよいか分かるよう、詳しい情報を読みましょう。'],
+    learn: 'vocabulary', focus: 'grammar-tip',
+    words: [['bring', '持ってくる', 'Please bring a cup.'], ['at', '〜時に', 'We meet at six.'], ['on', '〜曜日に', 'The gathering is on Friday.']],
+    rule: ['Use on with a day and at with a time. Please makes a simple request polite.', '曜日には on、時刻には at を使います。簡単なお願いに Please を付けると丁寧になります。'],
+    examples: [['Meet us on Friday at six.', '金曜日の6時に会いましょう。'], ['Please bring your own cup.', '自分のカップを持ってきてください。']],
+    apply: 'Hi everyone,\nWelcome to Maple House! Please join us for tea on Friday at six in the evening. We will meet in the living room, not the kitchen. Please bring your own cup. Leo will bring fruit. You do not need to bring food. New residents are welcome. See you there!\nMaya',
+    applyQuestions: [['What is the message for?', 'An invitation to tea / a welcome gathering.'], ['When does the gathering start?', 'Friday at six in the evening.'], ['Where is it?', 'In the living room.'], ['What should residents bring?', 'Their own cup. No food is needed.']],
+    mission: ['Read the original invitation and the update. Help a new resident arrive at the correct place and time.', '最初の招待と変更のお知らせを読みましょう。新しい住人が正しい場所と時間に来られるよう手伝いましょう。'],
+    task: ['Find the final day, time, and place. Say what to bring and what has changed. Use details from both messages.', '最終的な曜日、時刻、場所を読み取りましょう。持ち物と変更点も答えましょう。両方のメッセージを使ってください。'],
+    missionText: '<strong>Message 1 - Maya</strong><br>Let\'s have breakfast in the courtyard on Sunday at nine in the morning. Please bring some fruit. I will make tea.<br><br><strong>Message 2 - Maya</strong><br>Small change: it will rain on Sunday. Let\'s meet in the kitchen instead. Breakfast will start at ten, not nine. Please still bring some fruit. See you on Sunday!',
+    missionQuestions: [['Which day is breakfast?', 'Sunday.'], ['What is the final time?', 'Ten in the morning.'], ['Where should residents go?', 'The kitchen.'], ['What should they bring?', 'Some fruit.'], ['Which two details change?', 'The place changes from courtyard to kitchen; the time changes from nine to ten.']],
+    choose: [['Meet us (on / at) Sunday.', 'on'], ['Breakfast starts (on / at) ten.', 'at'], ['Please (bring / brings) some fruit.', 'bring']],
+    practice: 'multiple-choice', choices: [['The update says: ten, not nine. Breakfast starts at ...', 'nine.', 'ten.', 'B'], ['The message says: in the kitchen instead. The final place is ...', 'the kitchen.', 'the courtyard.', 'A'], ['Please still bring fruit means ...', 'fruit is no longer needed.', 'fruit is still needed.', 'B']],
+    discussion: [['MESSAGES', ['Do you read invitations twice?', 'What detail do you check first?']], ['GATHERINGS', ['What do you like bringing to a gathering?', 'Do you prefer morning or evening gatherings?']]],
+  },
+  {
+    number: 9, title: 'Meeting People at a Gathering', skill: 'listening', asset: 'gathering',
+    goal: ['I can identify people and their interests in a short group conversation.', '短いグループの会話を聞いて、人とその興味を結び付けることができる。'],
+    intro: ['At the welcome gathering, several residents talk at once in small groups. Listen to one group and keep track of who likes what.', '歓迎会で、住人たちが小さなグループに分かれて話しています。一つのグループの会話を聞き、誰が何を好きか整理しましょう。'],
+    learn: 'expressions', focus: 'speak-your-mind',
+    words: [['Sorry, could you say that again?', 'すみません、もう一度言ってもらえますか。', 'Sorry, could you say your name again?'], ['Did you say ...?', '〜と言いましたか。', 'Did you say photography?'], ['I see.', 'なるほど。', 'I work at a cafe. I see.']],
+    rule: ['If you miss a detail, ask for it again. Check the exact word you are unsure about.', '情報を聞き逃したら、もう一度尋ねましょう。分からなかった言葉を具体的に確認しましょう。'],
+    examples: [['Did you say Leo? Yes, Leo.', 'レオと言いましたか。はい、レオです。'], ['Sorry, could you say that again?', 'すみません、もう一度言ってもらえますか。']],
+    apply: "Maya: Yuki, this is Aisha. She's a designer.\nYuki: Hi! Sorry, could you say your name again?\nAisha: Aisha. Nice to meet you.\nYuki: Nice to meet you, too. Do you like music?\nAisha: Yes, but photography is my favorite hobby.\nYuki: Did you say photography? I like taking photos, too.\nMaya: Great! I like cooking, but I don't take many photos.\nAisha: Let's take photos in the park sometime, Yuki.\nYuki: I'd like that.",
+    applyQuestions: [['Who is the new person in this conversation?', 'Aisha.'], ['What is her job?', 'Designer.'], ['What do Yuki and Aisha have in common?', 'Photography / taking photos.'], ['Who likes cooking?', 'Maya.']],
+    mission: ['Listen to three residents discussing free time. Choose the best person to invite to a music activity and the best person for a photo walk.', '三人の住人が自由時間について話すのを聞きましょう。音楽の活動に誘う人と、写真を撮りながらの散歩に誘う人を選んでください。'],
+    task: ['Listen for each name and interest. Match the people to the two activities. Ask to hear one detail again if you need to.', '名前と興味を聞き取り、二つの活動に合う人を選びましょう。必要なら、一つの情報をもう一度聞かせてもらいましょう。'],
+    missionText: "Sara: Leo, do you still play the guitar?\nLeo: Yes. I practice every evening. I love music. How about you, Sara?\nSara: I don't play an instrument. I enjoy reading at home. Aisha, what do you do on weekends?\nAisha: I take photos in the park. I like walking, too.\nLeo: That sounds nice. I'm free on Sunday morning.\nAisha: Me too. Sara, would you like to come?\nSara: Thanks, but I work on Sunday morning. Maybe next time.",
+    missionQuestions: [['Who likes music and plays an instrument?', 'Leo; he plays the guitar.'], ['Who enjoys reading?', 'Sara.'], ['Who is the best match for a photo walk?', 'Aisha.'], ['Can Sara join on Sunday morning?', 'No. She works then.'], ['Which detail would you like to hear again?', 'Accept a relevant request for repetition.']],
+    choose: [], rephrase: [['Ask someone to repeat a name politely.', 'Sorry, could you say your name again?'], ['Check whether you heard the name Leo.', 'Did you say Leo?'], ['Give a short response showing you understand.', 'I see.']],
+    practice: 'multiple-choice', choices: [['You hear: I practice the guitar every evening. Choose the interest.', 'Music', 'Photography', 'A'], ['You hear: I work on Sunday morning. Is the speaker free then?', 'Yes', 'No', 'B'], ['You missed a name. Choose the helpful response.', 'Sorry, could you say your name again?', 'See you tomorrow.', 'A']],
+    discussion: [['CLEAR COMMUNICATION', ['What do you say when you miss a word?', 'Is it easier to listen to two people or three?']], ['NEW FRIENDS', ['Which resident shares one of your interests?', 'What would you ask that person?']]],
+  },
+  {
+    number: 10, title: 'Making a New Friend', skill: 'speaking', asset: 'review',
+    goal: ['I can start a conversation, exchange personal information, and make a simple plan.', '会話を始めて自己紹介をし合い、簡単な予定を立てることができる。'],
+    intro: ['A new resident arrives at Maple House. Bring together what you have learned: introduce yourself, ask questions, share interests, and make a plan together.', 'メープルハウスに新しい住人が来ます。これまで学んだことを使い、自己紹介、質問、趣味の話をして、一緒に予定を立てましょう。'],
+    learn: 'expressions', focus: 'speak-your-mind',
+    words: [['How about you?', 'あなたはどうですか。', "I'm from Osaka. How about you?"], ["Let's ...", '一緒に〜しましょう。', "Let's take a walk."], ['See you then.', 'では、その時に。', 'Sunday at ten. See you then.']],
+    rule: ['Build a conversation one step at a time: greet, share, ask, react, and make a plan. Check the final time and place.', '挨拶、自己紹介、質問、反応、予定の順に会話を進めましょう。最後に時間と場所を確認しましょう。'],
+    examples: [["I like walking. Me too. Let's go on Sunday.", '散歩が好きです。私もです。日曜日に行きましょう。'], ['At ten, at the front door? Yes. See you then.', '10時に玄関でいいですか。はい。では、その時に。']],
+    apply: "Yuki: Hi! I'm Yuki. Welcome to Maple House.\nKen: Thanks. I'm Ken. Nice to meet you.\nYuki: Nice to meet you, too. Where are you from?\nKen: I'm from Kyoto. I'm a student. How about you?\nYuki: I'm from Osaka, and I'm a student, too. What do you like doing?\nKen: I like walking and taking photos.\nYuki: Me too! Let's go to the park on Sunday.\nKen: Great. What time?\nYuki: At ten. Let's meet at the front door.\nKen: Sunday at ten, at the front door. See you then.",
+    applyQuestions: [['What two things do Yuki and Ken have in common?', 'Both are students; both like walking/taking photos.'], ['What plan do they make?', 'Go to the park on Sunday at ten; meet at the front door.'], ['How does Ken check the plan?', 'He repeats the day, time, and place.']],
+    mission: ['Your tutor is a new resident. Have a complete first conversation. After the first round, your tutor becomes a different resident with a different schedule.', '講師が新しい住人役になります。初対面の会話を最初から最後までしましょう。一回目の後、講師は予定の異なる別の住人役になります。'],
+    task: ['Introduce yourself. Ask at least three relevant questions and respond to the answers. Find one shared interest. Agree on an activity, day, time, and meeting place. Check the plan and end politely.', '自己紹介をし、相手に合う質問を三つ以上して答えに反応しましょう。共通の興味を一つ見つけ、活動、曜日、時間、待ち合わせ場所を決めましょう。予定を確認して丁寧に会話を終えましょう。'],
+    missionQuestions: [["Hi! I'm Ken. I'm new here. What's your name?", 'Tutor role: Ken, Kyoto, student, likes walking, free Sunday at ten. Reveal other details only when asked.'], ['What can we do together?', 'Agree on an activity, day, time, and place.'], ["Hi! I'm Aisha. Nice to meet you. What do you like doing?", 'Start Round 2 as Aisha: a designer from Leeds who likes photography, is busy Sunday morning, and is free Saturday at two.'], ['Can you check our final plan?', 'Student accurately repeats the agreed details and closes politely.']],
+    choose: [], change: [['I am from <u>Osaka</u>. (Make it true for you.)', 'I am from [place].'], ['I like <u>walking</u>. (Use your interest.)', 'I like [interest].'], ['Let\'s meet on <u>Sunday at ten</u>. (Choose another day and time.)', 'Let\'s meet on [day] at [time].']],
+    practice: 'conversation', practiceText: ["Hi, I'm _____. What's your name?", "I'm _____. Nice to meet you. Where are you from?", "I'm from _____. What do you like doing?", "I like _____. How about you?", "_____. Let's _____ on _____ at _____.", 'Great. At _____? See you then.'],
+    discussion: [['LOOKING BACK', ['What can you say now that was difficult before?', 'Which question helps you keep a conversation going?']], ['NEXT TIME', ['Where could you use these expressions?', 'What would you like to talk about next?']]],
+  },
+];

@@ -1,0 +1,46 @@
+# dependencies (bun install)
+node_modules
+
+# output
+out
+dist
+zk-artifacts
+private-screening-evidence
+circuits/**/build
+circuits/**/*.r1cs
+circuits/**/*.sym
+circuits/**/*.zkey
+circuits/**/*.ptau
+circuits/**/verification_key.json
+*.tgz
+
+# code coverage
+coverage
+*.lcov
+
+# logs
+logs
+_.log
+report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+config/anonymous-reviews.env
+config/anonymous-tally.env
+.deployment/
+config/lesson-passes.env
+
+# caches
+.eslintcache
+.cache
+*.tsbuildinfo
+
+# IntelliJ based IDEs
+.idea
+
+# Finder (MacOS) folder config
+.DS_Store

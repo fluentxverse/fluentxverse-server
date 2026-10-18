@@ -1,0 +1,349 @@
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+services:
+  # ===========================================
+  # MAIN BUN SERVER (API + Socket.IO)
+  # ===========================================
+  fluentxverse-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fluentxverse-server
+    restart: unless-stopped
+    logging: *default-logging
+    env_file:
+      - path: ./config/anonymous-reviews.env
+        required: false
+      - path: ./config/anonymous-tally.env
+        required: false
+      - path: ./config/lesson-passes.env
+        required: false
+    ports:
+      - "${API_PORT:-8765}:8765"
+      - "${SOCKET_PORT:-8767}:8767"
+    environment:
+      - NODE_ENV=${NODE_ENV:-production}
+      - LESSON_BOOKING_MODE=${LESSON_BOOKING_MODE:-trial}
+      - TRIAL_LESSON_LIMIT=${TRIAL_LESSON_LIMIT:-1}
+      - PRIVACY_INFRA_MODE=${PRIVACY_INFRA_MODE:-bridge_only}
+      # Database connections (using container names)
+      - DATABASE_URL=postgres://${POSTGRES_USER:-fluentxverse_user}:${POSTGRES_PASSWORD:-fluentxverse_pass}@fluentxverse-postgres:5432/${POSTGRES_DB:-fluentxverse}
+      - MEMGRAPH_URI=bolt://fluentxverse-memgraph:7687
+      - MEMGRAPH_USER=${MEMGRAPH_USER:-fluentxverse}
+      - MEMGRAPH_PASSWORD=${MEMGRAPH_PASSWORD:-devpassword123}
+      - REDIS_URL=redis://fluentxverse-redis:6379
+      # SeaweedFS (internal only - not exposed publicly)
+      - SEAWEED_MASTER_URL=http://fluentxverse-seaweed-master:9333
+      - SEAWEED_FILER_URL=http://fluentxverse-seaweed-filer:8888
+      # API Public URL (for generating proxy URLs to lesson files)
+      - API_PUBLIC_URL=${API_PUBLIC_URL:-https://api.fluentxverse.com}
+      - ADMIN_DASHBOARD_PUBLIC_URL=${ADMIN_DASHBOARD_PUBLIC_URL:-https://dashboard.fluentxverse.com}
+      # Auth
+      - JWT_SECRET=${JWT_SECRET:-change-me-in-production}
+      - JWT_REFRESH_SECRET=${JWT_REFRESH_SECRET:-change-me-refresh-secret}
+      - ACCESS_TOKEN_EXPIRY=${ACCESS_TOKEN_EXPIRY:-15m}
+      - REFRESH_TOKEN_EXPIRY=${REFRESH_TOKEN_EXPIRY:-7d}
+      - PRIVY_APP_ID=${PRIVY_APP_ID}
+      - PRIVY_APP_SECRET=${PRIVY_APP_SECRET}
+      # CORS
+      - FRONTEND_URLS=${FRONTEND_URLS:-http://localhost:5173,http://localhost:5174,http://localhost:5175,https://student.fluentxverse.com,https://tutor.fluentxverse.com,https://dashboard.fluentxverse.com,https://student.fluentxverse.xyz,https://tutor.fluentxverse.xyz,https://dashboard.fluentxverse.xyz}
+      # Notifications
+      - NOTIFICATION_RETENTION_DAYS=${NOTIFICATION_RETENTION_DAYS:-30}
+      - TURN_URLS=${TURN_URLS:-}
+      - TURN_SHARED_SECRET=${TURN_SHARED_SECRET:-}
+      - TURN_PROVIDER=${TURN_PROVIDER:-}
+      - CLOUDFLARE_TURN_KEY_ID=${CLOUDFLARE_TURN_KEY_ID:-}
+      - CLOUDFLARE_TURN_API_TOKEN=${CLOUDFLARE_TURN_API_TOKEN:-}
+      - CLOUDFLARE_TURN_TTL_SECONDS=${CLOUDFLARE_TURN_TTL_SECONDS:-7200}
+      # RealtimeKit: opt-in pilots; all credentials stay in the server container.
+      - CLASSROOM_MEDIA_PROVIDER=${CLASSROOM_MEDIA_PROVIDER:-realtimekit}
+      - QA_RECORDING_ENABLED=${QA_RECORDING_ENABLED:-false}
+      - QA_RECORDING_ENCRYPTION_KEY=${QA_RECORDING_ENCRYPTION_KEY:-}
+      - CLOUDFLARE_RTK_PILOT_BOOKING_IDS=${CLOUDFLARE_RTK_PILOT_BOOKING_IDS:-}
+      - CLOUDFLARE_ACCOUNT_ID=${CLOUDFLARE_ACCOUNT_ID:-}
+      - CLOUDFLARE_RTK_APP_ID=${CLOUDFLARE_RTK_APP_ID:-}
+      - CLOUDFLARE_RTK_API_TOKEN=${CLOUDFLARE_RTK_API_TOKEN:-}
+      - CLOUDFLARE_RTK_STUDENT_PRESET=${CLOUDFLARE_RTK_STUDENT_PRESET:-group_call_participant}
+      - CLOUDFLARE_RTK_TUTOR_PRESET=${CLOUDFLARE_RTK_TUTOR_PRESET:-group_call_participant}
+      # GMR Engine / Web3
+      - GMR_ENGINE_API_BASE=${GMR_ENGINE_API_BASE}
+      - GMR_ENGINE_API_KEY=${GMR_ENGINE_API_KEY}
+      - GMR_SCREENING_ENGINE_API_BASE=${GMR_SCREENING_ENGINE_API_BASE:-http://host.docker.internal:8090}
+      - GMR_SCREENING_ENGINE_API_KEY=${GMR_SCREENING_ENGINE_API_KEY:-}
+      - SCREENING_ENABLED=${SCREENING_ENABLED:-false}
+      - VAULT_WALLET_ADDRESS=${VAULT_WALLET_ADDRESS}
+      # OpenAI
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      # Tutor certification proof issuance
+      - TUTOR_CERT_ISSUER_ID=${TUTOR_CERT_ISSUER_ID:-fluentxverse:tutor-certification:v1}
+      - TUTOR_CERT_ISSUER_SECRET=${TUTOR_CERT_ISSUER_SECRET:-local-dev-tutor-cert-issuer-secret-change-me}
+      - TUTOR_CERT_COMMITMENT_SALT=${TUTOR_CERT_COMMITMENT_SALT:-local-dev-tutor-cert-commitment-salt-change-me}
+      - STUDENT_LESSON_ISSUER_SECRET=${STUDENT_LESSON_ISSUER_SECRET:-}
+      - ZKVERIFY_ENABLED=${ZKVERIFY_ENABLED:-true}
+      - ZKVERIFY_DOMAIN_ID=${ZKVERIFY_DOMAIN_ID:-0}
+      # LanguageTool
+      - LANGUAGETOOL_URL=http://fluentxverse-languagetool:8010
+      # Ticket Contract (optional)
+      - TICKET_CONTRACT_ADDRESS=${TICKET_CONTRACT_ADDRESS:-}
+      - TICKET_CHAIN_ID=${TICKET_CHAIN_ID:-84532}
+      - TICKET_BASIC_TOKEN_ID=${TICKET_BASIC_TOKEN_ID}
+      - TICKET_PREMIUM_TOKEN_ID=${TICKET_PREMIUM_TOKEN_ID}
+      - TICKET_TRIAL_TOKEN_ID=${TICKET_TRIAL_TOKEN_ID}
+      - ALLOW_MOCK_TICKET_PURCHASES=${ALLOW_MOCK_TICKET_PURCHASES:-false}
+    volumes:
+      - student-lesson-artifacts:/app/zk-artifacts/student-lesson
+      - student-lesson-setup:/app/circuits/student-lesson/build
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      fluentxverse-postgres:
+        condition: service_healthy
+      fluentxverse-memgraph:
+        condition: service_started
+      fluentxverse-redis:
+        condition: service_healthy
+      fluentxverse-seaweed-filer:
+        condition: service_healthy
+    networks:
+      - fluentxverse-network
+    healthcheck:
+      # The API listens on IPv4 only inside the container, so localhost can
+      # resolve to ::1 and produce a false negative.
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:8765/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # ===========================================
+  # DATABASES & SERVICES
+  # ===========================================
+  fluentxverse-postgres:
+    image: docker.io/library/postgres:16-alpine
+    container_name: fluentxverse-postgres
+    restart: unless-stopped
+    logging: *default-logging
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-fluentxverse}
+      POSTGRES_USER: ${POSTGRES_USER:-fluentxverse_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fluentxverse_pass}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-fluentxverse_user} -d ${POSTGRES_DB:-fluentxverse}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - fluentxverse-network
+
+  fluentxverse-memgraph:
+    image: docker.io/memgraph/memgraph-mage:latest
+    container_name: fluentxverse-memgraph
+    restart: unless-stopped
+    logging: *default-logging
+    ports:
+      - "${MEMGRAPH_HTTP_PORT:-7444}:${MEMGRAPH_HTTP_PORT:-7444}"
+      - "${MEMGRAPH_BOLT_PORT:-7687}:7687"
+    environment:
+      - MEMGRAPH_USER=${MEMGRAPH_USER}
+      - MEMGRAPH_PASSWORD=${MEMGRAPH_PASSWORD}
+    volumes:
+      - memgraph-data:/var/lib/memgraph
+      - memgraph-log:/var/log/memgraph
+    networks:
+      - fluentxverse-network
+
+  fluentxverse-redis:
+    image: docker.io/library/redis:7-alpine
+    container_name: fluentxverse-redis
+    restart: unless-stopped
+    logging: *default-logging
+    ports:
+      - "${REDIS_PORT:-6379}:${REDIS_PORT:-6379}"
+    volumes:
+      - redis-data:/data
+    command: ["redis-server", "--appendonly", "${REDIS_AOF:-yes}", "--port", "${REDIS_PORT:-6379}"]
+    networks:
+      - fluentxverse-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  fluentxverse-seaweed-master:
+    image: docker.io/chrislusf/seaweedfs:latest
+    container_name: fluentxverse-seaweed-master
+    command: "master -ip=fluentxverse-seaweed-master -mdir=/data"
+    restart: unless-stopped
+    logging: *default-logging
+    ports:
+      - "127.0.0.1:${SEAWEED_MASTER_PORT:-9333}:${SEAWEED_MASTER_PORT:-9333}"
+    volumes:
+      - seaweed-master-data:/data
+    networks:
+      - fluentxverse-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:9333/cluster/status || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  fluentxverse-seaweed-volume:
+    image: docker.io/chrislusf/seaweedfs:latest
+    container_name: fluentxverse-seaweed-volume
+    command: "volume -max=${SEAWEED_MAX_VOLUMES:-100} -mserver=fluentxverse-seaweed-master:${SEAWEED_MASTER_PORT:-9333} -ip=fluentxverse-seaweed-volume -dir=/data -port=8080"
+    restart: unless-stopped
+    logging: *default-logging
+    ports:
+      - "127.0.0.1:${SEAWEED_VOLUME_ADMIN_PORT:-8080}:8080"
+      - "127.0.0.1:${SEAWEED_VOLUME_PUBLIC_PORT:-8081}:8081"
+    volumes:
+      - seaweed-volume-data:/data
+    depends_on:
+      fluentxverse-seaweed-master:
+        condition: service_healthy
+    networks:
+      - fluentxverse-network
+    healthcheck:
+      # Seaweed volume binds to its container network address, not loopback.
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://fluentxverse-seaweed-volume:8080/status || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  fluentxverse-seaweed-filer:
+    image: docker.io/chrislusf/seaweedfs:latest
+    container_name: fluentxverse-seaweed-filer
+    command: "filer -master=fluentxverse-seaweed-master:${SEAWEED_MASTER_PORT:-9333}"
+    restart: unless-stopped
+    logging: *default-logging
+    ports:
+      - "127.0.0.1:${SEAWEED_FILER_PORT:-8888}:${SEAWEED_FILER_PORT:-8888}"
+      - "127.0.0.1:${SEAWEED_S3_PORT:-8333}:${SEAWEED_S3_PORT:-8333}"
+    volumes:
+      - seaweed-filer-data:/data
+    depends_on:
+      fluentxverse-seaweed-master:
+        condition: service_healthy
+      fluentxverse-seaweed-volume:
+        condition: service_started
+    networks:
+      - fluentxverse-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:8888/ || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+
+  # ===========================================
+  # LANGUAGETOOL - Grammar & Spell Checker
+  # ===========================================
+  fluentxverse-languagetool:
+    image: erikvl87/languagetool:latest
+    container_name: fluentxverse-languagetool
+    restart: unless-stopped
+    logging: *default-logging
+    ports:
+      - "${LANGUAGETOOL_PORT:-8010}:8010"
+    environment:
+      - Java_Xms=512m
+      - Java_Xmx=2g
+      - langtool_languageModel=/ngrams
+    volumes:
+      - languagetool-ngrams:/ngrams
+      - languagetool-fasttext:/fasttext
+    networks:
+      - fluentxverse-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8010/v2/languages || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # ===========================================
+  # FRONTEND APPS
+  # ===========================================
+  fluentxverse-student:
+    build:
+      context: ../fluentxverse-student-solid-prototype
+      dockerfile: Dockerfile
+      args:
+        VITE_STUDENT_API_URL: ${FRONTEND_BUILD_API_URL:-https://api.fluentxverse.com}
+        VITE_STUDENT_SOCKET_URL: ${FRONTEND_BUILD_SOCKET_URL:-https://ws.fluentxverse.com}
+        VITE_PRIVY_APP_ID: ${PRIVY_APP_ID}
+    container_name: fluentxverse-student
+    restart: unless-stopped
+    logging: *default-logging
+    ports:
+      - "${STUDENT_PORT:-5174}:80"
+    depends_on:
+      - fluentxverse-server
+    networks:
+      - fluentxverse-network
+
+  fluentxverse-tutor:
+    build:
+      context: ../fluentxverse-tutor-solid-prototype
+      dockerfile: Dockerfile
+      args:
+        # Use separate build URLs so local Vite settings cannot enter the public bundle.
+        VITE_TUTOR_API_URL: ${FRONTEND_BUILD_API_URL:-https://api.fluentxverse.com}
+        VITE_TUTOR_SOCKET_URL: ${FRONTEND_BUILD_SOCKET_URL:-https://ws.fluentxverse.com}
+        VITE_ENABLE_NOTIFICATION_SOCKET: "true"
+    container_name: fluentxverse-tutor
+    restart: unless-stopped
+    logging: *default-logging
+    ports:
+      - "${TUTOR_PORT:-5173}:80"
+    depends_on:
+      - fluentxverse-server
+    networks:
+      - fluentxverse-network
+
+  fluentxverse-dashboard:
+    build:
+      context: ../fluentxverse-dashboard
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: ${FRONTEND_BUILD_API_URL:-https://api.fluentxverse.com}
+        VITE_SOCKET_URL: ${FRONTEND_BUILD_SOCKET_URL:-https://ws.fluentxverse.com}
+    container_name: fluentxverse-dashboard
+    restart: unless-stopped
+    logging: *default-logging
+    ports:
+      - "${DASHBOARD_PORT:-5175}:80"
+    depends_on:
+      - fluentxverse-server
+    networks:
+      - fluentxverse-network
+
+volumes:
+  student-lesson-artifacts:
+  student-lesson-setup:
+  postgres-data:
+  redis-data:
+  memgraph-data:
+  memgraph-log:
+  seaweed-master-data:
+  seaweed-volume-data:
+  seaweed-filer-data:
+  languagetool-ngrams:
+  languagetool-fasttext:
+
+networks:
+  fluentxverse-network:
+    driver: bridge

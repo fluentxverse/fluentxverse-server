@@ -1,0 +1,698 @@
+{
+  "chapterName": "Work Introductions",
+  "lessonName": "A New Coworker",
+  "goalTextEn": "Can read and understand simple information about a coworker.",
+  "goalTextKr": "동료에 대한 간단한 정보를 읽고 이해할 수 있다.",
+  "beData": {
+    "lessonType": "READING",
+    "hiddenBlocks": [],
+    "introduce": {
+      "goalEn": "Can read and understand simple information about a coworker.",
+      "goalKr": "동료에 대한 간단한 정보를 읽고 이해할 수 있다.",
+      "situationEn": "You open the team directory and read a short entry about a new coworker. Use the information to learn about them.",
+      "situationKr": "팀 디렉터리를 열고 새 동료에 대한 짧은 정보를 읽습니다. 그 정보를 활용하여 그 사람에 대해 알아봅시다.",
+      "taskEn": "",
+      "taskKr": "",
+      "tutorNotes": [
+        {
+          "text": "\"Today, we're going to practice reading about people. We will read a team directory entry.\"",
+          "type": "script"
+        },
+        {
+          "text": "Read the lesson goal aloud. Ask the student to repeat.",
+          "type": "instruction"
+        },
+        {
+          "text": "\"Is it clear?\"",
+          "type": "script"
+        },
+        {
+          "text": "Read the situation. Check the student understands.",
+          "type": "instruction"
+        },
+        {
+          "text": "\"Let's go to the next part.\"",
+          "type": "script"
+        }
+      ]
+    },
+    "present": {
+      "patterns": [
+        {
+          "en": "<b>I live in</b> Seoul.",
+          "kr": "저는 서울에 살고 있습니다."
+        },
+        {
+          "en": "<b>I work at</b> Global Corp.",
+          "kr": "저는 글로벌 코프에서 일합니다."
+        },
+        {
+          "en": "<b>I like</b> watching movies.",
+          "kr": "저는 영화 보는 것을 좋아합니다."
+        }
+      ],
+      "vocabulary": [
+        {
+          "definition": "a person whose job is managing financial records",
+          "pos": "noun",
+          "pronunciation": "/əˈkaʊntənt/",
+          "translation": "회계사",
+          "word": "accountant"
+        },
+        {
+          "definition": "an activity you enjoy doing in your free time",
+          "pos": "noun",
+          "pronunciation": "/ˈhɑːbi/",
+          "translation": "취미",
+          "word": "hobby"
+        },
+        {
+          "definition": "Saturday and Sunday",
+          "pos": "noun",
+          "pronunciation": "/ˈwiːkˌend/",
+          "translation": "주말",
+          "word": "weekend"
+        }
+      ],
+      "pronunciation": {
+        "instruction": "Let's practice hearing the difference between /ɪ/ (short) and /iː/ (long).",
+        "instructionKr": "/ɪ/ (짧은 소리)와 /iː/ (긴 소리)의 차이를 연습합시다.",
+        "left": {
+          "symbol": "/ɪ/",
+          "words": [
+            {
+              "en": "live",
+              "kr": "살다"
+            },
+            {
+              "en": "his",
+              "kr": "그의"
+            },
+            {
+              "en": "it",
+              "kr": "그것"
+            },
+            {
+              "en": "sit",
+              "kr": "앉다"
+            },
+            {
+              "en": "bit",
+              "kr": "조금"
+            }
+          ]
+        },
+        "right": {
+          "symbol": "/iː/",
+          "words": [
+            {
+              "en": "read",
+              "kr": "읽다"
+            },
+            {
+              "en": "he",
+              "kr": "그"
+            },
+            {
+              "en": "eat",
+              "kr": "먹다"
+            },
+            {
+              "en": "seat",
+              "kr": "자리"
+            },
+            {
+              "en": "beat",
+              "kr": "치다"
+            }
+          ]
+        }
+      },
+      "tutorNotes": [
+        {
+          "text": "\"Let's look at patterns used when talking about yourself.\"",
+          "type": "script"
+        },
+        {
+          "text": "Read the first pattern. Ask the student to repeat.",
+          "type": "instruction"
+        },
+        {
+          "text": "\"Use this to say where you live.\"",
+          "type": "script"
+        },
+        {
+          "text": "Read the second pattern. Ask the student to repeat.",
+          "type": "instruction"
+        },
+        {
+          "text": "\"Use this to say where you work.\"",
+          "type": "script"
+        },
+        {
+          "text": "Read the third pattern. Ask the student to repeat.",
+          "type": "instruction"
+        },
+        {
+          "text": "\"Use this to talk about your hobby or what you like doing.\"",
+          "type": "script"
+        },
+        {
+          "text": "\"Do you have any questions about the patterns?\"",
+          "type": "script"
+        }
+      ]
+    },
+    "understand": {
+      "instruction": "Practice the sentence patterns first. Then review the word bank and pronunciation words.",
+      "instructionKr": "먼저 문장 패턴을 연습하세요. 그런 다음 단어장과 발음 단어를 살펴보세요.",
+      "fillRows": [
+        {
+          "parts": [
+            {
+              "isBlank": true,
+              "text": "My name is"
+            },
+            {
+              "isBlank": false,
+              "text": " Minji Kim."
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "isBlank": true,
+              "text": "I live in"
+            },
+            {
+              "isBlank": false,
+              "text": " Seoul now."
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "isBlank": true,
+              "text": "I work at"
+            },
+            {
+              "isBlank": false,
+              "text": " Global Corp."
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "isBlank": true,
+              "text": "I like"
+            },
+            {
+              "isBlank": false,
+              "text": " watching movies."
+            }
+          ]
+        }
+      ],
+      "patternDrills": [
+        {
+          "examples": [
+            {
+              "en": "I live in Seoul.",
+              "kr": "저는 서울에 살고 있습니다."
+            },
+            {
+              "en": "I live in Incheon.",
+              "kr": "저는 인천에 살고 있습니다."
+            },
+            {
+              "en": "I live in Daejeon.",
+              "kr": "저는 대전에 살고 있습니다."
+            },
+            {
+              "en": "",
+              "kr": ""
+            },
+            {
+              "en": "",
+              "kr": ""
+            }
+          ],
+          "label": "Saying where you live",
+          "labelKr": "사는 곳 말하기",
+          "template": "I live in ___."
+        },
+        {
+          "examples": [
+            {
+              "en": "I work at Global Corp.",
+              "kr": "저는 글로벌 코프에서 일합니다."
+            },
+            {
+              "en": "I work at Global Corp.",
+              "kr": "저는 글로벌 코프에서 일합니다."
+            },
+            {
+              "en": "I work at Mirae Trade.",
+              "kr": "저는 미래 트레이드에서 일합니다."
+            },
+            {
+              "en": "",
+              "kr": ""
+            },
+            {
+              "en": "",
+              "kr": ""
+            }
+          ],
+          "label": "Saying where you work",
+          "labelKr": "근무지 말하기",
+          "template": "I work at ___."
+        },
+        {
+          "examples": [
+            {
+              "en": "I like watching movies.",
+              "kr": "저는 영화 보는 것을 좋아합니다."
+            },
+            {
+              "en": "I like listening to music.",
+              "kr": "저는 음악 듣는 것을 좋아합니다."
+            },
+            {
+              "en": "I like reading books.",
+              "kr": "저는 책 읽는 것을 좋아합니다."
+            },
+            {
+              "en": "",
+              "kr": ""
+            },
+            {
+              "en": "",
+              "kr": ""
+            }
+          ],
+          "label": "Talking about hobbies",
+          "labelKr": "취미에 대해 이야기하기",
+          "template": "I like ___."
+        }
+      ],
+      "activityBlocks": [],
+      "tutorNotes": [
+        {
+          "group": "comprehension",
+          "text": "\"Now, let's work on comprehension.\"",
+          "type": "script"
+        },
+        {
+          "group": "comprehension",
+          "text": "Read the instruction.",
+          "type": "instruction"
+        },
+        {
+          "group": "comprehension",
+          "text": "\"First, let's practice the sentence patterns.\"",
+          "type": "script"
+        },
+        {
+          "group": "comprehension",
+          "text": "Read the first pattern heading, then continue the drill. Ask the student to repeat after you. Do the same for the next patterns",
+          "type": "instruction"
+        },
+        {
+          "group": "wordBank",
+          "text": "\"Now, let's look at the word bank.\"",
+          "type": "script"
+        },
+        {
+          "group": "wordBank",
+          "text": "Read each word in the word bank, then ask the student to repeat.",
+          "type": "instruction"
+        },
+        {
+          "type": "instruction",
+          "text": "Correct the student's pronunciation errors if needed.",
+          "group": "wordBank"
+        },
+        {
+          "group": "wordBank",
+          "text": "For lower-level students, read the word and the definition, then ask the student to repeat.",
+          "type": "tip"
+        },
+        {
+          "group": "soundPractice",
+          "text": "\"Now, let's look at the word bank. Let's practice saying word with /ɪ/ sound and /iː/ sounds",
+          "type": "script"
+        },
+        {
+          "group": "soundPractice",
+          "text": "Practice the /ɪ/ words first, then the /iː/ words. Ask the student to repeat.",
+          "type": "instruction"
+        },
+        {
+          "type": "instruction",
+          "text": "Teach the student how to pronounce /æ/ and /ʌ/ using mouth movements if needed.",
+          "group": "soundPractice"
+        },
+        {
+          "type": "instruction",
+          "text": "Correct mispronounced words after reading.",
+          "group": "soundPractice"
+        },
+        {
+          "group": "soundPractice",
+          "text": "\"Do you have any questions? ...Let's go to the next part.\"",
+          "type": "script"
+        },
+        {
+          "type": "script",
+          "text": "\"Do you have any questions? ...Let's go to the next part!",
+          "group": "comprehension"
+        },
+        {
+          "type": "script",
+          "text": "\"Do you have any questions? ...Let's go to the next part!",
+          "group": "wordBank"
+        }
+      ]
+    },
+    "practice": {
+      "steps": [
+        {
+          "title": "Step 1 — Read & Repeat",
+          "instructionEn": "Read each sentence from the team directory entry. Repeat after your tutor.",
+          "instructionKr": "팀 디렉터리 정보의 각 문장을 읽어 봅시다. 선생님을 따라 반복하세요.",
+          "content": "1. My name is Minji Kim.<br>2. I live in Seoul now.<br>3. I work at Global Corp.<br>4. I am an accountant in the finance team.<br>5. I like watching movies on weekends.<br>6. My hobby is taking photos.",
+          "tutorNotes": [
+            {
+              "type": "script",
+              "text": "\"Now, let's read and repeat the team directory entry.\""
+            },
+            {
+              "type": "instruction",
+              "text": "Read each sentence. Ask the student to repeat."
+            },
+            {
+              "type": "instruction",
+              "text": "Focus on clear pronunciation of key words."
+            },
+            {
+              "type": "tip",
+              "text": "Adjust speed to the student's level. Repeat sentences as needed."
+            },
+            {
+              "type": "script",
+              "text": "Good job! Let's go to the next part!"
+            }
+          ]
+        },
+        {
+          "title": "Step 2 — Complete the Sentences",
+          "instructionEn": "Complete the sentences about Minji.",
+          "instructionKr": "민지에 대한 문장을 완성해 봅시다.",
+          "content": "1. Minji lives in _______________.<br>2. She works at _______________.<br>3. She is a/an _______________.<br>4. She likes _______________.<br>5. Her hobby is _______________.",
+          "tutorNotes": [
+            {
+              "type": "script",
+              "text": "\"Now, complete the sentences about Minji.\""
+            },
+            {
+              "type": "instruction",
+              "text": "Read the instruction."
+            },
+            {
+              "type": "instruction",
+              "text": "Ask the student to complete each sentence about Minji, then read the full answers aloud."
+            },
+            {
+              "type": "tip",
+              "text": "For lower-level students, let them look back at the entry while completing the sentences."
+            },
+            {
+              "type": "script",
+              "text": "Nice! Let's go to the next part!"
+            }
+          ]
+        },
+        {
+          "title": "Step 3 — Read a Second Entry",
+          "instructionEn": "Read the second team directory entry with your tutor.",
+          "instructionKr": "두 번째 팀 디렉터리 정보를 선생님과 함께 읽어 봅시다.",
+          "content": "Hello! My name is Jisoo Park. I live in Incheon now. I work at Mirae Trade. I am a sales assistant. I like watching movies. My hobby is baking. Nice to meet you!",
+          "dialogue": [
+            {
+              "en": "Who is this person?",
+              "kr": "이 사람은 누구인가요?",
+              "role": "tutor"
+            },
+            {
+              "en": "Her name is Jisoo Park.",
+              "kr": "그녀의 이름은 박지수입니다.",
+              "role": "student"
+            },
+            {
+              "en": "Where does she live now?",
+              "kr": "그녀는 지금 어디에 살고 있나요?",
+              "role": "tutor"
+            },
+            {
+              "en": "She lives in Incheon now.",
+              "kr": "그녀는 지금 인천에 살고 있습니다.",
+              "role": "student"
+            },
+            {
+              "en": "Where does she work?",
+              "kr": "그녀는 어디에서 일하나요?",
+              "role": "tutor"
+            },
+            {
+              "en": "She works at Mirae Trade.",
+              "kr": "그녀는 미래 트레이드에서 일합니다.",
+              "role": "student"
+            },
+            {
+              "role": "tutor",
+              "en": "What is her job?",
+              "kr": "그녀의 직업은 무엇인가요?"
+            },
+            {
+              "role": "student",
+              "en": "She is a sales assistant.",
+              "kr": "그녀는 영업 보조입니다."
+            },
+            {
+              "en": "What is her hobby?",
+              "kr": "그녀의 취미는 무엇인가요?",
+              "role": "tutor"
+            },
+            {
+              "en": "Her hobby is baking.",
+              "kr": "그녀의 취미는 베이킹입니다.",
+              "role": "student"
+            }
+          ],
+          "tutorNotes": [
+            {
+              "type": "script",
+              "text": "\"Now, let's read a second team directory entry.\""
+            },
+            {
+              "type": "instruction",
+              "text": "Read the instruction."
+            },
+            {
+              "type": "script",
+              "text": "I will read the tutor parts, you will read the student parts"
+            },
+            {
+              "type": "instruction",
+              "text": "Then ask the comprehension questions in the dialogue."
+            },
+            {
+              "type": "script",
+              "text": "Nice! Let's go to the next part!"
+            }
+          ]
+        },
+        {
+          "title": "Step 4 — Complete Your Own Profile",
+          "instructionEn": "Complete your own team directory entry using the patterns.",
+          "instructionKr": "패턴을 사용하여 자신의 팀 디렉터리 정보를 완성하세요.",
+          "content": "My name is _______________.<br>I live in _______________.<br>I work at _______________.<br>I am a/an _______________.<br>I like _______________.<br>My hobby is _______________.",
+          "tutorNotes": [
+            {
+              "type": "script",
+              "text": "\"Now, let's make your own team directory entry!\""
+            },
+            {
+              "type": "instruction",
+              "text": "Read the instruction."
+            },
+            {
+              "type": "instruction",
+              "text": "Ask the student to read and fill in the blanks with their own information."
+            },
+            {
+              "type": "tip",
+              "text": "For lower-level students, do it one line at a time."
+            },
+            {
+              "type": "script",
+              "text": "Nice! Let's go to the next part!"
+            }
+          ]
+        }
+      ],
+      "activityBlocks": []
+    },
+    "challenge": {
+      "scenarioEn": "During the roleplay, you will be David Kim. You will introduce yourself to another professional. Read your team directory card below.",
+      "scenarioKr": "역할극에서 당신은 데이비드 김입니다. 다른 직장인 한 명에게 자기소개를 합니다. 아래의 팀 디렉터리 카드를 읽어 보세요.",
+      "guideQuestions": [],
+      "activityBlocks": [
+        {
+          "id": "challenge-entry-david-kim",
+          "passage": "Hello! My name is David Kim. I live in Daejeon now. I work at Global Tech. I am an engineer. I like hiking. My hobby is playing guitar. Nice to meet you!",
+          "questions": [],
+          "title": "Team Directory Entry: David Kim",
+          "titleKr": "팀 디렉터리 정보: 데이비드 김",
+          "type": "readingPassage"
+        }
+      ],
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Now let's do simulation\""
+        },
+        {
+          "type": "script",
+          "text": "\"First please read the Key Expressions. You may use the Key Expressions in the Simulation.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read the simulation."
+        },
+        {
+          "type": "script",
+          "text": "\"Is it clear?\" ...Now let's start our roleplay!"
+        },
+        {
+          "type": "instruction",
+          "text": "Use the prompt questions to guide the roleplay."
+        },
+        {
+          "type": "instruction",
+          "text": "Give feedback after finishing."
+        },
+        {
+          "type": "tip",
+          "text": "This must be a real-life simulation, distinct from Practice. Corrections should only be done after the exercise."
+        },
+        {
+          "type": "question",
+          "text": "Hi! I'm new here too. What's your name?"
+        },
+        {
+          "type": "question",
+          "text": "Nice to meet you, David. Where do you live now?"
+        },
+        {
+          "type": "question",
+          "text": "Where do you work?"
+        },
+        {
+          "type": "question",
+          "text": "What is your hobby?"
+        },
+        {
+          "type": "question",
+          "text": "Wow! I like (Student's hobby) too!"
+        }
+      ]
+    },
+    "discussion": {
+      "instructionEn": "Choose one category, then answer the questions.",
+      "instructionKr": "카테고리를 하나 선택하고 질문에 답하세요.",
+      "categories": [
+        {
+          "questions": [
+            "Where do you live now?",
+            "Where do you work?",
+            "What do you like doing after work?"
+          ],
+          "title": "ABOUT YOU"
+        },
+        {
+          "questions": [
+            "What do you like doing on weekends?",
+            "What is your hobby?",
+            "Do you have any new hobbies you want to try?"
+          ],
+          "title": "YOUR HOBBIES"
+        },
+        {
+          "questions": [
+            "Can you tell me about a coworker?",
+            "Where does he/she work?",
+            "What does he/she like?"
+          ],
+          "title": "YOUR COWORKER"
+        }
+      ],
+      "activityBlocks": [],
+      "tutorNotes": [
+        {
+          "type": "script",
+          "text": "\"Now, let's have a discussion.\""
+        },
+        {
+          "type": "instruction",
+          "text": "Read the instruction."
+        },
+        {
+          "type": "instruction",
+          "text": "Ask the student to choose a category."
+        },
+        {
+          "type": "instruction",
+          "text": "You can ask follow-up questions and have a natural conversation with the student until the time for feedback."
+        }
+      ]
+    },
+    "feedback": {
+      "goalReviewEn": "Can read and understand simple information about a coworker.",
+      "goalReviewKr": "동료에 대한 간단한 정보를 읽고 이해할 수 있다.",
+      "feedbackTemplate": "*OVERALL SCORE*<br>Overall: (score)<br>- comment<br><br>*Reading Comprehension*<br>Reading:<br>- Could answer questions correctly: (yes/partially/no)<br>- Reading speed: (good/needs practice)<br><br>*Vocabulary / Phrases*<br>Vocabulary:<br>- word/phrase<br>- word/phrase<br><br>*Pronunciation*<br>Pronunciation:<br>- mispronounced word<br>- mispronounced word",
+      "nextLessonLabel": "CHAPTER 1: WORK INTRODUCTIONS",
+      "nextLessonName": "Lesson 3: Tell Me About Yourself",
+      "tutorNotes": [
+        {
+          "text": "\"It's the end of the lesson. Great job!\"",
+          "type": "script"
+        },
+        {
+          "text": "Ask the student to read the lesson goal.",
+          "type": "instruction"
+        },
+        {
+          "text": "\"Were you able to achieve today's lesson goal?\"",
+          "type": "script"
+        },
+        {
+          "text": "Fill in and send the feedback template via chat.",
+          "type": "instruction"
+        },
+        {
+          "text": "Practice mispronounced words with the student.",
+          "type": "instruction"
+        },
+        {
+          "text": "Encourage the next lesson.",
+          "type": "tip"
+        }
+      ]
+    }
+  }
+}

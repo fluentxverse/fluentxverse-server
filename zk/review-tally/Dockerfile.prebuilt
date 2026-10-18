@@ -1,0 +1,14 @@
+FROM oven/bun:1@sha256:ec06c3b6cea04192ae6770c434f668ca41d343ad19fa6472216c7b48be39c598 AS bun-runtime
+FROM debian:trixie-slim@sha256:a29215f6a35e51e22adffa17f89e9d2ef06214e64a2bad10d765c46aea49f11f
+RUN apt-get update && apt-get install -y --no-install-recommends libstdc++6 && rm -rf /var/lib/apt/lists/* \
+    && groupadd --gid 1000 bun && useradd --uid 1000 --gid bun --create-home bun
+COPY --from=bun-runtime /usr/local/bin/bun /usr/local/bin/bun
+WORKDIR /app
+ARG APPROVED_BINARY_SHA256
+COPY target/release/review-tally-host /app/review-tally-host
+RUN test -n "$APPROVED_BINARY_SHA256" && printf '%s  /app/review-tally-host\n' "$APPROVED_BINARY_SHA256" | sha256sum -c -
+COPY prover-server.mjs ./
+USER bun
+EXPOSE 8092
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 CMD bun -e "const r=await fetch('http://127.0.0.1:8092/health');process.exit(r.ok?0:1)"
+CMD ["bun", "prover-server.mjs"]

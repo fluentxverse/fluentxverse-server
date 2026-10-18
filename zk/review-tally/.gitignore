@@ -1,0 +1,5 @@
+/target/
+/methods/guest/target/
+/proof-output.json
+/private-input.json
+

@@ -1,0 +1,475 @@
+import path from 'node:path';
+import { readFile, writeFile } from 'node:fs/promises';
+import { initDriver, closeDriver } from '../src/db/memgraph';
+import { lessonMaterialService } from '../src/services/lessonMaterial.service';
+
+const ROOT = path.resolve(import.meta.dir, '../..');
+const LESSON_PATH = path.join(
+  ROOT,
+  'docs/lesson-materials/business-conversation/level-03/lesson-data/ch01-L4-whos-who.json'
+);
+const TMP_PATH = path.join(ROOT, 'fluentxverse-server/tmp/L4-updated.json');
+const SYLLABUS_PATH = path.join(
+  ROOT,
+  'docs/lesson-materials/business-conversation/level-03/syllabus-level-03.json'
+);
+
+const lesson = {
+  chapterName: 'Work Introductions',
+  lessonName: "Who's Who?",
+  goalTextEn: 'Can ask about team members and their roles.',
+  goalTextKr: '팀원과 역할에 대해 질문할 수 있다.',
+  beData: {
+    lessonType: 'SPEAKING',
+    hiddenBlocks: [],
+    introduce: {
+      goalEn: 'Can ask about team members and their roles.',
+      goalKr: '팀원과 역할에 대해 질문할 수 있다.',
+      situationEn:
+        'You are joining a new project team. You want to learn who does what, so you ask a coworker about the team members.',
+      situationKr:
+        '새 프로젝트 팀에 합류합니다. 누가 어떤 일을 하는지 알고 싶어서 동료에게 팀원들에 대해 질문합니다.',
+      taskEn:
+        'Ask about at least 3 team members and their department, team, or responsibility.',
+      taskKr:
+        '최소 3명의 팀원에 대해 부서, 팀, 또는 담당 업무를 질문해 보세요.',
+      tutorNotes: [
+        { type: 'script', text: '"Today, we will practice asking about teammates at work."' },
+        { type: 'instruction', text: 'Read the lesson goal aloud. Ask the student to repeat.' },
+        { type: 'script', text: '"Is it clear?"' },
+        { type: 'instruction', text: 'Read the situation.' },
+        { type: 'script', text: '"Let\'s go to the next part."' },
+        { type: 'tip', text: 'Keep the questions short and clear.' },
+      ],
+    },
+    present: {
+      patterns: [
+        {
+          en: '<b>What department does</b> Greg <b>work in</b>?',
+          kr: '그렉은 어느 부서에서 일하나요?',
+        },
+        {
+          en: '<b>What team is</b> Daniel <b>part of</b>?',
+          kr: '다니엘은 어느 팀 소속인가요?',
+        },
+        {
+          en: '<b>What is</b> Emma <b>in charge of</b>?',
+          kr: '엠마는 무엇을 담당하나요?',
+        },
+        {
+          en: '<b>Do you work with</b> Oliver?',
+          kr: '올리버와 함께 일하나요?',
+        },
+        {
+          en: '<b>Who should I talk to about</b> customer support?',
+          kr: '고객 지원에 대해서는 누구와 이야기하면 되나요?',
+        },
+      ],
+      vocabulary: [
+        {
+          word: 'department',
+          pos: 'noun',
+          translation: '부서',
+          definition: 'one part of a company or office',
+          pronunciation: '/dɪˈpɑːrtmənt/',
+        },
+        {
+          word: 'responsibility',
+          pos: 'noun',
+          translation: '담당 업무',
+          definition: 'a job or duty that a person is in charge of',
+          pronunciation: '/rɪˌspɑːnsəˈbɪləti/',
+        },
+        {
+          word: 'project team',
+          pos: 'phrase',
+          translation: '프로젝트 팀',
+          definition: 'a team working together on one project',
+          pronunciation: '/ˈprɑːdʒekt tiːm/',
+        },
+      ],
+      pronunciation: {
+        instruction: 'Let\'s practice the /w/ and /v/ sounds.',
+        instructionKr: '/w/와 /v/ 발음을 연습합시다.',
+        left: {
+          symbol: '/w/',
+          words: [
+            { en: 'what', kr: '무엇' },
+            { en: 'work', kr: '일하다' },
+            { en: 'with', kr: '~와 함께' },
+            { en: 'week', kr: '주' },
+            { en: 'will', kr: '~할 것이다' },
+          ],
+        },
+        right: {
+          symbol: '/v/',
+          words: [
+            { en: 'very', kr: '매우' },
+            { en: 'visitor', kr: '방문객' },
+            { en: 'visit', kr: '방문하다' },
+            { en: 'voice', kr: '목소리' },
+            { en: 'video', kr: '영상' },
+          ],
+        },
+      },
+      tutorNotes: [
+        { type: 'script', text: '"Let\'s look at questions used when asking about teammates."' },
+        { type: 'instruction', text: 'Read the first pattern. Ask the student to repeat.' },
+        { type: 'script', text: '"Use this to ask about a person\'s department."' },
+        { type: 'instruction', text: 'Read the second pattern. Ask the student to repeat.' },
+        { type: 'script', text: '"Use this to ask about a team."' },
+        { type: 'instruction', text: 'Read the third pattern. Ask the student to repeat.' },
+        { type: 'script', text: '"Use this to ask about a responsibility."' },
+        { type: 'instruction', text: 'Read the fourth pattern. Ask the student to repeat.' },
+        { type: 'script', text: '"Use this to ask if two people work together."' },
+        { type: 'instruction', text: 'Read the fifth pattern. Ask the student to repeat.' },
+        { type: 'script', text: '"Use this to ask the right person for help."' },
+        { type: 'script', text: '"Do you have any questions about the patterns?"' },
+        { type: 'script', text: '"Let\'s go to the next page."' },
+      ],
+    },
+    understand: {
+      instruction: 'Complete the missing words. Then practice the pattern drills.',
+      instructionKr: '빠진 단어를 완성하세요. 그런 다음 패턴 드릴을 연습하세요.',
+      fillRows: [
+        {
+          parts: [
+            { text: 'What ', isBlank: false },
+            { text: 'department', isBlank: true },
+            { text: ' does Greg work in?', isBlank: false },
+          ],
+        },
+        {
+          parts: [
+            { text: 'What team is Daniel ', isBlank: false },
+            { text: 'part', isBlank: true },
+            { text: ' of?', isBlank: false },
+          ],
+        },
+        {
+          parts: [
+            { text: 'What is Emma in ', isBlank: false },
+            { text: 'charge', isBlank: true },
+            { text: ' of?', isBlank: false },
+          ],
+        },
+        {
+          parts: [
+            { text: 'Do you work ', isBlank: false },
+            { text: 'with', isBlank: true },
+            { text: ' Oliver?', isBlank: false },
+          ],
+        },
+        {
+          parts: [
+            { text: 'Who should I talk to about customer ', isBlank: false },
+            { text: 'support', isBlank: true },
+            { text: '?', isBlank: false },
+          ],
+        },
+      ],
+      patternDrills: [
+        {
+          label: 'Asking about a department',
+          labelKr: '부서를 질문하기',
+          template: 'What department does ___ work in?',
+          examples: [
+            { en: 'What department does Greg work in?', kr: '그렉은 어느 부서에서 일하나요?' },
+            { en: 'What department does Emma work in?', kr: '엠마는 어느 부서에서 일하나요?' },
+            { en: 'What department does Daniel work in?', kr: '다니엘은 어느 부서에서 일하나요?' },
+            { en: 'What department does Olivia work in?', kr: '올리비아는 어느 부서에서 일하나요?' },
+            { en: 'What department does Noah work in?', kr: '노아는 어느 부서에서 일하나요?' },
+          ],
+        },
+        {
+          label: 'Asking about a team',
+          labelKr: '팀을 질문하기',
+          template: 'What team is ___ part of?',
+          examples: [
+            { en: 'What team is Daniel part of?', kr: '다니엘은 어느 팀 소속인가요?' },
+            { en: 'What team is Emma part of?', kr: '엠마는 어느 팀 소속인가요?' },
+            { en: 'What team is Noah part of?', kr: '노아는 어느 팀 소속인가요?' },
+            { en: 'What team is Grace part of?', kr: '그레이스는 어느 팀 소속인가요?' },
+            { en: 'What team is Olivia part of?', kr: '올리비아는 어느 팀 소속인가요?' },
+          ],
+        },
+        {
+          label: 'Asking about a responsibility',
+          labelKr: '담당 업무를 질문하기',
+          template: 'What is ___ in charge of?',
+          examples: [
+            { en: 'What is Emma in charge of?', kr: '엠마는 무엇을 담당하나요?' },
+            { en: 'What is Daniel in charge of?', kr: '다니엘은 무엇을 담당하나요?' },
+            { en: 'What is Noah in charge of?', kr: '노아는 무엇을 담당하나요?' },
+            { en: 'What is Grace in charge of?', kr: '그레이스는 무엇을 담당하나요?' },
+            { en: 'What is Olivia in charge of?', kr: '올리비아는 무엇을 담당하나요?' },
+          ],
+        },
+        {
+          label: 'Asking who someone works with',
+          labelKr: '함께 일하는 사람을 질문하기',
+          template: 'Do you work with ___?',
+          examples: [
+            { en: 'Do you work with Oliver?', kr: '올리버와 함께 일하나요?' },
+            { en: 'Do you work with Emma?', kr: '엠마와 함께 일하나요?' },
+            { en: 'Do you work with Noah?', kr: '노아와 함께 일하나요?' },
+            { en: 'Do you work with Grace?', kr: '그레이스와 함께 일하나요?' },
+            { en: 'Do you work with Mia?', kr: '미아와 함께 일하나요?' },
+          ],
+        },
+        {
+          label: 'Asking the right person',
+          labelKr: '알맞은 사람을 질문하기',
+          template: 'Who should I talk to about ___?',
+          examples: [
+            { en: 'Who should I talk to about customer support?', kr: '고객 지원에 대해서는 누구와 이야기하면 되나요?' },
+            { en: 'Who should I talk to about training?', kr: '교육에 대해서는 누구와 이야기하면 되나요?' },
+            { en: 'Who should I talk to about weekly reports?', kr: '주간 보고서에 대해서는 누구와 이야기하면 되나요?' },
+            { en: 'Who should I talk to about new orders?', kr: '신규 주문에 대해서는 누구와 이야기하면 되나요?' },
+            { en: 'Who should I talk to about client visits?', kr: '고객 방문에 대해서는 누구와 이야기하면 되나요?' },
+          ],
+        },
+      ],
+      activityBlocks: [],
+      tutorNotes: [
+        { type: 'script', text: '"Now, let\'s work on comprehension."', group: 'comprehension' },
+        { type: 'instruction', text: 'Read the instruction.', group: 'comprehension' },
+        { type: 'script', text: '"First, let\'s practice the sentence patterns."', group: 'comprehension' },
+        { type: 'instruction', text: 'Read each pattern heading, then continue the drill. Ask the student to repeat and complete the blanks.', group: 'comprehension' },
+        { type: 'tip', text: 'Focus on one question pattern at a time.', group: 'comprehension' },
+        { type: 'script', text: '"Do you have any questions? ...Let\'s go to the next part!"', group: 'comprehension' },
+        { type: 'script', text: '"Now, let\'s look at the word bank."', group: 'wordBank' },
+        { type: 'instruction', text: 'Read each word, then ask the student to repeat.', group: 'wordBank' },
+        { type: 'instruction', text: 'Correct the student\'s pronunciation errors if needed.', group: 'wordBank' },
+        { type: 'tip', text: 'For lower-level students, read the word and the definition, then ask the student to repeat.', group: 'wordBank' },
+        { type: 'script', text: '"Do you have any questions? ...Let\'s go to the next part!"', group: 'wordBank' },
+        { type: 'script', text: '"Now, let\'s practice the /w/ and /v/ sounds."', group: 'soundPractice' },
+        { type: 'instruction', text: 'Practice the /w/ words first, then the /v/ words. Ask the student to repeat.', group: 'soundPractice' },
+        { type: 'instruction', text: 'Teach the student how to pronounce /w/ and /v/ with lip position if needed.', group: 'soundPractice' },
+        { type: 'instruction', text: 'Correct mispronounced words after reading.', group: 'soundPractice' },
+        { type: 'script', text: '"Do you have any questions? ...Let\'s go to the next part."', group: 'soundPractice' },
+      ],
+    },
+    practice: {
+      steps: [
+        {
+          title: 'Step 1 - Repeat After Me',
+          instructionEn: 'Listen and repeat each question.',
+          instructionKr: '질문을 듣고 따라 하세요.',
+          content: '1. What department does Greg work in?<br>2. What team is Daniel part of?<br>3. What is Emma in charge of?<br>4. Do you work with Oliver?<br>5. Who should I talk to about customer support?<br>6. Thanks. That helps a lot.',
+          tutorNotes: [
+            { type: 'script', text: '"Let\'s practice today\'s question patterns."' },
+            { type: 'instruction', text: 'Read the instruction.' },
+            { type: 'instruction', text: 'Read each sentence. Ask the student to repeat.' },
+            { type: 'instruction', text: 'Adjust speed according to the student\'s level.' },
+            { type: 'instruction', text: 'Correct mispronounced words after reading.' },
+            { type: 'script', text: '"Nice! Let\'s go to the next part!"' },
+          ],
+        },
+        {
+          title: 'Step 2 - Complete the Questions',
+          instructionEn: 'Complete the questions with the missing words.',
+          instructionKr: '빠진 단어를 넣어 질문을 완성하세요.',
+          content: '1. What __________ does Greg work in?<br>2. What team is Daniel __________ of?<br>3. What is Emma in __________ of?<br>4. Do you work __________ Oliver?<br>5. Who should I talk to about customer __________?',
+          tutorNotes: [
+            { type: 'script', text: '"Now, complete the questions."' },
+            { type: 'instruction', text: 'Read the instruction.' },
+            { type: 'instruction', text: 'Ask the student to complete each blank, then read the full questions aloud.' },
+            { type: 'tip', text: 'Have the student say each question with a natural rising tone.' },
+            { type: 'script', text: '"Nice! Let\'s go to the next part!"' },
+          ],
+        },
+        {
+          title: 'Step 3 - Dialogue Practice',
+          instructionEn: 'Practice the dialogue with your tutor. You are asking about the project team.',
+          instructionKr: '선생님과 대화를 연습하세요. 당신은 프로젝트 팀에 대해 질문하고 있습니다.',
+          dialogue: [
+            { role: 'tutor', en: 'Hi! I am Grace from HR. Do you have any questions about the team?', kr: '안녕하세요! 저는 인사팀의 그레이스입니다. 팀에 대해 궁금한 점이 있나요?' },
+            { role: 'student', en: 'Yes. What department does Greg work in?', kr: '네. 그렉은 어느 부서에서 일하나요?' },
+            { role: 'tutor', en: 'Greg works in the Sales department.', kr: '그렉은 영업부에서 일합니다.' },
+            { role: 'student', en: 'I see. What team is Daniel part of?', kr: '알겠습니다. 다니엘은 어느 팀 소속인가요?' },
+            { role: 'tutor', en: 'He is part of the Project team.', kr: '그는 프로젝트 팀 소속입니다.' },
+            { role: 'student', en: 'Thanks. What is Emma in charge of?', kr: '감사합니다. 엠마는 무엇을 담당하나요?' },
+            { role: 'tutor', en: 'She is in charge of client visits.', kr: '그녀는 고객 방문을 담당합니다.' },
+            { role: 'student', en: 'Who should I talk to about customer support?', kr: '고객 지원에 대해서는 누구와 이야기하면 되나요?' },
+            { role: 'tutor', en: 'You should talk to Chloe about customer support.', kr: '고객 지원에 대해서는 클로이와 이야기하면 됩니다.' },
+          ],
+          tutorNotes: [
+            { type: 'script', text: '"Now, let\'s practice the dialogue."' },
+            { type: 'instruction', text: 'Read the instruction.' },
+            { type: 'script', text: '"I will read the tutor parts. You will read the student parts."' },
+            { type: 'instruction', text: 'Do it once while reading, then once again without looking at the screen if possible.' },
+            { type: 'tip', text: 'If time permits, switch roles so the student practices answering too.' },
+            { type: 'script', text: '"Nice! Let\'s go to the next part!"' },
+          ],
+        },
+        {
+          title: 'Step 4 - Ask About the Team',
+          instructionEn: 'Ask your tutor 4 questions about the team without looking at the screen.',
+          instructionKr: '화면을 보지 않고 선생님에게 팀에 대한 질문 4개를 하세요.',
+          content: 'Include:<br>- one department question<br>- one team question<br>- one responsibility question<br>- one free question',
+          tutorNotes: [
+            { type: 'script', text: '"Now, ask me 4 questions about the team without looking at the screen."' },
+            { type: 'instruction', text: 'Read the instruction.' },
+            { type: 'instruction', text: 'Let the student ask freely. Answer naturally, but keep the answers short.' },
+            { type: 'instruction', text: 'After each question, encourage the student to ask a follow-up question.' },
+            { type: 'tip', text: 'If the student gets stuck, point to one pattern and let them try again.' },
+            { type: 'script', text: '"Nice! Let\'s go to the next part!"' },
+          ],
+        },
+      ],
+      activityBlocks: [],
+    },
+    challenge: {
+      scenarioEn:
+        'You are meeting Grace from HR before your first team meeting. Ask Grace about the people on the project team. Use today\'s key expressions to ask about departments, teams, responsibilities, and the right person to talk to.',
+      scenarioKr:
+        '첫 팀 미팅 전에 인사팀의 그레이스를 만납니다. 프로젝트 팀 사람들에 대해 그레이스에게 질문하세요. 오늘의 핵심 표현을 사용해 부서, 팀, 담당 업무, 그리고 누구와 이야기해야 하는지 물어보세요.',
+      guideQuestions: [],
+      roleplayTable: null,
+      activityBlocks: [],
+      tutorNotes: [
+        { type: 'script', text: '"Now let\'s do simulation"' },
+        { type: 'script', text: '"First please read the Key Expressions. ...You may use the Key Expressions in the Simulation."' },
+        { type: 'instruction', text: 'Read the simulation.' },
+        { type: 'script', text: '"Is it clear?"' },
+        { type: 'script', text: '"Now, I am Grace from HR. Ask me about the team."' },
+        { type: 'instruction', text: 'Let the student ask first. Use the prompt lines to answer naturally and continue the conversation.' },
+        { type: 'instruction', text: 'Give feedback after finishing.' },
+        { type: 'tip', text: 'This must be a real-life simulation, distinct from Practice. Corrections should only be done after the exercise.' },
+        { type: 'question', text: 'Greg works in the Sales department. Do you work with him often?' },
+        { type: 'question', text: 'Daniel is part of the Project team. Have you met him yet?' },
+        { type: 'question', text: 'Emma is in charge of client visits. Do you meet clients too?' },
+        { type: 'question', text: 'Yes, I do. Oliver helps with weekly reports. Who do you work with most?' },
+        { type: 'question', text: 'You should talk to Chloe about customer support. Is there anything else you want to know?' },
+      ],
+    },
+    discussion: {
+      instructionEn: 'Choose one category, then answer the questions.',
+      instructionKr: '카테고리를 하나 선택하고 질문에 답하세요.',
+      categories: [
+        {
+          title: 'YOUR TEAM',
+          questions: [
+            'Who works closest to you?',
+            'What team are you part of?',
+            'Who is in charge of your biggest task?',
+          ],
+        },
+        {
+          title: 'NEW COWORKERS',
+          questions: [
+            'What do you want to know about a new coworker first?',
+            'Is it easy for you to ask questions in English?',
+            'What is a good first question at work?',
+          ],
+        },
+        {
+          title: 'WORKPLACE HELP',
+          questions: [
+            'Who do you ask for help at work?',
+            'Which department do you contact most often?',
+            'Why is it important to know each person\'s role?',
+          ],
+        },
+      ],
+      activityBlocks: [],
+      tutorNotes: [
+        { type: 'script', text: '"Let\'s have a discussion about workplace teams."' },
+        { type: 'instruction', text: 'Ask the student to choose a category.' },
+        { type: 'tip', text: 'Encourage the student to reuse today\'s question patterns when possible.' },
+      ],
+    },
+    feedback: {
+      goalReviewEn: 'Can ask about team members and their roles.',
+      goalReviewKr: '팀원과 역할에 대해 질문할 수 있다.',
+      feedbackTemplate:
+        '*OVERALL SCORE*<br>Overall: (score)<br>- comment<br><br>*Pattern Usage*<br>- Asked about departments clearly: (yes/partially/no)<br>- Asked about teams and responsibilities clearly: (yes/partially/no)<br><br>*Vocabulary / Phrases*<br>- word/phrase<br>- word/phrase<br><br>*Pronunciation*<br>- mispronounced word<br>- mispronounced word<br><br>*Next Steps*<br>- recommendation',
+      nextLessonLabel: 'CHAPTER 1: WORK INTRODUCTIONS',
+      nextLessonName: 'Lesson 5: First Impressions',
+      tutorNotes: [
+        { type: 'script', text: '"Excellent work today!"' },
+        { type: 'instruction', text: 'Ask the student to read the lesson goal.' },
+        { type: 'script', text: '"Were you able to achieve today\'s lesson goal?"' },
+        { type: 'instruction', text: 'Fill in and send the feedback template.' },
+        { type: 'instruction', text: 'Practice mispronounced words.' },
+        { type: 'tip', text: 'Encourage next lesson: "Next time, we will review everything from Lessons 1 to 4!"' },
+      ],
+    },
+  },
+};
+
+const syllabusUpdate = {
+  lesson: 4,
+  skill: 'speaking',
+  name: "Who's Who?",
+  goalEn: 'Can ask about team members and their roles.',
+  targetPatterns: [
+    'What department does ___ work in?',
+    'What team is ___ part of?',
+    'What is ___ in charge of?',
+    'Do you work with ___?',
+    'Who should I talk to about ___?',
+  ],
+  vocabulary: ['department', 'responsibility', 'project team'],
+  pronunciation: '/w/ vs /v/',
+  situation: 'You are joining a new project team. Ask a coworker questions about team members and what they do.',
+  goalKr: '팀원과 역할에 대해 질문할 수 있다.',
+};
+
+async function syncFiles() {
+  await writeFile(LESSON_PATH, `${JSON.stringify(lesson, null, 2)}\n`);
+  await writeFile(TMP_PATH, `${JSON.stringify(lesson, null, 2)}\n`);
+
+  const syllabusRaw = await readFile(SYLLABUS_PATH, 'utf8');
+  const syllabus = JSON.parse(syllabusRaw);
+  const chapter = (syllabus.chapters || []).find((item: any) => item.chapter === 1);
+  const targetLesson = chapter?.lessons?.find((item: any) => item.lesson === 4);
+  if (!targetLesson) {
+    throw new Error('Could not find Level 3 Chapter 1 Lesson 4 in the syllabus file.');
+  }
+  Object.assign(targetLesson, syllabusUpdate);
+  await writeFile(SYLLABUS_PATH, `${JSON.stringify(syllabus, null, 2)}\n`);
+}
+
+async function syncDb() {
+  await initDriver(
+    process.env.MEMGRAPH_URI || 'bolt://localhost:7687',
+    process.env.MEMGRAPH_USER || 'fluentxverse',
+    process.env.MEMGRAPH_PASSWORD || 'devpassword123!ChangeMe'
+  );
+
+  try {
+    const lessons = await lessonMaterialService.listByCourse('business-english');
+    const existing = lessons.find((item) => (
+      item.level === 3 && item.chapter === 1 && item.lessonNumber === 4 && item.skill === 'speaking'
+    ));
+
+    if (!existing) {
+      throw new Error('Could not find the existing DB lesson for Level 3 Chapter 1 Lesson 4.');
+    }
+
+    await lessonMaterialService.updateHeader(existing.id, {
+      chapterName: lesson.chapterName,
+      lessonName: lesson.lessonName,
+      goalTextEn: lesson.goalTextEn,
+      goalTextJp: lesson.goalTextKr,
+      beData: lesson.beData,
+    });
+
+    console.log(`Updated DB lesson: ${existing.id}`);
+  } finally {
+    await closeDriver();
+  }
+}
+
+async function main() {
+  await syncFiles();
+  await syncDb();
+  console.log('Lesson 4 source, syllabus, and DB are synced.');
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

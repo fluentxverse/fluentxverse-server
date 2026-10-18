@@ -1,0 +1,11 @@
+{
+  "name": "fluentxverse-server-source",
+  "private": true,
+  "description": "Bun and Elysia application API for tutoring, scheduling, screening evidence, recordings, and compensation.",
+  "scripts": {
+    "setup": "cd fluentxverse-server && bun install",
+    "dev": "npm --prefix fluentxverse-server run dev",
+    "start": "npm --prefix fluentxverse-server run start",
+    "typecheck": "cd fluentxverse-server && bunx tsc --noEmit --project tsconfig.standalone.json"
+  }
+}
