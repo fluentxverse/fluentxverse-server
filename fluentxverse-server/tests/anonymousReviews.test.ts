@@ -15,7 +15,7 @@ const savedEnv = { ...process.env };
 afterEach(() => { for (const key of Object.keys(process.env)) if (!(key in savedEnv)) delete process.env[key]; Object.assign(process.env, savedEnv); });
 const content = { rating: 5, positive: ['feedback'], improvement: ['connection'], salt: 'ab'.repeat(32) };
 function configure() {
-  process.env.PRIVACY_INFRA_MODE = 'legacy_contracts';
+  process.env.PRIVACY_INFRA_MODE = 'bridge_only';
   process.env.ANONYMOUS_REVIEWS_ENABLED = 'true';
   process.env.ANONYMOUS_REVIEWS_CONTRACT = `0x${'1'.repeat(40)}`;
   process.env.ANONYMOUS_REVIEWS_BRIDGE = '0x3098A6974649478f0133046e44105AA84e868C21';
@@ -59,7 +59,7 @@ test('encrypted feedback authenticates context; summaries do not expose salt or 
 test.skipIf(!existsSync(new URL('../../fluentxverse-student-solid-prototype/public/anonymous-reviews/semaphore.zkey', import.meta.url)))(
   'actual Semaphore proof verifies; changed message, scope, nullifier and root do not', async () => {
   configure();
-  const fixture = JSON.parse(execFileSync('node', [new URL('../../contracts/anonymous-reviews/fixture.mjs', import.meta.url).pathname], { encoding: 'utf8', timeout: 120_000 }));
+  const fixture = JSON.parse(execFileSync('node', [new URL('./fixtures/anonymousReviewProof.mjs', import.meta.url).pathname], { encoding: 'utf8', timeout: 120_000 }));
   const proof = parseReviewProof(fixture.proof);
   expect(reviewVerificationKey().nPublic).toBe(4);
   expect(reviewPublicSignals(proof)).toEqual(fixture.signals);

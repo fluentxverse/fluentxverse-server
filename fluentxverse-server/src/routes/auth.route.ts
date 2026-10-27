@@ -8,9 +8,12 @@ import { LoginSchema, RegisterSchema, LogoutSchema, MeSchema, UpdatePersonalInfo
 import type { LoginReturnParams } from "@/services/auth.services/auth.interface";
 import { signAuthToken, verifyAuthToken, getCookieConfig, type JwtAuthPayload } from "../utils/jwt";
 import { clearTutorSessionCookies, resolveTutorSession, setTutorSessionCookie } from '../utils/tutorSession';
+import { createTutorEmailRoutes } from './tutorEmail.route';
+import { tutorEmailService } from '../services/auth.services/tutorEmail.service';
 
 // Define routes as an Elysia plugin instance to preserve route types
 const Auth = new Elysia({ name: 'auth', prefix: '/tutor' })
+    .use(createTutorEmailRoutes())
     .post('/register', async ({ body, set }) => {
       try 
       {
@@ -35,9 +38,14 @@ const Auth = new Elysia({ name: 'auth', prefix: '/tutor' })
         // Set httpOnly cookie with signed JWT
         setTutorSessionCookie(set, token);
 
+        // SMTP must not turn a saved registration into a client timeout. A failed
+        // initial attempt remains recoverable through the authenticated resend page.
+        void tutorEmailService.send(userData.id).catch(() => {});
+
         const responsePayload = {
           success: true,
           message: result.message,
+          emailConfirmationRequired: true,
           user: {
             ...userData,
             userId: userData.id

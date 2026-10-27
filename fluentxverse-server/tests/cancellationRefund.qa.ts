@@ -45,7 +45,7 @@ async function fixture(name: string, offset: number) {
 const report: any = { testedAt: new Date().toISOString(), image: process.env.SLOT_QA_IMAGE, synthetic: true, cases: [] };
 try {
   assert.equal(number((await graph.run('MATCH (n) RETURN count(n) AS n')).records[0]!.get('n')), 0);
-  await graph.run(`CREATE (:User {id:'refund-qa-tutor',firstName:'QA',lastName:'Tutor',writtenExamPassed:true,speakingExamPassed:true,profileStatus:'approved'}),
+  await graph.run(`CREATE (:User {id:'refund-qa-tutor',firstName:'QA',lastName:'Tutor',writtenExamPassed:true,speakingExamPassed:true,interviewPassed:true,profileStatus:'approved'}),
     (:Admin {id:'refund-qa-finance',role:'admin',permissions:['finance']})`);
   const rate = await rates.save('refund-qa-tutor', { currency: 'USD', amount: '12.50', expectedVersion: 0, requestId: crypto.randomUUID(), reason: 'Synthetic QA' }, 'refund-qa-finance');
   await graph.run('MATCH (r:TutorRateChange {id:$id}) SET r.changedAt=$at', { id: rate.change.id, at: new Date(Date.now() - 86400000).toISOString() });

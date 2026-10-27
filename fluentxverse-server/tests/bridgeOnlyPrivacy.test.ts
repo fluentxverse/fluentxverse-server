@@ -20,7 +20,7 @@ const config = { chainId: 2651420, bridge: HORIZEN_TESTNET_BRIDGE, domainId: 175
 const receipt = { aggregationId: '1215', merklePath: [], leafCount: '1', index: '0' };
 function reviews() {
   Object.assign(process.env, { PRIVACY_INFRA_MODE: 'bridge_only', ANONYMOUS_REVIEWS_ENABLED: 'true',
-    ANONYMOUS_REVIEWS_BRIDGE: HORIZEN_TESTNET_BRIDGE, ANONYMOUS_REVIEWS_DOMAIN_ID: '175', ANONYMOUS_REVIEWS_RPC_URL: config.rpcUrl,
+    ANONYMOUS_REVIEWS_CHAIN_ID: '2651420', ANONYMOUS_REVIEWS_BRIDGE: HORIZEN_TESTNET_BRIDGE, ANONYMOUS_REVIEWS_DOMAIN_ID: '175', ANONYMOUS_REVIEWS_RPC_URL: config.rpcUrl,
     ANONYMOUS_REVIEWS_ZKVERIFY_VK_HASH: hash, ANONYMOUS_REVIEWS_WASM_SHA256: 'a'.repeat(64), ANONYMOUS_REVIEWS_ZKEY_SHA256: 'b'.repeat(64) });
   delete process.env.ANONYMOUS_REVIEWS_CONTRACT;
   const keys = JSON.parse(readFileSync(new URL('../src/verification-keys.json', import.meta.resolve('@semaphore-protocol/proof')), 'utf8'));
@@ -29,6 +29,14 @@ function reviews() {
 test('bridge-only is the default and unknown infrastructure fails closed', () => {
   delete process.env.PRIVACY_INFRA_MODE; expect(privacyInfrastructure()).toBe('bridge_only');
   process.env.PRIVACY_INFRA_MODE = 'typo'; expect(privacyInfrastructure).toThrow();
+});
+test('retired screening API client cannot send requests even with an Engine connection', async () => {
+  const { GmrScreeningEngineClient } = await import('../src/services/web3.services/gmrScreeningEngine.service');
+  const client = new GmrScreeningEngineClient('http://127.0.0.1:1', 'synthetic-test-key');
+  for (const action of ['config', 'register', 'prove', 'submit', 'certify', 'revoke']) {
+    await expect(client.operation(action)).rejects.toThrow('archived');
+  }
+  await expect(client.queue('register')).rejects.toThrow('archived');
 });
 test('only the official bridge is read at a fixed finalized block; missing roots never verify', async () => {
   let chain = 2651420, code = '0x01', accepted = false, changed = false;
@@ -69,9 +77,9 @@ test('review cohorts and acceptance use the bridge without registry reads or wri
     expect(await chain.accepted(proof)).toBe(false);
     expect(await chain.accepted(proof, JSON.stringify(receipt))).toBe(false);
     verify.mockResolvedValue(true); expect(await chain.accepted(proof, JSON.stringify(receipt))).toBe(true);
-    await expect(chain.certify(proof, receipt)).rejects.toThrow('writes are disabled');
+    await expect(chain.certify(proof, receipt)).rejects.toThrow('archived');
     process.env.PRIVACY_INFRA_MODE = 'legacy_contracts';
-    expect(reviewGroupId('tutor', '2026-10')).not.toBe(id);
+    expect(() => reviewGroupId('tutor', '2026-10')).toThrow('archived');
   } finally { check.mockRestore(); verify.mockRestore(); }
 });
 test('review certification persists only after a finalized bridge receipt and never queues a contract transaction', async () => {
@@ -111,16 +119,17 @@ test('bridge-only tally snapshots include the platform acceptance set and verify
     proofJson: JSON.stringify({ merkleTreeDepth: 8, merkleTreeRoot: cohort.root, nullifier: String(i + 1), message: String(i + 3), scope: cohort.scope, points: Array(8).fill('0') }) }));
   const block = { number: 30n, hash, timestamp: BigInt(Date.parse(cohort.closesAt) / 1000 + 60) };
   const mocks = [spyOn(chain, 'check').mockResolvedValue(cfg), spyOn(chain, 'active').mockResolvedValue(true),
-    spyOn(repo, 'submissions').mockImplementation(async () => items), spyOn(horizenReceiptReader, 'verify').mockResolvedValue(true),
+    spyOn(repo, 'submissions').mockImplementation(async () => items), spyOn(horizenReceiptReader, 'verifyBatch').mockResolvedValue(Array(5).fill(true)),
     spyOn(source as any, 'client').mockReturnValue({ getBlock: async () => block, readContract: () => { throw new Error('Must not read an application registry'); } })];
   try {
     const snapshot = await source.collect(cohort); expect(snapshot.registry).toBe(HORIZEN_TESTNET_BRIDGE.toLowerCase());
-    expect(snapshot.accepted.length).toBe(5); expect(mocks[3]).toHaveBeenCalledTimes(5);
+    expect(snapshot.accepted.length).toBe(5); expect(mocks[3]).toHaveBeenCalledTimes(1);
+    expect((mocks[3] as any).mock.calls[0][1]).toHaveLength(5);
     expect(tallyManifestHash(snapshot)).toMatch(/^0x[a-f0-9]{64}$/);
     items[0]!.receiptJson = ''; await expect(source.collect(cohort)).rejects.toThrow('Invalid platform');
-    items[0]!.receiptJson = JSON.stringify(receipt); mocks[3]!.mockResolvedValue(false as never);
+    items[0]!.receiptJson = JSON.stringify(receipt); mocks[3]!.mockResolvedValue(Array(5).fill(false) as never);
     await expect(source.collect(cohort)).rejects.toThrow('finalized bridge');
-    mocks[3]!.mockResolvedValue(true as never); items = items.slice(0, 4);
+    mocks[3]!.mockResolvedValue(Array(4).fill(true) as never); items = items.slice(0, 4);
     await expect(source.collect(cohort)).rejects.toThrow('closed tally');
   } finally { mocks.forEach(m => m.mockRestore()); }
 });

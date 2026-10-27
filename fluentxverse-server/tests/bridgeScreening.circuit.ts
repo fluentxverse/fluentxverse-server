@@ -12,7 +12,7 @@ const signed = await signScreeningCredential(screeningFixture(), binding, Buffer
 assertCredentialCurrent(signed.publicSignals, binding, signed.signals.issuerHash);
 // Exercise the worker directly with development assets, never approve them for the runtime.
 process.env.SCREENING_ARTIFACTS_APPROVED = 'false';
-assert.throws(approvedScreeningArtifacts, /approval/);
+await assert.rejects(approvedScreeningArtifacts, /approval/);
 const result = await new Promise<any>((success, failure) => {
   const child = execFile('node', [resolve('src/services/screening/prove.mjs')], { timeout: 180_000, maxBuffer: 64000,
     env: { PATH: process.env.PATH, SCREENING_WASM_PATH: `${build}/tutor_screening_js/tutor_screening.wasm`,

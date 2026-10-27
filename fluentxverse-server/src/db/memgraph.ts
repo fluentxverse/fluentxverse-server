@@ -1,4 +1,5 @@
 import neo4j, { Driver } from 'neo4j-driver';
+import { ensureProfileIndexes } from './profileIndexes';
 
 
 let driver: Driver;
@@ -23,6 +24,7 @@ export async function initDriver(uri: string, username: string, password: string
 
       // Try to get server info to verify the connection
       await driver.getServerInfo();
+      await ensureProfileIndexes(driver).catch(error => console.warn('Profile index initialization failed:', error));
 
       // If connection is successful, break out of the loop
       return driver;
@@ -59,4 +61,3 @@ export async function closeDriver(): Promise<void> {
     await driver.close();
   }
 }
-

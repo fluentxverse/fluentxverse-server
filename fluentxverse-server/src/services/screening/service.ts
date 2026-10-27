@@ -1,5 +1,4 @@
 import { keccak256 } from 'viem';
-import { gmrScreeningEngine } from '../web3.services/gmrScreeningEngine.service';
 import { signScreeningCredential, assertCredentialCurrent } from './credential';
 import { agentRegistration, assertValidatorConfiguration, readChainCertification, screeningChainConfig, screeningPayloadBytes, screeningLeaf, submitBridgeScreeningProof } from './chain';
 import { privacyInfrastructure, validateHorizenReceipt } from '../proof.services/horizenReceipt';
@@ -22,6 +21,10 @@ async function credential(commitment: string) {
   if (!result || result.revoked) throw new Error('Credential unavailable or revoked');
   assertCredentialCurrent(JSON.parse(result.publicSignals), screeningChainConfig(), screeningChainConfig().issuerHash);
   return result;
+}
+function proofMatchesRelease(stored: StoredScreeningCredential, vkHash: string) {
+  const release = process.env.SCREENING_RELEASE_MANIFEST_SHA256 || '';
+  return /^[a-f0-9]{64}$/.test(release) && stored.provingReleaseSHA256 === release && stored.proofVKHash?.toLowerCase() === vkHash.toLowerCase();
 }
 
 export async function issueScreeningCredential(tutorId: string, actor: string) {
@@ -62,10 +65,16 @@ export async function generateScreeningProof(commitment: string, actor: string) 
   requireScreeningEnabled();
   return exclusive(`proof:${commitment}`, async () => {
     const stored = await credential(commitment);
-    if (stored.proof) return privateSummary(stored);
+    if (stored.proof && proofMatchesRelease(stored, screeningChainConfig().vkHash)) return privateSummary(stored);
+    if (stored.zkVerifyTx || stored.status === 'submitting_zkverify') throw Error('Submitted screening proof requires reconciliation before changing its release');
     const { input } = JSON.parse(openPrivateEvidence(stored.encryptedEvidence, stored.id).toString());
-    const proof = await proveScreeningCredential(input, JSON.parse(stored.publicSignals));
-    await screeningQuery("MATCH (c:TutorScreeningCredential {commitment: $commitment, revoked: false}) SET c.proof = $proof, c.status = 'proof_ready'", { commitment, proof: JSON.stringify(proof) });
+    const result = await proveScreeningCredential(input, JSON.parse(stored.publicSignals));
+    const saved = await screeningQuery(`MATCH (c:TutorScreeningCredential {commitment: $commitment})
+      SET c.writeVersion = coalesce(c.writeVersion, 0) + 1 WITH c
+      WHERE c.revoked = false AND c.publicSignals = $signals AND c.zkVerifyTx IS NULL AND c.status IN ['issued','proof_ready']
+      SET c.proof = $proof, c.provingReleaseSHA256 = $release, c.proofVKHash = $vk, c.status = 'proof_ready' RETURN c`,
+      { commitment, signals: stored.publicSignals, proof: JSON.stringify(result.proof), release: result.releaseManifestSHA256, vk: result.vkHash });
+    if (!saved.records.length) throw Error('Screening credential changed while its proof was being generated');
     await screeningAudit(actor, 'generate_proof', commitment);
     return { commitment, status: 'proof_ready', certified: false };
   });
@@ -75,15 +84,23 @@ export async function submitScreeningProof(commitment: string, actor: string) {
   requireScreeningEnabled();
   return exclusive(`submit:${commitment}`, async () => {
     const stored = await credential(commitment), config = screeningChainConfig();
+    if (!stored.shared) throw new Error('Tutor publication consent required before zkVerify submission');
     if (!stored.proof) throw new Error('Generate the approved proof first');
     if (stored.zkVerifyTx) return privateSummary(stored);
+    if (!proofMatchesRelease(stored, config.vkHash)) throw Error('Screening proof must be regenerated for the current reviewed release');
     await assertValidatorConfiguration(config, JSON.parse(stored.publicSignals));
-    const claimed = await screeningQuery("MATCH (c:TutorScreeningCredential {commitment: $commitment, revoked: false, status: 'proof_ready'}) SET c.status = 'submitting_zkverify' RETURN c", { commitment });
+    // The durable claim is the publication authorization point. Concurrent unsharing
+    // after it cannot retract an already authorized, irreversible chain submission.
+    const claimed = await screeningQuery(`MATCH (c:TutorScreeningCredential {commitment: $commitment})
+      SET c.writeVersion = coalesce(c.writeVersion, 0) + 1 WITH c
+      WHERE c.revoked = false AND c.shared = true AND c.status = 'proof_ready'
+        AND c.publicSignals = $signals AND c.proof = $proof
+        AND c.provingReleaseSHA256 = $release AND c.proofVKHash = $vk
+      SET c.status = 'submitting_zkverify', c.publicationAuthorizedAt = $now RETURN c`,
+      { commitment, signals: stored.publicSignals, proof: stored.proof, release: stored.provingReleaseSHA256,
+        vk: stored.proofVKHash, now: new Date().toISOString() });
     if (!claimed.records.length) throw new Error('Proof submission is already in progress or requires reconciliation');
-    const { submission } = privacyInfrastructure() === 'bridge_only'
-      ? await submitBridgeScreeningProof(JSON.parse(stored.proof), JSON.parse(stored.publicSignals))
-      : await gmrScreeningEngine.operation<{ submission: { id: string; transactionResult: string } }>('submit', {
-        proof: JSON.parse(stored.proof), publicSignals: JSON.parse(stored.publicSignals) });
+    const { submission } = await submitBridgeScreeningProof(JSON.parse(stored.proof), JSON.parse(stored.publicSignals));
     const result = JSON.parse(submission.transactionResult);
     if (!/^0x[a-fA-F0-9]{64}$/.test(result.txHash || '')) throw new Error('Engine submission has no confirmed zkVerify transaction');
     if (result.statement?.toLowerCase() !== screeningLeaf(config.vkHash, JSON.parse(stored.publicSignals)).toLowerCase()) throw new Error('zkVerify statement differs from issued credential');
@@ -100,11 +117,8 @@ export async function requestScreeningValidation(commitment: string, actor: stri
   if (!stored.shared || !stored.zkVerifyTx) throw new Error('Tutor sharing consent and zkVerify submission required');
   const values = JSON.parse(stored.publicSignals);
   await assertValidatorConfiguration(config, values);
-  if (privacyInfrastructure() === 'bridge_only') return { status: 'awaiting_horizen_validation', certified: false,
+  return { status: 'awaiting_horizen_validation', certified: false,
     instruction: 'Resolve the exact zkVerify aggregation receipt and certify it against the existing Horizen bridge. No ERC-8004 request is needed.' };
-  const tx = await gmrScreeningEngine.queue('request-validation', { publicSignals: values });
-  await screeningAudit(actor, 'request_validation', commitment);
-  return { transactionId: tx.id, status: tx.status, certified: false };
 }
 
 export interface AggregationReceipt { aggregationId: string; merklePath: string[]; leafCount: string; index: string }
@@ -115,7 +129,6 @@ export async function finalizeScreeningValidation(commitment: string, receipt: A
   if (!stored.zkVerifyTx || !stored.shared) throw new Error('Submission and sharing consent required');
   const values = JSON.parse(stored.publicSignals);
   await assertValidatorConfiguration(config, values);
-  if (privacyInfrastructure() === 'bridge_only') {
     const receiptJson = JSON.stringify(receipt);
     if (!await readChainCertification(config, values, receiptJson)) throw new Error('Screening receipt is not finalized on Horizen');
     const saved = await screeningQuery(`MATCH (c:TutorScreeningCredential {commitment: $commitment})
@@ -126,24 +139,16 @@ export async function finalizeScreeningValidation(commitment: string, receipt: A
     if (!saved.records.length) throw new Error('Credential was revoked, unshared or has a different receipt');
     await screeningAudit(actor, 'verify_bridge_receipt', commitment);
     return { commitment, status: 'verified', certified: true, infrastructure: 'bridge_only', revocationEnforcement: 'issuer' };
-  }
-  const tx = await gmrScreeningEngine.queue('certify', { publicSignals: values, receipt });
-  await screeningQuery('MATCH (c:TutorScreeningCredential {commitment: $commitment}) SET c.validationTransactionId = $id', { commitment, id: tx.id });
-  await screeningAudit(actor, 'queue_validation', commitment);
-  return { transactionId: tx.id, status: tx.status, certified: false };
 }
 
 export async function revokeScreeningCredential(commitment: string, actor: string) {
   requireScreeningEnabled();
   const stored = await getScreeningCredential(commitment);
   if (!stored) throw new Error('Credential not found');
-  // Fail closed locally even if the governance transaction needs retrying.
-  await screeningQuery("MATCH (c:TutorScreeningCredential {commitment: $commitment}) SET c.revoked = true, c.status = 'revoked'", { commitment });
+  // Revocation is issuer-managed; no governance transaction is submitted.
+  await screeningQuery("MATCH (c:TutorScreeningCredential {commitment: $commitment}) SET c.writeVersion = coalesce(c.writeVersion, 0) + 1, c.revoked = true, c.status = 'revoked'", { commitment });
   await screeningAudit(actor, 'revoke', commitment);
-  if (privacyInfrastructure() === 'bridge_only') return { commitment, status: 'revoked', revocationEnforcement: 'issuer', onChainRevocationTransactionId: null };
-  await assertValidatorConfiguration(screeningChainConfig());
-  const tx = await gmrScreeningEngine.queue('revoke', { commitment });
-  return { commitment, status: 'revoked', onChainRevocationTransactionId: tx.id, transactionStatus: tx.status };
+  return { commitment, status: 'revoked', revocationEnforcement: 'issuer', onChainRevocationTransactionId: null };
 }
 
 export function privateSummary(stored: StoredScreeningCredential) {
@@ -166,7 +171,8 @@ export async function shareScreeningCredential(tutorId: string, commitment: stri
   requireScreeningEnabled();
   const stored = await getScreeningCredential(commitment);
   if (!stored || stored.tutorId !== tutorId) throw new Error('Credential not found');
-  await screeningQuery('MATCH (c:TutorScreeningCredential {commitment: $commitment, tutorId: $tutorId}) SET c.shared = $shared', { commitment, tutorId, shared });
+  await screeningQuery(`MATCH (c:TutorScreeningCredential {commitment: $commitment, tutorId: $tutorId})
+    SET c.writeVersion = coalesce(c.writeVersion, 0) + 1, c.shared = $shared`, { commitment, tutorId, shared });
   await screeningAudit(tutorId, shared ? 'share' : 'unshare', commitment);
   return privateSummary({ ...stored, shared });
 }
@@ -191,6 +197,9 @@ export async function publicScreeningSummary(commitment: string) {
     receipt: bridgeOnly && stored.receiptJson ? JSON.parse(stored.receiptJson) : null,
     validationMeaning: 'Credential verification outcome, not the tutor exam score', policyId: screeningPolicy.id,
     claim: screeningPolicy.claim, limitations: screeningPolicy.limitations, issuedAt: signals.issuedAt, expiresAt: signals.expiresAt,
+    assurance: { releasePolicy: process.env.SCREENING_RELEASE_POLICY || 'independent-reviewed',
+      independentlyReviewed: process.env.SCREENING_RELEASE_POLICY !== 'self-operated',
+      setupTrust: process.env.SCREENING_RELEASE_POLICY === 'self-operated' ? 'FluentXVerse-operated trusted setup; entropy destruction is operator-asserted' : 'Independently reviewed multi-party setup' },
     publicSignals: values, proof: stored.proof ? JSON.parse(stored.proof) : null,
     agent: agentRegistration(destination || undefined),
     verification: destination ? { chainId: destination.chainId, agentId: bridgeOnly ? null : destination.agentId, adapterAddress: bridgeOnly ? null : destination.adapterAddress,
@@ -200,9 +209,6 @@ export async function publicScreeningSummary(commitment: string) {
     zkVerifyTx: stored.zkVerifyTx || null };
 }
 
-export async function registerScreeningAgent(actor: string) {
-  if (privacyInfrastructure() === 'bridge_only') throw new Error('ERC-8004 registration is disabled in bridge-only mode');
-  const tx = await gmrScreeningEngine.queue('register');
-  await screeningAudit(actor, 'register_agent', '');
-  return { transactionId: tx.id, status: tx.status, instruction: 'Confirm the identity registry Transfer event and configure its agentId before issuing credentials' };
+export async function registerScreeningAgent(_actor: string) {
+  throw new Error('ERC-8004 registration is disabled; custom screening contracts are archived');
 }

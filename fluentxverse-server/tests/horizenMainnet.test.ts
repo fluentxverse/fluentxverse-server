@@ -45,12 +45,12 @@ test('review submissions select native mainnet explicitly and reject mislabeled 
   try { expect((await chain.submit(proof)).submissionId).toBe('fixture'); wrong = true; await expect(chain.submit(proof)).rejects.toThrow('Wrong review proof network'); }
   finally { check.mockRestore(); fetch.mockRestore(); }
 });
-test('mainnet pass configuration requires the official mainnet bridge and domain', () => {
+test('archived pass contracts cannot be reactivated by a mainnet configuration', () => {
   Object.assign(process.env, { LESSON_BOOKING_MODE: 'paid', LESSON_PASSES_ENABLED: 'true', PRIVACY_INFRA_MODE: 'legacy_contracts',
     LESSON_PASSES_CHAIN_ID: '26514', LESSON_PASSES_DOMAIN_ID: '3', LESSON_PASSES_RPC_URL: 'https://horizen.calderachain.xyz/http',
     LESSON_PASSES_CONTRACT: `0x${'1'.repeat(40)}`, LESSON_PASSES_ISSUER: `0x${'2'.repeat(40)}`, LESSON_PASSES_BRIDGE: HORIZEN_MAINNET_BRIDGE,
     LESSON_PASSES_VK_HASH: hash, LESSON_PASSES_VK_SHA256: 'a'.repeat(64), LESSON_PASSES_WASM_SHA256: 'a'.repeat(64), LESSON_PASSES_ZKEY_SHA256: 'a'.repeat(64) });
-  expect(passConfig().network).toBe('zkVerify'); process.env.LESSON_PASSES_DOMAIN_ID = '175'; expect(passConfig).toThrow();
+  expect(passConfig).toThrow('archived'); process.env.LESSON_PASSES_DOMAIN_ID = '175'; expect(passConfig).toThrow('archived');
 });
 test('the existing testnet-only Risc0 tally artifact cannot be relabeled as mainnet', () => {
   expect(() => tallyContext({ chainId: 26514 } as any)).toThrow();

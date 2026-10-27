@@ -1,4 +1,5 @@
 import Elysia from 'elysia';
+import { LegacyProofRetiredError } from '../services/proof.services/legacyProofRetirement';
 import {
   getPublicTutorCertificationCredential,
   getTutorCertificationProofStatus,
@@ -10,6 +11,7 @@ import { refreshJwtCookie, verifyAuthToken } from '../utils/jwt';
 import { claimStudentLessonProof, getPublicStudentLessonProof, listStudentLessonProofs } from '../services/proof.services/studentLessonProof.service';
 
 const Proof = new Elysia({ prefix: '/proof' })
+  .onRequest(({ set }) => { set.headers['cache-control'] = 'no-store'; })
   .get('/student-lessons/public/:commitment', async ({ params, set }) => {
     if (!/^\d{1,78}$/.test(params.commitment)) {
       set.status = 400;
@@ -24,7 +26,7 @@ const Proof = new Elysia({ prefix: '/proof' })
   })
   .get('/student-lessons/me', async ({ cookie, set }) => {
     const payload = cookie.studentAuth?.value ? await verifyAuthToken(String(cookie.studentAuth.value)) : null;
-    if (!payload) {
+    if (!payload || payload.role !== 'student') {
       set.status = 401;
       return { success: false, error: 'Authentication required' };
     }
@@ -33,7 +35,7 @@ const Proof = new Elysia({ prefix: '/proof' })
   })
   .post('/student-lessons/:bookingId/claim', async ({ cookie, params, set }) => {
     const payload = cookie.studentAuth?.value ? await verifyAuthToken(String(cookie.studentAuth.value)) : null;
-    if (!payload) {
+    if (!payload || payload.role !== 'student') {
       set.status = 401;
       return { success: false, error: 'Authentication required' };
     }
@@ -45,9 +47,9 @@ const Proof = new Elysia({ prefix: '/proof' })
     try {
       return { success: true, data: await claimStudentLessonProof(payload.userId, params.bookingId) };
     } catch (error) {
-      console.error('Student lesson proof claim failed:', error);
-      set.status = error instanceof Error && /Booking not found|Tutor-confirmed attendance/.test(error.message) ? 400 : 500;
-      return { success: false, error: set.status === 400 ? (error as Error).message : 'Proof generation failed. Please try again later.' };
+      if (!(error instanceof LegacyProofRetiredError)) console.error('Student lesson proof claim failed:', error);
+      set.status = error instanceof LegacyProofRetiredError ? 410 : 500;
+      return { success: false, error: error instanceof LegacyProofRetiredError ? error.message : 'Proof generation failed. Please try again later.' };
     }
   })
   /**
@@ -94,7 +96,7 @@ const Proof = new Elysia({ prefix: '/proof' })
     }
 
     const payload = await verifyAuthToken(String(raw));
-    if (!payload) {
+    if (!payload || payload.role !== 'tutor') {
       set.status = 401;
       return { success: false, error: 'Invalid or expired token' };
     }
@@ -129,7 +131,7 @@ const Proof = new Elysia({ prefix: '/proof' })
     }
 
     const payload = await verifyAuthToken(String(raw));
-    if (!payload) {
+    if (!payload || payload.role !== 'tutor') {
       set.status = 401;
       return { success: false, error: 'Invalid or expired token' };
     }
@@ -165,7 +167,7 @@ const Proof = new Elysia({ prefix: '/proof' })
     }
 
     const payload = await verifyAuthToken(String(raw));
-    if (!payload) {
+    if (!payload || payload.role !== 'tutor') {
       set.status = 401;
       return { success: false, error: 'Invalid or expired token' };
     }
@@ -179,8 +181,8 @@ const Proof = new Elysia({ prefix: '/proof' })
         data: result,
       };
     } catch (error) {
-      console.error('Error in POST /proof/tutor-certification/generate-local:', error);
-      set.status = 500;
+      if (!(error instanceof LegacyProofRetiredError)) console.error('Error in POST /proof/tutor-certification/generate-local:', error);
+      set.status = error instanceof LegacyProofRetiredError ? 410 : 500;
       return {
         success: false,
         error: error instanceof Error ? error.message : 'Failed to generate local certification proof',
@@ -200,7 +202,7 @@ const Proof = new Elysia({ prefix: '/proof' })
     }
 
     const payload = await verifyAuthToken(String(raw));
-    if (!payload) {
+    if (!payload || payload.role !== 'tutor') {
       set.status = 401;
       return { success: false, error: 'Invalid or expired token' };
     }
@@ -214,8 +216,8 @@ const Proof = new Elysia({ prefix: '/proof' })
         data: result,
       };
     } catch (error) {
-      console.error('Error in POST /proof/tutor-certification/submit-zkverify:', error);
-      set.status = 500;
+      if (!(error instanceof LegacyProofRetiredError)) console.error('Error in POST /proof/tutor-certification/submit-zkverify:', error);
+      set.status = error instanceof LegacyProofRetiredError ? 410 : 500;
       return {
         success: false,
         error: error instanceof Error ? error.message : 'Failed to submit certification proof to zkVerify',

@@ -11,7 +11,7 @@ import { AnonymousReviewService } from '../src/services/anonymousReviews/service
 const saved = { ...process.env };
 afterEach(() => { for (const key of Object.keys(process.env)) if (!(key in saved)) delete process.env[key]; Object.assign(process.env, saved); });
 function setup() {
-  process.env.PRIVACY_INFRA_MODE = 'legacy_contracts';
+  process.env.PRIVACY_INFRA_MODE = 'bridge_only';
   process.env.ANONYMOUS_REVIEWS_ENABLED = 'true'; process.env.ANONYMOUS_REVIEW_TALLY_ENABLED = 'true';
   process.env.ANONYMOUS_REVIEW_TALLY_IMAGE_ID = `0x${'ef'.repeat(32)}`;
   process.env.ANONYMOUS_REVIEWS_DEPLOYMENT_BLOCK = '10'; process.env.ANONYMOUS_REVIEWS_ENCRYPTION_KEY = '12'.repeat(32);

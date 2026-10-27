@@ -14,11 +14,11 @@ test('bridge-only metadata does not claim model execution or agent registration'
   expect(metadata.screening.modelExecutionProven).toBe(false);
   expect(metadata.registrations).toEqual([]);
 });
-test('confirmed agent zero is published without activating certification or leaking Engine configuration', async () => {
+test('historical agent registration is not advertised as an active dependency', async () => {
   const previous = process.env.SCREENING_ENABLED;
   const previousMode = process.env.PRIVACY_INFRA_MODE;
   process.env.SCREENING_ENABLED = 'false';
-  process.env.PRIVACY_INFRA_MODE = 'legacy_contracts';
+  process.env.PRIVACY_INFRA_MODE = 'bridge_only';
   const mock = spyOn(gmrScreeningEngine, 'operation').mockResolvedValue({ config: {
     chainId: 2651420, agentId: '0', identityRegistry: `0x${'1'.repeat(40)}`, vkPath: '/private/key.json', secret: 'private-value',
   } });
@@ -26,7 +26,8 @@ test('confirmed agent zero is published without activating certification or leak
     const response = await app.handle(new Request('http://localhost/screening/agent.json'));
     const body = await response.text();
     const data = JSON.parse(body);
-    expect(data.registrations).toEqual([{ agentId: 0, agentRegistry: `eip155:2651420:0x${'1'.repeat(40)}` }]);
+    expect(data.registrations).toEqual([]);
+    expect(mock).not.toHaveBeenCalled();
     expect(data.active).toBe(false);
     expect(body).not.toContain('private-value');
     expect(body).not.toContain('/private/key.json');

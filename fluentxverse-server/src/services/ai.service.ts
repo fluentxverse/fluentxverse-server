@@ -703,7 +703,7 @@ export const checkGrammar = async (text: string): Promise<GrammarCheckResult> =>
       };
     } catch (parseError) {
       // If JSON parsing fails, try to extract information from plain text
-      console.error('Failed to parse AI response:', content);
+      console.error('Failed to parse AI response; content omitted.');
       return {
         corrected: text,
         simpleExplanation: 'Unable to process. Please check manually.',
@@ -712,7 +712,7 @@ export const checkGrammar = async (text: string): Promise<GrammarCheckResult> =>
       };
     }
   } catch (error) {
-    console.error('Grammar check error:', error);
+    console.error('Grammar check failed; request content omitted.');
     throw error;
   }
 };
@@ -790,7 +790,7 @@ export const getVocabularyDefinition = async (word: string): Promise<VocabularyD
         }],
       };
     } catch (parseError) {
-      console.error('Failed to parse AI response:', content);
+      console.error('Failed to parse AI response; content omitted.');
       return {
         definitions: [{
           meaning: 'Unable to process. Please check manually.',
@@ -801,7 +801,7 @@ export const getVocabularyDefinition = async (word: string): Promise<VocabularyD
       };
     }
   } catch (error) {
-    console.error('Vocabulary definition error:', error);
+    console.error('Vocabulary definition failed; request content omitted.');
     throw error;
   }
 };
@@ -897,14 +897,14 @@ export const getPronunciation = async (word: string): Promise<PronunciationResul
         phonetic: result.phonetic || '',
       };
     } catch (parseError) {
-      console.error('Failed to parse AI response:', content);
+      console.error('Failed to parse AI response; content omitted.');
       return {
         word: word,
         phonetic: 'Unable to process.',
       };
     }
   } catch (error) {
-    console.error('Pronunciation error:', error);
+    console.error('Pronunciation failed; request content omitted.');
     throw error;
   }
 };
@@ -2797,7 +2797,7 @@ Return ONLY JSON:
       try {
         parsed = JSON.parse(jsonContent);
       } catch (e) {
-        console.error('Failed to parse vocabulary list response:', text);
+        console.error('Failed to parse vocabulary list response; content omitted.');
         const lines = text.split(/\n+/).map((l: string) => l.trim()).filter(Boolean);
         parsed.vocabulary = lines.slice(0, count).map((l: string) => ({ word: l, partOfSpeech: '', meaning: '' }));
       }
@@ -2878,7 +2878,7 @@ Return ONLY JSON:
       try {
         parsed = JSON.parse(jsonContent);
       } catch (e) {
-        console.error('Failed to parse expressions list response:', text);
+        console.error('Failed to parse expressions list response; content omitted.');
         parsed.expressions = [];
       }
 
@@ -2923,7 +2923,7 @@ Return ONLY JSON:
         try {
           parsed = JSON.parse(jsonContent);
         } catch (e) {
-          console.error('Failed to parse speak-your-mind response:', text);
+          console.error('Failed to parse speak-your-mind response; content omitted.');
         }
 
         const sym = parsed.speakYourMind || {};
@@ -2981,8 +2981,7 @@ ${customPrompt ? `Additional notes: ${customPrompt}` : ''}`;
         try {
           parsed = JSON.parse(jsonContent);
         } catch (e) {
-          console.error('Failed to parse grammar-tip response:', text);
-          console.error('Attempted to parse:', jsonContent);
+          console.error('Failed to parse grammar-tip response; content omitted.');
         }
 
         // Helper to strip HTML tags from translation fields
@@ -3019,7 +3018,7 @@ ${customPrompt ? `Additional notes: ${customPrompt}` : ''}`;
         try {
           parsed = JSON.parse(jsonContent);
         } catch (e) {
-          console.error('Failed to parse pronunciation response:', text);
+          console.error('Failed to parse pronunciation response; content omitted.');
         }
 
         const pron = parsed.pronunciation || {};
@@ -3102,7 +3101,7 @@ Return ONLY JSON in the format specified.`;
       try {
         parsed = JSON.parse(jsonContent);
       } catch (e) {
-        console.error('Failed to parse apply response:', text);
+        console.error('Failed to parse apply response; content omitted.');
       }
 
       const apply = parsed.applyData || {};
@@ -3182,7 +3181,7 @@ ${baseInstructions ? `BASE INSTRUCTIONS: ${baseInstructions}` : ''}`;
       try {
         parsed = JSON.parse(jsonContent);
       } catch (e) {
-        console.error('Failed to parse trivia response:', text);
+        console.error('Failed to parse trivia response; content omitted.');
       }
 
       const trivia = parsed.triviaData || {};
@@ -3274,8 +3273,7 @@ ${baseInstructions ? `BASE INSTRUCTIONS: ${baseInstructions}` : ''}`;
       try {
         parsed = JSON.parse(jsonContent);
       } catch (e) {
-        console.error('[EXERCISE DEBUG] Failed to parse exercise response:', text);
-        console.error('[EXERCISE DEBUG] Parse error:', e);
+        console.error('Failed to parse exercise response; content omitted.');
       }
 
       // Handle both wrapped and unwrapped response formats
@@ -3494,7 +3492,7 @@ ${baseInstructions ? `BASE INSTRUCTIONS: ${baseInstructions}` : ''}`;
       try {
         parsed = JSON.parse(jsonContent);
       } catch (e) {
-        console.error('Failed to parse mission response:', text);
+        console.error('Failed to parse mission response; content omitted.');
       }
 
       const mission = parsed.missionData || {};
@@ -3784,7 +3782,7 @@ Example formats by level (focus on the skill, not "English"):
       ],
     };
   } catch (error) {
-    console.error('Failed to generate introduction content:', error);
+    console.error('Failed to generate introduction content; details omitted.');
     throw error;
   }
 };
@@ -3899,7 +3897,7 @@ Make it dramatic and engaging like a K-drama recap!`;
       result.currentEpisodeSummary = parsed.currentEpisodeSummary || '';
       result.nextEpisodeHook = parsed.nextEpisodeHook || '';
     } catch (e) {
-      console.error('Failed to parse episode summary response:', text);
+      console.error('Failed to parse episode summary response; content omitted.');
       // Fallback - try to extract content
       result.currentEpisodeSummary = `In this episode, the student practiced ${lessonTopic} scenarios in ${storyData.setting || 'various settings'}.`;
       result.nextEpisodeHook = 'What new adventures await in the next lesson?';
@@ -3907,7 +3905,7 @@ Make it dramatic and engaging like a K-drama recap!`;
 
     return result;
   } catch (error) {
-    console.error('Failed to generate episode summary:', error);
+    console.error('Failed to generate episode summary; details omitted.');
     throw error;
   }
 };
@@ -3997,7 +3995,7 @@ Return ONLY JSON:
   try {
     parsed = JSON.parse(jsonContent);
   } catch (e) {
-    console.error('Failed to parse discussion questions response:', text);
+    console.error('Failed to parse discussion questions response; content omitted.');
     // Fallback: try to extract lines that look like questions
     const lines = text.split(/\n+/).map((l: string) => l.replace(/^\d+[\.\)]\s*/, '').trim()).filter((l: string) => l.endsWith('?'));
     parsed.questions = lines.slice(0, count);
@@ -4080,7 +4078,7 @@ Are any of the new items too similar to any existing items?`;
       duplicates: parsed.duplicates || [],
     };
   } catch (e) {
-    console.warn('Uniqueness validation failed, allowing through:', e);
+    console.warn('Uniqueness validation failed, allowing through; details omitted.');
     return { valid: true, duplicates: [] };
   }
 }
@@ -4221,7 +4219,7 @@ export const generateCourseStructure = async (
       existingStructureContext += `\n\nThis level already has these chapters set:\n${thisLevelChapters.join('\n')}`;
     }
   } catch (e) {
-    console.warn('Could not fetch existing structure for uniqueness check:', e);
+    console.warn('Could not fetch existing structure for uniqueness check; details omitted.');
   }
 
   let prompt = `Generate the structure for Level ${level} (${tiers[level]}) of a Conversational Skills course.\nThis level should have exactly ${chapterCount} chapter(s).${existingStructureContext}`;
@@ -4280,7 +4278,7 @@ export const generateCourseStructure = async (
         const validation = await validateUniqueness(newItems, allExistingItems, 'course structure items (level topics, chapter themes, chapter names)');
 
         if (!validation.valid) {
-          console.warn(`Course structure attempt ${attempt}/${MAX_RETRIES} has duplicates:`, validation.duplicates);
+          console.warn(`Course structure attempt ${attempt}/${MAX_RETRIES} has duplicates; content omitted.`);
           if (attempt < MAX_RETRIES) continue; // retry
           // On last attempt, log but return anyway
           console.warn('Max retries reached — returning result despite potential duplicates');
@@ -4293,7 +4291,7 @@ export const generateCourseStructure = async (
     // Fallback (should not reach here)
     throw new Error('Failed to generate unique course structure after max retries');
   } catch (error) {
-    console.error('Failed to generate course structure:', error);
+    console.error('Failed to generate course structure; details omitted.');
     throw error;
   }
 };
@@ -4421,7 +4419,7 @@ export const generateLessonStructure = async (
       existingLessonsContext += `\n\nThis chapter already has these lessons (avoid duplicating): ${thisChapterNames.join(', ')}`;
     }
   } catch (e) {
-    console.warn('Could not fetch existing lessons for uniqueness check:', e);
+    console.warn('Could not fetch existing lessons for uniqueness check; details omitted.');
   }
 
   let prompt = `Generate exactly ${targetLessonCount} lesson names and goals for:
@@ -4485,7 +4483,7 @@ Generate exactly 5 lessons numbered 1 to 5 only.
         const validation = await validateUniqueness(newLessonNames, existingLessonNamesList, 'lesson names');
 
         if (!validation.valid) {
-          console.warn(`Lesson structure attempt ${attempt}/${MAX_RETRIES} has duplicates:`, validation.duplicates);
+          console.warn(`Lesson structure attempt ${attempt}/${MAX_RETRIES} has duplicates; content omitted.`);
           if (attempt < MAX_RETRIES) continue; // retry
           console.warn('Max retries reached — returning result despite potential duplicates');
         }
@@ -4496,7 +4494,7 @@ Generate exactly 5 lessons numbered 1 to 5 only.
 
     throw new Error('Failed to generate unique lesson structure after max retries');
   } catch (error) {
-    console.error('Failed to generate lesson structure:', error);
+    console.error('Failed to generate lesson structure; details omitted.');
     throw error;
   }
 };
@@ -4730,7 +4728,7 @@ Return ONLY JSON:
     const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/);
     const jsonContent = sanitizeAIText((jsonMatch?.[1] || text).trim());
     let parsed: any = {};
-    try { parsed = JSON.parse(jsonContent); } catch (e) { console.error('Failed to parse BE introduce response:', text); }
+    try { parsed = JSON.parse(jsonContent); } catch { console.error('Failed to parse BE introduce response; content omitted.'); }
     const intro = parsed.introduce || {};
     const normalizedIntroNotes = (intro.tutorNotes || []).map((n: any) => ({
       type: n.type || 'instruction',
@@ -4840,7 +4838,7 @@ Return ONLY JSON:
     const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/);
     const jsonContent = sanitizeAIText((jsonMatch?.[1] || text).trim());
     let parsed: any = {};
-    try { parsed = JSON.parse(jsonContent); } catch (e) { console.error('Failed to parse BE present response:', text); }
+    try { parsed = JSON.parse(jsonContent); } catch { console.error('Failed to parse BE present response; content omitted.'); }
     const present = parsed.present || {};
     const stripTags = (text: string) => (text || '').replace(/<[^>]*>/g, '').trim();
     const replacePatternPlaceholders = (text: string) => {
@@ -5007,7 +5005,7 @@ Return ONLY JSON:
     const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/);
     const jsonContent = sanitizeAIText((jsonMatch?.[1] || text).trim());
     let parsed: any = {};
-    try { parsed = JSON.parse(jsonContent); } catch (e) { console.error('Failed to parse BE understand response:', text); }
+    try { parsed = JSON.parse(jsonContent); } catch { console.error('Failed to parse BE understand response; content omitted.'); }
     const und = parsed.understand || {};
     const ensureBlankRow = (parts: Array<{ text: string; isBlank: boolean }>) => {
       const normalized = parts.map(p => ({ text: p.text || '', isBlank: !!p.isBlank }));
@@ -5237,7 +5235,7 @@ Return ONLY JSON:
     const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/);
     const jsonContent = sanitizeAIText((jsonMatch?.[1] || text).trim());
     let parsed: any = {};
-    try { parsed = JSON.parse(jsonContent); } catch (e) { console.error('Failed to parse BE practice response:', text); }
+    try { parsed = JSON.parse(jsonContent); } catch { console.error('Failed to parse BE practice response; content omitted.'); }
     const practice = parsed.practice || {};
     const normalizePracticeInstructionKr = (instructionEn: string, instructionKr: string, title: string) => {
       const en = (instructionEn || '').toLowerCase();
@@ -5349,7 +5347,7 @@ Return ONLY JSON:
     const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/);
     const jsonContent = sanitizeAIText((jsonMatch?.[1] || text).trim());
     let parsed: any = {};
-    try { parsed = JSON.parse(jsonContent); } catch (e) { console.error('Failed to parse BE challenge response:', text); }
+    try { parsed = JSON.parse(jsonContent); } catch { console.error('Failed to parse BE challenge response; content omitted.'); }
     const challenge = parsed.challenge || {};
     const rawTutorNotes = (challenge.tutorNotes || []).map((n: any) => ({
         type: ['instruction', 'script', 'tip', 'question'].includes(n?.type) ? n.type : 'instruction',
@@ -5432,7 +5430,7 @@ Return ONLY JSON:
     const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/);
     const jsonContent = sanitizeAIText((jsonMatch?.[1] || text).trim());
     let parsed: any = {};
-    try { parsed = JSON.parse(jsonContent); } catch (e) { console.error('Failed to parse BE discussion response:', text); }
+    try { parsed = JSON.parse(jsonContent); } catch { console.error('Failed to parse BE discussion response; content omitted.'); }
     const disc = parsed.discussion || {};
     const openingScript = (disc.tutorNotes || [])
       .map((n: any) => ({
@@ -5507,7 +5505,7 @@ Return ONLY JSON:
     const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/);
     const jsonContent = sanitizeAIText((jsonMatch?.[1] || text).trim());
     let parsed: any = {};
-    try { parsed = JSON.parse(jsonContent); } catch (e) { console.error('Failed to parse BE feedback response:', text); }
+    try { parsed = JSON.parse(jsonContent); } catch { console.error('Failed to parse BE feedback response; content omitted.'); }
     const fb = parsed.feedback || {};
     return {
       feedback: {

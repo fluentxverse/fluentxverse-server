@@ -6,14 +6,14 @@ afterEach(()=>{ for (const key of Object.keys(process.env)) if (!(key in savedEn
 const app=new Elysia().use(createLessonPassRoutes()), id=`0x${'a'.repeat(64)}`;
 const post=(path:string,data:unknown={},origin='https://student.fluentxverse.com')=>app.handle(new Request(`http://localhost/lesson-passes/${path}`,
   {method:'POST',headers:{origin,'content-type':'application/json'},body:JSON.stringify(data)}));
-test('explicit legacy mode, unconfigured private mode fails closed, authentication and finance origins',async()=>{
-  process.env.LESSON_BOOKING_MODE='paid'; process.env.PRIVACY_INFRA_MODE='legacy_contracts';
+test('paid booking mode is retained but archived private passes cannot be activated',async()=>{
+  process.env.LESSON_BOOKING_MODE='paid'; process.env.PRIVACY_INFRA_MODE='bridge_only';
   process.env.LESSON_PASSES_ENABLED='false';
   const legacy=await app.handle(new Request('http://localhost/lesson-passes/mode'));
   expect((await legacy.json() as any).data.mode).toBe('legacy_erc1155');
   expect(legacy.headers.get('cache-control')).toBe('no-store');
   process.env.LESSON_PASSES_ENABLED='true';
-  expect((await app.handle(new Request('http://localhost/lesson-passes/mode'))).status).toBe(503);
+  expect((await (await app.handle(new Request('http://localhost/lesson-passes/mode'))).json() as any).data.mode).toBe('legacy_erc1155');
   expect((await post('reservations',{id,passId:'test',refundCommitment:'123'})).status).toBe(401);
   expect((await post('reservations',{id,passId:'test',refundCommitment:'123'},'https://untrusted.test')).status).toBe(403);
   for(const action of ['submit','finalize','reconcile']) expect((await post(`admin/reservations/${id}/${action}`,{},'https://dashboard.fluentxverse.com')).status).toBe(401);
@@ -33,4 +33,13 @@ test('never accepts witness keys, strips no fields, bounds payloads without Cont
   const extra=await post(`reservations/${id}/proof`,proof);
   expect(extra.status).toBe(400); expect(await extra.text()).not.toContain('secret-test-key');
   expect((await post('orders',{unexpected:'x'.repeat(310000)})).status).toBe(413);
+});
+test('pass body limits do not reject unrelated application uploads', async () => {
+  const parent = new Elysia().use(createLessonPassRoutes())
+    .post('/exam/speaking/recording', ({ body }) => ({ length: (body as any).audio.length }));
+  const response = await parent.handle(new Request('http://localhost/exam/speaking/recording', {
+    method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ audio: 'x'.repeat(400_000) }),
+  }));
+  expect(response.status).toBe(200);
+  expect(await response.json()).toEqual({ length: 400_000 });
 });

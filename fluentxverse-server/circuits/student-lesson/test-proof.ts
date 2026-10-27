@@ -1,9 +1,12 @@
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { buildEddsa, buildPoseidon } from 'circomlibjs';
+import { LegacyProofRetiredError } from '../../src/services/proof.services/legacyProofRetirement';
+
+if (process.argv.includes('--prove')) throw new LegacyProofRetiredError();
 
 const build = join(import.meta.dir, 'build');
 const circuit = 'lesson_attendance';
@@ -44,15 +47,6 @@ try {
     } catch (error) {
       if ((error as Error).message === 'Invalid witness unexpectedly succeeded') throw error;
     }
-  }
-  const zkey = join(build, `${circuit}.zkey`);
-  if (process.argv.includes('--prove')) {
-    const proofPath = join(folder, 'proof.json');
-    const publicPath = join(folder, 'public.json');
-    run('snarkjs', ['groth16', 'prove', zkey, witnessPath, proofPath, publicPath]);
-    run('snarkjs', ['groth16', 'verify', join(build, 'verification_key.json'), publicPath, proofPath]);
-    const publicSignals = JSON.parse(readFileSync(publicPath, 'utf8')) as string[];
-    if (publicSignals[0] !== commitment) throw new Error('Public commitment mismatch');
   }
   console.log('Student lesson witness validated; invalid attendance and signature rejected');
 } finally {

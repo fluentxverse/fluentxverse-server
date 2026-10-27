@@ -1277,7 +1277,7 @@ export default new Elysia({ prefix: '/lesson' })
         error: error instanceof Error ? error.message : 'Failed to create lesson' 
       };
     }
-  })
+  }, { parse: 'none' })
 
   /**
    * Update a lesson (creates new version)
@@ -1372,7 +1372,7 @@ export default new Elysia({ prefix: '/lesson' })
         error: error instanceof Error ? error.message : 'Failed to update lesson' 
       };
     }
-  })
+  }, { parse: 'none' })
 
   /**
    * Fork a lesson (admin forks a draft to work on their own version)
@@ -1723,7 +1723,7 @@ export default new Elysia({ prefix: '/lesson' })
         error: error instanceof Error ? error.message : 'Failed to save lesson' 
       };
     }
-  })
+  }, { parse: 'none' })
 
   /**
    * Get student material for a lesson (stripped of tutor hints)

@@ -4,6 +4,7 @@ import { lessonNotesEditWindow, LessonNotesReadOnly } from '../utils/lessonNotes
 import { assertLessonFeedback, LessonFeedbackInvalid } from '../utils/lessonFeedbackValidation';
 import { getIO } from '../socket/socket.server';
 import { invalidateCache } from '../db/redis';
+import { assertPrivateLessonNotes, lessonStudentIdentity } from '../privacy/lessonNotePrivacy';
 
 export function lessonOutcome(booking: Record<string, any>) {
   if (booking.status === 'cancelled') return 'cancelled';
@@ -92,6 +93,15 @@ export class LessonWorkflowService {
         const materials = row.get('materials').map((node: any) => node.properties).filter((n: any) => n.isUsed || n.hasContent);
         const summary = row.get('summary')?.properties || {};
         assertLessonFeedback(summary.studentComment || '', summary.tutorMemo || '');
+        const identity = await lessonStudentIdentity(tx, bookingId);
+        assertPrivateLessonNotes(summary.studentComment || '', identity, 'studentFeedback');
+        assertPrivateLessonNotes(summary.tutorMemo || '', identity, 'tutorHandoff');
+        for (const material of materials) assertPrivateLessonNotes({
+          materialTitle: material.materialTitle,
+          studentComment: material.studentComment, tutorMemo: material.tutorMemo, progressDetails: material.progressDetails,
+          vocabulary: JSON.parse(material.vocabularyItemsJson || '[]'), grammar: JSON.parse(material.grammarItemsJson || '[]'),
+          pronunciation: JSON.parse(material.pronunciationItemsJson || '[]'),
+        }, identity);
         for (const n of materials) {
           if (n.materialType !== 'daily-dispatch' && n.completionStatus !== 'completed' && (!n.stoppedAt || !n.stoppedAtLabel))
             throw new LessonFeedbackInvalid(`Choose a stopping point for ${n.materialTitle || 'each in-progress material'}.`,

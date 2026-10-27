@@ -1,34 +1,9 @@
-# Tutor Certification Circuit
+# Retired Legacy Proof Circuit
 
-This circuit is the local Groth16 MVP for FluentXverse tutor certification.
+This V1 proof path is retired. Its initial Groth16 setup key had no circuit-specific phase-two contribution and accepted fabricated proofs without a private witness.
 
-It proves:
+The API cannot generate or submit these proofs, regardless of environment flags. Authenticated legacy mutation endpoints return HTTP 410. Historical records and transactions are preserved but are not valid certification or attendance evidence. Public status reads report retirement, expiry or revocation rather than verification.
 
-- written exam score is at least 90
-- speaking exam score is at least 85
-- profile approval flag is true
-- interview pass flag is true
-- the private tutor subject hash and nonce match the public credential commitment
+Do not reuse the old WASM, R1CS, zkey or verification key. The tutor circuit source now bounds scores to 0..100, but a source correction does not repair existing keys or artifacts.
 
-The circuit intentionally does not submit to zkVerify. The backend local prover
-generates:
-
-- `input.json`
-- `witness.wtns`
-- `proof.json`
-- `public.json`
-- `verification_key.json`
-
-Before public/testnet submission, replace the dependency-free arithmetic
-commitment with a circuit-native hash such as Poseidon and add issuer signature
-verification in-circuit.
-
-Required local binaries:
-
-```bash
-circom --version
-snarkjs --version
-```
-
-The backend endpoint `POST /proof/tutor-certification/generate-local` runs the
-full local compile/setup/prove/verify pipeline for the authenticated tutor.
+Original source snapshots are in `archives/legacy-proofs-20261020` at the repository root. Tutor application approval, lesson booking and earnings remain separate from proof verification. New tutor screening uses `tutor-screening-v2` and remains disabled until independently reviewed proving artifacts and setup records are approved.

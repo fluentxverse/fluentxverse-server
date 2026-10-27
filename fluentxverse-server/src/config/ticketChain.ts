@@ -1,9 +1,9 @@
 import { createPublicClient, custom } from 'viem';
-import { arbitrumSepolia, baseSepolia } from 'viem/chains';
+import { arbitrumSepolia, base, baseSepolia } from 'viem/chains';
 import { gmrEngine } from '../services/web3.services/gmrEngine.service';
 
-export function selectTicketChain(id = Number(process.env.TICKET_CHAIN_ID || baseSepolia.id)) {
-  const chain = [baseSepolia, arbitrumSepolia].find(chain => chain.id === id);
+export function selectTicketChain(id = Number(process.env.TICKET_CHAIN_ID || base.id)) {
+  const chain = [base, baseSepolia, arbitrumSepolia].find(chain => chain.id === id);
   if (!chain) throw new Error(`Unsupported ticket chain ${id}`);
   return chain;
 }

@@ -1,6 +1,7 @@
 import { getDriver } from '../../db/memgraph';
 import { AnonymousReviewError } from './policy';
 import { REVIEW_MAX_MEMBERS } from '../../shared/anonymousReviews';
+import type { ManagedTransaction } from 'neo4j-driver';
 
 export interface ReviewCohort {
   id: string; tutorId: string; period: string; scope: string; chainId: number; contract: string;
@@ -33,6 +34,19 @@ export class AnonymousReviewRepository {
     await this.ready(); const db = getDriver().session();
     try { return await db.run(query, parameters); } finally { await db.close(); }
   }
+  private async write<T>(work: (tx: ManagedTransaction) => Promise<T>): Promise<T> {
+    await this.ready();
+    for (let attempt = 0; ; attempt++) {
+      const db = getDriver().session();
+      try { return await db.executeWrite(work); }
+      catch (error) {
+        // Memgraph reports concurrent MERGE creation as a non-retryable constraint error.
+        const message = error instanceof Error ? error.message : '';
+        if (attempt >= 11 || !/unique constraint violation on :AnonymousReview(?:Cohort|Enrollment|Commitment|Submission|Tally)\(id\)/.test(message)) throw error;
+      } finally { await db.close(); }
+      await new Promise(resolve => setTimeout(resolve, 10 * (attempt + 1) + Math.random() * 20));
+    }
+  }
   async ownedBooking(bookingId: string, studentId: string) {
     const result = await this.read(`MATCH (b:Booking {bookingId: $bookingId})-[:BOOKED_BY]->(:Student {id: $studentId})
       OPTIONAL MATCH (s:LessonSurvey {bookingId: $bookingId}) RETURN b, s`, { bookingId, studentId });
@@ -47,9 +61,7 @@ export class AnonymousReviewRepository {
     return props((await this.read('MATCH (e:AnonymousReviewEnrollment {id: $id}) RETURN e', { id })).records[0]?.get('e')) || null;
   }
   async enroll(cohort: ReviewCohort, enrollmentId: string, studentId: string, commitment: string) {
-    await this.ready(); const db = getDriver().session();
-    try {
-      return await db.executeWrite(async tx => {
+    return this.write(async tx => {
         const row = (await tx.run(`MERGE (g:AnonymousReviewCohort {id: $id}) ON CREATE SET g += $cohort
           SET g.writeVersion = coalesce(g.writeVersion, 0) + 1 RETURN g`, { id: cohort.id, cohort })).records[0]!;
         const g = props(row.get('g'));
@@ -69,8 +81,7 @@ export class AnonymousReviewRepository {
         await tx.run(`CREATE (:AnonymousReviewCommitment {id: $identityId})
           CREATE (:AnonymousReviewEnrollment {id: $id, groupId: $groupId, studentId: $studentId, commitment: $commitment})`,
           { identityId, id: enrollmentId, groupId: cohort.id, studentId, commitment });
-      });
-    } finally { await db.close(); }
+    });
   }
   async memberships(studentId: string) {
     return (await this.read(`MATCH (e:AnonymousReviewEnrollment {studentId: $studentId}), (g:AnonymousReviewCohort {id: e.groupId})
@@ -83,9 +94,7 @@ export class AnonymousReviewRepository {
     return value?.toNumber ? value.toNumber() : Number(value);
   }
   async seal(id: string, build: (members: string[]) => { root: string; membersJson: string }) {
-    await this.ready(); const db = getDriver().session();
-    try {
-      return await db.executeWrite(async tx => {
+    return this.write(async tx => {
         const g = props((await tx.run(`MATCH (g:AnonymousReviewCohort {id: $id})
           SET g.writeVersion = coalesce(g.writeVersion, 0) + 1 RETURN g`, { id })).records[0]?.get('g')) as ReviewCohort;
         if (!g) throw new AnonymousReviewError('Review cohort not found', 404);
@@ -96,20 +105,16 @@ export class AnonymousReviewRepository {
         const sealed = build(members);
         await tx.run('MATCH (g:AnonymousReviewCohort {id: $id}) SET g += $sealed', { id, sealed });
         return { ...g, ...sealed };
-      });
-    } finally { await db.close(); }
+    });
   }
   async saveSubmission(item: ReviewSubmission) {
-    await this.ready(); const db = getDriver().session();
-    try {
-      return await db.executeWrite(async tx => {
+    return this.write(async tx => {
         const row = (await tx.run(`MERGE (r:AnonymousReviewSubmission {id: $id}) ON CREATE SET r += $item RETURN r`, { id: item.id, item })).records[0]!;
         const old = props(row.get('r')) as ReviewSubmission;
         if (JSON.parse(old.proofJson).message !== JSON.parse(item.proofJson).message)
           throw new AnonymousReviewError('This review entitlement has already been used', 409);
         return old;
-      });
-    } finally { await db.close(); }
+    });
   }
   async submission(id: string): Promise<ReviewSubmission | null> {
     return props((await this.read('MATCH (r:AnonymousReviewSubmission {id: $id}) RETURN r', { id })).records[0]?.get('r')) || null;
@@ -134,9 +139,7 @@ export class AnonymousReviewRepository {
       SET g.activationStatus = 'active_bridge'`, { id });
   }
   async acceptBridge(id: string, receiptJson: string) {
-    await this.ready(); const db = getDriver().session();
-    try {
-      await db.executeWrite(async tx => {
+    await this.write(async tx => {
         const row = (await tx.run(`MATCH (r:AnonymousReviewSubmission {id: $id})
           SET r.writeVersion = coalesce(r.writeVersion, 0) + 1 RETURN r`, { id })).records[0];
         const item = props(row?.get('r')) as ReviewSubmission | undefined;
@@ -148,8 +151,7 @@ export class AnonymousReviewRepository {
           SET r.status = 'verified', r.receiptJson = $receiptJson, r.acceptedAt = coalesce(r.acceptedAt, $acceptedAt) RETURN r`,
           { id, receiptJson, acceptedAt: new Date().toISOString() });
         if (!result.records.length) throw new AnonymousReviewError('Review acceptance window is closed or inactive', 409);
-      });
-    } finally { await db.close(); }
+    });
   }
   async claimCertification(id: string) {
     return (await this.read(`MATCH (r:AnonymousReviewSubmission {id: $id, status: 'awaiting_horizen'})
@@ -167,16 +169,13 @@ export class AnonymousReviewRepository {
     return props((await this.read('MATCH (t:AnonymousReviewTally {id: $id}) RETURN t', { id })).records[0]?.get('t')) || null;
   }
   async saveTally(item: ReviewTallyRecord) {
-    await this.ready(); const db = getDriver().session();
-    try {
-      return await db.executeWrite(async tx => {
+    return this.write(async tx => {
         const row = (await tx.run(`MERGE (t:AnonymousReviewTally {id: $id}) ON CREATE SET t += $item
           SET t.writeVersion = coalesce(t.writeVersion, 0) + 1 RETURN t`, { id: item.id, item })).records[0]!;
         const old = props(row.get('t')) as ReviewTallyRecord;
         if (old.manifestJson !== item.manifestJson || old.journal !== item.journal) throw new AnonymousReviewError('Tally snapshot is immutable', 409);
         return old;
-      });
-    } finally { await db.close(); }
+    });
   }
   async claimTally(id: string, from: string[], status: string) {
     const result = await this.read(`MATCH (t:AnonymousReviewTally {id: $id}) WHERE t.status IN $from
@@ -187,9 +186,7 @@ export class AnonymousReviewRepository {
     await this.read('MATCH (t:AnonymousReviewTally {id: $id}) SET t += $values', { id, values });
   }
   async certifyTally(id: string, receiptJson: string) {
-    await this.ready(); const db = getDriver().session();
-    try {
-      await db.executeWrite(async tx => {
+    await this.write(async tx => {
         const row = (await tx.run(`MATCH (t:AnonymousReviewTally {id: $id})
           SET t.writeVersion = coalesce(t.writeVersion, 0) + 1 RETURN t`, { id })).records[0];
         const record = props(row?.get('t')) as ReviewTallyRecord | undefined;
@@ -197,8 +194,7 @@ export class AnonymousReviewRepository {
           throw new AnonymousReviewError('Tally is not awaiting certification', 409);
         if (record.receiptJson && record.receiptJson !== receiptJson) throw new AnonymousReviewError('Tally receipt is immutable', 409);
         await tx.run(`MATCH (t:AnonymousReviewTally {id: $id}) SET t.status = 'certified', t.receiptJson = $receiptJson`, { id, receiptJson });
-      });
-    } finally { await db.close(); }
+    });
   }
   async publishedGroups(tutorId: string) {
     return (await this.read(`MATCH (g:AnonymousReviewCohort {tutorId: $tutorId}) WHERE g.summaryJson IS NOT NULL

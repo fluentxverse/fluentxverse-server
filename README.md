@@ -61,12 +61,12 @@ Do not enable proof or financial mutation jobs simply to make a demo appear live
 
 This repository is an app-focused export of [the FluentXVerse monorepo](https://github.com/fluentxverse/fluentxverse-monorepo). The monorepo remains the source of truth; submit cross-application changes there. Existing directory names are retained so shared imports remain valid. The historical student/tutor folder suffix does not indicate a Preact app: both active web clients use SolidJS.
 
-Exported source commit: [`c9696e491149`](https://github.com/fluentxverse/fluentxverse-monorepo/tree/c9696e491149275bc01df3b8d05d29a15263257a). See [SOURCE.json](SOURCE.json) for the exact scope. Local uncommitted edits, environment files, runtime data, curriculum backups, and generated proving artifacts are not published. Original Git history is not copied.
+Exported source commit: [`0b10bf263db4`](https://github.com/fluentxverse/fluentxverse-monorepo/tree/0b10bf263db4d9bb599a15f17b41d6911f30b91e). See [SOURCE.json](SOURCE.json) for the exact scope. Local uncommitted edits, environment files, runtime data, curriculum backups, and generated proving artifacts are not published. Original Git history is not copied.
 
 Cross-app parity tests and full deployment orchestration remain in the monorepo. The checks in this repository do not establish production acceptance, security audit completion, or proof-system review. No production deployment is triggered by this export.
 
 ## Security and Licensing
 
-Never commit API tokens, seed phrases, private keys, student records, recordings, or real assessment evidence. Use synthetic fixtures in tests. Report security issues privately to hello@fluentxverse.com rather than opening an issue containing sensitive data.
+Never commit API tokens, seed phrases, private keys, student records, recordings, or real assessment evidence. Use synthetic fixtures in tests. Report security issues privately to support@fluentxverse.com rather than opening an issue containing sensitive data.
 
-No root license file was present in the source revision. Public source availability, if enabled, is not itself a license grant. Contact FluentXVerse for licensing terms; third-party dependencies retain their own licenses.
+ third-party dependencies retain their own licenses.

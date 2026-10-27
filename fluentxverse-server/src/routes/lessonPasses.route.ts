@@ -40,6 +40,7 @@ export function createLessonPassRoutes(service: LessonPassService = lessonPassSe
   }
   return new Elysia({ prefix: '/lesson-passes', normalize: false })
     .onRequest(async ({ request, set }) => {
+      if (!new URL(request.url).pathname.startsWith('/lesson-passes/')) return;
       set.headers['Cache-Control'] = 'no-store'; set.headers['Referrer-Policy'] = 'no-referrer';
       if (!request.body) return;
       const reader = request.clone().body!.getReader(); let size = 0;

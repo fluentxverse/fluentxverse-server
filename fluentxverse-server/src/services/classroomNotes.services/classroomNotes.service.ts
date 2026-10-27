@@ -5,6 +5,7 @@ import { materialSections, isExcludedConversationalStoppingPoint, isExcludedBusi
 import { lessonNotesEditWindow, LessonNotesReadOnly, type LessonNotesEditWindow } from '../../utils/lessonNotesEditWindow';
 import { assertLessonFeedback } from '../../utils/lessonFeedbackValidation';
 import { lessonOutcome, notesState, invalidateLessonCaches } from '../lessonWorkflow.service';
+import { assertPrivateLessonNotes, lessonStudentIdentity } from '../../privacy/lessonNotePrivacy';
 
 export interface ClassroomVocabularyNote {
   word: string;
@@ -455,6 +456,9 @@ export class ClassroomNotesService {
       await session.executeWrite(async tx => {
       const booking = await this.lockLesson(tx, sessionId, tutorId);
       assertLessonFeedback(studentComment, tutorMemo);
+      const identity = await lessonStudentIdentity(tx, sessionId);
+      assertPrivateLessonNotes(studentComment, identity, 'studentFeedback');
+      assertPrivateLessonNotes(tutorMemo, identity, 'tutorHandoff');
       if (clientUpdatedAt != null) {
         const saved = (await tx.run('MATCH (n:ClassroomLessonNote {sessionId: $sessionId}) RETURN n.clientUpdatedAt AS version', { sessionId })).records[0]?.get('version');
         if (saved != null && Number(saved) > clientUpdatedAt) return;
@@ -513,6 +517,9 @@ export class ClassroomNotesService {
     try {
       return await session.executeWrite(async tx => {
       const booking = await this.lockLesson(tx, sessionId, tutorId);
+      const identity = await lessonStudentIdentity(tx, sessionId);
+      assertPrivateLessonNotes({ vocabularyItems, grammarItems, pronunciationItems, progressDetails: input.progressDetails,
+        materialTitle, studentComment, tutorMemo }, identity);
       if (input.clientUpdatedAt != null) {
         const existing = (await tx.run('MATCH (n:ClassroomMaterialNote {key: $key}) RETURN n', { key })).records[0]?.get('n').properties;
         if (existing?.clientUpdatedAt != null && Number(existing.clientUpdatedAt) > input.clientUpdatedAt) return this.mapNode(existing);

@@ -65,3 +65,8 @@ export const isAllowedAdminMutationOrigin = (origin: string | null) =>
     'http://localhost:5175',
     'http://127.0.0.1:5175',
   ].includes(origin));
+
+export const isAllowedTutorMutationOrigin = (origin: string | null) => Boolean(origin && (
+  ['https://tutor.fluentxverse.com', 'https://tutor.fluentxverse.xyz'].includes(origin)
+  || (process.env.NODE_ENV !== 'production' && /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin))
+));

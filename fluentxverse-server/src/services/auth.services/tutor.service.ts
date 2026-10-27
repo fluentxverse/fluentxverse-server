@@ -20,7 +20,8 @@ class AuthService {
         const signUpdate = Date.now();
 
         const suspended: Suspended = { until: null, reason: "" };
-        const { email, password, firstName, middleName, lastName, suffix, birthDate, mobileNumber } = params;
+        const { password, firstName, middleName, lastName, suffix, birthDate, mobileNumber } = params;
+        const email = params.email.trim().toLowerCase();
 
         
         const [encrypted, smartWalletAddress] = await Promise.all([
@@ -33,7 +34,7 @@ class AuthService {
 
         // Check if email already exists in User (tutor) nodes
         const tutorExistsResult = await session.run(
-            `MATCH (u:User { email: $email }) RETURN u LIMIT 1`,
+            `MATCH (u:User) WHERE toLower(u.email) = $email RETURN u LIMIT 1`,
             { email }
         );
         if (tutorExistsResult.records.length > 0) {
@@ -45,7 +46,7 @@ class AuthService {
 
         // Check if email already exists in Student nodes
         const studentExistsResult = await session.run(
-            `MATCH (s:Student { email: $email }) RETURN s LIMIT 1`,
+            `MATCH (s:Student) WHERE toLower(s.email) = $email RETURN s LIMIT 1`,
             { email }
         );
         if (studentExistsResult.records.length > 0) {
@@ -114,10 +115,10 @@ class AuthService {
         const session = driver.session();
 
         const result = await session.run(
-            `MATCH (u:User { email: $email })
+            `MATCH (u:User) WHERE toLower(u.email) = $email
              RETURN u
             `,
-            { email: params.email }
+            { email: params.email.trim().toLowerCase() }
         );
 
         await session.close();
@@ -354,7 +355,10 @@ class AuthService {
             await session.run(
                 `
                 MATCH (u:User { id: $userId })
-                SET u.email = $newEmail, u.verifiedEmail = false
+                SET u.email = $newEmail, u.verifiedEmail = false,
+                    u.emailVerificationRevision=coalesce(u.emailVerificationRevision,0)+1,
+                    u.emailAddressVersion=coalesce(u.emailAddressVersion,0)+1
+                REMOVE u.verifiedEmailAddress,u.emailVerifiedAt
                 `,
                 { userId, newEmail: newEmail.toLowerCase() }
             );

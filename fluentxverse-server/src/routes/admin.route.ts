@@ -5,6 +5,7 @@ import { signAuthToken, verifyAuthToken, getCookieConfig } from '../utils/jwt';
 import { createAdminGuard } from '../middleware/auth.middleware';
 import { rateLimitMiddleware } from '../utils/rateLimiter';
 import { retryTutorCertificationZkVerifySubmission } from '../services/proof.services/tutorCertificationWorkflow.service';
+import { LegacyProofRetiredError } from '../services/proof.services/legacyProofRetirement';
 import { adminTaskService } from '../services/admin.services/adminTask.service';
 
 const adminService = new AdminService();
@@ -373,7 +374,7 @@ const Admin = new Elysia({ prefix: '/admin' })
       };
     } catch (error) {
       console.error('Error in /admin/tutors/:tutorId/proof/retry:', error);
-      set.status = 500;
+      set.status = error instanceof LegacyProofRetiredError ? 410 : 500;
       return {
         success: false,
         error: error instanceof Error ? error.message : 'Failed to retry tutor certification proof submission',

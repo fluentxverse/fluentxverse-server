@@ -1,3 +1,4 @@
+import { retiredCredentialStatus } from '../proof.services/legacyProofRetirement';
 import { getDriver } from '../../db/memgraph';
 import { randomUUID } from 'node:crypto';
 import { metricOutcome } from '../../utils/tutorPerformance';
@@ -210,7 +211,7 @@ export class AdminService {
 
       // Get processing count (speaking exams currently being graded)
       const processingResult = await session.run(`
-        MATCH (u:User)-[:TAKES]->(e:Exam {type: 'speaking', status: 'processing'})
+        MATCH (u:User)-[:TAKES]->(e:Exam {type: 'speaking'}) WHERE e.status IN ['queued','processing']
         RETURN count(e) as processing
       `);
       const processing = processingResult.records[0]?.get('processing')?.toNumber?.() ?? 
@@ -247,7 +248,7 @@ export class AdminService {
         MATCH (u:User)
         OPTIONAL MATCH (u)-[:TAKES]->(we:Exam {type: 'written', status: 'completed'})
         OPTIONAL MATCH (u)-[:TAKES]->(se:Exam {type: 'speaking', status: 'completed'})
-        OPTIONAL MATCH (u)-[:TAKES]->(sp:Exam {type: 'speaking', status: 'processing'})
+        OPTIONAL MATCH (u)-[:TAKES]->(sp:Exam {type: 'speaking'}) WHERE sp.status IN ['queued','processing']
         OPTIONAL MATCH (slot:InterviewSlot {tutorId: u.id, status: 'completed'})
         RETURN u,
                collect(DISTINCT we.result) as writtenResults,
@@ -756,7 +757,7 @@ export class AdminService {
         ${whereClause}
         OPTIONAL MATCH (u)-[:TAKES]->(we:Exam {type: 'written', status: 'completed'})
         OPTIONAL MATCH (u)-[:TAKES]->(se:Exam {type: 'speaking', status: 'completed'})
-        OPTIONAL MATCH (u)-[:TAKES]->(sp:Exam {type: 'speaking', status: 'processing'})
+        OPTIONAL MATCH (u)-[:TAKES]->(sp:Exam {type: 'speaking'}) WHERE sp.status IN ['queued','processing']
         OPTIONAL MATCH (islot:InterviewSlot {tutorId: u.id, status: 'completed', result: 'pass'})
         OPTIONAL MATCH (u)-[:HAS_CERTIFICATION_CREDENTIAL]->(cred:TutorCertificationCredential)
         RETURN u,
@@ -823,7 +824,7 @@ export class AdminService {
           speakingExamScore: u.speakingExamScore,
           status: tutorStatus,
           profileStatus: profileStatus as 'incomplete' | 'pending_review' | 'approved' | 'rejected',
-          zkCertificationStatus: credential?.status || u.tutorCertificationProofStatus || undefined,
+          zkCertificationStatus: retiredCredentialStatus(credential || {}),
           zkCredentialCommitment: credential?.credentialCommitment || undefined,
           zkVerifyTxHash: credential?.zkVerifyTxHash || undefined,
           zkVerifyAggregationId: credential?.zkVerifyAggregationId != null ? toNumber(credential.zkVerifyAggregationId) : undefined,

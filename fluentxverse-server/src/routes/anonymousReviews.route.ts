@@ -51,6 +51,7 @@ export function createAnonymousReviewRoutes(service: AnonymousReviewService = an
   }
   return new Elysia({ prefix: '/anonymous-reviews', normalize: false })
     .onRequest(async ({ request, set }) => {
+      if (!new URL(request.url).pathname.startsWith('/anonymous-reviews/')) return;
       set.headers['Cache-Control'] = 'no-store'; set.headers['Referrer-Policy'] = 'no-referrer';
       if (!request.body) return;
       const reader = request.clone().body!.getReader();

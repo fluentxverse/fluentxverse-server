@@ -4,7 +4,10 @@ export type TutorCertificationProofStatus =
   | 'local_proof_generated'
   | 'submitted'
   | 'verified'
-  | 'failed';
+  | 'failed'
+  | 'retired'
+  | 'expired'
+  | 'revoked';
 
 export type TutorCertificationRequirement =
   | 'written_exam'
@@ -53,6 +56,8 @@ export interface TutorCertificationCredential {
   id: string;
   tutorId: string;
   status: TutorCertificationProofStatus;
+  verificationAvailable?: boolean;
+  retirementReason?: string;
   credentialCommitment: string | null;
   schemaVersion: string;
   circuitVersion: string;

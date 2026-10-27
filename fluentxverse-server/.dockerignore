@@ -16,6 +16,7 @@ nginx.conf
 config/anonymous-reviews.env
 config/anonymous-tally.env
 config/lesson-passes.env
+config/lesson-privacy.env
 .deployment/
 .git/
 .gitignore

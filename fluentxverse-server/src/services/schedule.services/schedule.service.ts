@@ -34,7 +34,7 @@ import { attendanceDeadlineMs, attendanceStartMs, validateAttendanceWindow, vali
 import { ClassroomNotesService } from '../classroomNotes.services/classroomNotes.service';
 import { ABSENCE_REASONS, isShortNoticeCancellation, validateAbsenceTime, validateReopenPolicy, canStudentCancelLesson, STUDENT_CANCELLATION_CUTOFF_MS, type AbsenceReason } from './cancellationPolicy';
 import type { ManagedTransaction } from 'neo4j-driver';
-import { assertStudentScheduleAvailable, assertTutorCanSchedule } from './schedulingGuards';
+import { assertStudentScheduleAvailable, assertTutorCanSchedule, assertTutorApplicationApproved } from './schedulingGuards';
 import { reconcileTutorPenaltyBlock } from './tutorPenaltyBlock';
 import { BOOKING_CUTOFF_MESSAGE, BOOKING_CUTOFF_MINUTES, SLOT_OPEN_LEAD_MINUTES, bookingCutoffMs, canOpenSlot, canReserveForBooking, CHECKOUT_HOLD_MINUTES } from './bookingPolicy';
 
@@ -491,6 +491,7 @@ export class ScheduleService {
         if (!slot) throw new Error('Slot not found');
         await assertStudentScheduleAvailable(tx, studentId, slot);
         await assertTutorCanSchedule(tx, slot.tutorId);
+        await assertTutorApplicationApproved(tx, slot.tutorId);
         const startMs = attendanceStartMs({ date: slot.slotDate, time: slot.slotTime });
         const existingExpiry = slot.pendingUntil?.toStandardDate?.().getTime() ??
           (slot.pendingAt?.toStandardDate?.().getTime() ?? 0) + CHECKOUT_HOLD_MINUTES * 60_000;
@@ -611,7 +612,7 @@ export class ScheduleService {
       const TEST_TUTOR_EMAILS = ['paulanthonyarriola@gmail.com'];
       const certificationResult = await session.run(
         `MATCH (u:User {id: $tutorId})
-         RETURN u.writtenExamPassed as writtenPassed, u.speakingExamPassed as speakingPassed, u.profileStatus as profileStatus, u.email as email`,
+         RETURN u.writtenExamPassed as writtenPassed, u.speakingExamPassed as speakingPassed, u.interviewPassed as interviewPassed, u.profileStatus as profileStatus, u.email as email`,
         { tutorId: slot.tutorId }
       );
       
@@ -625,7 +626,8 @@ export class ScheduleService {
         const isTestAccount = TEST_TUTOR_EMAILS.includes(tutorEmail);
         
         // Full certification requires: passed both exams AND profile approved
-        const isFullyCertified = writtenPassed === true && speakingPassed === true && profileStatus === 'approved';
+        const isFullyCertified = writtenPassed === true && speakingPassed === true && profileStatus === 'approved'
+          && certificationResult.records[0]?.get('interviewPassed') === true;
         
         if (!isTestAccount && !isFullyCertified) {
           throw new Error('This tutor is not yet certified to teach. Please choose a certified tutor.');
@@ -767,6 +769,7 @@ export class ScheduleService {
         if (usesPass) await lessonPassService.repository.claimForBooking(tx, input.studentId, input.privatePassReservationId!, bookingId);
         await assertStudentScheduleAvailable(tx, input.studentId, slot);
         await assertTutorCanSchedule(tx, slot.tutorId);
+        await assertTutorApplicationApproved(tx, slot.tutorId);
         const result = await tx.run(
         `
         MATCH (s:TimeSlot {slotId: $slotId, status: 'pending', pendingBy: $studentId,

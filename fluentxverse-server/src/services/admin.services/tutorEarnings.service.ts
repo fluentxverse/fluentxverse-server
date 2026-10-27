@@ -32,31 +32,58 @@ export function payoutReservation(input: PayoutReservationInput) {
   input.bookingIds.forEach(compensationTutorId);
   return { ...input, bookingIds: [...input.bookingIds].sort(), recipient: input.recipient.toLowerCase(), reason: earningsReason(input.reason) };
 }
-async function finance(tx: ManagedTransaction, actorId: string) {
+export async function finance(tx: ManagedTransaction, actorId: string) {
   const a = (await tx.run('MATCH (a:Admin {id:$actorId}) RETURN a', { actorId })).records[0]?.get('a')?.properties;
   if (!a || !['admin', 'superadmin'].includes(a.role || 'admin') || !adminCapabilities(a).includes('finance')) {
     throw new TutorCompensationError(403, 'Finance permission required.');
   }
 }
-async function lockTutor(tx: ManagedTransaction, tutorId: string) {
+export async function lockTutor(tx: ManagedTransaction, tutorId: string) {
   const rows = await tx.run(`MATCH (:User {id:$tutorId})-[:HAS_COMPENSATION]->(r:TutorCompensation {tutorId:$tutorId})
     SET r.writeRevision = coalesce(r.writeRevision,0)+1 RETURN r`, { tutorId });
   if (!rows.records.length) throw new TutorCompensationError(409, 'Set the tutor base rate before recording earnings.');
 }
-async function lockedBooking(tx: ManagedTransaction, tutorId: string, bookingId: string) {
+export async function lockedBooking(tx: ManagedTransaction, tutorId: string, bookingId: string, requirePayable = true) {
   const rows = await tx.run(`MATCH (b:Booking {bookingId:$bookingId,tutorId:$tutorId})
     SET b.compensationWriteRevision=coalesce(b.compensationWriteRevision,0)+1 RETURN b`, { tutorId, bookingId });
   if (rows.records.length !== 1) throw new TutorCompensationError(404, 'Tutor lesson not found.');
   const b = rows.records[0]!.get('b').properties;
-  payableCompletion(b);
+  if (requirePayable) payableCompletion(b);
   return b;
 }
-function financialFailure(error: any): never {
+export function financialFailure(error: any): never {
   if (error instanceof TutorCompensationError) throw error;
   if (/conflict|serialization|constraint.*violat|violat.*constraint/i.test(String(error?.code) + ' ' + String(error?.message))) {
     throw new TutorCompensationError(409, 'Financial records changed concurrently. Reload before retrying.');
   }
   throw error;
+}
+
+export async function reservedPayoutEvidence(tx: ManagedTransaction, tutorId: string, id: string, now = Date.now()) {
+  const row = (await tx.run('MATCH (p:TutorPayoutBatch {id:$id,tutorId:$tutorId}) RETURN p', { id, tutorId })).records[0];
+  const batch = row && plainNode(row.get('p').properties);
+  if (!batch || batch.status !== 'reserved' || !Number.isFinite(Date.parse(batch.expiresAt)) || Date.parse(batch.expiresAt) <= now) {
+    throw new TutorCompensationError(409, 'Payout reservation is unavailable or expired.');
+  }
+  const originals = JSON.parse(batch.earningsJson) as Record<string, any>[];
+  if (batch.policy !== PAYOUT_POLICY || batch.currency !== 'USD' || batch.feeCents !== 0 || !Array.isArray(originals)
+    || originals.length < 1 || originals.length > 4 || new Set(originals.map(e => e.bookingId)).size !== originals.length
+    || JSON.stringify(originals.map(e => e.bookingId).sort()) !== batch.bookingIdsJson) throw new TutorCompensationError(409, 'Payout earning set changed.');
+  let total = 0;
+  for (const original of originals) {
+    const booking = await lockedBooking(tx, tutorId, original.bookingId);
+    const raw = (await tx.run('MATCH (e:TutorEarning {bookingId:$bookingId,tutorId:$tutorId}) RETURN e', { bookingId: original.bookingId, tutorId })).records[0]?.get('e')?.properties;
+    const e = raw && plainNode(raw);
+    if (!e || e.payoutBatchId !== id || e.status !== 'reserved' || e.policy !== PAYOUT_POLICY || e.currency !== 'USD'
+      || e.units !== 1 || e.feeCents !== 0 || e.grossCents !== e.netCents || e.tutorId !== original.tutorId
+      || e.netCents !== original.netCents || e.grossCents !== original.grossCents || e.feeCents !== original.feeCents
+      || !Number.isSafeInteger(e.netCents) || e.netCents < 1 || e.netCents > MAX_TUTOR_RATE_CENTS
+      || e.rateVersion !== original.rateVersion || e.completionAt !== original.completionAt
+      || payableCompletion(booking, now) !== original.completionAt) throw new TutorCompensationError(409, 'Reserved earnings changed; authorization is blocked.');
+    total += e.netCents;
+  }
+  if (total !== batch.totalCents) throw new TutorCompensationError(409, 'Payout total changed.');
+  return { protocol: PAYOUT_POLICY, batch, earnings: originals, zkVerified: false, transferEnabled: false };
 }
 
 export class TutorEarningsService {
@@ -127,7 +154,7 @@ export class TutorEarningsService {
         const total = earnings.reduce((n, e) => n + e.netCents, 0), now = new Date().toISOString();
         const result = await tx.run(`CREATE (p:TutorPayoutBatch {id:$id,tutorId:$tutorId,currency:'USD',policy:$policy,status:'reserved',
           recipient:$recipient,bookingIdsJson:$ids,earningsJson:$earnings,totalCents:$total,feeCents:0,approvedBy:$actorId,
-          reason:$reason,createdAt:$now,expiresAt:$expiry,zkVerified:false,transferEnabled:false})
+          reason:$reason,createdAt:$now,expiresAt:$expiry,zkVerified:false,transferEnabled:false,recoveryVersion:1})
           WITH p MATCH (e:TutorEarning) WHERE e.bookingId IN $bookingIds AND e.tutorId=$tutorId
           SET e.status='reserved',e.payoutBatchId=$id CREATE (p)-[:RESERVES_EARNING]->(e) RETURN p LIMIT 1`,
         { id: input.requestId, tutorId, policy: PAYOUT_POLICY, recipient: input.recipient, ids: JSON.stringify(input.bookingIds),
@@ -143,17 +170,7 @@ export class TutorEarningsService {
     try {
       return await session.executeWrite(async tx => {
         await finance(tx, actorId); await lockTutor(tx, tutorId);
-        const row = (await tx.run('MATCH (p:TutorPayoutBatch {id:$id,tutorId:$tutorId}) RETURN p', { id, tutorId })).records[0];
-        const batch = row && plainNode(row.get('p').properties);
-        if (!batch || batch.status !== 'reserved' || Date.parse(batch.expiresAt) <= Date.now()) throw new TutorCompensationError(409, 'Payout reservation is unavailable or expired.');
-        const originals = JSON.parse(batch.earningsJson) as Record<string, any>[];
-        for (const original of originals) {
-          const booking = await lockedBooking(tx, tutorId, original.bookingId);
-          const e = (await tx.run('MATCH (e:TutorEarning {bookingId:$bookingId,tutorId:$tutorId}) RETURN e', { bookingId: original.bookingId, tutorId })).records[0]?.get('e')?.properties;
-          if (!e || e.payoutBatchId !== id || e.status !== 'reserved' || Number(e.netCents) !== original.netCents
-            || Number(e.rateVersion) !== original.rateVersion || payableCompletion(booking) !== original.completionAt) throw new TutorCompensationError(409, 'Reserved earnings changed; authorization is blocked.');
-        }
-        return { protocol: PAYOUT_POLICY, batch, earnings: originals, zkVerified: false, transferEnabled: false };
+        return reservedPayoutEvidence(tx, tutorId, id);
       });
     } catch (e) { return financialFailure(e); } finally { await session.close(); }
   }

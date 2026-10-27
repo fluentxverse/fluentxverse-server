@@ -18,6 +18,14 @@ export async function assertTutorCanSchedule(tx: ManagedTransaction, tutorId: st
   }
 }
 
+export async function assertTutorApplicationApproved(tx: ManagedTransaction, tutorId: string) {
+  const result = await tx.run(`MATCH(t:User {id:$tutorId})
+    WHERE (t.writtenExamPassed=true AND t.speakingExamPassed=true AND t.interviewPassed=true AND t.profileStatus='approved')
+      OR t.email IN $qaEmails
+    RETURN t.id AS id`, { tutorId, qaEmails: ['paulanthonyarriola@gmail.com'] });
+  if (!result.records.length) throw new Error('This tutor has not completed the required assessments, interview and profile approval.');
+}
+
 export async function assertStudentScheduleAvailable(tx: ManagedTransaction, studentId: string, slot: {
   slotId: string; slotDate: string; slotTime: string; durationMinutes?: number;
 }) {

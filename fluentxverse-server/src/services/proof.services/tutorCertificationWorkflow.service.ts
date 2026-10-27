@@ -1,64 +1,21 @@
-import {
-  maybeIssueTutorCertificationProof,
-  tryIssueTutorCertificationProof,
-} from './tutorCertificationProof.service';
-import {
-  isZkVerifySubmissionConfigured,
-  persistZkVerifyFailure,
-  submitTutorCertificationProofToZkVerify,
-} from './zkVerifySubmit.service';
+import { getTutorCertificationProofStatus } from './tutorCertificationProof.service';
+import { LegacyProofRetiredError } from './legacyProofRetirement';
+import { getDriver } from '../../db/memgraph';
 
-const terminalOrActiveStatuses = new Set(['submitted', 'verified']);
-
-export async function issueAndMaybeSubmitTutorCertificationProof(
-  tutorId: string,
-  trigger = 'auto'
-): Promise<void> {
-  const { snapshot, credential } = await maybeIssueTutorCertificationProof(tutorId, trigger);
-
-  if (snapshot.missingRequirements.length > 0) {
-    return;
-  }
-
-  if (terminalOrActiveStatuses.has(credential.status)) {
-    return;
-  }
-
-  if (!isZkVerifySubmissionConfigured()) {
-    return;
-  }
-
+// Application approval remains separate from cryptographic certification.
+export async function issueAndMaybeSubmitTutorCertificationProof(tutorId: string, _trigger = 'auto'): Promise<void> {
+  const { snapshot } = await getTutorCertificationProofStatus(tutorId);
+  if (snapshot.missingRequirements.length) return;
+  const session = getDriver().session();
   try {
-    await submitTutorCertificationProofToZkVerify(tutorId);
-  } catch (error) {
-    await persistZkVerifyFailure(tutorId, credential.id, error, trigger);
-    throw error;
-  }
+    await session.run("MATCH (u:User {id: $tutorId}) SET u.certificationStatus = 'certified', u.certificationStatusUpdatedAt = $now",
+      { tutorId, now: new Date().toISOString() });
+  } finally { await session.close(); }
 }
-
-export async function tryIssueAndMaybeSubmitTutorCertificationProof(
-  tutorId: string,
-  trigger = 'auto'
-): Promise<void> {
-  try {
-    await issueAndMaybeSubmitTutorCertificationProof(tutorId, trigger);
-  } catch (error) {
-    console.warn('Failed to issue or submit tutor certification proof:', {
-      tutorId,
-      trigger,
-      error: error instanceof Error ? error.message : error,
-    });
-  }
+export async function tryIssueAndMaybeSubmitTutorCertificationProof(tutorId: string, trigger = 'auto'): Promise<void> {
+  try { await issueAndMaybeSubmitTutorCertificationProof(tutorId, trigger); }
+  catch { console.warn('Could not refresh tutor application approval', { trigger }); }
 }
-
-export async function retryTutorCertificationZkVerifySubmission(tutorId: string) {
-  await tryIssueTutorCertificationProof(tutorId, 'admin_retry_prepare');
-  const { credential } = await maybeIssueTutorCertificationProof(tutorId, 'admin_retry');
-
-  try {
-    return await submitTutorCertificationProofToZkVerify(tutorId);
-  } catch (error) {
-    await persistZkVerifyFailure(tutorId, credential.id, error, 'admin_retry');
-    throw error;
-  }
+export async function retryTutorCertificationZkVerifySubmission(_tutorId: string): Promise<never> {
+  throw new LegacyProofRetiredError();
 }

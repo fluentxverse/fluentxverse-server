@@ -27,7 +27,10 @@ export function ensureCompensationSchema(): Promise<void> {
   return schemaReady ||= (async () => {
     const session = getDriver().session();
     try {
-      for (const [label, property] of [['TutorCompensation', 'tutorId'], ['TutorRateChange', 'id'], ['TutorRateChange', 'changeKey'], ['TutorEarning', 'bookingId'], ['TutorPayoutBatch', 'id']]) {
+      for (const [label, property] of [['TutorCompensation', 'tutorId'], ['TutorRateChange', 'id'], ['TutorRateChange', 'changeKey'], ['TutorEarning', 'bookingId'], ['TutorPayoutBatch', 'id'],
+        ['TutorPayoutOperation', 'id'], ['TutorPayoutOperation', 'batchId'], ['TutorPayoutOperation', 'submissionKey'],
+        ['TutorPayoutOperation', 'engineTransactionId'], ['TutorPayoutOperation', 'settlementKey'], ['TutorPayoutEvent', 'id'],
+        ['TutorPayoutAuthorization', 'batchId'], ['TutorPayoutAuthorization', 'engineSubmissionId'], ['TutorPayoutAuthorization', 'claimNullifier']]) {
         const exists = async () => (await session.run('SHOW CONSTRAINT INFO')).records.some(record => record.get('constraint type') === 'unique'
           && record.get('label') === label && record.get('properties').length === 1 && record.get('properties')[0] === property);
         if (await exists()) continue;

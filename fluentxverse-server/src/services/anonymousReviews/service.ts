@@ -65,6 +65,12 @@ export class AnonymousReviewService {
   }
   async activate(id: string) {
     requireAnonymousReviews();
+    const existing = await this.repository.cohort(id), config = reviewConfig();
+    if (!existing) throw new AnonymousReviewError('Review cohort not found', 404);
+    if (existing.chainId !== config.chainId || existing.contract.toLowerCase() !== config.bridge.toLowerCase()
+      || existing.id !== reviewGroupId(existing.tutorId, existing.period)
+      || existing.scope !== reviewScope(config.chainId, config.bridge, existing.id))
+      throw new AnonymousReviewError('Historical contract-backed cohorts are archived and cannot be relabeled', 409);
     const cohort = await this.repository.seal(id, members => {
       if (members.length < REVIEW_MIN_BATCH || members.length > REVIEW_MAX_MEMBERS || new Set(members).size !== members.length)
         throw new AnonymousReviewError('At least five distinct eligible students must enroll', 409);
@@ -72,14 +78,8 @@ export class AnonymousReviewService {
       return { root: group.root.toString(), membersJson: JSON.stringify(members) };
     });
     if (await this.chain.active(cohort)) return { status: 'active' };
-    if (reviewConfig().infrastructure === 'bridge_only') {
-      await this.chain.check(); await this.repository.activateBridge(id);
-      return { status: 'active', infrastructure: 'bridge_only', enforcement: 'application' };
-    }
-    if (!await this.repository.claimActivation(id)) throw new AnonymousReviewError('Activation is pending or needs Engine reconciliation', 409);
-    const transaction = await this.chain.activate(cohort);
-    if ('id' in transaction) await this.repository.recordActivation(id, transaction.id);
-    return transaction;
+    await this.chain.check(); await this.repository.activateBridge(id);
+    return { status: 'active', infrastructure: 'bridge_only', enforcement: 'application' };
   }
   async receive(groupId: string, contentInput: unknown, proofInput: unknown) {
     requireAnonymousReviews();
@@ -112,19 +112,13 @@ export class AnonymousReviewService {
     requireAnonymousReviews(); const item = await this.repository.submission(id);
     if (!item?.zkVerifyTx) throw new AnonymousReviewError('Submit the review proof to zkVerify first', 409);
     const proof = parseReviewProof(JSON.parse(item.proofJson));
-    if (await this.chain.accepted(proof, item.receiptJson)) return { status: 'verified', verified: true };
-    if (reviewConfig().infrastructure === 'bridge_only') {
-      const cohort = await this.repository.cohort(item.groupId);
-      if (!cohort || !await this.chain.active(cohort) || proof.merkleTreeRoot !== cohort.root || proof.scope !== cohort.scope)
-        throw new AnonymousReviewError('Review proof differs from the active cohort', 409);
-      if (!await this.chain.receipt(proof, receipt)) throw new AnonymousReviewError('Review receipt is not finalized on Horizen', 409);
-      await this.repository.acceptBridge(id, JSON.stringify(receipt));
-      return { status: 'verified', verified: true, infrastructure: 'bridge_only', enforcement: 'application' };
-    }
-    if (!await this.repository.claimCertification(id)) throw new AnonymousReviewError('Certification is pending or needs Engine reconciliation', 409);
-    const transaction = await this.chain.certify(proof, receipt);
-    await this.repository.patch(id, { transactionId: transaction.id });
-    return { transactionId: transaction.id, status: transaction.status, verified: false };
+    const cohort = await this.repository.cohort(item.groupId);
+    if (!cohort || !await this.chain.active(cohort) || proof.merkleTreeRoot !== cohort.root || proof.scope !== cohort.scope)
+      throw new AnonymousReviewError('Review proof differs from the active cohort', 409);
+    if (item.status === 'verified' && await this.chain.accepted(proof, item.receiptJson)) return { status: 'verified', verified: true };
+    if (!await this.chain.receipt(proof, receipt)) throw new AnonymousReviewError('Review receipt is not finalized on Horizen', 409);
+    await this.repository.acceptBridge(id, JSON.stringify(receipt));
+    return { status: 'verified', verified: true, infrastructure: 'bridge_only', enforcement: 'application' };
   }
   async reconcile(id: string) {
     requireAnonymousReviews();

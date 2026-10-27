@@ -28,8 +28,25 @@ describe('privately verifiable screening evidence', () => {
       (e: any) => e.written.result.examId = 'different-attempt',
       (e: any) => e.speaking.result.taskScores[0].transcription = 'Client forged response',
       (e: any) => e.speaking.audioEvidence[0].source = 'client-transcription',
+      (e: any) => e.speaking.result.rubricVersion = 'transcript-assessment.v1',
+      (e: any) => e.speaking.result.audioReviewRequired = false,
       (e: any) => e.profile.reviewerId = '',
       (e: any) => e.interview.passed = false,
+    ];
+    for (const change of changes) { const evidence = screeningFixture(); change(evidence); expect(() => assertScreeningEvidence(evidence)).toThrow(); }
+  });
+  test('requires complete assessments and recomputes every oral dimension score', () => {
+    const changes = [
+      (e: any) => e.written.content.questions.pop(),
+      (e: any) => e.written.result.answers[0].selectedAnswer = 4,
+      (e: any) => e.written.result.passed = false,
+      (e: any) => e.speaking.content.tasks.pop(),
+      (e: any) => e.speaking.result.taskScores[0].scores.grammar = 5,
+      (e: any) => e.speaking.result.taskScores[0].scores.grammar = 4.5,
+      (e: any) => e.speaking.result.taskScores[0].scores.pronunciation = 5,
+      (e: any) => e.speaking.result.taskScores[0].averageScore = 5,
+      (e: any) => e.speaking.result.taskScores[0].taskType = 'incorrect',
+      (e: any) => e.speaking.result.passed = false,
     ];
     for (const change of changes) { const evidence = screeningFixture(); change(evidence); expect(() => assertScreeningEvidence(evidence)).toThrow(); }
   });

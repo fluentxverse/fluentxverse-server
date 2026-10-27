@@ -172,7 +172,7 @@ const Tutor = new Elysia({ prefix: '/tutor' })
       console.error('Error in /tutor/intro-video:', error);
       return { success: false, error: 'Failed to upload intro video' };
     }
-  })
+  }, { parse: 'none' })
 
   /**
    * Delete tutor intro video
@@ -282,13 +282,14 @@ const Tutor = new Elysia({ prefix: '/tutor' })
       console.error('Error in /tutor/profile-picture:', error);
       return { success: false, error: 'Failed to upload profile picture' };
     }
-  })
+  }, { parse: 'none' })
 
   /**
    * Get current tutor's own profile data (bio, introduction, etc.)
    * GET /tutor/profile
    */
-  .get('/profile', async ({ cookie }) => {
+  .get('/profile', async ({ cookie, set }) => {
+    set.headers['Cache-Control'] = 'private, no-store';
     try {
       const raw = cookie.tutorAuth?.value;
       if (!raw) return { success: false, error: 'Not authenticated' };
@@ -299,7 +300,9 @@ const Tutor = new Elysia({ prefix: '/tutor' })
       // Refresh JWT cookie on every request
       await refreshJwtCookie(cookie, payload, 'tutorAuth');
 
+      const started = performance.now();
       const tutor = await tutorService.getTutorProfile(userId);
+      set.headers['Server-Timing'] = `profile;dur=${(performance.now() - started).toFixed(1)}`;
       
       if (!tutor) {
         return { success: false, error: 'Tutor profile not found' };
@@ -792,9 +795,9 @@ const Tutor = new Elysia({ prefix: '/tutor' })
 
       return { success: true, data: notes };
     } catch (error: any) {
-      console.error('[TutorRoute] Error in PUT /tutor/classroom-notes/:sessionId:', error);
-      set.status = error instanceof InvalidMaterialProgress ? 400 : error instanceof LessonNotesReadOnly || error.message?.includes('do not have access') ? 403 : 500;
-      return { success: false, error: error.message || 'Failed to save classroom notes' };
+      console.error('[TutorRoute] Classroom note save failed; private content omitted.');
+      set.status = error instanceof InvalidMaterialProgress || error instanceof LessonFeedbackInvalid ? 400 : error instanceof LessonNotesReadOnly || error.message?.includes('do not have access') ? 403 : 500;
+      return { success: false, error: error instanceof InvalidMaterialProgress || error instanceof LessonFeedbackInvalid || error instanceof LessonNotesReadOnly ? error.message : 'Failed to save classroom notes' };
     }
   }, {
     body: t.Object({

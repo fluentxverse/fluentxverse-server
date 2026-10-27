@@ -4,37 +4,27 @@ import { NotificationService } from '../services/notification.services/notificat
 import { getIO } from '../socket/socket.server';
 import { verifyAuthToken, refreshJwtCookie, type JwtAuthPayload } from '../utils/jwt';
 import { createAdminGuard } from '../middleware/auth.middleware';
-import { isAllowedAdminMutationOrigin } from '../config/cors';
+import { isAllowedAdminMutationOrigin, isAllowedTutorMutationOrigin } from '../config/cors';
+import { applicationFailure } from '../services/exam.services/applicationPolicy';
 import { logger } from '../utils/logger';
 
 const interviewService = new InterviewService();
 const notificationService = new NotificationService();
 
 const Interview = new Elysia({ prefix: '/interview' })
-  // Helper: verify admin authentication via adminAuth cookie (JWT)
-  .derive(({ cookie, set }) => {
-    const requireAdmin = async (): Promise<JwtAuthPayload | null> => {
-      const raw = cookie.adminAuth?.value;
-      if (!raw) {
-        set.status = 401;
-        return null;
-      }
-      const payload = await verifyAuthToken(String(raw));
-      if (!payload) {
-        set.status = 401;
-        return null;
-      }
-      // Check for admin or superadmin role
-      const role = payload.role;
-      if (role && role !== 'admin' && role !== 'superadmin') {
-        set.status = 403;
-        return null;
-      }
-      // Note: adminAuth refresh handled separately
-      return payload;
-    };
-    return { requireAdmin };
+  .onBeforeHandle(async ({ request, cookie, set }) => {
+    const path = new URL(request.url).pathname;
+    if (request.method === 'POST' && ['/interview/book', '/interview/cancel'].includes(path)) {
+      if (!isAllowedTutorMutationOrigin(request.headers.get('origin'))) { set.status = 403; return { success: false, error: 'Tutor application origin required' }; }
+      const token = cookie.tutorAuth?.value ? await verifyAuthToken(String(cookie.tutorAuth.value)) : null;
+      if (token?.role !== 'tutor') { set.status = 401; return { success: false, error: 'Tutor authentication required' }; }
+    }
+    if (['POST', 'DELETE'].includes(request.method) && path === '/interview/slots' && !isAllowedAdminMutationOrigin(request.headers.get('origin'))) {
+      set.status = 403; return { success: false, error: 'Dashboard origin required' };
+    }
   })
+  // Helper: verify admin authentication via adminAuth cookie (JWT)
+  .derive(({ cookie, set }) => ({ requireAdmin: () => createAdminGuard(cookie, set, 'operations') }))
   .get('/room/:id', async ({ params, cookie, set, request }) => {
     set.headers['Cache-Control'] = 'private, no-store';
     const room = await interviewService.getRoom(params.id);
@@ -269,11 +259,11 @@ const Interview = new Elysia({ prefix: '/interview' })
         message: 'Interview booked successfully'
       };
     } catch (error: any) {
-      console.error('Error in POST /interview/book:', error);
-      set.status = 400;
+      const failure = applicationFailure(error);
+      set.status = failure.status;
       return {
         success: false,
-        error: error.message || 'Failed to book interview'
+        error: failure.message
       };
     }
   }, {
@@ -595,7 +585,7 @@ const Interview = new Elysia({ prefix: '/interview' })
         error: error.message || 'Failed to upload recording'
       };
     }
-  })
+  }, { parse: 'none' })
   .get('/recording/:id', async ({ params, cookie, set, request }) => {
     set.headers['Cache-Control'] = 'private, no-store';
     const admin = isAllowedAdminMutationOrigin(request.headers.get('origin')) ? await createAdminGuard(cookie, set, 'operations') : null;

@@ -1,4 +1,12 @@
 import { Elysia, t } from "elysia";
+import { verifyAuthToken, refreshJwtCookie } from "../utils/jwt";
+import { getDriver } from "../db/memgraph";
+import { isAllowedTutorMutationOrigin } from "../config/cors";
+import { tutorEmailVerified } from '../services/auth.services/tutorEmailPolicy';
+import {
+  ApplicationError,
+  applicationFailure,
+} from "../services/exam.services/applicationPolicy";
 import {
   generateWrittenExam,
   gradeExam,
@@ -12,680 +20,188 @@ import {
 import {
   generateSpeakingExam,
   getSpeakingExamForClient,
-  gradeSpeakingExam,
   getSpeakingExamStatus,
   getActiveSpeakingExam,
   getSpeakingExamResult,
-  transcribeAudio,
 } from "../services/exam.services/speaking.service";
-import { verifyAuthToken, refreshJwtCookie } from "../utils/jwt";
+import {
+  saveSpeakingRecording,
+  submitSpeakingExam,
+} from "../services/exam.services/speakingQueue";
 
+const id = t.String({
+  minLength: 1,
+  maxLength: 128,
+  pattern: "^[a-zA-Z0-9_-]+$",
+});
+const answers = t.Array(t.Integer({ minimum: -1, maximum: 3 }), {
+  maxItems: 30,
+});
 const Examination = new Elysia({ prefix: "/exam" })
-
-  // ============================================================================
-  // GENERATE WRITTEN EXAM
-  // POST /exam/written/generate
-  // SECURITY: Requires tutor authentication
-  // ============================================================================
-  .post(
-    "/written/generate",
-    async ({ body, cookie, set }) => {
-      // SECURITY: Verify tutor authentication
-      const raw = cookie.tutorAuth?.value;
-      if (!raw) {
-        set.status = 401;
-        return { success: false, message: "Authentication required" };
-      }
-      
-      const payload = await verifyAuthToken(String(raw));
-      if (!payload) {
-        set.status = 401;
-        return { success: false, message: "Invalid or expired token" };
-      }
-      
-      // SECURITY: Use authenticated tutor ID, ignore any tutorId from body
-      const tutorId = payload.userId;
-      
-      // Refresh cookie
-      await refreshJwtCookie(cookie, payload, 'tutorAuth');
-
-      try {
-        // Check for existing active exam first
-        const existingExam = await getActiveExam(tutorId, "written");
-        if (existingExam) {
-          return {
-            success: true,
-            message: "Returning existing exam",
-            exam: getExamForClient(existingExam),
-          };
-        }
-
-        // Generate new exam using AI and save to Memgraph
-        const exam = await generateWrittenExam(tutorId);
-
-        return {
-          success: true,
-          message: "Exam generated successfully",
-          exam: getExamForClient(exam),
-        };
-      } catch (error) {
-        console.error("❌ Error generating exam:", error);
-        return {
-          success: false,
-          message: "Failed to generate exam",
-          error: error instanceof Error ? error.message : "Unknown error",
-        };
-      }
+  .onError(({ error, code, set }) => {
+    const failure =
+      code === "VALIDATION"
+        ? { status: 422, message: "Invalid assessment request." }
+        : applicationFailure(error);
+    set.status = failure.status;
+    return { success: false, message: failure.message, error: failure.message };
+  })
+  .resolve(async ({ cookie, request, set }) => {
+    set.headers["cache-control"] = "private, no-store";
+    if (
+      !["GET", "HEAD", "OPTIONS"].includes(request.method) &&
+      !isAllowedTutorMutationOrigin(request.headers.get("origin"))
+    )
+      throw new ApplicationError(403, "Tutor application origin required.");
+    const raw = cookie.tutorAuth?.value,
+      payload = raw ? await verifyAuthToken(String(raw)) : null;
+    if (!payload || payload.role !== "tutor")
+      throw new ApplicationError(401, "Tutor authentication required.");
+    const session = getDriver().session();
+    try {
+      const user = (
+        await session.run("MATCH(u:User {id:$id}) RETURN u", {
+          id: payload.userId,
+        })
+      ).records[0]?.get("u").properties;
+      if (!user || (user.role && user.role !== "tutor"))
+        throw new ApplicationError(401, "Tutor account not found.");
+      if (Date.parse(user.suspendedUntil || "") > Date.now())
+        throw new ApplicationError(403, "This account is suspended.");
+      if (!new URL(request.url).pathname.endsWith('/status') && !tutorEmailVerified(user))
+        throw new ApplicationError(403, 'Confirm your email address before continuing your tutor assessment.');
+    } finally {
+      await session.close();
     }
-  )
-
-  // ============================================================================
-  // SUBMIT EXAM ANSWERS
-  // POST /exam/written/submit
-  // SECURITY: Requires tutor authentication
-  // ============================================================================
+    await refreshJwtCookie(cookie, payload, "tutorAuth");
+    return { tutorId: payload.userId };
+  })
+  .post("/written/generate", async ({ tutorId }) => ({
+    success: true,
+    exam: getExamForClient(await generateWrittenExam(tutorId)),
+  }))
   .post(
     "/written/submit",
-    async ({ body, cookie, set }) => {
-      // SECURITY: Verify tutor authentication
-      const raw = cookie.tutorAuth?.value;
-      if (!raw) {
-        set.status = 401;
-        return { success: false, message: "Authentication required" };
-      }
-      
-      const payload = await verifyAuthToken(String(raw));
-      if (!payload) {
-        set.status = 401;
-        return { success: false, message: "Invalid or expired token" };
-      }
-      
-      const tutorId = payload.userId;
-      await refreshJwtCookie(cookie, payload, 'tutorAuth');
-
-      try {
-        const { examId, answers } = body;
-
-        // Grade the exam (fetches from Memgraph, no AI needed)
-        const result = await gradeExam(examId, tutorId, answers);
-
-        return {
-          success: true,
-          message: result.passed
-            ? "Congratulations! You passed the exam."
-            : "Thank you for completing the exam.",
-          result,
-        };
-      } catch (error) {
-        console.error("❌ Error submitting exam:", error);
-        return {
-          success: false,
-          message: "Failed to submit exam",
-          error: error instanceof Error ? error.message : "Unknown error",
-        };
-      }
-    },
+    async ({ body, tutorId }) => ({
+      success: true,
+      result: await gradeExam(body.examId, tutorId, body.answers),
+    }),
     {
-      body: t.Object({
-        examId: t.String(),
-        answers: t.Array(t.Number()), // Array of selected answer indices (0-3)
-      }),
-    }
+      body: t.Object({ examId: id, answers }),
+    },
   )
-
-  // ============================================================================
-  // SAVE ANSWERS (for resume functionality)
-  // POST /exam/written/save
-  // SECURITY: Requires tutor authentication
-  // ============================================================================
   .post(
     "/written/save",
-    async ({ body, cookie, set }) => {
-      // SECURITY: Verify tutor authentication
-      const raw = cookie.tutorAuth?.value;
-      if (!raw) {
-        set.status = 401;
-        return { success: false, message: "Authentication required" };
-      }
-      
-      const payload = await verifyAuthToken(String(raw));
-      if (!payload) {
-        set.status = 401;
-        return { success: false, message: "Invalid or expired token" };
-      }
-      
-      const tutorId = payload.userId;
-      await refreshJwtCookie(cookie, payload, 'tutorAuth');
-
-      try {
-        const { examId, answers, currentQuestion } = body;
-
-        const success = await saveExamAnswers(examId, tutorId, answers, currentQuestion);
-
-        return {
-          success,
-          message: success ? "Answers saved" : "Failed to save answers",
-        };
-      } catch (error) {
-        console.error("❌ Error saving answers:", error);
-        return {
-          success: false,
-          message: "Failed to save answers",
-          error: error instanceof Error ? error.message : "Unknown error",
-        };
-      }
-    },
+    async ({ body, tutorId }) => ({
+      success: await saveExamAnswers(
+        body.examId,
+        tutorId,
+        body.answers,
+        body.currentQuestion,
+      ),
+    }),
     {
       body: t.Object({
-        examId: t.String(),
-        answers: t.Array(t.Number()),
-        currentQuestion: t.Number(),
+        examId: id,
+        answers,
+        currentQuestion: t.Integer({ minimum: 0, maximum: 29 }),
       }),
-    }
+    },
   )
-
-  // ============================================================================
-  // CHECK EXPIRED EXAM
-  // POST /exam/written/check-expired
-  // SECURITY: Requires tutor authentication
-  // ============================================================================
-  .post(
-    "/written/check-expired",
-    async ({ cookie, set }) => {
-      // SECURITY: Verify tutor authentication
-      const raw = cookie.tutorAuth?.value;
-      if (!raw) {
-        set.status = 401;
-        return { success: false, message: "Authentication required" };
-      }
-      
-      const payload = await verifyAuthToken(String(raw));
-      if (!payload) {
-        set.status = 401;
-        return { success: false, message: "Invalid or expired token" };
-      }
-      
-      const tutorId = payload.userId;
-      await refreshJwtCookie(cookie, payload, 'tutorAuth');
-
-      try {
-        const result = await checkAndAutoSubmitExpiredExam(tutorId, "written");
-
-        if (result.expired) {
-          return {
-            success: true,
-            expired: true,
-            message: result.result?.passed
-              ? "Your exam time expired. Based on your saved answers, you passed!"
-              : "Your exam time expired. Based on your saved answers, you did not pass.",
-            result: result.result,
-            canRetake: result.canRetake,
-          };
-        }
-
-        return {
-          success: true,
-          expired: false,
-        };
-      } catch (error) {
-        console.error("❌ Error checking expired exam:", error);
-        return {
-          success: false,
-          message: "Failed to check exam status",
-          error: error instanceof Error ? error.message : "Unknown error",
-        };
-      }
-    }
-  )
-
-  // ============================================================================
-  // GET EXAM STATUS
-  // GET /exam/status
-  // SECURITY: Requires tutor authentication
-  // ============================================================================
-  .get(
-    "/status",
-    async ({ cookie, set }) => {
-      // SECURITY: Verify tutor authentication
-      const raw = cookie.tutorAuth?.value;
-      if (!raw) {
-        set.status = 401;
-        return { success: false, message: "Authentication required" };
-      }
-      
-      const payload = await verifyAuthToken(String(raw));
-      if (!payload) {
-        set.status = 401;
-        return { success: false, message: "Invalid or expired token" };
-      }
-      
-      const tutorId = payload.userId;
-      await refreshJwtCookie(cookie, payload, 'tutorAuth');
-
-      try {
-        const status = await getExamStatus(tutorId, "written");
-        return {
-          success: true,
-          status,
-        };
-      } catch (error) {
-        console.error("❌ Error getting exam status:", error);
-        return {
-          success: false,
-          message: "Failed to get exam status",
-          error: error instanceof Error ? error.message : "Unknown error",
-        };
-      }
-    }
-  )
-
-  // ============================================================================
-  // GET EXAM RESULT WITH DETAILS
-  // GET /exam/result/:examId
-  // SECURITY: Requires tutor authentication
-  // ============================================================================
+  .post("/written/check-expired", async ({ tutorId }) => ({
+    success: true,
+    ...(await checkAndAutoSubmitExpiredExam(tutorId)),
+  }))
+  .get("/status", async ({ tutorId }) => ({
+    success: true,
+    status: await getExamStatus(tutorId),
+  }))
+  .get("/active", async ({ tutorId }) => {
+    const exam = await getActiveExam(tutorId);
+    return { success: !!exam, exam: exam ? getExamForClient(exam) : undefined };
+  })
   .get(
     "/result/:examId",
-    async ({ params, cookie, set }) => {
-      // SECURITY: Verify tutor authentication
-      const raw = cookie.tutorAuth?.value;
-      if (!raw) {
-        set.status = 401;
-        return { success: false, message: "Authentication required" };
-      }
-      
-      const payload = await verifyAuthToken(String(raw));
-      if (!payload) {
-        set.status = 401;
-        return { success: false, message: "Invalid or expired token" };
-      }
-      
-      const tutorId = payload.userId;
-      await refreshJwtCookie(cookie, payload, 'tutorAuth');
-
-      try {
-        const data = await getExamResultWithDetails(tutorId, params.examId);
-
-        if (!data) {
-          return {
-            success: false,
-            message: "Exam result not found",
-          };
-        }
-
-        return {
-          success: true,
-          exam: data.exam,
-          result: data.result,
-        };
-      } catch (error) {
-        console.error("❌ Error getting exam result:", error);
-        return {
-          success: false,
-          message: "Failed to get exam result",
-          error: error instanceof Error ? error.message : "Unknown error",
-        };
-      }
-    }
-  )
-
-  // ============================================================================
-  // GET ACTIVE EXAM (resume incomplete exam)
-  // GET /exam/active
-  // SECURITY: Requires tutor authentication
-  // ============================================================================
-  .get(
-    "/active",
-    async ({ cookie, set }) => {
-      // SECURITY: Verify tutor authentication
-      const raw = cookie.tutorAuth?.value;
-      if (!raw) {
-        set.status = 401;
-        return { success: false, message: "Authentication required" };
-      }
-      
-      const payload = await verifyAuthToken(String(raw));
-      if (!payload) {
-        set.status = 401;
-        return { success: false, message: "Invalid or expired token" };
-      }
-      
-      const tutorId = payload.userId;
-      await refreshJwtCookie(cookie, payload, 'tutorAuth');
-
-      try {
-        const exam = await getActiveExam(tutorId, "written");
-
-        if (!exam) {
-          return {
-            success: false,
-            message: "No active exam found",
-          };
-        }
-
-        return {
-          success: true,
-          exam: getExamForClient(exam),
-        };
-      } catch (error) {
-        console.error("❌ Error getting active exam:", error);
-        return {
-          success: false,
-          message: "Failed to get active exam",
-          error: error instanceof Error ? error.message : "Unknown error",
-        };
-      }
-    }
-  )
-
-  // ============================================================================
-  // SPEAKING EXAM ROUTES
-  // ============================================================================
-
-  // ============================================================================
-  // GENERATE SPEAKING EXAM
-  // POST /exam/speaking/generate
-  // SECURITY: Requires tutor authentication
-  // ============================================================================
-  .post(
-    "/speaking/generate",
-    async ({ cookie, set }) => {
-      // SECURITY: Verify tutor authentication
-      const raw = cookie.tutorAuth?.value;
-      if (!raw) {
-        set.status = 401;
-        return { success: false, message: "Authentication required" };
-      }
-      
-      const payload = await verifyAuthToken(String(raw));
-      if (!payload) {
-        set.status = 401;
-        return { success: false, message: "Invalid or expired token" };
-      }
-      
-      const tutorId = payload.userId;
-      await refreshJwtCookie(cookie, payload, 'tutorAuth');
-
-      try {
-        // Check for existing active exam first
-        const existingExam = await getActiveSpeakingExam(tutorId);
-        if (existingExam) {
-          return {
-            success: true,
-            message: "Returning existing exam",
-            exam: getSpeakingExamForClient(existingExam),
-          };
-        }
-
-        // Generate new speaking exam
-        const exam = await generateSpeakingExam(tutorId);
-
-        return {
-          success: true,
-          message: "Speaking exam generated successfully",
-          exam: getSpeakingExamForClient(exam),
-        };
-      } catch (error) {
-        console.error("❌ Error generating speaking exam:", error);
-        return {
-          success: false,
-          message: "Failed to generate speaking exam",
-          error: error instanceof Error ? error.message : "Unknown error",
-        };
-      }
-    }
-  )
-
-  // ============================================================================
-  // TRANSCRIBE AUDIO
-  // POST /exam/speaking/transcribe
-  // SECURITY: Requires tutor authentication
-  // ============================================================================
-  .post(
-    "/speaking/transcribe",
-    async ({ body, cookie, set }) => {
-      // SECURITY: Verify tutor authentication
-      const raw = cookie.tutorAuth?.value;
-      if (!raw) {
-        set.status = 401;
-        return { success: false, message: "Authentication required" };
-      }
-      
-      const payload = await verifyAuthToken(String(raw));
-      if (!payload) {
-        set.status = 401;
-        return { success: false, message: "Invalid or expired token" };
-      }
-      
-      await refreshJwtCookie(cookie, payload, 'tutorAuth');
-
-      try {
-        const { audioBase64 } = body;
-
-        // Convert base64 to buffer
-        const audioBuffer = Buffer.from(audioBase64, "base64");
-
-        // Transcribe using Whisper
-        const transcription = await transcribeAudio(audioBuffer);
-
-        return {
-          success: true,
-          transcription,
-        };
-      } catch (error) {
-        console.error("❌ Error transcribing audio:", error);
-        return {
-          success: false,
-          message: "Failed to transcribe audio",
-          error: error instanceof Error ? error.message : "Unknown error",
-        };
-      }
+    async ({ tutorId, params }) => {
+      const data = await getExamResultWithDetails(tutorId, params.examId);
+      if (!data) throw new ApplicationError(404, "Written result not found.");
+      return { success: true, ...data };
     },
+    { params: t.Object({ examId: id }) },
+  )
+  .post("/speaking/generate", async ({ tutorId }) => ({
+    success: true,
+    exam: getSpeakingExamForClient(await generateSpeakingExam(tutorId)),
+  }))
+  .post(
+    "/speaking/recording",
+    async ({ tutorId, body }) => ({
+      success: true,
+      ...(await saveSpeakingRecording(tutorId, body.examId, body.recording)),
+    }),
     {
       body: t.Object({
-        audioBase64: t.String(),
+        examId: id,
+        recording: t.Object({
+          taskId: t.Integer({ minimum: 1, maximum: 10 }),
+          audioUrl: t.String({
+            minLength: 80,
+            maxLength: 8 * 1024 * 1024 + 100,
+          }),
+          duration: t.Number({ minimum: 0.5, maximum: 125 }),
+        }),
       }),
-    }
+    },
   )
-
-  // ============================================================================
-  // SUBMIT SPEAKING EXAM
-  // POST /exam/speaking/submit
-  // SECURITY: Requires tutor authentication
-  // ============================================================================
   .post(
     "/speaking/submit",
-    async ({ body, cookie, set }) => {
-      // SECURITY: Verify tutor authentication
-      const raw = cookie.tutorAuth?.value;
-      if (!raw) {
-        set.status = 401;
-        return { success: false, message: "Authentication required" };
-      }
-      
-      const payload = await verifyAuthToken(String(raw));
-      if (!payload) {
-        set.status = 401;
-        return { success: false, message: "Invalid or expired token" };
-      }
-      
-      const tutorId = payload.userId;
-      await refreshJwtCookie(cookie, payload, 'tutorAuth');
-
-      try {
-        const { examId, recordings } = body;
-
-        const result = await gradeSpeakingExam(examId, tutorId, recordings);
-
-        return {
-          success: true,
-          message: result.passed
-            ? "Congratulations! You passed the speaking exam."
-            : "Thank you for completing the speaking exam.",
-          result,
-        };
-      } catch (error) {
-        console.error("❌ Error submitting speaking exam:", error);
-        return {
-          success: false,
-          message: "Failed to submit speaking exam",
-          error: error instanceof Error ? error.message : "Unknown error",
-        };
-      }
+    async ({ tutorId, body, set }) => {
+      const job = await submitSpeakingExam(tutorId, body.examId);
+      set.status = job.state === "completed" ? 200 : 202;
+      return { success: true, ...job };
     },
-    {
-      body: t.Object({
-        examId: t.String(),
-        recordings: t.Array(
-          t.Object({
-            taskId: t.Number(),
-            audioUrl: t.String(),
-            duration: t.Number(),
-            transcription: t.Optional(t.String()),
-          })
-        ),
-      }),
-    }
+    { body: t.Object({ examId: id }) },
   )
-
-  // ============================================================================
-  // GET SPEAKING EXAM STATUS
-  // GET /exam/speaking/status
-  // SECURITY: Requires tutor authentication
-  // ============================================================================
-  .get(
-    "/speaking/status",
-    async ({ cookie, set }) => {
-      // SECURITY: Verify tutor authentication
-      const raw = cookie.tutorAuth?.value;
-      if (!raw) {
-        set.status = 401;
-        return { success: false, message: "Authentication required" };
-      }
-      
-      const payload = await verifyAuthToken(String(raw));
-      if (!payload) {
-        set.status = 401;
-        return { success: false, message: "Invalid or expired token" };
-      }
-      
-      const tutorId = payload.userId;
-      await refreshJwtCookie(cookie, payload, 'tutorAuth');
-
-      try {
-        const status = await getSpeakingExamStatus(tutorId);
-        return {
-          success: true,
-          status,
-        };
-      } catch (error) {
-        console.error("❌ Error getting speaking exam status:", error);
-        return {
-          success: false,
-          message: "Failed to get speaking exam status",
-          error: error instanceof Error ? error.message : "Unknown error",
-        };
-      }
-    }
+  .post(
+    "/speaking/retry",
+    async ({ tutorId, body, set }) => {
+      const job = await submitSpeakingExam(tutorId, body.examId, true);
+      set.status = 202;
+      return { success: true, ...job };
+    },
+    { body: t.Object({ examId: id }) },
   )
-
-  // ============================================================================
-  // GET SPEAKING EXAM RESULT
-  // GET /exam/speaking/result/:examId
-  // SECURITY: Requires tutor authentication
-  // ============================================================================
+  // No free-floating transcription endpoint: every paid assessment call is bound to saved attempt audio.
+  .post("/speaking/transcribe", ({ set }) => {
+    set.status = 410;
+    return {
+      success: false,
+      message: "Recordings are transcribed after assessment submission.",
+    };
+  })
+  .get("/speaking/status", async ({ tutorId }) => ({
+    success: true,
+    status: await getSpeakingExamStatus(tutorId),
+  }))
+  .get("/speaking/active", async ({ tutorId }) => {
+    const exam = await getActiveSpeakingExam(tutorId);
+    return {
+      success: !!exam,
+      exam: exam ? getSpeakingExamForClient(exam) : undefined,
+    };
+  })
   .get(
     "/speaking/result/:examId",
-    async ({ params, cookie, set }) => {
-      // SECURITY: Verify tutor authentication
-      const raw = cookie.tutorAuth?.value;
-      if (!raw) {
-        set.status = 401;
-        return { success: false, message: "Authentication required" };
-      }
-      
-      const payload = await verifyAuthToken(String(raw));
-      if (!payload) {
-        set.status = 401;
-        return { success: false, message: "Invalid or expired token" };
-      }
-      
-      const tutorId = payload.userId;
-      await refreshJwtCookie(cookie, payload, 'tutorAuth');
-
-      try {
-        const data = await getSpeakingExamResult(tutorId, params.examId);
-
-        if (!data) {
-          return {
-            success: false,
-            message: "Speaking exam result not found",
-          };
-        }
-
-        return {
-          success: true,
-          exam: data.exam,
-          result: data.result,
-        };
-      } catch (error) {
-        console.error("❌ Error getting speaking exam result:", error);
-        return {
-          success: false,
-          message: "Failed to get speaking exam result",
-          error: error instanceof Error ? error.message : "Unknown error",
-        };
-      }
-    }
-  )
-
-  // ============================================================================
-  // GET ACTIVE SPEAKING EXAM
-  // GET /exam/speaking/active
-  // SECURITY: Requires tutor authentication
-  // ============================================================================
-  .get(
-    "/speaking/active",
-    async ({ cookie, set }) => {
-      // SECURITY: Verify tutor authentication
-      const raw = cookie.tutorAuth?.value;
-      if (!raw) {
-        set.status = 401;
-        return { success: false, message: "Authentication required" };
-      }
-      
-      const payload = await verifyAuthToken(String(raw));
-      if (!payload) {
-        set.status = 401;
-        return { success: false, message: "Invalid or expired token" };
-      }
-      
-      const tutorId = payload.userId;
-      await refreshJwtCookie(cookie, payload, 'tutorAuth');
-
-      try {
-        const exam = await getActiveSpeakingExam(tutorId);
-
-        if (!exam) {
-          return {
-            success: false,
-            message: "No active speaking exam found",
-          };
-        }
-
-        return {
-          success: true,
-          exam: getSpeakingExamForClient(exam),
-        };
-      } catch (error) {
-        console.error("❌ Error getting active speaking exam:", error);
-        return {
-          success: false,
-          message: "Failed to get active speaking exam",
-          error: error instanceof Error ? error.message : "Unknown error",
-        };
-      }
-    }
+    async ({ tutorId, params }) => {
+      const data = await getSpeakingExamResult(tutorId, params.examId);
+      if (!data) throw new ApplicationError(404, "Oral result not found.");
+      return {
+        success: true,
+        exam: getSpeakingExamForClient(data.exam),
+        result: data.result,
+      };
+    },
+    { params: t.Object({ examId: id }) },
   );
 
 export default Examination;

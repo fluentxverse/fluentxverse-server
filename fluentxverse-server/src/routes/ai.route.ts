@@ -4,8 +4,10 @@
 import { Elysia, t } from 'elysia';
 import { checkGrammar, getVocabularyDefinition, getPronunciation, generateIntroductionContent, generateDiscussionQuestions, generateCourseStructure, generateLessonStructure, generateBusinessEnglishContent } from '../services/ai.service';
 import { createAdminGuard, createTutorGuard } from '../middleware/auth.middleware';
+import { withLessonAIPrivacy } from '../privacy/aiBoundary';
 
 export const aiRoute = new Elysia({ prefix: '/ai' })
+  .onBeforeHandle(({ set }) => { set.headers['Cache-Control'] = 'private, no-store'; })
   // ============================================================================
   // GRAMMAR CHECK (Tutor only)
   // ============================================================================
@@ -19,7 +21,7 @@ export const aiRoute = new Elysia({ prefix: '/ai' })
       }
 
       try {
-        const result = await checkGrammar(body.text);
+        const result = await withLessonAIPrivacy(body.sessionId, tutorPayload.userId, () => checkGrammar(body.text));
         return {
           success: true,
           corrected: result.corrected,
@@ -28,7 +30,7 @@ export const aiRoute = new Elysia({ prefix: '/ai' })
           hasErrors: result.hasErrors,
         };
       } catch (error) {
-        console.error('Grammar check failed:', error);
+        console.error('Grammar check failed; private content omitted.');
         set.status = 500;
         return {
           success: false,
@@ -39,6 +41,7 @@ export const aiRoute = new Elysia({ prefix: '/ai' })
     {
       body: t.Object({
         text: t.String({ minLength: 1, maxLength: 1000 }),
+        sessionId: t.String({ minLength: 1, maxLength: 128 }),
       }),
       detail: {
         tags: ['AI'],
@@ -60,13 +63,13 @@ export const aiRoute = new Elysia({ prefix: '/ai' })
       }
 
       try {
-        const result = await getVocabularyDefinition(body.word);
+        const result = await withLessonAIPrivacy(body.sessionId, tutorPayload.userId, () => getVocabularyDefinition(body.word));
         return {
           success: true,
           definitions: result.definitions,
         };
       } catch (error) {
-        console.error('Vocabulary definition failed:', error);
+        console.error('Vocabulary definition failed; private content omitted.');
         set.status = 500;
         return {
           success: false,
@@ -77,6 +80,7 @@ export const aiRoute = new Elysia({ prefix: '/ai' })
     {
       body: t.Object({
         word: t.String({ minLength: 1, maxLength: 200 }),
+        sessionId: t.String({ minLength: 1, maxLength: 128 }),
       }),
       detail: {
         tags: ['AI'],
@@ -98,14 +102,14 @@ export const aiRoute = new Elysia({ prefix: '/ai' })
       }
 
       try {
-        const result = await getPronunciation(body.word);
+        const result = await withLessonAIPrivacy(body.sessionId, tutorPayload.userId, () => getPronunciation(body.word));
         return {
           success: true,
           word: result.word,
           phonetic: result.phonetic,
         };
       } catch (error) {
-        console.error('Pronunciation failed:', error);
+        console.error('Pronunciation failed; private content omitted.');
         set.status = 500;
         return {
           success: false,
@@ -116,6 +120,7 @@ export const aiRoute = new Elysia({ prefix: '/ai' })
     {
       body: t.Object({
         word: t.String({ minLength: 1, maxLength: 200 }),
+        sessionId: t.String({ minLength: 1, maxLength: 128 }),
       }),
       detail: {
         tags: ['AI'],

@@ -32,7 +32,7 @@ try {
       CREATE (b)-[:BOOKED_BY]->(s) CREATE (b)-[:BOOKS]->(slot)`, { ...row, timestamp });
   }
 
-  const token = await signAuthToken({ userId: 'proof-student', email: 'student@example.test' });
+  const token = await signAuthToken({ userId: 'proof-student', email: 'student@example.test', role: 'student' });
   const call = (path: string, authenticated = true, method = 'GET') =>
     Proof.handle(new Request(`http://localhost${path}`, {
       method, headers: authenticated ? { Cookie: `studentAuth=${token}` } : {},
@@ -50,21 +50,14 @@ try {
 
   for (const id of ['proof-absent', 'proof-cancelled', 'proof-other-student']) {
     const response = await call(`/proof/student-lessons/${id}/claim`, true, 'POST');
-    assert.equal(response.status, 400, `${id}: ${await response.text()}`);
+    assert.equal(response.status, 410, `${id}: ${await response.text()}`);
   }
+  const before = await db.run('MATCH (n:StudentLessonProof) RETURN count(n) AS total');
   const claim = await call('/proof/student-lessons/proof-present/claim', true, 'POST');
-  assert.equal(claim.status, 200, await claim.clone().text());
-  const proof = (await claim.json() as any).data;
-  assert.equal(proof.status, 'local_proof_generated');
-  assert.match(proof.commitment, /^\d+$/);
-
-  const publicLookup = await call(`/proof/student-lessons/public/${proof.commitment}`, false);
-  assert.equal(publicLookup.status, 200);
-  const published = (await publicLookup.json() as any).data;
-  assert.equal(published.localProofVerified, true);
-  assert.equal(published.status, 'local_proof_generated');
-  assert.equal(JSON.stringify(published).includes('proof-student'), false);
-  assert.equal(JSON.stringify(published).includes('proof-present'), false);
+  assert.equal(claim.status, 410, await claim.clone().text());
+  const after = await db.run('MATCH (n:StudentLessonProof) RETURN count(n) AS total');
+  assert.equal(after.records[0]!.get('total').toNumber(), before.records[0]!.get('total').toNumber());
+  assert.ok(data.every((p: any) => p.status === 'retired' && p.submissionAvailable === false));
   const schedule = new ScheduleService();
   await assert.rejects(() => schedule.markAttendance({ bookingId: 'proof-present', tutorId: 'wrong-tutor', role: 'tutor', status: 'present' }),
     /Booking not found for tutor/);
@@ -72,7 +65,7 @@ try {
   const attendance = await db.run('MATCH (b:Booking {bookingId: $bookingId}) RETURN b.attendanceStudent AS attendance',
     { bookingId: 'proof-present' });
   assert.equal(attendance.records[0]!.get('attendance'), 'present');
-  console.log('PASS: auth, booking and tutor ownership, eligibility, local Groth16 claim, public status and privacy');
+  console.log('PASS: auth, booking and tutor ownership, eligibility, legacy retirement and no proof persistence');
 } finally {
   await db.close();
   await closeDriver();

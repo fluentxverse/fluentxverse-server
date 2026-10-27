@@ -37,3 +37,12 @@ test('body limits apply even when Content-Length is omitted', async () => {
   const response = await post('public/submit', { ...body, unexpected: 'x'.repeat(20_000) });
   expect(response.status).toBe(413);
 });
+test('review body limits do not reject unrelated application uploads', async () => {
+  const parent = new Elysia().use(createAnonymousReviewRoutes(service))
+    .post('/exam/speaking/recording', ({ body }) => ({ length: (body as any).audio.length }));
+  const response = await parent.handle(new Request('http://localhost/exam/speaking/recording', {
+    method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ audio: 'x'.repeat(400_000) }),
+  }));
+  expect(response.status).toBe(200);
+  expect(await response.json()).toEqual({ length: 400_000 });
+});

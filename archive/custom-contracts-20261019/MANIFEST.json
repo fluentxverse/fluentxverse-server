@@ -1,0 +1,256 @@
+{
+  "archivedAt": "2026-10-19",
+  "purpose": "Retired custom application contract paths; historical code only, not an audited release",
+  "files": [
+    {
+      "action": "move",
+      "path": "contracts/anonymous-reviews/AnonymousReviewRegistry.sol",
+      "sha256": "76119eb114ba9d47f0305396ae9e2a90903f1865d32b1b624209119dd2886bdf"
+    },
+    {
+      "action": "move",
+      "path": "contracts/anonymous-reviews/fixture.mjs",
+      "sha256": "63f10ed1234e24b219803c7784966327fa9190ba88a74bd95c4c1f7fad51c60a"
+    },
+    {
+      "action": "move",
+      "path": "contracts/anonymous-reviews/package-lock.json",
+      "sha256": "109ee5af1af3dedafeaedeff82b7c6832254d3681065ab578827095420eb5ebf"
+    },
+    {
+      "action": "move",
+      "path": "contracts/anonymous-reviews/package.json",
+      "sha256": "69ea3c8107e0a5320a24df3de3f22e02f8b99d5b4d3cc761a8e4ae1403498ca1"
+    },
+    {
+      "action": "move",
+      "path": "contracts/anonymous-reviews/registry.test.mjs",
+      "sha256": "297f3edbe622e6b3b58bea6c6d4dea7455c4fff6c7e2ad920087060e6dfada81"
+    },
+    {
+      "action": "move",
+      "path": "contracts/lesson-passes/LessonPassLedger.sol",
+      "sha256": "e05512bd685187f026ed800e7e3343536169ecc571839960228ffdf450c446cb"
+    },
+    {
+      "action": "move",
+      "path": "contracts/lesson-passes/fixture.mjs",
+      "sha256": "d59fab390f2499d8b1e40ac275f48c709cc09488b12b808ef4cff542a172da7f"
+    },
+    {
+      "action": "move",
+      "path": "contracts/lesson-passes/ledger.test.mjs",
+      "sha256": "c733e77873b541c76459c95d33b0817740e755b54f721d8aeca25469fa6ebc31"
+    },
+    {
+      "action": "move",
+      "path": "contracts/screening/.gitignore",
+      "sha256": "bc5e8c0a684bb997c97fdbfb1fb4e3bf8a967021536ceee76f81d03dbfd8e218"
+    },
+    {
+      "action": "move",
+      "path": "contracts/screening/TutorScreeningValidator.sol",
+      "sha256": "079ba27977fa4d8c1e0e51ef329c724b0e15f4830309445258c52a4d16fb0bef"
+    },
+    {
+      "action": "move",
+      "path": "contracts/screening/browser.cjs",
+      "sha256": "f23eba407aedb76f11a824c552f884d539bc0976819d35d54f571ebcbb8cea06"
+    },
+    {
+      "action": "move",
+      "path": "contracts/screening/package-lock.json",
+      "sha256": "2304e7edf1433c82d013dd4384311efac75c08fd24cdcb94f6081811504616a5"
+    },
+    {
+      "action": "move",
+      "path": "contracts/screening/package.json",
+      "sha256": "a523b685f4228cda0df50c793f54a70d728f9bb529be71f75ee90160f0677b70"
+    },
+    {
+      "action": "move",
+      "path": "contracts/screening/validator.test.mjs",
+      "sha256": "0b100ab01e8e6b4b66989e32922302ee67e998e0be7c0d50b6c46319814499e4"
+    },
+    {
+      "action": "move",
+      "path": "fluentxverse-server/scripts/deploy-anonymous-reviews.mjs",
+      "sha256": "8f90e918a68c76368868b5d33554003afdbcdf4c020f50dd108f685be310c36b"
+    },
+    {
+      "action": "move",
+      "path": "fluentxverse-server/scripts/deploy-lesson-passes.mjs",
+      "sha256": "d7752a25c35c515ea5f7377cf0a1eba0a67b6ecba499ec7d5f190388cbbc60ff"
+    },
+    {
+      "action": "move",
+      "path": "fluentxverse-server/scripts/smoke-anonymous-reviews.mjs",
+      "sha256": "795bb90eff8b246817e60b4de767cd67fe14b423a64c4c6450a2f73721389d32"
+    },
+    {
+      "action": "move",
+      "path": "fluentxverse-server/scripts/smoke-lesson-passes.mjs",
+      "sha256": "b0236572288899edbe8d15cb0f06ec4f3a015a6ac4851ff345d05038e622513d"
+    },
+    {
+      "action": "move",
+      "path": "fluentxverse-server/tests/anonymousReviews.persistence.ts",
+      "sha256": "62c01b16dd20a12e46730821e276784f986ae02c8f90a2b3a1bcbc104357fe9e"
+    },
+    {
+      "action": "move",
+      "path": "fluentxverse-server/tests/lessonPasses.persistence.ts",
+      "sha256": "02b810d43c4b99f3897764003eb036100483339652be12bdeb4a3bbfd515e51e"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/anonymousReviews/chain.ts",
+      "sha256": "2f246de35626ae614557c202f2a2d3ed2451e6fa0ccfb8a836107757b20062ef"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/anonymousReviews/service.ts",
+      "sha256": "a6fe1105169c9f4939aa5f153780a812dd40abf800ab1e1b56a573152a3cd2c7"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/anonymousReviews/tallySnapshot.ts",
+      "sha256": "3e1a7957c1504f71388b46c58395fb5e3c5a712889d4cc6df3eb11b02111b73e"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/anonymousReviews/policy.ts",
+      "sha256": "6e6c18006a800ca3cb6749de6936b68ece952f37e068e5e4578efd9268e7105c"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/screening/chain.ts",
+      "sha256": "7c351dc61321721803909e12ef54037e38cf25ffa05ab119ed6e70ccfb69b6fd"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/screening/credential.ts",
+      "sha256": "30d0512c0b8eaa57b4dac0ab4ad37f0bba1c0024cebff4986b267449cf41068c"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/screening/evidence.ts",
+      "sha256": "0258d0fd3d3149118e8244396b6fc0770476177de7680de5eab48d1065ba8a45"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/screening/policy.ts",
+      "sha256": "a2537640f6b522dd7ce14927bbc769b1cdd92534171597ebfbacf3ff7627c39c"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/screening/prove.mjs",
+      "sha256": "ab0c0503154ca5eaf93f587978b25af53a7b76f1b92ae58506969b9fa365afdd"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/screening/prover.ts",
+      "sha256": "35b1b71849c10780791721725602a96573f8727bf3f9e307d00937060ad164fb"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/screening/repository.ts",
+      "sha256": "f57116d20f57414067b8c1095db39120bdd73a655b852db84bd3fd815657bf52"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/screening/service.ts",
+      "sha256": "8ad0b2dcc9bc860aaf41f4b99a1ba5bb256d6867952429238349edffd2fb8851"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/screening/storage.ts",
+      "sha256": "ea1c40916268818e4a375fb4929a9d436c348c1f884c227489e9a3c5048b6fb3"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/lessonPasses/chain.ts",
+      "sha256": "2b4b81a8dec4b2ecdb4310e5701d81aba41111ea9a48327ab808d3510adc0d25"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/lessonPasses/policy.ts",
+      "sha256": "a4d07d0607f116ce976e8f0b4d12f0377d56e34f77354a8b4b517f612b4fd75a"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/lessonPasses/repository.ts",
+      "sha256": "3fc1b8183fb2a4178284ec17e01c5e42f89dc2c9dfbbcfe43b1edd4d35496a39"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/lessonPasses/service.ts",
+      "sha256": "ab8391eb15c564c67894ebb6ad0f98baaa9d9a10c2665aa34671e67a2908d863"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/routes/screening.route.ts",
+      "sha256": "c7db68d2805ae57a9247d328a95a2ddb5149595a8f88e795f0ad31fc6895e200"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/routes/lessonPasses.route.ts",
+      "sha256": "8d07552f7f93a38017f29a35c394a10072c36d50ae6f764507c3bc2aa79dfa71"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/web3.services/gmrScreeningEngine.service.ts",
+      "sha256": "e3bada94cb2693212eb0157fb1d513b0bc1f1329fe33f66a4234ed37cf3cd30f"
+    },
+    {
+      "action": "move",
+      "path": "fluentxverse-server/tests/reviewTally.snapshot.test.ts",
+      "sha256": "2f9ec6e7f814ceb8f72c39a6ecd5c59c2d54cfee9fa68ba99fa834d969256c20"
+    },
+    {
+      "action": "move",
+      "path": "fluentxverse-server/tests/reviewTally.persistence.ts",
+      "sha256": "46e68dd15c1e59fe9bf5df48a815eae17b1e21e2b6987bcb76b61d99e2c5b21d"
+    },
+    {
+      "action": "move",
+      "path": "fluentxverse-server/tests/reviewTally.volta.ts",
+      "sha256": "a32a812b50c1b4dcd9379a7c052999c3bae52f0583c1aeefcaeccaefd3b8b8e7"
+    },
+    {
+      "action": "move",
+      "path": "fluentxverse-server/tests/screening.persistence.ts",
+      "sha256": "57119036ef881897dedc1484475c23f0233d2bfa894689eb95b3ecc72135d2de"
+    },
+    {
+      "action": "move",
+      "path": "fluentxverse-server/tests/gmrScreeningEngine.test.ts",
+      "sha256": "93f9cce9a0bfa2471a9d744a054a2197e0d35ad8a9792fb6260b35ad5a0ebf8c"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/tests/anonymousReviews.test.ts",
+      "sha256": "7ad9bb331e5dc01201e3cbbcd73d078650d1fabb301e3a05129a6f313abc637c"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/tests/reviewTally.test.ts",
+      "sha256": "aa0bb9461ec87602c360b87419525be4196e7be9a0e8ce8f417886c6b3195e02"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/tests/horizenMainnet.test.ts",
+      "sha256": "e06853e186834fde1df22355855468a6bf417949bf2e2586f777de72558efc06"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/tests/bridgeOnlyPrivacy.test.ts",
+      "sha256": "cac7eea9a6a3e9565d5f71e6b3bb589998e769417425ee0990a9230779d3de8d"
+    },
+    {
+      "action": "copy",
+      "path": "fluentxverse-server/src/services/anonymousReviews/repository.ts",
+      "sha256": "ff7ca18c753df9b4c527e4b1bd859379ff052ea67200e25af43d1ca6ec5b2fe6"
+    }
+  ]
+}

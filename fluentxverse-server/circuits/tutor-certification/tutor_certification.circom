@@ -34,6 +34,20 @@ template TutorCertification() {
 
   signal output valid;
 
+  // Retired V1 circuit: source correction does not approve any existing artifacts.
+  component writtenBits = Num2Bits(7);
+  writtenBits.in <== writtenScore;
+  component writtenMaximum = LessThan(7);
+  writtenMaximum.in[0] <== writtenScore;
+  writtenMaximum.in[1] <== 101;
+  writtenMaximum.out === 1;
+  component speakingBits = Num2Bits(7);
+  speakingBits.in <== speakingScore;
+  component speakingMaximum = LessThan(7);
+  speakingMaximum.in[0] <== speakingScore;
+  speakingMaximum.in[1] <== 101;
+  speakingMaximum.out === 1;
+
   component writtenBelowThreshold = LessThan(8);
   writtenBelowThreshold.in[0] <== writtenScore;
   writtenBelowThreshold.in[1] <== 90;

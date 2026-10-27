@@ -75,6 +75,8 @@ export interface StoredScreeningCredential {
   publicSignals: string;
   encryptedEvidence: string;
   proof?: string;
+  provingReleaseSHA256?: string;
+  proofVKHash?: string;
   status: string;
   shared: boolean;
   revoked: boolean;

@@ -1,6 +1,8 @@
 import { getDriver } from '../../db/memgraph';
-import { cacheGetOrSet, invalidateCache } from '../../db/redis';
+import { invalidateCache } from '../../db/redis';
 import neo4j from 'neo4j-driver';
+import { ApplicationError, lockApplicant, repairPassedFlag } from '../exam.services/applicationPolicy';
+import { ensureInterviewCalendar, interviewStart, interviewWeek, lockInterviewCalendar } from './interviewTime';
 import { tryIssueAndMaybeSubmitTutorCertificationProof } from '../proof.services/tutorCertificationWorkflow.service';
 import type { 
   InterviewSlot, 
@@ -11,7 +13,7 @@ import type {
 // Generate unique ID for interview slots (cryptographically secure)
 function generateSlotId(): string {
   const uuid = crypto.randomUUID();
-  return `INT-${uuid.slice(0, 12)}`;
+  return `INT-${uuid}`;
 }
 
 // Format date as YYYY-MM-DD
@@ -41,10 +43,14 @@ export class InterviewService {
    * Create interview slots (Admin only)
    */
   async createSlots(slots: { date: string; time: string }[]): Promise<InterviewSlot[]> {
+    if (!slots.length || slots.length > 500 || slots.some(s => interviewStart(s.date, s.time) <= Date.now())) throw new ApplicationError(400, 'Interview slots must be in the future (Asia/Manila).');
+    await ensureInterviewCalendar();
     const driver = getDriver();
     const session = driver.session();
 
     try {
+      const createdSlots = await session.executeWrite(async tx => {
+      await lockInterviewCalendar(tx);
       const createdSlots: InterviewSlot[] = [];
       const now = new Date().toISOString();
 
@@ -52,7 +58,7 @@ export class InterviewService {
         const slotId = generateSlotId();
         
         // Check if slot already exists for this date/time
-        const existingResult = await session.run(`
+        const existingResult = await tx.run(`
           MATCH (s:InterviewSlot {date: $date, time: $time})
           RETURN s
         `, { date: slot.date, time: slot.time });
@@ -61,7 +67,7 @@ export class InterviewService {
           continue;
         }
 
-        await session.run(`
+        await tx.run(`
           CREATE (s:InterviewSlot {
             id: $id,
             date: $date,
@@ -86,6 +92,9 @@ export class InterviewService {
       }
 
       return createdSlots;
+      });
+      await invalidateCache('interview:available:week:*');
+      return createdSlots;
     } finally {
       await session.close();
     }
@@ -100,17 +109,7 @@ export class InterviewService {
 
     try {
       // Calculate week boundaries
-      const today = new Date();
-      const monday = new Date(today);
-      monday.setDate(today.getDate() - today.getDay() + 1 + (weekOffset * 7));
-      monday.setHours(0, 0, 0, 0);
-      
-      const sunday = new Date(monday);
-      sunday.setDate(monday.getDate() + 6);
-      sunday.setHours(23, 59, 59, 999);
-
-      const weekStart = formatDateISO(monday);
-      const weekEnd = formatDateISO(sunday);
+      const { weekStart, weekEnd } = interviewWeek(weekOffset);
 
       // Get all interview slots for this week
       const result = await session.run(`
@@ -153,26 +152,13 @@ export class InterviewService {
    * Get available interview slots for tutors
    */
   async getAvailableSlots(weekOffset: number = 0): Promise<InterviewSlot[]> {
-    const cacheKey = `interview:available:week:${weekOffset}`;
-    const cacheTTL = 5 * 60; // 5 minutes
-    
-    return cacheGetOrSet(cacheKey, cacheTTL, async () => {
+    {
       const driver = getDriver();
       const session = driver.session();
 
       try {
         // Calculate week boundaries
-        const today = new Date();
-        const monday = new Date(today);
-        monday.setDate(today.getDate() - today.getDay() + 1 + (weekOffset * 7));
-        monday.setHours(0, 0, 0, 0);
-        
-        const sunday = new Date(monday);
-        sunday.setDate(monday.getDate() + 6);
-        sunday.setHours(23, 59, 59, 999);
-
-        const weekStart = formatDateISO(monday);
-        const weekEnd = formatDateISO(sunday);
+        const { weekStart, weekEnd } = interviewWeek(weekOffset);
 
         // Get only open interview slots for this week
         const result = await session.run(`
@@ -191,35 +177,46 @@ export class InterviewService {
             status: s.status as 'open',
             createdAt: s.createdAt
           };
-        });
+        }).filter(slot => { try { return interviewStart(slot.date, slot.time) > Date.now(); } catch { return false; } });
       } finally {
         await session.close();
       }
-    });
+    }
   }
 
   /**
    * Book an interview slot (Tutor)
    */
   async bookSlot(slotId: string, tutorId: string): Promise<InterviewSlot> {
+    await ensureInterviewCalendar();
     const driver = getDriver();
     const session = driver.session();
 
     try {
+      const booking = await session.executeWrite(async tx => {
+      await lockInterviewCalendar(tx);
+      const user = await lockApplicant(tx, tutorId);
+      const written = user.writtenExamPassed === true || await repairPassedFlag(tx, tutorId, 'written');
+      const speaking = user.speakingExamPassed === true || await repairPassedFlag(tx, tutorId, 'speaking');
+      if (!written || !speaking) throw new ApplicationError(409, 'Pass the written and speaking assessments before booking an interview.');
+      if (user.interviewPassed === true) throw new ApplicationError(409, 'You have already passed the interview.');
       const now = new Date().toISOString();
 
       // Check if tutor already has a pending interview
-      const existingBooking = await session.run(`
+      const existingBooking = await tx.run(`
         MATCH (s:InterviewSlot {tutorId: $tutorId, status: 'booked'})
         RETURN s
       `, { tutorId });
 
       if (existingBooking.records.length > 0) {
-        throw new Error('You already have a pending interview. Please cancel it first to book a new one.');
+        throw new ApplicationError(409, 'You already have a pending interview. Please cancel it first to book a new one.');
       }
 
-      // Book the slot
-      const result = await session.run(`
+      const slot = (await tx.run('MATCH(s:InterviewSlot {id:$slotId}) SET s.bookingRevision=coalesce(s.bookingRevision,0)+1 RETURN s', { slotId })).records[0]?.get('s').properties;
+      if (!slot || slot.status !== 'open' || interviewStart(slot.date, slot.time) <= Date.now()) throw new ApplicationError(409, 'This interview slot is no longer available.');
+      const duplicate = await tx.run("MATCH(s:InterviewSlot {date:$date,time:$time,status:'booked'}) RETURN s", { date: slot.date, time: slot.time });
+      if (duplicate.records.length) throw new ApplicationError(409, 'This interview time is already booked.');
+      const result = await tx.run(`
         MATCH (s:InterviewSlot {id: $slotId, status: 'open'})
         SET s.status = 'booked',
             s.tutorId = $tutorId,
@@ -233,9 +230,6 @@ export class InterviewService {
       }
 
       const s = record.get('s').properties;
-      // Invalidate cache when booking/cancelling
-      await invalidateCache('interview:available:week:*');
-
       return {
         id: s.id,
         date: s.date,
@@ -244,7 +238,10 @@ export class InterviewService {
         tutorId: s.tutorId,
         createdAt: s.createdAt,
         bookedAt: s.bookedAt
-      };
+      } as InterviewSlot;
+      });
+      await invalidateCache('interview:available:week:*');
+      return booking;
     } finally {
       await session.close();
     }
@@ -254,13 +251,17 @@ export class InterviewService {
    * Cancel an interview slot booking (Tutor or Admin)
    */
   async cancelBooking(slotId: string, tutorId?: string): Promise<void> {
+    await ensureInterviewCalendar();
     const driver = getDriver();
     const session = driver.session();
 
     try {
+      await session.executeWrite(async tx => {
+      await lockInterviewCalendar(tx);
+      if (tutorId) await lockApplicant(tx, tutorId);
       // If tutorId is provided, verify it's the tutor's booking
       if (tutorId) {
-        const result = await session.run(`
+        const result = await tx.run(`
           MATCH (s:InterviewSlot {id: $slotId, tutorId: $tutorId, status: 'booked'})
           SET s.status = 'open',
               s.tutorId = null,
@@ -273,7 +274,7 @@ export class InterviewService {
         }
       } else {
         // Admin cancel - no tutorId check
-        const result = await session.run(`
+        const result = await tx.run(`
           MATCH (s:InterviewSlot {id: $slotId, status: 'booked'})
           SET s.status = 'open',
               s.tutorId = null,
@@ -286,6 +287,7 @@ export class InterviewService {
         }
       }
 
+      });
       // Invalidate cache when booking/cancelling
       await invalidateCache('interview:available:week:*');
     } finally {

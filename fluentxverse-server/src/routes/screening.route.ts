@@ -4,7 +4,6 @@ import { isAllowedAdminMutationOrigin } from '../config/cors';
 import { checkRateLimit } from '../utils/rateLimiter';
 import { agentRegistration, screeningPayloadBytes, screeningChainConfig } from '../services/screening/chain';
 import { policyHash, schemaHash, screeningPolicy } from '../services/screening/policy';
-import { gmrScreeningEngine } from '../services/web3.services/gmrScreeningEngine.service';
 import { privacyInfrastructure } from '../services/proof.services/horizenReceipt';
 import { getScreeningCredential, listScreeningCredentials } from '../services/screening/repository';
 import { currentPrivateSummary, finalizeScreeningValidation, generateScreeningProof, issueScreeningCredential, publicScreeningSummary, registerScreeningAgent, requestScreeningValidation, revokeScreeningCredential, shareScreeningCredential, submitScreeningProof } from '../services/screening/service';
@@ -26,17 +25,7 @@ async function adminMutation(context: any, action: (actor: string) => Promise<un
 const Screening = new Elysia({ prefix: '/screening' })
   .onBeforeHandle(({ set }) => { set.headers['Cache-Control'] = 'no-store'; })
   .get('/policy', () => ({ policy: screeningPolicy, policyHash, schemaHash }))
-  .get('/agent.json', async () => {
-    if (privacyInfrastructure() === 'bridge_only') return agentRegistration();
-    // Registration is public even while certification remains disabled. Engine
-    // owns the deployment records; artifact paths and keys are never forwarded.
-    try {
-      const { config } = await gmrScreeningEngine.operation<{ config: { chainId: number; agentId: string; identityRegistry: `0x${string}` } }>('config');
-      if (config.chainId === 2651420 && /^(0|[1-9]\d*)$/.test(config.agentId) && /^0x[0-9a-fA-F]{40}$/.test(config.identityRegistry)
-        && BigInt(config.identityRegistry) !== 0n) return agentRegistration(config);
-    } catch { /* An unavailable Engine must not imply a registered or certified agent. */ }
-    return agentRegistration();
-  })
+  .get('/agent.json', () => agentRegistration())
   .get('/me', async ({ cookie, set }) => {
     const tutor = await createTutorGuard(cookie, set);
     if (!tutor || tutor.role !== 'tutor') { set.status = tutor ? 403 : 401; return { success: false, error: 'Tutor authentication required' }; }

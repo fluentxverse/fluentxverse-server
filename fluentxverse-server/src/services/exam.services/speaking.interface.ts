@@ -64,12 +64,15 @@ export type SpeakingTask =
 // -----------------------------------------------------------------------------
 
 export interface SpeakingExam {
+  format?: 'read-aloud.v1';
   examId: string;
   title: string;
   description: string;
   totalTimeLimit: number; // Total exam time in minutes
   passingScore: number; // percentage (85%)
   createdAt: string;
+  startedAt?: string;
+  savedTaskIds?: number[];
   tasks: SpeakingTask[];
 }
 
@@ -79,7 +82,7 @@ export interface SpeakingExam {
 
 export interface TaskRecording {
   taskId: number;
-  audioUrl: string; // URL to uploaded audio file
+  audioUrl: string; // Canonical data URL; persisted encrypted, never fetched remotely
   duration: number; // Actual recording duration in seconds
   transcription?: string; // Whisper transcription (filled after processing)
 }
@@ -100,8 +103,8 @@ export interface TaskScore {
   taskType: SpeakingTask["type"];
   transcription: string;
   scores: {
-    pronunciation: number; // 1-5 scale
-    fluency: number; // 1-5 scale
+    pronunciation: number | null; // Not assessed by the transcript-only rubric
+    fluency: number | null;
     vocabulary: number; // 1-5 scale
     grammar: number; // 1-5 scale
     coherence: number; // 1-5 scale
@@ -113,14 +116,15 @@ export interface TaskScore {
 }
 
 export interface SpeakingExamResult {
+  format?: 'read-aloud.v1';
   examId: string;
   tutorId: string;
   overallScore: number; // Average percentage across all tasks
-  passed: boolean;
+  passed: boolean; // AI content threshold only, not a final application decision
   taskScores: TaskScore[];
   sectionAverages: {
-    pronunciation: number;
-    fluency: number;
+    pronunciation: number | null;
+    fluency: number | null;
     vocabulary: number;
     grammar: number;
     coherence: number;
@@ -128,6 +132,10 @@ export interface SpeakingExamResult {
   };
   overallFeedback: string; // AI-generated summary feedback
   completedAt: string;
+  assessmentMode?: 'transcript-content';
+  rubricVersion?: string;
+  audioReviewRequired?: boolean;
+  decisionStatus?: 'human_review_required';
 }
 
 // -----------------------------------------------------------------------------
@@ -143,6 +151,9 @@ export interface SpeakingExamStatus {
   examId: string | null;
   attemptsThisMonth: number;
   maxAttemptsPerMonth: number;
+  state?: string;
+  gradingFailed?: boolean;
+  canRetryGrading?: boolean;
 }
 
 // -----------------------------------------------------------------------------
@@ -155,37 +166,3 @@ export interface ExamImage {
   description: string; // Detailed description for AI context
   category: "classroom" | "daily-life" | "workplace" | "travel" | "social";
 }
-
-// Default image pool (can be expanded)
-export const EXAM_IMAGE_POOL: ExamImage[] = [
-  {
-    id: "img-001",
-    url: "/assets/exam/classroom-discussion.jpg",
-    description: "A diverse group of adult students in a modern classroom, engaged in a lively discussion. A teacher stands at a whiteboard with English vocabulary words. Some students are raising hands, others are taking notes.",
-    category: "classroom",
-  },
-  {
-    id: "img-002",
-    url: "/assets/exam/coffee-shop-meeting.jpg",
-    description: "Two professionals having a business meeting at a coffee shop. Laptops are open, coffee cups on the table, one person is explaining something with hand gestures while the other listens attentively.",
-    category: "workplace",
-  },
-  {
-    id: "img-003",
-    url: "/assets/exam/airport-scene.jpg",
-    description: "A busy international airport terminal with travelers from various backgrounds. People are checking departure boards, pulling luggage, and some are greeting arriving passengers.",
-    category: "travel",
-  },
-  {
-    id: "img-004",
-    url: "/assets/exam/family-dinner.jpg",
-    description: "A multi-generational family gathered around a dinner table, sharing a meal. Various dishes on the table, people engaged in conversation, warm lighting suggesting evening time.",
-    category: "daily-life",
-  },
-  {
-    id: "img-005",
-    url: "/assets/exam/office-presentation.jpg",
-    description: "A young professional giving a presentation to colleagues in a modern office meeting room. A large screen shows graphs and charts, audience members are seated around a conference table.",
-    category: "workplace",
-  },
-];

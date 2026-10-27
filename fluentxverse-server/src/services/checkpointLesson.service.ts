@@ -4,6 +4,7 @@ import { createAgent } from './agentFactory';
 import { ClassroomExerciseMarksService, type ClassroomExerciseMark } from './classroomExerciseMarks.services/classroomExerciseMarks.service';
 import { ClassroomNotesService, type ClassroomNotesRecord } from './classroomNotes.services/classroomNotes.service';
 import { lessonMaterialService, type LessonMaterial } from './lessonMaterial.service';
+import { minimizeAIInput } from '../privacy/personalInformation';
 
 const COURSE = 'conversational-skills';
 export const checkpointIdPattern = /^conversational-skills-L(\d+)-C(\d+)-(5|10)-review(?:-\d+)?$/;
@@ -95,9 +96,8 @@ export function summarizeCheckpointEvidence(marks: ClassroomExerciseMark[], note
   const grammar = grammarCandidates.filter((item, index) => grammarCandidates.findIndex(other =>
     other.lessonId === item.lessonId && other.said === item.said && other.correction === item.correction) === index);
   const vocabulary = notes.flatMap(note => note.vocabularyItems.map(item => clean(item.word, 60))).filter(Boolean).slice(0, 12);
-  const tutorMemos = notes.map(note => clean(note.tutorMemo, 350)).filter(Boolean).slice(0, 4);
   const targeted = missed.length + grammar.length >= 2;
-  return { mode: targeted ? 'targeted' as const : 'balanced' as const, missed, grammar, vocabulary, tutorMemos };
+  return { mode: targeted ? 'targeted' as const : 'balanced' as const, missed, grammar, vocabulary };
 }
 
 export function checkpointPrompt(sources: LessonMaterial[], evidence: ReturnType<typeof summarizeCheckpointEvidence>): string {
@@ -328,7 +328,16 @@ export class CheckpointLessonService {
     const [marks, notes] = await Promise.all([
       this.marks.listForStudent(studentId, lessonIds), this.notes.listForStudent(studentId, lessonIds),
     ]);
-    const prompt = `${checkpointPrompt(lessons, summarizeCheckpointEvidence(marks, notes))}\nScenario variation seed: ${crypto.randomUUID()}`;
+    const privateSession = getDriver().session();
+    let identity;
+    try {
+      const row = (await privateSession.run('MATCH (s:Student {id:$studentId}) RETURN s', { studentId })).records[0];
+      if (!row) throw new Error('Student privacy context unavailable');
+      const s = row.get('s').properties;
+      identity = { names: [s.firstName, s.lastName, s.givenName, s.familyName, s.displayName, s.name].filter(Boolean),
+        emails: [s.email].filter(Boolean), addresses: [s.address].filter(value => typeof value === 'string'), identifiers: [studentId] };
+    } finally { await privateSession.close(); }
+    const prompt = minimizeAIInput(checkpointPrompt(lessons, summarizeCheckpointEvidence(marks, notes)), identity) as string;
     let content: CheckpointContent | null = null;
     for (let attempt = 0; attempt < 2 && !content; attempt++) {
       const result = await this.generateContent(prompt);

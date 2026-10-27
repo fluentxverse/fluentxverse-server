@@ -5,6 +5,8 @@ import { NotificationService } from '../notification.services/notification.servi
 import { getIO } from '../../socket/socket.server';
 import { canReserveForBooking } from '../schedule.services/bookingPolicy';
 import { buildLevelAssessment } from '../assessmentProfile';
+import { tutorProfileQuery } from './tutorProfileQuery';
+import { retiredCredentialStatus } from '../proof.services/legacyProofRetirement';
 
 // Helper to convert Neo4j DateTime to ISO string
 function neo4jDateTimeToISO(dt: any): string | undefined {
@@ -70,14 +72,14 @@ function isSlotBookable(slotDate: string, slotTime: string, attendanceMarked?: s
 }
 
 function toTutorProofSummary(credentialNode: any) {
-  const credential = credentialNode?.properties;
+  const credential = credentialNode?.properties ?? credentialNode;
   if (!credential) return {};
 
   return {
-    zkCertificationStatus: credential.status || undefined,
+    zkCertificationStatus: retiredCredentialStatus(credential),
     zkCredentialCommitment: credential.credentialCommitment || undefined,
     zkCircuitVersion: credential.circuitVersion || undefined,
-    zkVerifiedAt: neo4jDateTimeToISO(credential.zkVerifyVerifiedAt) || neo4jDateTimeToISO(credential.verifiedAt) || undefined,
+    zkVerifiedAt: undefined,
     zkVerifyTxHash: credential.zkVerifyTxHash || undefined,
   };
 }
@@ -752,13 +754,7 @@ export class TutorService {
     const session = driver.session();
 
     try {
-      const query = `
-        MATCH (u:User {id: $tutorId})
-        OPTIONAL MATCH (u)-[:HAS_CERTIFICATION_CREDENTIAL]->(cred:TutorCertificationCredential)
-        RETURN u, cred
-      `;
-
-      const result = await session.run(query, { tutorId });
+      const result = await session.run(tutorProfileQuery, { tutorId });
 
       if (result.records.length === 0) {
         return null;
@@ -769,7 +765,7 @@ export class TutorService {
         return null;
       }
 
-      const user = record.get('u').properties;
+      const user = record.get('u');
       const proofSummary = toTutorProofSummary(record.get('cred'));
 
       return {
