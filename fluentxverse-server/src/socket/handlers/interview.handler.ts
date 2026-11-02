@@ -3,12 +3,18 @@ import type { ClientToServerEvents, ServerToClientEvents, InterServerEvents, Soc
 import { getDriver } from '../../db/memgraph';
 import { getIceConfiguration } from '../iceConfiguration';
 import { adminCapabilities } from '../../utils/adminOperations';
+import { identityEnabled } from '../../services/tutorIdentity/service';
+import { interviewStart } from '../../services/interview.services/interviewTime';
 
 type TypedServer = Server<ClientToServerEvents, ServerToClientEvents, InterServerEvents, SocketData>;
 type TypedSocket = Socket<ClientToServerEvents, ServerToClientEvents, InterServerEvents, SocketData>;
 
 // Store interview room participants
 const interviewRooms = new Map<string, { tutorSocketId?: string; adminSocketId?: string; recording?: boolean }>();
+export function interviewIdentityPresence(slotId: string) {
+  const room = interviewRooms.get(`interview-${slotId}`);
+  return { bothPresent: Boolean(room?.tutorSocketId && room?.adminSocketId), recording: Boolean(room?.recording) };
+}
 
 export const canJoinInterview = async (roomId: string, role: 'tutor' | 'admin', userId: string) => {
   if (!/^interview-[a-zA-Z0-9_-]{1,100}$/.test(roomId) || roomId === 'interview-default') return false;
@@ -22,10 +28,17 @@ export const canJoinInterview = async (roomId: string, role: 'tutor' | 'admin', 
       `MATCH (slot:InterviewSlot {id: $slotId, status: 'booked'})
        WHERE $role = 'admin' OR slot.tutorId = $userId
        WITH slot WHERE slot.mediaClosedAt IS NULL
-       RETURN slot.id AS id LIMIT 1`,
+       RETURN slot.id AS id, slot.date AS date, slot.time AS time LIMIT 1`,
       { slotId: roomId.slice('interview-'.length), role, userId }
     );
-    return result.records.length > 0;
+    if (!result.records.length) return false;
+    if (identityEnabled()) {
+      const row = result.records[0]!, start = interviewStart(row.get('date'), row.get('time'));
+      if (Date.now() < start - 15 * 60000 || Date.now() >= start + 30 * 60000) return false;
+      const banned = (await session.run('MATCH(u:User {id:$userId}) RETURN u.identityBanned AS banned', { userId })).records[0]?.get('banned');
+      if (banned === true) return false;
+    }
+    return true;
   } finally {
     await session.close();
   }
@@ -86,6 +99,10 @@ export const interviewHandler = (io: TypedServer, socket: TypedSocket) => {
       } else if (role === 'admin') {
         room.adminSocketId = socket.id;
       }
+      const db = getDriver().session();
+      try { await db.run(`MATCH(s:InterviewSlot {id:$id,status:'booked'}) SET s.${role === 'tutor' ? 'tutorEnteredAt' : 'adminEnteredAt'}=coalesce(s.${role === 'tutor' ? 'tutorEnteredAt' : 'adminEnteredAt'},$at)`,
+        { id: roomId.slice('interview-'.length), at: new Date().toISOString() }); }
+      finally { await db.close(); }
       socket.emit('interview:joined', { roomId, configuration, peerPresent: Boolean(role === 'admin' ? room.tutorSocketId : room.adminSocketId), peerId: role === 'admin' ? room.tutorSocketId : room.adminSocketId });
       socket.emit('interview:recording-status', { recording: Boolean(room.recording) });
       
@@ -111,9 +128,16 @@ export const interviewHandler = (io: TypedServer, socket: TypedSocket) => {
       io.to(room.tutorSocketId).emit('interview:renegotiate');
     }
   });
-  socket.on('interview:recording-status', (data: { roomId: string; recording: boolean }) => {
+  socket.on('interview:recording-status', async (data: { roomId: string; recording: boolean }) => {
     const room = interviewRooms.get(data?.roomId);
     if (typeof data?.recording !== 'boolean' || socket.data.interviewRoomId !== data.roomId || room?.adminSocketId !== socket.id) return;
+    if (data.recording && identityEnabled()) {
+      const db = getDriver().session();
+      try {
+        const row = (await db.run('MATCH(s:InterviewSlot {id:$id}) RETURN s.identityPresentationAt AS started,s.identityPresentationEndedAt AS ended', { id: data.roomId.slice('interview-'.length) })).records[0];
+        if (row?.get('started') && !row.get('ended')) { socket.emit('interview:error', { message: 'Recording is disabled during ID presentation.' }); return; }
+      } catch { return; } finally { await db.close(); }
+    }
     room.recording = data.recording;
     io.to(data.roomId).emit('interview:recording-status', { recording: data.recording });
   });
@@ -176,7 +200,9 @@ export const interviewHandler = (io: TypedServer, socket: TypedSocket) => {
       if (socket.data.interviewRoomId !== roomId ||
           (room?.tutorSocketId !== socket.id && room?.adminSocketId !== socket.id)) return;
       const session = getDriver().session();
-      try { await session.run('MATCH (s:InterviewSlot {id: $id}) SET s.mediaClosedAt = coalesce(s.mediaClosedAt, $at)', {
+      try { await session.run(`MATCH (s:InterviewSlot {id: $id, status: 'booked'})
+        SET s.mediaClosedAt = coalesce(s.mediaClosedAt, $at),
+            s.status = 'completed', s.completedAt = coalesce(s.completedAt, $at)`, {
         id: roomId.slice('interview-'.length), at: new Date().toISOString(),
       }); } finally { await session.close(); }
       

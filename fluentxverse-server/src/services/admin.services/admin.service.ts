@@ -1,5 +1,7 @@
 import { retiredCredentialStatus } from '../proof.services/legacyProofRetirement';
 import { getDriver } from '../../db/memgraph';
+import { validateTutorNickname } from '../../../../shared/tutorPublicName';
+import { invalidateCache } from '../../db/redis';
 import { randomUUID } from 'node:crypto';
 import { metricOutcome } from '../../utils/tutorPerformance';
 import { plainNode } from '../../utils/adminOperations';
@@ -25,6 +27,7 @@ import type { SuspensionHistoryItem } from './suspension.job';
 import { NotificationService } from '../notification.services/notification.service';
 import { getIO } from '../../socket/socket.server';
 import { tryIssueAndMaybeSubmitTutorCertificationProof } from '../proof.services/tutorCertificationWorkflow.service';
+import { applicationFilters, applicationPage, type ApplicationFilter, type TutorApplication } from '../../../../shared/tutorApplications';
 
 // Helper to safely convert Neo4j Integer to JavaScript number
 function toNumber(value: any): number {
@@ -85,6 +88,45 @@ function convertNeo4jDateTimeToISO(dateTime: any): string | null {
 }
 
 export class AdminService {
+  async getApplications(filter: string = 'all', page = 1, pageSize = 10) {
+    if (!applicationFilters.includes(filter as ApplicationFilter) || !Number.isInteger(page) || page < 1
+      || !Number.isInteger(pageSize) || pageSize < 1 || pageSize > 50) throw new Error('Invalid application filter or pagination');
+    const session = getDriver().session();
+    try {
+      const result = await session.run(`MATCH (u:User)
+        WHERE u.role IS NULL OR u.role = 'tutor'
+        OPTIONAL MATCH (u)-[:TAKES]->(we:Exam {type:'written',status:'completed'})
+        OPTIONAL MATCH (u)-[:TAKES]->(se:Exam {type:'speaking',status:'completed'})
+        OPTIONAL MATCH (u)-[:TAKES]->(sp:Exam {type:'speaking'}) WHERE sp.status IN ['queued','processing']
+        WITH u, collect(DISTINCT we.result) AS writtenResults, collect(DISTINCT se.result) AS speakingResults,
+          count(DISTINCT sp) AS processingCount
+        OPTIONAL MATCH (slot:InterviewSlot {tutorId:u.id}) WHERE slot.status IN ['booked','completed']
+        WITH u, writtenResults, speakingResults, processingCount, slot
+        ORDER BY coalesce(slot.bookedAt,slot.date,'') DESC, coalesce(slot.reviewedAt,slot.completedAt,'') DESC, slot.id DESC
+        WITH u, writtenResults, speakingResults, processingCount, collect(slot)[0] AS slot
+        OPTIONAL MATCH (identity:TutorIdentity {id:u.identitySubmissionId})
+        RETURN u, writtenResults, speakingResults, processingCount, slot, identity.status AS identityStatus
+        ORDER BY coalesce(u.createdAt,'') DESC, u.id`);
+      const items: TutorApplication[] = result.records.map(record => {
+        const u = record.get('u').properties, slot = record.get('slot')?.properties;
+        const written = u.writtenExamPassed === true || (record.get('writtenResults') || []).some(examPassed);
+        const speaking = u.speakingExamPassed === true || (record.get('speakingResults') || []).some(examPassed);
+        const review = slot ? slot.result === 'pass' || slot.result === 'fail' ? slot.result : null : u.interviewPassed === true ? 'pass' : null;
+        const profileStatus = u.profileStatus || 'incomplete';
+        const certified = written && speaking && review === 'pass' && profileStatus === 'approved' && u.identityBanned !== true && (u.identityRequired !== true || u.identityVerified === true);
+        const status = certified ? 'certified' : review === 'fail' ? 'interview_failed' : review === 'pass'
+          ? profileStatus === 'pending_review' ? 'pending_profile' : 'interview_passed'
+          : !written ? 'pending_written' : toNumber(record.get('processingCount')) > 0 ? 'processing'
+          : !speaking ? 'pending_speaking' : slot ? slot.status === 'completed' || slot.mediaClosedAt ? 'interview_review' : 'interview_scheduled' : 'pending_interview';
+        return { id: u.id, name: `${u.firstName || ''} ${u.lastName || ''}`.trim(), email: u.email,
+          registeredAt: convertNeo4jDateTimeToISO(u.createdAt), status, writtenExamPassed: written, speakingExamPassed: speaking,
+          interviewResult: review, interviewSlotId: slot?.id || null,
+          interviewDate: slot?.reviewedAt || slot?.completedAt || null, profileStatus, identityStatus: record.get('identityStatus') || (u.identityVerified ? 'verified' : 'not_submitted') };
+      });
+      return applicationPage(items, filter as ApplicationFilter, page, pageSize);
+    } finally { await session.close(); }
+  }
+
   /**
    * Get dashboard overview statistics
    */
@@ -98,7 +140,8 @@ export class AdminService {
         MATCH (u:User)
         OPTIONAL MATCH (u)-[:TAKES]->(we:Exam {type: 'written', status: 'completed'})
         OPTIONAL MATCH (u)-[:TAKES]->(se:Exam {type: 'speaking', status: 'completed'})
-        OPTIONAL MATCH (islot:InterviewSlot {tutorId: u.id, status: 'completed', result: 'pass'})
+        OPTIONAL MATCH (islot:InterviewSlot {tutorId: u.id, result: 'pass'})
+        WHERE islot.status IN ['booked', 'completed'] AND coalesce(u.interviewPassed, true) = true
         RETURN u.id as tutorId,
                u.profileStatus as profileStatus,
                u.interviewPassed as userInterviewPassed,
@@ -249,13 +292,17 @@ export class AdminService {
         OPTIONAL MATCH (u)-[:TAKES]->(we:Exam {type: 'written', status: 'completed'})
         OPTIONAL MATCH (u)-[:TAKES]->(se:Exam {type: 'speaking', status: 'completed'})
         OPTIONAL MATCH (u)-[:TAKES]->(sp:Exam {type: 'speaking'}) WHERE sp.status IN ['queued','processing']
-        OPTIONAL MATCH (slot:InterviewSlot {tutorId: u.id, status: 'completed'})
+        WITH u, collect(DISTINCT we.result) AS writtenResults,
+          collect(DISTINCT se.result) AS speakingResults, count(DISTINCT sp) AS processingCount
+        OPTIONAL MATCH (slot:InterviewSlot {tutorId: u.id})
+        WHERE slot.status IN ['booked', 'completed']
+        WITH u, writtenResults, speakingResults, processingCount, slot
+        ORDER BY coalesce(slot.bookedAt, slot.date) DESC
+        WITH u, writtenResults, speakingResults, processingCount, collect(slot)[0] AS slot
         RETURN u,
-               collect(DISTINCT we.result) as writtenResults,
-               collect(DISTINCT se.result) as speakingResults,
-               count(DISTINCT sp) as processingCount,
+               writtenResults, speakingResults, processingCount,
                slot.result as interviewResult,
-               slot.completedAt as interviewDate
+               coalesce(slot.reviewedAt, slot.completedAt) as interviewDate
         ORDER BY u.createdAt DESC
         LIMIT $limit
       `, { limit: neo4j.int(limit * 2) }); // Get more to filter
@@ -368,6 +415,7 @@ export class AdminService {
           name: `${u.firstName || ''} ${u.lastName || ''}`.trim(),
           email: u.email,
           profilePicture: u.profilePicture || undefined,
+          nickname: u.nickname || undefined,
           bio: u.bio || undefined,
           videoIntroUrl: u.videoIntroUrl || undefined,
           schoolAttended: u.schoolAttended || undefined,
@@ -388,6 +436,7 @@ export class AdminService {
    */
   private getDefaultItemStatuses() {
     return {
+      nickname: { status: 'pending' as const },
       profilePicture: { status: 'pending' as const },
       videoIntro: { status: 'pending' as const },
       bio: { status: 'pending' as const },
@@ -401,7 +450,7 @@ export class AdminService {
    */
   async reviewProfileItem(
     tutorId: string, 
-    itemKey: 'profilePicture' | 'videoIntro' | 'bio' | 'education' | 'interests',
+    itemKey: 'nickname' | 'profilePicture' | 'videoIntro' | 'bio' | 'education' | 'interests',
     action: 'approve' | 'reject',
     reason?: string,
     reviewerId?: string
@@ -413,7 +462,7 @@ export class AdminService {
       // First get current item statuses
       const getResult = await session.run(`
         MATCH (u:User { id: $tutorId })
-        RETURN u.profileItemStatuses as itemStatuses
+        RETURN u.profileItemStatuses as itemStatuses, u.nickname as nickname
       `, { tutorId });
 
       if (getResult.records.length === 0) {
@@ -425,12 +474,11 @@ export class AdminService {
       const storedStatuses = record ? record.get('itemStatuses') : null;
       if (storedStatuses) {
         try {
-          currentStatuses = typeof storedStatuses === 'string' 
-            ? JSON.parse(storedStatuses) 
-            : storedStatuses;
+          currentStatuses = { ...currentStatuses, ...(typeof storedStatuses === 'string' ? JSON.parse(storedStatuses) : storedStatuses) };
         } catch {}
       }
 
+      if (itemKey === 'nickname' && action === 'approve') validateTutorNickname(record?.get('nickname'));
       // Update the specific item
       currentStatuses[itemKey] = {
         status: action === 'approve' ? 'approved' : 'rejected',
@@ -561,11 +609,14 @@ export class AdminService {
       const fieldKey = change.fieldKey || change.itemKey;
 
       if (action === 'approve') {
+        if (fieldKey === 'nickname') change.newValue = validateTutorNickname(change.newValue);
         // Apply the change to the live profile
         await session.run(`
           MATCH (u:User { id: $tutorId })
           SET u.${fieldKey} = $newValue
         `, { tutorId, newValue: change.newValue });
+        await invalidateCache(`tutor:profile:${tutorId}`);
+        await invalidateCache('tutor:search:*');
       }
 
       // Remove this change from the pending list
@@ -588,6 +639,7 @@ export class AdminService {
       const io = getIO();
       
       const itemLabels: Record<string, string> = {
+        'nickname': 'Preferred nickname',
         'bio': 'Bio',
         'profilePicture': 'Profile Photo',
         'videoIntro': 'Introduction Video',
@@ -673,6 +725,10 @@ export class AdminService {
     const session = driver.session();
 
     try {
+      if (action === 'approve') {
+        const nickname = await session.run('MATCH(u:User {id:$tutorId}) RETURN u.nickname AS nickname', {tutorId});
+        validateTutorNickname(nickname.records[0]?.get('nickname'));
+      }
       const newStatus = action === 'approve' ? 'approved' : 'rejected';
       const result = await session.run(`
         MATCH (u:User { id: $tutorId })
@@ -758,9 +814,12 @@ export class AdminService {
         OPTIONAL MATCH (u)-[:TAKES]->(we:Exam {type: 'written', status: 'completed'})
         OPTIONAL MATCH (u)-[:TAKES]->(se:Exam {type: 'speaking', status: 'completed'})
         OPTIONAL MATCH (u)-[:TAKES]->(sp:Exam {type: 'speaking'}) WHERE sp.status IN ['queued','processing']
-        OPTIONAL MATCH (islot:InterviewSlot {tutorId: u.id, status: 'completed', result: 'pass'})
+        OPTIONAL MATCH (islot:InterviewSlot {tutorId: u.id, result: 'pass'})
+        WHERE islot.status IN ['booked', 'completed'] AND coalesce(u.interviewPassed, true) = true
         OPTIONAL MATCH (u)-[:HAS_CERTIFICATION_CREDENTIAL]->(cred:TutorCertificationCredential)
+        OPTIONAL MATCH (identity:TutorIdentity {id:u.identitySubmissionId})
         RETURN u,
+               identity.status AS identityStatus,
                cred,
                collect(DISTINCT we.result) as writtenResults,
                collect(DISTINCT se.result) as speakingResults,
@@ -787,7 +846,7 @@ export class AdminService {
 
         // Determine tutor status - now includes profile review requirement
         let tutorStatus: TutorListItem['status'];
-        if (writtenPassed && speakingPassed && profileStatus === 'approved' && interviewPassed) {
+        if (writtenPassed && speakingPassed && profileStatus === 'approved' && interviewPassed && u.identityBanned !== true && (u.identityRequired !== true || u.identityVerified === true)) {
           tutorStatus = 'certified';
         } else if (hasTutorSalaryTestQualification(u)) {
           tutorStatus = 'test_qualified';
@@ -824,6 +883,7 @@ export class AdminService {
           speakingExamScore: u.speakingExamScore,
           status: tutorStatus,
           profileStatus: profileStatus as 'incomplete' | 'pending_review' | 'approved' | 'rejected',
+          identityStatus: record.get('identityStatus') || (u.identityVerified ? 'verified' : 'not_submitted'),
           zkCertificationStatus: retiredCredentialStatus(credential || {}),
           zkCredentialCommitment: credential?.credentialCommitment || undefined,
           zkVerifyTxHash: credential?.zkVerifyTxHash || undefined,

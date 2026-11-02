@@ -1,6 +1,14 @@
 import { test, expect } from 'bun:test';
 import { createOperationalAlertsRoute } from '../src/routes/operationalAlerts.route';
-import { collectAlertTelemetry, monitorAuthorized } from '../src/services/admin.services/operationalAlerts.service';
+import { alertSnapshotSchema, collectAlertTelemetry, monitorAuthorized } from '../src/services/admin.services/operationalAlerts.service';
+
+test('monitor snapshots validate external JSON without converting missing data to healthy values',()=>{
+  const snapshot={version:1 as const,checkedAt:null,apiAvailable:null,incidents:[],notifications:{browser:true,external:false}};
+  expect(alertSnapshotSchema.parse(snapshot)).toEqual(snapshot);
+  for(const patch of [{version:2},{apiAvailable:'yes'},{notifications:null},{incidents:[{category:'invented'}]}])
+    expect(alertSnapshotSchema.safeParse({...snapshot,...patch}).success).toBe(false);
+  expect(alertSnapshotSchema.safeParse(null).success).toBe(false);
+});
 
 test('monitor secrets are required, compared exactly and never accepted from user cookies', () => {
   const secret = 'a'.repeat(64);

@@ -2,8 +2,48 @@ import { v4 as uuidv4 } from 'uuid';
 import { getDriver } from '../../db/memgraph';
 import type { Notification, CreateNotificationParams, NotificationFilters } from './notification.interface';
 import neo4j from 'neo4j-driver';
+import { notificationData, resolveLessonNotification, lessonNotificationBookingId } from './lessonNotification';
 
 export class NotificationService {
+  private lessonChecks = new Map<string, Promise<void>>();
+  private reconcileLessonNotifications(userId: string) {
+    const existing = this.lessonChecks.get(userId);
+    if (existing) return existing;
+    const check = this.resolveLessonNotifications(userId).finally(() => this.lessonChecks.delete(userId));
+    this.lessonChecks.set(userId, check);
+    return check;
+  }
+  private async resolveLessonNotifications(userId: string) {
+    const session = getDriver().session();
+    try {
+      await session.executeWrite(async tx => {
+        const notices = await tx.run(`
+          MATCH (n:Notification {userId: $userId})
+          WHERE n.actionResolvedAt IS NULL AND n.data IS NOT NULL
+          RETURN n`, { userId });
+        const candidates = notices.records.map(row => row.get('n').properties)
+          .map(n => ({ ...n, data: notificationData(n.data) }))
+          .map(n => ({ ...n, bookingId: lessonNotificationBookingId(n) }))
+          .filter(n => n.bookingId);
+        if (!candidates.length) return;
+        const result = await tx.run('MATCH (b:Booking) WHERE b.bookingId IN $ids RETURN b',
+          { ids: [...new Set(candidates.map(n => n.bookingId))] });
+        const lessons = new Map(result.records.map(row => {
+          const b = row.get('b').properties;
+          return [b.bookingId, b];
+        }));
+        for (const notice of candidates) {
+          const resolved = resolveLessonNotification(notice, lessons.get(notice.bookingId));
+          if (!resolved) continue;
+          await tx.run(`MATCH (n:Notification {id: $id, userId: $userId})
+            SET n.isRead = true, n.title = $title, n.message = $message,
+              n.data = $data, n.actionResolvedAt = $now`,
+            { id: notice.id, userId, title: resolved.title, message: resolved.message,
+              data: JSON.stringify(resolved.data), now: new Date().toISOString() });
+        }
+      });
+    } finally { await session.close(); }
+  }
   /**
    * Create a new notification
    */
@@ -58,6 +98,7 @@ export class NotificationService {
    * Get notifications for a user
    */
   async getNotifications(filters: NotificationFilters): Promise<Notification[]> {
+    await this.reconcileLessonNotifications(filters.userId);
     const driver = getDriver();
     const session = driver.session();
     
@@ -103,7 +144,7 @@ export class NotificationService {
           message: n.message,
           timestamp: n.timestamp,
           isRead: n.isRead,
-          data: n.data ? JSON.parse(n.data) : {}
+          data: notificationData(n.data)
         };
       });
     } finally {
@@ -115,6 +156,7 @@ export class NotificationService {
    * Get unread notification count
    */
   async getUnreadCount(userId: string): Promise<number> {
+    await this.reconcileLessonNotifications(userId);
     const driver = getDriver();
     const session = driver.session();
     

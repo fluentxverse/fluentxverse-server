@@ -11,14 +11,14 @@ export class ReviewTallySnapshotSource {
   private readonly validated = new Map<string, number>();
   private readonly checking = new Map<string, Promise<void>>();
   constructor(private readonly chain = new AnonymousReviewChain(), private readonly repository = new AnonymousReviewRepository()) {}
-  private client() { return createPublicClient({ transport: http(reviewConfig().rpcUrl, { timeout: 15_000, retryCount: 0 }) }); }
+  private client(chainId: number) { return createPublicClient({ transport: http(reviewConfig(chainId).rpcUrl, { timeout: 15_000, retryCount: 0 }) }); }
   async collect(cohort: ReviewCohort, at?: { blockNumber: number; blockHash: Hex }): Promise<TallySnapshot> {
-    const config = await this.chain.check(), client = this.client();
+    const config = await this.chain.check(cohort.chainId), client = this.client(cohort.chainId);
     tallyConfig();
     if (!cohort.root || cohort.chainId !== config.chainId || cohort.contract.toLowerCase() !== config.bridge.toLowerCase())
       throw new AnonymousReviewError('Wrong tally review deployment', 409);
     const commitments: string[] = JSON.parse(cohort.membersJson || '[]');
-    if (cohort.id !== reviewGroupId(cohort.tutorId, cohort.period) || cohort.scope !== reviewScope(config.chainId, config.bridge, cohort.id)
+    if (cohort.id !== reviewGroupId(cohort.tutorId, cohort.period, cohort.chainId, cohort.enrollmentPolicy) || cohort.scope !== reviewScope(config.chainId, config.bridge, cohort.id)
       || commitments.length < 5 || commitments.length > 256 || new Set(commitments).size !== commitments.length
       || new Group(commitments.map(BigInt)).root.toString() !== cohort.root)
       throw new AnonymousReviewError('Invalid tally cohort binding or membership root', 409);
@@ -56,7 +56,7 @@ export class ReviewTallySnapshotSource {
   }
   async complete(cohort: ReviewCohort, snapshot: TallySnapshot) {
     const key = `${tallyManifestHash(snapshot)}:${JSON.stringify([cohort.id, cohort.tutorId, cohort.period, cohort.scope,
-      cohort.chainId, cohort.contract, cohort.root, cohort.opensAt, cohort.closesAt, cohort.membersJson])}`;
+      cohort.chainId, cohort.contract, cohort.root, cohort.opensAt, cohort.closesAt, cohort.membersJson, cohort.enrollmentPolicy])}`;
     if ((this.validated.get(key) || 0) > Date.now() - 60_000) return;
     const running = this.checking.get(key);
     if (running) return running;
@@ -70,8 +70,8 @@ export class ReviewTallySnapshotSource {
     this.checking.set(key, check);
     try { await check; } finally { this.checking.delete(key); }
   }
-  async receipt(statement: Hex, receipt: ReviewReceipt): Promise<boolean> {
-    const config = await this.chain.check();
+  async receipt(statement: Hex, receipt: ReviewReceipt, chainId?: number): Promise<boolean> {
+    const config = await this.chain.check(chainId);
     return horizenReceiptReader.verify(config, statement, receipt);
   }
 }

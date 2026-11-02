@@ -4,9 +4,12 @@ import { swagger } from "@elysiajs/swagger";
 
 import Auth from './routes/auth.route';
 import { tutorEmailFailure } from './services/auth.services/tutorEmailPolicy';
+import { disputeFailure } from './services/studentDispute.policy';
+import { disputeChainRoute } from './routes/disputeChain.route';
 import Tutor from './routes/tutor.route';
 import Schedule from './routes/schedule.route';
 import LessonWorkflow from './routes/lessonWorkflow.route';
+import { startLessonOutcomeQueue } from './services/lessonOutcome/job';
 import LessonPrivacy, { lessonPrivacyFailure } from './routes/lessonPrivacy.route';
 import { startLessonEvidenceRetention } from './services/lessonPrivacy/retention';
 import { adminOperationsRoute } from './routes/adminOperations.route';
@@ -22,13 +25,14 @@ import { containerStatsRoute } from './routes/containerStats.route';
 import { operationalAlertsRoute } from './routes/operationalAlerts.route';
 import { requestDefense } from './utils/requestDefense';
 import Interview from './routes/interview.route';
+import TutorIdentity from './routes/tutorIdentity.route';
+import { startTutorIdentityWorker } from './services/tutorIdentity/worker';
 import Notification from './routes/notification.route';
 import Inbox from './routes/inbox.route';
 import Ticket from './routes/ticket.route';
 import Lesson from './routes/lesson.route';
 import Proof from './routes/proof.route';
 import Screening from './routes/screening.route';
-import AnonymousReviews from './routes/anonymousReviews.route';
 import LessonPasses from './routes/lessonPasses.route';
 import { categoryRoute } from './routes/category.route';
 import { mediaRoute } from './routes/media.route';
@@ -180,7 +184,7 @@ const app = new Elysia({
     const path = new URL(request.url).pathname;
     
     // Skip logging for health checks and static assets
-    if (path === '/health' || path.startsWith('/docs') || path.startsWith('/anonymous-reviews/') || path.startsWith('/lesson-passes/') || path.startsWith('/lesson-privacy/')) return;
+    if (path === '/health' || path.startsWith('/docs') || path.startsWith('/lesson-passes/') || path.startsWith('/lesson-privacy/')) return;
     
     logger.response({
       method: request.method,
@@ -194,6 +198,10 @@ const app = new Elysia({
     const duration = Date.now() - ((request as any).startTime || Date.now());
     const path = new URL(request.url).pathname;
     const requestId = (request as any).requestId;
+    if(path.startsWith('/inbox/disputes/')) {
+      const failure=disputeFailure(error,String(code));set.status=failure.status;
+      set.headers['Cache-Control']='private, no-store';return failure.body;
+    }
     if (path.startsWith('/tutor/email-verification')) {
       const failure = tutorEmailFailure(error, String(code));
       set.status = failure.status;
@@ -206,6 +214,12 @@ const app = new Elysia({
       set.status = ['VALIDATION', 'PARSE'].includes(String(code)) ? 400 : String(code) === 'NOT_FOUND' ? 404 : 503;
       set.headers['Cache-Control'] = 'private, no-store';
       return { success: false, error: set.status === 400 ? 'Invalid lesson or AI request. Please check your input.' : 'The private content request could not be processed.' };
+    }
+    if (path.startsWith('/tutor-identity/')) {
+      const failure = applicationFailure(error);
+      set.status = ['VALIDATION', 'PARSE'].includes(String(code)) ? 400 : failure.status;
+      set.headers['Cache-Control'] = 'private, no-store';
+      return { success: false, error: set.status === 400 ? 'Invalid identity request.' : failure.message };
     }
     if (path.startsWith('/exam/')) {
       const response = String(code) === 'VALIDATION' ? { status: 422, message: 'Invalid assessment request.' } : applicationFailure(error);
@@ -236,7 +250,7 @@ const app = new Elysia({
       set.status = response.status;
       return response.body;
     }
-    if (path.startsWith('/anonymous-reviews/') || path.startsWith('/lesson-passes/')) {
+    if (path.startsWith('/lesson-passes/')) {
       set.status = ['VALIDATION', 'PARSE'].includes(String(code)) ? 400 : String(code) === 'NOT_FOUND' ? 404 : 503;
       return { success: false, error: 'Review request could not be processed' };
     }
@@ -364,13 +378,14 @@ const app = new Elysia({
   .use(operationalAlertsRoute)
   .use(qaRecordingRoute)
   .use(Interview)
+  .use(TutorIdentity)
   .use(Notification)
   .use(Inbox)
+  .use(disputeChainRoute)
   .use(Ticket)
   .use(Lesson)
   .use(Proof)
   .use(Screening)
-  .use(AnonymousReviews)
   .use(LessonPasses)
   .use(lessonMaterialRoutes)
   .use(dispatchRoutes)
@@ -450,11 +465,13 @@ httpServer.listen(8767, '0.0.0.0', async () => {
   // Start the auto-unsuspend background job (now Memgraph is ready)
   startSuspensionJob();
   startAttendanceJob();
+  startLessonOutcomeQueue();
   startClassroomMediaReconciliation();
   startQaRecordingJobs();
   startLessonEvidenceRetention();
   startCancellationRefundJob();
   startSpeakingWorker();
+  startTutorIdentityWorker();
 
   // Start daily notification retention cleanup (delete read > N days)
   const notificationService = new NotificationService();

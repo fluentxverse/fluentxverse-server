@@ -1,5 +1,5 @@
 import { Group } from '@semaphore-protocol/group';
-import { AnonymousReviewError, reviewConfig, reviewGroth16, reviewPublicSignals, reviewStatement,
+import { AnonymousReviewError, currentReviewConfig, reviewConfig, reviewGroth16, reviewPublicSignals, reviewStatement,
   reviewVerificationKey, reviewGroupId, reviewScope } from './policy';
 import type { AnonymousReviewProof } from '../../shared/anonymousReviews';
 import type { ReviewCohort } from './repository';
@@ -12,28 +12,28 @@ export function validateReceipt(receipt: ReviewReceipt) {
   catch { throw new AnonymousReviewError('Invalid aggregation receipt'); }
 }
 export class AnonymousReviewChain {
-  async reconcile(proof: AnonymousReviewProof, submissionId: string) {
-    const config = reviewConfig();
+  async reconcile(proof: AnonymousReviewProof, submissionId: string, chainId?: number) {
+    const config = chainId === undefined ? await currentReviewConfig() : reviewConfig(chainId);
     return new EngineProofReceiptClient('GMR_ANONYMOUS_REVIEWS').reconcile(submissionId, { ...config, statement: reviewStatement(config.vkHash, proof) });
   }
-  async check() {
-    const config = reviewConfig();
+  async check(chainId?: number) {
+    const config = chainId === undefined ? await currentReviewConfig() : reviewConfig(chainId);
     reviewVerificationKey();
     await horizenReceiptReader.check(config);
     return config;
   }
   async active(cohort: ReviewCohort) {
-    const config = await this.check();
+    const config = await this.check(cohort.chainId);
     if (cohort.chainId !== config.chainId || cohort.contract.toLowerCase() !== config.bridge.toLowerCase()) return false;
     if (!cohort.root) return false;
     const members: string[] = JSON.parse(cohort.membersJson || '[]');
     return cohort.activationStatus === 'active_bridge' && members.length >= 5 && members.length <= 256
       && new Set(members).size === members.length && new Group(members.map(BigInt)).root.toString() === cohort.root
-      && cohort.id === reviewGroupId(cohort.tutorId, cohort.period)
+      && cohort.id === reviewGroupId(cohort.tutorId, cohort.period, cohort.chainId, cohort.enrollmentPolicy)
       && cohort.scope === reviewScope(config.chainId, config.bridge, cohort.id);
   }
-  async accepted(proof: AnonymousReviewProof, receiptJson?: string) {
-    const config = await this.check();
+  async accepted(proof: AnonymousReviewProof, receiptJson?: string, chainId?: number) {
+    const config = await this.check(chainId);
     return receiptJson ? horizenReceiptReader.verify(config, reviewStatement(config.vkHash, proof), JSON.parse(receiptJson)) : false;
   }
   async submit(proof: AnonymousReviewProof) {
@@ -60,9 +60,9 @@ export class AnonymousReviewChain {
   async certify(_proof: AnonymousReviewProof, _receipt: ReviewReceipt): Promise<{ id: string; status: string }> {
     throw new AnonymousReviewError('Custom review contract writes are archived and disabled', 410);
   }
-  async receipt(proof: AnonymousReviewProof, receipt: ReviewReceipt) {
+  async receipt(proof: AnonymousReviewProof, receipt: ReviewReceipt, chainId?: number) {
     validateReceipt(receipt);
-    const config = await this.check();
+    const config = await this.check(chainId);
     return horizenReceiptReader.verify(config, reviewStatement(config.vkHash, proof), receipt);
   }
 }

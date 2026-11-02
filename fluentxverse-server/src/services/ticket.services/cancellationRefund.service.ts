@@ -5,6 +5,7 @@ import { invalidateCache } from '../../db/redis';
 import { REFUND_POLICY } from '../../config/constant';
 import { gmrEngine, GmrEngineRequestError, type EngineTransaction } from '../web3.services/gmrEngine.service';
 import type { TicketTransaction } from './ticket.service';
+import { appendRefundDelivery } from '../disputeChain/outbox';
 
 const completed = (status: string) => ['confirmed', 'mined'].includes(status.toLowerCase());
 const failed = (status: string) => ['failed', 'errored'].includes(status.toLowerCase());
@@ -24,12 +25,18 @@ export class CancellationRefundService {
         const b = locked.records[0]?.get('b').properties;
         if (!b) throw new Error('A refund requires a cancelled booking');
         if (b.paymentMethod === 'trial') {
-          await tx.run("MATCH (b:Booking {bookingId: $bookingId}) SET b.refundStatus = 'not_required'", { bookingId });
+          await tx.run(`MATCH (b:Booking {bookingId: $bookingId})
+            SET b.refundStatus=CASE WHEN b.refundApprovedBy IS NOT NULL THEN 'completed' ELSE 'not_required' END,
+              b.trialRefunded=CASE WHEN b.refundApprovedBy IS NOT NULL THEN true ELSE coalesce(b.trialRefunded,false) END,
+              b.refunded=CASE WHEN b.refundApprovedBy IS NOT NULL THEN true ELSE coalesce(b.refunded,false) END`, { bookingId });
+          if (b.refundApprovedBy) await appendRefundDelivery(tx, bookingId, `trial-refund:${bookingId}`, new Date().toISOString());
           return null;
         }
         if (b.privatePassReservationId) {
           await tx.run(`MATCH (b:Booking {bookingId:$bookingId}), (r:LessonPassReservation {id:$id,status:'booked'})
-            SET b.refundStatus='pass_pending'`, { bookingId, id: b.privatePassReservationId });
+            SET b.refundStatus='review',b.refundError='Archived private pass requires staff recovery'
+            MERGE(n:Notification {id:$notice}) ON CREATE SET n.userId='admin',n.userType='admin',n.type='system',
+              n.title='Private pass refund needs recovery',n.message='Archived private pass requires staff recovery',n.timestamp=$now,n.isRead=false`, { bookingId, id: b.privatePassReservationId,notice:'pass-refund-review:'+bookingId,now:new Date().toISOString() });
           return null;
         }
         const cancelledAt = b.cancelledAt?.toStandardDate?.()?.getTime();
@@ -49,7 +56,8 @@ export class CancellationRefundService {
           { bookingId, studentId: b.studentId });
         const original = originals.records[0]?.get('o').properties;
         if (!original) {
-          await tx.run("MATCH (b:Booking {bookingId: $bookingId}) SET b.refundStatus = 'not_required'", { bookingId });
+          await tx.run(`MATCH (b:Booking {bookingId: $bookingId}) SET b.refundStatus=CASE WHEN b.refundApprovedBy IS NULL THEN 'not_required' ELSE 'review' END,
+            b.refundError='Original ticket debit requires verification'`, { bookingId });
           return null;
         }
         const refundId = `cancellation-refund-${bookingId}`;
@@ -107,6 +115,10 @@ export class CancellationRefundService {
         }
       }
       if (Date.parse(intent.nextAttemptAt || '') > Date.now()) return this.dto(intent);
+      if (process.env.REFUND_TRANSFERS_DISABLED === 'true') {
+        await db.run("MATCH (b:Booking {bookingId:$bookingId}) SET b.refundError='Live refund transfers are disabled in this environment'", {bookingId});
+        return this.dto(intent);
+      }
       if (intent.refundPhase === 'submitted') {
         try {
           const result = await this.engine.transaction(intent.engineTransactionId);
@@ -222,6 +234,7 @@ export class CancellationRefundService {
             r.transferTxId=$transferId,r.completedAt=$now REMOVE b.refundError,r.lastError,r.nextAttemptAt RETURN r`,
           { bookingId, id: refund.id, wallet, hash: original.transferTxId, transferId, now });
         if (result.records.length !== 1) throw new Error('Mock refund state changed before credit');
+        await appendRefundDelivery(tx, bookingId, transferId, now);
         return this.dto(result.records[0]!.get('r').properties);
       });
     } finally { await db.close(); }
@@ -260,6 +273,8 @@ export class CancellationRefundService {
           SET b.refunded = true, b.refundStatus = 'completed', r.status = 'completed',
             r.refundPhase = 'completed', r.transferTxId = $transferId, r.completedAt = coalesce(r.completedAt, $now)
           REMOVE b.refundError, r.lastError, r.nextAttemptAt`, { bookingId, id, transferId: transferId || null, now: new Date().toISOString() });
+        if (!transferId) throw new Error('Refund completion requires a durable delivery reference');
+        await appendRefundDelivery(tx, bookingId, transferId, new Date().toISOString());
         await tx.run(`MATCH (b:Booking {bookingId: $bookingId})
           MERGE (n:Notification {id: $id}) ON CREATE SET n.userId = b.studentId, n.userType = 'student',
             n.type = 'system', n.title = 'Lesson ticket refunded', n.message = 'Your lesson ticket has been returned.',
@@ -278,7 +293,6 @@ export class CancellationRefundService {
     const db = getDriver().session();
     try {
       const result = await db.run(`MATCH (b:Booking) WHERE (b.status = 'cancelled' OR b.refundApprovedBy IS NOT NULL) AND coalesce(b.refunded, false) = false
-        AND b.privatePassReservationId IS NULL
         AND coalesce(b.refundStatus, '') IN ['', 'pending'] AND ($ids IS NULL OR b.bookingId IN $ids)
         AND ($ids IS NOT NULL OR b.testFixture IS NULL)
         OPTIONAL MATCH (r:TicketTransaction {id: 'cancellation-refund-' + b.bookingId})

@@ -10,6 +10,7 @@ import {
 import { finance, financialFailure, lockTutor, reservedPayoutEvidence } from "./tutorEarnings.service";
 import { payoutReconciliationRequest } from "./tutorPayoutRecovery.service";
 import { assertContributedGroth16Key } from "../proof.services/groth16KeySafety";
+import { MAINNET_RECEIPT_DESTINATIONS, finalizedDestinationReceipt } from "../proof.services/horizenReceipt";
 
 export const PAYOUT_AUTHORIZATION_PROTOCOL = "fluentxverse.payout-authorization.v2";
 const FIELD = 21888242871839275222246405745257275088548364400416034343698204186575808495617n;
@@ -163,7 +164,9 @@ async function engineRequest(path: string, body?: unknown, timeout = 10000) {
 }
 export function validatePayoutProofRelease(r: PayoutProofRelease) {
   const mainnet = process.env.PAYOUT_VERIFICATION_NETWORK === "zkVerify",
-    chain = Number(process.env.PAYOUT_CHAIN_ID);
+    chain = process.env.PROOF_DESTINATION_MODE === "project" ? r?.chainId : Number(process.env.PAYOUT_CHAIN_ID);
+  const destination = mainnet ? MAINNET_RECEIPT_DESTINATIONS.find(item => item.chainId === chain)
+    : chain === 84532 ? { domainId: 2, bridge: '0x0807c544d38ae7729f8798388d89be6502a1e8a8' } : undefined;
   if (
     process.env.PAYOUT_ARTIFACTS_APPROVED !== "true" ||
     !r ||
@@ -176,14 +179,12 @@ export function validatePayoutProofRelease(r: PayoutProofRelease) {
     r.issuerHash !== process.env.PAYOUT_ISSUER_HASH ||
     r.scopeHash !== process.env.PAYOUT_SCOPE_HASH ||
     r.chainId !== chain ||
-    r.domainId !== Number(process.env.PAYOUT_ZKVERIFY_DOMAIN_ID) ||
-    r.domainId !== 2 ||
+    (process.env.PROOF_DESTINATION_MODE !== "project" && r.domainId !== Number(process.env.PAYOUT_ZKVERIFY_DOMAIN_ID)) ||
+    !destination || r.domainId !== destination.domainId ||
     r.verificationNetwork !== process.env.PAYOUT_VERIFICATION_NETWORK ||
-    !((mainnet && chain === 8453) || (!mainnet && chain === 84532 && r.verificationNetwork === "Volta")) ||
+    !((mainnet && destination) || (!mainnet && chain === 84532 && r.verificationNetwork === "Volta")) ||
     r.bridge?.toLowerCase() !==
-      (mainnet
-        ? "0xcb47a3c3b9eb2e549a3f2ea4729de28cafbb2b69"
-        : "0x0807c544d38ae7729f8798388d89be6502a1e8a8") ||
+      destination.bridge.toLowerCase() ||
     r.releasePolicy !== (process.env.PAYOUT_RELEASE_POLICY || "independent-reviewed") ||
     !["self-operated", "independent-reviewed"].includes(r.releasePolicy) ||
     r.independentlyReviewed !== (r.releasePolicy === "independent-reviewed") ||
@@ -301,7 +302,7 @@ const liveEngine: PayoutAuthorizationEngine = {
       throw blocked();
     return {
       nativeFinalized: true,
-      receiptVerified: receipt.verifiedOnBase === true && receipt.status === "base_finalized",
+      receiptVerified: finalizedDestinationReceipt(receipt, record.chainId),
     };
   },
 };
@@ -461,6 +462,8 @@ export class TutorPayoutAuthorizationService {
         r.phase !== "locally_proved" ||
         r.releaseManifestSHA256 !== release.releaseManifestSHA256 ||
         r.vkHash !== release.vkHash ||
+        r.chainId !== release.chainId ||
+        r.domainId !== release.domainId ||
         payoutEvidenceDigest(fresh) !== r.evidenceDigest ||
         Date.parse(r.expiresAt) <= this.clock()
       )

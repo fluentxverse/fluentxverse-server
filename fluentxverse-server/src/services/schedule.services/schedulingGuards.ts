@@ -9,9 +9,12 @@ export function lessonsOverlap(start: number, duration: number, otherStart: numb
 export async function assertTutorCanSchedule(tx: ManagedTransaction, tutorId: string) {
   const result = await tx.run(`MATCH (t:User {id: $tutorId})
     SET t.scheduleWriteVersion = coalesce(t.scheduleWriteVersion, 0) + 1
-    RETURN t.isBlocked AS blocked, t.blockExpiresAt AS expires`, { tutorId });
+    RETURN t.isBlocked AS blocked, t.blockExpiresAt AS expires,t.identityBanned AS identityBanned,
+      t.identityRequired AS identityRequired,t.identityVerified AS identityVerified`, { tutorId });
   const row = result.records[0];
   if (!row) throw new Error('Tutor not found');
+  if (row.get('identityBanned') === true || (row.get('identityRequired') === true && row.get('identityVerified') !== true))
+    throw new Error('Tutor identity approval is required before accepting lessons.');
   const expires = row.get('expires')?.toStandardDate?.().getTime();
   if (row.get('blocked') && (expires === undefined || expires > Date.now())) {
     throw new Error('This tutor is temporarily blocked from opening or accepting new lesson bookings');
@@ -20,8 +23,9 @@ export async function assertTutorCanSchedule(tx: ManagedTransaction, tutorId: st
 
 export async function assertTutorApplicationApproved(tx: ManagedTransaction, tutorId: string) {
   const result = await tx.run(`MATCH(t:User {id:$tutorId})
-    WHERE (t.writtenExamPassed=true AND t.speakingExamPassed=true AND t.interviewPassed=true AND t.profileStatus='approved')
-      OR t.email IN $qaEmails
+    WHERE coalesce(t.identityBanned,false)=false AND (coalesce(t.identityRequired,false)=false OR t.identityVerified=true)
+      AND ((t.writtenExamPassed=true AND t.speakingExamPassed=true AND t.interviewPassed=true AND t.profileStatus='approved')
+      OR t.email IN $qaEmails)
     RETURN t.id AS id`, { tutorId, qaEmails: ['paulanthonyarriola@gmail.com'] });
   if (!result.records.length) throw new Error('This tutor has not completed the required assessments, interview and profile approval.');
 }

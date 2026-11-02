@@ -3,23 +3,29 @@ import { assertCredentialCurrent, type ScreeningBinding } from './credential';
 import { FIELD_MODULUS, decodeScreeningSignals, type ScreeningSignals } from './policy';
 import { assertHorizenReceiptConfig, horizenReceiptReader, privacyInfrastructure, horizenVerificationNetwork } from '../proof.services/horizenReceipt';
 import { approvedScreeningArtifacts, screeningEngineRequest } from './prover';
+import { mainnetReceiptCoordinates } from '../proof.services/projectDestination';
 
 export interface ScreeningChainConfig extends ScreeningBinding {
   validationRegistry: Address; identityRegistry: Address; bridge: Address; signer: Address;
-  vkHash: Hex; issuerHash: string; domainId: number;
+  vkHash: Hex; issuerHash: string; domainId: number; rpcUrl: string;
 }
-export function screeningChainConfig(): ScreeningChainConfig {
+export function screeningChainConfig(selectedChainId?: number): ScreeningChainConfig {
   privacyInfrastructure();
-  const chainId = Number(process.env.SCREENING_CHAIN_ID || '8453');
+  const selected = selectedChainId !== undefined ? mainnetReceiptCoordinates(selectedChainId) : null;
+  const chainId = selected?.chainId ?? Number(process.env.SCREENING_CHAIN_ID || '8453');
   const issuerHash = process.env.SCREENING_ISSUER_HASH || '', vkHash = process.env.SCREENING_ZKVERIFY_VK_HASH || '';
-  const domainId = Number(process.env.SCREENING_ZKVERIFY_DOMAIN_ID || '0');
+  const domainId = selected?.domainId ?? Number(process.env.SCREENING_ZKVERIFY_DOMAIN_ID || '0');
   if (!/^[1-9]\d*$/.test(issuerHash) || BigInt(issuerHash) >= FIELD_MODULUS || !/^0x[a-fA-F0-9]{64}$/.test(vkHash)
     || BigInt(vkHash) === 0n || !Number.isSafeInteger(domainId) || domainId <= 0) throw new Error('Screening trust configuration is incomplete');
-  const bridge = (process.env.SCREENING_RECEIPT_BRIDGE || '') as Address, rpcUrl = process.env.SCREENING_RPC_URL || '';
+  const bridge = (selected?.bridge ?? process.env.SCREENING_RECEIPT_BRIDGE ?? '') as Address, rpcUrl = selected?.rpcUrl ?? process.env.SCREENING_RPC_URL ?? '';
   assertHorizenReceiptConfig({ chainId, bridge, domainId, rpcUrl });
   const unused = '0x0000000000000000000000000000000000000000' as Address;
-  return { chainId, agentId: '0', issuerHash, vkHash: vkHash as Hex, domainId, adapterAddress: bridge,
+  return { chainId, agentId: '0', issuerHash, vkHash: vkHash as Hex, domainId, rpcUrl, adapterAddress: bridge,
     validationRegistry: unused, identityRegistry: unused, bridge, signer: unused };
+}
+export function screeningCredentialConfig(values: string[]): ScreeningChainConfig {
+  const signals = decodeScreeningSignals(values);
+  return screeningChainConfig(process.env.PROOF_DESTINATION_MODE === 'project' ? Number(signals.chainId) : undefined);
 }
 export function encodeValidationPayload(config: ScreeningChainConfig, values: string[]): Hex {
   assertCredentialCurrent(values, config, config.issuerHash);
@@ -43,17 +49,18 @@ export function validationResponseSummary(certified: boolean, signals: Screening
 export async function assertValidatorConfiguration(config: ScreeningChainConfig, signals?: string[]) {
   if (signals) assertCredentialCurrent(signals, config, config.issuerHash);
   const release = await approvedScreeningArtifacts();
-  await horizenReceiptReader.check({ ...config, rpcUrl: process.env.SCREENING_RPC_URL || '' });
+  await horizenReceiptReader.check(config);
   return release;
 }
 export async function readChainCertification(config: ScreeningChainConfig, values: string[], receiptJson?: string): Promise<boolean> {
   assertCredentialCurrent(values, config, config.issuerHash);
   await assertValidatorConfiguration(config, values);
-  return receiptJson ? horizenReceiptReader.verify({ ...config, rpcUrl: process.env.SCREENING_RPC_URL || '' },
+  return receiptJson ? horizenReceiptReader.verify(config,
     screeningLeaf(config.vkHash, values), JSON.parse(receiptJson)) : false;
 }
 export async function submitBridgeScreeningProof(proof: unknown, values: string[]) {
-  const config = screeningChainConfig();
+  const approved = await approvedScreeningArtifacts();
+  const config = screeningChainConfig(process.env.PROOF_DESTINATION_MODE === 'project' ? approved.chainId : undefined);
   const release = await assertValidatorConfiguration(config, values);
   const network = horizenVerificationNetwork(config.chainId);
   let result: { submission: { id: string; transactionResult: string; zkVerifyNetwork: string } };

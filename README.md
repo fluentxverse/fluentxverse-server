@@ -61,7 +61,7 @@ Do not enable proof or financial mutation jobs simply to make a demo appear live
 
 This repository is an app-focused export of [the FluentXVerse monorepo](https://github.com/fluentxverse/fluentxverse-monorepo). The monorepo remains the source of truth; submit cross-application changes there. Existing directory names are retained so shared imports remain valid. The historical student/tutor folder suffix does not indicate a Preact app: both active web clients use SolidJS.
 
-Exported source commit: [`0b10bf263db4`](https://github.com/fluentxverse/fluentxverse-monorepo/tree/0b10bf263db4d9bb599a15f17b41d6911f30b91e). See [SOURCE.json](SOURCE.json) for the exact scope. Local uncommitted edits, environment files, runtime data, curriculum backups, and generated proving artifacts are not published. Original Git history is not copied.
+Exported source commit: [`5640d7885407`](https://github.com/fluentxverse/fluentxverse-monorepo/tree/5640d7885407a520b602e04cd2b307a6c73680df). See [SOURCE.json](SOURCE.json) for the exact scope. Local uncommitted edits, environment files, runtime data, curriculum backups, and generated proving artifacts are not published. Original Git history is not copied.
 
 Cross-app parity tests and full deployment orchestration remain in the monorepo. The checks in this repository do not establish production acceptance, security audit completion, or proof-system review. No production deployment is triggered by this export.
 
@@ -69,4 +69,4 @@ Cross-app parity tests and full deployment orchestration remain in the monorepo.
 
 Never commit API tokens, seed phrases, private keys, student records, recordings, or real assessment evidence. Use synthetic fixtures in tests. Report security issues privately to support@fluentxverse.com rather than opening an issue containing sensitive data.
 
- third-party dependencies retain their own licenses.
+FluentXVerse original source code is licensed under the [MIT License](LICENSE). Third-party dependencies retain their own licenses and copyright notices.

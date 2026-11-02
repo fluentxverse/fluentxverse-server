@@ -1,4 +1,5 @@
 import { afterEach, expect, spyOn, test } from 'bun:test';
+import { fixtureFetch } from './fixtureFetch';
 import { execFileSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import { tallyFixture } from './reviewTally.fixture';
@@ -10,12 +11,12 @@ import { AnonymousReviewService } from '../src/services/anonymousReviews/service
 
 const saved = { ...process.env };
 afterEach(() => { for (const key of Object.keys(process.env)) if (!(key in saved)) delete process.env[key]; Object.assign(process.env, saved); });
-function setup() {
+function setup(chainId = 2651420) {
   process.env.PRIVACY_INFRA_MODE = 'bridge_only';
   process.env.ANONYMOUS_REVIEWS_ENABLED = 'true'; process.env.ANONYMOUS_REVIEW_TALLY_ENABLED = 'true';
   process.env.ANONYMOUS_REVIEW_TALLY_IMAGE_ID = `0x${'ef'.repeat(32)}`;
   process.env.ANONYMOUS_REVIEWS_DEPLOYMENT_BLOCK = '10'; process.env.ANONYMOUS_REVIEWS_ENCRYPTION_KEY = '12'.repeat(32);
-  const fixture = tallyFixture(), repo = new AnonymousReviewRepository(), tally = new AnonymousReviewTally(repo);
+  const fixture = tallyFixture(5, chainId), repo = new AnonymousReviewRepository(), tally = new AnonymousReviewTally(repo);
   const { snapshot } = fixture.witness;
   const cohort = { id: snapshot.groupId, tutorId: 'synthetic-tutor', period: '2020-01', scope: fixture.scope, chainId: snapshot.chainId,
     contract: snapshot.registry, root: BigInt(snapshot.root).toString(), membersJson: JSON.stringify(fixture.members),
@@ -106,4 +107,38 @@ test('enabling the tally upgrade blocks new platform-only publication without re
     expect((await service.publish(cohort.id)).tally.status).toBe('platform_calculated');
     expect(publish).toHaveBeenCalledTimes(1);
   } finally { for (const mock of [get, publish, active]) mock.mockRestore(); }
+});
+
+for (const returned of [
+  { network: 'Volta', domainId: 175, accepted: true },
+  { network: 'zkVerify', domainId: 175, accepted: false },
+  { network: 'Volta', domainId: 2, accepted: false },
+]) test(`legacy tally submission checks network ${returned.network} and domain ${returned.domainId}`, async () => {
+  const { repo, tally, cohort, record } = setup();
+  Object.assign(process.env, {
+    ANONYMOUS_REVIEWS_CHAIN_ID: '2651420', ANONYMOUS_REVIEWS_DOMAIN_ID: '175',
+    ANONYMOUS_REVIEWS_BRIDGE: '0x3098A6974649478f0133046e44105AA84e868C21',
+    ANONYMOUS_REVIEWS_RPC_URL: 'https://horizen-testnet.rpc.caldera.xyz/http',
+    ANONYMOUS_REVIEWS_ZKVERIFY_VK_HASH: `0x${'ab'.repeat(32)}`,
+    ANONYMOUS_REVIEWS_WASM_SHA256: 'ab'.repeat(32), ANONYMOUS_REVIEWS_ZKEY_SHA256: 'cd'.repeat(32),
+    GMR_ANONYMOUS_TALLY_ENGINE_API_BASE: 'https://engine.test', GMR_ANONYMOUS_TALLY_ENGINE_API_KEY: 'test',
+  });
+  delete record.zkVerifyTx;
+  const mocks = [
+    spyOn(repo, 'cohort').mockResolvedValue(cohort), spyOn(repo, 'tally').mockResolvedValue(record),
+    spyOn(repo, 'claimTally').mockResolvedValue(record), spyOn(tally.prover, 'verify').mockResolvedValue(),
+    spyOn(tally.source, 'complete').mockResolvedValue(), spyOn(repo, 'patchTally').mockResolvedValue(),
+    spyOn(globalThis, 'fetch').mockImplementation(fixtureFetch(async (_url, options) => {
+      const body = JSON.parse(options!.body as string);
+      expect(body.expectedNetwork).toBe('Volta'); expect(body.domainId).toBe(175);
+      return Response.json({ submission: { id: 'synthetic', zkVerifyNetwork: returned.network, domainId: returned.domainId,
+        transactionResult: JSON.stringify({ txHash: `0x${'aa'.repeat(32)}`,
+          statement: tallyStatement(process.env.ANONYMOUS_REVIEW_TALLY_IMAGE_ID as `0x${string}`, record.journal as `0x${string}`) }) } });
+    })),
+  ];
+  try {
+    if (returned.accepted) expect((await tally.submit(cohort.id)).status).toBe('awaiting_horizen');
+    else await expect(tally.submit(cohort.id)).rejects.toThrow('reconciliation');
+    expect(mocks[5]).toHaveBeenCalledTimes(returned.accepted ? 1 : 0);
+  } finally { for (const mock of mocks) mock.mockRestore(); }
 });

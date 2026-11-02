@@ -17,10 +17,11 @@ export class StudentIssueReportValidationError extends Error {}
 export function validateStudentTutorIssue(reason: string, issue: string | null | undefined, details: string, duringLesson = false, duringLessonTutorIssue = 'no_show') {
   if (reason === 'tutor') {
     if (!studentTutorIssueLabel(issue)) throw new StudentIssueReportValidationError('Choose what happened with the tutor.');
-    if (duringLesson && issue !== duringLessonTutorIssue) throw new StudentIssueReportValidationError('During the lesson, the only tutor-related report available is the current tutor absence. You can report other tutor issues after the lesson ends.');
+    if (duringLesson && !['no_show','late_join','left_early'].includes(issue!)) throw new StudentIssueReportValidationError('During the lesson, choose tutor has not joined, joined late, or left / is no longer available.');
   } else if (issue != null) {
     throw new StudentIssueReportValidationError('A tutor issue can only be selected for a tutor-related report.');
   }
+  if (duringLesson && reason !== 'tutor') throw new StudentIssueReportValidationError('During the lesson only tutor attendance issues can be reported.');
   if ((reason === 'other' || (reason === 'tutor' && issue === 'other')) && !details.trim()) {
     throw new StudentIssueReportValidationError('Please briefly explain the issue when choosing Other.');
   }

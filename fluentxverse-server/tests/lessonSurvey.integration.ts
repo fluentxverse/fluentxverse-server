@@ -6,6 +6,9 @@ import { ScheduleService } from '../src/services/schedule.services/schedule.serv
 
 const uri = process.env.TEST_MEMGRAPH_URI;
 if (!uri) throw new Error('TEST_MEMGRAPH_URI is required');
+// Old deployments may retain this flag: it must no longer divert or block surveys.
+const previousAnonymousFlag = process.env.ANONYMOUS_REVIEWS_ENABLED;
+process.env.ANONYMOUS_REVIEWS_ENABLED = 'true';
 await initDriver(uri, '', '', 1);
 const graph = getDriver().session();
 const suffix = crypto.randomUUID(), studentId = `survey-student-${suffix}`, tutorId = `survey-tutor-${suffix}`;
@@ -26,6 +29,10 @@ try {
     { studentId, tutorId, bookingId: id(name), status, attendance, start: new Date(Date.now() + offset).toISOString() });
   }
   await assert.rejects(service.get(id('first'), 'another-student'));
+  const available = await service.get(id('first'), studentId);
+  assert.equal(available.eligible, true);
+  assert.equal('enrollment' in available, false);
+  assert.equal('mode' in available, false);
   await assert.rejects(service.submit(id('first'), 'another-student', { rating: 5 }));
   for (const name of ['future', 'closed', 'cancelled', 'absent']) {
     assert.equal((await service.get(id(name), studentId)).eligible, false);
@@ -64,6 +71,8 @@ try {
   await assert.rejects(service.submit(id('early-exit'), studentId, { rating: 4 }));
   console.log('PASS: survey authorization, eligibility, duplicate concurrency, persistence, rating updates, and private aggregates');
 } finally {
+  if (previousAnonymousFlag === undefined) delete process.env.ANONYMOUS_REVIEWS_ENABLED;
+  else process.env.ANONYMOUS_REVIEWS_ENABLED = previousAnonymousFlag;
   await graph.run(`MATCH (n) WHERE n.id IN [$studentId, $tutorId] OR n.tutorId = $tutorId DETACH DELETE n`, { studentId, tutorId });
   await graph.close(); await closeDriver();
 }

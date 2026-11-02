@@ -12,6 +12,10 @@ import { verifyAuthToken, refreshJwtCookie, type JwtAuthPayload } from '../utils
 import { cacheGetOrSet, invalidateCache } from '../db/redis';
 import { tutorPerformanceService } from '../services/tutorPerformance.service';
 import { tutorLessonIssuesService } from '../services/tutorLessonIssues.service';
+import { validateIntroVideo, IntroVideoInvalid } from '../utils/introVideo';
+import { validateProfilePhoto, ProfilePhotoInvalid } from '../utils/profilePhoto';
+import { validateProfileInterests } from '../../../shared/profileGuidelines';
+import { tutorPublicName, validateTutorNickname } from '../../../shared/tutorPublicName';
 
 const tutorService = new TutorService();
 const scheduleService = new ScheduleService();
@@ -69,7 +73,7 @@ const Tutor = new Elysia({ prefix: '/tutor' })
       };
 
       // Create cache key from search params
-      const cacheKey = `tutor:search:${JSON.stringify(params)}`;
+      const cacheKey = `tutor:search:nickname:${JSON.stringify(params)}`;
       
       // Cache search results for 2 minutes (120 seconds)
       const result = await cacheGetOrSet(cacheKey, 120, () => 
@@ -120,6 +124,7 @@ const Tutor = new Elysia({ prefix: '/tutor' })
       if (!file.type.startsWith('video/')) {
         return { success: false, error: 'File must be a video' };
       }
+      await validateIntroVideo(file);
 
       // Build Seaweed Filer path: /user/{userId}/video/{timestamp}_{originalName}
       const timestamp = Date.now();
@@ -169,6 +174,7 @@ const Tutor = new Elysia({ prefix: '/tutor' })
           : undefined
       };
     } catch (error) {
+      if (error instanceof IntroVideoInvalid) return { success: false, error: error.message };
       console.error('Error in /tutor/intro-video:', error);
       return { success: false, error: 'Failed to upload intro video' };
     }
@@ -231,6 +237,7 @@ const Tutor = new Elysia({ prefix: '/tutor' })
       if (file.size > MAX_PROFILE_PIC_BYTES) {
         return { success: false, error: `File too large. Max ${(MAX_PROFILE_PIC_BYTES / (1024*1024)).toFixed(1)}MB` };
       }
+      await validateProfilePhoto(file);
 
       // Build Seaweed Filer path: /user/{userId}/profile/{timestamp}_{originalName}
       const timestamp = Date.now();
@@ -279,6 +286,7 @@ const Tutor = new Elysia({ prefix: '/tutor' })
           : undefined
       };
     } catch (error) {
+      if (error instanceof ProfilePhotoInvalid) return { success: false, error: error.message };
       console.error('Error in /tutor/profile-picture:', error);
       return { success: false, error: 'Failed to upload profile picture' };
     }
@@ -333,20 +341,30 @@ const Tutor = new Elysia({ prefix: '/tutor' })
       const updateData = body as Record<string, any>;
       
       // Only allow updating specific fields
-      const allowedFields = ['bio', 'introduction', 'teachingStyle', 'hourlyRate', 'videoIntroUrl', 'interests'];
+      const allowedFields = ['nickname', 'bio', 'introduction', 'teachingStyle', 'hourlyRate', 'videoIntroUrl', 'interests', 'schoolAttended', 'major', 'educationalAttainment', 'teachingExperience', 'teachingQualifications'];
       const filteredData: Record<string, any> = {};
       
       for (const key of allowedFields) {
         if (updateData[key] !== undefined) {
           // Handle interests array - ensure it's an array with max 5 items, stored as JSON string
-          if (key === 'interests') {
+          if (key === 'nickname') {
+            try { filteredData[key] = validateTutorNickname(updateData[key]); }
+            catch (error) { return { success: false, error: error instanceof Error ? error.message : 'Invalid nickname' }; }
+          } else if (key === 'interests') {
             let interests = updateData[key];
             if (typeof interests === 'string') {
               interests = interests.split(',').map((i: string) => i.trim()).filter((i: string) => i.length > 0);
             }
-            if (Array.isArray(interests)) {
-              filteredData[key] = JSON.stringify(interests.slice(0, 5)); // Store as JSON string like other arrays
+            try { filteredData[key] = JSON.stringify(validateProfileInterests(interests)); }
+            catch (error) { return { success: false, error: error instanceof Error ? error.message : 'Invalid interests' }; }
+          } else if (['schoolAttended', 'major', 'educationalAttainment', 'teachingExperience'].includes(key)) {
+            if (typeof updateData[key] !== 'string' || updateData[key].trim().length > 200 || (['schoolAttended', 'major'].includes(key) && !updateData[key].trim())) {
+              return { success: false, error: 'School and degree must be between 1 and 200 characters' };
             }
+            filteredData[key] = updateData[key].trim();
+          } else if (key === 'teachingQualifications') {
+            if (!Array.isArray(updateData[key]) || updateData[key].length > 6 || updateData[key].some((value: unknown) => typeof value !== 'string' || value.length > 100)) return { success: false, error: 'Invalid teaching qualifications' };
+            filteredData[key] = [...new Set(updateData[key].map((value: string) => value.trim()).filter(Boolean))];
           } else {
             filteredData[key] = updateData[key];
           }
@@ -361,6 +379,7 @@ const Tutor = new Elysia({ prefix: '/tutor' })
 
       // Invalidate tutor profile cache after update
       await invalidateCache(`tutor:profile:${userId}`);
+      await invalidateCache('tutor:search:*');
 
       return { 
         success: true, 
@@ -400,6 +419,7 @@ const Tutor = new Elysia({ prefix: '/tutor' })
 
       // Validate required fields
       const missingFields: string[] = [];
+      try { validateTutorNickname(profile.nickname); } catch { missingFields.push('Preferred nickname'); }
       if (!profile.bio || profile.bio.length < 10) missingFields.push('Bio');
       if (!profile.profilePicture) missingFields.push('Profile Picture');
       if (!profile.videoIntroUrl) missingFields.push('Introduction Video');
@@ -455,7 +475,7 @@ const Tutor = new Elysia({ prefix: '/tutor' })
 
       return {
         success: true,
-        data: tutor
+        data: { ...tutor, displayName: tutorPublicName(tutor), firstName: tutorPublicName(tutor), middleName: undefined, lastName: '', email: '', pendingProfileChanges: undefined, profileItemStatuses: undefined, profileRejectionReason: undefined }
       };
     } catch (error) {
       console.error('Error in /tutor/:tutorId:', error);

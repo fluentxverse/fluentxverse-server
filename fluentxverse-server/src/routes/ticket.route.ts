@@ -1,6 +1,6 @@
 import Elysia, { t } from 'elysia';
 import { privatePassMode } from '../services/lessonPasses/policy';
-import { trialLaunchMode } from '../services/schedule.services/trialPolicy';
+import { loadBookingPolicy } from '../services/schedule.services/trialPolicy';
 import { createAdminGuard } from '../middleware/auth.middleware';
 import { isMockTicketMode, ticketService, type TicketTier } from '@/services/ticket.services/ticket.service';
 import { cacheGetOrSet, invalidateCache } from '@/db/redis';
@@ -14,7 +14,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const Ticket = new Elysia({ prefix: '/tickets' })
   .onBeforeHandle(async ({ request, path, cookie, set }) => {
-    if (trialLaunchMode() && request.method === 'POST' && !path.includes('/refund')) {
+    if (request.method === 'POST' && !path.includes('/refund') && (await loadBookingPolicy()).mode === 'trial') {
       set.status = 409; return { success: false, error: 'Ticketing is paused during the free trial launch' };
     }
     if (privatePassMode() && request.method === 'POST' && ['/purchase','/consume','/mint'].some(suffix => path.endsWith(suffix))) {

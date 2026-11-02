@@ -5,6 +5,7 @@ import { assertLessonFeedback, LessonFeedbackInvalid } from '../utils/lessonFeed
 import { getIO } from '../socket/socket.server';
 import { invalidateCache } from '../db/redis';
 import { assertPrivateLessonNotes, lessonStudentIdentity } from '../privacy/lessonNotePrivacy';
+import { lessonNotesStatus } from '../utils/lessonNotesStatus';
 
 export function lessonOutcome(booking: Record<string, any>) {
   if (booking.status === 'cancelled') return 'cancelled';
@@ -18,8 +19,7 @@ export function notesState(booking: Record<string, any>, now = Date.now()) {
   const window = lessonNotesEditWindow(start, Number(booking.durationMinutes) || 25, booking.status, now, booking.notesReopenedUntil);
   return { ...window, attendanceVerified: booking.attendanceStudent === 'present',
     studentAttendance: booking.attendanceStudent === 'absent' ? 'absent' : 'present',
-    outcome: lessonOutcome(booking), notesStatus: booking.attendanceStudent === 'absent' || booking.attendanceTutor === 'absent' || booking.status === 'cancelled'
-      ? 'not_required' : booking.notesSubmittedAt ? (booking.notesDraftDirty ? 'changes_pending' : 'submitted') : 'draft',
+    outcome: lessonOutcome(booking), notesStatus: lessonNotesStatus(booking),
     submittedAt: booking.notesSubmittedAt || null, closed: !window.canEdit && window.reason !== 'not_started' };
 }
 
@@ -182,6 +182,7 @@ export class LessonWorkflowService {
         if (now < Date.parse(state.endsAt)) continue;
         await session.executeWrite(async tx => {
           const locked = await tx.run(`MATCH (b:Booking {bookingId: $id}) WHERE b.status IN ['confirmed', 'completed']
+            AND coalesce(b.disputeHold,false)=false
             SET b.lessonNotesWriteVersion = coalesce(b.lessonNotesWriteVersion, 0) + 1 RETURN b`, { id: b.bookingId });
           const current = locked.records[0]?.get('b').properties;
           if (!current) return;

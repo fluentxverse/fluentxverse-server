@@ -487,14 +487,14 @@ const Schedule = new Elysia({ prefix: '/schedule' })
       if (!window.eligible) {
         set.status = 403;
         return { success: false, error: window.reason === 'waiting_for_tutor'
-          ? 'Please wait until three minutes after the scheduled start if the tutor has not joined.'
+          ? 'Reporting opens two minutes after the scheduled start.'
           : window.reason === 'tutor_disconnected_wait'
             ? 'Please wait until the tutor has been disconnected for 60 seconds. Reporting closes if the tutor returns.'
           : window.reason === 'tutor_joined'
             ? 'The tutor has joined this lesson. You can report any lesson issue after its scheduled end, for up to 48 hours.'
-            : 'Reporting is available if the tutor has not joined after three minutes or has been disconnected for 60 seconds, and for 48 hours after the lesson ends. Cancelled lessons cannot be reported.' };
+            : 'Reporting opens two minutes after the scheduled start and closes 48 hours after the lesson ends. Cancelled lessons cannot be reported.' };
       }
-      const report = await studentLessonIssueReportService.create(params.bookingId, payload.userId, body.duration, body.reason, body.details || '', body.tutorIssue,
+      const report = await studentLessonIssueReportService.create(params.bookingId, payload.userId, body.duration || 'up_to_ten', body.reason, body.details || '', body.tutorIssue,
         Date.parse(window.serverNow) < Date.parse(window.lessonEndsAt), window.duringLessonTutorIssue || 'no_show');
       if (!report) { set.status = 409; return { success: false, error: 'An issue has already been reported for this lesson' }; }
       return { success: true, data: report };
@@ -502,7 +502,7 @@ const Schedule = new Elysia({ prefix: '/schedule' })
       set.status = error instanceof StudentLessonAccessError ? 403 : error instanceof StudentIssueReportValidationError ? 400 : 500;
       return { success: false, error: error instanceof StudentLessonAccessError || error instanceof StudentIssueReportValidationError ? error.message : 'Unable to submit issue report. Please try again.' };
     }
-  }, { body: t.Object({ duration: t.Union([t.Literal('up_to_ten'), t.Literal('over_ten')]),
+  }, { body: t.Object({ duration: t.Optional(t.Union([t.Literal('up_to_ten'), t.Literal('over_ten')])),
     reason: t.Union([t.Literal('connection'), t.Literal('audio'), t.Literal('hardware'), t.Literal('emergency'), t.Literal('power'), t.Literal('tutor'), t.Literal('material'), t.Literal('other')]),
     details: t.Optional(t.String({ maxLength: 2000 })), tutorIssue: t.Optional(t.String({ maxLength: 80 })) }) })
   .put('/lesson-material-request/:bookingId', async ({ request, params, body, set }) => {
@@ -935,7 +935,7 @@ const Schedule = new Elysia({ prefix: '/schedule' })
         t.Literal('connection'), t.Literal('audio'), t.Literal('hardware'),
         t.Literal('emergency'), t.Literal('power'), t.Literal('student')
       ]),
-      studentIssue: t.Optional(t.Union([t.Literal('asked_to_cancel'), t.Literal('late')]))
+      studentIssue: t.Optional(t.Union([t.Literal('asked_to_cancel'), t.Literal('late'), t.Literal('other')]))
     })
   })
 

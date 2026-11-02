@@ -8,7 +8,7 @@ const imagePattern = /^data:image\/(png|jpeg|gif|webp);base64,((?:[A-Za-z0-9+/]{
 function inlineImage(source: string) {
   if (source.length > 400_000) return null;
   const match = imagePattern.exec(source);
-  if (!match) return null;
+  if (!match || !match[1] || !match[2]) return null;
   const bytes = Buffer.from(match[2], 'base64'), type = match[1];
   const valid = type === 'png' && bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))
     || type === 'jpeg' && bytes[0] === 255 && bytes[1] === 216 && bytes[2] === 255
@@ -33,11 +33,12 @@ export function sanitizeComposedHtml(html: string) {
       'max-width': [/^100%$/], height: [/^auto$/],
     } },
     transformTags: { img: (tagName, attributes) => {
-      const image = inlineImage(attributes.src || '');
+      const source = attributes.src || '';
+      const image = inlineImage(source);
       if (!image) return { tagName, attribs: {} };
       imageBytes += image.content.length;
-      const attribs: Record<string, string> = { src: attributes.src, alt: (attributes.alt || 'Image').slice(0, 180), style: 'max-width:100%;height:auto' };
-      for (const size of ['width', 'height']) if (/^\d{1,4}$/.test(attributes[size] || '')) attribs[size] = attributes[size];
+      const attribs: Record<string, string> = { src: source, alt: (attributes.alt || 'Image').slice(0, 180), style: 'max-width:100%;height:auto' };
+      for (const size of ['width', 'height']) { const value = attributes[size]; if (value && /^\d{1,4}$/.test(value)) attribs[size] = value; }
       return { tagName, attribs };
     } },
     exclusiveFilter: frame => frame.tag === 'img' && !frame.attribs.src,
@@ -52,7 +53,7 @@ export function composedMimeContent(html: string) {
   while (pending.length) {
     const node = pending.pop()!;
     if ('children' in node) pending.push(...node.children);
-    if ('name' in node && node.name === 'img') {
+    if ('attribs' in node && node.name === 'img') {
       const image = inlineImage(node.attribs.src || '');
       if (image) {
         const cid = `fxv-${crypto.randomUUID()}@inline`;

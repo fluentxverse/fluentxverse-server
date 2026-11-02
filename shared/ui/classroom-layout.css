@@ -1,0 +1,86 @@
+/* Shared student-led shell. Role-specific teaching tools remain in the tutor app. */
+.classroom-standardized .classroom-device-preview { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:8px 12px; background:var(--fxv-surface-muted); color:var(--fxv-text); font-size:12px; line-height:1.5; border-bottom:1px solid var(--fxv-border); }
+.classroom-standardized .classroom-device-preview button { font:inherit; color:var(--fxv-text); background:var(--fxv-surface); border:1px solid var(--fxv-border); border-radius:6px; padding:5px 8px; }
+.classroom-container.classroom-standardized {
+  --fxv-bg:#f4f8ff; --fxv-surface:#fff; --fxv-surface-muted:#f8fafc;
+  --fxv-surface-soft:#eef4ff; --fxv-border:rgba(15,23,42,.08);
+  --fxv-text:#0f172a; --fxv-text-muted:#53647c;
+  --fxv-accent:#0245ae; --fxv-accent-soft:rgba(2,69,174,.14);
+  color:var(--fxv-text);
+}
+[data-theme='dark'] .classroom-container.classroom-standardized {
+  --fxv-bg:#1a1a1a; --fxv-surface:#1e1e1e; --fxv-surface-muted:#232323;
+  --fxv-surface-soft:#2a2a2a; --fxv-border:rgba(255,255,255,.09);
+  --fxv-text:#f3f4f6; --fxv-text-muted:#a3a3a3;
+  --fxv-accent:#2563eb; --fxv-accent-soft:rgba(124,184,255,.18);
+}
+.classroom-container.classroom-standardized .classroom-header {
+  height:48px; flex:0 0 48px; padding:0 16px;
+}
+.classroom-standardized .classroom-header-actions { display:flex; align-items:center; gap:8px; min-width:0; }
+.classroom-standardized .classroom-logo { flex-shrink:0; }
+.classroom-standardized .classroom-session-info { min-width:0; }
+.classroom-standardized .classroom-theme-switch { flex-shrink:0; }
+.classroom-standardized .classroom-theme-switch .fxv-theme-switch__option { min-width:24px; width:24px; height:26px; padding:0; }
+.classroom-standardized .classroom-logo img { max-width:32px; object-fit:contain; }
+.classroom-standardized :is(.control-btn,.attach-btn,.send-btn) { padding:0; }
+.App .classroom-standardized .attach-btn { border-radius:16px; box-shadow:none; }
+.App .classroom-standardized .send-btn { border-radius:12px; box-shadow:0 4px 14px rgba(2,69,174,.2); }
+.classroom-standardized .classroom-chat-popover { top:58px; width:100%; box-sizing:border-box; }
+.classroom-standardized .classroom-chat-popover .classroom-modal { width:100%; max-width:100%; margin:0; box-sizing:border-box; }
+.App .classroom-standardized .classroom-chat-popover .classroom-modal { border-radius:0 0 8px 8px; border-color:rgba(148,163,184,.28); box-shadow:0 16px 34px rgba(15,23,42,.22); }
+[data-theme='dark'] .App .classroom-standardized .classroom-chat-popover .classroom-modal { border-color:rgba(255,255,255,.1); box-shadow:0 24px 70px rgba(0,0,0,.42); }
+.App .classroom-container.classroom-standardized .lesson-request-container { border-radius:8px; border-color:var(--fxv-border); box-shadow:none; }
+.classroom-standardized .classroom-modal-header,.classroom-standardized .classroom-modal-footer { flex-shrink:0; }
+.classroom-standardized .classroom-modal-meta { min-width:0; overflow-wrap:anywhere; }
+.classroom-standardized .classroom-history-list { flex:1 1 auto; min-height:0; }
+.classroom-standardized .classroom-settings-modal { overflow-y:auto; }
+.classroom-standardized .lesson-request-container--dispatch {
+  height:auto; min-height:0; overflow:visible; flex:0 0 auto;
+}
+.classroom-standardized .lesson-request-container--dispatch :is(.lesson-request-section,.lesson-request-body,.lesson-request-content,.lesson-request-details,.student-preferences-sidebar) {
+  height:auto; max-height:none; min-height:0; overflow:visible;
+}
+.classroom-standardized .lesson-request-container--dispatch .lesson-request-section { flex:0 0 auto; }
+.classroom-standardized .lesson-request-container--dispatch .request-summary-grid { grid-auto-rows:auto; }
+.classroom-standardized .lesson-request-container--dispatch .request-stat-card { min-height:72px; }
+.classroom-standardized .material-content--request { overflow-y:auto; }
+.classroom-standardized.classroom-role-tutor .lesson-request-container--dispatch .lesson-request-content { grid-template-columns:minmax(0,1fr); gap:16px; }
+.classroom-standardized.classroom-role-tutor .student-preferences-sidebar { width:100%; max-width:none; box-sizing:border-box; justify-self:stretch; padding:0; border:0; border-top:1px solid var(--fxv-border); border-radius:0; background:transparent; box-shadow:none; }
+.classroom-standardized .student-preferences-header { display:flex; align-items:center; justify-content:space-between; gap:12px; padding-top:12px; margin-bottom:10px; }
+.classroom-standardized .preference-kicker { color:var(--fxv-text-muted); font-size:10px; font-weight:700; text-transform:uppercase; }
+.classroom-standardized .preference-panel-title { font-size:14px; margin:0; color:var(--fxv-text); }
+.classroom-standardized .preference-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.classroom-standardized .preference-row { display:flex; align-items:flex-start; gap:8px; min-width:0; padding:10px; border:1px solid var(--fxv-border); background:var(--fxv-surface-muted); border-radius:6px; }
+.classroom-standardized .preference-row--other { grid-column:1 / -1; }
+.classroom-standardized .preference-row-icon { width:24px; height:24px; display:grid; place-items:center; flex-shrink:0; background:transparent; color:var(--fxv-accent); }
+.classroom-standardized .preference-row-copy { display:flex; flex-direction:column; min-width:0; gap:4px; }
+.classroom-standardized .preference-card-label { color:var(--fxv-text-muted); font-size:10px; font-weight:600; }
+.classroom-standardized .preference-card-value { color:var(--fxv-text); font-size:13px; line-height:1.5; overflow-wrap:anywhere; }
+.classroom-standardized .preference-card-note { color:var(--fxv-text-muted); font-size:11px; line-height:1.5; }
+.classroom-standardized .request-link--material { font:inherit; color:var(--fxv-accent); text-align:left; padding:0; background:transparent; border:0; white-space:normal; overflow-wrap:anywhere; }
+.classroom-standardized .request-link--material:disabled { color:var(--fxv-text-muted); }
+.classroom-standardized .classroom-art,.classroom-standardized .tutor-art { object-fit:contain; flex-shrink:0; }
+.classroom-standardized :is(.lesson-request-title,.material-selector-header-icon,.material-selector-trigger-icon) > .tutor-art { display:block; width:30px; height:30px; }
+.classroom-standardized .classroom-qa-notice { display:flex; gap:8px; align-items:flex-start; padding:10px 12px; border-bottom:1px solid var(--fxv-border); color:var(--fxv-text-muted); background:var(--fxv-surface-muted); font-size:11px; line-height:1.5; }
+.classroom-standardized .classroom-qa-notice svg { flex-shrink:0; margin-top:2px; }
+.classroom-standardized .classroom-qa-notice button { background:transparent; border:0; color:var(--fxv-accent); font:inherit; padding:0; text-decoration:underline; cursor:pointer; }
+[data-theme='dark'] .classroom-standardized :is(.classroom-qa-notice button,.request-link--material,.preference-row-icon) { color:#7cb8ff; }
+.App .classroom-container.classroom-standardized :is(.classroom-left,.chat-input-area,.material-header,.material-topbar) {
+  background:var(--fxv-surface)!important; color:var(--fxv-text)!important; border-color:var(--fxv-border); box-shadow:none;
+}
+.App .classroom-container.classroom-standardized .classroom-header { background:linear-gradient(135deg,#0245ae 0%,#0366d6 100%)!important; color:#fff!important; }
+.App .classroom-container.classroom-standardized .classroom-logo span { color:#fff; }
+.App .classroom-container.classroom-standardized .chat-header { min-height:58px; box-sizing:border-box; color:#0245ae!important; background:linear-gradient(180deg,#f8fafc 0%,#fff 100%)!important; border-top:3px solid #0245ae; border-bottom:1px solid var(--fxv-border); }
+.classroom-container.classroom-standardized .lesson-request-header { color:var(--fxv-text); }
+.App .classroom-container.classroom-standardized .classroom-right { color:var(--fxv-text); }
+[data-theme='dark'] .App .classroom-container.classroom-standardized .classroom-header { background:rgba(26,26,26,.96)!important; }
+[data-theme='dark'] .App .classroom-container.classroom-standardized .chat-header { color:#dbeafe!important; background:#242424!important; border-top-color:#7cb8ff; }
+@media(max-width:600px) {
+  .classroom-standardized .classroom-header { padding-inline:10px; }
+  .classroom-standardized .classroom-header-actions { gap:4px; }
+  .classroom-standardized .classroom-logo span { font-size:12px; }
+  .classroom-standardized .preference-list { grid-template-columns:1fr; }
+  .classroom-standardized .request-summary-grid { grid-template-columns:1fr; }
+  .classroom-standardized .lesson-request-container--dispatch .request-stat-card { min-height:0; }
+}

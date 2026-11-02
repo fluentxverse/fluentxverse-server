@@ -1,4 +1,5 @@
 import { verifyProof } from '@semaphore-protocol/proof';
+import { writeSync } from 'node:fs';
 let input = '';
 for await (const chunk of process.stdin) {
   input += chunk;
@@ -6,4 +7,5 @@ for await (const chunk of process.stdin) {
 }
 let valid = false;
 try { valid = await verifyProof(JSON.parse(input)); } catch { /* Invalid proofs are rejected without logging their contents. */ }
-process.stdout.write(valid ? 'true\n' : 'false\n', () => process.exit(0));
+writeSync(1, valid ? 'true\n' : 'false\n');
+process.exit(0);

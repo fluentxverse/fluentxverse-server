@@ -7,6 +7,7 @@ import { rateLimitMiddleware } from '../utils/rateLimiter';
 import { retryTutorCertificationZkVerifySubmission } from '../services/proof.services/tutorCertificationWorkflow.service';
 import { LegacyProofRetiredError } from '../services/proof.services/legacyProofRetirement';
 import { adminTaskService } from '../services/admin.services/adminTask.service';
+import { createBookingSettingsRoutes } from './bookingSettings.route';
 
 const adminService = new AdminService();
 
@@ -44,6 +45,7 @@ const Admin = new Elysia({ prefix: '/admin' })
     // Store admin info in request context for use in handlers
     return;
   })
+  .use(createBookingSettingsRoutes())
   .get('/socket-token', async ({ cookie, set }) => {
     const admin = await createAdminGuard(cookie, set);
     if (!admin) return { success: false, error: 'Unauthorized' };
@@ -197,6 +199,18 @@ const Admin = new Elysia({ prefix: '/admin' })
     }
   })
 
+  .get('/applications', async ({ query, cookie, set }) => {
+    set.headers['Cache-Control'] = 'private, no-store';
+    if (!await createAdminGuard(cookie, set, 'operations')) return { success: false, error: 'Operations permission required' };
+    try {
+      return { success: true, data: await adminService.getApplications(query.filter || 'all', Number(query.page || 1), Number(query.pageSize || 10)) };
+    } catch (error) {
+      const invalid = error instanceof Error && error.message === 'Invalid application filter or pagination';
+      set.status = invalid ? 400 : 500;
+      return { success: false, error: invalid ? error.message : 'Failed to load tutor applications' };
+    }
+  })
+
   /**
    * Get pending profile reviews (tutors who submitted their profile)
    * GET /admin/pending-profiles
@@ -255,12 +269,12 @@ const Admin = new Elysia({ prefix: '/admin' })
     try {
       const { tutorId } = params;
       const { itemKey, action, reason } = body as { 
-        itemKey: 'profilePicture' | 'videoIntro' | 'bio' | 'education' | 'interests';
+        itemKey: 'nickname' | 'profilePicture' | 'videoIntro' | 'bio' | 'education' | 'interests';
         action: 'approve' | 'reject'; 
         reason?: string 
       };
 
-      const validItems = ['profilePicture', 'videoIntro', 'bio', 'education', 'interests'];
+      const validItems = ['nickname', 'profilePicture', 'videoIntro', 'bio', 'education', 'interests'];
       if (!itemKey || !validItems.includes(itemKey)) {
         return { success: false, error: 'Invalid item key' };
       }

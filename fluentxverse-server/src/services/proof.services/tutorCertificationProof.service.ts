@@ -67,9 +67,10 @@ async function getLatestCompletedExam(session: SessionLike, tutorId: string, typ
 
 async function getLatestInterviewResult(session: SessionLike, tutorId: string) {
   const result = await session.run(
-    `MATCH (s:InterviewSlot {tutorId: $tutorId, status: 'completed'})
+    `MATCH (s:InterviewSlot {tutorId: $tutorId})
+     WHERE s.status IN ['booked', 'completed'] AND s.result IS NOT NULL
      RETURN s
-     ORDER BY s.completedAt DESC
+     ORDER BY coalesce(s.reviewedAt, s.completedAt) DESC
      LIMIT 1`,
     { tutorId }
   );
@@ -112,7 +113,7 @@ async function loadCertificationSnapshot(session: SessionLike, tutorId: string):
     speakingExamId: speakingExam?.id ?? null,
     profileApproved: user.profileStatus === 'approved',
     profileStatus: user.profileStatus || 'incomplete',
-    interviewPassed: toBoolean(user.interviewPassed) || interviewSlot?.result === 'pass',
+    interviewPassed: interviewSlot ? interviewSlot.result === 'pass' : toBoolean(user.interviewPassed),
     interviewCompletedAt: toIsoString(user.interviewPassedAt) || toIsoString(interviewSlot?.completedAt),
     interviewSlotId: interviewSlot?.id ?? null,
     interviewResult: interviewSlot?.result ?? null,

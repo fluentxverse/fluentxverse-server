@@ -7,6 +7,7 @@ import { canReserveForBooking } from '../schedule.services/bookingPolicy';
 import { buildLevelAssessment } from '../assessmentProfile';
 import { tutorProfileQuery } from './tutorProfileQuery';
 import { retiredCredentialStatus } from '../proof.services/legacyProofRetirement';
+import { tutorPublicName, validateTutorNickname } from '../../../../shared/tutorPublicName';
 
 // Helper to convert Neo4j DateTime to ISO string
 function neo4jDateTimeToISO(dt: any): string | undefined {
@@ -161,11 +162,11 @@ export class TutorService {
       // OR be a test account (bypass for development) - use toLower for case-insensitive email check
       // IMPORTANT: Wrap entire check in parentheses for correct OR precedence
       const TEST_ACCOUNT_IDS = ['paulanthonyarriola@gmail.com']; // Test tutor emails
-      const certificationCheck = `((u.writtenExamPassed = true AND u.speakingExamPassed = true AND u.profileStatus = 'approved' AND u.interviewPassed = true) OR toLower(u.email) = 'paulanthonyarriola@gmail.com')`;
+      const certificationCheck = `(coalesce(u.identityBanned,false)=false AND (coalesce(u.identityRequired,false)=false OR u.identityVerified=true) AND ((u.writtenExamPassed = true AND u.speakingExamPassed = true AND u.profileStatus = 'approved' AND u.interviewPassed = true) OR toLower(u.email) = 'paulanthonyarriola@gmail.com'))`;
       
       // Name search condition (case-insensitive using toLower and CONTAINS)
       const nameSearchCondition = nameSearchLower 
-        ? `(toLower(u.firstName) CONTAINS $nameSearch OR toLower(u.lastName) CONTAINS $nameSearch OR toLower(u.displayName) CONTAINS $nameSearch OR toLower(u.firstName + ' ' + u.lastName) CONTAINS $nameSearch)`
+        ? `toLower(coalesce(u.nickname, u.firstName, 'Tutor')) CONTAINS $nameSearch`
         : '';
       
       if (nameSearchLower) {
@@ -302,11 +303,11 @@ export class TutorService {
         if (matchingSlots.length > 0) {
           filteredTutors.push({
             userId: user.id,
-            email: user.email,
-            firstName: user.firstName,
-            middleName: user.middleName,
-            lastName: user.lastName,
-            displayName: `${user.firstName} ${user.lastName}`,
+            email: '',
+            firstName: tutorPublicName(user),
+            lastName: '',
+            nickname: user.nickname || undefined,
+            displayName: tutorPublicName(user),
             profilePicture: user.profilePicture,
             tier: user.tier,
             timezone: user.timezone,
@@ -480,12 +481,13 @@ export class TutorService {
    * If profile is already approved, reviewable changes go to pending queue
    */
   public async updateProfile(userId: string, data: Record<string, any>): Promise<{ hasPendingChanges: boolean }> {
+    if ('nickname' in data) data = { ...data, nickname: validateTutorNickname(data.nickname) };
     const driver = getDriver();
     const session = driver.session();
     try {
       // First check if profile is already approved
       const statusResult = await session.run(
-        `MATCH (u:User { id: $userId }) RETURN u.profileStatus as profileStatus, u.pendingProfileChanges as pendingChanges`,
+        `MATCH (u:User { id: $userId }) RETURN u.profileStatus as profileStatus, u.pendingProfileChanges as pendingChanges, u.profileItemStatuses as itemStatuses`,
         { userId }
       );
       
@@ -494,7 +496,7 @@ export class TutorService {
       const isApproved = profileStatus === 'approved';
       
       // Fields that require re-approval after profile is approved
-      const reviewableFields = ['bio', 'profilePicture', 'videoIntroUrl', 'schoolAttended', 'major', 'interests'];
+      const reviewableFields = ['nickname', 'bio', 'profilePicture', 'videoIntroUrl', 'schoolAttended', 'major', 'educationalAttainment', 'teachingExperience', 'teachingQualifications', 'interests'];
       
       // Separate reviewable vs non-reviewable changes
       const directUpdates: Record<string, any> = {};
@@ -510,6 +512,11 @@ export class TutorService {
       
       // Apply direct updates immediately
       if (Object.keys(directUpdates).length > 0) {
+        if ('nickname' in directUpdates) {
+          let statuses: Record<string, unknown> = {};
+          try { statuses = JSON.parse(record?.get('itemStatuses') || '{}'); } catch {}
+          directUpdates.profileItemStatuses = JSON.stringify({ ...statuses, nickname: { status: 'pending' } });
+        }
         const setStatements: string[] = [];
         const params: Record<string, any> = { userId };
 
@@ -542,11 +549,15 @@ export class TutorService {
         
         // Map field keys to item keys
         const fieldToItemKey: Record<string, string> = {
+          'nickname': 'nickname',
           'bio': 'bio',
           'profilePicture': 'profilePicture',
           'videoIntroUrl': 'videoIntro',
           'schoolAttended': 'education',
           'major': 'education',
+          'educationalAttainment': 'education',
+          'teachingExperience': 'education',
+          'teachingQualifications': 'education',
           'interests': 'interests'
         };
         
@@ -554,8 +565,8 @@ export class TutorService {
         for (const [key, value] of Object.entries(pendingUpdates)) {
           const itemKey = fieldToItemKey[key] || key;
           
-          // Remove existing pending change for this item
-          currentPendingChanges = currentPendingChanges.filter(c => c.itemKey !== itemKey);
+          // Education has two independently reviewable fields in the same category.
+          currentPendingChanges = currentPendingChanges.filter(c => (c.fieldKey || c.itemKey) !== key);
           
           // Add new pending change
           currentPendingChanges.push({
@@ -774,7 +785,8 @@ export class TutorService {
         firstName: user.firstName,
         middleName: user.middleName,
         lastName: user.lastName,
-        displayName: user.displayName || `${user.firstName} ${user.lastName}`,
+        displayName: tutorPublicName(user),
+        nickname: user.nickname || undefined,
         profilePicture: user.profilePicture,
         bio: user.bio,
         introduction: user.introduction,
@@ -790,6 +802,8 @@ export class TutorService {
         certifications: user.certifications ? JSON.parse(user.certifications) : [],
         schoolAttended: user.schoolAttended || undefined,
         major: user.major || undefined,
+        educationalAttainment: user.educationalAttainment || undefined,
+        teachingExperience: user.teachingExperience || undefined,
         teachingQualifications: user.teachingQualifications || undefined,
         teachingStyle: user.teachingStyle,
         videoIntroUrl: user.videoIntroUrl,

@@ -2,6 +2,7 @@ import { assertContributedGroth16Key } from '../proof.services/groth16KeySafety'
 import { privacyInfrastructure, horizenVerificationNetwork } from '../proof.services/horizenReceipt';
 import { assertCredentialCurrent } from './credential';
 import { canonicalJson, decodeScreeningSignals, FIELD_MODULUS, policyHash, schemaHash } from './policy';
+import { mainnetReceiptCoordinates } from '../proof.services/projectDestination';
 
 export interface EngineScreeningRelease {
   releaseManifestSHA256: string; vkHash: string; policyHash: string; schemaHash: string;
@@ -45,7 +46,8 @@ export async function approvedScreeningArtifacts(): Promise<EngineScreeningRelea
   if (!/^[a-f0-9]{64}$/.test(manifest)) throw Error('Reviewed Engine screening release pin required');
   const response = await screeningEngineRequest('/v1/screening/prover');
   const release = response?.release as EngineScreeningRelease;
-  const chainId = Number(process.env.SCREENING_CHAIN_ID || '8453');
+  const selected = process.env.PROOF_DESTINATION_MODE === 'project' ? mainnetReceiptCoordinates(release?.chainId) : null;
+  const chainId = selected?.chainId ?? Number(process.env.SCREENING_CHAIN_ID || '8453');
   const releasePolicy = process.env.SCREENING_RELEASE_POLICY || 'independent-reviewed';
   if (!['independent-reviewed', 'self-operated'].includes(releasePolicy)) throw Error('Unknown screening release policy');
   if (releasePolicy === 'self-operated' && (release?.releasePolicy !== 'self-operated'
@@ -56,8 +58,8 @@ export async function approvedScreeningArtifacts(): Promise<EngineScreeningRelea
   if (response.ready !== true || !release || release.cryptographicSetupVerified !== true
     || release.releaseManifestSHA256 !== manifest || release.policyHash !== policyHash || release.schemaHash !== schemaHash
     || release.issuerHash !== process.env.SCREENING_ISSUER_HASH || release.vkHash?.toLowerCase() !== process.env.SCREENING_ZKVERIFY_VK_HASH?.toLowerCase()
-    || release.chainId !== chainId || release.domainId !== Number(process.env.SCREENING_ZKVERIFY_DOMAIN_ID)
-    || release.bridge?.toLowerCase() !== process.env.SCREENING_RECEIPT_BRIDGE?.toLowerCase() || release.agentId !== '0'
+    || release.chainId !== chainId || release.domainId !== (selected?.domainId ?? Number(process.env.SCREENING_ZKVERIFY_DOMAIN_ID))
+    || release.bridge?.toLowerCase() !== (selected?.bridge ?? process.env.SCREENING_RECEIPT_BRIDGE)?.toLowerCase() || release.agentId !== '0'
     || release.verificationNetwork !== horizenVerificationNetwork(chainId)
     || [release.issuerAx, release.issuerAy].some(value => typeof value !== 'string' || !/^[1-9]\d{0,76}$/.test(value) || BigInt(value) >= FIELD_MODULUS)
     || release.vk?.protocol !== 'groth16' || release.vk?.curve !== 'bn128' || release.vk?.nPublic !== 15 || release.vk?.IC?.length !== 16) {

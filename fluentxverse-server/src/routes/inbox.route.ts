@@ -1,4 +1,6 @@
 import Elysia, { t } from 'elysia';
+import LessonIssueThreads from './lessonIssueThread.route';
+import StudentDisputes from './studentDispute.route';
 import { inboxService } from '../services/inbox.services/inbox.service';
 import { db } from '../db/postgres';
 import { verifyAuthToken, verifyAdminToken, refreshJwtCookie, type JwtAuthPayload } from '../utils/jwt';
@@ -27,6 +29,8 @@ async function getAuthUser(cookie: any, set: any): Promise<{ payload: JwtAuthPay
 }
 
 const Inbox = new Elysia({ prefix: '/inbox' })
+  .use(LessonIssueThreads)
+  .use(StudentDisputes)
 
   /**
    * Health check for inbox - verifies database tables exist

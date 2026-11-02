@@ -16,6 +16,9 @@ class PeerFixture {
   candidates: any[] = []; closed = false;
   stalled?: Promise<void>;
   onconnectionstatechange: any; onicecandidate: any; ontrack: any;
+  ondatachannel: any;
+  channel?: ChannelFixture;
+  createDataChannel() { this.channel = new ChannelFixture(); return this.channel as any; }
   constructor(public configuration: any) { PeerFixture.peers.push(this); }
   addTrack() {}
   setConfiguration(value: any) { this.configuration = value; }
@@ -25,6 +28,13 @@ class PeerFixture {
   async createAnswer() { return { type: 'answer', sdp: 'fixture' }; }
   async createOffer(options: any) { expect(options.iceRestart).toBe(true); return { type: 'offer', sdp: 'fixture' }; }
   close() { this.closed = true; }
+}
+class ChannelFixture {
+  label = 'interview-text'; readyState = 'open'; bufferedAmount = 0;
+  onopen: any; onclose: any; onerror: any; onmessage: any;
+  sent: string[] = [];
+  send(value: string) { this.sent.push(value); }
+  close() { this.readyState = 'closed'; }
 }
 const original = globalThis.RTCPeerConnection;
 globalThis.RTCPeerConnection = PeerFixture as any;
@@ -94,5 +104,36 @@ test('a pending old SDP operation cannot block a refreshed candidate', async () 
   await flush(); expect(PeerFixture.peers.at(-1)?.remoteDescription.sdp).toBe('new');
   release(); await flush();
   expect(socket.emitted.filter(([event,data]) => event === 'interview:answer' && data.negotiationId === 'old').length).toBe(0);
+  call.close();
+});
+
+test('interview chat sends plain multiline text and rejects invalid or disconnected sends', async () => {
+  const socket = new SocketFixture(), messages: any[] = [], states: boolean[] = [];
+  const call = new InterviewCall({ socket, role: 'tutor', roomId: 'interview-fixture', stream: {getTracks:()=>[]} as any,
+    onState:()=>{},onStream:()=>{},onEnded:()=>{},onError:()=>{},onChatReady:value=>states.push(value),onMessage:value=>messages.push(value) });
+  expect(()=>call.sendText('Hello')).toThrow('disconnected');
+  const ready=call.start();socket.deliver('interview:joined',joined);await ready;
+  const channel=PeerFixture.peers.at(-1)!.channel!;channel.onopen();
+  call.sendText(' First line\r\nSecond line ');
+  expect(JSON.parse(channel.sent[0]!).text).toBe('First line\nSecond line');
+  expect(messages[0].mine).toBe(true);
+  for(const data of [new ArrayBuffer(8),'not-json',JSON.stringify({type:'file',id:'file',text:'x'}),JSON.stringify({type:'text',id:'x',text:'a'.repeat(2001)})])channel.onmessage({data});
+  expect(messages).toHaveLength(1);
+  const data=JSON.stringify({type:'text',id:'incoming',text:'<img src=x>\nHello'});
+  channel.onmessage({data});channel.onmessage({data});
+  expect(messages).toHaveLength(2);expect(messages[1]).toEqual({id:'incoming',text:'<img src=x>\nHello',mine:false});
+  expect(()=>call.sendText(' \n ')).toThrow('1-2,000');
+  channel.bufferedAmount=64001;expect(()=>call.sendText('busy')).toThrow('busy');
+  call.close();expect(channel.readyState).toBe('closed');expect(states.at(-1)).toBe(false);
+  expect(()=>call.sendText('Closed')).toThrow('disconnected');
+});
+
+test('interviewer accepts only the text channel from the current authorized peer', async () => {
+  const {socket,call}=fixture();const ready=call.start();socket.deliver('interview:joined',joined);await ready;
+  const oldPeer=PeerFixture.peers.at(-1)!;
+  const wrong=new ChannelFixture();wrong.label='file';oldPeer.ondatachannel({channel:wrong});expect(wrong.readyState).toBe('closed');
+  const chat=new ChannelFixture();oldPeer.ondatachannel({channel:chat});call.sendText('Admin reply');expect(chat.sent).toHaveLength(1);
+  socket.deliver('interview:tutor-left');expect(chat.readyState).toBe('closed');
+  const stale=new ChannelFixture();oldPeer.ondatachannel({channel:stale});expect(stale.readyState).toBe('closed');
   call.close();
 });

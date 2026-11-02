@@ -4,7 +4,7 @@ import { verifyAuthToken, signAuthToken, getCookieConfig, type JwtAuthPayload } 
 import { nanoid } from "nanoid";
 import { verifyMessage } from "viem";
 import { ticketService } from "../services/ticket.services/ticket.service";
-import { trialLaunchMode } from '../services/schedule.services/trialPolicy';
+import { loadBookingPolicy } from '../services/schedule.services/trialPolicy';
 import { favoritesService } from "../services/favorites.services/favorites.service";
 import { rateLimitMiddleware } from "../utils/rateLimiter";
 import type { StudentUserData, NormalizedStudentUser } from "../services/auth.services/auth.interface";
@@ -820,7 +820,7 @@ const Student = new Elysia({ name: "student" })
       const result = await studentService.registerByWallet({ walletAddress, email, givenName, familyName, birthDate, mobileNumber });
 
       // Send a free trial ticket to the newly registered user
-      if (!trialLaunchMode()) try {
+      if ((await loadBookingPolicy()).mode !== 'trial') try {
         const trialResult = await ticketService.transferTrialTicketToNewUser(walletAddress);
         if (trialResult.success) {
         } else {

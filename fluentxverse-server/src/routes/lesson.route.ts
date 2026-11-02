@@ -4,6 +4,7 @@ import { verifyAuthToken, type JwtAuthPayload } from '../utils/jwt';
 import { generateStudentMaterial, getMaterialSizeReduction } from '../utils/studentMaterial';
 import { getAuthFromCookie } from '../utils/refreshCookie';
 import { publicFilePath } from '../utils/publicFilePath';
+import { publicFileResponse } from '../utils/publicFileResponse';
 
 // Internal URL for server-to-server communication inside Docker
 const FILER_BASE = process.env.SEAWEED_FILER_URL || 'http://localhost:8888';
@@ -2509,8 +2510,10 @@ export default new Elysia({ prefix: '/lesson' })
     // Do not let the CDN cache missing files or transient storage failures.
     set.headers['cache-control'] = 'no-store';
     try {
+      const wildcard = params['*'] || '';
+      const videoStream = /^user\/[^/]+\/video\/[^/]+\/stream$/.test(wildcard);
       let filePath: string | null;
-      try { filePath = publicFilePath(params['*'] || ''); } catch { set.status = 400; return { error: 'Invalid file path' }; }
+      try { filePath = publicFilePath(videoStream ? wildcard.slice(0, -7) : wildcard); } catch { set.status = 400; return { error: 'Invalid file path' }; }
       if (!filePath) {
         set.status = 404;
         return { error: 'File not found' };
@@ -2554,43 +2557,9 @@ export default new Elysia({ prefix: '/lesson' })
       
       // Fetch from internal SeaweedFS
       const seaweedUrl = `${FILER_BASE}${filePath}`;
-      const res = await fetch(seaweedUrl);
-      
-      if (!res.ok) {
-        set.status = res.status;
-        return { error: 'File not found' };
-      }
-      
-      // Get content type from SeaweedFS response
-      const contentType = res.headers.get('content-type') || 'application/octet-stream';
-
-      const isHtml = filePath.endsWith('.html');
-      const isJson = filePath.endsWith('.json');
-      const cacheControl = (isHtml || isJson)
-        ? 'no-store, max-age=0'
-        : 'public, max-age=31536000';
-      
-      // Set appropriate headers
-      set.headers['content-type'] = contentType;
-      set.headers['cache-control'] = cacheControl;
-      if (isHtml || isJson) {
-        set.headers['pragma'] = 'no-cache';
-        set.headers['expires'] = '0';
-      }
-      
-      // Stream the response body
-      return new Response(res.body, {
-        headers: {
-          'Content-Type': contentType,
-          'Cache-Control': cacheControl,
-          ...(isHtml || isJson
-            ? {
-                Pragma: 'no-cache',
-                Expires: '0'
-              }
-            : {})
-        }
-      });
+      const response = await publicFileResponse(seaweedUrl, filePath, request);
+      if (videoStream) response.headers.set('Cache-Control', 'private, no-store');
+      return response;
     } catch (error) {
       console.error('Error proxying file:', error);
       set.status = 500;

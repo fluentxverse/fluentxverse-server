@@ -2,7 +2,7 @@ import Elysia, { t } from 'elysia';
 import { createAdminGuard, createTutorGuard } from '../middleware/auth.middleware';
 import { isAllowedAdminMutationOrigin } from '../config/cors';
 import { checkRateLimit } from '../utils/rateLimiter';
-import { agentRegistration, screeningPayloadBytes, screeningChainConfig } from '../services/screening/chain';
+import { agentRegistration, screeningPayloadBytes, screeningCredentialConfig } from '../services/screening/chain';
 import { policyHash, schemaHash, screeningPolicy } from '../services/screening/policy';
 import { privacyInfrastructure } from '../services/proof.services/horizenReceipt';
 import { getScreeningCredential, listScreeningCredentials } from '../services/screening/repository';
@@ -57,7 +57,7 @@ const Screening = new Elysia({ prefix: '/screening' })
     const stored = await getScreeningCredential(params.commitment);
     if (!stored?.shared) { set.status = 404; return { success: false, error: 'Shared credential not found' }; }
     try {
-      const payload = screeningPayloadBytes(screeningChainConfig(), JSON.parse(stored.publicSignals));
+      const payload = screeningPayloadBytes(screeningCredentialConfig(JSON.parse(stored.publicSignals)), JSON.parse(stored.publicSignals));
       return new Response(Buffer.from(payload.slice(2), 'hex'), { headers: { 'Content-Type': 'application/octet-stream', 'Cache-Control': 'no-store' } });
     } catch { set.status = 503; return { success: false, error: 'Validation payload unavailable' }; }
   }, { params })

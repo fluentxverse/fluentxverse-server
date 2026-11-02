@@ -129,6 +129,7 @@ class AuthService {
 
         const user: RegisteredParams & { suspendedUntil?: string; suspendedReason?: string } = result.records[0]?.get('u').properties;
         
+        if ((user as any)?.identityBanned === true) throw new Error('This tutor account is banned. Contact support.');
         // Check if user is suspended
         if (user.suspendedUntil) {
             const suspendedUntil = new Date(user.suspendedUntil);

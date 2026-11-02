@@ -251,7 +251,7 @@ export function calculateTutorPerformance(
 			const code = codeOf(p.penaltyCode);
 			const slotId = b?.slotId || b?.bookingId || s?.slotId;
 			const invalidPenalty = p.status === "voided" || p.revokedAt ||
-				(code === "301" && b?.attendanceTutor === "present") ||
+				(code === "301" && b?.attendanceTutor === "present" && !String(p.source || '').startsWith('issue_')) ||
 				(code === "302" && s?.attendanceMarked === "present");
 			if (["301", "302", "303"].includes(code) && !invalidPenalty && cancellationEligible.has(slotId))
 				affectedSlots.add(slotId);
@@ -264,7 +264,7 @@ export function calculateTutorPerformance(
 				!eligible.has(b?.slotId || b?.bookingId || s?.slotId) ||
 				p.status === "voided" ||
 				p.revokedAt ||
-				(code === "301" && b?.attendanceTutor === "present") ||
+				(code === "301" && b?.attendanceTutor === "present" && !String(p.source || '').startsWith('issue_')) ||
 				(code === "302" && s?.attendanceMarked === "present");
 			const points = excluded ? 0 : RELIABILITY_WEIGHTS[code] || 0;
 			if (!excluded) penaltyCounts[code] = (penaltyCounts[code] || 0) + 1;
@@ -360,6 +360,11 @@ export function calculateTutorPerformance(
 			teachingHours: Math.round((teachingMinutes / 60) * 100) / 100,
 		},
 		attendance,
+		punctuality: {
+			checked: selected.filter(b => b.punctualityCheckedAt).length,
+			lateAtTwoMinutes: selected.filter(b => b.lateAtTwoMinutes === true).length,
+			noEntryWithinFiveMinutes: selected.filter(b => b.noEntryWithinFiveMinutes === true).length,
+		},
 		notes,
 		cancellation: {
 			rate: rate(affectedSlots.size, cancellationEligible.size),

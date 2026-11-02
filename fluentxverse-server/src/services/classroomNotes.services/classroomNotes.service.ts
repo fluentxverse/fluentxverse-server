@@ -404,9 +404,9 @@ export class ClassroomNotesService {
          OPTIONAL MATCH (tutor:User {id: booking.tutorId})
          OPTIONAL MATCH (summary:ClassroomLessonNote {sessionId: booking.bookingId})
          RETURN booking.bookingId AS sessionId, booking.slotDateTime AS startsAt,
-                COALESCE(tutor.firstName, tutor.givenName, '') AS firstName,
-                COALESCE(tutor.lastName, tutor.familyName, '') AS lastName,
-                tutor.displayName AS displayName, booking.durationMinutes AS durationMinutes,
+                COALESCE(tutor.nickname, tutor.firstName, tutor.givenName, 'Tutor') AS firstName,
+                '' AS lastName,
+                tutor.nickname AS displayName, booking.durationMinutes AS durationMinutes,
                 booking.attendanceStudent AS studentAttendance, booking AS workflowBooking, notes, summary
          ORDER BY booking.slotDateTime ${tab === 'first' ? 'ASC' : 'DESC'}, booking.bookingId ASC`,
         { sessionId, tutorId, tab, now: new Date().toISOString() },

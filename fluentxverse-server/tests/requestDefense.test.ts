@@ -11,7 +11,7 @@ const make = (options: ConstructorParameters<typeof RequestDefense>[0] = {}) => 
   const gate = new RequestDefense({ limiter: () => new FixedWindowLimiter(allow, 'test'), verify: actor, trustCloudflare: true, ...options });
   return { gate, app: new Elysia().onRequest(context => gate.before(context)).onAfterResponse(({ request }) => gate.release(request)) };
 };
-const post = (path: string, body: BodyInit, headers: Record<string, string> = {}) => new Request('http://localhost' + path, { method: 'POST', headers: { 'cf-connecting-ip': '1.2.3.4', ...headers }, body, duplex: 'half' } as RequestInit);
+const post = (path: string, body: NonNullable<RequestInit['body']>, headers: Record<string, string> = {}) => new Request('http://localhost' + path, { method: 'POST', headers: { 'cf-connecting-ip': '1.2.3.4', ...headers }, body, duplex: 'half' } as RequestInit);
 const sleep = () => Bun.sleep(0);
 const previousEdge = process.env.REQUIRE_EDGE_GUARD, previousSecret = process.env.EDGE_SHARED_SECRET;
 afterEach(() => { if (previousEdge === undefined) delete process.env.REQUIRE_EDGE_GUARD; else process.env.REQUIRE_EDGE_GUARD = previousEdge; if (previousSecret === undefined) delete process.env.EDGE_SHARED_SECRET; else process.env.EDGE_SHARED_SECRET = previousSecret; });

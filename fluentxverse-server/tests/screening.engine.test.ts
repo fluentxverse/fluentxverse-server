@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, expect, spyOn, test } from 'bun:test';
 import { approvedScreeningArtifacts, proveScreeningCredential } from '../src/services/screening/prover';
 import { policyHash, schemaHash, publicSignalNames } from '../src/services/screening/policy';
-import { HORIZEN_TESTNET_BRIDGE, horizenReceiptReader } from '../src/services/proof.services/horizenReceipt';
-import { submitBridgeScreeningProof } from '../src/services/screening/chain';
+import { HORIZEN_TESTNET_BRIDGE, MAINNET_RECEIPT_DESTINATIONS, horizenReceiptReader } from '../src/services/proof.services/horizenReceipt';
+import { screeningCredentialConfig, submitBridgeScreeningProof } from '../src/services/screening/chain';
 
 const savedEnv = { ...process.env };
 const gamma = [['1', '2'], ['3', '4'], ['1', '0']], delta = [['5', '6'], ['7', '8'], ['1', '0']];
@@ -39,6 +39,22 @@ test('explicit application approval and exact reviewed release pin are mandatory
   process.env.SCREENING_ARTIFACTS_APPROVED = 'true'; delete process.env.SCREENING_RELEASE_MANIFEST_SHA256;
   await expect(approvedScreeningArtifacts()).rejects.toThrow('pin');
   expect(fetchMock).not.toHaveBeenCalled();
+});
+test('project-selectable screening changes only destination coordinates and retains historical credentials', async () => {
+  process.env.PROOF_DESTINATION_MODE = 'project';
+  for (const destination of MAINNET_RECEIPT_DESTINATIONS) {
+    const r = { ...release(), ...destination, verificationNetwork: 'zkVerify' };
+    fetchMock.mockResolvedValueOnce(Response.json({ ready: true, release: r }));
+    expect((await approvedScreeningArtifacts()).chainId).toBe(destination.chainId);
+    fetchMock.mockResolvedValueOnce(Response.json({ ready: true, release: { ...r, issuerHash: '99' } }));
+    await expect(approvedScreeningArtifacts()).rejects.toThrow('pins');
+    fetchMock.mockResolvedValueOnce(Response.json({ ready: true, release: { ...r, domainId: 999 } }));
+    await expect(approvedScreeningArtifacts()).rejects.toThrow('pins');
+  }
+  const old = fixture().values;
+  old[11] = '42161'; old[13] = BigInt(MAINNET_RECEIPT_DESTINATIONS[1]!.bridge).toString();
+  expect(screeningCredentialConfig(old).chainId).toBe(42161);
+  expect(screeningCredentialConfig(old).domainId).toBe(10);
 });
 test('Engine release readiness must be explicit and cannot be a cached positive result', async () => {
   expect((await approvedScreeningArtifacts()).policyHash).toBe(policyHash);

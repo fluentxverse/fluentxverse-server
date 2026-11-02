@@ -1,39 +1,31 @@
 import { query } from '../db/postgres';
-import { lessonNotesEditWindow } from '../utils/lessonNotesEditWindow';
+import { lessonReportingWindow } from '../utils/lessonReportingWindow';
 import type { TroubleDuration } from './lessonTroubleReport.service';
 import { ensureIssueReviewColumns, reviewFields } from './lessonIssueReview.service';
 import { getDriver } from '../db/memgraph';
 import { lessonNotice, dispatchLessonNotices } from './lessonWorkflow.service';
-import { ClassroomActivityService } from './classroomActivity.services/classroomActivity.service';
 import type { StudentLessonService } from './studentLesson.service';
+import { studentDisputeService } from './studentDispute.service';
 import { studentTutorIssueLabel, validateStudentTutorIssue } from '../utils/studentTutorIssues';
 
 export type StudentLessonIssueReason = 'connection' | 'audio' | 'hardware' | 'emergency' | 'power' | 'tutor' | 'material' | 'other';
 
 export function studentIssueReportWindow(startsAt: string, durationMinutes: number, status: string, now = Date.now(), tutorHasJoined = true, tutorLeftAt: number | null = null) {
-  const window = lessonNotesEditWindow(startsAt, durationMinutes, status, now);
+  const window = lessonReportingWindow(startsAt, durationMinutes, status, now);
   const duringLesson = now < Date.parse(window.endsAt);
   const disconnected = tutorLeftAt !== null && tutorLeftAt >= Date.parse(window.startsAt) && tutorLeftAt <= now;
-  const availableAt = disconnected ? tutorLeftAt + 60000 : Date.parse(window.startsAt) + 3 * 60000;
-  const reason = window.reason || (duringLesson ? disconnected ? now < availableAt ? 'tutor_disconnected_wait' : null
-    : tutorHasJoined ? 'tutor_joined' : now < availableAt ? 'waiting_for_tutor' : null : null);
-  return { startsAt: window.startsAt, lessonEndsAt: window.endsAt, closesAt: window.editableUntil,
+  const availableAt = Date.parse(window.startsAt) + 2 * 60000;
+  const reason = window.reason || (duringLesson && now < availableAt ? 'waiting_for_tutor' : null);
+  return { startsAt: window.startsAt, lessonEndsAt: window.endsAt, closesAt: window.closesAt,
     serverNow: window.serverNow, eligible: reason === null, reason,
-    availableAt: duringLesson && (!tutorHasJoined || disconnected) ? new Date(availableAt).toISOString() : null,
+    availableAt: duringLesson ? new Date(availableAt).toISOString() : null,
     duringLessonTutorIssue: duringLesson ? disconnected ? 'left_early' as const : 'no_show' as const : null };
 }
 
 export class StudentLessonIssueReportService {
   private schemaReady: Promise<void> | null = null;
-  private activity = new ClassroomActivityService();
   async getReportingWindow(bookingId: string, lesson: Awaited<ReturnType<StudentLessonService['getOwnedLesson']>>, now = Date.now()) {
-    const window = studentIssueReportWindow(lesson.startsAt, lesson.durationMinutes, lesson.status, now, false);
-    if (['not_started', 'cancelled', 'expired'].includes(window.reason || '') || now >= Date.parse(window.lessonEndsAt)) return window;
-    const start = Date.parse(window.startsAt);
-    const graphEntry = [lesson.tutorRoomAttendedAt, lesson.tutorRoomEnteredAt]
-      .some(value => value && Date.parse(value) >= start && Date.parse(value) <= now);
-    const presence = await this.activity.getTutorPresenceForLesson(bookingId, lesson.tutorId, new Date(start), new Date(now));
-    return studentIssueReportWindow(lesson.startsAt, lesson.durationMinutes, lesson.status, now, graphEntry || presence.hasJoined, presence.leftAt);
+    return studentIssueReportWindow(lesson.startsAt, lesson.durationMinutes, lesson.status, now);
   }
   async ensureSchema() {
     if (!this.schemaReady) this.schemaReady = query(`CREATE TABLE IF NOT EXISTS student_lesson_issue_reports (
@@ -49,11 +41,19 @@ export class StudentLessonIssueReportService {
     await this.schemaReady;
   }
   async get(bookingId: string, studentId: string) {
+    const current = await studentDisputeService.get(bookingId, studentId);
+    if (current) return current;
     await this.ensureSchema();
     const result = await query('SELECT * FROM student_lesson_issue_reports WHERE booking_id = $1 AND student_id = $2', [bookingId, studentId]);
     return result.rows[0] ? this.map(result.rows[0]) : null;
   }
   async getForTutor(bookingId: string, tutorId: string) {
+    const visible = (await studentDisputeService.list({id:tutorId,role:'tutor'})).find(t=>t.bookingId===bookingId);
+    const graph = getDriver().session();
+    try {
+      if ((await graph.run("MATCH(t:LessonIssueThread {bookingId:$bookingId,origin:'student'}) RETURN t",{bookingId})).records.length)
+        return visible ? {id:visible.id,details:visible.body,status:visible.state,resolution:visible.decisionReason,tutorIssueLabel:null} : null;
+    } finally {await graph.close();}
     await this.ensureSchema();
     const session = getDriver().session();
     try {
@@ -82,13 +82,8 @@ export class StudentLessonIssueReportService {
   async create(bookingId: string, studentId: string, duration: TroubleDuration, reason: StudentLessonIssueReason, details: string, tutorIssue?: string, duringLesson = false, duringLessonTutorIssue = 'no_show') {
     validateStudentTutorIssue(reason, tutorIssue, details, duringLesson, duringLessonTutorIssue);
     await this.ensureSchema();
-    const result = await query(`INSERT INTO student_lesson_issue_reports (id, booking_id, student_id, duration, reason, details, tutor_issue)
-      VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (booking_id) DO NOTHING RETURNING id, duration, reason, details, tutor_issue, created_at`,
-      [crypto.randomUUID(), bookingId, studentId, duration, reason, details.trim(), tutorIssue || null]);
-    if (result.rows[0]) {
-      try { await this.dispatchTutorNotifications(); } catch (error) { console.error('Tutor report notification queued for retry:', error); }
-    }
-    return result.rows[0] ? this.map(result.rows[0]) : null;
+    if ((await query('SELECT id FROM student_lesson_issue_reports WHERE booking_id=$1',[bookingId])).rows.length) return null;
+    return studentDisputeService.create(bookingId,studentId,reason,details.trim(),tutorIssue);
   }
   private map(row: any) { return { id: row.id, duration: row.duration, reason: row.reason, details: row.details,
     tutorIssue: row.tutor_issue || null, tutorIssueLabel: studentTutorIssueLabel(row.tutor_issue),

@@ -272,6 +272,8 @@ export async function lockApplicant(
   ).records[0];
   if (!row) throw new ApplicationError(404, "Applicant not found.");
   const u = row.get("u").properties;
+  if (!system && u.identityBanned === true)
+    throw new ApplicationError(403, 'This tutor account is banned. Contact support.');
   if (u.role && u.role !== "tutor")
     throw new ApplicationError(403, "Tutor account required.");
   if (!system && Date.parse(u.suspendedUntil || "") > Date.now())

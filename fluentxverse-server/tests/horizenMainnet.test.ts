@@ -22,7 +22,8 @@ test('official mainnet and testnet tuples cannot be mixed', () => {
   const mainnet = { chainId: 26514, bridge: HORIZEN_MAINNET_BRIDGE, domainId: 3, rpcUrl: 'https://horizen.calderachain.xyz/http' };
   expect(() => assertHorizenReceiptConfig(mainnet)).not.toThrow();
   expect(horizenVerificationNetwork(26514)).toBe('zkVerify'); expect(horizenVerificationNetwork(2651420)).toBe('Volta');
-  expect(() => horizenVerificationNetwork(84532)).toThrow();
+  expect(horizenVerificationNetwork(84532)).toBe('Volta');
+  expect(() => horizenVerificationNetwork(1)).toThrow();
   for (const patch of [{ domainId: 175 }, { bridge: HORIZEN_TESTNET_BRIDGE }, { chainId: 2651420 }, { rpcUrl: 'file:///private' }]) {
     expect(() => assertHorizenReceiptConfig({ ...mainnet, ...patch })).toThrow();
   }

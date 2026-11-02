@@ -1,0 +1,19 @@
+{
+  "id": "fluentxverse-disputes-v1",
+  "version": 1,
+  "replyWindowSeconds": 86400,
+  "timestampPrecision": "unix-seconds",
+  "oneStudentCasePerLesson": true,
+  "oneTutorReply": true,
+  "responseDeadlineExclusive": true,
+  "automaticDuration": "up_to_ten",
+  "automaticReasons": ["connection", "audio", "hardware", "power", "personal", "emergency"],
+  "staffFirstIssues": ["inappropriate_behavior"],
+  "ta301AlwaysRefunds": true,
+  "refundApprovalMonotonic": true,
+  "otherAndLongResponses": "staff-review",
+  "fullLessonNoEntry": "ta301-without-response-obligation",
+  "nonResponseRequiresIndependentReconciler": true,
+  "authority": "application-attested-not-trustless",
+  "settlement": "external-exactly-once-refund-ledger"
+}

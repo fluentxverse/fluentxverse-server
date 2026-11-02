@@ -1,4 +1,5 @@
 export const REVIEW_PROTOCOL = 'fluentxverse.anonymous-reviews.v1';
+export const REVIEW_ENROLLMENT_POLICY = 'per_lesson' as const;
 export const REVIEW_DEPTH = 8;
 export const REVIEW_MIN_BATCH = 5;
 export const REVIEW_MAX_MEMBERS = 2 ** REVIEW_DEPTH;
@@ -43,6 +44,10 @@ export interface AnonymousReviewGroup {
   artifacts: { wasmUrl: string; zkeyUrl: string; wasmSha256: string; zkeySha256: string };
 }
 export interface AnonymousReviewEnrollment {
+  enrollmentPolicy?: 'per_lesson' | 'per_student_month';
+  entitlementId?: string;
+  bookingId?: string;
+  lessonStartsAt?: string;
   groupId: string;
   tutorId: string;
   period: string;

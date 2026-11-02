@@ -2,7 +2,6 @@ import { getDriver } from '../db/memgraph';
 import { invalidateCache } from '../db/redis';
 import { StudentLessonAccessError } from './studentLesson.service';
 import { LESSON_SURVEY_TOPICS, LessonSurveyError, surveyWindow, validateLessonSurvey } from '../utils/lessonSurvey';
-import { anonymousReviewService } from './anonymousReviews/service';
 
 function response(survey: Record<string, any> | undefined) {
   return survey ? { rating: Number(survey.rating), positive: survey.positive || [], improvement: survey.improvement || [],
@@ -34,11 +33,6 @@ export class LessonSurveyService {
       if (!result.records.length) throw new StudentLessonAccessError('Lesson not found or you do not have access to this lesson');
       const record = result.records[0]!, survey = response(record.get('s')?.properties);
       const window = surveyWindow(record.get('b').properties);
-      if (!survey && process.env.ANONYMOUS_REVIEWS_ENABLED === 'true') {
-        const enrollment = await anonymousReviewService.forLesson(bookingId, studentId);
-        return { ...window, eligible: enrollment.canEnroll || enrollment.enrolled, reason: null, survey: null,
-          topics: LESSON_SURVEY_TOPICS, mode: 'anonymous' as const, enrollment };
-      }
       return { ...window, eligible: window.eligible && !survey, reason: survey ? 'submitted' : window.reason, survey, topics: LESSON_SURVEY_TOPICS };
     } finally { await session.close(); }
   }
@@ -67,8 +61,6 @@ export class LessonSurveyService {
   }
 
   async submit(bookingId: string, studentId: string, input: unknown) {
-    if (process.env.ANONYMOUS_REVIEWS_ENABLED === 'true')
-      throw new LessonSurveyError('Use the anonymous review flow; identity-linked feedback is disabled during this pilot.', 409);
     const values = validateLessonSurvey(input);
     await this.ensureSchema();
     const session = getDriver().session();

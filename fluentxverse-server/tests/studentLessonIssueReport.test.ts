@@ -5,9 +5,11 @@ import { studentTutorIssues as studentChoices } from '../../fluentxverse-student
 describe('student lesson issue reporting window', () => {
   const start = '2026-10-07T07:00:00.000Z';
   const deadline = Date.parse(start) + (25 * 60 + 48 * 60 * 60) * 1000;
-  test('opens after three minutes for a missing tutor and closes exactly 48 hours after the scheduled end', () => {
+  test('opens after two minutes regardless of presence and closes exactly 48 hours after the scheduled end', () => {
     expect(studentIssueReportWindow(start, 25, 'confirmed', Date.parse(start) - 1).eligible).toBe(false);
     expect(studentIssueReportWindow(start, 25, 'confirmed', Date.parse(start)).eligible).toBe(false);
+    expect(studentIssueReportWindow(start, 25, 'confirmed', Date.parse(start)+119999,true).eligible).toBe(false);
+    expect(studentIssueReportWindow(start, 25, 'confirmed', Date.parse(start)+120000,true).eligible).toBe(true);
     expect(studentIssueReportWindow(start, 25, 'confirmed', Date.parse(start) + 180000, false).eligible).toBe(true);
     const window = studentIssueReportWindow(start, 25, 'completed', deadline - 1);
     expect(window.eligible).toBe(true); expect(window.closesAt).toBe(new Date(deadline).toISOString());
@@ -29,11 +31,12 @@ describe('tutor-related report choices', () => {
     expect(studentTutorIssueLabel(undefined)).toBeNull();
     expect(studentTutorIssueLabel('unknown')).toBeNull();
   });
-  test('during the lesson, only the missing-tutor choice is accepted', () => {
+  test('during the lesson, the three attendance choices are accepted', () => {
     expect(() => validateStudentTutorIssue('tutor', 'no_show', '', true)).not.toThrow();
     expect(() => validateStudentTutorIssue('tutor', 'left_early', '', true, 'left_early')).not.toThrow();
-    expect(() => validateStudentTutorIssue('tutor', 'no_show', '', true, 'left_early')).toThrow('current tutor absence');
-    for (const issue of Object.keys(studentTutorIssues).filter(key => key !== 'no_show')) expect(() => validateStudentTutorIssue('tutor', issue, 'Details', true)).toThrow('only tutor-related report');
+    expect(() => validateStudentTutorIssue('tutor', 'late_join', '', true)).not.toThrow();
+    for (const issue of Object.keys(studentTutorIssues).filter(key => !['no_show','late_join','left_early'].includes(key))) expect(() => validateStudentTutorIssue('tutor', issue, 'Details', true)).toThrow('During the lesson');
+    expect(()=>validateStudentTutorIssue('audio',undefined,'Details',true)).toThrow('only tutor attendance');
   });
   test('other requires a non-whitespace explanation and unrelated reports cannot carry a tutor issue', () => {
     for (const details of ['', '   \n ']) {

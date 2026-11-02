@@ -130,8 +130,8 @@ export class FavoritesService {
         RETURN 
           f.id AS id,
           t.id AS tutorId,
-          t.firstName AS firstName,
-          t.lastName AS lastName,
+          coalesce(t.nickname, t.firstName, 'Tutor') AS firstName,
+          '' AS lastName,
           t.profilePicture AS profilePicture,
           f.createdAt AS addedAt
         ORDER BY f.createdAt DESC

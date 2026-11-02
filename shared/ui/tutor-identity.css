@@ -1,0 +1,41 @@
+.identity-section { border-block:1px solid #dce3ed; padding:20px 0; margin:16px 0; color:inherit; min-width:0; }
+.identity-section h2,.identity-section h3 { font-size:18px; line-height:1.4; margin:0 0 16px; display:flex; align-items:center; gap:8px; }
+.identity-section p { font-size:14px; line-height:1.6; margin:8px 0; overflow-wrap:anywhere; }
+.identity-section button { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:38px; padding:8px 14px; border:1px solid #bccbdd; border-radius:6px; background:#fff; color:#174fa2; font:inherit; font-size:14px; cursor:pointer; }
+.identity-section button:disabled { opacity:.55; cursor:not-allowed; }
+.identity-section button:focus-visible,.identity-section input:focus-visible,.identity-section select:focus-visible { outline:2px solid #1763d7; outline-offset:3px; }
+.identity-form { display:grid; gap:14px; max-width:640px; }
+.identity-form label { display:grid; gap:6px; font-size:14px; font-weight:600; }
+.identity-form input:not([type=checkbox]),.identity-form select,.identity-form textarea { width:100%; min-width:0; box-sizing:border-box; padding:10px; border:1px solid #b8c7d8; border-radius:5px; font:inherit; color:#172c48; background:#fff; }
+.identity-form textarea { min-height:90px; resize:vertical; }
+.identity-form .identity-check { display:flex; align-items:flex-start; gap:10px; font-weight:400; line-height:1.5; }
+.identity-check input { flex-shrink:0; margin-top:4px; }
+.identity-error { color:#c52935; }
+.identity-status { padding:12px 0; }
+.identity-pending-review { display:flex; gap:20px; align-items:flex-start; max-width:760px; padding:24px 0 12px; }
+.identity-pending-review > div { min-width:0; }
+.identity-pending-review h3 { margin:0 0 12px; font-size:21px; }
+.identity-pending-review .identity-actions { align-items:center; gap:12px 20px; }
+.identity-pending-review a { color:inherit; text-decoration:underline; font-size:14px; }
+@media(max-width:600px) { .identity-pending-review { flex-direction:column; gap:12px; padding-top:20px; } }
+.identity-actions { display:flex; gap:8px; flex-wrap:wrap; margin:12px 0; }
+.identity-document { display:block; max-width:100%; max-height:480px; object-fit:contain; margin:12px 0; background:#edf2f7; }
+.identity-review-layout { display:grid; grid-template-columns:minmax(180px,280px) minmax(0,1fr); gap:24px; }
+.identity-review-list { display:flex; flex-direction:column; gap:4px; }
+.identity-review-list button { text-align:left; justify-content:flex-start; display:grid; gap:4px; }
+.identity-review-list button:first-child { display:flex; gap:8px; }
+.identity-review-list button[aria-pressed=true] { background:#eaf2ff; border-color:#1763d7; }
+.identity-review-list small { color:#53677b; }
+.identity-warning { color:#9a4b09; }
+.identity-fraud-dialog { position:fixed; inset:0; margin:auto !important; width:min(460px,calc(100% - 32px)); max-height:calc(100dvh - 32px); overflow:auto; box-sizing:border-box; padding:24px; border:1px solid var(--admin-border,#d9e1ec); border-radius:8px; color:var(--admin-text,#202636); background:var(--admin-surface,#fff); }
+.identity-fraud-dialog::backdrop { background:rgba(0,0,0,.55); }
+.identity-fraud-dialog h2 { font-size:18px; line-height:1.4; margin:0 0 16px; color:inherit; }
+.identity-fraud-dialog p { font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
+.identity-fraud-reason { padding:12px; background:var(--admin-bg-accent,#f0f5fc); border-radius:4px; white-space:pre-wrap; }
+.identity-fraud-reason strong { display:block; margin-bottom:4px; }
+.identity-fraud-dialog footer { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:10px; margin-top:20px; }
+.identity-fraud-dialog button { min-height:40px; padding:8px 12px; border:1px solid var(--admin-border,#d9e1ec); border-radius:6px; background:transparent; color:inherit; font:inherit; font-size:13px; cursor:pointer; }
+.identity-fraud-dialog .identity-fraud-confirm { background:#b42318; border-color:#b42318; color:#fff; }
+.identity-fraud-dialog button:disabled { opacity:.5; cursor:wait; }
+.identity-fraud-dialog button:focus-visible { outline:2px solid #1763d7; outline-offset:3px; }
+@media(max-width:640px) { .identity-review-layout { grid-template-columns:minmax(0,1fr); } .identity-review-list { max-height:220px; overflow:auto; } .identity-section button { max-width:100%; white-space:normal; } }

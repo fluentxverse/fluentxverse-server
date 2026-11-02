@@ -1,6 +1,7 @@
 import { query } from '../db/postgres';
 import { tutorStudentIssueLabel, validateTutorStudentIssue, type TutorStudentIssue } from '../utils/tutorStudentIssues';
 import { ensureIssueReviewColumns, reviewFields } from './lessonIssueReview.service';
+import { lessonIssueFollowupService } from './lessonIssueFollowup.service';
 
 export type TroubleDuration = 'up_to_ten' | 'over_ten';
 export type TroubleReason = 'connection' | 'audio' | 'hardware' | 'emergency' | 'power' | 'student';
@@ -59,6 +60,8 @@ export class LessonTroubleReportService {
           created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
         )
       `).then(() => query('ALTER TABLE lesson_trouble_reports ADD COLUMN IF NOT EXISTS student_issue TEXT'))
+        .then(() => query('ALTER TABLE lesson_trouble_reports ADD COLUMN IF NOT EXISTS followup_dispatched_at TIMESTAMPTZ'))
+        .then(() => query('ALTER TABLE lesson_trouble_reports ADD COLUMN IF NOT EXISTS followup_last_attempt_at TIMESTAMPTZ'))
         .then(() => ensureIssueReviewColumns('lesson_trouble_reports')).catch(error => {
         this.schemaReady = null;
         throw error;
@@ -85,6 +88,10 @@ export class LessonTroubleReportService {
       ON CONFLICT (booking_id) DO NOTHING
       RETURNING *
     `, [crypto.randomUUID(), bookingId, tutorId, duration, reason, studentIssue ?? null]);
+    if (result.rows[0] && studentIssue === 'other') {
+      await lessonIssueFollowupService.open(bookingId, tutorId, result.rows[0].id);
+      await query('UPDATE lesson_trouble_reports SET followup_dispatched_at=NOW() WHERE id=$1', [result.rows[0].id]);
+    }
     return result.rows[0] ? this.mapReport(result.rows[0]) : null;
   }
 

@@ -31,11 +31,10 @@ export class SessionReminderService {
       const result = await session.run(`
         MATCH (b:Booking {status: 'confirmed'})
         WHERE b.bookingDate = $todayDate
-          AND b.reminderSent IS NULL
-          OR b.reminderSent = false
+          AND (b.reminderSent IS NULL OR b.reminderSent = false)
         MATCH (t:User {id: b.tutorId})
         OPTIONAL MATCH (s:User {id: b.studentId})
-        RETURN b, t.firstName as tutorFirstName, t.lastName as tutorLastName,
+        RETURN b, coalesce(t.nickname, t.firstName, 'Tutor') as tutorFirstName, '' as tutorLastName,
                s.firstName as studentFirstName, s.lastName as studentLastName
       `, { todayDate });
       
@@ -99,7 +98,7 @@ export class SessionReminderService {
           AND (b.fiveMinReminderSent IS NULL OR b.fiveMinReminderSent = false)
         MATCH (t:User {id: b.tutorId})
         OPTIONAL MATCH (s:User {id: b.studentId})
-        RETURN b, t.firstName as tutorFirstName, t.lastName as tutorLastName,
+        RETURN b, coalesce(t.nickname, t.firstName, 'Tutor') as tutorFirstName, '' as tutorLastName,
                s.firstName as studentFirstName, s.lastName as studentLastName
       `, { todayDate });
       

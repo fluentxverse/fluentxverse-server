@@ -11,9 +11,32 @@ export const HORIZEN_TESTNET_BRIDGE = '0x3098A6974649478f0133046e44105AA84e868C2
 export const HORIZEN_MAINNET_BRIDGE = '0xCb47A3C3B9Eb2E549a3F2EA4729De28CafbB2b69' as Address;
 export const BASE_MAINNET_BRIDGE = '0xCb47A3C3B9Eb2E549a3F2EA4729De28CafbB2b69' as Address;
 export const BASE_SEPOLIA_BRIDGE = '0x0807C544D38aE7729f8798388d89Be6502A1e8A8' as Address;
+export const MAINNET_RECEIPT_DESTINATIONS = [
+  { chainId: 8453, domainId: 2, bridge: BASE_MAINNET_BRIDGE },
+  { chainId: 42161, domainId: 10, bridge: BASE_MAINNET_BRIDGE },
+  { chainId: 33139, domainId: 8, bridge: '0x1a6fe16501ab68adb8d3bb24c299e79cbf190d39' as Address },
+  { chainId: 10, domainId: 9, bridge: BASE_MAINNET_BRIDGE },
+  { chainId: 4663, domainId: 11, bridge: BASE_MAINNET_BRIDGE },
+] as const;
+export function receiptDestinationName(chainId: number): 'base' | 'arbitrum' | 'horizen' | 'destination' {
+  horizenVerificationNetwork(chainId);
+  return chainId === 8453 || chainId === 84532 ? 'base' : chainId === 42161 ? 'arbitrum'
+    : chainId === 26514 || chainId === 2651420 ? 'horizen' : 'destination';
+}
+export function finalizedDestinationReceipt(receipt: any, chainId: number): boolean {
+  const destination = MAINNET_RECEIPT_DESTINATIONS.find(item => item.chainId === chainId);
+  const domainId = destination?.domainId ?? (chainId === 84532 ? 2 : chainId === 26514 ? 3 : chainId === 2651420 ? 175 : undefined);
+  if (domainId === undefined) return false;
+  const name = receiptDestinationName(chainId);
+  const flag = name === 'base' ? 'verifiedOnBase' : name === 'arbitrum' ? 'verifiedOnArbitrum'
+    : name === 'horizen' ? 'verifiedOnHorizen' : 'verifiedOnDestination';
+  return Boolean(receipt?.verifiedOnZkVerify === true
+    && receipt.chainId === chainId && receipt.domainId === domainId
+    && receipt[flag] === true && receipt.status === `${name}_finalized`);
+}
 // Historical export names remain compatible; every read still pins the destination chain.
 export function horizenVerificationNetwork(chainId: number): 'zkVerify' | 'Volta' {
-  if (chainId === 8453 || chainId === 26514) return 'zkVerify';
+  if (MAINNET_RECEIPT_DESTINATIONS.some(item => item.chainId === chainId) || chainId === 26514) return 'zkVerify';
   if (chainId === 84532 || chainId === 2651420) return 'Volta';
   throw new Error('Unsupported receipt destination chain');
 }
@@ -35,9 +58,9 @@ export function validateHorizenReceipt(receipt: HorizenReceipt) {
 export function assertHorizenReceiptConfig(config: HorizenReceiptConfig) {
   const mainnet = config.chainId === 26514 && config.domainId === 3 && config.bridge.toLowerCase() === HORIZEN_MAINNET_BRIDGE.toLowerCase();
   const testnet = config.chainId === 2651420 && config.domainId === 175 && config.bridge.toLowerCase() === HORIZEN_TESTNET_BRIDGE.toLowerCase();
-  const base = config.chainId === 8453 && config.domainId === 2 && config.bridge.toLowerCase() === BASE_MAINNET_BRIDGE.toLowerCase();
+  const approved = MAINNET_RECEIPT_DESTINATIONS.some(item => item.chainId === config.chainId && item.domainId === config.domainId && item.bridge.toLowerCase() === config.bridge.toLowerCase());
   const baseTestnet = config.chainId === 84532 && config.domainId === 2 && config.bridge.toLowerCase() === BASE_SEPOLIA_BRIDGE.toLowerCase();
-  if (!(mainnet || testnet || base || baseTestnet) || !/^https?:\/\//.test(config.rpcUrl))
+  if (!(mainnet || testnet || approved || baseTestnet) || !/^https?:\/\//.test(config.rpcUrl))
     throw new Error('Unapproved Horizen receipt configuration');
 }
 export class HorizenReceiptReader {

@@ -7,6 +7,7 @@ export interface Tutor {
   middleName?: string;
   lastName: string;
   displayName: string;
+  nickname?: string;
   profilePicture?: string;
   bio?: string;
   tier: number;
@@ -39,6 +40,8 @@ export interface TutorProfile extends Tutor {
   interests?: string[];
   schoolAttended?: string;
   major?: string;
+  educationalAttainment?: string;
+  teachingExperience?: string;
   completionRate?: number;
   responseTime?: string;
   repeatStudents?: number;

@@ -1,4 +1,5 @@
 import { readFile } from 'node:fs/promises';
+import { writeSync } from 'node:fs';
 import { Group } from '@semaphore-protocol/group';
 import { Identity } from '@semaphore-protocol/identity';
 import { generateProof } from '@semaphore-protocol/proof';
@@ -17,5 +18,7 @@ const wasm = new Uint8Array(await readFile(new URL('semaphore.wasm', assets)));
 const zkey = new Uint8Array(await readFile(new URL('semaphore.zkey', assets)));
 const proof = await generateProof(identities[0], group, message, scope, 8, { wasm, zkey });
 const hash = value => (BigInt(keccak256(toHex(BigInt(value), { size: 32 }))) >> 8n).toString();
-process.stdout.write(JSON.stringify({ groupId, content, proof, members: group.members.map(String),
-  signals: [proof.merkleTreeRoot, proof.nullifier, hash(proof.message), hash(proof.scope)] }), () => process.exit(0));
+writeSync(1, JSON.stringify({ groupId, content, proof, members: group.members.map(String), contract: bridge,
+  privateKey: identities[0].export(), identities: identities.slice(0, 2).map(identity => ({ privateKey: identity.export(), commitment: identity.commitment.toString() })),
+  signals: [proof.merkleTreeRoot, proof.nullifier, hash(proof.message), hash(proof.scope)] }));
+process.exit(0);

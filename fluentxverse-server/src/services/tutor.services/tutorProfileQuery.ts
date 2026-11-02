@@ -3,10 +3,10 @@ export const tutorProfileQuery = `
   MATCH (u:User {id: $tutorId})
   OPTIONAL MATCH (u)-[:HAS_CERTIFICATION_CREDENTIAL]->(cred:TutorCertificationCredential)
   RETURN u {
-    .id, .email, .firstName, .middleName, .lastName, .displayName, .profilePicture,
+    .id, .email, .firstName, .middleName, .lastName, .displayName, .nickname, .profilePicture,
     .bio, .introduction, .tier, .timezone, .country, .languages, .specializations,
     .interests, .hourlyRate, .experienceYears, .education, .certifications,
-    .schoolAttended, .major, .teachingQualifications, .teachingStyle, .videoIntroUrl,
+    .schoolAttended, .major, .educationalAttainment, .teachingExperience, .teachingQualifications, .teachingStyle, .videoIntroUrl,
     .rating, .totalReviews, .totalSessions, .isVerified, .isAvailable, .createdAt,
     .profileStatus, .profileSubmittedAt, .profileItemStatuses, .profileRejectionReason,
     .pendingProfileChanges, .hasPendingChanges

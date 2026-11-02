@@ -4,9 +4,10 @@
  */
 import { Elysia, t } from 'elysia';
 import { lessonMaterialService, type Skill } from '../services/lessonMaterial.service';
-import { createAdminGuard, createStudentGuard, createTutorGuard } from '../middleware/auth.middleware';
+import { createAdminGuard, createAnyAuthGuard, createStudentGuard, createTutorGuard } from '../middleware/auth.middleware';
 import { addAvailableCheckpoints, checkpointIdPattern, checkpointLessonService, studentCheckpointLesson } from '../services/checkpointLesson.service';
 import { ScheduleService } from '../services/schedule.services/schedule.service';
+import { parseWorkplaceData } from '../../../shared/workplaceCommunication';
 
 const scheduleService = new ScheduleService();
 
@@ -49,6 +50,7 @@ export const lessonMaterialRoutes = new Elysia({ prefix: '/lesson-materials' })
           lessonName: body.lessonName,
           goalTextEn: body.goalTextEn,
           goalTextJp: body.goalTextJp,
+          workplaceData: body.workplaceData === undefined ? undefined : parseWorkplaceData(body.workplaceData),
           createdBy: adminPayload.userId,
           createdByName: adminPayload.firstName || adminPayload.email,
         });
@@ -71,6 +73,7 @@ export const lessonMaterialRoutes = new Elysia({ prefix: '/lesson-materials' })
         lessonName: t.String({ minLength: 1 }),
         goalTextEn: t.String(),
         goalTextJp: t.String(),
+        workplaceData: t.Optional(t.Unknown()),
       }),
       detail: {
         tags: ['Lesson Materials'],
@@ -85,7 +88,9 @@ export const lessonMaterialRoutes = new Elysia({ prefix: '/lesson-materials' })
   // ============================================================================
   .get(
     '/published/:course',
-    async ({ params }) => {
+    async ({ params, cookie, set }) => {
+      set.headers['Cache-Control'] = 'private, no-store';
+      if (!await createAnyAuthGuard(cookie, set)) return { success: false, error: 'Unauthorized' };
       try {
         const stored = await lessonMaterialService.listPublishedByCourse(params.course);
         const lessons = params.course === 'conversational-skills' ? addAvailableCheckpoints(stored) : stored;
@@ -204,13 +209,15 @@ export const lessonMaterialRoutes = new Elysia({ prefix: '/lesson-materials' })
   )
   
   // ============================================================================
-  // GET PUBLISHED LESSON DATA (public - for preview page)
+  // GET PUBLISHED LESSON DATA (authenticated preview and classroom clients)
   // Returns full lesson data for published lessons only
   // IMPORTANT: This route MUST be before /:id to avoid being matched by /:id
   // ============================================================================
   .get(
     '/public/:id',
-    async ({ params, set }) => {
+    async ({ params, set, cookie }) => {
+      set.headers['Cache-Control'] = 'private, no-store';
+      if (!await createAnyAuthGuard(cookie, set)) return { success: false, error: 'Unauthorized' };
       try {
         const lesson = await lessonMaterialService.getById(params.id);
         if (!lesson) {
@@ -444,6 +451,7 @@ export const lessonMaterialRoutes = new Elysia({ prefix: '/lesson-materials' })
           missionData2: body.missionData2,
           feedbackData: body.feedbackData,
           beData: body.beData,
+          workplaceData: body.workplaceData === undefined ? undefined : parseWorkplaceData(body.workplaceData),
         });
         
         if (!lesson) {
@@ -454,6 +462,7 @@ export const lessonMaterialRoutes = new Elysia({ prefix: '/lesson-materials' })
         return { success: true, lesson };
       } catch (error) {
         console.error('Error updating header:', error);
+        if (body.workplaceData !== undefined) set.status = 400;
         return { success: false, error: 'Failed to update header' };
       }
     },
@@ -479,6 +488,7 @@ export const lessonMaterialRoutes = new Elysia({ prefix: '/lesson-materials' })
         feedbackData: t.Optional(t.Any()),
         discussionQuestionsData: t.Optional(t.Any()),
         beData: t.Optional(t.Any()),
+        workplaceData: t.Optional(t.Unknown()),
       }),
       detail: {
         tags: ['Lesson Materials'],

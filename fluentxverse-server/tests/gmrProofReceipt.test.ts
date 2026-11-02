@@ -1,10 +1,11 @@
 import { afterEach, expect, spyOn, test } from 'bun:test';
+import { fixtureFetch } from './fixtureFetch';
 import { EngineProofReceiptClient } from '../src/services/web3.services/gmrProofReceipt.service';
 import { AnonymousReviewService } from '../src/services/anonymousReviews/service';
 import { AnonymousReviewRepository } from '../src/services/anonymousReviews/repository';
 import { AnonymousReviewChain } from '../src/services/anonymousReviews/chain';
 import { Group } from '@semaphore-protocol/group';
-import { HORIZEN_MAINNET_BRIDGE } from '../src/services/proof.services/horizenReceipt';
+import { HORIZEN_MAINNET_BRIDGE, MAINNET_RECEIPT_DESTINATIONS, receiptDestinationName } from '../src/services/proof.services/horizenReceipt';
 import { reviewConfig, reviewGroupId, reviewScope } from '../src/services/anonymousReviews/policy';
 
 const env = { ...process.env }; afterEach(() => { for (const k of Object.keys(process.env)) if (!(k in env)) delete process.env[k]; Object.assign(process.env, env); });
@@ -49,4 +50,32 @@ test('automatic acceptance waits for Engine finality, does not send another proo
     expect((await service.reconcile(hash)).verified).toBe(true); expect(spies[3]).toHaveBeenCalledWith(hash, JSON.stringify(receipt));
     expect(spies[4]).not.toHaveBeenCalled(); bound = false; await expect(service.reconcile(hash)).rejects.toThrow('bound Engine');
   } finally { spies.forEach(s => s.mockRestore()); }
+});
+
+for (const destination of MAINNET_RECEIPT_DESTINATIONS) test(`receipt adapter accepts only the bound destination ${destination.chainId}`, async () => {
+  process.env.GMR_ANONYMOUS_REVIEWS_ENGINE_API_BASE = 'https://engine.fixture.invalid';
+  process.env.GMR_ANONYMOUS_REVIEWS_ENGINE_API_KEY = 'synthetic-only';
+  const expected = { ...destination, network: 'zkVerify' as const, statement: hash };
+  const name = receiptDestinationName(destination.chainId);
+  const flag = name === 'base' ? 'verifiedOnBase' : name === 'arbitrum' ? 'verifiedOnArbitrum' : 'verifiedOnDestination';
+  const candidate = { ...expected, verifiedOnZkVerify: true, [flag]: true, status: `${name}_finalized`,
+    [`${name}Block`]: '123', [`${name}BlockHash`]: hash,
+    receipt: { aggregationId: '42', merklePath: [], leafCount: '1', index: '0' } };
+  let change: Record<string, any> = {};
+  const fetch = spyOn(globalThis, 'fetch').mockImplementation(fixtureFetch(async () => Response.json({ submissionId: id, receipt: { ...candidate, ...change } })));
+  const client = new EngineProofReceiptClient('GMR_ANONYMOUS_REVIEWS');
+  try {
+    expect((await client.reconcile(id, expected)).verified).toBe(true);
+    for (const patch of [{ domainId: 999 }, { chainId: 999 }, { [flag]: false }, { [`${name}BlockHash`]: '' },
+      { status: 'horizen_finalized', verifiedOnHorizen: true }, { status: 'awaiting_aggregation' }]) {
+      change = patch; await expect(client.reconcile(id, expected)).rejects.toThrow();
+    }
+    for (const status of ['awaiting_aggregation', `awaiting_${name}_relay_or_finality`]) {
+      change = { [flag]: false, status }; expect((await client.reconcile(id, expected)).verified).toBe(false);
+    }
+    if (destination.chainId === 42161) {
+      change = { status: 'base_finalized', [flag]: false, verifiedOnBase: true, baseBlock: '123', baseBlockHash: hash };
+      await expect(client.reconcile(id, expected)).rejects.toThrow();
+    }
+  } finally { fetch.mockRestore(); }
 });

@@ -29,6 +29,7 @@ test('anonymous proof intake rejects cookie/bearer requests and never accepts id
     const response = await post('public/submit', body); expect(response.status).toBe(200); expect(response.headers.get('cache-control')).toBe('no-store');
     expect(receive).toHaveBeenCalledTimes(1);
     const extra = await post('public/submit', { ...body, studentId: 'private-student' }); expect(extra.status).not.toBe(200);
+    const entitlement = await post('public/submit', { ...body, entitlementId: 'private-lesson-entitlement' }); expect(entitlement.status).not.toBe(200);
     const comment = await post('public/submit', { ...body, content: { ...body.content, comment: 'My name is...' } }); expect(comment.status).not.toBe(200);
   } finally { receive.mockRestore(); }
 });

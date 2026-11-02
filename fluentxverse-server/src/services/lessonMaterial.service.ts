@@ -5,6 +5,7 @@
 import { getDriver } from '../db/memgraph';
 import neo4j from 'neo4j-driver';
 import { conversationalLessonErrors } from '../utils/conversationalLessonValidation';
+import { WORKPLACE_COMMUNICATION_COURSE, parseWorkplaceData, type WorkplaceCommunicationData } from '../../../shared/workplaceCommunication';
 
 // ============================================================================
 // TYPES
@@ -262,6 +263,7 @@ export interface ExerciseSectionData {
 }
 
 export interface CreateLessonInput {
+  workplaceData?: WorkplaceCommunicationData;
   course: string;             // e.g., "conversational-skills"
   level: number;              // 1-10
   chapter: number;            // 1-5
@@ -278,6 +280,7 @@ export interface CreateLessonInput {
 export type LessonStatus = 'draft' | 'published';
 
 export interface LessonMaterial {
+  workplaceData?: WorkplaceCommunicationData;
   id: string;
   course: string;
   level: number;
@@ -337,6 +340,7 @@ export interface StoryData {
 }
 
 export interface UpdateHeaderInput {
+  workplaceData?: WorkplaceCommunicationData;
   backgroundImage?: string;
   overlayColor?: string;
   chapterName?: string;
@@ -582,6 +586,7 @@ function transformLesson(record: any): LessonMaterial {
     feedbackData,
     discussionQuestionsData,
     beData,
+    workplaceData: props.workplaceData ? parseWorkplaceData(props.workplaceData) : undefined,
     createdBy: props.createdBy,
     createdByName: props.createdByName || '',
     createdAt: props.createdAt,
@@ -686,6 +691,10 @@ export const lessonMaterialService = {
       }
 
       validateLessonSlot(input.course, input.lessonNumber, input.skill);
+      if (input.workplaceData && input.course !== WORKPLACE_COMMUNICATION_COURSE) {
+        throw new Error('Workplace Communication content requires its own course.');
+      }
+      const workplaceData = input.workplaceData ? parseWorkplaceData(input.workplaceData) : undefined;
 
       // Auto-resolve chapterName from CourseMetadata if not provided
       if (!input.chapterName) {
@@ -731,6 +740,7 @@ export const lessonMaterialService = {
           backgroundImage: $backgroundImage,
           overlayColor: $overlayColor,
           status: $status,
+          workplaceData: $workplaceData,
           createdBy: $createdBy,
           createdByName: $createdByName,
           createdAt: $createdAt,
@@ -751,6 +761,7 @@ export const lessonMaterialService = {
           backgroundImage: '',
           overlayColor: '#0369a1cc',
           status: 'draft',
+          workplaceData: workplaceData ? JSON.stringify(workplaceData) : null,
           createdBy: input.createdBy,
           createdByName: input.createdByName || '',
           createdAt: now,
@@ -914,6 +925,14 @@ export const lessonMaterialService = {
       if (input.beData !== undefined) {
         setClauses.push('l.beData = $beData');
         params.beData = JSON.stringify(input.beData);
+      }
+      if (input.workplaceData !== undefined) {
+        const lesson = await this.getById(id);
+        if (!lesson || lesson.course !== WORKPLACE_COMMUNICATION_COURSE) {
+          throw new Error('Workplace Communication content requires its own course.');
+        }
+        setClauses.push('l.workplaceData = $workplaceData');
+        params.workplaceData = JSON.stringify(parseWorkplaceData(input.workplaceData));
       }
       
       const result = await session.run(

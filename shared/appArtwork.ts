@@ -22,6 +22,11 @@ export const appArtwork = {
     classroom: 'classroom-v1.webp',
     network: 'network-v1.webp',
     headset: 'headset-v1.webp',
+    writtenTest: 'written-test-v1.webp',
+    speakingTest: 'speaking-test-v1.webp',
+    contactCheck: 'contact-check-v1.webp',
+    interviewGuide: 'interview-guide-v1.webp',
+    interests: 'interests-v1.webp',
 } as const;
 
 export type AppArtworkName = keyof typeof appArtwork;

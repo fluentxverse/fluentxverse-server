@@ -1,4 +1,4 @@
-export const MAX_PROFILE_PIC_BYTES = 5 * 1024 * 1024; // 5MB limit
+export { PROFILE_PHOTO_MAX_BYTES as MAX_PROFILE_PIC_BYTES } from '../../../shared/profileGuidelines';
 
 // Ticket Usage Configuration
 export const TICKETS_PER_LESSON = 1; // Number of tickets required per lesson

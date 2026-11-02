@@ -1,5 +1,7 @@
 import { ImapFlow, type FetchMessageObject, type SearchObject } from 'imapflow';
 import nodemailer from 'nodemailer';
+import { createHash } from 'node:crypto';
+import { MailConnectionPool } from './mailConnectionPool';
 import MimeComposer from 'nodemailer/lib/mail-composer';
 import { simpleParser } from 'mailparser';
 import type { MailAction, MailAddress, MailDraft, MailFolder, MailMessage, MailPage, MailSummary } from '../../../../shared/mail';
@@ -25,17 +27,18 @@ const summary = (message: FetchMessageObject): MailSummary => ({
   seen: Boolean(message.flags?.has('\\Seen')), starred: Boolean(message.flags?.has('\\Flagged')),
   hasAttachments: JSON.stringify(message.bodyStructure || {}).includes('attachment'), messageId: message.envelope?.messageId || '',
 });
-let connections = 0;
+const connections = new MailConnectionPool<ImapFlow>();
+export const closeMailConnections = () => connections.close();
+const mailboxKey = (a:MailboxConfig) => createHash('sha256').update(JSON.stringify([a.imap.host,a.imap.port,a.imap.user,a.imapPassword])).digest('hex');
 async function withClient<T>(account: MailboxConfig, callback: (client: ImapFlow) => Promise<T>): Promise<T> {
-  if (connections >= 6) throw new MailError(429, 'Email is busy. Try again shortly.');
-  connections++;
-  const client = new ImapFlow({ host: account.imap.host, port: account.imap.port, secure: true,
+  const create = () => { const client = new ImapFlow({ host: account.imap.host, port: account.imap.port, secure: true,
     auth: { user: account.imap.user, pass: account.imapPassword }, tls: { rejectUnauthorized: true }, logger: false,
     connectionTimeout: 15000, greetingTimeout: 10000, socketTimeout: 30000, disableAutoIdle: true });
-  client.on('error', () => {});
-  try { await client.connect(); return await callback(client); }
-  catch (error) { if (error instanceof MailError) throw error; throw new MailError(502, 'The email provider could not complete this request. Check the connection and try again.'); }
-  finally { try { if (client.usable) await client.logout(); } catch {} client.close(); connections--; }
+    client.on('error', () => {client.close();});return client; };
+  try { return await connections.use(mailboxKey(account),create,callback); }
+  catch (error) { if (error instanceof MailError) throw error;
+    if(error instanceof Error&&error.message==='Mail connection capacity exceeded')throw new MailError(429,'Email is busy. Try again shortly.');
+    throw new MailError(502, 'The email provider could not complete this request. Check the connection and try again.'); }
 }
 async function withFolder<T>(account: MailboxConfig, folder: string, validity: string | undefined, readOnly: boolean, callback: (client: ImapFlow) => Promise<T>) {
   return withClient(account, async client => {
@@ -88,12 +91,16 @@ export async function buildTutorConfirmationMessage(account: MailboxConfig, reci
       cid: TUTOR_LOGO_CID, contentDisposition: 'inline' }], disableFileAccess: true, disableUrlAccess: true }).compile().build();
   return { raw, envelope: { from: account.address, to }, messageId };
 }
-async function sendBuiltMessage(account: MailboxConfig, message: Awaited<ReturnType<typeof buildOutgoingMessage>>) {
+async function sendBuiltMessage(account: MailboxConfig, message: Awaited<ReturnType<typeof buildOutgoingMessage>>, saveSentCopy = true) {
   const { raw, envelope, messageId } = message, transport = smtp(account);
   let result;
   try { result = await transport.sendMail({ envelope, raw, disableFileAccess: true, disableUrlAccess: true }); }
   finally { transport.close(); }
   let warning = result.rejected.length ? `${result.rejected.length} recipient(s) were rejected by the provider. Check before resending.` : '';
+  if (!saveSentCopy) {
+    if (!result.accepted.length || result.rejected.length) throw new MailError(502,'Confirmation email was not accepted by the provider.');
+    return {messageId};
+  }
   try {
     await withClient(account, async client => {
       const folder = account.sentFolder || (await client.list()).find(item => item.specialUse === '\\Sent')?.path;
@@ -106,7 +113,9 @@ async function sendBuiltMessage(account: MailboxConfig, message: Awaited<ReturnT
 
 // Only this fixed server-owned template bypasses the interactive composer's styling limits.
 export async function sendTutorConfirmationMail(account: MailboxConfig, recipient: string, url: string) {
-  return sendBuiltMessage(account, await buildTutorConfirmationMessage(account, recipient, url));
+  // Transactional delivery must not depend on the administrator's IMAP mailbox.
+  // Acceptance is recorded by TutorEmailService; no raw verification token is archived in Sent.
+  return sendBuiltMessage(account, await buildTutorConfirmationMessage(account, recipient, url), false);
 }
 export const mailProvider: MailProvider = {
   folders: account => withClient(account, async client => (await client.list({ statusQuery: { messages: true, unseen: true } }))

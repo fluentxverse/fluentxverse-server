@@ -1,6 +1,7 @@
 export const tutorStudentIssues = {
   asked_to_cancel: 'Student asked to cancel',
   late: 'Student is late',
+  other: 'Other',
 } as const;
 export type TutorStudentIssue = keyof typeof tutorStudentIssues;
 export const tutorStudentIssueLabel = (issue: string | null | undefined) =>

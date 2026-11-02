@@ -1,6 +1,7 @@
 {
   "name": "fluentxverse-server-source",
   "private": true,
+  "license": "MIT",
   "description": "Bun and Elysia application API for tutoring, scheduling, screening evidence, recordings, and compensation.",
   "scripts": {
     "setup": "cd fluentxverse-server && bun install",

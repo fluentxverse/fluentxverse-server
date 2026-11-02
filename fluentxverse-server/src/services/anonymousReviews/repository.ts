@@ -1,13 +1,15 @@
 import { getDriver } from '../../db/memgraph';
 import { AnonymousReviewError } from './policy';
-import { REVIEW_MAX_MEMBERS } from '../../shared/anonymousReviews';
+import { REVIEW_MAX_MEMBERS, REVIEW_MIN_BATCH, reviewPeriod, reviewWindow } from '../../shared/anonymousReviews';
 import type { ManagedTransaction } from 'neo4j-driver';
 
 export interface ReviewCohort {
   id: string; tutorId: string; period: string; scope: string; chainId: number; contract: string;
   opensAt: string; closesAt: string; root?: string; membersJson?: string; summaryJson?: string;
   activationStatus?: string; activationTransactionId?: string;
+  enrollmentPolicy?: 'per_lesson';
 }
+export interface ReviewEnrollmentRecord { id: string; groupId: string; commitment: string; bookingId?: string; lessonStartsAt?: string }
 export interface ReviewSubmission {
   id: string; groupId: string; nullifier: string; proofJson: string; encryptedContent: string;
   status: string; zkVerifyTx?: string; engineSubmissionId?: string; transactionId?: string; receiptJson?: string; acceptedAt?: string;
@@ -57,20 +59,77 @@ export class AnonymousReviewRepository {
   async cohort(id: string): Promise<ReviewCohort | null> {
     return props((await this.read('MATCH (g:AnonymousReviewCohort {id: $id}) RETURN g', { id })).records[0]?.get('g')) || null;
   }
-  async enrollment(id: string): Promise<{ commitment: string } | null> {
+  async enrollment(id: string): Promise<ReviewEnrollmentRecord | null> {
     return props((await this.read('MATCH (e:AnonymousReviewEnrollment {id: $id}) RETURN e', { id })).records[0]?.get('e')) || null;
   }
-  async enroll(cohort: ReviewCohort, enrollmentId: string, studentId: string, commitment: string) {
+  async enrollmentForLesson(bookingId: string, studentId: string) {
+    const result = await this.read(`MATCH (e:AnonymousReviewEnrollment {studentId:$studentId,bookingId:$bookingId}),
+      (g:AnonymousReviewCohort {id:e.groupId}) RETURN e,g`, { bookingId, studentId });
+    if (result.records.length > 1) throw new AnonymousReviewError('Lesson review enrollment requires reconciliation', 409);
+    const row = result.records[0];
+    return row ? { enrollment: props(row.get('e')) as ReviewEnrollmentRecord, cohort: props(row.get('g')) as ReviewCohort } : null;
+  }
+  async legacyEnrollmentForPeriod(tutorId: string, period: string, studentId: string) {
+    const result = await this.read(`MATCH (e:AnonymousReviewEnrollment {studentId:$studentId}),
+      (g:AnonymousReviewCohort {id:e.groupId,tutorId:$tutorId,period:$period})
+      WHERE g.enrollmentPolicy IS NULL RETURN e,g`, { tutorId, period, studentId });
+    if (result.records.length > 1) throw new AnonymousReviewError('Historical review enrollment requires reconciliation', 409);
+    const row = result.records[0];
+    return row ? { enrollment: props(row.get('e')) as ReviewEnrollmentRecord, cohort: props(row.get('g')) as ReviewCohort } : null;
+  }
+  async enrollmentForPeriod(tutorId: string, period: string, studentId: string) {
+    const result = await this.read(`MATCH (e:AnonymousReviewEnrollment {studentId:$studentId}),
+      (g:AnonymousReviewCohort {id:e.groupId,tutorId:$tutorId,period:$period}) RETURN e,g`, { tutorId, period, studentId });
+    if (result.records.length > 1) throw new AnonymousReviewError('Review enrollment requires reconciliation', 409);
+    const row = result.records[0];
+    return row ? { id: props(row.get('e')).id as string, cohort: props(row.get('g')) as ReviewCohort } : null;
+  }
+  async enroll(cohort: ReviewCohort, enrollmentId: string, studentId: string, commitment: string, bookingId?: string) {
     return this.write(async tx => {
+        if (cohort.enrollmentPolicy === 'per_lesson') {
+          const student = await tx.run(`MATCH(s:Student {id:$studentId})
+            SET s.reviewEnrollmentRevision=coalesce(s.reviewEnrollmentRevision,0)+1 RETURN s.id`, { studentId });
+          if (!student.records.length || !bookingId) throw new AnonymousReviewError('Owned lesson required', 403);
+          const prior = await tx.run(`MATCH(e:AnonymousReviewEnrollment {studentId:$studentId,bookingId:$bookingId}) RETURN e`, { studentId, bookingId });
+          if (prior.records.some(r => props(r.get('e')).id !== enrollmentId || props(r.get('e')).groupId !== cohort.id))
+            throw new AnonymousReviewError('This lesson retains its original review enrollment and destination', 409);
+          const historical = await tx.run(`MATCH(e:AnonymousReviewEnrollment {studentId:$studentId}),
+            (g:AnonymousReviewCohort {id:e.groupId,tutorId:$tutorId,period:$period}) WHERE g.enrollmentPolicy IS NULL RETURN e LIMIT 1`,
+            { studentId, tutorId: cohort.tutorId, period: cohort.period });
+          if (historical.records.length) throw new AnonymousReviewError('Finish the existing monthly review; per-lesson enrollment starts with a new period', 409);
+        } else if (process.env.PROOF_DESTINATION_MODE === 'project') {
+          // Serialize across destination-specific cohorts, not just within one cohort.
+          const student = await tx.run(`MATCH (s:Student {id:$studentId})
+            SET s.reviewEnrollmentRevision=coalesce(s.reviewEnrollmentRevision,0)+1 RETURN s.id`, { studentId });
+          if (!student.records.length) throw new AnonymousReviewError('Student not found', 403);
+          const prior = await tx.run(`MATCH (e:AnonymousReviewEnrollment {studentId:$studentId}),
+            (g:AnonymousReviewCohort {id:e.groupId,tutorId:$tutorId,period:$period}) RETURN e.groupId AS groupId`,
+            { studentId, tutorId: cohort.tutorId, period: cohort.period });
+          if (prior.records.some(r => r.get('groupId') !== cohort.id))
+            throw new AnonymousReviewError('This month already has a review enrollment on its original destination', 409);
+        }
         const row = (await tx.run(`MERGE (g:AnonymousReviewCohort {id: $id}) ON CREATE SET g += $cohort
           SET g.writeVersion = coalesce(g.writeVersion, 0) + 1 RETURN g`, { id: cohort.id, cohort })).records[0]!;
         const g = props(row.get('g'));
-        if (g.scope !== cohort.scope || g.contract !== cohort.contract || g.opensAt !== cohort.opensAt)
+        if (g.scope !== cohort.scope || g.contract !== cohort.contract || g.opensAt !== cohort.opensAt || g.enrollmentPolicy !== cohort.enrollmentPolicy)
           throw new AnonymousReviewError('Review deployment changed', 409);
         const old = props((await tx.run('MATCH (e:AnonymousReviewEnrollment {id: $id}) RETURN e', { id: enrollmentId })).records[0]?.get('e'));
         if (old) {
-          if (old.commitment !== commitment) throw new AnonymousReviewError('Restore your original review key; enrollment cannot be replaced', 409);
+          if (old.commitment !== commitment || old.groupId !== cohort.id || old.studentId !== studentId ||
+            (cohort.enrollmentPolicy === 'per_lesson' && old.bookingId !== bookingId)) throw new AnonymousReviewError('Restore your original review key; enrollment cannot be replaced', 409);
           return;
+        }
+        let lessonStartsAt: string | undefined;
+        if (cohort.enrollmentPolicy === 'per_lesson') {
+          const owned = await tx.run(`MATCH(b:Booking {bookingId:$bookingId,tutorId:$tutorId})-[:BOOKED_BY]->(:Student {id:$studentId})
+            SET b.reviewEntitlementVersion=coalesce(b.reviewEntitlementVersion,0)+1 WITH b
+            OPTIONAL MATCH(s:LessonSurvey {bookingId:$bookingId}) RETURN b,s`, { bookingId, tutorId: cohort.tutorId, studentId });
+          const row = owned.records[0], b = props(row?.get('b'));
+          lessonStartsAt = b?.slotDateTime?.toStandardDate?.().toISOString() || String(b?.slotDateTime || '');
+          if (!b || row?.get('s') || b.status !== 'completed' || b.attendanceStudent !== 'present' || b.attendanceTutor !== 'present'
+            || !Number.isFinite(Date.parse(lessonStartsAt!)) || Date.parse(lessonStartsAt!) + (Number(b.durationMinutes) || 25) * 60_000 > Date.now()
+            || reviewPeriod(lessonStartsAt!) !== cohort.period || reviewWindow(cohort.period).opensAt !== cohort.opensAt)
+            throw new AnonymousReviewError('Enrollment requires a completed lesson with both participants marked present, before month end', 403);
         }
         if (g.root || Date.now() >= Date.parse(g.opensAt)) throw new AnonymousReviewError('Enrollment has closed', 409);
         const members = (await tx.run('MATCH (e:AnonymousReviewEnrollment {groupId: $id}) RETURN e.commitment AS commitment', { id: cohort.id })).records;
@@ -79,19 +138,24 @@ export class AnonymousReviewRepository {
         const duplicate = (await tx.run('MATCH (n:AnonymousReviewCommitment {id: $id}) RETURN n', { id: identityId })).records;
         if (duplicate.length) throw new AnonymousReviewError('Review key already enrolled', 409);
         await tx.run(`CREATE (:AnonymousReviewCommitment {id: $identityId})
-          CREATE (:AnonymousReviewEnrollment {id: $id, groupId: $groupId, studentId: $studentId, commitment: $commitment})`,
-          { identityId, id: enrollmentId, groupId: cohort.id, studentId, commitment });
+          CREATE (:AnonymousReviewEnrollment {id: $id, groupId: $groupId, studentId: $studentId, commitment: $commitment,
+            bookingId:$bookingId,lessonStartsAt:$lessonStartsAt})`,
+          { identityId, id: enrollmentId, groupId: cohort.id, studentId, commitment, bookingId: bookingId || null, lessonStartsAt: lessonStartsAt || null });
     });
   }
   async memberships(studentId: string) {
     return (await this.read(`MATCH (e:AnonymousReviewEnrollment {studentId: $studentId}), (g:AnonymousReviewCohort {id: e.groupId})
-      RETURN g, e.commitment AS commitment ORDER BY g.period DESC LIMIT 100`, { studentId })).records
-      .map(r => ({ cohort: props(r.get('g')) as ReviewCohort, commitment: r.get('commitment') as string }));
+      RETURN g,e ORDER BY g.period DESC,e.lessonStartsAt DESC,e.id LIMIT 256`, { studentId })).records
+      .map(r => ({ cohort: props(r.get('g')) as ReviewCohort, ...props(r.get('e')) }));
   }
   async memberCount(groupId: string) {
     const value = (await this.read('MATCH (e:AnonymousReviewEnrollment {groupId: $groupId}) RETURN count(e) AS total', { groupId }))
       .records[0]!.get('total');
     return value?.toNumber ? value.toNumber() : Number(value);
+  }
+  async distinctStudentCount(groupId: string) {
+    const total = (await this.read('MATCH(e:AnonymousReviewEnrollment {groupId:$groupId}) RETURN count(DISTINCT e.studentId) AS total', { groupId })).records[0]!.get('total');
+    return total?.toNumber ? total.toNumber() : Number(total);
   }
   async seal(id: string, build: (members: string[]) => { root: string; membersJson: string }) {
     return this.write(async tx => {
@@ -101,8 +165,11 @@ export class AnonymousReviewRepository {
         if (g.root) return g;
         if (Date.now() < Date.parse(g.opensAt) || Date.now() >= Date.parse(g.closesAt)) throw new AnonymousReviewError('Cohort is outside its activation window', 409);
         const members = (await tx.run(`MATCH (e:AnonymousReviewEnrollment {groupId: $id})
-          RETURN e.commitment AS commitment ORDER BY e.commitment`, { id })).records.map(r => String(r.get('commitment')));
-        const sealed = build(members);
+          RETURN e.commitment AS commitment,e.studentId AS studentId ORDER BY e.commitment`, { id })).records;
+        if (g.enrollmentPolicy === 'per_lesson' && new Set(members.map(r => r.get('studentId'))).size < REVIEW_MIN_BATCH)
+          throw new AnonymousReviewError('At least five distinct eligible students must enroll', 409);
+        const commitments = members.map(r => String(r.get('commitment')));
+        const sealed = build(commitments);
         await tx.run('MATCH (g:AnonymousReviewCohort {id: $id}) SET g += $sealed', { id, sealed });
         return { ...g, ...sealed };
     });

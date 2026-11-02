@@ -58,7 +58,7 @@ test('operations permission precedes file reads; no-cache survives parent hooks 
     const response = await app.handle(new Request('http://localhost/admin/container-stats', { headers: { cookie } }));
     expect(response.status).toBe(status);
     expect(response.headers.get('cache-control')).toBe('private, no-store');
-    if (status !== 200) expect((await response.json()).data).toBeUndefined();
+    if (status !== 200) { const body: unknown = await response.json(); expect(body).not.toHaveProperty('data'); }
   }
   expect(reads).toBe(1);
   expect((await app.handle(new Request('http://localhost/unrelated'))).status).toBe(200);

@@ -29,18 +29,22 @@ const Interview = new Elysia({ prefix: '/interview' })
     set.headers['Cache-Control'] = 'private, no-store';
     const room = await interviewService.getRoom(params.id);
     const tutor = cookie.tutorAuth?.value ? await verifyAuthToken(String(cookie.tutorAuth.value)) : null;
-    if (tutor?.role === 'tutor' && room?.tutorId === tutor.userId) {
+    const isOwner = tutor?.role === 'tutor' && room?.tutorId === tutor.userId;
+    if (isOwner) {
       await refreshJwtCookie(cookie, tutor, 'tutorAuth');
     } else {
       if (!isAllowedAdminMutationOrigin(request.headers.get('origin')) || !await createAdminGuard(cookie, set, 'operations')) {
         set.status = 403; return { success: false, error: 'Interview access denied' };
       }
     }
-    if (!room?.tutorId || !['booked', 'completed'].includes(room.status)) {
+    // Cancelled bookings remain reviewable by authorized staff, but cannot reopen media.
+    const cancelledReview = !isOwner && room?.status === 'cancelled';
+    if (!room?.tutorId || (!['booked', 'completed'].includes(room.status) && !cancelledReview)) {
       set.status = 404; return { success: false, error: 'Booked interview not found' };
     }
-    const { recordingUrl, ...publicRoom } = room;
-    return { success: true, data: { ...publicRoom, hasRecording: Boolean(recordingUrl) } };
+    const { recordingUrl, rubricScores, notes, timestamps, ...publicRoom } = room;
+    return { success: true, data: { ...publicRoom, mediaClosed: cancelledReview || room.mediaClosed, hasRecording: Boolean(recordingUrl),
+      ...(!isOwner ? { rubricScores, notes, timestamps } : {}) } };
   })
   /**
    * Create interview slots (Admin only)
@@ -409,16 +413,27 @@ const Interview = new Elysia({ prefix: '/interview' })
         return { success: false, error: 'Not authenticated' };
       }
       
-      await interviewService.saveInterviewResult({
+      const changed = await interviewService.saveInterviewResult({
         slotId: body.slotId,
         tutorId: body.tutorId,
         result: body.result,
         rubricScores: body.rubricScores,
         notes: body.notes,
         timestamps: body.timestamps,
-        adminId: (admin as any).userId
+        adminId: (admin as any).userId,
+        expectedReviewedAt: body.expectedReviewedAt
       });
-      getIO()?.to(`interview-${body.slotId}`).emit('interview:ended');
+      if (changed) {
+        try {
+          const notification = await notificationService.createNotification({
+            userId: body.tutorId, userType: 'tutor', type: 'system',
+            title: body.result === 'pass' ? 'Interview passed' : 'Interview not passed',
+            message: body.result === 'pass' ? 'You passed your interview. Complete your application profile for review.' : 'Your interview result is not passed. Contact support for next steps.',
+            data: { slotId: body.slotId, link: '/home' },
+          });
+          getIO()?.to(`notifications:${body.tutorId}`).emit('notification:new', notification);
+        } catch (error) { logger.warn('Interview result notification failed', { interviewId: body.slotId }); }
+      }
 
       return {
         success: true,
@@ -426,7 +441,7 @@ const Interview = new Elysia({ prefix: '/interview' })
       };
     } catch (error: any) {
       console.error('Error in POST /interview/result:', error);
-      set.status = 400;
+      set.status = applicationFailure(error).status;
       return {
         success: false,
         error: error.message || 'Failed to save interview result'
@@ -437,6 +452,7 @@ const Interview = new Elysia({ prefix: '/interview' })
       slotId: t.String(),
       tutorId: t.String(),
       result: t.Union([t.Literal('pass'), t.Literal('fail')]),
+      expectedReviewedAt: t.Optional(t.Union([t.String(), t.Null()])),
       rubricScores: t.Object({
         grammar: t.Integer({ minimum: 1, maximum: 5 }),
         fluency: t.Integer({ minimum: 1, maximum: 5 }),

@@ -5,12 +5,12 @@ import { tutorStudentIssueLabel, validateTutorStudentIssue } from '../src/utils/
 
 describe('tutor student-related issue validation', () => {
   test('requires a recognized student issue only for student-related reports', () => {
-    for (const issue of ['asked_to_cancel', 'late']) {
+    for (const issue of ['asked_to_cancel', 'late', 'other']) {
       expect(() => validateTutorStudentIssue('student', issue)).not.toThrow();
       expect(tutorStudentIssueLabel(issue)).toBeTruthy();
       expect(() => validateTutorStudentIssue('audio', issue)).toThrow('only be selected');
     }
-    for (const issue of [undefined, null, '', 'other', 'toString']) {
+    for (const issue of [undefined, null, '', 'toString']) {
       expect(() => validateTutorStudentIssue('student', issue)).toThrow('Choose what happened');
     }
     expect(() => validateTutorStudentIssue('audio')).not.toThrow();

@@ -17,7 +17,7 @@ export function createTutorEmailRoutes(service: TutorEmailService = tutorEmailSe
         throw new TutorEmailError(403, 'Tutor application origin required.');
     })
     .onError(({ error, code, set }) => {
-      const failure = tutorEmailFailure(error, code);
+      const failure = tutorEmailFailure(error, String(code));
       set.status = failure.status;
       set.headers['Cache-Control'] = 'private, no-store';
       if (failure.retryAfter) set.headers['Retry-After'] = String(failure.retryAfter);

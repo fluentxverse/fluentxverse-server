@@ -21,7 +21,7 @@ const create = async () => {
   await db.run('CREATE(:User {id:$id,email:$email,role:\'tutor\',verifiedEmail:false})', { id, email });
   return { id, email };
 };
-const requestApp = new Elysia({ prefix: '/tutor' }).onError(({ error, code, set }) => { const f=tutorEmailFailure(error,code);set.status=f.status;return f.body; }).use(createTutorEmailRoutes(service));
+const requestApp = new Elysia({ prefix: '/tutor' }).onError(({ error, code, set }) => { const f=tutorEmailFailure(error,String(code));set.status=f.status;return f.body; }).use(createTutorEmailRoutes(service));
 const req = (path: string, method = 'GET', body?: any, cookie = '', origin = 'https://tutor.fluentxverse.com') => requestApp.handle(new Request('http://localhost/tutor/email-verification' + path, { method, headers: { 'content-type': 'application/json', cookie, origin }, ...(body === undefined ? {} : { body: JSON.stringify(body) }) }));
 try {
   assert.equal((await db.run('MATCH(n) RETURN count(n) AS n')).records[0]!.get('n').toNumber(), 0);

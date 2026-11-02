@@ -4,7 +4,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { Group } from '@semaphore-protocol/group';
 import { validateAnonymousContent, reviewMessageJson, reviewWindow, summarizeAnonymousReviews } from '../src/shared/anonymousReviews';
-import { FIELD, parseReviewProof, reviewMessage, reviewPublicSignals, reviewScope, reviewVerificationKey, verifyReviewProof } from '../src/services/anonymousReviews/policy';
+import { FIELD, parseReviewProof, reviewGroupId, reviewMessage, reviewPublicSignals, reviewScope, reviewVerificationKey, verifyReviewProof } from '../src/services/anonymousReviews/policy';
 import { encryptReview, decryptReview } from '../src/services/anonymousReviews/storage';
 import { AnonymousReviewRepository, type ReviewCohort } from '../src/services/anonymousReviews/repository';
 import { AnonymousReviewChain } from '../src/services/anonymousReviews/chain';
@@ -16,6 +16,8 @@ afterEach(() => { for (const key of Object.keys(process.env)) if (!(key in saved
 const content = { rating: 5, positive: ['feedback'], improvement: ['connection'], salt: 'ab'.repeat(32) };
 function configure() {
   process.env.PRIVACY_INFRA_MODE = 'bridge_only';
+  process.env.PROOF_DESTINATION_MODE = 'static';
+  process.env.ANONYMOUS_REVIEWS_CHAIN_ID = '2651420';
   process.env.ANONYMOUS_REVIEWS_ENABLED = 'true';
   process.env.ANONYMOUS_REVIEWS_CONTRACT = `0x${'1'.repeat(40)}`;
   process.env.ANONYMOUS_REVIEWS_BRIDGE = '0x3098A6974649478f0133046e44105AA84e868C21';
@@ -78,6 +80,8 @@ test('enrollment requires owned, ended, completed attendance; immutable identity
     status: 'completed', attendanceStudent: 'present', attendanceTutor: 'present' };
   const owned = spyOn(repo, 'ownedBooking').mockResolvedValue({ booking, legacyReviewed: false });
   const enrollment = spyOn(repo, 'enrollment').mockResolvedValue(null);
+  const prior = spyOn(repo, 'enrollmentForLesson').mockResolvedValue(null);
+  const historical = spyOn(repo, 'legacyEnrollmentForPeriod').mockResolvedValue(null);
   const save = spyOn(repo, 'enroll').mockResolvedValue(); const check = spyOn(chain, 'check').mockResolvedValue({} as any);
   try {
     expect((await service.forLesson('booking', 'student')).canEnroll).toBe(true);
@@ -88,8 +92,35 @@ test('enrollment requires owned, ended, completed attendance; immutable identity
       await expect(service.enroll('booking', 'student', '123')).rejects.toThrow('completed lesson');
     }
     owned.mockResolvedValue({ booking, legacyReviewed: true }); expect((await service.forLesson('booking', 'student')).canEnroll).toBe(false);
-    enrollment.mockResolvedValue({ commitment: '123' }); expect((await service.forLesson('booking', 'student')).enrolled).toBe(true);
-  } finally { owned.mockRestore(); enrollment.mockRestore(); save.mockRestore(); check.mockRestore(); }
+    enrollment.mockResolvedValue({ id: 'enrollment', groupId: 'group', commitment: '123' }); expect((await service.forLesson('booking', 'student')).enrolled).toBe(true);
+  } finally { owned.mockRestore(); enrollment.mockRestore(); prior.mockRestore(); historical.mockRestore(); save.mockRestore(); check.mockRestore(); }
+});
+test('different lessons get separate private entitlements within one tutor batch; no public booking scope', async () => {
+  configure(); const repo = new AnonymousReviewRepository(), service = new AnonymousReviewService(repo);
+  const booking = { tutorId: 'tutor', slotDateTime: new Date(Date.now() - 3600_000).toISOString(), durationMinutes: 25,
+    status: 'completed', attendanceStudent: 'present', attendanceTutor: 'present' };
+  const spies = [spyOn(repo, 'ownedBooking').mockResolvedValue({ booking, legacyReviewed: false }),
+    spyOn(repo, 'enrollmentForLesson').mockResolvedValue(null), spyOn(repo, 'legacyEnrollmentForPeriod').mockResolvedValue(null),
+    spyOn(repo, 'enrollment').mockResolvedValue(null)];
+  try {
+    const a = await service.forLesson('lesson-a', 'student'), b = await service.forLesson('lesson-b', 'student');
+    expect(a.groupId).toBe(b.groupId); expect(a.entitlementId).not.toBe(b.entitlementId);
+    expect(a.enrollmentPolicy).toBe('per_lesson'); expect(a.canEnroll && b.canEnroll).toBe(true);
+    expect((await service.forLesson('lesson-a', 'student')).entitlementId).toBe(a.entitlementId);
+    expect(reviewGroupId('tutor', a.period, 2651420, 'per_lesson')).not.toBe(reviewGroupId('tutor', a.period, 2651420));
+  } finally { spies.forEach(s => s.mockRestore()); }
+});
+test('five lesson entitlements from one student do not open an anonymous batch', async () => {
+  configure(); const repo = new AnonymousReviewRepository(), service = new AnonymousReviewService(repo);
+  const spies = [spyOn(repo, 'cohort').mockResolvedValue({ id: 'group', tutorId: 'tutor', period: '2026-10', scope: '3', chainId: 2651420,
+    enrollmentPolicy: 'per_lesson', contract: process.env.ANONYMOUS_REVIEWS_BRIDGE!,
+    opensAt: new Date(Date.now() - 3600_000).toISOString(), closesAt: new Date(Date.now() + 3600_000).toISOString() }),
+    spyOn(repo, 'memberCount').mockResolvedValue(5), spyOn(repo, 'distinctStudentCount').mockResolvedValue(1)];
+  try {
+    expect((await service.group('group')).state).toBe('insufficient_members');
+    expect((await service.summary('group')).ratingUnit).toBe('lesson');
+  }
+  finally { spies.forEach(s => s.mockRestore()); }
 });
 test('batch publication is closed-window, thresholded, chain-confirmed and immutable', async () => {
   configure(); const repo = new AnonymousReviewRepository(), chain = new AnonymousReviewChain(), service = new AnonymousReviewService(repo, chain);
@@ -108,6 +139,7 @@ test('batch publication is closed-window, thresholded, chain-confirmed and immut
     items.push({ ...items[0]!, id: 'r4', nullifier: '5', proofJson: JSON.stringify({ ...proof, nullifier: '5' }), encryptedContent: encryptReview(content, 'r4') });
     accepted.mockResolvedValue(false); await expect(service.publish('group')).rejects.toThrow('five chain-accepted');
     accepted.mockResolvedValue(true); const result = await service.publish('group'); expect(result.total).toBe(5);
+    expect(result.ratingUnit).toBe('student_month');
     await service.publish('group'); expect(save).toHaveBeenCalledTimes(1);
     expect(JSON.stringify(result)).not.toContain('encryptedContent'); expect(JSON.stringify(result)).not.toContain(content.salt);
   } finally { get.mockRestore(); list.mockRestore(); active.mockRestore(); accepted.mockRestore(); save.mockRestore(); }

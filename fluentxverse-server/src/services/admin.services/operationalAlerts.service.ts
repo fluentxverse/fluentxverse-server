@@ -4,6 +4,19 @@ import { getDriver } from '../../db/memgraph';
 import { readServerHealth } from './serverHealth.service';
 import { readContainerStats } from './containerStats.service';
 import type { AlertSnapshot, AlertTelemetry } from '../../../../shared/operationalAlerts';
+import { z } from 'zod';
+
+export const alertSnapshotSchema: z.ZodType<AlertSnapshot> = z.object({
+  version:z.literal(1),checkedAt:z.string().nullable(),apiAvailable:z.boolean().nullable(),
+  notifications:z.object({browser:z.boolean(),external:z.boolean()}),
+  incidents:z.array(z.object({
+    id:z.string(),key:z.string(),category:z.enum(['availability','disk','containers','recordings','proofs','monitoring']),
+    severity:z.enum(['warning','critical']),title:z.string(),message:z.string(),href:z.string(),
+    openedAt:z.string(),lastSeenAt:z.string(),resolvedAt:z.string().nullable(),
+    acknowledgedAt:z.string().nullable(),acknowledgedBy:z.string().nullable(),
+    events:z.array(z.object({at:z.string(),action:z.enum(['opened','acknowledged','escalated','resolved']),actor:z.string().optional()})),
+  })),
+});
 
 export const ALERT_MONITOR_URL = 'https://fluentxverse-alerts.paulanthonyarriola.workers.dev';
 const EXPECTED = new Set(['fluentxverse-server','budol-gmr-engine-1','budol-gmr-vault-1','fluentxverse-memgraph',
@@ -53,5 +66,7 @@ export async function alertMonitorRequest(path: '/snapshot' | '/acknowledge', bo
     headers: { authorization: `Bearer ${key}`, ...(body ? { 'content-type': 'application/json' } : {}) },
     body: body ? JSON.stringify(body) : undefined, signal: AbortSignal.timeout(10000) });
   if (!response.ok) throw Error(response.status === 409 ? 'Incident no longer active' : 'Alert monitor unavailable');
-  return response.json();
+  const parsed = alertSnapshotSchema.safeParse(await response.json());
+  if (!parsed.success) throw Error('Alert monitor returned an invalid snapshot');
+  return parsed.data;
 }

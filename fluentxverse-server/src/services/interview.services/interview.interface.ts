@@ -15,6 +15,7 @@ export interface InterviewSlot {
   completedAt?: string;
   notes?: string;
   result?: 'pass' | 'fail';
+  mediaClosed?: boolean;
 }
 
 export interface CreateInterviewSlotsRequest {
@@ -41,6 +42,9 @@ export interface InterviewWeekSchedule {
 }
 
 export interface PendingInterview {
+  result?: 'pass' | 'fail' | null;
+  status?: 'booked' | 'completed';
+  mediaClosed?: boolean;
   id: string;
   date: string;
   time: string;

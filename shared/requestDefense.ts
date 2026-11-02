@@ -18,6 +18,11 @@ export function requestPolicy(path: string, method: string, contentType = ''): W
   if (path === '/tutor/intro-video') return { category: 'upload', maxBytes: 100 * MiB, roles: ['tutor'], accountLimit: 6, globalLimit: 20 };
   if (path === '/tutor/profile-picture') return { category: 'upload', maxBytes: 8 * MiB, roles: ['tutor'], accountLimit: 6, globalLimit: 20 };
   if (path === '/interview/recording') return { category: 'upload', maxBytes: 96 * MiB, roles: ['admin', 'superadmin'], accountLimit: 6, globalLimit: 20 };
+  if (/^\/inbox\/disputes\/[^/]+\/images$/.test(path)) return { category: 'upload', maxBytes: 16 * MiB, roles: ['tutor'], accountLimit: 6, globalLimit: 20 };
+  if (/^\/inbox\/disputes\/[^/]+\/(decision|request|extend)$/.test(path)) return { category: 'general', maxBytes: 16384, roles: ['admin', 'superadmin'], accountLimit: 30, globalLimit: 100 };
+  if (/^\/inbox\/disputes\/[^/]+\/(reply|followup)$/.test(path)) return { category: 'general', maxBytes: 65536, roles: ['student','tutor','admin','superadmin'], accountLimit: 20, globalLimit: 100 };
+  if (/^\/inbox\/lesson-issues\/[^/]+\/decision$/.test(path)) return { category: 'general', maxBytes: 8192, roles: ['admin', 'superadmin'], accountLimit: 30, globalLimit: 100 };
+  if (/^\/inbox\/lesson-issues\/[^/]+\/replies-with-images$/.test(path)) return { category: 'upload', maxBytes: 16 * MiB, roles: ['tutor', 'admin', 'superadmin'], accountLimit: 6, globalLimit: 20 };
   if (path.startsWith('/admin/mail/')) return { category: 'upload', maxBytes: 12 * MiB, roles: ['admin', 'superadmin'], accountLimit: 30, globalLimit: 60 };
   if (contentType.toLowerCase().startsWith('multipart/form-data')) return { category: 'upload', maxBytes: 10 * MiB, roles: path.startsWith('/lesson/') ? ['admin', 'superadmin'] : ['student', 'tutor', 'admin', 'superadmin'], accountLimit: 6, globalLimit: 20 };
   return general;

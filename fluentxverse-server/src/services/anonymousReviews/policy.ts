@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { concat, keccak256, sha256, toHex, type Address, type Hex } from 'viem';
 import { unpackGroth16Proof } from '@zk-kit/utils/proof-packing';
 import { assertHorizenReceiptConfig, horizenVerificationNetwork, privacyInfrastructure } from '../proof.services/horizenReceipt';
+import { engineReceiptDestination, mainnetReceiptCoordinates } from '../proof.services/projectDestination';
 import { REVIEW_DEPTH, REVIEW_PROTOCOL, reviewMessageJson, reviewScopeJson, validateAnonymousContent,
   type AnonymousReviewProof } from '../../shared/anonymousReviews';
 
@@ -16,10 +17,9 @@ export class AnonymousReviewError extends Error {
 export function requireAnonymousReviews() {
   if (process.env.ANONYMOUS_REVIEWS_ENABLED !== 'true') throw new AnonymousReviewError('Anonymous review pilot is disabled', 503);
 }
-export function reviewGroupId(tutorId: string, period: string) {
+export function reviewGroupId(tutorId: string, period: string, chainId = Number(process.env.ANONYMOUS_REVIEWS_CHAIN_ID || '8453'), enrollmentPolicy?: 'per_lesson') {
   privacyInfrastructure();
-  const protocol = `${REVIEW_PROTOCOL}.bridge-only`;
-  const chainId = Number(process.env.ANONYMOUS_REVIEWS_CHAIN_ID || '8453');
+  const protocol = `${REVIEW_PROTOCOL}.bridge-only${enrollmentPolicy === 'per_lesson' ? '.per-lesson' : ''}`;
   if (chainId !== 2651420) {
     return keccak256(toHex(JSON.stringify({ protocol, tutorId, period, chainId })));
   }
@@ -79,8 +79,14 @@ export async function verifyReviewProof(proof: AnonymousReviewProof): Promise<bo
 }
 export function reviewGroth16(proof: AnonymousReviewProof) { return unpackGroth16Proof(proof.points); }
 
-export function reviewConfig() {
-  const chainId = Number(process.env.ANONYMOUS_REVIEWS_CHAIN_ID || '8453');
+export async function currentReviewConfig() {
+  const destination = await engineReceiptDestination('GMR_ANONYMOUS_REVIEWS');
+  return reviewConfig(destination?.chainId);
+}
+export function reviewConfig(selectedChainId?: number) {
+  const configuredChainId = Number(process.env.ANONYMOUS_REVIEWS_CHAIN_ID || '8453');
+  const selected = selectedChainId !== undefined && selectedChainId !== configuredChainId ? mainnetReceiptCoordinates(selectedChainId) : null;
+  const chainId = selected?.chainId ?? configuredChainId;
   const network = horizenVerificationNetwork(chainId);
   const address = (name: string): Address => {
     const value = process.env[name] || '';
@@ -93,11 +99,11 @@ export function reviewConfig() {
     return value;
   };
   const vkHash = process.env.ANONYMOUS_REVIEWS_ZKVERIFY_VK_HASH || '';
-  const domainId = Number(process.env.ANONYMOUS_REVIEWS_DOMAIN_ID || '0');
-  const rpcUrl = process.env.ANONYMOUS_REVIEWS_RPC_URL || '';
+  const domainId = selected?.domainId ?? Number(process.env.ANONYMOUS_REVIEWS_DOMAIN_ID || '0');
+  const rpcUrl = selected?.rpcUrl ?? process.env.ANONYMOUS_REVIEWS_RPC_URL ?? '';
   if (!/^0x[a-fA-F0-9]{64}$/.test(vkHash) || BigInt(vkHash) === 0n || !Number.isSafeInteger(domainId) || domainId <= 0
     || !/^https?:\/\//.test(rpcUrl)) throw new AnonymousReviewError('Review chain configuration is incomplete', 503);
-  const infrastructure = privacyInfrastructure(), bridge = address('ANONYMOUS_REVIEWS_BRIDGE');
+  const infrastructure = privacyInfrastructure(), bridge = selected?.bridge ?? address('ANONYMOUS_REVIEWS_BRIDGE');
   assertHorizenReceiptConfig({ chainId, bridge, domainId, rpcUrl });
   return { infrastructure, network, chainId, contract: bridge, bridge,
     vkHash: vkHash as Hex, domainId, rpcUrl, depth: REVIEW_DEPTH,

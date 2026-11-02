@@ -1,6 +1,6 @@
 import { type Hex } from 'viem';
 import { REVIEW_MIN_BATCH, validateAnonymousContent } from '../../shared/anonymousReviews';
-import { AnonymousReviewError, parseReviewProof, requireAnonymousReviews, reviewMessage, reviewPublicSignals } from './policy';
+import { AnonymousReviewError, currentReviewConfig, parseReviewProof, requireAnonymousReviews, reviewMessage, reviewPublicSignals } from './policy';
 import { privacyInfrastructure } from '../proof.services/horizenReceipt';
 import { AnonymousReviewRepository, type ReviewCohort, type ReviewTallyRecord } from './repository';
 import { decryptReview, encryptReview } from './storage';
@@ -72,13 +72,16 @@ export class AnonymousReviewTally {
     await this.source.complete(cohort, JSON.parse(record.manifestJson));
     const base = (process.env.GMR_ANONYMOUS_TALLY_ENGINE_API_BASE || '').replace(/\/$/, ''), key = process.env.GMR_ANONYMOUS_TALLY_ENGINE_API_KEY || '';
     if (!base || !key) throw new AnonymousReviewError('Dedicated tally Engine project is not configured', 503);
+    const destination = await currentReviewConfig();
+    if (cohort.chainId !== destination.chainId) throw new AnonymousReviewError('Tally retains its original destination; do not relabel the snapshot', 409);
     if (!await this.repository.claimTally(id, ['proof_ready'], 'submitting_zkverify')) throw new AnonymousReviewError('Tally submission needs reconciliation; do not blindly retry', 409);
     const response = await fetch(`${base}/v1/zkverify/proofs`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-GMR-Engine-Key': key },
       body: JSON.stringify({ proof: proof.proof, publicSignals: proof.publicSignals, vk: config.imageId, proofSystem: 'risc0', version: 'V2_3',
-        domainId: Number(process.env.ANONYMOUS_REVIEWS_DOMAIN_ID), expectedNetwork: 'Volta' }), signal: AbortSignal.timeout(300_000) });
+        domainId: destination.domainId, expectedNetwork: destination.network }), signal: AbortSignal.timeout(300_000) });
     if (!response.ok) throw new AnonymousReviewError('Tally submission needs Engine reconciliation', 503);
     const { submission } = await response.json() as any, transaction = JSON.parse(submission?.transactionResult || '{}');
-    if (submission?.zkVerifyNetwork !== 'Volta' || !submission?.id || !/^0x[a-fA-F0-9]{64}$/.test(transaction.txHash || '')
+    if (submission?.zkVerifyNetwork !== destination.network || submission?.domainId !== destination.domainId
+      || !submission?.id || !/^0x[a-fA-F0-9]{64}$/.test(transaction.txHash || '')
       || transaction.statement?.toLowerCase() !== tallyStatement(config.imageId, record.journal as Hex))
       throw new AnonymousReviewError('Tally proof statement needs reconciliation', 503);
     await this.repository.patchTally(id, { status: 'awaiting_horizen', zkVerifyTx: transaction.txHash, engineSubmissionId: submission.id });
@@ -93,7 +96,7 @@ export class AnonymousReviewTally {
       throw new AnonymousReviewError('Tally totals differ from the proof journal', 409);
     await this.source.complete(cohort, snapshot);
     const statement = tallyStatement(config.imageId, record.journal as Hex);
-    if (!await this.source.receipt(statement, receipt)) throw new AnonymousReviewError('Tally receipt is not verified at Horizen finality', 409);
+    if (!await this.source.receipt(statement, receipt, cohort.chainId)) throw new AnonymousReviewError('Tally receipt is not verified at Horizen finality', 409);
     return { snapshot, totals, statement };
   }
   async certify(id: string, receipt: ReviewReceipt) {

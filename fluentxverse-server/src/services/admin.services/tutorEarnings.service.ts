@@ -12,10 +12,11 @@ export function earningsReason(reason: unknown): string {
 export function payableCompletion(booking: Record<string, any>, now = Date.now()) {
   const b = plainNode(booking), completed = Date.parse(b.finalizedAt || '');
   const starts = Date.parse(b.slotDateTime || ''), minutes = b.durationMinutes ?? 25;
-  if (b.status !== 'completed' || b.lessonOutcome !== 'attended' || b.attendanceTutor !== 'present' || b.attendanceStudent !== 'present'
+  if (b.status !== 'completed' || (b.issueDecision !== 'no_penalty' && (b.lessonOutcome !== 'attended' || b.attendanceTutor !== 'present' || b.attendanceStudent !== 'present'))
     || !Number.isFinite(completed) || completed > now || !Number.isFinite(starts) || !Number.isInteger(minutes) || minutes < 1 || minutes > 180
-    || starts + minutes * 60000 > completed || b.refunded || b.refundApprovedBy
-    || !['', 'not_required'].includes(b.refundStatus || '') || b.compensationHold) {
+    || starts + minutes * 60000 > completed || now < starts + minutes * 60000 + 48 * 3600000
+    || ((b.refunded || b.refundApprovedBy || !['', 'not_required'].includes(b.refundStatus || '')) && b.issueDecision !== 'no_penalty')
+    || b.penaltyCode === '301' || b.issueDecision === 'past' || b.compensationHold || b.disputeHold) {
     throw new TutorCompensationError(409, 'Lesson is not finalized and payable, or requires financial review.');
   }
   return new Date(completed).toISOString();

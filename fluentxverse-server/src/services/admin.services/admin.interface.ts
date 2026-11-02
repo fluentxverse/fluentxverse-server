@@ -48,6 +48,7 @@ export interface ProfileItemStatus {
 }
 
 export interface ProfileItemStatuses {
+  nickname?: ProfileItemStatus;
   profilePicture: ProfileItemStatus;
   videoIntro: ProfileItemStatus;
   bio: ProfileItemStatus;
@@ -57,7 +58,7 @@ export interface ProfileItemStatuses {
 
 // Pending changes for already-approved profiles
 export interface PendingProfileChange {
-  itemKey: 'profilePicture' | 'videoIntro' | 'bio' | 'education' | 'interests';
+  itemKey: 'nickname' | 'profilePicture' | 'videoIntro' | 'bio' | 'education' | 'interests';
   newValue: any;
   oldValue?: any;
   status: 'pending' | 'approved' | 'rejected';
@@ -67,6 +68,7 @@ export interface PendingProfileChange {
 }
 
 export interface PendingProfileReview {
+  nickname?: string;
   id: string;
   name: string;
   email: string;
@@ -85,6 +87,7 @@ export interface PendingProfileReview {
 }
 
 export interface TutorListItem {
+  identityStatus?: string;
   id: string;
   name: string;
   email: string;

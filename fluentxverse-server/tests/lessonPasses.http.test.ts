@@ -1,9 +1,11 @@
 import { afterEach, expect, test } from 'bun:test';
 import Elysia from 'elysia';
 import { createLessonPassRoutes } from '../src/routes/lessonPasses.route';
+import { publicPassMode } from '../src/services/lessonPasses/policy';
+import { environmentBookingPolicy } from '../src/services/bookingSettings.policy';
 const savedEnv = { ...process.env };
 afterEach(()=>{ for (const key of Object.keys(process.env)) if (!(key in savedEnv)) delete process.env[key]; Object.assign(process.env, savedEnv); });
-const app=new Elysia().use(createLessonPassRoutes()), id=`0x${'a'.repeat(64)}`;
+const app=new Elysia().use(createLessonPassRoutes(undefined, () => publicPassMode(environmentBookingPolicy()))), id=`0x${'a'.repeat(64)}`;
 const post=(path:string,data:unknown={},origin='https://student.fluentxverse.com')=>app.handle(new Request(`http://localhost/lesson-passes/${path}`,
   {method:'POST',headers:{origin,'content-type':'application/json'},body:JSON.stringify(data)}));
 test('paid booking mode is retained but archived private passes cannot be activated',async()=>{

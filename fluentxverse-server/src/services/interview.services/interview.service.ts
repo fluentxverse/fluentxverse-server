@@ -1,9 +1,10 @@
 import { getDriver } from '../../db/memgraph';
 import { invalidateCache } from '../../db/redis';
 import neo4j from 'neo4j-driver';
+import { requireIdentityBooking, invalidateIdentity, currentIdentity, identityEnabled } from '../tutorIdentity/service';
+import { INTERVIEW_HORIZON_MS, nextManilaMidnight } from '../../../../shared/tutorIdentity';
 import { ApplicationError, lockApplicant, repairPassedFlag } from '../exam.services/applicationPolicy';
 import { ensureInterviewCalendar, interviewStart, interviewWeek, lockInterviewCalendar } from './interviewTime';
-import { tryIssueAndMaybeSubmitTutorCertificationProof } from '../proof.services/tutorCertificationWorkflow.service';
 import type { 
   InterviewSlot, 
   InterviewWeekSchedule,
@@ -36,14 +37,17 @@ export class InterviewService {
       return { id: slot.id as string, tutorId: slot.tutorId as string | undefined,
         tutorName: `${row.get('firstName') || ''} ${row.get('lastName') || ''}`.trim(),
         status: slot.status as string, date: slot.date as string, time: slot.time as string,
-        result: slot.result || null, mediaClosed: Boolean(slot.mediaClosedAt), recordingUrl: slot.recordingUrl as string | undefined };
+        result: slot.result || null, reviewedAt: slot.reviewedAt || null,
+        rubricScores: slot.rubricScores ? JSON.parse(slot.rubricScores) : null,
+        notes: slot.notes || '', timestamps: slot.timestamps ? JSON.parse(slot.timestamps) : [],
+        mediaClosed: Boolean(slot.mediaClosedAt), recordingUrl: slot.recordingUrl as string | undefined };
     } finally { await session.close(); }
   }
   /**
    * Create interview slots (Admin only)
    */
   async createSlots(slots: { date: string; time: string }[]): Promise<InterviewSlot[]> {
-    if (!slots.length || slots.length > 500 || slots.some(s => interviewStart(s.date, s.time) <= Date.now())) throw new ApplicationError(400, 'Interview slots must be in the future (Asia/Manila).');
+    if (!slots.length || slots.length > 500 || slots.some(s => interviewStart(s.date, s.time) <= Date.now() || interviewStart(s.date, s.time) > Date.now() + INTERVIEW_HORIZON_MS)) throw new ApplicationError(400, 'Interview slots must be within the next three days (Asia/Manila).');
     await ensureInterviewCalendar();
     const driver = getDriver();
     const session = driver.session();
@@ -134,7 +138,8 @@ export class InterviewService {
           tutorEmail: u?.email,
           createdAt: s.createdAt,
           bookedAt: s.bookedAt,
-          notes: s.notes
+          notes: s.notes,
+          result: s.result
         };
       });
 
@@ -177,7 +182,7 @@ export class InterviewService {
             status: s.status as 'open',
             createdAt: s.createdAt
           };
-        }).filter(slot => { try { return interviewStart(slot.date, slot.time) > Date.now(); } catch { return false; } });
+        }).filter(slot => { try { const start = interviewStart(slot.date, slot.time); return start > Date.now() && start <= Date.now() + INTERVIEW_HORIZON_MS; } catch { return false; } });
       } finally {
         await session.close();
       }
@@ -199,7 +204,9 @@ export class InterviewService {
       const written = user.writtenExamPassed === true || await repairPassedFlag(tx, tutorId, 'written');
       const speaking = user.speakingExamPassed === true || await repairPassedFlag(tx, tutorId, 'speaking');
       if (!written || !speaking) throw new ApplicationError(409, 'Pass the written and speaking assessments before booking an interview.');
-      if (user.interviewPassed === true) throw new ApplicationError(409, 'You have already passed the interview.');
+      if (user.interviewPassed === true && !(identityEnabled() && user.identityRequired === true && user.identityVerified !== true))
+        throw new ApplicationError(409, 'You have already passed the interview.');
+      const identity = await requireIdentityBooking(tx, tutorId);
       const now = new Date().toISOString();
 
       // Check if tutor already has a pending interview
@@ -214,13 +221,16 @@ export class InterviewService {
 
       const slot = (await tx.run('MATCH(s:InterviewSlot {id:$slotId}) SET s.bookingRevision=coalesce(s.bookingRevision,0)+1 RETURN s', { slotId })).records[0]?.get('s').properties;
       if (!slot || slot.status !== 'open' || interviewStart(slot.date, slot.time) <= Date.now()) throw new ApplicationError(409, 'This interview slot is no longer available.');
+      if (interviewStart(slot.date, slot.time) > Date.now() + INTERVIEW_HORIZON_MS) throw new ApplicationError(409, 'Interview slots are limited to the next three days.');
       const duplicate = await tx.run("MATCH(s:InterviewSlot {date:$date,time:$time,status:'booked'}) RETURN s", { date: slot.date, time: slot.time });
       if (duplicate.records.length) throw new ApplicationError(409, 'This interview time is already booked.');
       const result = await tx.run(`
         MATCH (s:InterviewSlot {id: $slotId, status: 'open'})
         SET s.status = 'booked',
             s.tutorId = $tutorId,
-            s.bookedAt = $bookedAt
+            s.bookedAt = $bookedAt,
+            s.tutorEnteredAt = null, s.adminEnteredAt = null,
+            s.identityPresentationAt = null, s.identityPresentationEndedAt = null
         RETURN s
       `, { slotId, tutorId, bookedAt: now });
 
@@ -230,6 +240,7 @@ export class InterviewService {
       }
 
       const s = record.get('s').properties;
+      if (identity) await tx.run(`MATCH(i:TutorIdentity {id:$id}) SET i.status='booked',i.interviewId=$slotId,i.bookedAt=$now,i.noShowAt=$noShowAt`, { id: identity.id, slotId, now, noShowAt: new Date(interviewStart(s.date, s.time) + 30 * 60000).toISOString() });
       return {
         id: s.id,
         date: s.date,
@@ -259,10 +270,12 @@ export class InterviewService {
       await session.executeWrite(async tx => {
       await lockInterviewCalendar(tx);
       if (tutorId) await lockApplicant(tx, tutorId);
+      if (tutorId) await invalidateIdentity(tx, tutorId, 'You cancelled your interview. Submit your ID again to book another interview.');
       // If tutorId is provided, verify it's the tutor's booking
       if (tutorId) {
         const result = await tx.run(`
           MATCH (s:InterviewSlot {id: $slotId, tutorId: $tutorId, status: 'booked'})
+          WHERE s.result IS NULL AND s.mediaClosedAt IS NULL
           SET s.status = 'open',
               s.tutorId = null,
               s.bookedAt = null
@@ -274,8 +287,19 @@ export class InterviewService {
         }
       } else {
         // Admin cancel - no tutorId check
+        const previous = (await tx.run(`MATCH(s:InterviewSlot {id:$slotId,status:'booked'}) RETURN s.tutorId AS tutorId`, { slotId })).records[0]?.get('tutorId');
+        if (previous && identityEnabled()) {
+          await lockApplicant(tx, previous, true);
+          const identity = await currentIdentity(tx, previous);
+          if (identity?.status === 'verified' && identity.interviewId === slotId) {
+            await invalidateIdentity(tx, previous, 'Interview cancelled. Submit your ID again to book another interview.');
+          } else if (identity?.status === 'booked' && identity.interviewId === slotId) {
+            await tx.run(`MATCH(i:TutorIdentity {id:$id}) SET i.status='accepted',i.interviewId=null,i.noShowAt=null`, { id: identity.id });
+          }
+        }
         const result = await tx.run(`
           MATCH (s:InterviewSlot {id: $slotId, status: 'booked'})
+          WHERE s.result IS NULL AND s.mediaClosedAt IS NULL
           SET s.status = 'open',
               s.tutorId = null,
               s.bookedAt = null
@@ -322,7 +346,8 @@ export class InterviewService {
 
     try {
       const result = await session.run(`
-        MATCH (s:InterviewSlot {status: 'booked'})
+        MATCH (s:InterviewSlot)
+        WHERE s.status = 'booked' OR (s.status = 'completed' AND s.result IS NULL)
         MATCH (u:User {id: s.tutorId})
         RETURN s, u
         ORDER BY s.date, s.time
@@ -339,7 +364,8 @@ export class InterviewService {
           tutorId: u.id,
           tutorName: `${u.firstName || ''} ${u.lastName || ''}`.trim(),
           tutorEmail: u.email,
-          bookedAt: s.bookedAt
+          bookedAt: s.bookedAt,
+          status: s.status, mediaClosed: Boolean(s.mediaClosedAt), result: s.result || null
         };
       });
     } finally {
@@ -400,6 +426,7 @@ export class InterviewService {
         createdAt: s.createdAt,
         bookedAt: s.bookedAt,
         completedAt: s.completedAt,
+        mediaClosed: Boolean(s.mediaClosedAt),
         notes: s.notes,
         result: s.result
       };
@@ -425,29 +452,54 @@ export class InterviewService {
     notes: string;
     timestamps: { time: string; note: string }[];
     adminId: string;
-  }): Promise<void> {
+    expectedReviewedAt?: string | null;
+  }): Promise<boolean> {
     const driver = getDriver();
     const session = driver.session();
 
     try {
-      const completedAt = new Date().toISOString();
-      
-      // Update the interview slot with result
+      // Review state is independent of the media session's completion state.
       const changed = await session.executeWrite(async tx => {
+      await lockApplicant(tx, data.tutorId);
       const existing = (await tx.run('MATCH (s:InterviewSlot {id: $slotId, tutorId: $tutorId}) RETURN s', {
         slotId: data.slotId, tutorId: data.tutorId,
       })).records[0]?.get('s')?.properties;
-      if (existing?.result != null) {
+      if (!existing || !['booked', 'completed'].includes(existing.status)) throw new ApplicationError(409, 'Interview is not owned by this tutor or is not reviewable');
+      const completedAt = new Date(Math.max(Date.now(), (Date.parse(existing.reviewedAt || '') || 0) + 1)).toISOString();
+      if (identityEnabled()) {
+        const identity = await currentIdentity(tx, data.tutorId);
+        if (data.result === 'pass' && (identity?.status !== 'verified' || identity.interviewId !== data.slotId))
+          throw new ApplicationError(409, 'Complete the live identity match before passing this interview.');
+        if (identity?.interviewId === data.slotId && !identity.deleteAt)
+          await tx.run(`MATCH(i:TutorIdentity {id:$id}) SET i.deleteAt=$at`, { id: identity.id, at: nextManilaMidnight(Date.now()) });
+        if (data.result === 'fail' && identity?.interviewId === data.slotId && identity.status === 'booked')
+          await tx.run(`MATCH(i:TutorIdentity {id:$id}) SET i.status='resubmit',i.reason='Interview finalized without completed identity verification. Resubmit your ID before booking again.'`, { id: identity.id });
+      }
+      if (existing.result != null) {
         if (existing.result === data.result && existing.reviewedBy === data.adminId
           && existing.rubricScores === JSON.stringify(data.rubricScores)
           && existing.notes === data.notes && existing.timestamps === JSON.stringify(data.timestamps)) return false;
-        throw new Error('Interview already has a finalized result');
       }
+      if (data.expectedReviewedAt !== undefined && data.expectedReviewedAt !== (existing.reviewedAt || null)) {
+        throw new ApplicationError(409, 'This interview result changed. Reload before saving your review.');
+      }
+      const newer = await tx.run(`MATCH (s:InterviewSlot {tutorId: $tutorId})
+        WHERE s.id <> $slotId AND s.status IN ['booked', 'completed']
+          AND s.bookedAt > $bookedAt RETURN s LIMIT 1`, {
+        tutorId: data.tutorId, slotId: data.slotId, bookedAt: existing.bookedAt || '',
+      });
+      if (newer.records.length) throw new ApplicationError(409, 'Review the applicant\'s latest interview instead.');
+      await tx.run(`CREATE (:InterviewResultRevision {id: $id, slotId: $slotId, tutorId: $tutorId,
+        previousResult: $previousResult, result: $result, reviewedBy: $adminId, reviewedAt: $at,
+        rubricScores: $rubricScores, notes: $notes, timestamps: $timestamps})`, {
+        id: crypto.randomUUID(), slotId: data.slotId, tutorId: data.tutorId,
+        previousResult: existing.result || null, result: data.result, adminId: data.adminId, at: completedAt,
+        rubricScores: JSON.stringify(data.rubricScores), notes: data.notes, timestamps: JSON.stringify(data.timestamps),
+      });
       const saved = await tx.run(`
         MATCH (s:InterviewSlot {id: $slotId, tutorId: $tutorId})
-        WHERE s.status IN ['booked', 'completed'] AND s.result IS NULL
-        SET s.status = 'completed',
-            s.completedAt = $completedAt,
+        WHERE s.status IN ['booked', 'completed']
+        SET s.reviewedAt = $completedAt,
             s.result = $result,
             s.rubricScores = $rubricScores,
             s.notes = $notes,
@@ -464,19 +516,20 @@ export class InterviewService {
         timestamps: JSON.stringify(data.timestamps),
         adminId: data.adminId
       });
-      if (!saved.records.length) throw new Error('Interview is not owned by this tutor or already has a finalized result');
+      if (!saved.records.length) throw new ApplicationError(409, 'Interview is no longer reviewable');
 
       // If passed, update tutor certification status
       if (data.result === 'pass') {
         await tx.run(`
           MATCH (u:User {id: $tutorId})
           SET u.interviewPassed = true,
+              u.interviewFailedAt = null,
               u.interviewPassedAt = $completedAt,
               u.interviewSlotId = $slotId,
               u.interviewRubricScores = $rubricScores,
               u.certificationStatus = CASE 
                 WHEN u.writtenExamPassed = true AND u.speakingExamPassed = true AND u.profileStatus = 'approved' THEN 'certified'
-                ELSE coalesce(u.certificationStatus, 'pending')
+                ELSE 'pending'
               END
           RETURN u
         `, {
@@ -503,10 +556,11 @@ export class InterviewService {
         await tx.run(`
           MATCH (u:User {id: $tutorId})
           SET u.interviewPassed = false,
+              u.interviewPassedAt = null,
               u.interviewFailedAt = $completedAt,
               u.interviewSlotId = $slotId,
               u.interviewRubricScores = $rubricScores,
-              u.certificationStatus = coalesce(u.certificationStatus, 'pending')
+              u.certificationStatus = 'pending'
           RETURN u
         `, {
           tutorId: data.tutorId,
@@ -519,13 +573,15 @@ export class InterviewService {
         await tx.run(`
           MATCH (t:Tutor {odIuser: $tutorId})
           SET t.interviewPassed = false,
-              t.interviewFailedAt = $completedAt
+              t.interviewPassedAt = null,
+              t.interviewFailedAt = $completedAt,
+              t.certificationStatus = 'pending'
           RETURN t
         `, { tutorId: data.tutorId, completedAt });
       }
       return true;
       });
-      if (changed && data.result === 'pass') void tryIssueAndMaybeSubmitTutorCertificationProof(data.tutorId, 'interview_passed');
+      return changed;
     } finally {
       await session.close();
     }
@@ -540,9 +596,10 @@ export class InterviewService {
 
     try {
       const result = await session.run(`
-        MATCH (s:InterviewSlot {tutorId: $tutorId, status: 'completed'})
+        MATCH (s:InterviewSlot {tutorId: $tutorId})
+        WHERE s.status IN ['booked', 'completed'] AND s.result IS NOT NULL
         RETURN s
-        ORDER BY s.completedAt DESC
+        ORDER BY coalesce(s.reviewedAt, s.completedAt) DESC
         LIMIT 1
       `, { tutorId });
 

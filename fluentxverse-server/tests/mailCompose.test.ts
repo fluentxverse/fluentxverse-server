@@ -34,7 +34,9 @@ test('real outgoing MIME uses CID parts for inline images, preserves styles and 
   const parsed = await simpleParser(raw,{skipImageLinks:true});
   expect(parsed.html).toContain('cid:fxv-'); expect(parsed.html).not.toContain('data:image');
   expect(parsed.html).toContain('font-size:18px'); expect(parsed.html).toContain('text-align:right');
-  expect(parsed.attachments).toHaveLength(1); expect(parsed.attachments[0].content.equals(png)).toBe(true);
-  expect(parsed.attachments[0].contentDisposition).toBe('inline'); expect(parsed.attachments[0].contentId).toContain('fxv-');
+  expect(parsed.attachments).toHaveLength(1); const [attachment] = parsed.attachments;
+  if (!attachment) throw new Error('Expected the inline image attachment');
+  expect(attachment.content.equals(png)).toBe(true);
+  expect(attachment.contentDisposition).toBe('inline'); expect(attachment.contentId).toContain('fxv-');
   expect(envelope.to).toContain('private@example.test'); expect(raw.toString()).not.toContain('private@example.test');
 });

@@ -12,7 +12,7 @@ const params = t.Object({ id });
 // Preserve extras until the explicit guard rejects them; Elysia otherwise strips them.
 const object = <T extends Record<string, any>>(fields: T) => t.Object(fields, { additionalProperties: true });
 const origins = ['https://student.fluentxverse.com', 'https://student.fluentxverse.xyz'];
-export function createLessonPassRoutes(service: LessonPassService = lessonPassService) {
+export function createLessonPassRoutes(service: LessonPassService = lessonPassService, modeProvider = publicPassMode) {
   async function result(c: any, action: () => Promise<unknown> | unknown) {
     try { return { success: true, data: await action() }; }
     catch (error) { c.set.status = error instanceof PassError ? error.status : 503;
@@ -67,7 +67,7 @@ export function createLessonPassRoutes(service: LessonPassService = lessonPassSe
     })
     .onError(({ set, code }) => { set.status = ['VALIDATION','PARSE'].includes(String(code)) ? 400 : 503;
       return { success: false, error: 'Pass request could not be processed' }; })
-    .get('/mode', c => result(c, publicPassMode))
+    .get('/mode', c => result(c, () => modeProvider()))
     .get('/me', c => student(c, user => service.mine(user)))
     .put('/vault', c => student(c, user => { if (user !== c.body.accountId) throw new PassError('Student account changed', 409); return service.saveVault(user, c.body.version, c.body.envelope); }), {
       body: object({ accountId: t.String({ minLength: 1, maxLength: 128 }), version: t.Integer({ minimum: 0 }), envelope: t.String({ maxLength: 262144 }) }) })

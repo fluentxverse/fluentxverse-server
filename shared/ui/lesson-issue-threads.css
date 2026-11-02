@@ -1,0 +1,30 @@
+.lesson-issue-threads { margin: 16px 0; color: var(--text-primary, #243040); }
+.lesson-issue-threads > header { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.lesson-issue-threads h2 { font-size: 18px; margin: 0; }
+.lesson-issue-threads h3 { font-size: 15px; margin: 0; }
+.lesson-issue-threads details { border-bottom: 1px solid #cbd5e1; padding: 12px 0; }
+.lesson-issue-threads summary { cursor: pointer; overflow-wrap: anywhere; line-height: 1.6; }
+.lesson-issue-threads .issue-thread-body { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; }
+.lesson-issue-threads .issue-thread-warning { border-left: 3px solid #c67600; padding-left: 12px; }
+.lesson-issue-threads .issue-thread-reply { padding: 12px 0; border-top: 1px solid #cbd5e1; }
+.lesson-issue-threads textarea { display: block; width: 100%; box-sizing: border-box; min-height: 110px; padding: 10px; border: 1px solid #94a3b8; border-radius: 6px; color: inherit; background: transparent; font: inherit; }
+.lesson-issue-threads button { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 6px 12px; border: 1px solid #94a3b8; border-radius: 6px; color: inherit; background: transparent; cursor: pointer; }
+.lesson-issue-threads button:disabled { opacity: .5; cursor: default; }
+.lesson-issue-threads form { display: grid; gap: 10px; justify-items: start; }
+.lesson-issue-threads form + form { margin-top: 20px; }
+.lesson-issue-threads time { font-size: 12px; }
+.dispute-filters { display: flex; gap: 8px; margin: 12px 0; }
+.dispute-filters [aria-pressed='true'] { background: #0755c9; color: #fff; border-color: #0755c9; }
+.lesson-issue-threads label { width: 100%; }
+.lesson-issue-threads input[type='file'], .lesson-issue-threads select { display: block; max-width: 100%; color: inherit; }
+.lesson-issue-threads select { width: 100%; max-width: 360px; min-height: 38px; padding: 6px 10px; border: 1px solid #94a3b8; border-radius: 6px; background: #fff; }
+[data-admin-theme='dark'] .lesson-issue-threads select { background: #20242a; }
+.issue-thread-images { display: flex; flex-wrap: wrap; gap: 12px; }
+.issue-thread-images img { width: 160px; height: 120px; max-width: 100%; object-fit: contain; border: 1px solid #94a3b8; border-radius: 4px; }
+.issue-thread-decision { border-top: 1px solid #94a3b8; padding-top: 16px; margin-top: 16px; }
+.lesson-issue-threads [role='alert'] { color: #c33c32; }
+[data-theme='dark'] .lesson-issue-threads,
+[data-admin-theme='dark'] .lesson-issue-threads { color: #f1f5f9; }
+[data-theme='dark'] .lesson-issue-threads :is(details, .issue-thread-reply, textarea, button),
+[data-admin-theme='dark'] .lesson-issue-threads :is(details, .issue-thread-reply, textarea, button) { border-color: #56606e; }
+@media(max-width: 600px) { .lesson-issue-threads > header { flex-wrap: wrap; } }

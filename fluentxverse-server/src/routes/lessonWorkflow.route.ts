@@ -5,6 +5,9 @@ import { lessonWorkflowService } from '../services/lessonWorkflow.service';
 import { lessonIssueReviewService } from '../services/lessonIssueReview.service';
 import { LessonNotesReadOnly } from '../utils/lessonNotesEditWindow';
 import { LessonFeedbackInvalid } from '../utils/lessonFeedbackValidation';
+import { completionReviewFields } from '../services/lessonOutcome/schema';
+import { LessonOutcomePolicyError } from '../services/lessonOutcome/policy';
+import { isAllowedAdminMutationOrigin } from '../config/cors';
 
 async function workflowAdminGuard(cookie: any, set: any) {
   const auth = await createAdminGuard(cookie, set, 'support');
@@ -14,6 +17,7 @@ async function workflowAdminGuard(cookie: any, set: any) {
 }
 
 const Workflow = new Elysia({ prefix: '/lesson-workflow' })
+  .onRequest(({ set }) => { set.headers['Cache-Control'] = 'private, no-store'; })
   .onError(({ error, set }) => { if (error instanceof Error) { set.status = error instanceof LessonNotesReadOnly ? 403 : 400; return { success: false, error: error.message }; } })
   .get('/tutor/pending', async ({ cookie, set }) => {
     const auth = cookie.tutorAuth?.value ? await verifyAuthToken(String(cookie.tutorAuth.value)) : null;
@@ -50,12 +54,17 @@ const Workflow = new Elysia({ prefix: '/lesson-workflow' })
     if (!await workflowAdminGuard(cookie, set)) return { success: false, error: 'Unauthorized' };
     return { success: true, data: await lessonIssueReviewService.list() };
   })
-  .put('/admin/reports/:source/:id', async ({ cookie, set, params, body }) => {
+  .put('/admin/reports/:source/:id', async ({ cookie, set, params, body, request }) => {
     const admin = await workflowAdminGuard(cookie, set);
     if (!admin) return { success: false, error: 'Unauthorized' };
+    if (!isAllowedAdminMutationOrigin(request.headers.get('origin'))) { set.status = 403; return { success: false, error: 'Untrusted origin' }; }
     if (body.ticketTransactionId && !await createAdminGuard(cookie, set, 'finance')) return { success: false, error: 'Finance permission required' };
-    return { success: true, data: await lessonIssueReviewService.review(params.source, params.id, admin.userId, body.status, body.resolution, body.ticketTransactionId) };
-  }, { body: t.Object({ status: t.Union([t.Literal('submitted'), t.Literal('under_review'), t.Literal('resolved')]), resolution: t.String({ maxLength: 2000 }), ticketTransactionId: t.Optional(t.String({ maxLength: 200 })) }) })
+    try { return { success: true, data: await lessonIssueReviewService.review(params.source, params.id, admin.userId, body.status, body.resolution, body.ticketTransactionId, body.completionDecision, body.completionOutcome) }; }
+    catch (error) {
+      if (!(error instanceof LessonOutcomePolicyError)) throw error;
+      set.status = 400; return { success: false, error: error.message };
+    }
+  }, { body: t.Object({ ...completionReviewFields, status: t.Union([t.Literal('submitted'), t.Literal('under_review'), t.Literal('resolved')]), resolution: t.String({ maxLength: 2000 }), ticketTransactionId: t.Optional(t.String({ maxLength: 200 })) }) })
   .get('/admin/attendance/:bookingId', async ({ cookie, set, params }) => {
     if (!await workflowAdminGuard(cookie, set)) return { success: false, error: 'Unauthorized' };
     return { success: true, data: await lessonIssueReviewService.attendanceHistory(params.bookingId) };

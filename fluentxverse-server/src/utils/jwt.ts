@@ -7,6 +7,7 @@
 
 import type { Cookie } from 'elysia';
 import { isTokenInvalidatedBySignUpdate } from '../db/redis';
+import { getDriver } from '../db/memgraph';
 
 // JWT payload structure for auth cookies
 export interface JwtAuthPayload {
@@ -188,6 +189,13 @@ export async function verifyAuthToken(token: string): Promise<JwtAuthPayload | n
       }
     }
 
+    if (payload.role === 'tutor' && process.env.TUTOR_IDENTITY_ENABLED === 'true') {
+      const db = getDriver().session();
+      try {
+        const row = (await db.run('MATCH(u:User {id:$id}) RETURN u.identityBanned AS banned', { id: payload.userId })).records[0];
+        if (!row || row.get('banned') === true) return null;
+      } finally { await db.close(); }
+    }
     return payload;
   } catch (error) {
     console.error('[JWT] Verification error:', error);

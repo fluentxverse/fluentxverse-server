@@ -59,7 +59,9 @@ for (let i = 0; i < rooms; i++) {
 if (rooms) await save(room(0), 0);
 console.log(JSON.stringify({ event: 'ready', rooms, participants: clients.length }));
 
-const { proveWithArtifacts } = await import('/engine/scripts/screening-prove.ts');
+const engineProverPath = process.env.CAPACITY_PROVER_PATH || '/engine/scripts/screening-prove.ts';
+const { proveWithArtifacts } = await import(engineProverPath);
+if (typeof proveWithArtifacts !== 'function') throw Error('Engine prover does not export proveWithArtifacts');
 const artifacts = { wasm: '/artifacts/tutor_screening_js/tutor_screening.wasm', zkey: '/artifacts/phase-two-0001.zkey' };
 const vk = JSON.parse(readFileSync('/artifacts/verification-key.json', 'utf8'));
 // A synthetic issuer cannot issue credentials accepted by production. Nothing is submitted onchain.
@@ -71,7 +73,8 @@ const proofDurations: number[] = [];
 const proofs = (async () => {
   for (let i = 0; i < 3; i++) {
     const start = performance.now();
-    const result = await proveWithArtifacts(signed.input, signed.publicSignals, artifacts, vk);
+    const result: unknown = await proveWithArtifacts(signed.input, signed.publicSignals, artifacts, vk);
+    assert(result && typeof result === 'object' && 'publicSignals' in result, 'Invalid Engine prover result');
     assert.deepEqual(result.publicSignals, signed.publicSignals);
     proofDurations.push(performance.now() - start);
   }

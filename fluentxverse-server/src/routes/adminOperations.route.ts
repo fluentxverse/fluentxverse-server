@@ -3,6 +3,10 @@ import { createAdminGuard } from '../middleware/auth.middleware';
 import { adminOperationsService as ops } from '../services/admin.services/operations.service';
 import { lessonIssueReviewService as issues } from '../services/lessonIssueReview.service';
 import { isAllowedAdminMutationOrigin } from '../config/cors';
+import { lessonOutcomeService } from '../services/lessonOutcome/service';
+import { completionReviewFields } from '../services/lessonOutcome/schema';
+import { lessonOutcomeRequests } from '../services/lessonOutcome/requests';
+import { LessonOutcomePolicyError } from '../services/lessonOutcome/policy';
 import { tutorCompensationService as compensation, tutorCompensationFailure } from '../services/admin.services/tutorCompensation.service';
 
 const reason = t.String({ minLength: 1, maxLength: 1000 });
@@ -21,7 +25,7 @@ export const adminOperationsRoute = new Elysia({ prefix: '/admin/operations' })
     const cap = path.includes('/payments') || path.includes('/compensation') || path.endsWith('/refund') ? 'finance'
       : path.includes('/surveys') ? 'qa'
       : path.endsWith('/schedule') || path.endsWith('/revoke') || path.endsWith('/unblock') ? 'operations'
-      : path.includes('/reports') || path.endsWith('/reopen') ? 'support' : null;
+      : path.includes('/reports') || path.endsWith('/outcome') || path.endsWith('/outcome-proof') || path.endsWith('/reopen') ? 'support' : null;
     if ((cap && !operator.permissions.includes(cap)) || (method !== 'GET' && path.endsWith('/permissions') && operator.role !== 'superadmin')) {
       set.status = 403; return { success: false, error: 'You do not have permission for this action' };
     }
@@ -41,6 +45,19 @@ export const adminOperationsRoute = new Elysia({ prefix: '/admin/operations' })
   .get('/lessons', async ({ query }) => ({ success: true, data: await ops.list({ ...query, page: Number(query.page || 1) }) }))
   .get('/slots', async ({ query }) => ({ success: true, data: await ops.slots(query.from, query.to, query.tutorId) }))
   .get('/lessons/:id', async ({ params, operator }) => ({ success: true, data: await ops.detail(params.id, operator!.permissions) }))
+  .get('/lessons/:id/outcome', async ({ params, set }) => {
+    try { return { success: true, data: await lessonOutcomeService.get(params.id) }; }
+    catch { set.status = 503; return { success: false, error: 'Lesson outcome could not be checked. No proof was generated.' }; }
+  })
+  .post('/lessons/:id/outcome-proof', async ({ params, operator, set }) => {
+    try {
+      const data = await lessonOutcomeRequests.request(params.id, operator!.id);
+      set.status = 202; return { success: true, data };
+    } catch (error) {
+      set.status = error instanceof LessonOutcomePolicyError ? 400 : 503;
+      return { success: false, error: error instanceof LessonOutcomePolicyError ? error.message : 'Proof generation could not be requested. No proof was generated.' };
+    }
+  }, { body: t.Object({}) })
   .get('/surveys', async ({ query }) => ({ success: true, data: await ops.surveys(query.from, query.to, query.tutorId, true) }))
   .get('/performance/:id', async ({ params, query }) => ({ success: true, data: await ops.metrics(params.id, query.period || 'month', query.month, Number(query.page || 1)) }))
   .get('/people/:role/:id', async ({ params, operator }) => ({ success: true, data: await ops.people(params.role, params.id, operator!.permissions) }))
@@ -70,8 +87,12 @@ export const adminOperationsRoute = new Elysia({ prefix: '/admin/operations' })
   })
   .put('/reports/:source/:id/review', async ({ params, body, operator, cookie, set }) => {
     if (body.ticketTransactionId && !await createAdminGuard(cookie, set, 'finance')) return { success: false, error: 'Finance permission required' };
-    return { success: true, data: await issues.review(params.source, params.id, operator!.id, body.status, body.resolution, body.ticketTransactionId) };
-  }, { body: t.Object({ status: t.Union([t.Literal('submitted'), t.Literal('under_review'), t.Literal('resolved')]), resolution: t.String({ maxLength: 2000 }), ticketTransactionId: t.Optional(t.String()) }) })
+    try { return { success: true, data: await issues.review(params.source, params.id, operator!.id, body.status, body.resolution, body.ticketTransactionId, body.completionDecision, body.completionOutcome) }; }
+    catch (error) {
+      if (!(error instanceof LessonOutcomePolicyError)) throw error;
+      set.status = 400; return { success: false, error: error.message };
+    }
+  }, { body: t.Object({ ...completionReviewFields, status: t.Union([t.Literal('submitted'), t.Literal('under_review'), t.Literal('resolved')]), resolution: t.String({ maxLength: 2000 }), ticketTransactionId: t.Optional(t.String()) }) })
   .onError(({ error, set, path, code }) => {
     if (path.includes('/compensation')) {
       const response = tutorCompensationFailure(error, code);

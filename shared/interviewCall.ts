@@ -1,3 +1,5 @@
+import { decodeInterviewMessage, interviewText, type InterviewMessage } from './interviewChat';
+
 export interface InterviewSocket {
   connected: boolean;
   on(event: string, listener: (...args: any[]) => void): any;
@@ -19,12 +21,16 @@ export class InterviewCall {
   private joinTimer?: ReturnType<typeof setTimeout>;
   private recoveryTimer?: ReturnType<typeof setTimeout>;
   private joining?: { resolve: () => void; reject: (error: Error) => void };
+  private chat: RTCDataChannel | null = null;
+  private received = new Set<string>();
 
   constructor(private options: {
     socket: InterviewSocket; roomId: string; role: 'admin' | 'tutor'; stream: MediaStream;
     onStream: (stream: MediaStream | null) => void;
     onState: (state: 'waiting' | 'connecting' | 'connected' | 'reconnecting' | 'ended') => void;
     onError: (message: string) => void; onEnded: () => void;
+    onChatReady?: (ready: boolean) => void;
+    onMessage?: (message: InterviewMessage) => void;
   }) {
     const listen = (event: string, fn: (...args: any[]) => void) => {
       options.socket.on(event, fn); this.listeners.push([event, fn]);
@@ -115,7 +121,36 @@ export class InterviewCall {
       }
     };
     this.pc = pc;
+    if (this.options.role === 'tutor') this.attachChat(pc.createDataChannel('interview-text', { ordered: true }));
+    else pc.ondatachannel = event => {
+      if (!this.disposed && this.pc === pc && event.channel.label === 'interview-text' && !this.chat) this.attachChat(event.channel);
+      else event.channel.close();
+    };
     return pc;
+  }
+
+  private attachChat(channel: RTCDataChannel) {
+    this.chat = channel;
+    channel.onopen = () => { if (!this.disposed && this.chat === channel) this.options.onChatReady?.(true); };
+    channel.onclose = channel.onerror = () => { if (this.chat === channel) this.options.onChatReady?.(false); };
+    channel.onmessage = event => {
+      if (this.disposed || this.chat !== channel) return;
+      const message = decodeInterviewMessage(event.data);
+      if (!message || this.received.has(message.id)) return;
+      this.received.add(message.id);
+      if (this.received.size > 500) this.received.delete(this.received.values().next().value!);
+      this.options.onMessage?.({ ...message, mine: false });
+    };
+  }
+
+  sendText(value: string) {
+    const text = interviewText(value);
+    if (!text) throw Error('Enter a message of 1-2,000 characters.');
+    if (this.disposed || this.chat?.readyState !== 'open') throw Error('Chat is disconnected. Wait for the interview to reconnect.');
+    if (this.chat.bufferedAmount > 64000) throw Error('Chat is busy. Please try again in a moment.');
+    const message = { id: crypto.randomUUID(), text, mine: true };
+    this.chat.send(JSON.stringify({ type: 'text', id: message.id, text }));
+    this.options.onMessage?.(message);
   }
 
   private serialize(task: () => Promise<void>) {
@@ -156,6 +191,11 @@ export class InterviewCall {
     // Closing a peer can leave its native SDP promises pending. New peers must
     // not wait on the old operation chain or accept its eventual callbacks.
     this.epoch++; this.chain = Promise.resolve();
+    if (this.chat) {
+      this.chat.onopen = this.chat.onclose = this.chat.onerror = this.chat.onmessage = null;
+      this.chat.close(); this.chat = null;
+    }
+    this.options.onChatReady?.(false);
     if (this.pc) { this.pc.onconnectionstatechange = null; this.pc.close(); this.pc = null; }
     this.candidates = []; this.negotiationId = ''; this.options.onStream(null);
   }

@@ -14,13 +14,15 @@ export function trialCanBeRestored(booking: { paymentMethod?: string; status: st
   return Boolean(booking.cancelledBy) && (booking.cancelledBy !== booking.studentId
     || date(booking.slotDateTime).getTime() - date(booking.cancelledAt).getTime() >= 3600_000);
 }
-export async function assertTrialAllowance(tx: { run: (query: string, params: any) => Promise<any> }, studentId: string) {
+export async function assertTrialAllowance(tx: { run: (query: string, params: any) => Promise<any> }, studentId: string, limit?: number) {
   const result = await tx.run(`MATCH (b:Booking {studentId: $studentId, paymentMethod: 'trial'})
-    WHERE CASE WHEN b.status = 'cancelled' AND b.cancelledBy IS NOT NULL
+    WHERE coalesce(b.trialRefunded,false)=false AND CASE WHEN b.status = 'cancelled' AND b.cancelledBy IS NOT NULL
       AND (b.cancelledBy <> b.studentId OR b.cancelledAt <= b.slotDateTime - duration('PT1H'))
       THEN false ELSE true END
     RETURN count(b) AS used`, { studentId });
   const value = result.records[0]?.get('used'), used = value?.toNumber ? value.toNumber() : Number(value);
   if (!Number.isSafeInteger(used) || used < 0) throw new Error('Trial allowance is unavailable');
-  if (used >= trialLessonLimit()) throw new Error('Your free trial allowance has already been used or reserved');
+  if (used >= (limit ?? (await loadBookingPolicy()).trialLessonLimit)) throw new Error('Your free trial allowance has already been used or reserved');
 }
+import { bookingSettingsService } from '../bookingSettings.service';
+export const loadBookingPolicy = () => bookingSettingsService.get();

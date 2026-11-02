@@ -4,7 +4,7 @@
  */
 import { Elysia, t } from 'elysia';
 import { youngLearnersService, type CreateYoungLearnersInput, type UpdateYoungLearnersInput } from '../services/youngLearners.service';
-import { createAdminGuard } from '../middleware/auth.middleware';
+import { createAdminGuard, createAnyAuthGuard } from '../middleware/auth.middleware';
 
 // Helper to get dashboard public URL
 const getDashboardPublicUrl = (): string => {
@@ -48,7 +48,9 @@ export const youngLearnersRoute = new Elysia({ prefix: '/young-learners' })
   // ============================================================================
   .get(
     '/published',
-    async () => {
+    async ({ cookie, set }) => {
+      set.headers['Cache-Control'] = 'private, no-store';
+      if (!await createAnyAuthGuard(cookie, set)) return { success: false, error: 'Unauthorized' };
       try {
         const lessons = await youngLearnersService.listPublished();
         return { success: true, lessons };
@@ -71,7 +73,9 @@ export const youngLearnersRoute = new Elysia({ prefix: '/young-learners' })
   // ============================================================================
   .get(
     '/public/:id',
-    async ({ params, set }) => {
+    async ({ params, set, cookie }) => {
+      set.headers['Cache-Control'] = 'private, no-store';
+      if (!await createAnyAuthGuard(cookie, set)) return { success: false, error: 'Unauthorized' };
       try {
         const lesson = await youngLearnersService.getById(params.id);
         if (!lesson) {

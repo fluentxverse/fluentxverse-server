@@ -8,6 +8,8 @@ import { lessonNotice, lessonOutcome, invalidateLessonCaches } from './lessonWor
 import { studentTutorIssueLabel } from '../utils/studentTutorIssues';
 import { tutorStudentIssueLabel } from '../utils/tutorStudentIssues';
 import { reconcileTutorPenaltyBlock } from './schedule.services/tutorPenaltyBlock';
+import { validateCompletionDecision } from './lessonOutcome/policy';
+import type { CompletionDecision, LessonOutcomeCode } from '../../../shared/lessonOutcome';
 
 export async function ensureIssueReviewColumns(table: 'lesson_trouble_reports' | 'student_lesson_issue_reports') {
   await query(`ALTER TABLE ${table} ADD COLUMN IF NOT EXISTS review_status TEXT NOT NULL DEFAULT 'submitted',
@@ -16,7 +18,9 @@ export async function ensureIssueReviewColumns(table: 'lesson_trouble_reports' |
     ADD COLUMN IF NOT EXISTS attendance_correction TEXT,
     ADD COLUMN IF NOT EXISTS review_history JSONB NOT NULL DEFAULT '[]'::jsonb,
     ADD COLUMN IF NOT EXISTS assignee_id TEXT, ADD COLUMN IF NOT EXISTS priority TEXT NOT NULL DEFAULT 'normal',
-    ADD COLUMN IF NOT EXISTS due_at TIMESTAMPTZ, ADD COLUMN IF NOT EXISTS internal_history JSONB NOT NULL DEFAULT '[]'::jsonb`);
+    ADD COLUMN IF NOT EXISTS due_at TIMESTAMPTZ, ADD COLUMN IF NOT EXISTS internal_history JSONB NOT NULL DEFAULT '[]'::jsonb,
+    ADD COLUMN IF NOT EXISTS completion_decision TEXT NOT NULL DEFAULT 'not_assessed',
+    ADD COLUMN IF NOT EXISTS completion_outcome TEXT`);
 }
 export function reviewFields(row: any) {
   return { status: row.review_status || 'submitted', resolution: row.resolution || '',
@@ -34,10 +38,10 @@ export class LessonIssueReviewService {
     await new StudentLessonIssueReportService().ensureSchema();
     const result = await query(`SELECT id, booking_id, tutor_id AS reporter_id, 'tutor' AS source, duration, reason,
       '' AS details, NULL::TEXT AS tutor_issue, student_issue, created_at, review_status, resolution, reviewed_at, ticket_transaction_id, attendance_correction,
-      assignee_id, priority, due_at, internal_history, review_history FROM lesson_trouble_reports
+      assignee_id, priority, due_at, internal_history, review_history, completion_decision, completion_outcome FROM lesson_trouble_reports
       UNION ALL SELECT id, booking_id, student_id AS reporter_id, 'student' AS source, duration, reason,
       details, tutor_issue, NULL::TEXT AS student_issue, created_at, review_status, resolution, reviewed_at, ticket_transaction_id, attendance_correction,
-      assignee_id, priority, due_at, internal_history, review_history FROM student_lesson_issue_reports
+      assignee_id, priority, due_at, internal_history, review_history, completion_decision, completion_outcome FROM student_lesson_issue_reports
       ORDER BY created_at DESC`);
     return result.rows.map((row: any) => ({ id: row.id, bookingId: row.booking_id, source: row.source,
       reporterId: row.reporter_id, duration: row.duration, reason: row.reason, details: row.details,
@@ -45,7 +49,8 @@ export class LessonIssueReviewService {
       studentIssue: row.student_issue || null, studentIssueLabel: tutorStudentIssueLabel(row.student_issue),
       createdAt: new Date(row.created_at).toISOString(), assigneeId: row.assignee_id || '', priority: row.priority,
       dueAt: new Date(row.due_at || new Date(row.created_at).getTime() + 86400000).toISOString(),
-      internalHistory: row.internal_history || [], reviewHistory: row.review_history || [], ...reviewFields(row) }));
+      internalHistory: row.internal_history || [], reviewHistory: row.review_history || [], ...reviewFields(row),
+      completionDecision: row.completion_decision || 'not_assessed', completionOutcome: row.completion_outcome || null }));
   }
   async updateCase(source: string, id: string, actorId: string, assigneeId: string, priority: string, comment: string) {
     await this.list();
@@ -63,10 +68,12 @@ export class LessonIssueReviewService {
     if (!result.rows.length) throw new Error('Report not found');
     return (await this.list()).find((r: any) => r.id === id && r.source === source);
   }
-  async review(source: string, id: string, adminId: string, status: string, resolution: string, ticketTransactionId?: string) {
+  async review(source: string, id: string, adminId: string, status: string, resolution: string, ticketTransactionId?: string,
+    completionDecision: CompletionDecision = 'not_assessed', completionOutcome: LessonOutcomeCode | null = null) {
     await this.list();
     if (!['submitted', 'under_review', 'resolved'].includes(status)) throw new Error('Invalid review status');
     if (status === 'resolved' && !resolution.trim()) throw new Error('A resolution is required.');
+    const completion = validateCompletionDecision(status, completionDecision, completionOutcome);
     const table = this.table(source);
     const report = (await query(`SELECT * FROM ${table} WHERE id = $1`, [id])).rows[0];
     if (!report) throw new Error('Report not found');
@@ -78,11 +85,13 @@ export class LessonIssueReviewService {
         if (!result.records.length) throw new Error('Select a completed refund transaction belonging to this lesson.');
       }
       await query(`UPDATE ${table} SET review_status = $2, resolution = $3, reviewed_at = NOW(), reviewed_by = $4,
-        ticket_transaction_id = $5, review_history = review_history || jsonb_build_array(jsonb_build_object(
-          'status', $2::text, 'resolution', $3::text, 'actorId', $4::text, 'ticketTransactionId', $5::text, 'at', NOW()))
-        WHERE id = $1`, [id, status, resolution.trim(), adminId, ticketTransactionId || null]);
+        ticket_transaction_id = $5, completion_decision = $6, completion_outcome = $7,
+        review_history = review_history || jsonb_build_array(jsonb_build_object(
+          'status', $2::text, 'resolution', $3::text, 'actorId', $4::text, 'ticketTransactionId', $5::text,
+          'completionDecision', $6::text, 'completionOutcome', $7::text, 'at', NOW()))
+        WHERE id = $1`, [id, status, resolution.trim(), adminId, ticketTransactionId || null, completion.decision, completion.outcome]);
       await session.executeWrite(async tx => {
-        const version = `${status}:${resolution.trim()}:${ticketTransactionId || ''}`;
+        const version = `${status}:${resolution.trim()}:${ticketTransactionId || ''}:${completion.decision}:${completion.outcome || ''}`;
         await lessonNotice(tx, `report:${id}:${version}`, report.student_id || report.tutor_id, source, report.booking_id,
           'Lesson issue report updated', status === 'resolved' ? 'Your lesson issue report has been resolved. View the outcome on the lesson page.' : 'Your lesson issue report is under review.');
       });

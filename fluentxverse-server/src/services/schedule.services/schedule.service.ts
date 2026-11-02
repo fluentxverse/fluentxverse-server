@@ -1,4 +1,6 @@
 import { getDriver } from '../../db/memgraph';
+import { lessonNotesStatus } from '../../utils/lessonNotesStatus';
+import { tutorPublicName } from '../../../../shared/tutorPublicName';
 import { nanoid } from 'nanoid';
 import type {
   TimeSlot,
@@ -24,7 +26,7 @@ import { getIO } from '../../socket/socket.server';
 import { revokeLessonRoom } from '../../socket/revokeLessonRoom';
 import { emitSlotBooked, emitSlotCancelled } from '../../socket/handlers/schedule.handler';
 import { ticketService } from '../ticket.services/ticket.service';
-import { assertTrialAllowance, trialCanBeRestored, trialLaunchMode } from './trialPolicy';
+import { assertTrialAllowance, trialCanBeRestored, loadBookingPolicy } from './trialPolicy';
 import { lessonPassService } from '../lessonPasses/service';
 import { privatePassMode, PassError } from '../lessonPasses/policy';
 import { REFUND_POLICY } from '../../config/constant';
@@ -339,7 +341,7 @@ export class ScheduleService {
         MATCH (t:User {id: $tutorId})-[:OPENS_SLOT]->(s:TimeSlot)
         WHERE s.slotDate >= $startDate AND s.slotDate <= $endDate
         OPTIONAL MATCH (s)<-[:BOOKS]-(b:Booking)
-        WHERE b.status IN ['confirmed', 'completed']
+        WHERE b.status IN ['confirmed', 'completed'] AND coalesce(b.issueDecision,'') <> 'past'
         OPTIONAL MATCH (b)-[:BOOKED_BY]->(student:Student)
         RETURN s, b, student
         ORDER BY s.slotDate, s.slotTime
@@ -372,6 +374,9 @@ export class ScheduleService {
         const booking = record.get('b')?.properties;
         const student = record.get('student')?.properties;
         const history = ta303History.get(slot.slotId);
+        const lessonStart = booking?.slotDateTime?.toStandardDate?.().getTime()
+          ?? Date.parse(`${slot.slotDate}T${this.convert12hTo24h(slot.slotTime)}:00+08:00`);
+        const lessonEnd = lessonStart + (Number(booking?.durationMinutes) || 25) * 60_000;
         
         
         return {
@@ -384,6 +389,8 @@ export class ScheduleService {
           reservationExpiresAt: slot.pendingUntil?.toStandardDate?.().toISOString(),
           slotId: slot.slotId,
           bookingId: booking?.bookingId,
+          lessonEndsAt: booking && Number.isFinite(lessonEnd) ? new Date(lessonEnd).toISOString() : undefined,
+          notesStatus: booking ? lessonNotesStatus(booking) : undefined,
           bookedAt: booking?.bookedAt?.toStandardDate?.().toISOString(),
           attendanceWindowOpenedAt: booking?.attendancePolicyActivatedAt?.toStandardDate?.().toISOString()
             || booking?.bookedAt?.toStandardDate?.().toISOString(),
@@ -400,7 +407,7 @@ export class ScheduleService {
           lastTa303At: history?.lastAt || slot.lastTa303At?.toStandardDate?.().toISOString(),
           attendanceTutor: booking?.attendanceTutor,
           attendanceStudent: booking?.attendanceStudent,
-          attendanceMarked: slot.attendanceMarked
+          attendanceMarked: slot.status === 'past' ? undefined : slot.attendanceMarked
         };
       });
       
@@ -575,7 +582,8 @@ export class ScheduleService {
         } as Booking;
       }
 
-      const usesTrial = trialLaunchMode();
+      const bookingPolicy = await loadBookingPolicy();
+      const usesTrial = bookingPolicy.mode === 'trial';
       if (usesTrial && (input.ticketTransferTxHash || input.privatePassReservationId))
         throw new Error('Trial bookings do not accept ticket transfers or lesson passes');
       const usesPass = !usesTrial && privatePassMode();
@@ -612,11 +620,15 @@ export class ScheduleService {
       const TEST_TUTOR_EMAILS = ['paulanthonyarriola@gmail.com'];
       const certificationResult = await session.run(
         `MATCH (u:User {id: $tutorId})
-         RETURN u.writtenExamPassed as writtenPassed, u.speakingExamPassed as speakingPassed, u.interviewPassed as interviewPassed, u.profileStatus as profileStatus, u.email as email`,
+         RETURN u.writtenExamPassed as writtenPassed, u.speakingExamPassed as speakingPassed, u.interviewPassed as interviewPassed, u.profileStatus as profileStatus, u.email as email,
+           u.identityBanned AS identityBanned,u.identityRequired AS identityRequired,u.identityVerified AS identityVerified`,
         { tutorId: slot.tutorId }
       );
       
       if (certificationResult.records.length > 0) {
+        const identity = certificationResult.records[0]!;
+        if (identity.get('identityBanned') === true || (identity.get('identityRequired') === true && identity.get('identityVerified') !== true))
+          throw new Error('This tutor needs identity approval before accepting lessons.');
         const writtenPassed = certificationResult.records[0]?.get('writtenPassed');
         const speakingPassed = certificationResult.records[0]?.get('speakingPassed');
         const profileStatus = certificationResult.records[0]?.get('profileStatus');
@@ -765,7 +777,7 @@ export class ScheduleService {
         const existing = await tx.run(`MATCH (b:Booking {reservationId: $reservationId, studentId: $studentId}) RETURN b, null AS s`,
           { reservationId: input.reservationId, studentId: input.studentId });
         if (existing.records.length) return existing;
-        if (usesTrial) await assertTrialAllowance(tx, input.studentId);
+        if (usesTrial) await assertTrialAllowance(tx, input.studentId, bookingPolicy.trialLessonLimit);
         if (usesPass) await lessonPassService.repository.claimForBooking(tx, input.studentId, input.privatePassReservationId!, bookingId);
         await assertStudentScheduleAvailable(tx, input.studentId, slot);
         await assertTutorCanSchedule(tx, slot.tutorId);
@@ -1220,6 +1232,7 @@ export class ScheduleService {
   private async confirmTutorRoomPresence(tx: ManagedTransaction, bookingId: string, tutorId: string, now: Date) {
     await tx.run(`MATCH (b:Booking {bookingId: $bookingId, tutorId: $tutorId})
       WHERE b.status <> 'cancelled' AND coalesce(b.attendanceSource, '') <> 'admin'
+        AND b.issueDecision IS NULL
       WITH b, b.penaltyCode AS previousPenalty
       SET b.attendanceTutor = 'present', b.attendanceSource = 'classroom', b.tutorAttendancePolicyVersion = 2,
         b.roomEntryCheckCompletedAt = datetime($now), b.lessonOutcome = 'attended', b.attendanceStatus = 'present', b.updatedAt = datetime($now),
@@ -1279,6 +1292,7 @@ export class ScheduleService {
       const candidates = await session.run(
         `MATCH (b:Booking)-[:BOOKS]->(:TimeSlot {status: 'booked'})
          WHERE b.status IN ['confirmed', 'completed']
+           AND b.issueDecision IS NULL
            AND ($tutorScope IS NULL OR b.tutorId = $tutorScope)
            AND coalesce(b.attendanceSource, '') <> 'admin'
            AND coalesce(b.tutorAttendancePolicyVersion, 0) <> 2
@@ -1310,6 +1324,7 @@ export class ScheduleService {
             `MATCH (t:User {id: $tutorId})
              MATCH (b:Booking {bookingId: $bookingId, tutorId: $tutorId})-[:BOOKS]->(:TimeSlot {status: 'booked'})
              WHERE b.status IN ['confirmed', 'completed'] AND coalesce(b.attendanceSource, '') <> 'admin'
+               AND b.issueDecision IS NULL
                AND b.slotDateTime = datetime($startsAt)
                AND coalesce(b.durationMinutes, 25) = $duration
                AND coalesce(b.tutorAttendancePolicyVersion, 0) <> 2
@@ -2041,9 +2056,7 @@ export class ScheduleService {
         const booking = record.get('b').properties;
         const slot = record.get('slot').properties;
         const tutor = record.get('tutor').properties;
-        const tutorFirstName = tutor.firstName || tutor.givenName || '';
-        const tutorLastName = tutor.lastName || tutor.familyName || '';
-        const tutorName = `${tutorFirstName} ${tutorLastName}`.trim() || 'Tutor';
+        const tutorName = tutorPublicName(tutor);
         
         return {
           bookingId: booking.bookingId,
@@ -2105,10 +2118,10 @@ export class ScheduleService {
         MATCH (slot)-[:OPENS_SLOT]-(tutor:User)
         WHERE b.status = 'confirmed'
         RETURN b.bookingId as bookingId,
-               tutor.firstName as tutorFirstName,
-               tutor.lastName as tutorLastName,
+               coalesce(tutor.nickname, tutor.firstName, tutor.givenName, 'Tutor') as tutorFirstName,
+               '' as tutorLastName,
                tutor.givenName as tutorGivenName,
-               tutor.familyName as tutorFamilyName,
+               '' as tutorFamilyName,
                tutor.profilePicture as tutorAvatar,
                slot.slotDate as slotDate,
                slot.slotTime as slotTime
@@ -2332,7 +2345,7 @@ export class ScheduleService {
         const tutor = record.get('tutor').properties;
         
         // Try firstName/lastName first (tutors), fall back to givenName/familyName
-        const tutorName = `${tutor.firstName || tutor.givenName || ''} ${tutor.lastName || tutor.familyName || ''}`.trim();
+        const tutorName = tutorPublicName(tutor);
         const isCompleted = booking.status === 'completed';
         
         // For completed lessons, use slot date; for bookings, use bookedAt timestamp
@@ -2491,8 +2504,8 @@ export class ScheduleService {
           booking.surveyReadyAt AS surveyReadyAt,
           tutor.userId AS tutorUserId,
           tutor.id AS tutorId,
-          COALESCE(tutor.firstName, tutor.givenName, '') AS tFirst,
-          COALESCE(tutor.lastName, tutor.familyName, '') AS tLast,
+          COALESCE(tutor.nickname, tutor.firstName, tutor.givenName, 'Tutor') AS tFirst,
+          '' AS tLast,
           tutor.profilePicture AS tutorAvatar,
           tutor.bio AS tutorBio,
           tutor.hourlyRate AS hourlyRate
@@ -2515,8 +2528,7 @@ export class ScheduleService {
             booking.durationMinutes AS durationMinutes,
             booking.surveyReadyAt AS surveyReadyAt,
             tutor.userId AS tutorId,
-            COALESCE(tutor.firstName, tutor.givenName, 'Tutor') + ' ' + 
-            COALESCE(tutor.lastName, tutor.familyName, '') AS tutorName,
+            COALESCE(tutor.nickname, tutor.firstName, tutor.givenName, 'Tutor') AS tutorName,
             tutor.profilePicture AS tutorAvatar,
             tutor.bio AS tutorBio,
             tutor.hourlyRate AS hourlyRate

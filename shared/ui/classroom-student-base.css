@@ -1,0 +1,5858 @@
+/* Generated from the student classroom stylesheet by scripts/sync-classroom-styles.mjs. */
+/* Classroom Layout */
+.classroom-standardized .classroom-start-wait { flex-shrink: 0; padding: 10px 12px; border-bottom: 1px solid #cbd5e1; background: #edf4ff; color: #0245ae; font-size: 12px; line-height: 1.5; font-weight: 600; }
+[data-theme='dark'] .classroom-standardized .classroom-start-wait { background: #263443; border-color: #484848; color: #93c5fd; }
+.classroom-container.classroom-standardized .control-btn:disabled { opacity: .45; cursor: default; }
+.classroom-container.classroom-standardized {
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 50%, #f5f7ff 100%);
+  overflow: hidden;
+}
+
+/* Left Panel - Video & Chat */
+.classroom-standardized .classroom-left {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-right: none;
+  box-shadow: 6px 0 32px rgba(0, 0, 0, 0.12);
+  position: relative;
+  z-index: 2;
+}
+
+/* Header - Modern gradient theme */
+.classroom-standardized .classroom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  height: 48px;
+  background: linear-gradient(135deg, #0245ae 0%, #0366d6 100%);
+  border-bottom: none;
+  box-sizing: border-box;
+}
+
+.classroom-standardized .classroom-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.classroom-standardized .classroom-logo img {
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+.classroom-standardized .classroom-session-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.classroom-standardized .session-student {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.classroom-standardized .student-avatar-small {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 800;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+}
+
+.classroom-standardized .session-time-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.classroom-standardized .session-time-display .timer {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  font-family: ui-monospace, monospace;
+}
+
+.classroom-standardized .session-time-display .session-date {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Video Section */
+.classroom-standardized .video-section {
+  flex: 0 0 auto;
+  position: relative;
+  background: #000;
+  height: 280px;
+}
+
+.classroom-standardized .video-section:hover .video-controls {
+  opacity: 1;
+  visibility: visible;
+}
+
+.classroom-standardized .video-main {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Connection status overlay inside video */
+.classroom-standardized .connection-status.overlay-top {
+  z-index: 5;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.classroom-standardized .connection-status.overlay-top p {
+  margin: 0;
+  font-size: 12px;
+  color: #fff;
+  overflow-wrap: anywhere;
+}
+
+.classroom-standardized .connection-status.call-error { background: #8b2020; }
+.classroom-standardized .connection-status.call-connected { background: #176b48; }
+
+.classroom-standardized .local-video-full {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.classroom-standardized .mic-large {
+  bottom: 12px;
+  left: 12px;
+  width: 24px;
+  height: 24px;
+}
+
+.classroom-standardized .mic-large .mic-dot {
+  width: 10px;
+  height: 10px;
+}
+
+.classroom-standardized .video-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.classroom-standardized .video-placeholder.student-video {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+}
+
+.classroom-standardized .video-placeholder.tutor-video {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.classroom-standardized .video-placeholder.remote-camera-off {
+  background: radial-gradient(circle at center, #15171c 0%, #08090c 62%, #030405 100%);
+  color: #f4f7fb;
+}
+
+.classroom-standardized .camera-off-icon {
+  font-size: 36px;
+  color: rgba(244, 247, 251, 0.78);
+}
+
+.classroom-standardized .camera-off-text {
+  color: rgba(244, 247, 251, 0.86);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.classroom-standardized .video-avatar-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0245ae 0%, #4a9eff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(2, 69, 174, 0.4);
+}
+
+.classroom-standardized .video-avatar-small {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.classroom-standardized .video-name {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Picture-in-Picture */
+.classroom-standardized .video-pip {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  width: 180px; /* slightly larger for clarity */
+  aspect-ratio: 16 / 9; /* match main video’s ratio */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+  z-index: 3; /* below controls */
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  background: #000;
+}
+
+.classroom-standardized .video-pip:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+}
+
+.classroom-standardized .local-video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.classroom-standardized .local-video,
+.classroom-standardized .remote-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Small videos in PiP should not crop */
+.classroom-standardized .local-video-small,
+.classroom-standardized .remote-video-small {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fill PiP without letterboxing */
+  background: #000;
+}
+
+.classroom-standardized .mic-indicator {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.classroom-standardized .mic-indicator .mic-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #94a3b8;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.classroom-standardized .mic-indicator.active {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 0 0 2px rgba(16,185,129,0.3), 0 0 8px 4px rgba(16,185,129,0.4);
+}
+
+.classroom-standardized .mic-indicator.active .mic-dot {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+.classroom-standardized .media-error-text {
+  margin-top: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+}
+
+.classroom-standardized .video-pip .video-placeholder {
+  gap: 0;
+}
+
+.classroom-standardized .video-pip .video-placeholder i,
+.classroom-standardized .video-pip .camera-off-icon {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.classroom-standardized .video-pip .pip-camera-off {
+  background: #050608;
+}
+
+/* Video Controls */
+.classroom-standardized .video-controls {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  padding: 10px 20px;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 10; /* ensure above PiP */
+}
+
+.classroom-standardized .control-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(71, 85, 105, 0.9);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: all 0.2s ease;
+}
+
+.classroom-standardized .control-btn svg {
+  stroke: #fff;
+}
+
+.classroom-standardized .control-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.classroom-standardized .control-btn.active {
+  background: rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+.classroom-standardized .control-btn.end-call {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.classroom-standardized .control-btn.end-call:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+/* Chat Section */
+.classroom-standardized .chat-section {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  min-height: 0;
+  border-top: none;
+}
+
+.classroom-standardized .chat-header {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0245ae;
+  font-weight: 700;
+  font-size: 14px;
+  background: linear-gradient(180deg, #f8fafc 0%, #fff 100%);
+  border-bottom: 1px solid rgba(2, 69, 174, 0.1);
+  border-top: 3px solid #0245ae;
+}
+
+.classroom-standardized .chat-header i {
+  color: #0245ae;
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.classroom-standardized .chat-header span {
+  line-height: 18px;
+}
+
+.classroom-standardized .chat-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.classroom-standardized .chat-tool-btn {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: #0245ae;
+  cursor: pointer;
+  transition: color 0.18s ease, opacity 0.18s ease;
+}
+
+.classroom-standardized .chat-tool-btn i {
+  width: 17px;
+  height: 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.classroom-standardized .chat-tool-btn:hover {
+  color: #023a91;
+  opacity: 0.86;
+}
+
+.classroom-standardized .classroom-chat-popover {
+  position: absolute;
+  top: 47px;
+  left: 0;
+  right: 0;
+  z-index: 25;
+}
+
+.classroom-standardized .classroom-modal {
+  width: 100%;
+  max-height: min(360px, calc(100vh - 96px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 0 0 10px 10px;
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-top: 0;
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.22);
+}
+
+.classroom-standardized .classroom-modal-header {
+  padding: 12px 14px 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.classroom-standardized .classroom-modal-header h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 18px;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.classroom-standardized .classroom-modal-meta {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.classroom-standardized .classroom-modal-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.classroom-standardized .classroom-modal-close {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: #475569;
+  cursor: pointer;
+}
+
+.classroom-standardized .classroom-modal-close i {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.classroom-standardized .classroom-modal-close:hover {
+  color: #0245ae;
+}
+
+.classroom-standardized .classroom-history-list {
+  min-height: 120px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 8px 14px;
+  background: #f8fafc;
+}
+
+.classroom-standardized .classroom-history-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 20px minmax(64px, auto) 1fr;
+  gap: 8px;
+  align-items: start;
+  padding: 7px 0;
+  color: #334155;
+}
+
+.classroom-standardized .classroom-history-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 9px;
+  width: 1px;
+  background: rgba(148, 163, 184, 0.45);
+}
+
+.classroom-standardized .classroom-history-marker {
+  position: relative;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: 2px solid #60a5fa;
+}
+
+.classroom-standardized .classroom-history-item.student .classroom-history-marker {
+  border-color: #22c55e;
+}
+
+.classroom-standardized .classroom-history-time {
+  color: #0245ae;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 20px;
+}
+
+.classroom-standardized .classroom-history-item.student .classroom-history-time {
+  color: #15803d;
+}
+
+.classroom-standardized .classroom-history-message {
+  color: #334155;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.classroom-standardized .classroom-modal-empty {
+  padding: 34px 12px;
+  color: #64748b;
+  text-align: center;
+  font-weight: 700;
+}
+
+.classroom-standardized .classroom-device-fields {
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.classroom-standardized .classroom-device-field {
+  display: grid;
+  gap: 8px;
+}
+
+.classroom-standardized .classroom-device-field > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.classroom-standardized .classroom-device-field > span i {
+  color: #0245ae;
+}
+
+.classroom-standardized .classroom-device-field select {
+  width: 100%;
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.38);
+  background: #f8fafc;
+  color: #172033;
+  font: inherit;
+  font-size: 14px;
+}
+
+.classroom-standardized .classroom-device-field select:focus {
+  outline: none;
+  border-color: rgba(2, 69, 174, 0.48);
+  box-shadow: 0 0 0 3px rgba(2, 69, 174, 0.12);
+}
+
+.classroom-standardized .classroom-modal-footer {
+  padding: 10px 14px 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.classroom-standardized .classroom-modal-primary,
+.classroom-standardized .classroom-modal-secondary {
+  min-width: 96px;
+  height: 34px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.classroom-standardized .classroom-modal-primary {
+  border: 0;
+  background: #0245ae;
+  color: #ffffff;
+}
+
+.classroom-standardized .classroom-modal-secondary {
+  border: 1px solid rgba(2, 69, 174, 0.18);
+  background: #eef5ff;
+  color: #0245ae;
+}
+
+.classroom-standardized .classroom-modal-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+.classroom-standardized .chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: transparent;
+}
+
+/* Chat scrollbar */
+.classroom-standardized .chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.classroom-standardized .chat-messages::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.classroom-standardized .chat-messages::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #0245ae 0%, #4a9eff 100%);
+  border-radius: 3px;
+}
+
+.classroom-standardized .chat-messages::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #0336a0 0%, #3b8fee 100%);
+}
+
+.classroom-standardized .chat-message {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.classroom-standardized .chat-message.other {
+  align-items: flex-start;
+}
+
+.classroom-standardized .chat-message.self {
+  align-items: flex-end;
+}
+
+.classroom-standardized .message-bubble {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.classroom-standardized .chat-message.other .message-bubble {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-bottom-left-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+
+.classroom-standardized .chat-message.self .message-bubble {
+  background: linear-gradient(135deg, #0245ae 0%, #4a9eff 100%);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.classroom-standardized .message-correction {
+  background: #f1f5f9;
+  color: #0f172a;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border-bottom-left-radius: 4px;
+  font-size: 13px;
+  line-height: 1.6;
+  border: 1px solid #e2e8f0;
+}
+
+.classroom-standardized .message-correction .label {
+  font-weight: 700;
+  color: #64748b;
+}
+
+.classroom-standardized .message-time {
+  font-size: 11px;
+  color: #94a3b8;
+  padding: 0 4px;
+}
+
+.classroom-standardized .message-row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  max-width: 88%;
+}
+
+.classroom-standardized .chat-message.self .message-row {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+.classroom-standardized .message-row .message-bubble {
+  max-width: 100%;
+}
+
+.classroom-standardized .message-actions {
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  margin-right: 4px;
+  opacity: 0;
+  transform: translateY(calc(-50% + 1px));
+  transition: opacity 0.14s ease, transform 0.14s ease;
+}
+
+.classroom-standardized .chat-message:hover .message-actions,
+.classroom-standardized .message-actions:focus-within {
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+.classroom-standardized .message-more-btn {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  box-shadow: none;
+  font: inherit;
+}
+
+.classroom-standardized .message-more-btn span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.classroom-standardized .message-more-btn:hover {
+  color: #0245ae;
+  background: rgba(148, 163, 184, 0.16);
+}
+
+.classroom-standardized .message-action-menu {
+  position: absolute;
+  right: 0;
+  top: 32px;
+  z-index: 15;
+  min-width: 118px;
+  padding: 5px;
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+}
+
+.classroom-standardized .message-action-menu button {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.classroom-standardized .message-action-menu button:hover {
+  background: #eff6ff;
+  color: #0245ae;
+}
+
+.classroom-standardized .message-action-menu button.danger {
+  color: #dc2626;
+}
+
+.classroom-standardized .message-action-menu button.danger:hover {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.classroom-standardized .message-edited-label {
+  display: block;
+  margin-top: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.72;
+}
+
+.classroom-standardized .message-edit-panel {
+  min-width: 210px;
+}
+
+.classroom-standardized .message-edit-input {
+  width: 100%;
+  min-height: 64px;
+  resize: vertical;
+  border: 1px solid rgba(148, 163, 184, 0.36);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font: inherit;
+  line-height: 1.4;
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.96);
+  outline: none;
+}
+
+.classroom-standardized .message-edit-input:focus {
+  border-color: rgba(59, 130, 246, 0.58);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.14);
+}
+
+.classroom-standardized .message-edit-actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.classroom-standardized .message-edit-actions button {
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.classroom-standardized .message-edit-cancel {
+  border: 1px solid rgba(148, 163, 184, 0.34);
+  background: rgba(255, 255, 255, 0.92);
+  color: #475569;
+}
+
+.classroom-standardized .message-edit-save {
+  border: 1px solid rgba(37, 99, 235, 0.42);
+  background: #2563eb;
+  color: #fff;
+}
+
+.classroom-standardized .message-edit-save:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Chat Input */
+.classroom-standardized .chat-input-area {
+  display: flex;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.classroom-standardized .chat-input-area input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: #0f172a;
+  outline: none;
+}
+
+.classroom-standardized .chat-input-area input::placeholder {
+  color: #94a3b8;
+}
+
+.classroom-standardized .send-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #0245ae 0%, #4a9eff 100%);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.classroom-standardized .send-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(2, 69, 174, 0.4);
+}
+
+.classroom-standardized .send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Attach Button */
+.classroom-standardized .attach-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(241, 245, 249, 0.9);
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.classroom-standardized .attach-btn:hover {
+  background: rgba(226, 232, 240, 1);
+  color: #475569;
+}
+
+.classroom-standardized .attach-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* File Preview Bar */
+.classroom-standardized .file-preview-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(241, 245, 249, 0.95);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.classroom-standardized .file-preview-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.classroom-standardized .file-preview-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2, 69, 174, 0.1);
+  border-radius: 8px;
+  color: #0245ae;
+  font-size: 18px;
+}
+
+.classroom-standardized .file-preview-name {
+  flex: 1;
+  font-size: 13px;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.classroom-standardized .file-preview-size {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.classroom-standardized .file-preview-remove {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.classroom-standardized .file-preview-remove:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+/* Message Images */
+.classroom-standardized .message-image {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.classroom-standardized .message-image:hover {
+  transform: scale(1.02);
+}
+
+/* Message Files */
+.classroom-standardized .message-file {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 4px;
+  transition: background 0.2s ease;
+}
+
+.classroom-standardized .message-file:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.classroom-standardized .message-file i {
+  font-size: 18px;
+}
+
+.classroom-standardized .message-file .file-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.classroom-standardized .message-file .file-name {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.classroom-standardized .message-file .file-size {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* File attachment in self messages (blue bubble) */
+.classroom-standardized .chat-message.self .message-file {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.classroom-standardized .chat-message.self .message-file:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.classroom-standardized .chat-message.self .message-file i {
+  color: #ffffff;
+}
+
+.classroom-standardized .chat-message.self .message-file .file-size {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Chat Links */
+.classroom-standardized .chat-link {
+  color: #2563eb;
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+.classroom-standardized .chat-link:hover {
+  color: #1d4ed8;
+}
+
+/* Links in self messages (blue bubble) - use white/light color */
+.classroom-standardized .chat-message.self .chat-link {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.classroom-standardized .chat-message.self .chat-link:hover {
+  color: #e0f2fe;
+}
+
+/* Upload Spinner */
+.classroom-standardized .upload-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Typing Indicator */
+.classroom-standardized .typing-indicator {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(241, 245, 249, 0.9);
+  border-radius: 16px;
+  border-bottom-left-radius: 4px;
+  color: #64748b;
+  font-size: 12px;
+  font-style: italic;
+  margin-left: 4px;
+}
+
+.classroom-standardized .typing-indicator span:first-child {
+  color: #475569;
+  font-weight: 500;
+}
+
+.classroom-standardized .typing-dots {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.classroom-standardized .typing-dots::before,
+.classroom-standardized .typing-dots::after {
+  content: '•';
+}
+
+.classroom-standardized .typing-dots::before {
+  animation: typingDot 1s infinite 0s;
+}
+
+.classroom-standardized .typing-dots {
+  animation: typingDot 1s infinite 0.2s;
+}
+
+.classroom-standardized .typing-dots::after {
+  animation: typingDot 1s infinite 0.4s;
+}
+
+@keyframes typingDot {
+  0%, 60%, 100% { opacity: 0.3; }
+  30% { opacity: 1; }
+}
+
+/* Right Panel - Materials */
+.classroom-standardized .classroom-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  overflow: hidden;
+}
+
+.classroom-standardized .classroom-right:has(.lesson-material-view) {
+  background: #fff;
+}
+
+.classroom-standardized .classroom-right:has(.dispatch-article-iframe) {
+  background: #fff;
+}
+
+/* When viewing dispatch, remove any extra spacing */
+.classroom-standardized .classroom-right:has(.dispatch-article-iframe) .material-content {
+  padding: 0;
+  margin: 0;
+}
+
+/* Ensure dispatch header fills width */
+.classroom-standardized .classroom-right:has(.dispatch-article-iframe) .dispatch-view-header {
+  margin: 0;
+}
+
+/* Material Header - Modern gradient theme */
+.classroom-standardized .material-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+  height: 48px;
+  background: linear-gradient(135deg, #0245ae 0%, #0366d6 100%);
+  border-bottom: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.classroom-standardized .material-header i {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+}
+
+.classroom-standardized .material-header span {
+  flex: 1;
+  color: #fff;
+}
+
+.classroom-standardized .btn-toggle-lesson-request {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.classroom-standardized .btn-toggle-lesson-request:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.classroom-standardized .btn-toggle-lesson-request i {
+  font-size: 12px;
+}
+
+/* PDF Viewer Container */
+.classroom-standardized .pdf-viewer-container {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.classroom-standardized .pdf-viewer {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #fff;
+}
+
+/* Material Content */
+.classroom-standardized .material-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  min-height: 0;
+  position: relative;
+}
+
+/* When showing lesson request, remove any spacing */
+.classroom-standardized .material-content:has(.lesson-request-container) {
+  padding: 0;
+  margin: 0;
+}
+
+.classroom-standardized .material-content:has(.lesson-material-view) {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+/* Dispatch iframe direct in material-content - full bleed */
+.classroom-standardized .material-content:has(.dispatch-article-iframe) {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: #fff;
+  border-radius: 0 !important;
+}
+
+.classroom-standardized .material-content > .dispatch-article-iframe {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure classroom-right has no extra spacing when viewing dispatch */
+.classroom-standardized .classroom-right:has(.dispatch-article-iframe) {
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Loading State */
+.classroom-standardized .material-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+  color: #64748b;
+}
+
+.classroom-standardized .material-loading .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(2, 69, 174, 0.1);
+  border-top-color: #0245ae;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Chosen Material Display */
+.classroom-standardized .chosen-material-display {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.classroom-standardized .chosen-material-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  background: #fff;
+  border-bottom: 1px solid rgba(2, 69, 174, 0.1);
+  text-align: center;
+}
+
+.classroom-standardized .material-icon-large {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0245ae 0%, #4a9eff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.classroom-standardized .material-icon-large i {
+  font-size: 28px;
+  color: #fff;
+}
+
+.classroom-standardized .material-info {
+  width: 100%;
+}
+
+.classroom-standardized .material-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+}
+
+.classroom-standardized .material-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.classroom-standardized .meta-badge {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.classroom-standardized .meta-badge.level {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.classroom-standardized .meta-badge.chapter {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+}
+
+.classroom-standardized .meta-badge.lesson {
+  background: rgba(168, 85, 247, 0.1);
+  color: #7c3aed;
+}
+
+.classroom-standardized .meta-badge.skill {
+  background: rgba(251, 146, 60, 0.1);
+  color: #ea580c;
+}
+
+.classroom-standardized .material-goal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+  padding: 12px 16px;
+  background: rgba(2, 69, 174, 0.03);
+  border-radius: 10px;
+}
+
+.classroom-standardized .material-goal i {
+  color: #0245ae;
+  font-size: 14px;
+}
+
+.classroom-standardized .material-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.classroom-standardized .btn-view-material {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #0245ae 0%, #4a9eff 100%);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.classroom-standardized .btn-view-material:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(2, 69, 174, 0.3);
+}
+
+.classroom-standardized .btn-change-material {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #fff;
+  border: 2px solid rgba(2, 69, 174, 0.2);
+  border-radius: 10px;
+  color: #0245ae;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.classroom-standardized .btn-change-material:hover {
+  border-color: #0245ae;
+  background: rgba(2, 69, 174, 0.05);
+}
+
+/* No Material Selected State */
+.classroom-standardized .no-material-selected {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 40px;
+  text-align: center;
+}
+
+.classroom-standardized .empty-material-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(2, 69, 174, 0.1) 0%, rgba(74, 158, 255, 0.1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.classroom-standardized .empty-material-icon i {
+  font-size: 36px;
+  color: #0245ae;
+}
+
+.classroom-standardized .no-material-selected h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+}
+
+.classroom-standardized .no-material-selected p {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0 0 24px 0;
+}
+
+.classroom-standardized .btn-select-material {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #0245ae 0%, #4a9eff 100%);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.classroom-standardized .btn-select-material:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(2, 69, 174, 0.3);
+}
+
+/* Dark mode for chosen material */
+.dark-mode .classroom-standardized .chosen-material-card {
+  background: #1e293b;
+  border-color: rgba(74, 158, 255, 0.2);
+}
+
+.dark-mode .classroom-standardized .material-title {
+  color: #f8fafc;
+}
+
+/* Classroom dark mode polish */
+[data-theme='dark'] .classroom-container.classroom-standardized,
+.dark-mode .classroom-container.classroom-standardized {
+  background: #1a1a1a;
+  color: #f3f4f6;
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-left,
+.dark-mode .classroom-standardized .classroom-left {
+  background: #1f1f1f;
+  box-shadow: 8px 0 28px rgba(0, 0, 0, 0.32);
+}
+
+[data-theme='dark'] .classroom-standardized .chat-section,
+.dark-mode .classroom-standardized .chat-section {
+  background: #1f1f1f;
+}
+
+[data-theme='dark'] .classroom-standardized .chat-header,
+.dark-mode .classroom-standardized .chat-header {
+  background: #242424;
+  color: #dbeafe;
+  border-top-color: #60a5fa;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .classroom-standardized .chat-header i,
+.dark-mode .classroom-standardized .chat-header i {
+  color: #7cb8ff;
+}
+
+[data-theme='dark'] .classroom-standardized .chat-tool-btn,
+.dark-mode .classroom-standardized .chat-tool-btn {
+  color: #7cb8ff;
+}
+
+[data-theme='dark'] .classroom-standardized .chat-tool-btn:hover,
+.dark-mode .classroom-standardized .chat-tool-btn:hover {
+  color: #dbeafe;
+}
+
+[data-theme='dark'] .classroom-standardized .chat-messages,
+.dark-mode .classroom-standardized .chat-messages {
+  background: #1f1f1f;
+}
+
+[data-theme='dark'] .classroom-standardized .chat-messages::-webkit-scrollbar-track,
+.dark-mode .classroom-standardized .chat-messages::-webkit-scrollbar-track {
+  background: #242424;
+}
+
+[data-theme='dark'] .classroom-standardized .chat-message.other .message-bubble,
+[data-theme='dark'] .classroom-standardized .message-correction,
+.dark-mode .classroom-standardized .chat-message.other .message-bubble,
+.dark-mode .classroom-standardized .message-correction {
+  background: #2a2a2a;
+  color: #f3f4f6;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .classroom-standardized .message-correction .label,
+.dark-mode .classroom-standardized .message-correction .label {
+  color: #bfdbfe;
+}
+
+[data-theme='dark'] .classroom-standardized .message-time,
+.dark-mode .classroom-standardized .message-time {
+  color: #8f8f8f;
+}
+
+[data-theme='dark'] .classroom-standardized .chat-input-area,
+.dark-mode .classroom-standardized .chat-input-area {
+  background: #242424;
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .classroom-standardized .chat-input-area input,
+.dark-mode .classroom-standardized .chat-input-area input {
+  color: #f3f4f6;
+}
+
+[data-theme='dark'] .classroom-standardized .chat-input-area input::placeholder,
+.dark-mode .classroom-standardized .chat-input-area input::placeholder {
+  color: #9ca3af;
+}
+
+[data-theme='dark'] .classroom-standardized .attach-btn,
+.dark-mode .classroom-standardized .attach-btn {
+  background: #2a2a2a;
+  color: #dbeafe;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-right,
+[data-theme='dark'] .classroom-standardized .material-content,
+[data-theme='dark'] .classroom-standardized .classroom-right:has(.lesson-material-view),
+[data-theme='dark'] .classroom-standardized .material-content:has(.lesson-material-view),
+[data-theme='dark'] .classroom-standardized .classroom-right:has(.dispatch-article-iframe),
+[data-theme='dark'] .classroom-standardized .material-content:has(.dispatch-article-iframe),
+.dark-mode .classroom-standardized .classroom-right,
+.dark-mode .classroom-standardized .material-content,
+.dark-mode .classroom-standardized .classroom-right:has(.lesson-material-view),
+.dark-mode .classroom-standardized .material-content:has(.lesson-material-view),
+.dark-mode .classroom-standardized .classroom-right:has(.dispatch-article-iframe),
+.dark-mode .classroom-standardized .material-content:has(.dispatch-article-iframe) {
+  background: #1a1a1a;
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-container,
+.dark-mode .classroom-standardized .lesson-request-container {
+  background: #1a1a1a;
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-section,
+[data-theme='dark'] .classroom-standardized .material-selector-section,
+.dark-mode .classroom-standardized .lesson-request-section,
+.dark-mode .classroom-standardized .material-selector-section {
+  background: #202020;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-header,
+[data-theme='dark'] .classroom-standardized .material-selector-header,
+.dark-mode .classroom-standardized .lesson-request-header,
+.dark-mode .classroom-standardized .material-selector-header {
+  background: #242424;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-title,
+[data-theme='dark'] .classroom-standardized .material-selector-label,
+.dark-mode .classroom-standardized .lesson-request-title,
+.dark-mode .classroom-standardized .material-selector-label {
+  color: #f3f4f6;
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-updated,
+.dark-mode .classroom-standardized .lesson-request-updated {
+  background: rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-body,
+[data-theme='dark'] .classroom-standardized .material-selector-body,
+.dark-mode .classroom-standardized .lesson-request-body,
+.dark-mode .classroom-standardized .material-selector-body {
+  background: #202020;
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-details,
+[data-theme='dark'] .classroom-standardized .student-preferences-sidebar,
+.dark-mode .classroom-standardized .lesson-request-details,
+.dark-mode .classroom-standardized .student-preferences-sidebar {
+  background: #182033;
+  border-color: rgba(96, 165, 250, 0.18);
+}
+
+[data-theme='dark'] .classroom-standardized .request-intro,
+.dark-mode .classroom-standardized .request-intro {
+  color: #cbd5e1;
+  border-bottom-color: rgba(96, 165, 250, 0.18);
+}
+
+[data-theme='dark'] .classroom-standardized .request-table .request-label,
+.dark-mode .classroom-standardized .request-table .request-label {
+  background: transparent;
+  color: #cbd5e1;
+}
+
+[data-theme='dark'] .classroom-standardized .request-table .request-row td,
+.dark-mode .classroom-standardized .request-table .request-row td {
+  border-color: rgba(96, 165, 250, 0.12);
+}
+
+[data-theme='dark'] .classroom-standardized .request-table .request-value,
+.dark-mode .classroom-standardized .request-table .request-value {
+  background: rgba(96, 165, 250, 0.1);
+  color: #f8fafc;
+}
+
+[data-theme='dark'] .classroom-standardized .request-link,
+.dark-mode .classroom-standardized .request-link {
+  color: #7cb8ff;
+}
+
+[data-theme='dark'] .classroom-standardized .preference-section,
+.dark-mode .classroom-standardized .preference-section {
+  border-bottom-color: rgba(96, 165, 250, 0.14);
+}
+
+[data-theme='dark'] .classroom-standardized .preference-title,
+.dark-mode .classroom-standardized .preference-title {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .classroom-standardized .preference-item,
+.dark-mode .classroom-standardized .preference-item {
+  color: #cbd5e1;
+}
+
+[data-theme='dark'] .classroom-standardized .preference-item::before,
+.dark-mode .classroom-standardized .preference-item::before {
+  color: #7cb8ff;
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-dropdown,
+.dark-mode .classroom-standardized .material-selector-dropdown {
+  background-color: #182033;
+  border-color: rgba(96, 165, 250, 0.3);
+  color: #f8fafc;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237cb8ff' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px 12px;
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-dropdown:hover,
+[data-theme='dark'] .classroom-standardized .material-selector-dropdown:focus,
+.dark-mode .classroom-standardized .material-selector-dropdown:hover,
+.dark-mode .classroom-standardized .material-selector-dropdown:focus {
+  background-color: #202a40;
+  border-color: #7cb8ff;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.18);
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-dropdown option,
+.dark-mode .classroom-standardized .material-selector-dropdown option {
+  background: #182033;
+  color: #f8fafc;
+}
+
+[data-theme='dark'] .classroom-standardized .material-loading-inline,
+.dark-mode .classroom-standardized .material-loading-inline {
+  color: #cbd5e1;
+}
+
+[data-theme='dark'] .classroom-standardized .dispatch-article-card,
+.dark-mode .classroom-standardized .dispatch-article-card {
+  background: #202020;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .classroom-standardized .dispatch-table-header,
+.dark-mode .classroom-standardized .dispatch-table-header {
+  background: #252525;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  color: #7cb8ff;
+}
+
+[data-theme='dark'] .classroom-standardized .dispatch-table-row,
+.dark-mode .classroom-standardized .dispatch-table-row {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .classroom-standardized .dispatch-table-row:hover,
+.dark-mode .classroom-standardized .dispatch-table-row:hover {
+  background: rgba(96, 165, 250, 0.08);
+}
+
+[data-theme='dark'] .classroom-standardized .dispatch-col-date,
+[data-theme='dark'] .classroom-standardized .dispatch-col-title,
+.dark-mode .classroom-standardized .dispatch-col-date,
+.dark-mode .classroom-standardized .dispatch-col-title {
+  color: #e5e7eb;
+}
+
+.dark-mode .classroom-standardized .material-goal {
+  background: rgba(74, 158, 255, 0.1);
+  color: #94a3b8;
+}
+
+.dark-mode .classroom-standardized .btn-change-material {
+  background: #0f172a;
+  border-color: rgba(74, 158, 255, 0.3);
+  color: #4a9eff;
+}
+
+.dark-mode .classroom-standardized .no-material-selected h3 {
+  color: #f8fafc;
+}
+
+.dark-mode .classroom-standardized .no-material-selected p {
+  color: #94a3b8;
+}
+
+.dark-mode .classroom-standardized .empty-material-icon {
+  background: rgba(74, 158, 255, 0.1);
+}
+
+.dark-mode .classroom-standardized .material-loading {
+  color: #94a3b8;
+}
+
+/* Lesson Request Container */
+.classroom-standardized .lesson-request-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 100%;
+  padding: 20px;
+  overflow-y: auto;
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.8) 0%, rgba(241, 245, 249, 0.9) 100%);
+}
+
+.classroom-standardized .lesson-request-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: 0 4px 20px rgba(2, 69, 174, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(2, 69, 174, 0.06);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.classroom-standardized .no-material-selected {
+  color: #64748b;
+  font-style: italic;
+  padding: 12px 0;
+}
+
+.classroom-standardized .lesson-request-header {
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #f8fafc 0%, #fff 100%);
+  border-bottom: 1px solid rgba(2, 69, 174, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.classroom-standardized .lesson-request-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.classroom-standardized .lesson-request-title i {
+  font-size: 18px;
+  color: #0245ae;
+  background: linear-gradient(135deg, rgba(2, 69, 174, 0.1) 0%, rgba(74, 158, 255, 0.1) 100%);
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.classroom-standardized .lesson-request-updated {
+  font-size: 11px;
+  color: #64748b;
+  margin: 0;
+  background: rgba(100, 116, 139, 0.1);
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.classroom-standardized .lesson-request-body {
+  padding: 20px;
+}
+
+.classroom-standardized .lesson-request-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.classroom-standardized .lesson-request-details {
+  flex: 1;
+  background: linear-gradient(135deg, #f8fafc 0%, #fff 100%);
+  border-radius: 12px;
+  padding: 16px 20px;
+  border: 1px solid rgba(2, 69, 174, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.classroom-standardized .lesson-request-details::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #0245ae 0%, #4a9eff 100%);
+  border-radius: 4px 0 0 4px;
+}
+
+.classroom-standardized .request-intro {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0 0 14px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed rgba(2, 69, 174, 0.15);
+}
+
+/* Request Table for better alignment */
+.classroom-standardized .request-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.classroom-standardized .request-table .request-row {
+  display: table-row;
+}
+
+.classroom-standardized .request-table .request-row td {
+  padding: 8px 0;
+  vertical-align: middle;
+}
+
+.classroom-standardized .request-table .request-label {
+  width: 130px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  padding-right: 16px;
+  position: relative;
+}
+
+.classroom-standardized .request-table .request-label::before {
+  content: '•';
+  color: #0245ae;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.classroom-standardized .request-table .request-value {
+  font-size: 14px;
+  color: #0f172a;
+  font-weight: 500;
+  background: rgba(2, 69, 174, 0.04);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.classroom-standardized .request-link {
+  color: #0245ae;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.classroom-standardized .request-link:hover {
+  color: #4a9eff;
+  text-decoration: underline;
+}
+
+.classroom-standardized .request-value.link:hover {
+  color: #4a9eff;
+}
+
+/* Student Preferences Sidebar */
+.classroom-standardized .student-preferences-sidebar {
+  width: 220px;
+  background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+  border-radius: 12px;
+  padding: 0;
+  border: 1px solid rgba(2, 69, 174, 0.1);
+  box-shadow: 0 4px 16px rgba(2, 69, 174, 0.08);
+  overflow: hidden;
+  align-self: flex-start;
+}
+
+.classroom-standardized .preference-section {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(2, 69, 174, 0.08);
+  position: relative;
+}
+
+.classroom-standardized .preference-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+}
+
+.classroom-standardized .preference-section:last-child {
+  border-bottom: none;
+}
+
+.classroom-standardized .preference-section:last-child::before {
+  background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+}
+
+.classroom-standardized .preference-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0245ae;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.classroom-standardized .preference-item {
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 4px 0;
+  padding-left: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.classroom-standardized .preference-item::before {
+  content: '›';
+  color: #0245ae;
+  font-weight: bold;
+}
+
+.classroom-standardized .preference-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Material Selector Section */
+.classroom-standardized .material-selector-section {
+  padding: 0;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(2, 69, 174, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(2, 69, 174, 0.06);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.classroom-standardized .material-selector-header {
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #f8fafc 0%, #fff 100%);
+  border-bottom: 1px solid rgba(2, 69, 174, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.classroom-standardized .material-selector-header-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #0245ae 0%, #0366d6 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+.classroom-standardized .material-selector-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.classroom-standardized .material-selector-body {
+  padding: 20px;
+}
+
+.classroom-standardized .material-selector-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.classroom-standardized .material-selector-row:last-child {
+  margin-bottom: 0;
+}
+
+.classroom-standardized .material-selector-dropdown {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #0f172a;
+  background: #f8fafc;
+  border: 2px solid rgba(2, 69, 174, 0.12);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%230245ae' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+.classroom-standardized .material-selector-dropdown:focus {
+  outline: none;
+  border-color: #0245ae;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(2, 69, 174, 0.1);
+}
+
+.classroom-standardized .material-selector-dropdown:hover {
+  border-color: #0245ae;
+  background-color: #fff;
+}
+
+/* Loading indicator inline */
+
+.classroom-standardized .material-selector-dropdown:hover {
+  border-color: #0245ae;
+}
+
+/* Loading indicator inline */
+.classroom-standardized .material-loading-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.classroom-standardized .spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(2, 69, 174, 0.1);
+  border-top-color: #0245ae;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Daily Dispatch Article Card - Table Style */
+.classroom-standardized .dispatch-article-card {
+  background: #fff;
+  border: 1px solid rgba(2, 69, 174, 0.1);
+  border-radius: 12px;
+  margin-top: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(2, 69, 174, 0.06);
+}
+
+.classroom-standardized .dispatch-card-label {
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #0245ae 0%, #0366d6 100%);
+  border-bottom: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.classroom-standardized .dispatch-previous-card {
+  margin-top: 14px;
+}
+
+.classroom-standardized .dispatch-previous-card .dispatch-card-label {
+  color: #fff;
+  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+}
+
+.classroom-standardized .dispatch-table-header {
+  display: grid;
+  grid-template-columns: 140px 1fr 100px 100px;
+  gap: 12px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 2px solid rgba(2, 69, 174, 0.08);
+  font-size: 11px;
+  font-weight: 700;
+  color: #0245ae;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.classroom-standardized .dispatch-table-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 100px 100px;
+  gap: 12px;
+  padding: 14px 16px;
+  align-items: center;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.2s ease;
+}
+
+.classroom-standardized .dispatch-table-row:hover {
+  background-color: rgba(2, 69, 174, 0.03);
+}
+
+.classroom-standardized .dispatch-table-row:last-child {
+  border-bottom: none;
+}
+
+.classroom-standardized .dispatch-col-date {
+  font-size: 13px;
+  color: #374151;
+}
+
+.classroom-standardized .dispatch-col-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.classroom-standardized .dispatch-col-category {
+  font-size: 11px;
+  color: #fff;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.classroom-standardized .dispatch-col-action {
+  font-size: 13px;
+  text-align: right;
+}
+
+.classroom-standardized .dispatch-open-link {
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #0245ae 0%, #0366d6 100%);
+  border: none;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.classroom-standardized .dispatch-open-link:hover {
+  text-decoration: none;
+  background: linear-gradient(135deg, #023d9a 0%, #0255b5 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(2, 69, 174, 0.3);
+}
+
+.classroom-standardized .dispatch-loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.classroom-standardized .dispatch-empty {
+  text-align: center;
+  padding: 20px 16px;
+  background: linear-gradient(135deg, #f8fafc 0%, #fff 100%);
+}
+
+.classroom-standardized .dispatch-empty p {
+  color: #9ca3af;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Dispatch Article View (inside classroom) */
+.classroom-standardized .dispatch-article-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.classroom-standardized .dispatch-view-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  height: 48px;
+  background: linear-gradient(135deg, #0245ae 0%, #0366d6 100%);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.classroom-standardized .btn-back-to-request {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.classroom-standardized .btn-back-to-request:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.classroom-standardized .btn-back-to-request i {
+  font-size: 11px;
+}
+
+.classroom-standardized .dispatch-view-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.classroom-standardized .dispatch-view-category {
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+.classroom-standardized .dispatch-view-date {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Daily Dispatch Theme - Black & Yellow animated header */
+.classroom-standardized .dispatch-view-header {
+  transition: background 0.5s ease, box-shadow 0.5s ease;
+}
+
+.classroom-standardized .dispatch-view-header.daily-dispatch-theme {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  box-shadow: inset 0 -3px 0 #fbbf24;
+}
+
+.classroom-standardized .dispatch-view-header.daily-dispatch-theme .btn-back-to-request {
+  background: rgba(251, 191, 36, 0.2);
+  border-color: rgba(251, 191, 36, 0.5);
+  color: #fbbf24;
+}
+
+.classroom-standardized .dispatch-view-header.daily-dispatch-theme .btn-back-to-request:hover {
+  background: rgba(251, 191, 36, 0.35);
+  border-color: rgba(251, 191, 36, 0.7);
+}
+
+.classroom-standardized .dispatch-view-header.daily-dispatch-theme .dispatch-view-category {
+  background: #fbbf24;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.classroom-standardized .dispatch-view-header.daily-dispatch-theme .dispatch-view-date {
+  color: rgba(251, 191, 36, 0.9);
+}
+
+/* Daily Dispatch Theme - Scrollbar */
+.classroom-standardized .classroom-right:has(.daily-dispatch-theme) ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.classroom-standardized .classroom-right:has(.daily-dispatch-theme) ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.classroom-standardized .classroom-right:has(.daily-dispatch-theme) ::-webkit-scrollbar-thumb {
+  background: #fbbf24;
+  border-radius: 4px;
+}
+
+.classroom-standardized .classroom-right:has(.daily-dispatch-theme) ::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+.classroom-standardized .dispatch-view-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+.classroom-standardized .dispatch-article-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ========================================
+   CONVERSATIONAL SKILLS LESSON CARDS
+   ======================================== */
+
+.classroom-standardized .lesson-card {
+  background: #fff;
+  border: 1px solid rgba(2, 69, 174, 0.1);
+  border-radius: 12px;
+  margin-top: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(2, 69, 174, 0.06);
+}
+
+.classroom-standardized .lesson-card-label {
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+  border-bottom: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.classroom-standardized .conversational-skills-card .lesson-card-label {
+  background: linear-gradient(135deg, #0245ae 0%, #0366d6 100%);
+}
+
+.classroom-standardized .lesson-chapter-group {
+  border-bottom: 1px solid rgba(2, 69, 174, 0.08);
+}
+
+.classroom-standardized .lesson-chapter-group:last-child {
+  border-bottom: none;
+}
+
+.classroom-standardized .lesson-chapter-header {
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0245ae;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-bottom: 1px solid rgba(2, 69, 174, 0.08);
+}
+
+.classroom-standardized .lesson-table-header {
+  display: grid;
+  grid-template-columns: 90px 1fr 100px;
+  gap: 12px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 2px solid rgba(2, 69, 174, 0.06);
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Conversational Skills has 4 columns: Lesson, Title, Goal, Action */
+.classroom-standardized .lesson-table-header.conversational-header {
+  grid-template-columns: 80px 1fr 1.5fr 110px;
+}
+
+.classroom-standardized .lesson-table-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 100px;
+  gap: 12px;
+  padding: 12px 16px;
+  align-items: center;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.2s ease;
+}
+
+/* Conversational Skills row with 4 columns */
+.classroom-standardized .lesson-table-row.conversational-row {
+  grid-template-columns: 80px 1fr 1.5fr 110px;
+}
+
+.classroom-standardized .lesson-table-row:hover {
+  background-color: rgba(2, 69, 174, 0.03);
+}
+
+.classroom-standardized .lesson-table-row:last-child {
+  border-bottom: none;
+}
+
+.classroom-standardized .lesson-col-number {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.classroom-standardized .lesson-col-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111827;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.classroom-standardized .lesson-col-goal {
+  font-size: 12px;
+  color: #6b7280;
+  font-style: italic;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 8px;
+}
+
+.classroom-standardized .lesson-col-action {
+  font-size: 13px;
+  text-align: right;
+}
+
+.classroom-standardized .lesson-open-link {
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #0245ae 0%, #0366d6 100%);
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.classroom-standardized .lesson-open-link:hover {
+  text-decoration: none;
+  background: linear-gradient(135deg, #023d9a 0%, #0255b5 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(2, 69, 174, 0.3);
+}
+
+/* Conversational Skills iframe styling */
+.classroom-standardized .conversational-iframe {
+  border: none;
+  background: #fff;
+}
+
+/* ========================================
+   END CONVERSATIONAL SKILLS LESSON CARDS
+   ======================================== */
+
+/* Minimized Lesson View */
+.classroom-standardized .lesson-minimized {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  height: 100%;
+}
+
+.classroom-standardized .lesson-minimized-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.classroom-standardized .lesson-minimized-info > i {
+  font-size: 32px;
+  color: #0245ae;
+}
+
+.classroom-standardized .lesson-minimized-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.classroom-standardized .lesson-minimized-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.classroom-standardized .lesson-minimized-subtitle {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.classroom-standardized .btn-show-details {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #0245ae 0%, #4a9eff 100%);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.classroom-standardized .btn-show-details:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(2, 69, 174, 0.3);
+}
+
+/* Lesson Material View */
+.classroom-standardized .lesson-material-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.classroom-standardized .lesson-material-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #fff;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+[data-theme='dark'] .classroom-standardized :is(.dispatch-article-iframe, .lesson-material-iframe) {
+  background: #1a1a1a;
+  color-scheme: dark;
+}
+
+.classroom-standardized .lesson-renderer-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.classroom-standardized .btn-search-material {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.classroom-standardized .btn-search-material:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+}
+
+.classroom-standardized .btn-search-material:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Lesson Request Actions */
+.classroom-standardized .lesson-request-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.classroom-standardized .btn-change-material-large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: #fff;
+  border: 2px solid rgba(2, 69, 174, 0.2);
+  border-radius: 12px;
+  color: #0245ae;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.classroom-standardized .btn-change-material-large:hover {
+  border-color: #0245ae;
+  background: rgba(2, 69, 174, 0.05);
+  transform: translateY(-2px);
+}
+
+.classroom-standardized .btn-view-material-large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #0245ae 0%, #4a9eff 100%);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.classroom-standardized .btn-view-material-large:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(2, 69, 174, 0.3);
+}
+
+/* Dark mode for lesson request */
+.dark-mode .classroom-standardized .lesson-request-section {
+  background: #1e293b;
+  border-color: rgba(74, 158, 255, 0.2);
+}
+
+.dark-mode .classroom-standardized .lesson-request-title {
+  color: #4a9eff;
+}
+
+.dark-mode .classroom-standardized .lesson-request-updated {
+  color: #64748b;
+}
+
+.dark-mode .classroom-standardized .lesson-request-details,
+.dark-mode .classroom-standardized .student-preferences-sidebar {
+  background: #0f172a;
+  border-color: rgba(74, 158, 255, 0.15);
+}
+
+.dark-mode .classroom-standardized .request-intro {
+  color: #94a3b8;
+}
+
+.dark-mode .classroom-standardized .request-table .request-label {
+  background: rgba(74, 158, 255, 0.1);
+  color: #94a3b8;
+}
+
+.dark-mode .classroom-standardized .request-table .request-value {
+  color: #f8fafc;
+}
+
+.dark-mode .classroom-standardized .request-table .request-row td {
+  border-color: rgba(74, 158, 255, 0.1);
+}
+
+.dark-mode .classroom-standardized .request-link {
+  color: #4a9eff;
+}
+
+.dark-mode .classroom-standardized .preference-title {
+  color: #f8fafc;
+}
+
+.dark-mode .classroom-standardized .preference-item {
+  color: #94a3b8;
+}
+
+.dark-mode .classroom-standardized .material-selector-section {
+  background: #1e293b;
+  border-color: rgba(74, 158, 255, 0.2);
+}
+
+.dark-mode .classroom-standardized .material-selector-label {
+  color: #f8fafc;
+}
+
+.dark-mode .classroom-standardized .material-selector-dropdown {
+  background: #0f172a;
+  border-color: rgba(74, 158, 255, 0.3);
+  color: #f8fafc;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a9eff' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+}
+
+.dark-mode .classroom-standardized .material-selector-dropdown:focus {
+  border-color: #4a9eff;
+  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.2);
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-container,
+.dark-mode .classroom-standardized .lesson-request-container {
+  background: #1a1a1a;
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-section,
+[data-theme='dark'] .classroom-standardized .material-selector-section,
+.dark-mode .classroom-standardized .lesson-request-section,
+.dark-mode .classroom-standardized .material-selector-section {
+  background: #202020;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-header,
+[data-theme='dark'] .classroom-standardized .material-selector-header,
+.dark-mode .classroom-standardized .lesson-request-header,
+.dark-mode .classroom-standardized .material-selector-header {
+  background: #242424;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-title,
+[data-theme='dark'] .classroom-standardized .lesson-request-title i,
+[data-theme='dark'] .classroom-standardized .material-selector-label,
+.dark-mode .classroom-standardized .lesson-request-title,
+.dark-mode .classroom-standardized .lesson-request-title i,
+.dark-mode .classroom-standardized .material-selector-label {
+  color: #f3f4f6;
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-updated,
+.dark-mode .classroom-standardized .lesson-request-updated {
+  background: rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-body,
+[data-theme='dark'] .classroom-standardized .material-selector-body,
+.dark-mode .classroom-standardized .lesson-request-body,
+.dark-mode .classroom-standardized .material-selector-body {
+  background: #202020;
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-details,
+.dark-mode .classroom-standardized .lesson-request-details {
+  background: #242424;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .classroom-standardized .request-intro,
+.dark-mode .classroom-standardized .request-intro {
+  color: #cbd5e1;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .classroom-standardized .request-table .request-label,
+.dark-mode .classroom-standardized .request-table .request-label {
+  background: transparent;
+  color: #cbd5e1;
+}
+
+[data-theme='dark'] .classroom-standardized .request-table .request-row td,
+.dark-mode .classroom-standardized .request-table .request-row td {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .classroom-standardized .request-table .request-value,
+.dark-mode .classroom-standardized .request-table .request-value {
+  background: #2b2b2b;
+  color: #f8fafc;
+}
+
+[data-theme='dark'] .classroom-standardized .request-link,
+.dark-mode .classroom-standardized .request-link {
+  color: #7cb8ff;
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-dropdown,
+.dark-mode .classroom-standardized .material-selector-dropdown {
+  background-color: #242424;
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #f8fafc;
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px 12px;
+}
+
+/* Dark mode Daily Dispatch card */
+.dark-mode .classroom-standardized .dispatch-article-card {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-color: rgba(74, 158, 255, 0.2);
+}
+
+/* Dark mode Lesson Cards */
+.dark-mode .classroom-standardized .lesson-card {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-color: rgba(74, 158, 255, 0.2);
+}
+
+.dark-mode .classroom-standardized .lesson-chapter-group {
+  border-bottom-color: rgba(74, 158, 255, 0.1);
+}
+
+.dark-mode .classroom-standardized .lesson-chapter-header {
+  background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+  color: #4a9eff;
+  border-bottom-color: rgba(74, 158, 255, 0.1);
+}
+
+.dark-mode .classroom-standardized .lesson-table-header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #94a3b8;
+  border-bottom-color: rgba(74, 158, 255, 0.1);
+}
+
+.dark-mode .classroom-standardized .lesson-table-row {
+  border-bottom-color: rgba(74, 158, 255, 0.08);
+}
+
+.dark-mode .classroom-standardized .lesson-table-row:hover {
+  background-color: rgba(74, 158, 255, 0.05);
+}
+
+.dark-mode .classroom-standardized .lesson-col-number {
+  color: #94a3b8;
+}
+
+.dark-mode .classroom-standardized .lesson-col-title {
+  color: #f8fafc;
+}
+
+.dark-mode .classroom-standardized .lesson-open-link {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+}
+
+.dark-mode .classroom-standardized .lesson-open-link:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  box-shadow: 0 2px 8px rgba(74, 158, 255, 0.3);
+}
+
+.dark-mode .classroom-standardized .dispatch-label {
+  color: #94a3b8;
+}
+
+.dark-mode .classroom-standardized .dispatch-category {
+  color: #4a9eff;
+  background: rgba(74, 158, 255, 0.15);
+}
+
+.dark-mode .classroom-standardized .dispatch-title {
+  color: #f8fafc;
+}
+
+.dark-mode .classroom-standardized .dispatch-topic {
+  color: #94a3b8;
+}
+
+.dark-mode .classroom-standardized .dispatch-footer {
+  border-top-color: rgba(74, 158, 255, 0.1);
+}
+
+.dark-mode .classroom-standardized .dispatch-date {
+  color: #64748b;
+}
+
+.dark-mode .classroom-standardized .dispatch-open-link {
+  color: #4a9eff;
+}
+
+.dark-mode .classroom-standardized .dispatch-open-link:hover {
+  color: #6bb5ff;
+}
+
+.dark-mode .classroom-standardized .dispatch-loading {
+  color: #94a3b8;
+}
+
+.dark-mode .classroom-standardized .dispatch-empty p {
+  color: #64748b;
+}
+
+/* Dark mode Dispatch Article View */
+.dark-mode .classroom-standardized .dispatch-article-view {
+  background: #1e293b;
+}
+
+.dark-mode .classroom-standardized .dispatch-view-header:not(.daily-dispatch-theme):not(.conversational-theme):not(.business-english-theme) {
+  background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+  border-bottom-color: rgba(74, 158, 255, 0.2);
+}
+
+.dark-mode .classroom-standardized .btn-back-to-request {
+  background: rgba(74, 158, 255, 0.15);
+  border-color: rgba(74, 158, 255, 0.3);
+  color: #4a9eff;
+}
+
+.dark-mode .classroom-standardized .btn-back-to-request:hover {
+  background: rgba(74, 158, 255, 0.25);
+  border-color: rgba(74, 158, 255, 0.5);
+}
+
+.dark-mode .classroom-standardized .dispatch-view-category {
+  background: rgba(74, 158, 255, 0.2);
+  color: #4a9eff;
+}
+
+.dark-mode .classroom-standardized .dispatch-view-date {
+  color: #94a3b8;
+}
+
+.dark-mode .classroom-standardized .btn-toggle-lesson-request {
+  background: rgba(74, 158, 255, 0.15);
+  color: #4a9eff;
+}
+
+.dark-mode .classroom-standardized .btn-toggle-lesson-request:hover {
+  background: rgba(74, 158, 255, 0.25);
+}
+
+.dark-mode .classroom-standardized .lesson-minimized {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.dark-mode .classroom-standardized .lesson-minimized-info > i {
+  color: #4a9eff;
+}
+
+.dark-mode .classroom-standardized .lesson-minimized-title {
+  color: #f8fafc;
+}
+
+.dark-mode .classroom-standardized .lesson-minimized-subtitle {
+  color: #94a3b8;
+}
+
+.dark-mode .classroom-standardized .material-loading-inline {
+  color: #94a3b8;
+}
+
+/* Material Navigation */
+.classroom-standardized .material-nav {
+  display: flex;
+  gap: 8px;
+  padding: 16px 24px;
+  background: #fff;
+  border-bottom: 2px solid rgba(2, 69, 174, 0.1);
+}
+
+.classroom-standardized .material-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 2px solid rgba(2, 69, 174, 0.15);
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.classroom-standardized .material-nav-btn:hover {
+  border-color: #0245ae;
+  background: rgba(2, 69, 174, 0.05);
+}
+
+.classroom-standardized .material-nav-btn.active {
+  background: linear-gradient(135deg, #0245ae 0%, #4a9eff 100%);
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(2, 69, 174, 0.3);
+}
+
+.classroom-standardized .material-nav-btn .nav-number {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(2, 69, 174, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: #0245ae;
+}
+
+.classroom-standardized .material-nav-btn.active .nav-number {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.classroom-standardized .material-nav-btn .nav-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.classroom-standardized .material-nav-btn.active .nav-label {
+  color: #fff;
+}
+
+/* Material Content */
+.classroom-standardized .material-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px;
+}
+
+.classroom-standardized .material-title {
+  font-size: 18px;
+  font-weight: 900;
+  color: #0245ae;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.classroom-standardized .material-title i {
+  font-size: 20px;
+}
+
+/* Dialogue Box */
+.classroom-standardized .dialogue-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(2, 69, 174, 0.08);
+  border: 1px solid rgba(2, 69, 174, 0.1);
+}
+
+.classroom-standardized .dialogue-line {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.classroom-standardized .dialogue-line:last-child {
+  border-bottom: none;
+}
+
+.classroom-standardized .dialogue-line .speaker {
+  font-weight: 800;
+  color: #0245ae;
+  margin-right: 8px;
+}
+
+.classroom-standardized .dialogue-line .text {
+  color: #334155;
+}
+
+/* Trivia Box */
+.classroom-standardized .trivia-box {
+  background: linear-gradient(135deg, #fef9c3 0%, #fef08a 100%);
+  border-radius: 16px;
+  padding: 24px;
+  border: 2px solid #fbbf24;
+}
+
+.classroom-standardized .trivia-explanation {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #713f12;
+  margin-bottom: 20px;
+}
+
+.classroom-standardized .trivia-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.classroom-standardized .example-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.classroom-standardized .example-marker {
+  color: #0245ae;
+  font-weight: 800;
+}
+
+.classroom-standardized .example-text {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.classroom-standardized .example-meaning {
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Practice Box */
+.classroom-standardized .practice-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(2, 69, 174, 0.08);
+  border-left: 4px solid #0245ae;
+}
+
+.classroom-standardized .practice-instruction {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #334155;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.classroom-standardized .practice-exercises {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.classroom-standardized .exercise-item {
+  display: flex;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.classroom-standardized .exercise-number {
+  font-weight: 800;
+  color: #0245ae;
+}
+
+.classroom-standardized .exercise-text {
+  color: #334155;
+}
+
+/* Tutor Instructions Sidebar */
+.classroom-standardized .tutor-instructions {
+  width: 300px;
+  background: linear-gradient(135deg, #0245ae 0%, #1e40af 100%);
+  padding: 24px;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.classroom-standardized .instructions-title {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.classroom-standardized .instructions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.classroom-standardized .instruction-item {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.5;
+}
+
+.classroom-standardized .instruction-number {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.classroom-standardized .instruction-quote {
+  color: #fef08a;
+  font-style: italic;
+  padding-left: 30px;
+}
+
+.classroom-standardized .next-section-btn {
+  margin-top: 24px;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0245ae;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.classroom-standardized .next-section-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+  .classroom-standardized .classroom-left {
+    width: 420px;
+  }
+  .classroom-standardized .tutor-instructions {
+    width: 260px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .classroom-standardized .tutor-instructions {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .classroom-container.classroom-standardized {
+    flex-direction: column;
+  }
+  .classroom-standardized .classroom-left {
+    width: 100%;
+    height: 60vh;
+  }
+  .classroom-standardized .video-section {
+    height: clamp(100px, calc(60vh - 280px), 240px);
+  }
+  .classroom-standardized .classroom-right {
+    height: 40vh;
+  }
+}
+
+/* Dark mode adjustments */
+.dark-mode .classroom-standardized .classroom-right {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.dark-mode .classroom-standardized .material-nav {
+  background: #1e293b;
+  border-color: rgba(74, 158, 255, 0.2);
+}
+
+.dark-mode .classroom-standardized .material-nav-btn {
+  background: #0f172a;
+  border-color: rgba(74, 158, 255, 0.2);
+}
+
+.dark-mode .classroom-standardized .material-nav-btn .nav-label {
+  color: #94a3b8;
+}
+
+.dark-mode .classroom-standardized .dialogue-box,
+.dark-mode .classroom-standardized .practice-box {
+  background: #1e293b;
+  border-color: rgba(74, 158, 255, 0.2);
+}
+
+.dark-mode .classroom-standardized .dialogue-line .text,
+.dark-mode .classroom-standardized .practice-instruction,
+.dark-mode .classroom-standardized .exercise-text {
+  color: #e2e8f0;
+}
+
+.dark-mode .classroom-standardized .material-title {
+  color: #4a9eff;
+}
+
+/* Lesson Ended Toast Notification */
+.classroom-standardized .lesson-ended-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 360px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(251, 191, 36, 0.1);
+  animation: slideInRight 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1000;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.classroom-standardized .toast-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.classroom-standardized .toast-icon svg {
+  color: #1e293b;
+}
+
+.classroom-standardized .toast-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.classroom-standardized .toast-title {
+  color: #fbbf24;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.classroom-standardized .toast-message {
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.classroom-standardized .toast-close {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #64748b;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.classroom-standardized .toast-close:hover {
+  color: #94a3b8;
+}
+
+/* Student classroom parity with tutor classroom */
+.classroom-container.classroom-standardized {
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 50%, #f5f7ff 100%);
+}
+
+.classroom-standardized .classroom-header,
+.classroom-standardized .material-header {
+  height: 60px;
+}
+
+.classroom-standardized .lesson-request-container {
+  gap: 10px;
+  min-height: 0;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 10px 16px 14px;
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(248, 250, 252, 0.92) 0%, rgba(241, 245, 249, 0.96) 100%);
+}
+
+.classroom-standardized .lesson-request-section,
+.classroom-standardized .material-selector-section {
+  border-radius: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.07), 0 3px 10px rgba(2, 69, 174, 0.05);
+  overflow: visible;
+}
+
+.classroom-standardized .lesson-request-header {
+  padding: 10px 14px 8px;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.classroom-standardized .lesson-request-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 700px;
+}
+
+.classroom-standardized .lesson-request-title {
+  font-size: 18px;
+  gap: 8px;
+}
+
+.classroom-standardized .lesson-request-title i {
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.classroom-standardized .lesson-request-subtitle {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.35;
+  color: #64748b;
+}
+
+.classroom-standardized .lesson-request-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.classroom-standardized .lesson-request-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+}
+
+.classroom-standardized .lesson-request-status::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 0 4px currentColor;
+  opacity: 0.18;
+}
+
+.classroom-standardized .lesson-request-status--ready {
+  color: #1d4ed8;
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.14);
+}
+
+.classroom-standardized .lesson-request-status--pending {
+  color: #64748b;
+  background: rgba(148, 163, 184, 0.12);
+  border-color: rgba(148, 163, 184, 0.16);
+}
+
+.classroom-standardized .lesson-request-body {
+  padding: 10px 14px 12px;
+}
+
+.classroom-standardized .lesson-request-content {
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.classroom-standardized .lesson-request-details {
+  border-radius: 16px;
+  padding: 10px 12px;
+  min-height: 0;
+  align-self: start;
+}
+
+.classroom-standardized .request-intro-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 8px;
+}
+
+.classroom-standardized .request-eyebrow {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.08);
+  color: #1d4ed8;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.classroom-standardized .request-intro {
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.classroom-standardized .request-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 220px);
+  gap: 10px;
+  align-items: stretch;
+}
+
+.classroom-standardized .request-detail-card,
+.classroom-standardized .request-goal-card,
+.classroom-standardized .request-empty-state {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.classroom-standardized .request-detail-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 14px;
+}
+
+.classroom-standardized .request-detail-card--primary {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.classroom-standardized .request-detail-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: #1d4ed8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.classroom-standardized .request-detail-value,
+.classroom-standardized .request-link {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.classroom-standardized .request-detail-meta {
+  font-size: 10px;
+  color: #64748b;
+}
+
+.classroom-standardized .request-goal-card {
+  margin-top: 10px;
+  padding: 12px 14px;
+}
+
+.classroom-standardized .request-goal-text {
+  margin: 6px 0 0;
+  color: #0f172a;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.classroom-standardized .request-empty-state {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+}
+
+.classroom-standardized .request-empty-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.08);
+  color: #1d4ed8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.classroom-standardized .request-empty-title {
+  margin: 0 0 3px;
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.classroom-standardized .request-empty-description {
+  margin: 0;
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.classroom-standardized .material-selector-section {
+  position: relative;
+  z-index: 6;
+}
+
+.classroom-standardized .material-selector-header {
+  padding: 14px 18px 12px;
+  gap: 12px;
+}
+
+.classroom-standardized .material-selector-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.classroom-standardized .material-selector-label {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.classroom-standardized .material-selector-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #64748b;
+}
+
+.classroom-standardized .material-selector-chip {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  color: #1d4ed8;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.classroom-standardized .material-selector-body {
+  padding: 14px 18px 18px;
+  overflow: visible;
+}
+
+.classroom-standardized .material-selector-row {
+  width: 100%;
+  max-width: 700px;
+}
+
+.classroom-standardized .material-selector-row--course {
+  position: relative;
+  z-index: 20;
+}
+
+.classroom-standardized .material-selector-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.classroom-standardized .material-selector-field-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1d4ed8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.classroom-standardized .material-selector-combobox {
+  position: relative;
+  z-index: 24;
+}
+
+.classroom-standardized .material-selector-trigger {
+  width: 100%;
+  min-height: 52px;
+  padding: 8px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.96) 100%);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  text-align: left;
+}
+
+.classroom-standardized .material-selector-trigger-content {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.classroom-standardized .material-selector-trigger-icon,
+.classroom-standardized .material-selector-option-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(37, 99, 235, 0.08);
+  font-size: 14px;
+}
+
+.classroom-standardized .material-selector-trigger-copy,
+.classroom-standardized .material-selector-option-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.classroom-standardized .material-selector-trigger-title,
+.classroom-standardized .material-selector-option-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.35;
+}
+
+.classroom-standardized .material-selector-trigger-subtitle,
+.classroom-standardized .material-selector-option-description,
+.classroom-standardized .material-selector-trigger-placeholder {
+  font-size: 11px;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+.classroom-standardized .material-selector-trigger-placeholder {
+  font-weight: 600;
+}
+
+.classroom-standardized .material-selector-trigger-arrow,
+.classroom-standardized .material-selector-option-check {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(37, 99, 235, 0.08);
+  color: #1d4ed8;
+  font-size: 10px;
+}
+
+.classroom-standardized .material-selector-menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 8px);
+  padding: 5px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 22px 44px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(14px);
+  z-index: 120;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.classroom-standardized .material-selector-option {
+  width: 100%;
+  padding: 9px;
+  border: none;
+  border-radius: 14px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.classroom-standardized .material-selector-option:hover {
+  background: rgba(37, 99, 235, 0.06);
+}
+
+.classroom-standardized .material-selector-option.is-selected {
+  background: linear-gradient(135deg, rgba(239, 246, 255, 0.95) 0%, rgba(248, 250, 252, 0.98) 100%);
+}
+
+[data-theme='dark'] .classroom-container.classroom-standardized,
+.dark-mode .classroom-container.classroom-standardized {
+  background: var(--fxv-bg, #1a1a1a);
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-left,
+.dark-mode .classroom-standardized .classroom-left {
+  background: var(--fxv-surface, #202020);
+  box-shadow: var(--fxv-shadow-md, 6px 0 32px rgba(0, 0, 0, 0.32));
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-header,
+.dark-mode .classroom-standardized .classroom-header {
+  background: rgba(26, 26, 26, 0.96);
+  border-bottom: 1px solid var(--fxv-border, rgba(255, 255, 255, 0.1));
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-container,
+.dark-mode .classroom-standardized .lesson-request-container {
+  background: var(--fxv-bg, #1a1a1a);
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-section,
+[data-theme='dark'] .classroom-standardized .material-selector-section,
+.dark-mode .classroom-standardized .lesson-request-section,
+.dark-mode .classroom-standardized .material-selector-section {
+  background: var(--fxv-surface, #202020);
+  border-color: var(--fxv-border, rgba(255, 255, 255, 0.1));
+  box-shadow: var(--fxv-shadow-md, 0 18px 44px rgba(0, 0, 0, 0.24));
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-header,
+[data-theme='dark'] .classroom-standardized .material-selector-header,
+.dark-mode .classroom-standardized .lesson-request-header,
+.dark-mode .classroom-standardized .material-selector-header {
+  background: linear-gradient(180deg, var(--fxv-surface-muted, #242424) 0%, var(--fxv-surface, #202020) 100%);
+  border-bottom-color: var(--fxv-border, rgba(255, 255, 255, 0.1));
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-title,
+[data-theme='dark'] .classroom-standardized .material-selector-label,
+[data-theme='dark'] .classroom-standardized .request-empty-title,
+[data-theme='dark'] .classroom-standardized .request-detail-value,
+[data-theme='dark'] .classroom-standardized .request-goal-text,
+[data-theme='dark'] .classroom-standardized .request-link,
+[data-theme='dark'] .classroom-standardized .material-selector-trigger-title,
+[data-theme='dark'] .classroom-standardized .material-selector-option-title,
+.dark-mode .classroom-standardized .lesson-request-title,
+.dark-mode .classroom-standardized .material-selector-label,
+.dark-mode .classroom-standardized .request-empty-title,
+.dark-mode .classroom-standardized .request-detail-value,
+.dark-mode .classroom-standardized .request-goal-text,
+.dark-mode .classroom-standardized .request-link,
+.dark-mode .classroom-standardized .material-selector-trigger-title,
+.dark-mode .classroom-standardized .material-selector-option-title {
+  color: var(--fxv-text, #f3f4f6);
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-title i,
+[data-theme='dark'] .classroom-standardized .material-selector-header-icon,
+.dark-mode .classroom-standardized .lesson-request-title i,
+.dark-mode .classroom-standardized .material-selector-header-icon {
+  background: var(--fxv-accent-soft, rgba(96, 165, 250, 0.14));
+  color: var(--fxv-accent-strong, #7cb8ff);
+  box-shadow: inset 0 0 0 1px rgba(124, 184, 255, 0.14);
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-subtitle,
+[data-theme='dark'] .classroom-standardized .lesson-request-updated,
+[data-theme='dark'] .classroom-standardized .request-intro,
+[data-theme='dark'] .classroom-standardized .request-detail-meta,
+[data-theme='dark'] .classroom-standardized .request-empty-description,
+[data-theme='dark'] .classroom-standardized .material-selector-description,
+[data-theme='dark'] .classroom-standardized .material-selector-trigger-subtitle,
+[data-theme='dark'] .classroom-standardized .material-selector-trigger-placeholder,
+[data-theme='dark'] .classroom-standardized .material-selector-option-description,
+.dark-mode .classroom-standardized .lesson-request-subtitle,
+.dark-mode .classroom-standardized .lesson-request-updated,
+.dark-mode .classroom-standardized .request-intro,
+.dark-mode .classroom-standardized .request-detail-meta,
+.dark-mode .classroom-standardized .request-empty-description,
+.dark-mode .classroom-standardized .material-selector-description,
+.dark-mode .classroom-standardized .material-selector-trigger-subtitle,
+.dark-mode .classroom-standardized .material-selector-trigger-placeholder,
+.dark-mode .classroom-standardized .material-selector-option-description {
+  color: var(--fxv-text-muted, #b8b8b8);
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-updated,
+.dark-mode .classroom-standardized .lesson-request-updated {
+  background: var(--fxv-surface-soft, #2a2a2a);
+  border-color: var(--fxv-border, rgba(255, 255, 255, 0.1));
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-status--ready,
+.dark-mode .classroom-standardized .lesson-request-status--ready {
+  background: var(--fxv-accent-soft, rgba(96, 165, 250, 0.14));
+  border-color: var(--fxv-border-strong, rgba(255, 255, 255, 0.16));
+  color: var(--fxv-accent-strong, #7cb8ff);
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-status--pending,
+.dark-mode .classroom-standardized .lesson-request-status--pending {
+  background: var(--fxv-surface-soft, #2a2a2a);
+  border-color: var(--fxv-border, rgba(255, 255, 255, 0.1));
+  color: var(--fxv-text-muted, #b8b8b8);
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-body,
+[data-theme='dark'] .classroom-standardized .material-selector-body,
+.dark-mode .classroom-standardized .lesson-request-body,
+.dark-mode .classroom-standardized .material-selector-body {
+  background: linear-gradient(180deg, var(--fxv-surface, #202020) 0%, var(--fxv-surface-muted, #242424) 100%);
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-details,
+[data-theme='dark'] .classroom-standardized .request-detail-card,
+[data-theme='dark'] .classroom-standardized .request-goal-card,
+[data-theme='dark'] .classroom-standardized .request-empty-state,
+[data-theme='dark'] .classroom-standardized .material-selector-trigger,
+[data-theme='dark'] .classroom-standardized .material-selector-dropdown,
+[data-theme='dark'] .classroom-standardized .dispatch-article-card,
+.dark-mode .classroom-standardized .lesson-request-details,
+.dark-mode .classroom-standardized .request-detail-card,
+.dark-mode .classroom-standardized .request-goal-card,
+.dark-mode .classroom-standardized .request-empty-state,
+.dark-mode .classroom-standardized .material-selector-trigger,
+.dark-mode .classroom-standardized .material-selector-dropdown,
+.dark-mode .classroom-standardized .dispatch-article-card {
+  background: linear-gradient(180deg, var(--fxv-surface-muted, #242424) 0%, var(--fxv-surface, #202020) 100%);
+  border-color: var(--fxv-border, rgba(255, 255, 255, 0.1));
+  box-shadow: var(--fxv-shadow-sm, 0 10px 24px rgba(0, 0, 0, 0.2));
+}
+
+[data-theme='dark'] .classroom-standardized .request-eyebrow,
+[data-theme='dark'] .classroom-standardized .request-empty-icon,
+[data-theme='dark'] .classroom-standardized .material-selector-trigger-arrow,
+[data-theme='dark'] .classroom-standardized .material-selector-option-check,
+.dark-mode .classroom-standardized .request-eyebrow,
+.dark-mode .classroom-standardized .request-empty-icon,
+.dark-mode .classroom-standardized .material-selector-trigger-arrow,
+.dark-mode .classroom-standardized .material-selector-option-check {
+  background: var(--fxv-accent-soft, rgba(96, 165, 250, 0.14));
+  color: var(--fxv-accent-strong, #7cb8ff);
+}
+
+[data-theme='dark'] .classroom-standardized .request-detail-label,
+[data-theme='dark'] .classroom-standardized .material-selector-field-label,
+.dark-mode .classroom-standardized .request-detail-label,
+.dark-mode .classroom-standardized .material-selector-field-label {
+  color: var(--fxv-accent-strong, #7cb8ff);
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-menu,
+.dark-mode .classroom-standardized .material-selector-menu {
+  background: rgba(30, 30, 30, 0.98);
+  border-color: var(--fxv-border, rgba(255, 255, 255, 0.1));
+  box-shadow: var(--fxv-shadow-lg, 0 22px 44px rgba(0, 0, 0, 0.34));
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-option:hover,
+.dark-mode .classroom-standardized .material-selector-option:hover {
+  background: rgba(124, 184, 255, 0.1);
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-option.is-selected,
+.dark-mode .classroom-standardized .material-selector-option.is-selected {
+  background: linear-gradient(180deg, rgba(124, 184, 255, 0.14) 0%, rgba(124, 184, 255, 0.08) 100%);
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-chip,
+.dark-mode .classroom-standardized .material-selector-chip {
+  background: rgba(16, 185, 129, 0.14);
+  border-color: rgba(16, 185, 129, 0.22);
+  color: #86efac;
+}
+
+@media (max-width: 768px) {
+  .classroom-standardized .lesson-request-meta {
+    align-items: flex-start;
+  }
+
+  .classroom-standardized .request-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .classroom-standardized .material-selector-chip {
+    margin-left: 0;
+  }
+}
+
+/* Student classroom lesson plan refresh */
+.classroom-standardized .material-content:has(.lesson-request-container) {
+  overflow-y: auto;
+}
+
+.classroom-standardized .lesson-request-container {
+  width: min(100%, 1120px);
+  max-width: 1120px;
+  min-height: 0;
+  margin: 0 auto;
+  padding: 18px 20px 32px;
+  gap: 16px;
+  background: transparent;
+}
+
+.classroom-standardized .lesson-request-section,
+.classroom-standardized .material-selector-section {
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 18px 46px rgba(15, 23, 42, 0.08);
+  overflow: visible;
+}
+
+.classroom-standardized .lesson-request-section {
+  overflow: hidden;
+}
+
+.classroom-standardized .lesson-request-header,
+.classroom-standardized .material-selector-header {
+  padding: 18px 20px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.classroom-standardized .material-selector-header {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.classroom-standardized .lesson-request-title,
+.classroom-standardized .material-selector-label {
+  font-size: 21px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.classroom-standardized .lesson-request-title i,
+.classroom-standardized .material-selector-header-icon {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: 11px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.14), rgba(56, 189, 248, 0.16));
+  color: #1d4ed8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.1);
+}
+
+.classroom-standardized .lesson-request-subtitle,
+.classroom-standardized .material-selector-description {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #64748b;
+}
+
+.classroom-standardized .lesson-request-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-items: flex-end;
+}
+
+.classroom-standardized .lesson-request-status,
+.classroom-standardized .lesson-request-updated,
+.classroom-standardized .material-selector-chip {
+  min-height: 28px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.classroom-standardized .lesson-request-status::before {
+  width: 7px;
+  height: 7px;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.classroom-standardized .lesson-request-body,
+.classroom-standardized .material-selector-body {
+  padding: 20px;
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.62) 0%, rgba(255, 255, 255, 0.96) 100%);
+}
+
+.classroom-standardized .lesson-request-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.classroom-standardized .lesson-request-details {
+  min-height: 190px;
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: none;
+}
+
+.classroom-standardized .request-material-summary {
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.classroom-standardized .request-material-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.classroom-standardized .request-eyebrow,
+.classroom-standardized .request-course-pill {
+  min-height: 24px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.classroom-standardized .request-eyebrow {
+  background: rgba(37, 99, 235, 0.1);
+  color: #1d4ed8;
+}
+
+.classroom-standardized .request-course-pill {
+  color: #047857;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.16);
+  white-space: nowrap;
+}
+
+.classroom-standardized .request-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(170px, 1fr));
+  gap: 12px;
+  margin-top: auto;
+}
+
+.classroom-standardized .request-stat-card--wide {
+  grid-column: 1 / -1;
+}
+
+.classroom-standardized .request-stat-card {
+  min-width: 0;
+  border-radius: 14px;
+  padding: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: none;
+}
+
+.classroom-standardized .request-detail-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 10px;
+  color: #2563eb;
+}
+
+.classroom-standardized .request-detail-value--text {
+  display: block;
+  color: #0f172a;
+  font-size: 17px;
+  line-height: 1.25;
+  font-weight: 850;
+}
+
+.classroom-standardized .request-detail-meta {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.classroom-standardized .material-selector-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 390px) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.classroom-standardized .material-selector-primary,
+.classroom-standardized .material-selector-secondary {
+  min-width: 0;
+}
+
+.classroom-standardized .material-selector-secondary {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.classroom-standardized .material-selector-row {
+  max-width: none;
+  margin: 0;
+}
+
+.classroom-standardized .material-selector-trigger {
+  min-height: 66px;
+  padding: 13px 14px;
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+.classroom-standardized .material-selector-trigger-icon,
+.classroom-standardized .material-selector-option-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 13px;
+}
+
+.classroom-standardized .material-selector-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+}
+
+.classroom-standardized .material-selector-select-wrap {
+  position: relative;
+  min-height: 66px;
+  padding: 13px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.96) 100%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.classroom-standardized .material-selector-select-wrap.is-disabled {
+  opacity: 0.7;
+}
+
+.classroom-standardized .material-selector-select-copy {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.classroom-standardized .material-selector-select-wrap .material-selector-dropdown {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.classroom-standardized .material-selector-select-wrap .material-selector-dropdown:disabled {
+  cursor: not-allowed;
+}
+
+.classroom-standardized .material-selector-trigger-title,
+.classroom-standardized .material-selector-option-title {
+  font-size: 14px;
+}
+
+.classroom-standardized .material-selector-trigger-subtitle,
+.classroom-standardized .material-selector-option-description {
+  font-size: 11px;
+}
+
+.classroom-standardized .material-selector-empty-panel {
+  min-height: 116px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px dashed rgba(148, 163, 184, 0.32);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.classroom-standardized .material-selector-empty-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.1);
+  flex-shrink: 0;
+}
+
+.classroom-standardized .material-selector-empty-title {
+  margin: 0 0 4px;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.classroom-standardized .material-selector-empty-copy {
+  margin: 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.classroom-standardized .btn-search-material {
+  width: 100%;
+  min-height: 58px;
+  border-radius: 16px;
+  font-size: 15px;
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-section,
+[data-theme='dark'] .classroom-standardized .material-selector-section,
+.dark-mode .classroom-standardized .lesson-request-section,
+.dark-mode .classroom-standardized .material-selector-section {
+  background: var(--fxv-surface, #202020);
+  border-color: var(--fxv-border, rgba(255, 255, 255, 0.1));
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-header,
+[data-theme='dark'] .classroom-standardized .material-selector-header,
+[data-theme='dark'] .classroom-standardized .lesson-request-body,
+[data-theme='dark'] .classroom-standardized .material-selector-body,
+.dark-mode .classroom-standardized .lesson-request-header,
+.dark-mode .classroom-standardized .material-selector-header,
+.dark-mode .classroom-standardized .lesson-request-body,
+.dark-mode .classroom-standardized .material-selector-body {
+  background: var(--fxv-surface, #202020);
+  border-color: var(--fxv-border, rgba(255, 255, 255, 0.1));
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-details,
+[data-theme='dark'] .classroom-standardized .request-stat-card,
+[data-theme='dark'] .classroom-standardized .material-selector-trigger,
+[data-theme='dark'] .classroom-standardized .material-selector-select-wrap,
+[data-theme='dark'] .classroom-standardized .material-selector-empty-panel,
+.dark-mode .classroom-standardized .lesson-request-details,
+.dark-mode .classroom-standardized .request-stat-card,
+.dark-mode .classroom-standardized .material-selector-trigger,
+.dark-mode .classroom-standardized .material-selector-select-wrap,
+.dark-mode .classroom-standardized .material-selector-empty-panel {
+  background: var(--fxv-surface-muted, #242424);
+  border-color: var(--fxv-border, rgba(255, 255, 255, 0.1));
+  box-shadow: none;
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-title,
+[data-theme='dark'] .classroom-standardized .material-selector-label,
+[data-theme='dark'] .classroom-standardized .request-detail-value--text,
+[data-theme='dark'] .classroom-standardized .material-selector-trigger-title,
+[data-theme='dark'] .classroom-standardized .material-selector-option-title,
+[data-theme='dark'] .classroom-standardized .material-selector-empty-title,
+.dark-mode .classroom-standardized .lesson-request-title,
+.dark-mode .classroom-standardized .material-selector-label,
+.dark-mode .classroom-standardized .request-detail-value--text,
+.dark-mode .classroom-standardized .material-selector-trigger-title,
+.dark-mode .classroom-standardized .material-selector-option-title,
+.dark-mode .classroom-standardized .material-selector-empty-title {
+  color: #d5dce6;
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-subtitle,
+[data-theme='dark'] .classroom-standardized .lesson-request-updated,
+[data-theme='dark'] .classroom-standardized .request-detail-meta,
+[data-theme='dark'] .classroom-standardized .material-selector-description,
+[data-theme='dark'] .classroom-standardized .material-selector-trigger-subtitle,
+[data-theme='dark'] .classroom-standardized .material-selector-trigger-placeholder,
+[data-theme='dark'] .classroom-standardized .material-selector-option-description,
+[data-theme='dark'] .classroom-standardized .material-selector-empty-copy,
+.dark-mode .classroom-standardized .lesson-request-subtitle,
+.dark-mode .classroom-standardized .lesson-request-updated,
+.dark-mode .classroom-standardized .request-detail-meta,
+.dark-mode .classroom-standardized .material-selector-description,
+.dark-mode .classroom-standardized .material-selector-trigger-subtitle,
+.dark-mode .classroom-standardized .material-selector-trigger-placeholder,
+.dark-mode .classroom-standardized .material-selector-option-description,
+.dark-mode .classroom-standardized .material-selector-empty-copy {
+  color: var(--fxv-text-muted, #b8b8b8);
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-header-icon,
+[data-theme='dark'] .classroom-standardized .material-selector-trigger-icon,
+[data-theme='dark'] .classroom-standardized .material-selector-option-icon,
+[data-theme='dark'] .classroom-standardized .material-selector-trigger-icon--level,
+[data-theme='dark'] .classroom-standardized .material-selector-trigger-icon--chapter,
+[data-theme='dark'] .classroom-standardized .material-selector-trigger-icon--lesson,
+[data-theme='dark'] .classroom-standardized .material-selector-trigger-arrow,
+[data-theme='dark'] .classroom-standardized .material-selector-empty-icon,
+.dark-mode .classroom-standardized .material-selector-header-icon,
+.dark-mode .classroom-standardized .material-selector-trigger-icon,
+.dark-mode .classroom-standardized .material-selector-option-icon,
+.dark-mode .classroom-standardized .material-selector-trigger-icon--level,
+.dark-mode .classroom-standardized .material-selector-trigger-icon--chapter,
+.dark-mode .classroom-standardized .material-selector-trigger-icon--lesson,
+.dark-mode .classroom-standardized .material-selector-trigger-arrow,
+.dark-mode .classroom-standardized .material-selector-empty-icon {
+  background: var(--fxv-surface-soft, #303030);
+  color: var(--fxv-text-muted, #b8b8b8);
+  box-shadow: inset 0 0 0 1px var(--fxv-border, rgba(255, 255, 255, 0.08));
+  filter: grayscale(1);
+}
+
+[data-theme='dark'] .classroom-standardized .request-course-pill,
+.dark-mode .classroom-standardized .request-course-pill {
+  color: #8ee6bd;
+  background: rgba(16, 185, 129, 0.14);
+  border-color: rgba(16, 185, 129, 0.22);
+}
+
+@media (max-width: 1100px) {
+  .classroom-standardized .lesson-request-container {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .classroom-standardized .material-selector-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .classroom-standardized .lesson-request-header,
+.classroom-standardized .material-selector-header {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .classroom-standardized .lesson-request-meta {
+    align-items: flex-start;
+  }
+
+  .classroom-standardized .request-summary-grid,
+.classroom-standardized .material-selector-filter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .classroom-standardized .request-material-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Match the tutor classroom chrome and card balance */
+.classroom-standardized .material-topbar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  height: 60px;
+  padding: 0 16px;
+  background: rgba(255, 255, 255, 0.64);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  box-sizing: border-box;
+}
+
+.classroom-standardized .material-topbar .material-header {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  gap: 10px;
+  background: transparent;
+  border: 0;
+  color: #0f172a;
+  box-shadow: none;
+}
+
+.classroom-standardized .material-topbar .material-header i {
+  color: #2563eb;
+  font-size: 14px;
+}
+
+.classroom-standardized .material-topbar .material-header span {
+  flex: 0 0 auto;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.classroom-standardized .material-tabs {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+.classroom-standardized .material-tab {
+  min-width: 0;
+  flex: 0 1 320px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 12px;
+  background: rgba(248, 250, 252, 0.85);
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.classroom-standardized .material-tab:hover {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(37, 99, 235, 0.18);
+}
+
+.classroom-standardized .material-tab.is-active {
+  background: #fff;
+  color: #0f172a;
+  border-color: rgba(37, 99, 235, 0.18);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.classroom-standardized .material-tab-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(37, 99, 235, 0.08);
+  color: #1d4ed8;
+  flex-shrink: 0;
+  font-size: 13px;
+}
+
+.classroom-standardized .material-tab-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  text-align: left;
+}
+
+.classroom-standardized .material-tab-label {
+  font-size: 12.5px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.classroom-standardized .material-tab-meta {
+  font-size: 10.5px;
+  color: #64748b;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.classroom-standardized .material-content--request {
+  overflow-y: auto;
+}
+
+.classroom-standardized .lesson-request-container {
+  width: min(100%, 1120px);
+  max-width: 1120px;
+  padding: 16px 20px 32px;
+  gap: 14px;
+  background: transparent;
+}
+
+.classroom-standardized .lesson-request-section,
+.classroom-standardized .material-selector-section,
+[data-theme='light'] .classroom-standardized .lesson-request-section,
+[data-theme='light'] .classroom-standardized .material-selector-section {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(30, 41, 59, 0.06);
+}
+
+.classroom-standardized .lesson-request-header,
+.classroom-standardized .material-selector-header {
+  padding: 16px 18px;
+}
+
+.classroom-standardized .lesson-request-title,
+.classroom-standardized .material-selector-label {
+  font-size: 19px;
+}
+
+.classroom-standardized .lesson-request-title i,
+.classroom-standardized .material-selector-header-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.classroom-standardized .lesson-request-subtitle,
+.classroom-standardized .material-selector-description {
+  font-size: 11.5px;
+}
+
+.classroom-standardized .lesson-request-body,
+.classroom-standardized .material-selector-body {
+  padding: 18px;
+}
+
+.classroom-standardized .lesson-request-details {
+  min-height: 176px;
+}
+
+.classroom-standardized .request-eyebrow,
+.classroom-standardized .request-course-pill {
+  min-height: 22px;
+  padding: 4px 8px;
+  font-size: 9px;
+  letter-spacing: 0.07em;
+}
+
+.classroom-standardized .request-stat-card {
+  padding: 12px;
+}
+
+.classroom-standardized .request-detail-label,
+.classroom-standardized .material-selector-field-label {
+  font-size: 9px;
+  letter-spacing: 0.07em;
+}
+
+.classroom-standardized .request-detail-value--text {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.classroom-standardized .request-detail-meta {
+  font-size: 10.5px;
+}
+
+[data-theme='dark'] .classroom-standardized .material-topbar,
+.dark-mode .classroom-standardized .material-topbar {
+  background: rgba(31, 31, 31, 0.96);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .classroom-standardized .material-topbar .material-header,
+[data-theme='dark'] .classroom-standardized .material-topbar .material-header span,
+.dark-mode .classroom-standardized .material-topbar .material-header,
+.dark-mode .classroom-standardized .material-topbar .material-header span {
+  color: #d5dce6;
+}
+
+[data-theme='dark'] .classroom-standardized .material-topbar .material-header i,
+.dark-mode .classroom-standardized .material-topbar .material-header i {
+  color: #5aa2ff;
+}
+
+[data-theme='dark'] .classroom-standardized .material-tab,
+.dark-mode .classroom-standardized .material-tab {
+  background: rgba(36, 36, 36, 0.94);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  box-shadow: none;
+}
+
+[data-theme='dark'] .classroom-standardized .material-tab:hover,
+[data-theme='dark'] .classroom-standardized .material-tab.is-active,
+.dark-mode .classroom-standardized .material-tab:hover,
+.dark-mode .classroom-standardized .material-tab.is-active {
+  background: rgba(48, 48, 48, 0.96);
+  border-color: rgba(96, 165, 250, 0.26);
+  color: #eef2f7;
+}
+
+[data-theme='dark'] .classroom-standardized .material-tab-icon,
+.dark-mode .classroom-standardized .material-tab-icon {
+  background: var(--fxv-surface-soft, #303030);
+  color: var(--fxv-text-muted, #b8b8b8);
+  box-shadow: inset 0 0 0 1px var(--fxv-border, rgba(255, 255, 255, 0.08));
+  filter: grayscale(1);
+}
+
+[data-theme='dark'] .classroom-standardized .material-tab-meta,
+.dark-mode .classroom-standardized .material-tab-meta {
+  color: var(--fxv-text-muted, #b8b8b8);
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-section,
+[data-theme='dark'] .classroom-standardized .material-selector-section,
+.dark-mode .classroom-standardized .lesson-request-section,
+.dark-mode .classroom-standardized .material-selector-section {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 760px) {
+  .classroom-standardized .material-topbar {
+    align-items: flex-start;
+    height: auto;
+    min-height: 60px;
+    flex-direction: column;
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .classroom-standardized .material-tabs {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .classroom-standardized .material-tab {
+    flex-basis: 260px;
+  }
+}
+
+/* Keep selector dropdowns as overlays instead of growing the material card */
+.classroom-standardized .lesson-request-details::before,
+[data-theme='dark'] .classroom-standardized .lesson-request-details::before,
+.dark-mode .classroom-standardized .lesson-request-details::before {
+  display: none;
+  content: none;
+}
+
+.classroom-standardized .material-selector-section,
+[data-theme='light'] .classroom-standardized .material-selector-section,
+[data-theme='dark'] .classroom-standardized .material-selector-section,
+.dark-mode .classroom-standardized .material-selector-section {
+  overflow: visible;
+}
+
+.classroom-standardized .material-selector-body,
+[data-theme='light'] .classroom-standardized .material-selector-body,
+[data-theme='dark'] .classroom-standardized .material-selector-body,
+.dark-mode .classroom-standardized .material-selector-body {
+  border-radius: 0 0 18px 18px;
+  overflow: visible;
+}
+
+.classroom-standardized .material-selector-combobox {
+  position: relative;
+  z-index: 120;
+}
+
+.classroom-standardized .material-selector-menu {
+  position: fixed;
+  z-index: 10000;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 7px 10px 7px 7px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 22px 44px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(14px);
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 116, 139, 0.42) transparent;
+}
+
+.classroom-standardized .material-selector-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.classroom-standardized .material-selector-menu::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 10px 0;
+}
+
+.classroom-standardized .material-selector-menu::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.4);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.classroom-standardized .material-selector-menu::-webkit-scrollbar-thumb:hover {
+  background: rgba(71, 85, 105, 0.58);
+  background-clip: padding-box;
+}
+
+.classroom-standardized .material-selector-menu .material-selector-option {
+  min-height: 58px;
+  padding: 9px 10px;
+  border-radius: 14px;
+}
+
+.classroom-standardized .material-selector-combobox--filter .material-selector-menu {
+  max-width: 100%;
+}
+
+.classroom-standardized .material-selector-trigger--filter {
+  min-height: 64px;
+  padding: 12px 14px;
+  border-radius: 16px;
+}
+
+.classroom-standardized .material-selector-trigger--filter:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  border-color: rgba(203, 213, 225, 0.35);
+  box-shadow: none;
+}
+
+.classroom-standardized .material-selector-trigger--filter:disabled:hover {
+  transform: none;
+  border-color: rgba(203, 213, 225, 0.35);
+  box-shadow: none;
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-menu,
+.dark-mode .classroom-standardized .material-selector-menu {
+  background: rgba(30, 30, 30, 0.98);
+  border-color: var(--fxv-border, rgba(255, 255, 255, 0.1));
+  box-shadow: var(--fxv-shadow-lg, 0 22px 44px rgba(0, 0, 0, 0.34));
+  scrollbar-color: rgba(97, 97, 97, 0.72) transparent;
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-menu::-webkit-scrollbar-thumb,
+.dark-mode .classroom-standardized .material-selector-menu::-webkit-scrollbar-thumb {
+  background: rgba(97, 97, 97, 0.68);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-menu::-webkit-scrollbar-thumb:hover,
+.dark-mode .classroom-standardized .material-selector-menu::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 128, 128, 0.86);
+  background-clip: padding-box;
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-menu .material-selector-option:hover,
+.dark-mode .classroom-standardized .material-selector-menu .material-selector-option:hover {
+  background: rgba(124, 184, 255, 0.1);
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-menu .material-selector-option.is-selected,
+.dark-mode .classroom-standardized .material-selector-menu .material-selector-option.is-selected {
+  background: linear-gradient(180deg, rgba(124, 184, 255, 0.14) 0%, rgba(124, 184, 255, 0.08) 100%);
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-trigger--filter:disabled,
+.dark-mode .classroom-standardized .material-selector-trigger--filter:disabled {
+  background: var(--fxv-surface-soft, #303030);
+  border-color: var(--fxv-border, rgba(255, 255, 255, 0.1));
+}
+
+/* Keep material dropdown triggers visually even across one-line and two-line labels */
+.classroom-standardized .material-selector-trigger,
+.classroom-standardized .material-selector-trigger--filter {
+  height: 76px;
+  min-height: 76px;
+}
+
+.classroom-standardized .material-selector-trigger-content {
+  min-width: 0;
+}
+
+.classroom-standardized .material-selector-trigger-copy {
+  min-width: 0;
+}
+
+.classroom-standardized .material-selector-trigger-subtitle {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.classroom-standardized .request-eyebrow,
+.classroom-standardized .request-course-pill,
+.classroom-standardized .preference-kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Match the tutor classroom scale on the student material selection view */
+.classroom-standardized .lesson-request-container {
+  width: min(100%, 1280px);
+  max-width: 1280px;
+  padding: 18px 10px 32px;
+  gap: 16px;
+}
+
+/* Streamlined student lesson-selection workspace */
+.classroom-standardized .material-content--request {
+  background: #f5f7fb;
+}
+
+.classroom-standardized .lesson-request-container {
+  width: min(100%, 1180px);
+  max-width: 1180px;
+  gap: 0;
+  padding: 18px 24px 36px;
+}
+
+.classroom-standardized .lesson-request-section,
+.classroom-standardized .material-selector-section,
+[data-theme='light'] .classroom-standardized .lesson-request-section,
+[data-theme='light'] .classroom-standardized .material-selector-section {
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none;
+}
+
+.classroom-standardized .lesson-request-section {
+  border-radius: 12px 12px 0 0;
+  border-bottom: 0;
+}
+
+.classroom-standardized .material-selector-section,
+[data-theme='light'] .classroom-standardized .material-selector-section {
+  border-radius: 0 0 12px 12px;
+}
+
+.classroom-standardized .lesson-request-header,
+.classroom-standardized .material-selector-header {
+  min-height: 66px;
+  padding: 14px 18px;
+  background: #fff;
+}
+
+.classroom-standardized .lesson-request-title,
+.classroom-standardized .material-selector-label {
+  font-size: 17px;
+}
+
+.classroom-standardized .lesson-request-title i,
+.classroom-standardized .material-selector-header-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+}
+
+.classroom-standardized .lesson-request-subtitle,
+.classroom-standardized .material-selector-description {
+  font-size: 11px;
+}
+
+.classroom-standardized .lesson-request-body {
+  padding: 0 18px 18px;
+  background: #fff;
+}
+
+.classroom-standardized .lesson-request-details {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.classroom-standardized .request-material-summary {
+  gap: 10px;
+  padding: 14px 0 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.classroom-standardized .request-material-heading {
+  min-height: 24px;
+}
+
+.classroom-standardized .request-summary-grid,
+.classroom-standardized .request-summary-grid--student {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 9px;
+  overflow: hidden;
+  background: #fafbfc;
+}
+
+.classroom-standardized .request-stat-card,
+.classroom-standardized .request-stat-card--wide {
+  grid-column: auto;
+  min-height: 88px;
+  padding: 14px 16px;
+  border: 0;
+  border-right: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 0;
+  background: transparent;
+}
+
+.classroom-standardized .request-stat-card:last-child {
+  border-right: 0;
+}
+
+.classroom-standardized .request-detail-label {
+  margin-bottom: 6px;
+  font-size: 9px;
+}
+
+.classroom-standardized .request-detail-value--text {
+  font-size: 15px;
+}
+
+.classroom-standardized .request-detail-meta {
+  margin-top: 5px;
+  font-size: 10.5px;
+}
+
+.classroom-standardized .material-selector-header {
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.classroom-standardized .material-selector-body {
+  padding: 18px;
+  background: #fff;
+}
+
+.classroom-standardized .material-selector-layout {
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.classroom-standardized .material-selector-primary {
+  padding-right: 18px;
+  border-right: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.classroom-standardized .material-selector-trigger,
+.classroom-standardized .material-selector-trigger--filter {
+  height: 68px;
+  min-height: 68px;
+  border-radius: 9px;
+}
+
+.classroom-standardized .material-selector-empty-panel {
+  min-height: 92px;
+  padding: 16px 18px;
+  border: 0;
+  border-radius: 9px;
+  background: #f7f9fc;
+}
+
+.classroom-standardized .material-selector-empty-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 7px;
+}
+
+[data-theme='dark'] .classroom-standardized .material-content--request,
+.dark-mode .classroom-standardized .material-content--request {
+  background: #1c1c1c;
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-section,
+[data-theme='dark'] .classroom-standardized .material-selector-section,
+.dark-mode .classroom-standardized .lesson-request-section,
+.dark-mode .classroom-standardized .material-selector-section {
+  background: #202020;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-header,
+[data-theme='dark'] .classroom-standardized .lesson-request-body,
+[data-theme='dark'] .classroom-standardized .material-selector-header,
+[data-theme='dark'] .classroom-standardized .material-selector-body,
+.dark-mode .classroom-standardized .lesson-request-header,
+.dark-mode .classroom-standardized .lesson-request-body,
+.dark-mode .classroom-standardized .material-selector-header,
+.dark-mode .classroom-standardized .material-selector-body {
+  background: #202020;
+}
+
+[data-theme='dark'] .classroom-standardized .lesson-request-details,
+.dark-mode .classroom-standardized .lesson-request-details {
+  background: transparent;
+  border: 0;
+}
+
+[data-theme='dark'] .classroom-standardized .request-material-summary,
+[data-theme='dark'] .classroom-standardized .material-selector-header,
+[data-theme='dark'] .classroom-standardized .material-selector-primary,
+.dark-mode .classroom-standardized .request-material-summary,
+.dark-mode .classroom-standardized .material-selector-header,
+.dark-mode .classroom-standardized .material-selector-primary {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .classroom-standardized .request-summary-grid,
+[data-theme='dark'] .classroom-standardized .request-summary-grid--student,
+.dark-mode .classroom-standardized .request-summary-grid,
+.dark-mode .classroom-standardized .request-summary-grid--student {
+  background: #242424;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .classroom-standardized .request-stat-card,
+.dark-mode .classroom-standardized .request-stat-card {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .classroom-standardized .material-selector-empty-panel,
+.dark-mode .classroom-standardized .material-selector-empty-panel {
+  background: #242424;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .classroom-standardized .lesson-request-container {
+    padding: 14px;
+  }
+
+  .classroom-standardized .request-summary-grid,
+.classroom-standardized .request-summary-grid--student,
+.classroom-standardized .material-selector-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .classroom-standardized .request-stat-card,
+.classroom-standardized .request-stat-card--wide {
+    border-right: 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+  }
+
+  .classroom-standardized .request-stat-card:last-child {
+    border-bottom: 0;
+  }
+
+  .classroom-standardized .material-selector-primary {
+    padding-right: 0;
+    padding-bottom: 16px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  }
+}
+
+/* Match the tutor classroom chat composer */
+.classroom-standardized .chat-input-area {
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.92), rgba(241, 245, 249, 0.96));
+  border-top: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.classroom-standardized .chat-input-area textarea,
+.classroom-standardized .chat-input-area input[type='text'] {
+  flex: 1;
+  min-height: 46px;
+  max-height: 118px;
+  padding: 13px 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  color: #172033;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.35;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  field-sizing: content;
+}
+
+.classroom-standardized .chat-input-area textarea:focus,
+.classroom-standardized .chat-input-area input[type='text']:focus {
+  background: #fff;
+  border-color: rgba(59, 130, 246, 0.48);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.classroom-standardized .chat-input-area textarea::placeholder,
+.classroom-standardized .chat-input-area input::placeholder {
+  color: #64748b;
+  font-weight: 500;
+  opacity: 1;
+}
+
+.classroom-standardized .attach-btn,
+.classroom-standardized .send-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 15px;
+  flex-shrink: 0;
+}
+
+.classroom-standardized .attach-btn {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  color: #4b5b70;
+}
+
+.classroom-standardized .attach-btn:hover {
+  background: #fff;
+  color: #2563eb;
+  transform: translateY(-1px);
+}
+
+.classroom-standardized .send-btn {
+  background: linear-gradient(135deg, #2563eb 0%, #5aa2ff 100%);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.28);
+}
+
+.classroom-standardized .send-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.34);
+}
+
+[data-theme='dark'] .classroom-standardized .chat-input-area,
+.dark-mode .classroom-standardized .chat-input-area {
+  background: linear-gradient(180deg, rgba(31, 31, 31, 0.96), rgba(28, 28, 28, 0.98));
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .classroom-standardized .chat-input-area textarea,
+[data-theme='dark'] .classroom-standardized .chat-input-area input[type='text'],
+.dark-mode .classroom-standardized .chat-input-area textarea,
+.dark-mode .classroom-standardized .chat-input-area input[type='text'] {
+  background: rgba(43, 43, 43, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e5edf7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+[data-theme='dark'] .classroom-standardized .chat-input-area textarea:focus,
+[data-theme='dark'] .classroom-standardized .chat-input-area input[type='text']:focus,
+.dark-mode .classroom-standardized .chat-input-area textarea:focus,
+.dark-mode .classroom-standardized .chat-input-area input[type='text']:focus {
+  background: #303030;
+  border-color: rgba(96, 165, 250, 0.48);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.14);
+}
+
+[data-theme='dark'] .classroom-standardized .chat-input-area textarea::placeholder,
+[data-theme='dark'] .classroom-standardized .chat-input-area input::placeholder,
+.dark-mode .classroom-standardized .chat-input-area textarea::placeholder,
+.dark-mode .classroom-standardized .chat-input-area input::placeholder {
+  color: #aeb8c6;
+  opacity: 1;
+}
+
+[data-theme='dark'] .classroom-standardized .attach-btn,
+.dark-mode .classroom-standardized .attach-btn {
+  background: rgba(48, 48, 48, 0.92);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #b8c2cf;
+}
+
+[data-theme='dark'] .classroom-standardized .attach-btn:hover,
+.dark-mode .classroom-standardized .attach-btn:hover {
+  background: #383838;
+  color: #7cb8ff;
+}
+
+/* Prevent chat composer height from shrinking while typing */
+.classroom-standardized .chat-input-area textarea,
+.classroom-standardized .chat-input-area input[type='text'] {
+  height: 46px;
+  min-height: 46px;
+  max-height: 46px;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 18px;
+  field-sizing: fixed;
+}
+
+.classroom-standardized .chat-input-area textarea::-webkit-scrollbar {
+  display: none;
+}
+
+/* Final dark-mode chat contrast overrides */
+[data-theme='dark'] .classroom-standardized .chat-message.self .message-bubble,
+.dark-mode .classroom-standardized .chat-message.self .message-bubble {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  border: 1px solid rgba(147, 197, 253, 0.32);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.22);
+}
+
+[data-theme='dark'] .classroom-standardized .chat-message.other .message-bubble,
+.dark-mode .classroom-standardized .chat-message.other .message-bubble {
+  background: #343434;
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+[data-theme='dark'] .classroom-standardized .message-bubble,
+.dark-mode .classroom-standardized .message-bubble {
+  color: #f8fafc;
+}
+
+[data-theme='dark'] .classroom-standardized .message-bubble strong,
+[data-theme='dark'] .classroom-standardized .message-bubble em,
+.dark-mode .classroom-standardized .message-bubble strong,
+.dark-mode .classroom-standardized .message-bubble em {
+  color: inherit;
+}
+
+[data-theme='dark'] .classroom-standardized .message-more-btn,
+.dark-mode .classroom-standardized .message-more-btn {
+  background: transparent;
+  border-color: transparent;
+  color: #cbd5e1;
+  box-shadow: none;
+}
+
+[data-theme='dark'] .classroom-standardized .message-more-btn:hover,
+.dark-mode .classroom-standardized .message-more-btn:hover {
+  color: #7cb8ff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: transparent;
+}
+
+[data-theme='dark'] .classroom-standardized .message-action-menu,
+.dark-mode .classroom-standardized .message-action-menu {
+  background: #242424;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.42);
+}
+
+[data-theme='dark'] .classroom-standardized .message-action-menu button,
+.dark-mode .classroom-standardized .message-action-menu button {
+  color: #e5edf7;
+}
+
+[data-theme='dark'] .classroom-standardized .message-action-menu button:hover,
+.dark-mode .classroom-standardized .message-action-menu button:hover {
+  background: rgba(59, 130, 246, 0.16);
+  color: #7cb8ff;
+}
+
+[data-theme='dark'] .classroom-standardized .message-action-menu button.danger,
+.dark-mode .classroom-standardized .message-action-menu button.danger {
+  color: #fca5a5;
+}
+
+[data-theme='dark'] .classroom-standardized .message-action-menu button.danger:hover,
+.dark-mode .classroom-standardized .message-action-menu button.danger:hover {
+  background: rgba(239, 68, 68, 0.14);
+  color: #fecaca;
+}
+
+[data-theme='dark'] .classroom-standardized .message-edit-input,
+.dark-mode .classroom-standardized .message-edit-input {
+  background: rgba(30, 30, 30, 0.96);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #f4f7fb;
+}
+
+[data-theme='dark'] .classroom-standardized .message-edit-cancel,
+.dark-mode .classroom-standardized .message-edit-cancel {
+  background: rgba(48, 48, 48, 0.92);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #d4dbe6;
+}
+
+[data-theme='dark'] .classroom-standardized .message-time,
+.dark-mode .classroom-standardized .message-time {
+  color: #b8c2cf;
+}
+
+/* Final message text readability guard for dark mode */
+[data-theme='dark'] .classroom-standardized .chat-message.self .message-bubble,
+[data-theme='dark'] .classroom-standardized .chat-message.self .message-bubble span,
+[data-theme='dark'] .classroom-standardized .chat-message.self .message-bubble .message-text,
+[data-theme='dark'] .classroom-standardized .chat-message.self .message-bubble strong,
+[data-theme='dark'] .classroom-standardized .chat-message.self .message-bubble em,
+.dark-mode .classroom-standardized .chat-message.self .message-bubble,
+.dark-mode .classroom-standardized .chat-message.self .message-bubble span,
+.dark-mode .classroom-standardized .chat-message.self .message-bubble .message-text,
+.dark-mode .classroom-standardized .chat-message.self .message-bubble strong,
+.dark-mode .classroom-standardized .chat-message.self .message-bubble em {
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .classroom-standardized .chat-message.other .message-bubble,
+[data-theme='dark'] .classroom-standardized .chat-message.other .message-bubble span,
+[data-theme='dark'] .classroom-standardized .chat-message.other .message-bubble .message-text,
+[data-theme='dark'] .classroom-standardized .chat-message.other .message-bubble strong,
+[data-theme='dark'] .classroom-standardized .chat-message.other .message-bubble em,
+.dark-mode .classroom-standardized .chat-message.other .message-bubble,
+.dark-mode .classroom-standardized .chat-message.other .message-bubble span,
+.dark-mode .classroom-standardized .chat-message.other .message-bubble .message-text,
+.dark-mode .classroom-standardized .chat-message.other .message-bubble strong,
+.dark-mode .classroom-standardized .chat-message.other .message-bubble em {
+  color: #f4f7fb !important;
+}
+
+[data-theme='dark'] .classroom-standardized .chat-message .message-time,
+.dark-mode .classroom-standardized .chat-message .message-time {
+  color: #d5deea !important;
+}
+
+[data-theme='dark'] .classroom-standardized .message-correction,
+[data-theme='dark'] .classroom-standardized .message-correction span,
+[data-theme='dark'] .classroom-standardized .message-correction .label,
+.dark-mode .classroom-standardized .message-correction,
+.dark-mode .classroom-standardized .message-correction span,
+.dark-mode .classroom-standardized .message-correction .label {
+  color: #f4f7fb !important;
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-modal,
+.dark-mode .classroom-standardized .classroom-modal {
+  background: #242424;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-modal-header,
+[data-theme='dark'] .classroom-standardized .classroom-modal-footer,
+.dark-mode .classroom-standardized .classroom-modal-header,
+.dark-mode .classroom-standardized .classroom-modal-footer {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-modal-header h2,
+.dark-mode .classroom-standardized .classroom-modal-header h2 {
+  color: #f4f7fb;
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-modal-meta,
+[data-theme='dark'] .classroom-standardized .classroom-modal-empty,
+.dark-mode .classroom-standardized .classroom-modal-meta,
+.dark-mode .classroom-standardized .classroom-modal-empty {
+  color: #b8c2cf;
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-modal-close,
+.dark-mode .classroom-standardized .classroom-modal-close {
+  color: #b8c2cf;
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-modal-close:hover,
+.dark-mode .classroom-standardized .classroom-modal-close:hover {
+  color: #7cb8ff;
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-history-list,
+.dark-mode .classroom-standardized .classroom-history-list {
+  background: #1f1f1f;
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-history-item::before,
+.dark-mode .classroom-standardized .classroom-history-item::before {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-history-marker,
+.dark-mode .classroom-standardized .classroom-history-marker {
+  background: #1f1f1f;
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-history-message,
+.dark-mode .classroom-standardized .classroom-history-message {
+  color: #e5edf7;
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-history-time,
+.dark-mode .classroom-standardized .classroom-history-time {
+  color: #7cb8ff;
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-history-item.student .classroom-history-time,
+.dark-mode .classroom-standardized .classroom-history-item.student .classroom-history-time {
+  color: #86efac;
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-device-field > span,
+.dark-mode .classroom-standardized .classroom-device-field > span {
+  color: #e5edf7;
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-device-field > span i,
+.dark-mode .classroom-standardized .classroom-device-field > span i {
+  color: #7cb8ff;
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-device-field select,
+.dark-mode .classroom-standardized .classroom-device-field select {
+  background: #1f1f1f;
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f4f7fb;
+}
+
+[data-theme='dark'] .classroom-standardized .classroom-modal-secondary,
+.dark-mode .classroom-standardized .classroom-modal-secondary {
+  background: #2b2b2b;
+  border-color: rgba(124, 184, 255, 0.28);
+  color: #7cb8ff;
+}
+.classroom-standardized .dispatch-view-header.conversational-theme .dispatch-view-category {
+  background: #fff;
+  color: #12458f;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  opacity: 1;
+  flex-shrink: 0;
+}
+
+.classroom-standardized .dispatch-view-header.conversational-theme .dispatch-view-date {
+  color: #fff;
+  font-weight: 600;
+  opacity: 1;
+}
+
+.classroom-standardized .dispatch-view-header.business-english-theme {
+  transition: background 0.35s ease, box-shadow 0.35s ease, color 0.35s ease;
+}
+
+.classroom-standardized .dispatch-view-header.business-english-theme--light {
+  background: linear-gradient(135deg, #f7f5ff 0%, #ede9fe 100%);
+  box-shadow: inset 0 -3px 0 rgba(124, 58, 237, 0.18);
+  color: #4c1d95;
+}
+
+.classroom-standardized .dispatch-view-header.business-english-theme--light .btn-back-to-request,
+.classroom-standardized .dispatch-view-header.business-english-theme--light .btn-material-theme-toggle {
+  background: rgba(124, 58, 237, 0.08);
+  border-color: rgba(124, 58, 237, 0.16);
+  color: #5b21b6;
+}
+
+.classroom-standardized .dispatch-view-header.business-english-theme--light .btn-back-to-request:hover,
+.classroom-standardized .dispatch-view-header.business-english-theme--light .btn-material-theme-toggle:hover {
+  background: rgba(124, 58, 237, 0.14);
+  border-color: rgba(124, 58, 237, 0.24);
+}
+
+.classroom-standardized .dispatch-view-header.business-english-theme--light .dispatch-view-category {
+  background: rgba(124, 58, 237, 0.12);
+  color: #6d28d9;
+}
+
+.classroom-standardized .dispatch-view-header.business-english-theme--light .dispatch-view-date {
+  color: rgba(76, 29, 149, 0.85);
+  opacity: 1;
+}
+
+.classroom-standardized .dispatch-view-header.business-english-theme--dark {
+  background: linear-gradient(135deg, #130d24 0%, #25134a 100%);
+  box-shadow: inset 0 -3px 0 rgba(167, 139, 250, 0.3);
+  color: #f5f3ff;
+}
+
+.classroom-standardized .dispatch-view-header.business-english-theme--dark .btn-back-to-request,
+.classroom-standardized .dispatch-view-header.business-english-theme--dark .btn-material-theme-toggle {
+  background: rgba(167, 139, 250, 0.12);
+  border-color: rgba(167, 139, 250, 0.22);
+  color: #e9ddff;
+}
+
+.classroom-standardized .dispatch-view-header.business-english-theme--dark .btn-back-to-request:hover,
+.classroom-standardized .dispatch-view-header.business-english-theme--dark .btn-material-theme-toggle:hover {
+  background: rgba(167, 139, 250, 0.2);
+  border-color: rgba(167, 139, 250, 0.32);
+}
+
+.classroom-standardized .dispatch-view-header.business-english-theme--dark .dispatch-view-category {
+  background: rgba(167, 139, 250, 0.18);
+  color: #f5f3ff;
+}
+
+.classroom-standardized .dispatch-view-header.business-english-theme--dark .dispatch-view-date {
+  color: rgba(237, 233, 254, 0.92);
+  opacity: 1;
+}
+
+
+.classroom-standardized .lesson-request-container--dispatch .lesson-request-content { grid-template-columns: minmax(0, 1fr); }
+.classroom-standardized .lesson-request-container--dispatch .lesson-request-section,
+.classroom-standardized .lesson-request-container--dispatch .material-selector-section {
+  border-radius: 8px;
+  border-bottom-width: 1px;
+}
+.classroom-standardized .lesson-request-container--dispatch .lesson-request-header,
+.classroom-standardized .lesson-request-container--dispatch .material-selector-header {
+  min-height: 42px;
+  box-sizing: border-box;
+}
+.classroom-standardized .lesson-request-container--dispatch .request-material-summary {
+  padding-top: 0;
+  border-top: 0;
+}
+.classroom-standardized .lesson-request-container--dispatch .request-stat-card { min-height: 0; }
+.classroom-standardized .lesson-request-container--dispatch .material-selector-primary {
+  padding: 0;
+  border: 0;
+}
+@media (min-width: 701px) {
+  .classroom-standardized .lesson-request-container--dispatch .request-summary-grid { grid-auto-rows: 72px; }
+  .classroom-standardized .lesson-request-container--dispatch .material-selector-section {
+    height: 466px;
+    flex: 0 0 466px;
+    box-sizing: border-box;
+  }
+}
+.classroom-standardized .material-selector-trigger { color: var(--fxv-text, #182235); }
+@media (max-width: 1100px) {
+  .classroom-standardized .material-tabs { justify-content: flex-start; }
+}
+.classroom-standardized .chat-material-share { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; max-width: 100%; }
+.classroom-standardized .chat-material-share strong { font-size: 12px; line-height: 1.5; font-weight: 600; overflow-wrap: anywhere; color: inherit; }
+.classroom-standardized .chat-material-share > span { font-size: 11px; opacity: .85; color: inherit; }
+.classroom-standardized .chat-material-share button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 36px; padding: 7px 12px; border: 1px solid #2563eb; border-radius: 4px; background: #2563eb; color: #fff; font-size: 12px; font-weight: 600; cursor: pointer; }
+.classroom-standardized .chat-material-share button:hover { background: #1d4ed8; }
+.classroom-standardized .chat-material-share button:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
+[data-theme='dark'] .classroom-standardized .chat-material-share button { background: #2563eb; color: #fff; border-color: #3b82f6; }
+[data-theme='dark'] .classroom-standardized .chat-material-share button:hover { background: #1d4ed8; }
+
+.classroom-container.classroom-standardized .classroom-art { display: block; width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
+.classroom-container.classroom-standardized :is(.chat-header,.material-header) > .classroom-art { width: 30px; height: 30px; }
+.classroom-container.classroom-standardized :is(.material-tab-icon,.material-selector-header-icon,.material-selector-trigger-icon,.material-selector-option-icon) { background: transparent; border: 0; box-shadow: none; filter: none; width: 32px; height: 32px; flex-shrink: 0; }
+.classroom-container.classroom-standardized .material-tab-icon .classroom-art { width: 28px; height: 28px; }
+.classroom-container.classroom-standardized .empty-material-icon { background: transparent; border: 0; box-shadow: none; }
+.classroom-container.classroom-standardized .empty-material-icon .classroom-art { width: 64px; height: 64px; }
+.classroom-container.classroom-standardized svg { flex-shrink: 0; vertical-align: middle; }
+.classroom-container.classroom-standardized :is(.chat-tool-btn,.classroom-modal-close,.send-btn,.attach-btn,.message-more-btn) { display: inline-flex; align-items: center; justify-content: center; }
+.classroom-container.classroom-standardized :is(.classroom-modal-primary,.classroom-modal-secondary,.btn-back-to-request,.btn-select-material,.message-action-menu button) { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.classroom-container.classroom-standardized :is(.classroom-modal-meta,.classroom-device-field) span > svg { margin-right: 6px; }
+.classroom-container.classroom-standardized .camera-off-icon { width: 40px; height: 40px; }
+.classroom-container.classroom-standardized .video-pip .camera-off-icon { width: 28px; height: 28px; }
+.classroom-container.classroom-standardized .classroom-recording-settings { display: flex; align-items: center; gap: 8px; margin: 0 20px 16px; min-height: 40px; padding: 8px 12px; border: 1px solid #dfe5ed; border-radius: 6px; background: transparent; color: #0245ae; font: inherit; font-size: 13px; cursor: pointer; }
+[data-theme='dark'] .classroom-container.classroom-standardized .classroom-recording-settings { border-color: var(--fxv-border,#3c3c3c); color: #79b5ff; }
+.classroom-container.classroom-standardized :is(.chat-tool-btn,.control-btn,.classroom-recording-settings):focus-visible { outline: 2px solid #79b5ff; outline-offset: 3px; }
+.classroom-container.classroom-standardized .video-controls { padding: 8px; gap: 8px; border-radius: 8px; background: #202326; backdrop-filter: none; }
+.classroom-container.classroom-standardized .video-section:focus-within .video-controls { opacity: 1; visibility: visible; }
+.classroom-container.classroom-standardized .control-btn { width: 44px; height: 44px; border-radius: 6px; background: #3a3a3a; box-shadow: none; }
+.classroom-container.classroom-standardized .control-btn svg { stroke: currentColor; }
+.classroom-container.classroom-standardized .control-btn.end-call { background: #bd3547; box-shadow: none; }
+.classroom-container.classroom-standardized .control-btn.end-call:hover { background: #a42c3c; }
+.classroom-container.classroom-standardized .material-selector-menu { border-radius: 8px; backdrop-filter: none; }
+.classroom-container.classroom-standardized .video-pip { width: 128px; height: 84px; }
+@media (max-width: 900px) {
+  .classroom-container.classroom-standardized { height: auto; min-height: 100dvh; overflow: visible; }
+  .classroom-container.classroom-standardized .classroom-left { height: max(60vh, 540px); flex-shrink: 0; }
+  .classroom-container.classroom-standardized .classroom-right { height: max(40vh, 420px); flex: none; }
+  .classroom-container.classroom-standardized .video-section { display: grid; grid-template-rows: minmax(0, 1fr) 60px; height: 260px; }
+  .classroom-container.classroom-standardized .video-main > .video-placeholder { padding-top: 56px; gap: 8px; box-sizing: border-box; }
+  .classroom-container.classroom-standardized .camera-off-text { max-width: calc(100% - 160px); font-size: 12px; line-height: 1.5; text-align: center; }
+  .classroom-container.classroom-standardized .video-controls { position: static; transform: none; align-self: center; justify-self: center; padding: 6px 8px; opacity: 1; visibility: visible; }
+  .classroom-container.classroom-standardized .video-pip { width: 64px; height: 56px; left: auto; right: 12px; bottom: 76px; }
+}
+@media (max-width: 360px) { .classroom-container.classroom-standardized .classroom-logo span { display: none; } }

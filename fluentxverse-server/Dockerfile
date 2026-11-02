@@ -12,7 +12,7 @@ RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
 # Local Groth16 proof generation needs circom and snarkjs.
 COPY --from=circom-builder /root/.cargo/bin/circom /usr/local/bin/circom
-RUN apk add --no-cache nodejs npm && npm install -g snarkjs@0.7.6
+RUN apk add --no-cache nodejs npm ffmpeg && npm install -g snarkjs@0.7.6
 
 # Set working directory
 WORKDIR /app

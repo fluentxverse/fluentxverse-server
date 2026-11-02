@@ -1,11 +1,11 @@
 import { keccak256 } from 'viem';
 import { signScreeningCredential, assertCredentialCurrent } from './credential';
-import { agentRegistration, assertValidatorConfiguration, readChainCertification, screeningChainConfig, screeningPayloadBytes, screeningLeaf, submitBridgeScreeningProof } from './chain';
+import { agentRegistration, assertValidatorConfiguration, readChainCertification, screeningChainConfig, screeningCredentialConfig, screeningPayloadBytes, screeningLeaf, submitBridgeScreeningProof } from './chain';
 import { privacyInfrastructure, validateHorizenReceipt } from '../proof.services/horizenReceipt';
 import { decodeScreeningSignals, digest, fieldHash, screeningPolicy } from './policy';
 import { ensureScreeningSchema, getScreeningCredential, getScreeningCredentialById, loadScreeningEvidence, screeningAudit, screeningQuery, type StoredScreeningCredential } from './repository';
 import { openPrivateEvidence, sealPrivateEvidence } from './storage';
-import { proveScreeningCredential } from './prover';
+import { approvedScreeningArtifacts, proveScreeningCredential } from './prover';
 
 const busy = new Set<string>();
 async function exclusive<T>(key: string, task: () => Promise<T>): Promise<T> {
@@ -19,7 +19,8 @@ export function requireScreeningEnabled() {
 async function credential(commitment: string) {
   const result = await getScreeningCredential(commitment);
   if (!result || result.revoked) throw new Error('Credential unavailable or revoked');
-  assertCredentialCurrent(JSON.parse(result.publicSignals), screeningChainConfig(), screeningChainConfig().issuerHash);
+  const config = screeningCredentialConfig(JSON.parse(result.publicSignals));
+  assertCredentialCurrent(JSON.parse(result.publicSignals), config, config.issuerHash);
   return result;
 }
 function proofMatchesRelease(stored: StoredScreeningCredential, vkHash: string) {
@@ -30,7 +31,8 @@ function proofMatchesRelease(stored: StoredScreeningCredential, vkHash: string) 
 export async function issueScreeningCredential(tutorId: string, actor: string) {
   requireScreeningEnabled();
   return exclusive(`issue:${tutorId}`, async () => {
-    const config = screeningChainConfig();
+    const release = await approvedScreeningArtifacts();
+    const config = screeningChainConfig(process.env.PROOF_DESTINATION_MODE === 'project' ? release.chainId : undefined);
     await assertValidatorConfiguration(config);
     await ensureScreeningSchema();
     const evidence = await loadScreeningEvidence(tutorId);
@@ -65,7 +67,7 @@ export async function generateScreeningProof(commitment: string, actor: string) 
   requireScreeningEnabled();
   return exclusive(`proof:${commitment}`, async () => {
     const stored = await credential(commitment);
-    if (stored.proof && proofMatchesRelease(stored, screeningChainConfig().vkHash)) return privateSummary(stored);
+    if (stored.proof && proofMatchesRelease(stored, screeningCredentialConfig(JSON.parse(stored.publicSignals)).vkHash)) return privateSummary(stored);
     if (stored.zkVerifyTx || stored.status === 'submitting_zkverify') throw Error('Submitted screening proof requires reconciliation before changing its release');
     const { input } = JSON.parse(openPrivateEvidence(stored.encryptedEvidence, stored.id).toString());
     const result = await proveScreeningCredential(input, JSON.parse(stored.publicSignals));
@@ -83,12 +85,13 @@ export async function generateScreeningProof(commitment: string, actor: string) 
 export async function submitScreeningProof(commitment: string, actor: string) {
   requireScreeningEnabled();
   return exclusive(`submit:${commitment}`, async () => {
-    const stored = await credential(commitment), config = screeningChainConfig();
+    const stored = await credential(commitment), config = screeningCredentialConfig(JSON.parse(stored.publicSignals));
     if (!stored.shared) throw new Error('Tutor publication consent required before zkVerify submission');
     if (!stored.proof) throw new Error('Generate the approved proof first');
     if (stored.zkVerifyTx) return privateSummary(stored);
     if (!proofMatchesRelease(stored, config.vkHash)) throw Error('Screening proof must be regenerated for the current reviewed release');
-    await assertValidatorConfiguration(config, JSON.parse(stored.publicSignals));
+    const release = await assertValidatorConfiguration(config, JSON.parse(stored.publicSignals));
+    if (release.chainId !== config.chainId) throw Error('Credential retains its original destination; issue a new credential for the selected destination');
     // The durable claim is the publication authorization point. Concurrent unsharing
     // after it cannot retract an already authorized, irreversible chain submission.
     const claimed = await screeningQuery(`MATCH (c:TutorScreeningCredential {commitment: $commitment})
@@ -113,7 +116,7 @@ export async function submitScreeningProof(commitment: string, actor: string) {
 
 export async function requestScreeningValidation(commitment: string, actor: string) {
   requireScreeningEnabled();
-  const stored = await credential(commitment), config = screeningChainConfig();
+  const stored = await credential(commitment), config = screeningCredentialConfig(JSON.parse(stored.publicSignals));
   if (!stored.shared || !stored.zkVerifyTx) throw new Error('Tutor sharing consent and zkVerify submission required');
   const values = JSON.parse(stored.publicSignals);
   await assertValidatorConfiguration(config, values);
@@ -125,7 +128,7 @@ export interface AggregationReceipt { aggregationId: string; merklePath: string[
 export async function finalizeScreeningValidation(commitment: string, receipt: AggregationReceipt, actor: string) {
   requireScreeningEnabled();
   validateHorizenReceipt(receipt);
-  const stored = await credential(commitment), config = screeningChainConfig();
+  const stored = await credential(commitment), config = screeningCredentialConfig(JSON.parse(stored.publicSignals));
   if (!stored.zkVerifyTx || !stored.shared) throw new Error('Submission and sharing consent required');
   const values = JSON.parse(stored.publicSignals);
   await assertValidatorConfiguration(config, values);
@@ -162,7 +165,7 @@ export async function currentPrivateSummary(stored: StoredScreeningCredential) {
   else if (BigInt(stored.expiresAt) <= BigInt(Math.floor(Date.now() / 1000))) summary.status = 'expired';
   else if (stored.zkVerifyTx && process.env.SCREENING_ENABLED !== 'true') summary.status = 'unavailable';
   else if (stored.zkVerifyTx && process.env.SCREENING_ENABLED === 'true') {
-    try { summary.status = await readChainCertification(screeningChainConfig(), JSON.parse(stored.publicSignals), stored.receiptJson) ? 'verified' : 'pending'; }
+    try { summary.status = await readChainCertification(screeningCredentialConfig(JSON.parse(stored.publicSignals)), JSON.parse(stored.publicSignals), stored.receiptJson) ? 'verified' : 'pending'; }
     catch { summary.status = 'verification_unavailable'; }
   }
   return summary;
@@ -182,12 +185,12 @@ export async function publicScreeningSummary(commitment: string) {
   const values = JSON.parse(stored.publicSignals), signals = decodeScreeningSignals(values);
   if (signals.subjectHash !== fieldHash({ tutorId: stored.tutorId })) throw new Error('Credential subject binding is invalid');
   let destination: ReturnType<typeof screeningChainConfig> | null = null;
-  try { destination = screeningChainConfig(); } catch { /* Verification remains unavailable without approved trust roots. */ }
+  try { destination = screeningCredentialConfig(values); } catch { /* Verification remains unavailable without approved trust roots. */ }
   let status = stored.revoked ? 'revoked' : BigInt(signals.expiresAt) <= BigInt(Math.floor(Date.now() / 1000)) ? 'expired' : 'pending';
   if (status === 'pending') {
     if (process.env.SCREENING_ENABLED !== 'true') status = 'unavailable';
     else {
-      try { status = await readChainCertification(screeningChainConfig(), values, stored.receiptJson) ? 'verified' : 'pending'; }
+      try { status = await readChainCertification(screeningCredentialConfig(values), values, stored.receiptJson) ? 'verified' : 'pending'; }
       catch { status = 'unavailable'; }
     }
   }
