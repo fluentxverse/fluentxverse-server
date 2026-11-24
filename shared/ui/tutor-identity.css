@@ -12,6 +12,13 @@
 .identity-check input { flex-shrink:0; margin-top:4px; }
 .identity-error { color:#c52935; }
 .identity-status { padding:12px 0; }
+.identity-applicant-details { margin:20px 0; padding:16px 0; border-block:1px solid var(--admin-border,#dce3ed); }
+.identity-section .identity-applicant-details h3 { font-size:14px; margin:0 0 16px; }
+.identity-applicant-details dl { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:16px 24px; margin:0; }
+.identity-applicant-details dt { font-size:12px; color:var(--admin-muted,#647184); margin:0 0 5px; }
+.identity-applicant-details dd { font-size:14px; line-height:1.6; margin:0; overflow-wrap:anywhere; white-space:pre-line; }
+.identity-applicant-address { grid-column:1 / -1; }
+@media(max-width:600px) { .identity-applicant-details dl { grid-template-columns:minmax(0,1fr); } }
 .identity-pending-review { display:flex; gap:20px; align-items:flex-start; max-width:760px; padding:24px 0 12px; }
 .identity-pending-review > div { min-width:0; }
 .identity-pending-review h3 { margin:0 0 12px; font-size:21px; }

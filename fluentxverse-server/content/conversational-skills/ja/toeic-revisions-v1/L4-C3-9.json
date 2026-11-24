@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 3,
+  "number": 9,
+  "sourceDigest": "55132ea7a75d0da28bdf114331072372aeeddb8763dc2086bfc66f2bac4d0465",
+  "episode": {
+    "title": "A Little Closer",
+    "skill": "speaking",
+    "intro": [
+      "The second market is a success. Visitors enjoy Emma’s photos, Nao’s ceramics, and Leo’s pastries. Claire says the market will be monthly, but the next date is not confirmed yet. After the market, Nao and Leo celebrate and talk about a possible trip to Fukuoka someday.",
+      "2回目のマーケットは成功します。来場者はエマの写真、ナオの陶器、レオのお菓子を楽しみます。クレアは毎月開催すると言いますが、次の日付はまだ未確定です。マーケットの後、ナオとレオはお祝いし、いつか福岡に行く案について話します。"
+    ],
+    "goal": [
+      "I can talk about feelings and agree on a simple plan.",
+      "気持ちを話し、簡単な予定に合意できる。"
+    ],
+    "warmup": "How can you show excitement, but also say the plan is not fixed yet?",
+    "words": [
+      [
+        "The exhibition was a success.",
+        "a success",
+        "展示会は成功でした。"
+      ],
+      [
+        "I am proud of our teamwork today.",
+        "proud of",
+        "今日のチームワークを誇りに思います。"
+      ],
+      [
+        "Thank you for making it possible.",
+        "making it possible",
+        "実現できるようにしてくれてありがとう。"
+      ],
+      [
+        "Claire says the market will be monthly.",
+        "monthly",
+        "クレアはマーケットは毎月になると言います。"
+      ],
+      [
+        "I would love to visit Fukuoka someday.",
+        "someday",
+        "いつか福岡に行ってみたいです。"
+      ],
+      [
+        "Here’s to new beginnings!",
+        "Here’s to",
+        "新しい始まりに乾杯！"
+      ]
+    ],
+    "discussion": [
+      "You are Nao. Your tutor is Leo. Celebrate one result, thank him for one thing, and suggest something you want to do together someday.",
+      "あなたはナオ役で、講師はレオ役です。成果を一つ喜び、相手の行動に一つ感謝し、いつか一緒にしたいことを提案しましょう。"
+    ],
+    "followup": "What details do you need before a trip becomes a confirmed plan?",
+    "tips": [
+      {
+        "rule": [
+          "Use “I’m proud of …” and “Thank you for …” to celebrate and show clear thanks.",
+          "成果を言う時は I’m proud of ...、感謝は Thank you for ... を使うと分かりやすいです。"
+        ],
+        "examples": [
+          [
+            "I’m proud of our teamwork.",
+            "私たちのチームワークを誇りに思います。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use “would love to” and “someday” for hopes. Say “We haven’t chosen dates yet” for open plans.",
+          "would love to と someday は「希望」です。未定なら We haven’t chosen dates yet. と言いましょう。"
+        ],
+        "examples": [
+          [
+            "I would love to visit Fukuoka someday.",
+            "いつか福岡に行ってみたいです。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "After the market, Leo and Nao talk about the day and a future idea.",
+        "マーケットの後、レオとナオが今日のことと将来の案について話します。"
+      ],
+      "roles": [
+        "Leo",
+        "Nao"
+      ],
+      "dialogue": [
+        [
+          "Leo",
+          "The market went well. What are you most proud of?"
+        ],
+        [
+          "Nao",
+          "I am proud of our teamwork today."
+        ],
+        [
+          "Leo",
+          "Your cups looked great beside Emma’s photos."
+        ],
+        [
+          "Nao",
+          "Thank you for bringing such good pastries."
+        ],
+        [
+          "Leo",
+          "Claire says the market will be monthly now."
+        ],
+        [
+          "Nao",
+          "That is exciting. Is the next date confirmed yet?"
+        ],
+        [
+          "Leo",
+          "Not yet. She will confirm it later."
+        ],
+        [
+          "Nao",
+          "I would love to visit Fukuoka someday with you."
+        ],
+        [
+          "Leo",
+          "Nice idea. We have not chosen dates yet, right?"
+        ],
+        [
+          "Nao",
+          "Right. Let’s first check our schedules next week."
+        ]
+      ],
+      "questions": [
+        [
+          "What is Nao proud of?",
+          "Their teamwork."
+        ],
+        [
+          "What will the market become?",
+          "A monthly event."
+        ],
+        [
+          "Is the next market date confirmed?",
+          "No, it is not confirmed yet."
+        ],
+        [
+          "Is the Fukuoka trip booked?",
+          "No. They have not chosen dates yet."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "The exhibition was (a success / a successful).",
+        "a success"
+      ],
+      [
+        "I am proud (of / at) our teamwork.",
+        "of"
+      ],
+      [
+        "Thanks for (making / make) it possible.",
+        "making"
+      ],
+      [
+        "The market will (be / being) monthly.",
+        "be"
+      ],
+      [
+        "I would love (to visit / visit) Fukuoka someday.",
+        "to visit"
+      ],
+      [
+        "We have not chosen any dates (yet / ago).",
+        "yet"
+      ]
+    ],
+    "choices": [
+      [
+        "\"The market will be monthly.\" What does it tell you?",
+        "It happens every month.",
+        "The next date is already decided.",
+        "A"
+      ],
+      [
+        "\"Someday\" means what?",
+        "A fixed time is chosen.",
+        "A hope in the future.",
+        "B"
+      ],
+      [
+        "Which sentence shows a clear open plan?",
+        "We have not chosen dates yet.",
+        "We will go next Friday.",
+        "A"
+      ],
+      [
+        "What is a good first step for planning a trip?",
+        "Check schedules and days off.",
+        "Buy tickets before checking dates.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Nao outside the cafe after the market. Your tutor is Leo. The market was a success. Claire announced monthly markets, but the next date is not confirmed. You want to visit Fukuoka someday, but no dates or tickets are set.",
+        "あなたはマーケットの後、カフェの外にいるナオ役です。講師はレオ役です。マーケットは成功でした。クレアは毎月開催を発表しましたが、次の日付は未確定です。いつか福岡に行きたいですが、日程も切符も決まっていません。"
+      ],
+      "task": [
+        "Celebrate one result, thank Leo for one specific action, and ask a question. Suggest Fukuoka as a hope, say what is not decided yet, and agree on a first planning step.",
+        "成果を一つ喜び、レオの行動に一つ具体的に感謝し、質問を一つしましょう。福岡は「希望」として提案し、未定の点を言い、最初の行動を決めましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Nao"
+      ],
+      "title": "After the Market: Hope vs. Plan",
+      "lines": [
+        "What was your favourite moment at the market today?",
+        "What are you proud of, and why?",
+        "Can you thank me for one specific thing I did today?",
+        "Would you like to visit Fukuoka someday? What would you like to do there?",
+        "Is anything booked or confirmed for the trip yet?",
+        "What first step can we take next week to start planning?"
+      ],
+      "evidence": "Grade on: one clear celebration + one specific thank-you + one question to Leo; Fukuoka is a hope (not booked), dates/tickets not decided; first step is realistic (check schedules). Monthly market is decided; next date is unknown.",
+      "useful": [
+        "My favourite moment was ...",
+        "I’m proud of ... because ...",
+        "Thank you for ...",
+        "I would love to ... someday.",
+        "We have not chosen dates yet."
+      ]
+    },
+    "topics": [
+      [
+        "Shared Achievements",
+        [
+          "What went well today?",
+          "Who helped you, and how?",
+          "How do you say thank you clearly?"
+        ]
+      ],
+      [
+        "Hopes and Plans",
+        [
+          "What does “someday” mean?",
+          "What do you need to confirm a plan?",
+          "What is a good first step?"
+        ]
+      ],
+      [
+        "New Beginnings",
+        [
+          "What feels like a new start for you?",
+          "How do you celebrate small progress?",
+          "What short toast can you say?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Here’s to ...\" is used for a toast. It means you wish something good. People can say it with coffee or tea too.",
+      "Here’s to ... は乾杯の言い方です。「〜を祝って、〜を願って」という意味です。コーヒーやお茶でも使えます。"
+    ],
+    "triviaQuestion": [
+      "Is \"Here’s to new beginnings\" a toast or a direction?",
+      "A toast."
+    ],
+    "closing": "The market is a success. Claire announces it will be monthly, but the next date is not confirmed. Nao and Leo celebrate, and they talk about visiting Fukuoka someday, but nothing is booked yet."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

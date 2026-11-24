@@ -4,6 +4,7 @@ import { buildLesson2 } from '../content/conversational-skills/ja/level-3-chapte
 import { buildLesson3 } from '../content/conversational-skills/ja/level-3-chapter-1/lesson-3-reading';
 import { buildLesson4 } from '../content/conversational-skills/ja/level-3-chapter-1/lesson-4-speaking';
 import { conversationalLessonErrors } from '../src/utils/conversationalLessonValidation';
+import { newBeginningWatercolor, type StoryLessonNumber } from '../content/conversational-skills/ja/level-3-chapter-1/new-beginning';
 
 const chapter = buildChapter('http://localhost:8765');
 describe('Japanese Level 3 Chapter 1', () => {
@@ -13,12 +14,12 @@ describe('Japanese Level 3 Chapter 1', () => {
       expect(conversationalLessonErrors(lesson)).toEqual([]);
       expect(lesson.applyData.activityType).toBe(lesson.skill);
       expect(lesson.missionData.missionType).toBe(lesson.skill);
-      expect(lesson.introductionData.introTexts.find(t => t.language === 'ja')?.text).toMatch(/[ぁ-んァ-ン]/u);
+      expect(lesson.introductionData.introTexts.find((t: { language: string; text: string }) => t.language === 'ja')?.text).toMatch(/[ぁ-んァ-ン]/u);
       expect(JSON.stringify(lesson)).not.toMatch(/[\uac00-\ud7af\u1100-\u11ff\u3130-\u318f]/u);
     }
     expect(new Set(chapter.map(l => l.skill)).size).toBe(3);
     expect(new Set(chapter.map(l => l.exerciseData.stepAType)).size).toBe(3);
-    expect(new Set(chapter.map(l => l.stepBData.stepType)).size).toBe(3);
+    expect(new Set(chapter.map(l => l.stepBData.stepType))).toEqual(new Set(['grammar-tip', 'speak-your-mind']));
   });
   test('authoring corrections keep openings and roleplays natural', () => {
     for (const lesson of chapter) {
@@ -26,16 +27,17 @@ describe('Japanese Level 3 Chapter 1', () => {
       expect(goalStep).toBeDefined();
       expect(situationStep).toBeDefined();
       if (!goalStep || !situationStep) throw new Error('Introduction requires goal and situation steps.');
-      expect(goalStep.script).toStartWith(lesson.lessonNumber >= 6 && lesson.lessonNumber <= 9
-        ? 'Our objective for today is:' : 'Our goal for today is:');
+      const storyLesson = ![5, 10].includes(lesson.lessonNumber);
+      expect(goalStep.script).toStartWith(storyLesson
+        ? 'Our lesson objective today is to' : 'Our goal for today is:');
       expect(goalStep.script).toEndWith('Is it clear?');
-      expect(situationStep.script).toStartWith(lesson.lessonNumber >= 6 && lesson.lessonNumber <= 9
+      expect(situationStep.script).toStartWith(storyLesson
         ? 'Here is our situation.' : "Here's our situation.");
       expect(lesson.applyData.situationText).not.toMatch(/<[^>]+>/);
       expect(lesson.applyData.situationTranslation).toMatch(/[ぁ-んァ-ン]/u);
     }
-    for (const lesson of chapter.filter(lesson => lesson.skill === 'speaking' && (lesson.lessonNumber <= 5 || lesson.lessonNumber === 10))) {
-      const roleplayStep = lesson.missionData.tutorSteps.find(step => step.instruction.includes('roleplay'));
+    for (const lesson of chapter.filter(lesson => lesson.skill === 'speaking' && [5, 10].includes(lesson.lessonNumber))) {
+      const roleplayStep = lesson.missionData.tutorSteps.find((step: { instruction: string }) => step.instruction.includes('roleplay'));
       expect(roleplayStep?.instruction).toContain('tutor always speaks first');
       expect(roleplayStep?.scripts?.[0]?.text).toMatch(/^1\.\s*(Hi|Hello|Where|What|Who|Do|Are|Is|Can)/);
     }
@@ -61,9 +63,10 @@ describe('Japanese Level 3 Chapter 1', () => {
     expect(conversationalLessonErrors(lesson)).toContain('Listening Mission needs a script in the tutor guide.');
   });
   test('reading requires a passage and enabled trivia requires content', () => {
-    const lesson: any = structuredClone(chapter[3]);
+    const lesson: any = structuredClone(chapter[2]);
     lesson.applyData.readingText = '<p> </p>';
     lesson.applyData.triviaEnabled = true;
+    lesson.applyData.triviaText = '';
     lesson.missionData.readingPassage.blocks = [{ type: 'images', images: ['image.webp'] }];
     expect(conversationalLessonErrors(lesson)).toContain('Apply reading passage is required.');
     expect(conversationalLessonErrors(lesson)).toContain('Reading Mission needs a passage.');
@@ -109,7 +112,7 @@ describe('Japanese Level 3 Chapter 1', () => {
     expect(lesson.applyData.readingText).toContain('¥2,900');
     expect(lesson.applyData.tutorSteps[1].questions[1].answer).toContain('¥3,100');
     expect(lesson.missionData.readingPassage.blocks).toHaveLength(3);
-    expect(lesson.missionData.tutorSteps[1].scripts[0].text).toStartWith('Hi!');
+    expect(lesson.missionData.tutorSteps[2].scripts[1].text).toStartWith('1. Hi Emma');
     expect(lesson.missionData2.topics).toHaveLength(3);
     expect(lesson.feedbackData.tutorSteps).toHaveLength(6);
     expect(lesson.feedbackData.rubricTitle).toBe('LESSON OBJECTIVE ACHIEVEMENT');
@@ -119,21 +122,24 @@ describe('Japanese Level 3 Chapter 1', () => {
     expect(lesson.applyData.situationText).not.toMatch(/<[^>]+>/);
     expect(JSON.stringify(lesson)).not.toMatch(/[\uac00-\ud7af\u1100-\u11ff\u3130-\u318f]/u);
   });
-  test('Lesson 4 is a sustained speaking lesson without images', () => {
+  test('Lesson 4 continues the outing with a dialogue and speaking roleplay without images', () => {
     const lesson: any = { ...chapter[3], ...buildLesson4(chapter[3], 'https://api.fluentxverse.xyz') };
     expect(conversationalLessonErrors(lesson)).toEqual([]);
     expect(lesson.id).toBe('conversational-skills-L3-C1-4-speaking-ja-v1');
     expect(lesson.skill).toBe('speaking');
     expect(lesson.applyData.activityType).toBe('speaking');
-    expect(lesson.applyData.dialogueLines).toHaveLength(1);
+    expect(lesson.applyData.dialogueLines).toHaveLength(12);
+    expect(new Set(lesson.applyData.dialogueLines.map((line: any) => line.speaker))).toEqual(new Set(['Claire', 'Emma']));
+    expect(lesson.applyData.dialogueLines[0].speaker).toBe('Claire');
     expect(lesson.missionData.missionType).toBe('speaking');
-    expect(lesson.missionData.instruction).toContain('90-second talk without tutor interruptions');
-    expect(lesson.missionData.grammarTipItems).toHaveLength(3);
-    expect(lesson.missionData.tutorSteps[1].scripts[0].text).toContain("I'm ready to listen");
-    expect(lesson.missionData.tutorSteps[2].instruction).toContain('After the learner finishes');
+    expect(lesson.missionData.instruction).toContain('suggest two possible plans');
+    expect(lesson.missionData.grammarTipItems).toHaveLength(4);
+    expect(lesson.missionData.tutorSteps[1].scripts[0].text).toContain("I'll be Claire. Please be Emma.");
+    expect(lesson.missionData.tutorSteps[1].scripts[1].text).toStartWith('1. Emma');
+    expect(lesson.missionData.tutorSteps[2].instruction).toContain('Give specific feedback');
     expect(lesson.missionData2.topics).toHaveLength(3);
     expect(lesson.feedbackData.tutorSteps).toHaveLength(6);
-    expect(lesson.introductionData.lessonGoalSteps[0].script).toStartWith('Our objective for today is:');
+    expect(lesson.introductionData.lessonGoalSteps[0].script).toStartWith('Our lesson objective today is to');
     expect(lesson.backgroundImage).toBe('');
     expect(lesson.introductionData.introImage).toBe('');
     expect(lesson.learnData.steps[0].vocabularyItems.every((item: any) => item.image === '')).toBe(true);
@@ -145,14 +151,14 @@ describe('Japanese Level 3 Chapter 1', () => {
   test('listening sources stay out of the student content fields', () => {
     for (const lesson of chapter.filter(l => l.skill === 'listening')) {
       expect(lesson.applyData.dialogueLines).toEqual([]);
-      expect(lesson.applyData.readingText).toBeUndefined();
+      expect(lesson.applyData.readingText || '').toBe('');
       expect(lesson.missionData.readingPassage).toBeUndefined();
-      expect(lesson.missionData2.missionType).toBe(lesson.lessonNumber >= 6 ? 'discussion' : 'listening');
+      expect(lesson.missionData2.missionType).toBe('discussion');
     }
   });
-  test('Lessons 6-9 continue the Kyoto story with the listening, reading, speaking, listening sequence', () => {
+  test('Lessons 6-9 use the corrected speaking, speaking, reading, speaking sequence', () => {
     const arc: any[] = chapter.slice(5, 9);
-    expect(arc.map(lesson => lesson.skill)).toEqual(['listening', 'reading', 'speaking', 'listening']);
+    expect(arc.map(lesson => lesson.skill)).toEqual(['speaking', 'speaking', 'reading', 'speaking']);
     expect(arc.map(lesson => lesson.id)).toEqual([
       'conversational-skills-L3-C1-6-listening-ja-v1',
       'conversational-skills-L3-C1-7-reading-ja-v1',
@@ -161,48 +167,48 @@ describe('Japanese Level 3 Chapter 1', () => {
     ]);
     for (const lesson of arc) {
       expect(conversationalLessonErrors(lesson)).toEqual([]);
-      expect(lesson.introductionData.lessonGoalSteps[0].script).toContain(lesson.goalTextEn);
+      expect(lesson.introductionData.lessonGoalSteps[0].script).toContain(lesson.goalTextEn.replace(/^I can /, ''));
       expect(lesson.learnData.steps[0].vocabularyItems).toHaveLength(6);
       expect(lesson.learnData.steps[0].vocabularyItems.every((item: any) => item.image === '')).toBe(true);
       expect(lesson.stepBData.grammarTip.explanations).toHaveLength(2);
-      expect(lesson.exerciseData.chooseItems).toHaveLength(4);
-      expect(lesson.exerciseData.answers).toHaveLength(4);
+      expect(lesson.exerciseData.chooseItems).toHaveLength(6);
+      expect(lesson.exerciseData.answers).toHaveLength(6);
       expect(lesson.exerciseData.multipleChoiceItems).toHaveLength(4);
       expect(lesson.missionData2.topics).toHaveLength(3);
       expect(lesson.feedbackData.tutorSteps).toHaveLength(6);
       expect(lesson.feedbackData.rubricTitle).toBe('LESSON OBJECTIVE ACHIEVEMENT');
       expect(lesson.applyData.triviaTutorSteps[1].instruction).toContain('student to read');
       expect(lesson.storyData.setting).toContain('Kyoto');
-      expect(lesson.backgroundImage).toBe('');
-      expect(lesson.introductionData.introImage).toBe('');
-      expect(lesson.applyData.situationImage).toBe('');
+      const artwork = newBeginningWatercolor(lesson.lessonNumber as StoryLessonNumber, 'http://localhost:8765');
+      expect(lesson.backgroundImage).toBe(artwork.introduce);
+      expect(lesson.introductionData.introImage).toBe(artwork.introduce);
+      expect(lesson.applyData.situationImage).toBe(artwork.apply);
       expect(lesson.applyData.triviaImage).toBe('');
-      expect(lesson.missionData.image).toBe('');
-      expect(JSON.stringify(lesson)).not.toMatch(/https?:\/\/[^" ]+\.(?:webp|png|jpe?g)/i);
+      expect(lesson.missionData.image).toBe(artwork.challenge1);
       expect(JSON.stringify(lesson)).not.toMatch(/[\uac00-\ud7af\u1100-\u11ff\u3130-\u318f]/u);
     }
-    expect(arc[0]?.storyData.nextEpisodeHook).toContain('outdated poster');
+    expect(arc[0]?.storyData.nextEpisodeHook).toContain('problem at the bakery');
     expect(arc[0]?.missionData2.topics.map((topic: any) => topic.title)).toEqual([
-      'A PLAN THAT CHANGED', 'GROUP PLANS', 'DINNER PLAN B',
+      'PLANNING TOGETHER', 'SHARING YOUR WORK', 'OFFERING HELP',
     ]);
     expect(arc[0]?.missionData2.topics.every((topic: any) => topic.questions.length === 3)).toBe(true);
-    expect(arc[1]?.storyData.previousSummary).toContain('leak');
-    expect(arc[2]?.storyData.previousSummary).toContain('poster');
-    expect(arc[3]?.storyData.currentEpisodeSummary).toContain('safe');
+    expect(arc[1]?.storyData.previousSummary).toContain('bakery');
+    expect(arc[2]?.storyData.previousSummary).toContain('snacks');
+    expect(arc[3]?.storyData.currentEpisodeSummary).toContain('home');
   });
-  test('new listening scripts remain in tutor guidance and the speaking challenge is sustained', () => {
-    for (const lesson of [chapter[5], chapter[8]] as any[]) {
-      expect(lesson.applyData.tutorSteps.some((step: any) => step.listeningScript)).toBe(true);
-      expect(lesson.missionData.tutorSteps.some((step: any) => step.listeningScript)).toBe(true);
-      expect(lesson.applyData.dialogueLines).toEqual([]);
+  test('corrected speaking lessons use dialogues and Lesson 8 has actual reading passages', () => {
+    for (const lesson of [chapter[5], chapter[6], chapter[8]] as any[]) {
+      expect(lesson.applyData.tutorSteps.some((step: any) => step.listeningScript)).toBe(false);
+      expect(lesson.missionData.tutorSteps.some((step: any) => step.listeningScript)).toBe(false);
+      expect(lesson.applyData.dialogueLines.length).toBeGreaterThanOrEqual(10);
       expect(lesson.missionData.listeningScript).toBeUndefined();
+      expect(lesson.missionData.tutorSteps[1].instruction).toContain('tutor speaks first');
+      expect(lesson.missionData.instruction).not.toMatch(/90-second|monologue|uninterrupted/);
     }
-    const reading: any = chapter[6];
-    expect(reading?.missionData.readingPassage.blocks[0].content).toContain('Gojo Art Room');
-    const speaking: any = chapter[7];
-    expect(speaking?.missionData.instruction).toContain('90-second message without tutor interruptions');
-    expect(speaking?.missionData.tutorSteps[1].instruction).toContain('tutor speaks first');
-    expect(speaking?.applyData.dialogueLines).toHaveLength(1);
+    const reading: any = chapter[7];
+    expect(reading.applyData.readingText).toContain('A New View of Kyoto');
+    expect(reading.missionData.readingPassage.blocks[0].content).toContain('Sunday program');
+    expect(reading.missionData.tutorSteps).toHaveLength(4);
   });
   test('other courses and legacy starter lessons retain their publish behavior', () => {
     expect(conversationalLessonErrors({ course: 'business-english', level: 3 })).toEqual([]);

@@ -1,0 +1,275 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 5,
+  "number": 1,
+  "sourceDigest": "916a01616922344aa8dce3be9ffcf916ae8025e1539f5d30bb180daef65ff5e5",
+  "episode": {
+    "title": "A New Beginning in Osaka",
+    "skill": "speaking",
+    "goal": [
+      "I can introduce my job and schedule and ask for help.",
+      "仕事と予定を紹介し、助けを求められる。"
+    ],
+    "intro": [
+      "The agency agrees to Emma’s work plan. She works in Osaka on Mondays and Fridays and in Kyoto on three other workdays. Ren welcomes her on her first day. Emma is excited and nervous. Ren offers to show her around.",
+      "会社はエマの勤務案を認めます。月曜と金曜は大阪、ほかの平日三日間は京都で働きます。初日、レンが迎えます。エマは期待と緊張を感じています。レンは職場を案内すると申し出ます。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "I design posters.",
+        "design",
+        "ポスターをデザインします。"
+      ],
+      [
+        "I work here on Mondays.",
+        "on Mondays",
+        "月曜日はここで働きます。"
+      ],
+      [
+        "I live in Kyoto.",
+        "live",
+        "京都に住んでいます。"
+      ],
+      [
+        "Where is the meeting room?",
+        "meeting room",
+        "会議室はどこですか。"
+      ],
+      [
+        "Where are the project files?",
+        "files",
+        "プロジェクトのファイルはどこですか。"
+      ],
+      [
+        "Thank you for your help.",
+        "help",
+        "手伝ってくれてありがとうございます。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use can + verb to offer help.",
+          "can ＋動詞で、手伝えることを伝えます。"
+        ],
+        "examples": [
+          [
+            "I can help you.",
+            "お手伝いできます。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use Let’s + verb to suggest an action.",
+          "Let’s ＋動詞で行動を提案します。"
+        ],
+        "examples": [
+          [
+            "Let’s check the time.",
+            "時刻を確認しましょう。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Ren welcomes Emma to the Osaka office. Read their conversation.",
+        "レンが大阪のオフィスでエマを迎えます。会話を読みましょう。"
+      ],
+      "roles": [
+        "Ren",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Ren",
+          "Welcome, Emma. What work do you do?"
+        ],
+        [
+          "Emma",
+          "I design posters and page layouts."
+        ],
+        [
+          "Ren",
+          "What kind of design do you like?"
+        ],
+        [
+          "Emma",
+          "Both. I am excited but nervous."
+        ],
+        [
+          "Ren",
+          "Let me show you around."
+        ],
+        [
+          "Emma",
+          "Thank you. Where is the meeting room?"
+        ],
+        [
+          "Ren",
+          "By the window. Do you live in Osaka?"
+        ],
+        [
+          "Emma",
+          "No. Kyoto. I work here on Mondays and Fridays."
+        ],
+        [
+          "Ren",
+          "Ask me if you need help."
+        ],
+        [
+          "Emma",
+          "Thank you. I will."
+        ]
+      ],
+      "questions": [
+        [
+          "What does Emma design?",
+          "Posters and page layouts."
+        ],
+        [
+          "Where does she live?",
+          "Kyoto."
+        ],
+        [
+          "Which days is she in Osaka?",
+          "Mondays and Fridays."
+        ],
+        [
+          "What does Ren offer?",
+          "Help and an office tour."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I can (help / helps) you.",
+        "help"
+      ],
+      [
+        "Let’s (check / checked) the time.",
+        "check"
+      ],
+      [
+        "Can you (come / comes) too?",
+        "come"
+      ],
+      [
+        "We can (meet / meets) here.",
+        "meet"
+      ],
+      [
+        "Let’s (ask / asked) first.",
+        "ask"
+      ],
+      [
+        "I can (bring / brings) it.",
+        "bring"
+      ]
+    ],
+    "choices": [
+      [
+        "What does Emma design?",
+        "Posters and page layouts.",
+        "Ceramic cups.",
+        "A"
+      ],
+      [
+        "Where does she live?",
+        "Seoul.",
+        "Kyoto.",
+        "B"
+      ],
+      [
+        "Which days is she in Osaka?",
+        "Mondays and Fridays.",
+        "Every weekday.",
+        "A"
+      ],
+      [
+        "What does Ren offer?",
+        "A bakery job.",
+        "Help and an office tour.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma on your first day at the Osaka agency. Your tutor is Ren. You design posters and page layouts, live in Kyoto, and work in the office on Mondays and Fridays. You need to find the meeting room and the shared project files.",
+        "あなたは大阪の会社に初出勤したエマ役、講師はレン役です。ポスターやページのレイアウトを担当し、京都に住んでいます。出社日は月曜日と金曜日です。会議室と共有のプロジェクトファイルの場所を知る必要があります。"
+      ],
+      "task": [
+        "Introduce your work and days in Osaka. Ask where the meeting room and files are. Ask one more question.",
+        "仕事と大阪に来る曜日を紹介しましょう。会議室とファイルの場所を尋ね、もう一つ質問しましょう。"
+      ],
+      "roles": [
+        "Ren",
+        "Emma"
+      ],
+      "lines": [
+        "Welcome. What work do you do?",
+        "Which days are you here?",
+        "What do you need to find?",
+        "The meeting room is by the window. What else?",
+        "The files are in the shared folder. What do you want to check?"
+      ],
+      "evidence": "Introduce design work, confirm Monday/Friday office and three Kyoto workdays, request both locations, respond and ask a related question. Hybrid work is approved now; do not revert to the pending Chapter 4 offer.",
+      "useful": [
+        "I design ...",
+        "I work here on ...",
+        "Where is ...?",
+        "Where are ...?",
+        "Thank you for ..."
+      ]
+    },
+    "topics": [
+      [
+        "KEEPING IN TOUCH",
+        [
+          "Do you call or send messages?",
+          "When do you call a friend?",
+          "What do you say when you are busy?"
+        ]
+      ],
+      [
+        "CHANGING PLANS",
+        [
+          "What do you say when you are late?",
+          "Who needs to know about a change?",
+          "How do you choose a new time?"
+        ]
+      ],
+      [
+        "LISTENING",
+        [
+          "What helps you listen?",
+          "How do you ask someone to repeat?",
+          "How do you show you understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "A “desk buddy” at work is someone who helps you settle in. “Buddy” is a friendly word for a friend or helper.",
+      "職場の desk buddy は、新しい環境に慣れるのを助ける人です。buddy は友人や手助けする相手を表す親しみのある言葉です。"
+    ],
+    "triviaQuestion": [
+      "Can a work buddy help someone new?",
+      "Yes."
+    ],
+    "closing": "Emma starts settling into her new team. On Friday, Ren invites her to lunch near the office."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

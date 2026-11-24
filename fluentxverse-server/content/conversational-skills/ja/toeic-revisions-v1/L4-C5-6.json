@@ -1,0 +1,279 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 5,
+  "number": 6,
+  "sourceDigest": "33013568ea0ce052979817b05079eab79e7ced3ec5a908118ddf018eaf35b069",
+  "episode": {
+    "title": "The Bakery on the Corner",
+    "skill": "speaking",
+    "intro": [
+      "Back in Kyoto, Leo finds a small corner shop near Kamo House. The window is great for a bakery, but the rent is higher than he expected. He asks Nao to check a new budget before he signs anything. A nice window will not pay the bills.",
+      "京都に戻ったレオは、Kamo Houseの近くで角の小さな店舗を見つけます。窓はパン屋にぴったりですが、家賃は予想より高いです。契約にサインする前に、ナオに新しい予算を確認してもらいます。素敵な窓だけでは支払いはできません。"
+    ],
+    "goal": [
+      "I can explain a shop budget and check costs before deciding.",
+      "店舗の予算を説明し、決める前に費用を確認できる。"
+    ],
+    "warmup": "Why should a plan include money for unexpected costs?",
+    "words": [
+      [
+        "The monthly rent is higher than expected.",
+        "monthly rent",
+        "monthly rent＝月額家賃。予想より高いです。"
+      ],
+      [
+        "We need to pay a deposit before moving in.",
+        "deposit",
+        "deposit＝保証金（最初に払うお金）です。"
+      ],
+      [
+        "I want to keep an emergency reserve.",
+        "emergency reserve",
+        "emergency reserve＝緊急用の予備資金です。"
+      ],
+      [
+        "The setup cost includes equipment and other fees.",
+        "setup cost",
+        "setup cost＝初期費用（最初に必要なお金）です。"
+      ],
+      [
+        "The main risk is slow sales at first.",
+        "main risk",
+        "main risk＝主なリスク（大きな心配）です。"
+      ],
+      [
+        "I will sign only if the terms are clear.",
+        "only if",
+        "条件が明確な場合だけサインします。"
+      ]
+    ],
+    "discussion": [
+      "You are Leo. Your tutor is Nao. Say why you like the shop. Then name one cost and one risk to check.",
+      "あなたはレオ役、講師はナオ役です。店舗を気に入った理由を言い、その後に確認する費用を1つと、リスクを1つ言いましょう。"
+    ],
+    "followup": "What could change a good idea into a decision you are ready to make?",
+    "tips": [
+      {
+        "rule": [
+          "Separate setup costs and monthly costs. Use: We need to consider ... / The main risk is ...",
+          "初期費用と毎月の費用を分けましょう。We need to consider ... / The main risk is ... を使います。"
+        ],
+        "examples": [
+          [
+            "We need to consider the deposit and monthly rent.",
+            "保証金と月額家賃を考える必要があります。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use only if to state a condition that must be met.",
+          "only if を使って、満たす必要がある条件を伝えます。"
+        ],
+        "examples": [
+          [
+            "I will sign only if the equipment check is okay.",
+            "設備の確認で問題がない場合だけサインします。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Nao and Leo review a shop budget together.",
+        "ナオとレオが店舗の予算を一緒に確認します。"
+      ],
+      "roles": [
+        "Nao",
+        "Leo"
+      ],
+      "dialogue": [
+        [
+          "Nao",
+          "The shop looks nice. Why do you like it?"
+        ],
+        [
+          "Leo",
+          "It is near Kamo House, and the window is perfect for a bakery."
+        ],
+        [
+          "Nao",
+          "Okay. How much money do you have saved?"
+        ],
+        [
+          "Leo",
+          "I have saved 1,100,000 yen."
+        ],
+        [
+          "Nao",
+          "What is the setup cost, and what does it include?"
+        ],
+        [
+          "Leo",
+          "Setup is 650,000 yen. It includes a 240,000 yen deposit, equipment, and other fees."
+        ],
+        [
+          "Nao",
+          "Do you want to keep a reserve too?"
+        ],
+        [
+          "Leo",
+          "Yes. I want a 300,000 yen reserve for emergencies."
+        ],
+        [
+          "Nao",
+          "Then what risk worries you, and when will you sign?"
+        ],
+        [
+          "Leo",
+          "The main risk is slow sales. I will sign only if the checks and monthly costs look OK."
+        ]
+      ],
+      "questions": [
+        [
+          "How much has Leo saved?",
+          "¥1,100,000."
+        ],
+        [
+          "How much is the setup cost?",
+          "¥650,000."
+        ],
+        [
+          "How much is the reserve?",
+          "¥300,000."
+        ],
+        [
+          "Is the lease signed now?",
+          "No. He will sign only after checks."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "The (deposit / rent) is paid at the start, not every month.",
+        "deposit"
+      ],
+      [
+        "The monthly rent is (fixed / free) every month.",
+        "fixed"
+      ],
+      [
+        "We should (keep / spend) an emergency reserve.",
+        "keep"
+      ],
+      [
+        "The main risk is (slow / loud) sales at first.",
+        "slow"
+      ],
+      [
+        "I will sign only if the terms (are / is) clear.",
+        "are"
+      ],
+      [
+        "Setup costs are separate (from / into) monthly costs.",
+        "from"
+      ]
+    ],
+    "choices": [
+      [
+        "Which cost repeats every month?",
+        "Monthly rent",
+        "Deposit",
+        "A"
+      ],
+      [
+        "What is the reserve for?",
+        "Unexpected costs",
+        "New decorations",
+        "A"
+      ],
+      [
+        "Has Leo signed the lease yet?",
+        "No, he has not signed it.",
+        "Yes, he already signed it.",
+        "A"
+      ],
+      [
+        "What is Leo’s main risk?",
+        "Slow sales at first",
+        "Too many workers",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Leo. You found a corner shop near Kamo House. Your savings are ¥1,100,000. Setup is ¥650,000 (deposit ¥240,000, equipment ¥350,000, other setup ¥60,000). You want to keep ¥300,000 as an emergency reserve. Monthly rent is ¥120,000. Other monthly costs and sales still need checking. You have not signed the lease.",
+        "あなたはレオ役です。Kamo Houseの近くで角の店舗を見つけました。貯蓄は110万円。初期費用は65万円（保証金24万円、設備35万円、その他6万円）です。緊急用の予備資金30万円を残したいです。家賃は月12万円です。ほかの月々の費用と売り上げは、まだ確認が必要です。契約はまだサインしていません。"
+      ],
+      "task": [
+        "Explain the budget and the money left outside setup and the reserve. Say one risk. Ask what still needs checking. Agree on conditions before signing. Tell Nao the bakery name you want.",
+        "予算と、初期費用・予備資金以外に残る金額を説明しましょう。リスクを1つ言いましょう。まだ確認が必要なことを質問しましょう。サイン前の条件を決めましょう。パン屋の名前も伝えましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Leo"
+      ],
+      "title": "",
+      "lines": [
+        "Why do you like this shop, Leo?",
+        "What does your setup cost include?",
+        "How much money is left after setup and the reserve?",
+        "What is your main risk with this plan?",
+        "What do we still need to check before you sign?",
+        "What conditions will you set before signing?",
+        "What name do you want for the bakery?"
+      ],
+      "evidence": "Tutor evidence note: Check the math: 240,000 + 350,000 + 60,000 = 650,000. Setup 650,000 + reserve 300,000 = 950,000. Savings 1,100,000 leaves 150,000 outside the reserve. Confirm: rent 120,000 is monthly; lease not signed; sales and other monthly costs unknown; student states conditions with 'only if' and keeps reserve; bakery name: Riverbend Bakery.",
+      "useful": [
+        "We need to consider ...",
+        "The setup total includes ...",
+        "That leaves ... outside the reserve.",
+        "The main risk is ...",
+        "We still need to check ...",
+        "I will proceed only if ..."
+      ]
+    },
+    "topics": [
+      [
+        "Planning Costs",
+        [
+          "What is a setup cost?",
+          "What is a monthly cost?",
+          "Why do people keep a reserve?"
+        ]
+      ],
+      [
+        "Making a Decision",
+        [
+          "What do you check before you sign a contract?",
+          "How can you say a risk politely?",
+          "What condition can help you feel safe?"
+        ]
+      ],
+      [
+        "Helping a Friend",
+        [
+          "What budget question can you ask a friend?",
+          "How can you help without giving money?",
+          "How can you celebrate a careful choice?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Break even\" means income covers costs with no profit or loss. \"Sell out\" only means everything was sold. Selling out does not always mean profit.",
+      "break even は収入が費用をちょうどカバーして、利益も損失もないことです。sell out は用意した商品が全部売れたという意味だけです。売り切れでも利益とは限りません。"
+    ],
+    "triviaQuestion": [
+      "Does selling out automatically mean the bakery made a profit?",
+      "No. You must compare income with costs."
+    ],
+    "closing": "After checking the lease, equipment, and monthly costs, Leo decides the plan is manageable if he keeps his reserve. He signs for the corner shop and starts preparing Riverbend Bakery. It is not open yet, and sales are not guaranteed."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

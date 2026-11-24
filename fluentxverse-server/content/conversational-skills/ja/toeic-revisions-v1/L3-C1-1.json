@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 1,
+  "number": 1,
+  "sourceDigest": "8a8167b64e61d046d4d6eab8c99b619124a5b60e648c33b0aa8728287449c53b",
+  "episode": {
+    "title": "A New Beginning",
+    "skill": "speaking",
+    "intro": [
+      "Emma moved to Kyoto. She rents a room at Kamo House. On her first day, Claire welcomes her. Claire invites her to the cafe downstairs.",
+      "エマは京都に引っ越しました。Kamo Houseで部屋を借りています。初日、クレアが迎えます。クレアは階下のカフェに誘います。"
+    ],
+    "goal": [
+      "I can introduce myself and ask simple questions.",
+      "自己紹介をして、簡単な質問ができます。"
+    ],
+    "warmup": "What do you want to know about a new housemate?",
+    "words": [
+      [
+        "I'm new here.",
+        "new here",
+        "ここに来たばかりです。"
+      ],
+      [
+        "I'm from ... .",
+        "from",
+        "出身は…です。"
+      ],
+      [
+        "I work as a graphic designer.",
+        "work as",
+        "グラフィックデザイナーとして働いています。"
+      ],
+      [
+        "I moved here last week.",
+        "moved here",
+        "先週ここに引っ越してきました。"
+      ],
+      [
+        "I enjoy taking photos.",
+        "enjoy",
+        "写真を撮るのが好きです。"
+      ],
+      [
+        "How about you?",
+        "How about you",
+        "あなたはどうですか。"
+      ]
+    ],
+    "discussion": [
+      "Introduce yourself to a new housemate. Say your name and your job. Say one interest. Ask one question.",
+      "新しい同居人に自己紹介しましょう。名前と仕事を言いましょう。好きなことを1つ言いましょう。質問を1つしましょう。"
+    ],
+    "followup": "What else do you want your new housemate to know?",
+    "tips": [
+      {
+        "rule": [
+          "Use short sentences: I am ... / I work as ... / I enjoy ... .",
+          "短い文を使いましょう：I am ... / I work as ... / I enjoy ... 。"
+        ],
+        "examples": [
+          [
+            "I'm Emma. I work as a graphic designer.",
+            "エマです。グラフィックデザイナーとして働いています。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Ask simple questions: What do you do? / Do you live here too?",
+          "簡単な質問をしましょう：What do you do? / Do you live here too?"
+        ],
+        "examples": [
+          [
+            "What do you do?",
+            "お仕事は何ですか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Claire welcomes Emma at Kamo House. Practice the first talk.",
+        "クレアがKamo Houseでエマを迎えます。最初の会話を練習しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Claire",
+          "Hi! I'm Claire. Welcome to Kamo House."
+        ],
+        [
+          "Emma",
+          "Thank you. I'm Emma. Nice to meet you."
+        ],
+        [
+          "Claire",
+          "Nice to meet you too. What do you do?"
+        ],
+        [
+          "Emma",
+          "I work as a graphic designer. How about you?"
+        ],
+        [
+          "Claire",
+          "I help run the cafe downstairs."
+        ],
+        [
+          "Emma",
+          "That sounds nice. Do you live here too?"
+        ],
+        [
+          "Claire",
+          "Yes, I do. What do you enjoy doing?"
+        ],
+        [
+          "Emma",
+          "I enjoy taking photos and walking."
+        ],
+        [
+          "Claire",
+          "The river is a lovely place to walk. Would you like to visit the cafe?"
+        ],
+        [
+          "Emma",
+          "Yes, please. I'd love to."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "What does Emma do?",
+          "She is a graphic designer."
+        ],
+        [
+          "What does Claire do?",
+          "She helps run the cafe downstairs."
+        ],
+        [
+          "Where is the cafe?",
+          "It is downstairs."
+        ],
+        [
+          "Does Emma want to visit the cafe?",
+          "Yes, she does."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I (am / is) new here.",
+        "am"
+      ],
+      [
+        "I work (as / at) a graphic designer.",
+        "as"
+      ],
+      [
+        "I enjoy (taking / take) photos.",
+        "taking"
+      ],
+      [
+        "Where (are / do) you from?",
+        "are"
+      ],
+      [
+        "What (do / are) you do?",
+        "do"
+      ],
+      [
+        "How (about / from) you?",
+        "about"
+      ]
+    ],
+    "choices": [
+      [
+        "Someone says, \"I'm Claire.\" What do you say?",
+        "Nice to meet you.",
+        "Good night yesterday.",
+        "A"
+      ],
+      [
+        "You want to know someone's job. What do you ask?",
+        "Where is the river?",
+        "What do you do?",
+        "B"
+      ],
+      [
+        "You want to ask the same question back. What do you say?",
+        "How about you?",
+        "Never mind.",
+        "A"
+      ],
+      [
+        "A new neighbor invites you to the cafe. You want to go. What do you say?",
+        "No one knows.",
+        "Yes, please. I'd love to.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma, a new resident at Kamo House. Your tutor is Claire near the cafe.",
+        "あなたはKamo Houseの新しい住人エマ役です。講師はカフェの近くにいるクレア役です。"
+      ],
+      "task": [
+        "Introduce yourself. Say your job and one interest. Ask Claire one question. Answer her invitation.",
+        "自己紹介をしましょう。仕事と好きなことを1つ言いましょう。クレアに質問を1つしましょう。誘いに返事をしましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "text": "",
+      "title": "",
+      "lines": [
+        "Hi! Welcome to Kamo House. What is your name?",
+        "Nice to meet you. What do you do?",
+        "Do you live here too?",
+        "What do you enjoy doing?",
+        "I help run the cafe downstairs. What would you like to know about it?",
+        "Would you like to come down for coffee on Sunday?"
+      ],
+      "evidence": "Tutor evidence note: The student clearly says their name, says they work as a graphic designer, gives one interest (e.g., taking photos), asks Claire one related question, and answers the Sunday cafe invitation.",
+      "useful": [
+        "I'm ... .",
+        "I work as ... .",
+        "I enjoy ... .",
+        "Do you ... ?",
+        "How about you?"
+      ]
+    },
+    "topics": [
+      [
+        "MEETING PEOPLE",
+        [
+          "Where do you meet new people?",
+          "What do you ask first?",
+          "What helps you feel welcome?"
+        ]
+      ],
+      [
+        "A NEW HOME",
+        [
+          "What do you like about your neighborhood?",
+          "What do you look for in a home?",
+          "Who do you invite first?"
+        ]
+      ],
+      [
+        "INTERESTS",
+        [
+          "What do you enjoy doing?",
+          "Do you do it every week?",
+          "Do you want a new hobby?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"What do you do?\" asks about work. \"What are you doing?\" asks about now.",
+      "What do you do? は仕事についてです。What are you doing? は今していることについてです。"
+    ],
+    "triviaQuestion": [
+      "Which question asks about a new neighbor's job?",
+      "What do you do?"
+    ],
+    "closing": "Claire invites Emma to the cafe on Sunday. Emma is excited to meet more people at Kamo House."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

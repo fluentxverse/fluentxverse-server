@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 1,
+  "number": 7,
+  "sourceDigest": "b44bcf84f6e1db3288f07ab14cfcb6dcbada24d2784634a58e013f59182c0652",
+  "episode": {
+    "title": "Finding Some Peace",
+    "skill": "speaking",
+    "intro": [
+      "On his day off, Leo walks around Kyoto with his camera. Familiar places bring back good memories and sadness. Nao meets him by the river and asks how he is doing. Leo feels calmer, but he still misses Emma. Nao listens and does not push him to decide.",
+      "休みの日、レオはカメラを持って京都を歩きます。なじみの場所で、良い思い出と悲しさがよみがえります。川辺でナオが様子を聞きます。レオは少し落ち着いたが、まだエマが恋しいと言います。ナオは決断を迫らずに聞きます。"
+    ],
+    "goal": [
+      "I can describe mixed feelings and respond to a supportive offer.",
+      "複雑な気持ちを説明し、支えとなる申し出に返事ができる。"
+    ],
+    "warmup": "How can you describe two feelings that happen at the same time?",
+    "words": [
+      [
+        "I feel calmer today.",
+        "calmer",
+        "今日は前より落ち着いています。"
+      ],
+      [
+        "That street brought back memories.",
+        "brought back memories",
+        "その通りで思い出がよみがえりました。"
+      ],
+      [
+        "Part of me still misses Emma.",
+        "part of me",
+        "自分の一部は、まだエマが恋しいです。"
+      ],
+      [
+        "I still need some distance right now.",
+        "need some distance",
+        "今はまだ少し距離が必要です。"
+      ],
+      [
+        "Would you like some company for a short walk?",
+        "some company",
+        "少し散歩に一緒にいましょうか。"
+      ],
+      [
+        "A short walk might help you feel better.",
+        "might help",
+        "少し歩くと気分が良くなるかもしれません。"
+      ]
+    ],
+    "discussion": [
+      "You are Leo. Your tutor is Nao. Explain two feelings about your day and respond to her offer to walk with you.",
+      "あなたはレオ役、講師はナオ役です。その日に感じた二つの気持ちを説明し、一緒に歩くという申し出に返事をしましょう。"
+    ],
+    "followup": "What kind of company helps you, without forcing a serious talk?",
+    "tips": [
+      {
+        "rule": [
+          "Use “I feel ..., but I still ...” for mixed feelings.",
+          "複雑な気持ちは “I feel ..., but I still ...” で言えます。"
+        ],
+        "examples": [
+          [
+            "I feel calmer, but I still miss her.",
+            "落ち着いてきましたが、まだ彼女が恋しいです。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use “Would you like ...?” and “might” to be gentle and give a choice.",
+          "“Would you like ...?” と “might” で、やさしく選択肢を出せます。"
+        ],
+        "examples": [
+          [
+            "Would you like some company, or would you rather be alone?",
+            "一緒にいましょうか。それとも一人がいいですか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Nao joins Leo by the river after his photo walk. Read the conversation and practice.",
+        "写真を撮って歩いた後、川辺でナオがレオに声をかけます。会話を読んで練習しましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Leo"
+      ],
+      "dialogue": [
+        [
+          "Nao",
+          "Leo, how are you feeling today?"
+        ],
+        [
+          "Leo",
+          "A little calmer. I took photos this morning."
+        ],
+        [
+          "Nao",
+          "Did any place stand out?"
+        ],
+        [
+          "Leo",
+          "Yes, but some places brought back memories of Emma."
+        ],
+        [
+          "Nao",
+          "That sounds hard. What feelings do you have now?"
+        ],
+        [
+          "Leo",
+          "I miss her, but I still need some distance."
+        ],
+        [
+          "Nao",
+          "Would you like some company for a short walk?"
+        ],
+        [
+          "Leo",
+          "Yes, please. Could we talk about something else?"
+        ],
+        [
+          "Nao",
+          "Of course. Show me your favorite photo from today."
+        ],
+        [
+          "Leo",
+          "This one. The light on the river was beautiful."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "What did Leo do this morning?",
+          "He took photos."
+        ],
+        [
+          "What did some places do to Leo?",
+          "They brought back memories of Emma."
+        ],
+        [
+          "What two feelings does Leo say?",
+          "He misses Emma, but he needs distance."
+        ],
+        [
+          "What does Leo ask Nao to do?",
+          "To walk with him and change the topic."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I feel (calmer / calmest) today.",
+        "calmer"
+      ],
+      [
+        "Some places (bring / brought) back memories of Emma.",
+        "brought"
+      ],
+      [
+        "Part of me still (misses / missed) her.",
+        "misses"
+      ],
+      [
+        "I still need some (distance / distant).",
+        "distance"
+      ],
+      [
+        "Would you like some (company / companies)?",
+        "company"
+      ],
+      [
+        "A short walk might (help / helps).",
+        "help"
+      ]
+    ],
+    "choices": [
+      [
+        "Leo misses Emma but wants distance. Which response fits?",
+        "Both feelings can be true.",
+        "Missing her means he must return today.",
+        "A"
+      ],
+      [
+        "Which offer gives a choice?",
+        "You must talk about it now.",
+        "Would you like some company, or would you rather be alone?",
+        "B"
+      ],
+      [
+        "Leo asks to change the topic. What should Nao do?",
+        "Ask about his photos instead.",
+        "Push him to talk about the relationship.",
+        "A"
+      ],
+      [
+        "What does “might” show in “A short walk might help”?",
+        "It is a possibility, not a promise.",
+        "It will happen for sure.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Leo near the Kamo River after a morning of photography. Your tutor is Nao. You feel calmer, but familiar places made you miss Emma. You want a short walk with Nao, without talking about the relationship in detail.",
+        "あなたは午前中に写真を撮った後、鴨川の近くにいるレオ役です。講師はナオ役です。少し落ち着きましたが、なじみの場所でエマが恋しくなりました。交際のことを詳しく話さず、ナオと少し歩きたいです。"
+      ],
+      "task": [
+        "Describe your morning and your mixed feelings. Respond to Nao’s offer. Say what topic you prefer, and suggest a simple plan for the walk.",
+        "午前中のことと複雑な気持ちを説明しましょう。ナオの申し出に返事をしましょう。話したい話題を伝えて、散歩の簡単な予定を提案しましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Leo"
+      ],
+      "text": "",
+      "title": "A Short Walk by the River",
+      "lines": [
+        "Hi Leo. What did you do this morning?",
+        "How do you feel now, and why?",
+        "Do those familiar places bring back any memories?",
+        "Would you like some company for a short walk?",
+        "What would you like to talk about instead of the relationship?",
+        "Where should we walk, and for how long?"
+      ],
+      "evidence": "Tutor evidence note: The student (as Leo) clearly says he took photos, feels calmer, still misses Emma, and still needs distance. The student accepts or clarifies Nao’s offer, requests a lighter topic, and suggests a short, simple walking plan. The student does not treat missing Emma as a decision to reconcile and does not add romance with Nao.",
+      "useful": [
+        "I spent the morning ...",
+        "I feel ..., but I still ...",
+        "It brought back memories of ...",
+        "Some company would be nice.",
+        "Could we talk about ... instead?"
+      ]
+    },
+    "topics": [
+      [
+        "Photography and Memories",
+        [
+          "What makes a photo special to you?",
+          "What place brings back memories for you?",
+          "What small detail do you like in a photo?"
+        ]
+      ],
+      [
+        "Quiet Company",
+        [
+          "What activity can you do with a friend in silence?",
+          "How can you offer help without pushing?",
+          "How can you ask to change the subject politely?"
+        ]
+      ],
+      [
+        "Mixed Feelings",
+        [
+          "What words can connect two different feelings?",
+          "When do you feel happy and sad together?",
+          "What can you say to show you listened?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Company\" can mean being with another person: \"I would like some company.\" In that meaning it is usually uncountable. \"A company\" usually means a business organization.",
+      "company は「一緒にいること」の意味があります（I would like some company.）。この意味では通常数えません。a company は普通「会社（組織）」です。"
+    ],
+    "triviaQuestion": [
+      "In \"some company on a walk,\" does company mean a business or another person's presence?",
+      "Another person's presence."
+    ],
+    "closing": "Leo enjoys a quiet walk with Nao without settling the relationship question. Emma decides to keep her work boundary firm and writes a letter that asks for nothing in return."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

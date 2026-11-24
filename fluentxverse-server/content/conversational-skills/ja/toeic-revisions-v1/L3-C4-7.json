@@ -1,0 +1,275 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 4,
+  "number": 7,
+  "sourceDigest": "7d82e537cbf736579a3df6ac52fba5ee4b062cbc812bd3d2059e287675a48f63",
+  "episode": {
+    "title": "A Recipe for Success",
+    "skill": "speaking",
+    "goal": [
+      "I can ask about a process and give simple food feedback.",
+      "作り方を尋ね、食べ物の簡単な感想を伝えられる。"
+    ],
+    "intro": [
+      "Leo’s manager likes the new apple pastry and chooses it for the regular menu. The friends taste it at Kamo House. Leo explains his changes. Emma likes the flavor and suggests a smaller topping.",
+      "レオの上司は新しいリンゴの菓子パンを気に入り、定番メニューに選びます。友人たちはKamo Houseで試食します。レオは変更点を説明します。エマは味を気に入り、飾りを小さくすることを提案します。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "It is less sweet.",
+        "less sweet",
+        "甘さが控えめです。"
+      ],
+      [
+        "I like the apple flavor.",
+        "flavor",
+        "リンゴの風味が好きです。"
+      ],
+      [
+        "The pastry is light.",
+        "light",
+        "菓子パンの食感が軽いです。"
+      ],
+      [
+        "First, make the filling.",
+        "First",
+        "まず、中身を作ります。"
+      ],
+      [
+        "Then bake it.",
+        "Then",
+        "それから焼きます。"
+      ],
+      [
+        "Use a smaller topping.",
+        "smaller",
+        "飾りを小さくします。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use a verb first to give a short instruction.",
+          "動詞から始めて、短い指示を伝えます。"
+        ],
+        "examples": [
+          [
+            "Check the note.",
+            "メモを確認してください。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use Do not + verb for something to avoid.",
+          "Do not ＋動詞で、してはいけないことを伝えます。"
+        ],
+        "examples": [
+          [
+            "Do not use this one.",
+            "こちらは使わないでください。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Emma tastes Leo's pastry and asks about his changes. Read their conversation.",
+        "エマがレオのお菓子を試食し、改良点を尋ねます。会話を読みましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Leo",
+          "My manager chose this for the menu. Try it?"
+        ],
+        [
+          "Emma",
+          "Congratulations! What did you change?"
+        ],
+        [
+          "Leo",
+          "I used less sugar in the apple filling."
+        ],
+        [
+          "Emma",
+          "I like the apple flavor. What comes next?"
+        ],
+        [
+          "Leo",
+          "I fill it, bake it, then add a topping."
+        ],
+        [
+          "Emma",
+          "It is light and less sweet."
+        ],
+        [
+          "Leo",
+          "Is the size okay?"
+        ],
+        [
+          "Emma",
+          "Yes. Can the topping be simpler?"
+        ],
+        [
+          "Leo",
+          "Yes. Then it is easier to serve."
+        ],
+        [
+          "Emma",
+          "Good. I really like it."
+        ]
+      ],
+      "questions": [
+        [
+          "What does the manager want?",
+          "The pastry on the regular menu."
+        ],
+        [
+          "What did Leo reduce?",
+          "Sugar."
+        ],
+        [
+          "What does Emma like?",
+          "The apple flavor and light texture."
+        ],
+        [
+          "What change does she suggest?",
+          "A simpler topping."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Please (check / checked) the note.",
+        "check"
+      ],
+      [
+        "Do not (use / used) this one.",
+        "use"
+      ],
+      [
+        "(Read / Reads) it first.",
+        "Read"
+      ],
+      [
+        "Can you (help / helps) me?",
+        "help"
+      ],
+      [
+        "Please (wait / waited) here.",
+        "wait"
+      ],
+      [
+        "We need (to / for) check.",
+        "to"
+      ]
+    ],
+    "choices": [
+      [
+        "What does the manager want?",
+        "The pastry on the regular menu.",
+        "No new menu item.",
+        "A"
+      ],
+      [
+        "What did Leo reduce?",
+        "The apple flavor.",
+        "Sugar.",
+        "B"
+      ],
+      [
+        "What does Emma like?",
+        "The apple flavor and light texture.",
+        "Only the box.",
+        "A"
+      ],
+      [
+        "What change does she suggest?",
+        "More sugar.",
+        "A simpler topping.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma tasting Leo's new pastry at Kamo House. Your tutor is Leo. The pastry has a clear apple flavor, a light texture, and a large topping that makes it difficult to serve.",
+        "あなたはKamo Houseでレオの新しいお菓子を試食するエマ役です。講師はレオ役です。りんごの味がよく分かり、食感も軽いですが、大きなトッピングのため出しにくくなっています。"
+      ],
+      "task": [
+        "Congratulate Leo. Ask how he made it. Give two good comments and suggest one change.",
+        "レオを祝福しましょう。作り方を尋ね、よい感想を二つと改善案を一つ伝えましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "lines": [
+        "My manager chose the pastry. What do you think?",
+        "Do you want to know how I make it?",
+        "First filling, then baking, then topping. What do you like?",
+        "The large topping is hard to serve. What can I change?",
+        "Would a smaller topping help?"
+      ],
+      "evidence": "Congratulate, ask about process, comment on apple flavor and light texture, suggest reducing/simplifying topping and respond. The process is a brief story example, not a full recipe or cooking assessment.",
+      "useful": [
+        "Congratulations!",
+        "How do you make it?",
+        "I like ...",
+        "It is ...",
+        "How about a smaller ...?"
+      ]
+    },
+    "topics": [
+      [
+        "WORK",
+        [
+          "What work do you enjoy?",
+          "Do you like working with others?",
+          "What would you like to learn?"
+        ]
+      ],
+      [
+        "PLANNING",
+        [
+          "How do you remember a date?",
+          "Who can help with a plan?",
+          "What do you check first?"
+        ]
+      ],
+      [
+        "IDEAS",
+        [
+          "What would you like to make?",
+          "Who can you ask for help?",
+          "How do you say you like an idea?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Light” can describe food that is not heavy or dense. A “light pastry” is not a lamp.",
+      "食べ物の light は、重たくなく軽い食感を表すことがあります。a light pastry は、電灯のことではありません。"
+    ],
+    "triviaQuestion": [
+      "Can “light” describe food?",
+      "Yes."
+    ],
+    "closing": "Leo feels closer to his goal as a baker. Then Emma receives the agency's offer: an attractive salary, but a role based in Osaka. She has a much harder choice to discuss."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

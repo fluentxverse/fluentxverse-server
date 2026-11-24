@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 2,
+  "number": 2,
+  "sourceDigest": "7f903ab087868812b2e7271d0239964e4be9a7ca77ead8aa494159538ac2ac7b",
+  "episode": {
+    "title": "The Wrong Train",
+    "skill": "listening",
+    "intro": [
+      "On Saturday morning, four friends meet at Kyoto Station. Emma is not sure about the platform. Leo leads them, but Nao checks the sign and stops them before they board. They take the correct train, and Emma teases Leo.",
+      "土曜日の朝、四人の友だちは京都駅で会います。エマはどのホームか分かりません。レオが案内しますが、ナオが表示を見て、乗る前に止めます。正しい電車に乗り、エマはレオをからかいます。"
+    ],
+    "goal": [
+      "I can understand a short station conversation and confirm ticket and platform details.",
+      "駅での短い会話を聞き、切符やホームの情報を確認できる。"
+    ],
+    "warmup": "What do you check before getting on a train?",
+    "words": [
+      [
+        "I need a ticket.",
+        "ticket",
+        "切符が必要です。"
+      ],
+      [
+        "Which platform should we use?",
+        "platform",
+        "どのホームを使えばよいですか。"
+      ],
+      [
+        "Is this the right train for Inari?",
+        "right train",
+        "これは稲荷行きの正しい電車ですか。"
+      ],
+      [
+        "Check the destination on the sign.",
+        "destination",
+        "表示の行き先を確認してください。"
+      ],
+      [
+        "Do we need to change trains?",
+        "change trains",
+        "乗り換えは必要ですか。"
+      ],
+      [
+        "Let's get off here.",
+        "get off",
+        "ここで降りましょう。"
+      ]
+    ],
+    "discussion": [
+      "Tell your tutor two things you check before boarding a train. Practice asking one question at a station.",
+      "電車に乗る前に確認することを二つ伝えましょう。駅で使える質問を一つ練習しましょう。"
+    ],
+    "followup": "What would you do if you were not sure?",
+    "tips": [
+      {
+        "rule": [
+          "Listen to the whole correction. “Not this one” and “instead” show the first choice was wrong.",
+          "訂正を最後まで聞きましょう。「not this one」や「instead」は、最初の選択が違う合図です。"
+        ],
+        "examples": [
+          [
+            "Not this train. We need the one on the other side.",
+            "この電車ではありません。反対側の電車が必要です。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use “Which ...?” to ask about a choice. Repeat the detail to check it.",
+          "「Which ...?」で選択肢をたずねます。自信がない情報は繰り返して確認します。"
+        ],
+        "examples": [
+          [
+            "Which ticket do I need?",
+            "どの切符が必要ですか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Role-play the friends before they board. Find the mistake and how they check the train.",
+        "乗車前の四人の会話をロールプレイしましょう。間違いと、電車を確認する方法を聞き取りましょう。"
+      ],
+      "text": "<p><strong>Emma:</strong> Leo, is this the right train for Inari?<br><strong>Leo:</strong> I think so. Let's get on.<br><strong>Nao:</strong> Wait! This sign shows a different destination. We need the other platform.<br><strong>Leo:</strong> Oh, you're right. Let's check with the staff first.<br><strong>Emma:</strong> Good idea. I don't want our adventure to start on the wrong train!</p>",
+      "questions": [
+        [
+          "Do they get on the wrong train?",
+          "No. Nao notices before they board."
+        ],
+        [
+          "What does Nao check?",
+          "The sign and the destination."
+        ],
+        [
+          "Where do they need to go?",
+          "The other platform."
+        ],
+        [
+          "Who will they ask to confirm?",
+          "The station staff."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Which platform (should / are) we use?",
+        "should"
+      ],
+      [
+        "Is this the (right / write) train?",
+        "right"
+      ],
+      [
+        "We need to (change / changing) trains.",
+        "change"
+      ],
+      [
+        "Please check before you (board / boarded).",
+        "board"
+      ],
+      [
+        "Two tickets (to / on) Inari, please.",
+        "to"
+      ],
+      [
+        "Let's get (off / of) here.",
+        "off"
+      ]
+    ],
+    "choices": [
+      [
+        "\"Wait! Not this train. Use the other platform.\" Where should they go?",
+        "The other platform",
+        "Onto this train",
+        "A"
+      ],
+      [
+        "\"Two tickets, please.\" How many tickets does the speaker want?",
+        "One",
+        "Two",
+        "B"
+      ],
+      [
+        "\"No change is needed.\" Do the travelers need to change trains?",
+        "Yes",
+        "No",
+        "B"
+      ],
+      [
+        "\"Ask the staff before boarding.\" What should they do first?",
+        "Ask the staff",
+        "Board immediately",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma at a practice station counter. Listen to the staff. Then tell Leo the details.",
+        "あなたは練習用の駅の窓口にいるエマです。係員の説明を聞いて、レオに内容を伝えましょう。"
+      ],
+      "task": [
+        "Listen for ticket number and type, if a change is needed, and what to check before boarding. Tell Leo. Ask to repeat if needed.",
+        "切符の枚数と種類、乗り換えの有無、乗車前に確認することを聞き取り、レオに伝えましょう。必要なら繰り返しをお願いしましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "text": "<p><strong>Emma:</strong> Two adult tickets to Inari, please. One-way.<br><strong>Staff:</strong> Certainly. You do not need to change trains. Please check the destination on the board before you get on.<br><strong>Emma:</strong> Is there a ticket machine near here?<br><strong>Staff:</strong> Yes, beside the information desk. Ask us again if you need help.</p>",
+      "title": "",
+      "lines": [
+        "Emma, what tickets did you ask for?",
+        "Are they one-way or return tickets?",
+        "Do we need to change trains?",
+        "What should we check before we get on?",
+        "Where is the ticket machine?"
+      ],
+      "evidence": "Tutor evidence note: Student should report: two adult one-way tickets to Inari; no need to change trains; check the destination on the board before boarding; ticket machine is beside the information desk. Student may ask for repetition of any part. Do not add price, platform number, or timetable because they are not given.",
+      "useful": [
+        "We need ... tickets.",
+        "They are one-way / return tickets.",
+        "We do not need to change trains.",
+        "The staff said ...",
+        "Could you repeat that, please?"
+      ]
+    },
+    "topics": [
+      [
+        "Train Travel",
+        [
+          "Do you often travel by train?",
+          "What do you check before boarding?",
+          "Do you like train trips?"
+        ]
+      ],
+      [
+        "Asking for Help",
+        [
+          "Who do you ask at a station?",
+          "What question can you ask?",
+          "What do you say if you do not understand?"
+        ]
+      ],
+      [
+        "Travel Mistakes",
+        [
+          "Have you taken the wrong way before?",
+          "How did you notice?",
+          "Who helped you?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "British English often says “return ticket.” American English often says “round-trip ticket.” “One-way ticket” means one direction.",
+      "往復の切符はイギリス英語で return ticket、アメリカ英語で round-trip ticket とよく言います。one-way ticket は片道の切符です。"
+    ],
+    "triviaQuestion": [
+      "Does a return ticket include the journey back?",
+      "Yes."
+    ],
+    "closing": "They get on the correct train. Emma teases Leo about his guide skills, and he smiles. A few days later, they explore Gion together."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

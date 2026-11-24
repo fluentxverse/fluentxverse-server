@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 5,
+  "chapter": 1,
+  "number": 4,
+  "sourceDigest": "0f145ccec83a200fbbf9ad731a4178478f51cc146848e95331d3229274b058e8",
+  "episode": {
+    "title": "Beyond the Office",
+    "skill": "speaking",
+    "intro": [
+      "On Friday night, the team has dinner in Shinjuku. Soo-jin talks about Seoul, and Ethan says he came from Bristol. Mika talks about moving from Osaka. The coworkers share their experiences and joke together. Mika feels more comfortable with them.",
+      "金曜日の夜、チームは新宿で夕食をとります。スジンはソウルの話をし、イーサンはブリストル出身だと話します。ミカは大阪からの引っ越しについて話します。同僚たちは経験を語り合い、冗談を言います。ミカはみんなと打ち解けていきます。"
+    ],
+    "goal": [
+      "I can talk about moving cities and ask a coworker simple questions.",
+      "引っ越しの経験を話し、同僚に簡単な質問ができる。"
+    ],
+    "warmup": "Do you feel different at work and after work?",
+    "words": [
+      [
+        "Everyone was relaxed outside the office.",
+        "outside the office",
+        "オフィスの外で"
+      ],
+      [
+        "They went out for dinner in Shinjuku.",
+        "went out for dinner",
+        "夕食に出かけた"
+      ],
+      [
+        "Soo-jin shared stories about moving to Tokyo.",
+        "shared stories",
+        "話を共有した"
+      ],
+      [
+        "The hardest part was understanding workplace communication.",
+        "the hardest part",
+        "一番大変なこと"
+      ],
+      [
+        "Ethan nodded because he had a similar experience.",
+        "similar experience",
+        "似た経験"
+      ],
+      [
+        "Mika felt more comfortable with her coworkers.",
+        "more comfortable",
+        "より安心して"
+      ]
+    ],
+    "discussion": [
+      "Talk about moving to a new place. What was difficult, and what helped?",
+      "新しい場所への引っ越しについて話しましょう。何が大変で、何が助けになりましたか？"
+    ],
+    "followup": "What is one question you can ask a coworker at dinner?",
+    "tips": [
+      {
+        "rule": [
+          "Use a friendly question to start: “How was…?” “What was… like?”",
+          "最初はやさしい質問で始めましょう：「How was...?」「What was... like?」"
+        ],
+        "examples": [
+          [
+            "What was it like moving to Tokyo?",
+            "東京に引っ越すのはどんな感じでしたか？"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Give a short reason with because.",
+          "becauseで短い理由を言いましょう。"
+        ],
+        "examples": [
+          [
+            "It was hard because workplace communication was different.",
+            "職場のコミュニケーションが違ったので大変でした。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "At a team dinner in Shinjuku, you talk about moving to Tokyo.",
+        "新宿でのチーム夕食で、東京への引っ越しについて話します。"
+      ],
+      "roles": [
+        "Ethan",
+        "Mika"
+      ],
+      "dialogue": [
+        [
+          "Ethan",
+          "Mika, do you feel different outside the office?"
+        ],
+        [
+          "Mika",
+          "Yes, everyone looks more relaxed."
+        ],
+        [
+          "Ethan",
+          "What was the hardest part of moving to Tokyo?"
+        ],
+        [
+          "Mika",
+          "It was hard because everything felt new."
+        ],
+        [
+          "Ethan",
+          "I understand. I moved here from Bristol."
+        ],
+        [
+          "Mika",
+          "Really? What was it like for you?"
+        ],
+        [
+          "Ethan",
+          "It was hard because work communication was different."
+        ],
+        [
+          "Mika",
+          "That makes sense. I came from Osaka."
+        ],
+        [
+          "Ethan",
+          "What helped you feel comfortable with coworkers?"
+        ],
+        [
+          "Mika",
+          "Talking like this helps a lot. Thank you."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "Where are they having dinner?",
+          "They are having dinner in Shinjuku."
+        ],
+        [
+          "Where did Ethan move from?",
+          "He moved from Bristol."
+        ],
+        [
+          "Where did Mika come from?",
+          "She came from Osaka."
+        ],
+        [
+          "What helps Mika feel comfortable?",
+          "Talking with coworkers helps her."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "They went out for (dinner / meeting) in Shinjuku.",
+        "dinner"
+      ],
+      [
+        "Everyone felt (relaxed / angry) outside the office.",
+        "relaxed"
+      ],
+      [
+        "Soo-jin (shared / hid) stories about moving.",
+        "shared"
+      ],
+      [
+        "The hardest part was (communication / vacation) at work.",
+        "communication"
+      ],
+      [
+        "Ethan had a (similar / strange) experience.",
+        "similar"
+      ],
+      [
+        "Mika felt more (comfortable / confused) with coworkers.",
+        "comfortable"
+      ]
+    ],
+    "choices": [
+      [
+        "Where did the team go on Friday evening?",
+        "They went out for dinner in Shinjuku.",
+        "They stayed late in the office.",
+        "A"
+      ],
+      [
+        "What did Soo-jin say was the hardest part?",
+        "Understanding how people communicated at work.",
+        "Learning the train system.",
+        "A"
+      ],
+      [
+        "What did Ethan do when Soo-jin spoke?",
+        "He nodded because he agreed.",
+        "He left the table.",
+        "A"
+      ],
+      [
+        "How did Mika feel by the end of the evening?",
+        "More comfortable with her coworkers.",
+        "Ready to quit the job.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Mika at the team dinner. Your tutor is Soo-jin. You moved from Osaka. Soo-jin came from Seoul, and Ethan came from Bristol.",
+        "あなたはチームの夕食にいるミカ役、講師はスジン役です。ミカは大阪から来ました。スジンはソウル、イーサンはブリストルから来ました。"
+      ],
+      "task": [
+        "Ask about a coworker’s moving experience and share your own with because.",
+        "同僚の引っ越し経験を質問し、becauseで自分の経験も話しましょう。"
+      ],
+      "roles": [
+        "Soo-jin",
+        "Mika"
+      ],
+      "text": "",
+      "title": "",
+      "lines": [
+        "What was it like when you moved to Tokyo?",
+        "What was the hardest part for you?",
+        "Why was it hard? Please use because.",
+        "What helped you feel comfortable with coworkers?",
+        "Can you ask me one friendly question about my move?"
+      ],
+      "evidence": "Grade the student on: (1) one friendly question, (2) one because reason, (3) clear place words (Tokyo/Osaka), and (4) polite tone.",
+      "useful": [
+        "What was it like ...?",
+        "What was the hardest part?",
+        "Why was it hard?",
+        "It was hard because ...",
+        "That makes sense."
+      ]
+    },
+    "topics": [
+      [
+        "After-work dinners",
+        [
+          "Do you like eating with coworkers?",
+          "What do you talk about at dinner?",
+          "What is a good dinner place near you?"
+        ]
+      ],
+      [
+        "Moving to a new city",
+        [
+          "Have you moved to a new city before?",
+          "What is hard when you move?",
+          "What helps you feel at home?"
+        ]
+      ],
+      [
+        "Work communication",
+        [
+          "Is work communication different in each country?",
+          "What is hard to understand at work?",
+          "How can you ask for help politely?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "Shinjuku Station is one of the busiest train stations in the world.",
+      "新宿駅は世界でもとても利用者が多い駅の一つです。"
+    ],
+    "triviaQuestion": [
+      "Is Shinjuku Station known for being very busy?",
+      "Yes, it is very busy."
+    ],
+    "closing": "By the end of dinner in Shinjuku, Mika feels more comfortable with her coworkers."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "manualReview": "Reviewed and edited for the new friendship-only outline, simple language, explicit roles, fresh reading evidence and consistent keys."
+  }
+}

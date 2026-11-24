@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 5,
+  "chapter": 1,
+  "number": 9,
+  "sourceDigest": "4c076c6d3917d1a0c89015cb63429efff8b034072c0a263c0f161dd9575c9a00",
+  "episode": {
+    "title": "The Unexpected File",
+    "skill": "speaking",
+    "intro": [
+      "On Thursday evening, Mika finds confidential pages in the printer tray. She sees the old report's figures and another company name: Northstar Media. Daichi returns and looks worried. He says the document should not be there. He asks Mika to close the door.",
+      "木曜の夕方、ミカはプリンターのトレーで機密書類を見つけます。古いレポートの数値と、別の会社名Northstar Mediaがあります。戻ってきたダイチは心配そうで、その書類がここにあるはずはないと言います。そしてミカにドアを閉めるよう頼みます。"
+    ],
+    "goal": [
+      "I can report an unusual document and ask clear questions about it.",
+      "気になる書類を報告し、分かりやすい質問ができる。"
+    ],
+    "warmup": "Have you ever found a document that was not yours at work or school?",
+    "words": [
+      [
+        "This document is confidential, so please be careful.",
+        "confidential",
+        "この書類は機密です。だから注意してください。"
+      ],
+      [
+        "The papers were in the output tray of the printer.",
+        "output tray",
+        "プリンターの排紙トレイです。"
+      ],
+      [
+        "She recognized the financial figures from an older report.",
+        "financial figures",
+        "財務の数字です。"
+      ],
+      [
+        "I have never seen this company name before.",
+        "company name",
+        "会社名です。"
+      ],
+      [
+        "Why is another agency name on our document?",
+        "another agency",
+        "別の代理店です。"
+      ],
+      [
+        "This document should never have been here.",
+        "should never have been here",
+        "ここにあるはずがない、という意味です。"
+      ]
+    ],
+    "discussion": [
+      "What is the safest first action when you find a confidential paper on a printer?",
+      "プリンターで機密書類を見つけた時、一番安全な最初の行動は何ですか。"
+    ],
+    "followup": "What questions would you ask your coworker to understand the situation?",
+    "tips": [
+      {
+        "rule": [
+          "Use short polite questions to confirm facts.",
+          "短い丁寧な質問で事実を確認しましょう。"
+        ],
+        "examples": [
+          [
+            "Where did this come from?",
+            "これはどこから来たのですか。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Show concern and ask what to do next.",
+          "心配を伝えて、次に何をするか聞きましょう。"
+        ],
+        "examples": [
+          [
+            "I’m worried. What should we do?",
+            "心配です。私たちは何をすべきですか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Mika found a confidential page on the printer. She asks Daichi about it.",
+        "ミカはプリンターで機密ページを見つけました。ダイチに聞きます。"
+      ],
+      "roles": [
+        "Daichi",
+        "Mika"
+      ],
+      "dialogue": [
+        [
+          "Daichi",
+          "You are still here, Mika? What are those papers?"
+        ],
+        [
+          "Mika",
+          "I found them in the printer tray this evening."
+        ],
+        [
+          "Daichi",
+          "Did anyone else see them?"
+        ],
+        [
+          "Mika",
+          "I do not know. They have the old report's numbers."
+        ],
+        [
+          "Daichi",
+          "What else did you notice?"
+        ],
+        [
+          "Mika",
+          "They say Northstar Media. Why is another company's name on our proposal?"
+        ],
+        [
+          "Daichi",
+          "That document should not be here."
+        ],
+        [
+          "Mika",
+          "What do you mean? I am worried."
+        ],
+        [
+          "Daichi",
+          "Close the door, Mika. There is something you need to know."
+        ],
+        [
+          "Mika",
+          "All right. Please explain what is happening."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "Where did Mika find the papers?",
+          "In the printer tray."
+        ],
+        [
+          "Which figures did she recognise?",
+          "The older report's figures."
+        ],
+        [
+          "What other company name did she see?",
+          "Northstar Media."
+        ],
+        [
+          "Has Daichi explained everything yet?",
+          "No."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "The page was in the printer (tray / screen).",
+        "tray"
+      ],
+      [
+        "The document said (CONFIDENTIAL / CHEAP).",
+        "CONFIDENTIAL"
+      ],
+      [
+        "Mika recognized the (numbers / sandwiches) from an older report.",
+        "numbers"
+      ],
+      [
+        "She saw a company name she (never / always) saw before.",
+        "never"
+      ],
+      [
+        "Daichi asked if anyone else (saw / slept) it.",
+        "saw"
+      ],
+      [
+        "Daichi said it should (never / often) be there.",
+        "never"
+      ]
+    ],
+    "choices": [
+      [
+        "Where did Mika find the papers?",
+        "On the printer",
+        "In the fridge",
+        "A"
+      ],
+      [
+        "What kind of document was it?",
+        "A confidential proposal page",
+        "A lunch menu",
+        "A"
+      ],
+      [
+        "What was strange on the page?",
+        "Another agency company name",
+        "A weather report",
+        "A"
+      ],
+      [
+        "Did Daichi explain the full reason right away?",
+        "Yes, he explained everything",
+        "No, he asked to close the door",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Mika on Thursday evening. Your tutor is Daichi. You found confidential pages in the printer tray. They have the old report's figures and the name Northstar Media. You do not know who printed them.",
+        "あなたは木曜の夕方のミカ役、講師はダイチ役です。プリンターのトレーで機密書類を見つけました。古いレポートの数値とNorthstar Mediaの名前があります。誰が印刷したかは分かりません。"
+      ],
+      "task": [
+        "Report what you found. Ask about the other company name and what to do next.",
+        "見つけた物を報告しましょう。別の会社名と、次にすることを尋ねましょう。"
+      ],
+      "roles": [
+        "Daichi",
+        "Mika"
+      ],
+      "text": "",
+      "title": "Confidential Page on the Printer",
+      "lines": [
+        "Mika, where did you find these papers?",
+        "What did you notice about the numbers?",
+        "What other name is on the page?",
+        "Did anyone else see it?",
+        "That document should not be here. Please close the door. What do you want to ask me?"
+      ],
+      "evidence": "Thursday evening, printer tray, confidential hotel proposal, old report's figures, and Northstar Media. Who printed it and why the name is there remain unknown. Mika does not know whether others saw it. Daichi's final request is the cliffhanger, not an explanation or proof of guilt.",
+      "useful": [
+        "I found ... in ...",
+        "I noticed ...",
+        "I do not know who ...",
+        "Why is this name here?",
+        "What should we do next?"
+      ]
+    },
+    "topics": [
+      [
+        "Office Safety",
+        [
+          "Do you use a printer at work or school?",
+          "How do you keep papers private?",
+          "Who should you tell if you find a confidential page?"
+        ]
+      ],
+      [
+        "Asking Questions",
+        [
+          "What is a polite way to ask for help?",
+          "What question helps you confirm a fact?",
+          "How do you ask someone to repeat?"
+        ]
+      ],
+      [
+        "Working Late",
+        [
+          "Do you sometimes stay late? Why?",
+          "Is it easy to focus when the office is quiet?",
+          "What do you do before you go home?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "Many office printers can store recent print jobs for a short time.",
+      "多くのオフィスのプリンターは、最近の印刷データを短時間保存することがあります。"
+    ],
+    "triviaQuestion": [
+      "What can some printers store for a short time?",
+      "Recent print jobs."
+    ],
+    "closing": "Mika shows Daichi the confidential page from the printer, and Daichi says it should not be there and asks her to close the door."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "manualReview": "Reviewed and edited for the new friendship-only outline, simple language, explicit roles, fresh reading evidence and consistent keys."
+  }
+}

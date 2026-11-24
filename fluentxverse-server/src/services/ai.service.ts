@@ -6,6 +6,8 @@ import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { createAgent } from "./agentFactory";
 import { lessonMaterialService } from "./lessonMaterial.service";
+import { conversationalChapterCount } from "../../../shared/conversationalCurriculum";
+import { conversationalLanguageInstructions } from "../../../shared/conversationalLanguage";
 
 // ============================================================================
 // HELPERS
@@ -2572,6 +2574,7 @@ export const generateIntroductionContent = async (
   try {
     // Map lesson level (1-10) to complexity descriptor
     const getComplexityLevel = (level?: number | null): string => {
+      if (level && conversationalLanguageInstructions(level)) return conversationalLanguageInstructions(level);
       if (!level) return 'beginner to intermediate';
       if (level <= 2) return 'very simple and beginner-friendly';
       if (level <= 4) return 'simple beginner level';
@@ -4171,7 +4174,7 @@ export const generateCourseStructure = async (
     9: 'ADVANCED', 10: 'ADVANCED',
   };
 
-  const chapterCount = level === 1 ? 1 : 5;
+  const chapterCount = conversationalChapterCount(level);
 
   // Fetch all existing structure from DB for uniqueness checking
   let existingStructureContext = '';
@@ -4223,6 +4226,7 @@ export const generateCourseStructure = async (
   }
 
   let prompt = `Generate the structure for Level ${level} (${tiers[level]}) of a Conversational Skills course.\nThis level should have exactly ${chapterCount} chapter(s).${existingStructureContext}`;
+  prompt += `\n\n${conversationalLanguageInstructions(level)}`;
 
   if (existingTopic) {
     prompt += `\n\nThe level's main topic has already been set to: "${existingTopic}". Build the chapters around this topic.`;
@@ -4261,7 +4265,7 @@ export const generateCourseStructure = async (
       const result: CourseStructureResult = {
         mainTopic: parsed.mainTopic || existingTopic || '',
         chapters: (parsed.chapters || []).slice(0, chapterCount).map((ch: any, i: number) => ({
-          chapter: ch.chapter || i + 1,
+          chapter: i + 1,
           theme: ch.theme || '',
           name: ch.name || '',
         })),
@@ -4428,6 +4432,7 @@ export const generateLessonStructure = async (
 - Chapter ${chapter}: Theme = "${chapterTheme}", Name = "${chapterName}"
 
 The lessons should progressively explore different facets of "${chapterTheme}" under the umbrella of "${levelTopic}". All content must be conversation-worthy and appropriate for ${tiers[level]} level students.${existingLessonsContext}`;
+  if (normalizedCourse === 'conversational-skills') prompt += `\n\n${conversationalLanguageInstructions(level)}`;
 
   if (isBusinessEnglish) {
     prompt += `

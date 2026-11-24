@@ -1,0 +1,276 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 2,
+  "number": 7,
+  "sourceDigest": "af70e7388e7e31cdd267baa3bd9a7da05f643118dca76abdcf97ca5c25ec79ac",
+  "episode": {
+    "title": "Something More Than Friendship",
+    "skill": "speaking",
+    "intro": [
+      "After testing pastries and cleaning the kitchen, Leo and Nao walk by the river. Leo thanks Nao for helping him in the past few weeks. Nao jokes about the salty pastries and says she enjoys their time too. Leo invites her for coffee, just the two of them. She accepts. Leo is still thinking about the Bristol offer.",
+      "お菓子の試作と片付けの後、レオとナオは川沿いを歩きます。レオはこの数週間の助けに感謝します。ナオは塩辛いお菓子を冗談にして、一緒の時間も楽しいと言います。レオが二人でコーヒーに誘い、ナオは応じます。レオはブリストルの仕事をまだ考えています。"
+    ],
+    "goal": [
+      "I can express appreciation and make or respond to a clear invitation.",
+      "感謝を伝え、分かりやすく誘ったり、誘いに返事をしたりできる。"
+    ],
+    "warmup": "What makes a thank-you feel specific rather than general?",
+    "words": [
+      [
+        "Thanks for helping me today.",
+        "Thanks for",
+        "〜してくれてありがとう（具体的に感謝する言い方）。"
+      ],
+      [
+        "Your company means a lot to me.",
+        "means a lot",
+        "とても大切だ／大きな意味がある。"
+      ],
+      [
+        "You helped me feel more relaxed.",
+        "feel more relaxed",
+        "もっと気持ちが楽になる。"
+      ],
+      [
+        "I enjoy spending time with you.",
+        "spending time",
+        "（人と）時間を過ごすこと。"
+      ],
+      [
+        "Would you like to get coffee?",
+        "Would you like",
+        "〜しませんか（丁寧な誘い）。"
+      ],
+      [
+        "I'd like that.",
+        "I'd like that",
+        "ぜひそうしたいです（誘いを受ける）。"
+      ]
+    ],
+    "discussion": [
+      "You are Nao. Your tutor is Leo. Respond to his thanks, give one specific compliment, and answer his coffee invitation.",
+      "あなたはナオ役、講師はレオ役です。お礼に返事をし、良かったことを一つ具体的に伝え、コーヒーの誘いに答えましょう。"
+    ],
+    "followup": "Which detail would you confirm before ending the conversation?",
+    "tips": [
+      {
+        "rule": [
+          "Use “Thank you/Thanks for + noun or -ing”. Add a reason with “It helped me ...”.",
+          "「Thank you/Thanks for + 名詞／動詞-ing」で感謝します。「It helped me ...」で理由（どう助かったか）を足しましょう。"
+        ],
+        "examples": [
+          [
+            "Thank you for listening to me.",
+            "話を聞いてくれてありがとう。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use “Would you like to ... ?” to invite. Accept with “I’d like that,” then confirm time and place.",
+          "「Would you like to ... ?」で誘います。「I’d like that」で受けて、時間と場所を確認しましょう。"
+        ],
+        "examples": [
+          [
+            "I'd like that. What time works for you?",
+            "ぜひ。何時が都合いいですか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Leo thanks Nao during their walk. Practice a short thank-you and invitation talk.",
+        "散歩の途中でレオがナオにお礼を言います。短い感謝と誘いの会話を練習しましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Nao"
+      ],
+      "dialogue": [
+        [
+          "Leo",
+          "Thanks for helping today. You made it easier for me."
+        ],
+        [
+          "Nao",
+          "Even after those salty pastries?"
+        ],
+        [
+          "Leo",
+          "Yes. You helped me laugh and try again."
+        ],
+        [
+          "Nao",
+          "I appreciate how you admitted the mistake and restarted."
+        ],
+        [
+          "Leo",
+          "Your company means a lot to me these weeks."
+        ],
+        [
+          "Nao",
+          "I enjoy spending time with you too."
+        ],
+        [
+          "Leo",
+          "Would you like to get coffee sometime? Just the two of us?"
+        ],
+        [
+          "Nao",
+          "I'd like that. What day were you thinking?"
+        ],
+        [
+          "Leo",
+          "Tuesday afternoon, if you are free."
+        ],
+        [
+          "Nao",
+          "Tuesday works. Let's confirm the place tomorrow."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "What does Leo thank Nao for?",
+          "Helping him and being with him during the past few weeks."
+        ],
+        [
+          "What does Leo invite Nao to do?",
+          "Get coffee, just the two of them."
+        ],
+        [
+          "What day do they choose?",
+          "Tuesday afternoon."
+        ],
+        [
+          "What detail will they confirm tomorrow?",
+          "The place (the cafe name)."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Thanks for (helping / help) me today.",
+        "helping"
+      ],
+      [
+        "Your company (means / mean) a lot to me.",
+        "means"
+      ],
+      [
+        "You helped me feel more (relaxed / relax).",
+        "relaxed"
+      ],
+      [
+        "Would you like (to get / get) coffee?",
+        "to get"
+      ],
+      [
+        "I'd (like / liked) that.",
+        "like"
+      ],
+      [
+        "Let's confirm the place (tomorrow / yesterday).",
+        "tomorrow"
+      ]
+    ],
+    "choices": [
+      [
+        "Which sentence is a specific thank-you?",
+        "Thanks for checking the recipe with me.",
+        "Thanks for something.",
+        "A"
+      ],
+      [
+        "\"Would you like coffee, just the two of us?\" What is Leo inviting?",
+        "A team meeting at work",
+        "Time together over coffee",
+        "B"
+      ],
+      [
+        "Which reply accepts and checks a detail?",
+        "I'd like that. What time shall we meet?",
+        "OK. So you will move to Bristol.",
+        "A"
+      ],
+      [
+        "They agree on Tuesday but not a cafe. What is still open?",
+        "Whether Tuesday exists",
+        "The meeting place",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Nao by the river. Your tutor is Leo. He thanks you and invites you to coffee. You are free on Tuesday at 3 p.m. You prefer a quiet cafe near the river. His Bristol decision is still open.",
+        "あなたは川のそばにいるナオ役です。講師はレオ役です。レオがお礼を言い、コーヒーに誘います。あなたは火曜日の午後3時に空いています。川の近くの静かなカフェが希望です。レオはブリストルの仕事をまだ決めていません。"
+      ],
+      "task": [
+        "Respond to his thanks, give one specific compliment, accept coffee, suggest Tuesday 3 p.m., and say you want a quiet river cafe. Confirm you will decide the cafe name tomorrow.",
+        "お礼に返事をし、具体的な褒め言葉を1つ言いましょう。コーヒーの誘いを受け、火曜15時を提案し、川の近くの静かなカフェが希望だと伝えましょう。店名は明日確認すると言って締めましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Nao"
+      ],
+      "text": "",
+      "title": "",
+      "lines": [
+        "How do you respond to my thanks in one warm sentence?",
+        "What is one specific thing you appreciate about me, and why?",
+        "Do you accept coffee on Tuesday? Please answer clearly.",
+        "What time do you suggest, and what kind of cafe do you prefer?",
+        "How will you confirm the place before Tuesday?"
+      ],
+      "evidence": "Tutor evidence note: The student should (1) respond to the thanks, (2) give one specific compliment, (3) accept the coffee invitation, (4) suggest Tuesday at 3 p.m., (5) request a quiet cafe near the river, and (6) say they will confirm the cafe name tomorrow. The student should not say Leo decided on Bristol.",
+      "useful": [
+        "Thanks for ...",
+        "I appreciate how you ...",
+        "It helped me ...",
+        "I'd like that.",
+        "Would three o'clock work?"
+      ]
+    },
+    "topics": [
+      [
+        "SPECIFIC THANKS",
+        [
+          "What can you thank someone for at work?",
+          "How did their help change your day?",
+          "How do you answer a sincere thank-you?"
+        ]
+      ],
+      [
+        "MAKING AN INVITATION",
+        [
+          "How do you make the activity clear?",
+          "Which details do you need to agree on?",
+          "How can you suggest a different time politely?"
+        ]
+      ],
+      [
+        "ENJOYING COMPANY",
+        [
+          "What makes time with a friend relaxing?",
+          "How can you compliment someone's effort?",
+          "What activity would you suggest next?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Your company\" can mean your presence and the time you spend with someone, not a business you own.",
+      "your company は「あなたの会社」ではなく、「一緒にいてくれること／一緒の時間」を表すことがあります。"
+    ],
+    "triviaQuestion": [
+      "In \"Your company means a lot to me,\" is Leo talking about a business?",
+      "No. He means spending time with Nao."
+    ],
+    "closing": "Leo and Nao agree to coffee on Tuesday and will confirm the cafe name tomorrow. Leo still has not decided about the Bristol job and thinks carefully about it."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

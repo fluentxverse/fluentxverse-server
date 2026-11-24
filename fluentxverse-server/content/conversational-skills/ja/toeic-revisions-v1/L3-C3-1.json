@@ -1,0 +1,275 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 3,
+  "number": 1,
+  "sourceDigest": "f690010cd31cd837cdfdb8807995a843925b2fc4da5aa346bcd3b68213d53a81",
+  "episode": {
+    "title": "A Date or Just Coffee?",
+    "skill": "speaking",
+    "goal": [
+      "I can answer an invitation and say what I prefer.",
+      "誘いに返事をし、希望を伝えられる。"
+    ],
+    "intro": [
+      "Leo invites Emma for coffee on Sunday. Emma wonders if it is a date. Claire sees her checking the message again and teases her. Emma decides to ask Leo about the plan.",
+      "レオが日曜日のコーヒーにエマを誘います。エマはデートなのか気になります。クレアは何度もメッセージを確認するエマをからかいます。エマは予定をレオに直接尋ねることにします。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "Would you like coffee?",
+        "Would you like",
+        "コーヒーはいかがですか。"
+      ],
+      [
+        "I would love to.",
+        "would love to",
+        "ぜひそうしたいです。"
+      ],
+      [
+        "Just the two of us?",
+        "two of us",
+        "私たち二人だけですか。"
+      ],
+      [
+        "I am free after two.",
+        "free",
+        "2時以降は空いています。"
+      ],
+      [
+        "I prefer a quiet table.",
+        "prefer",
+        "静かな席がいいです。"
+      ],
+      [
+        "Let’s sit by the window.",
+        "window",
+        "窓のそばに座りましょう。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use can + verb to offer help.",
+          "can ＋動詞で、手伝えることを伝えます。"
+        ],
+        "examples": [
+          [
+            "I can help you.",
+            "お手伝いできます。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use Let’s + verb to suggest an action.",
+          "Let’s ＋動詞で行動を提案します。"
+        ],
+        "examples": [
+          [
+            "Let’s check the time.",
+            "時刻を確認しましょう。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Leo and Emma discuss their coffee plan. Read their conversation.",
+        "レオとエマがコーヒーを飲みに行く予定を話します。会話を読みましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Leo",
+          "Would you like coffee on Sunday?"
+        ],
+        [
+          "Emma",
+          "Yes. Just the two of us?"
+        ],
+        [
+          "Leo",
+          "Yes. Is that okay?"
+        ],
+        [
+          "Emma",
+          "Yes. What time?"
+        ],
+        [
+          "Leo",
+          "Two, at the cafe near the river?"
+        ],
+        [
+          "Emma",
+          "Good. Can we sit outside?"
+        ],
+        [
+          "Leo",
+          "Yes. You like the river view."
+        ],
+        [
+          "Emma",
+          "What about rain?"
+        ],
+        [
+          "Leo",
+          "We can sit by a window."
+        ],
+        [
+          "Emma",
+          "Perfect. Sunday at two."
+        ]
+      ],
+      "questions": [
+        [
+          "Who will have coffee?",
+          "Emma and Leo."
+        ],
+        [
+          "When is their plan?",
+          "Sunday at two."
+        ],
+        [
+          "Where does Emma want to sit?",
+          "Outside."
+        ],
+        [
+          "What is the rain plan?",
+          "Sit by a window."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I can (help / helps) you.",
+        "help"
+      ],
+      [
+        "Let’s (check / checked) the time.",
+        "check"
+      ],
+      [
+        "Can you (come / comes) too?",
+        "come"
+      ],
+      [
+        "We can (meet / meets) here.",
+        "meet"
+      ],
+      [
+        "Let’s (ask / asked) first.",
+        "ask"
+      ],
+      [
+        "I can (bring / brings) it.",
+        "bring"
+      ]
+    ],
+    "choices": [
+      [
+        "Who will have coffee?",
+        "Emma and Leo.",
+        "Only Nao.",
+        "A"
+      ],
+      [
+        "When is their plan?",
+        "Tuesday at six.",
+        "Sunday at two.",
+        "B"
+      ],
+      [
+        "Where does Emma want to sit?",
+        "Outside.",
+        "In the kitchen.",
+        "A"
+      ],
+      [
+        "What is the rain plan?",
+        "Cancel every plan.",
+        "Sit by a window.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Leo. He has invited you for coffee on Sunday. You are free after 2 p.m. and would prefer a quiet table near the river.",
+        "あなたはエマ役、講師はレオ役です。日曜日にコーヒーを飲もうと誘われています。午後2時以降は空いていて、川の近くの静かな席を希望しています。"
+      ],
+      "task": [
+        "Answer the invitation. Check who is coming. Choose a time and table. Make a rain plan.",
+        "誘いに返事をしましょう。来る人を確認し、時刻と席、雨の場合の予定を決めましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "lines": [
+        "Emma, would you like coffee on Sunday?",
+        "Is one o’clock okay?",
+        "Where would you like to sit?",
+        "What can we do if it rains?",
+        "Can we check who is coming and our plan?"
+      ],
+      "evidence": "Student clarifies who is coming, moves the time to after 2 p.m., expresses a preference and confirms a rain backup. Accept different suitable plans.",
+      "useful": [
+        "I would love to.",
+        "Just the two of us?",
+        "I am free after ...",
+        "I prefer ...",
+        "Let’s ..."
+      ]
+    },
+    "topics": [
+      [
+        "DAILY LIFE",
+        [
+          "What time do you start work or study?",
+          "When do you have dinner?",
+          "What do you do on Sundays?"
+        ]
+      ],
+      [
+        "HELPING",
+        [
+          "Who helps you?",
+          "How can you help a friend?",
+          "How do you say thank you?"
+        ]
+      ],
+      [
+        "TALKING TO FRIENDS",
+        [
+          "What do you talk about?",
+          "How do you invite a friend?",
+          "What can you say when you do not understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Coffee” can mean a short social meeting, not only a drink. “Let’s get coffee” is often an invitation to talk.",
+      "coffee は飲み物だけでなく、気軽に会うことも表せます。Let’s get coffee は、おしゃべりに誘うときにも使います。"
+    ],
+    "triviaQuestion": [
+      "Can “get coffee” be an invitation to talk?",
+      "Yes."
+    ],
+    "closing": "They enjoy their Sunday coffee. Claire wants every detail, but Emma only smiles. On Monday morning, an urgent work request changes Emma's week."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

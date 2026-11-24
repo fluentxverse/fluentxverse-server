@@ -1,5 +1,6 @@
 import Elysia, { t } from 'elysia';
 import { TutorService } from '../services/tutor.services/tutor.service';
+import { ProfileCredentialRequired } from '../services/tutorIdentity/production';
 import StudentService from '../services/auth.services/student.service';
 import { ScheduleService } from '../services/schedule.services/schedule.service';
 import { ClassroomNotesService, InvalidMaterialProgress } from '../services/classroomNotes.services/classroomNotes.service';
@@ -423,7 +424,7 @@ const Tutor = new Elysia({ prefix: '/tutor' })
       if (!profile.bio || profile.bio.length < 10) missingFields.push('Bio');
       if (!profile.profilePicture) missingFields.push('Profile Picture');
       if (!profile.videoIntroUrl) missingFields.push('Introduction Video');
-      if (!profile.schoolAttended && (!profile.education || profile.education.length === 0)) missingFields.push('Education');
+      if (!profile.schoolAttended && (!profile.education || profile.education.length === 0)) missingFields.push('Qualifications');
       if (!profile.interests || profile.interests.length === 0) missingFields.push('Interests');
 
       if (missingFields.length > 0) {
@@ -439,6 +440,7 @@ const Tutor = new Elysia({ prefix: '/tutor' })
       return { success: true, message: 'Profile submitted for review' };
     } catch (error) {
       console.error('Error in POST /tutor/profile/submit:', error);
+      if(error instanceof ProfileCredentialRequired)return {success:false,error:error.message};
       return { success: false, error: 'Failed to submit profile for review' };
     }
   })

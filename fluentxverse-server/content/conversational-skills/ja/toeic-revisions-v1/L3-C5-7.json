@@ -1,0 +1,275 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 5,
+  "number": 7,
+  "sourceDigest": "58c37977266e78d4f4db915b9eca709d3daa873b0067f1307f34f7a804218d29",
+  "episode": {
+    "title": "A Choice to Regret",
+    "skill": "speaking",
+    "goal": [
+      "I can explain a mistake and say what needs to change.",
+      "間違いを説明し、変える必要があることを伝えられる。"
+    ],
+    "intro": [
+      "On Friday, Emma has a private dinner with Ren. She tells Leo she is working. On the train home, she regrets the lie. She calls Ren and asks to keep contact about work. She has not told Leo the truth yet.",
+      "金曜日、エマはレンと二人で夕食をとります。レオには仕事中だと言います。帰りの電車でうそを後悔し、レンに電話して仕事だけの関係にするよう伝えます。レオにはまだ本当のことを話していません。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "I regret the dinner.",
+        "regret",
+        "その夕食を後悔しています。"
+      ],
+      [
+        "I told a lie.",
+        "lie",
+        "うそをつきました。"
+      ],
+      [
+        "I said I was working.",
+        "said",
+        "仕事中だと言いました。"
+      ],
+      [
+        "That was not true.",
+        "true",
+        "それは本当ではありませんでした。"
+      ],
+      [
+        "Let’s meet at the office.",
+        "office",
+        "事務所で会いましょう。"
+      ],
+      [
+        "I need to tell Leo.",
+        "tell",
+        "レオに伝える必要があります。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use the past form to say what happened.",
+          "過去形で、起きたことを伝えます。"
+        ],
+        "examples": [
+          [
+            "I worked yesterday.",
+            "昨日働きました。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use did not + verb to say what did not happen.",
+          "did not ＋動詞で、しなかったことを伝えます。"
+        ],
+        "examples": [
+          [
+            "I did not call.",
+            "電話しませんでした。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "On the train, Emma calls Ren to restate the boundary. Read their conversation. Leo has not heard the truth yet.",
+        "電車でエマがレンに電話し、改めて線引きを伝えます。会話を読みましょう。レオにはまだ本当のことを話していません。"
+      ],
+      "roles": [
+        "Ren",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Ren",
+          "Did you get to the station?"
+        ],
+        [
+          "Emma",
+          "Yes. But I regret dinner."
+        ],
+        [
+          "Ren",
+          "Why?"
+        ],
+        [
+          "Emma",
+          "I told Leo I was working. That was a lie."
+        ],
+        [
+          "Ren",
+          "Have you told him?"
+        ],
+        [
+          "Emma",
+          "No. I need to tell the truth."
+        ],
+        [
+          "Ren",
+          "What do you want now?"
+        ],
+        [
+          "Emma",
+          "Contact about work only."
+        ],
+        [
+          "Ren",
+          "What about the project handover?"
+        ],
+        [
+          "Emma",
+          "We can do it at the office. I must talk to Leo."
+        ]
+      ],
+      "questions": [
+        [
+          "What did Emma tell Leo?",
+          "She was working."
+        ],
+        [
+          "What actually happened?",
+          "She had a private dinner with Ren."
+        ],
+        [
+          "What does she ask Ren for?",
+          "Contact about work only."
+        ],
+        [
+          "Does Leo know the truth yet?",
+          "No."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I (worked / work) yesterday.",
+        "worked"
+      ],
+      [
+        "I did not (call / called).",
+        "call"
+      ],
+      [
+        "Did you (ask / asked) her?",
+        "ask"
+      ],
+      [
+        "We (were / was) busy yesterday.",
+        "were"
+      ],
+      [
+        "She (was / were) at work.",
+        "was"
+      ],
+      [
+        "I (sent / send) the message yesterday.",
+        "sent"
+      ]
+    ],
+    "choices": [
+      [
+        "What did Emma tell Leo?",
+        "She was working.",
+        "She was visiting Nao.",
+        "A"
+      ],
+      [
+        "What actually happened?",
+        "She was still working.",
+        "She had a private dinner with Ren.",
+        "B"
+      ],
+      [
+        "What does she ask Ren for?",
+        "Contact about work only.",
+        "Another private dinner.",
+        "A"
+      ],
+      [
+        "Does Leo know the truth yet?",
+        "Yes.",
+        "No.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Ren during a short call after Friday's dinner. You told Leo you were working, but you had dinner with Ren after he had expressed feelings for you. You regret hiding it and want future contact to stay about work.",
+        "あなたは金曜日の夕食後に短い電話をしているエマ役、講師はレン役です。好意を伝えてきたレンと夕食を取ったのに、レオには仕事中だと伝えました。隠したことを後悔し、今後の連絡は仕事のことにしたいと考えています。"
+      ],
+      "task": [
+        "Explain the dinner and lie. Say what was wrong. Confirm work-only contact and the conversation you still need.",
+        "夕食とうそについて説明しましょう。何が間違いだったかを伝え、仕事だけの連絡と、まだ必要な話し合いを確認しましょう。"
+      ],
+      "roles": [
+        "Ren",
+        "Emma"
+      ],
+      "lines": [
+        "Emma, what is bothering you?",
+        "What did you tell Leo? Was it true?",
+        "What do you want our contact to be?",
+        "Where shall we do Monday’s handover?",
+        "Does Leo know the truth yet?"
+      ],
+      "evidence": "Admit false work explanation, should have told truth/should not have hidden dinner, professional contact and office handover, acknowledge Leo conversation remains. The event is the hidden private dinner, not physical intimacy; do not add a different incident. Keep correction focused on regret language and clear next steps.",
+      "useful": [
+        "I regret ...",
+        "I said ...",
+        "That was not true.",
+        "Let’s keep ...",
+        "I need to tell ..."
+      ]
+    },
+    "topics": [
+      [
+        "KEEPING IN TOUCH",
+        [
+          "Do you call or send messages?",
+          "When do you call a friend?",
+          "What do you say when you are busy?"
+        ]
+      ],
+      [
+        "CHANGING PLANS",
+        [
+          "What do you say when you are late?",
+          "Who needs to know about a change?",
+          "How do you choose a new time?"
+        ]
+      ],
+      [
+        "LISTENING",
+        [
+          "What helps you listen?",
+          "How do you ask someone to repeat?",
+          "How do you show you understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Come clean” means tell the truth about something you hid. It does not mean wash your clothes.",
+      "come clean は、隠していたことを正直に話すという意味です。服を洗うことではありません。"
+    ],
+    "triviaQuestion": [
+      "Can “come clean” mean tell the truth?",
+      "Yes."
+    ],
+    "closing": "Emma makes the work boundary clear to Ren but avoids the harder conversation with Leo. On Saturday, she turns to Nao for advice."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

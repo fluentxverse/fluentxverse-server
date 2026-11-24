@@ -6,6 +6,8 @@ import { sanitizeIssueImage } from '../lessonIssueImages';
 import { identityStorage } from './storage';
 import { interviewStart } from '../interview.services/interviewTime';
 import { logger } from '../../utils/logger';
+import { identityIssuanceMode, identityWalletConsentVersion } from './production';
+import { identityReviewApplicant } from './reviewApplicant';
 
 export const identityEnabled = () => process.env.TUTOR_IDENTITY_ENABLED === 'true';
 let processingUploads = 0;
@@ -58,12 +60,19 @@ export class TutorIdentityService {
   async status(tutorId: string) {
     const s = getDriver().session();
     try {
-      const row = (await s.run(`MATCH(u:User {id:$tutorId}) OPTIONAL MATCH(i:TutorIdentity {id:u.identitySubmissionId}) RETURN i`, { tutorId })).records[0];
-      return { enabled: identityEnabled(), record: publicRecord(row?.get('i')?.properties) };
+      const row = (await s.run(`MATCH(u:User {id:$tutorId}) OPTIONAL MATCH(i:TutorIdentity {id:u.identitySubmissionId}) RETURN i,u`, { tutorId })).records[0];
+      const record=row?.get('i')?.properties,mode=identityIssuanceMode(),version=identityWalletConsentVersion(mode);
+      const wallet=row?.get('u')?.properties.smartWalletAddress;
+      const holder=wallet&&typeof wallet==='object'?(wallet.smartAccountAddress||wallet.address):null;
+      return { enabled: identityEnabled(), record: publicRecord(record),issuanceMode:mode,walletConsentVersion:version,
+        walletConsentRecorded:record?.walletPublicationConsent===true && record.walletConsentVersion===version
+          && typeof holder==='string' && record.walletConsentAddress===holder.toLowerCase() && wallet.userId===tutorId };
     } finally { await s.close(); }
   }
-  async submit(tutorId: string, idType: string, birthDate: string, consent: boolean, file: File) {
+  async submit(tutorId: string, idType: string, birthDate: string, consent: boolean, file: File, walletPublicationConsent = false, walletConsentVersion = 'tutor-identity-wallet.v1') {
     if (!identityEnabled()) throw new ApplicationError(503, 'Identity submission is not enabled.');
+    if(walletPublicationConsent && walletConsentVersion!==identityWalletConsentVersion(identityIssuanceMode()))
+      throw new ApplicationError(409,'Credential disclosure changed. Refresh before agreeing.');
     if (!acceptedTutorIds.some(i => i[0] === idType) || !consent || !isAdult(birthDate))
       throw new ApplicationError(400, 'Select an accepted ID, confirm the privacy notice, and confirm that you are at least 18.');
     // Decode, re-encode and strip metadata before encrypting. No original or thumbnail is retained.
@@ -80,6 +89,10 @@ export class TutorIdentityService {
       // image which might already belong to a successfully committed submission.
       const replacedId = await s.executeWrite(async tx => {
         const u = await lockApplicant(tx, tutorId, false, true);
+        const managedWallet = u.smartWalletAddress;
+        const walletAddress = managedWallet && typeof managedWallet === 'object' ? managedWallet.smartAccountAddress || managedWallet.address : managedWallet;
+        if (walletPublicationConsent && (typeof walletAddress !== 'string' || !/^0x[0-9a-fA-F]{40}$/.test(walletAddress) || BigInt(walletAddress) === 0n))
+          throw new ApplicationError(409, 'Your application wallet is unavailable. Please contact support.');
         const old = await currentIdentity(tx, tutorId);
         if (!old || !['resubmit', 'expired'].includes(old.status)) {
           if (Date.parse(u.identitySubmittedAt || '') > Date.now() - 60000) throw new ApplicationError(429, 'Please wait a minute before another ID submission.');
@@ -92,7 +105,10 @@ export class TutorIdentityService {
         if (old && !old.deletedAt) await tx.run('MATCH(i:TutorIdentity {id:$id}) SET i.deleteAt=$now', { id: old.id, now });
         await tx.run(`MATCH(u:User {id:$tutorId}) CREATE(i:TutorIdentity {id:$id,tutorId:$tutorId,idType:$idType,
           status:'pending_review',createdAt:$now,consentVersion:'tutor-identity.v1',adultDeclared:true})
-          SET u.identitySubmissionId=$id,u.identitySubmittedAt=$now,u.identityRequired=true,u.identityVerified=false MERGE(u)-[:SUBMITTED_IDENTITY]->(i)`, { id, tutorId, idType, now });
+          SET i.walletPublicationConsent=$walletConsent,i.walletConsentAddress=$walletAddress,i.walletConsentVersion=$walletConsentVersion,
+            u.identitySubmissionId=$id,u.identitySubmittedAt=$now,u.identityRequired=true,u.identityVerified=false MERGE(u)-[:SUBMITTED_IDENTITY]->(i)`,
+          { id, tutorId, idType, now, walletConsent: walletPublicationConsent, walletAddress: walletPublicationConsent ? walletAddress.toLowerCase() : null,
+            walletConsentVersion: walletPublicationConsent ? walletConsentVersion : null });
         return old && !old.deletedAt ? old.id as string : null;
       });
       if (replacedId) {
@@ -104,11 +120,30 @@ export class TutorIdentityService {
     } finally { bytes.fill(0); await s.close(); }
     return this.status(tutorId);
   }
+  async consentToWallet(tutorId:string,version:string) {
+    if(!identityEnabled() || version!==identityWalletConsentVersion(identityIssuanceMode()))throw new ApplicationError(409,'Refresh the credential disclosure.');
+    const s=getDriver().session();
+    try {await s.executeWrite(async tx=>{
+      const u=await lockApplicant(tx,tutorId,true),i=await currentIdentity(tx,tutorId),w=u.smartWalletAddress;
+      const holder=w&&typeof w==='object'?(w.smartAccountAddress||w.address):null;
+      if(!i || i.status!=='verified' || typeof holder!=='string' || !/^0x[\da-fA-F]{40}$/.test(holder) || BigInt(holder)===0n || w.userId!==tutorId)
+        throw new ApplicationError(409,'Verified identity and bound application wallet required.');
+      const j=(await tx.run('MATCH(j:TutorIdentityCredential {id:$id}) RETURN j',{id:i.id})).records[0]?.get('j').properties;
+      if(j?.issuanceJson)throw new ApplicationError(409,'Issuance already started. Contact support before changing credential consent or wallet.');
+      await tx.run(`MATCH(i:TutorIdentity {id:$id}) SET i.walletPublicationConsent=true,i.walletConsentVersion=$version,
+        i.walletConsentAddress=$holder,i.walletConsentAt=$at`,{id:i.id,version,holder:holder.toLowerCase(),at:new Date().toISOString()});
+    });}finally{await s.close();}
+    return this.status(tutorId);
+  }
   async list() {
     const s = getDriver().session();
     try { return (await s.run(`MATCH(u:User) MATCH(i:TutorIdentity {id:u.identitySubmissionId})
-      RETURN i,u.firstName AS first,u.lastName AS last ORDER BY i.createdAt DESC LIMIT 200`)).records.map(r =>
-      publicRecord({ ...r.get('i').properties, name: `${r.get('first') || ''} ${r.get('last') || ''}`.trim() }));
+      RETURN i,u.firstName AS firstName,u.middleName AS middleName,u.lastName AS lastName,u.suffix AS suffix,
+        u.birthDate AS birthDate,u.addressLine AS addressLine,u.cityName AS cityName,u.provinceName AS provinceName,
+        u.regionName AS regionName,u.zipCode AS zipCode,u.country AS country ORDER BY i.createdAt DESC LIMIT 200`)).records.map(r => {
+      const applicant=identityReviewApplicant(r.toObject());
+      return {...publicRecord({ ...r.get('i').properties, name: applicant.fullName }),applicant};
+    });
     } finally { await s.close(); }
   }
   async image(id: string, adminId: string) {
@@ -155,14 +190,12 @@ export class TutorIdentityService {
             SET i.status=$status,i.reason=$reason,i.verifiedAt=$verifiedAt,i.credentialStatus=$credentialStatus,
             i.deleteAt=$deleteAt,u.identityVerified=$verified,s.identityPresentationEndedAt=$at`, {
             id, tutorId, interviewId, at, reason, status: action === 'match' ? 'verified' : 'resubmit',
-            verifiedAt: action === 'match' ? at : null, credentialStatus: action === 'match' ? 'awaiting_credential_configuration' : null,
+            verifiedAt: action === 'match' ? at : null, credentialStatus: action === 'match' ? 'awaiting_interview_pass' : null,
             deleteAt: action === 'match' ? null : at, verified: action === 'match',
           });
           if (action === 'match') {
             await notice(tx, `${id}:match`, tutorId, 'Your live identity check is complete: verified. Your teaching/interview decision is recorded separately. This email does not confirm a teaching approval or wallet credential issuance.');
-            // Unique under the applicant lock. This is a durable issuance request, not a ZK proof.
-            await tx.run(`MERGE(j:TutorIdentityCredential {id:$id}) ON CREATE SET j.tutorId=$tutorId,j.status='awaiting_configuration',
-              j.createdAt=$at,j.expiresAt=0,j.revoked=false,j.policy='tutor-identity.v1'`, { id, tutorId, at });
+            // Identity approval alone must not authorize proof or NFT issuance.
           } else {
             await tx.run(`MATCH(s:InterviewSlot {id:$interviewId}) SET s.status='cancelled',s.mediaClosedAt=$at`, { interviewId, at });
             await notice(tx, `${id}:mismatch`, tutorId, 'Your interview stopped because the identity check did not match. Submit an ID again and present that same document at your new interview.');

@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 4,
+  "number": 3,
+  "sourceDigest": "bb6b628fc73fd3735dad122f61498a150121c46640c66fc3177765945195501b",
+  "episode": {
+    "title": "A New Idea for the Cafe",
+    "skill": "reading",
+    "goal": [
+      "I can read activity plans and choose one that fits.",
+      "活動の計画を読み、条件に合うものを選べる。"
+    ],
+    "intro": [
+      "Claire wants weekly workshops at the cafe. Emma suggests postcards. Nao suggests clay cups, and Leo suggests pastry decorating. They cannot do everything. They need to check the costs, time, and number of people.",
+      "クレアはカフェで毎週ワークショップを開きたいと思っています。エマははがき、ナオは陶芸のカップ、レオは菓子パンの飾り付けを提案します。全部はできません。費用、時間、人数を確認する必要があります。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "What is the budget?",
+        "budget",
+        "予算はいくらですか。"
+      ],
+      [
+        "The materials cost 2,000 yen.",
+        "materials",
+        "材料費は2,000円です。"
+      ],
+      [
+        "The total is 3,000 yen.",
+        "total",
+        "合計は3,000円です。"
+      ],
+      [
+        "It takes one hour.",
+        "one hour",
+        "1時間かかります。"
+      ],
+      [
+        "Eight people can join.",
+        "join",
+        "八人が参加できます。"
+      ],
+      [
+        "We can save the rest.",
+        "save",
+        "残りを取っておけます。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use How many for things you can count.",
+          "数えられるものには How many を使います。"
+        ],
+        "examples": [
+          [
+            "How many cups do we need?",
+            "カップはいくつ必要ですか。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use How much for an amount or price.",
+          "量や値段には How much を使います。"
+        ],
+        "examples": [
+          [
+            "How much pasta do we need?",
+            "パスタはどのくらい必要ですか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read Claire's three workshop proposals. All costs shown are total costs for one session.",
+        "クレアの三つの提案を読みましょう。費用はすべて一回分の合計です。"
+      ],
+      "text": "<p><strong>First workshop budget: 6,000 yen</strong></p><p><strong>Postcard design - Emma</strong><br>Materials: 2,000 yen. Printing: 1,000 yen.<br>One hour. Eight places.</p><p><strong>Clay cup activity - Nao</strong><br>Materials: 4,500 yen. Equipment: 2,000 yen.<br>Two hours. Six places.</p><p><strong>Pastry decorating - Leo</strong><br>Ingredients: 3,500 yen. Supplies: 1,500 yen.<br>One hour. Eight places.</p>",
+      "questions": [
+        [
+          "Which plan costs the least?",
+          "Postcards: 3,000 yen."
+        ],
+        [
+          "Which is over the 6,000-yen budget?",
+          "Clay cups: 6,500 yen."
+        ],
+        [
+          "What is the pastry total?",
+          "5,000 yen."
+        ],
+        [
+          "Which plans take one hour for eight people?",
+          "Postcards and pastry decorating."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "How (many / much) cups do we need?",
+        "many"
+      ],
+      [
+        "How (much / many) pasta do we need?",
+        "much"
+      ],
+      [
+        "We need four (tomatoes / tomato).",
+        "tomatoes"
+      ],
+      [
+        "How much (is / are) it?",
+        "is"
+      ],
+      [
+        "We have two (menus / menu).",
+        "menus"
+      ],
+      [
+        "Do we have (enough / many) water?",
+        "enough"
+      ]
+    ],
+    "choices": [
+      [
+        "Which plan costs the least?",
+        "Postcards: 3,000 yen.",
+        "Clay cups: 6,500 yen.",
+        "A"
+      ],
+      [
+        "Which is over the 6,000-yen budget?",
+        "Postcards: 3,000 yen.",
+        "Clay cups: 6,500 yen.",
+        "B"
+      ],
+      [
+        "What is the pastry total?",
+        "5,000 yen.",
+        "6,500 yen.",
+        "A"
+      ],
+      [
+        "Which plans take one hour for eight people?",
+        "Only clay cups.",
+        "Postcards and pastry decorating.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Claire. She has written an updated plan for the first Saturday workshop. Read it and help her choose an option.",
+        "あなたはエマ役、講師はクレア役です。クレアが最初の土曜日のワークショップの計画を更新しました。読んで、選ぶのを手伝いましょう。"
+      ],
+      "task": [
+        "Read the new options. Check the cost, time, and people. Choose a plan and explain the jobs.",
+        "新しい案を読み、費用、時間、人数を確認しましょう。案を選び、担当を説明しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "title": "First Saturday Workshop - Updated Plan",
+      "text": "<p>Available time: 3-4 p.m. | Group: eight people | Budget: 6,000 yen.</p><p><strong>Option A: Postcard design</strong><br>Paper and pens: 2,400 yen. Printing: 800 yen. Total: 3,200 yen.<br>One hour. Eight people.<br>Emma prepares designs; Claire handles booking.</p><p><strong>Option B: Clay cups</strong><br>Materials and equipment: 5,800 yen total.<br>Two hours. Six people.<br>Nao prepares tools; Claire handles booking.</p><p>All listed costs are per session, not per person. Keep the remaining money for the next workshop.</p>",
+      "lines": [
+        "Which plan fits the budget, time, and group?",
+        "Clay cups cost 5,800 yen now. Does that make them suitable?",
+        "What is the postcard total? How much is left?",
+        "What will you prepare? What will I do?",
+        "What time and how many people?"
+      ],
+      "evidence": "A fits1hour/eight/6000; B costs5800 but2hours/six fails; A3200 leaves2800; Emma designs/Claire booking; Saturday3-4/eight. Accept polite explanation grounded in the card.",
+      "useful": [
+        "It costs ...",
+        "It takes ...",
+        "It is for ... people.",
+        "We have ... left.",
+        "I will ..."
+      ]
+    },
+    "topics": [
+      [
+        "WORK",
+        [
+          "What work do you enjoy?",
+          "Do you like working with others?",
+          "What would you like to learn?"
+        ]
+      ],
+      [
+        "PLANNING",
+        [
+          "How do you remember a date?",
+          "Who can help with a plan?",
+          "What do you check first?"
+        ]
+      ],
+      [
+        "IDEAS",
+        [
+          "What would you like to make?",
+          "Who can you ask for help?",
+          "How do you say you like an idea?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Per person” means for each person. A 3,000-yen total for a group is different from 3,000 yen per person.",
+      "per person は一人当たりです。グループ全体で3,000円と、一人当たり3,000円は違います。"
+    ],
+    "triviaQuestion": [
+      "Does “per person” mean for the whole group?",
+      "No. It means for each person."
+    ],
+    "closing": "Claire chooses a small first workshop rather than doing everything at once. Meanwhile, someone who saw Nao's exhibition asks to buy a handmade ceramic set."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

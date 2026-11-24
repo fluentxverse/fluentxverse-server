@@ -3,11 +3,13 @@ import type { ManagedTransaction } from "neo4j-driver";
 import { int } from "neo4j-driver";
 import { getDriver } from "../../db/memgraph";
 import policy from "../../../../shared/disputeChainPolicy.json";
+import { appendRegistryDispute, registryDisputeEnrollment, ensureRegistryOutbox } from '../lessonRegistry/outbox';
 
 export const DISPUTE_POLICY_HASH = "0x" + createHash("sha256").update(JSON.stringify(policy)).digest("hex");
 export const chainCaptureEnabled = () => process.env.DISPUTE_CHAIN_CAPTURE === "true";
 let schema: Promise<void> | undefined;
 export async function ensureDisputeOutbox() {
+  await ensureRegistryOutbox();
   if (!chainCaptureEnabled()) return;
   return schema ||= (async () => {
     const db = getDriver().session();
@@ -26,7 +28,9 @@ export async function ensureDisputeOutbox() {
   })().catch(e => { schema = undefined; throw e; });
 }
 
-export function enrollDispute() {
+export function enrollDispute(booking?: any) {
+  const registry = booking && registryDisputeEnrollment(booking);
+  if (registry) return registry;
   return chainCaptureEnabled() ? {
     chainVersion: 1,
     chainKey: "0x" + randomBytes(32).toString("hex"),
@@ -41,6 +45,7 @@ export type ChainEventKind = "open" | "authorize" | "request" | "response" | "ex
 // The counter serializes commits, so a polling consumer cannot skip an uncommitted lower sequence.
 export async function appendDisputeEvent(tx: ManagedTransaction, thread: any, kind: ChainEventKind,
   at: string, fields: Record<string, string | number | boolean> = {}, evidence: unknown = {}) {
+  if (Number(thread.registryVersion) === 1) return appendRegistryDispute(tx, thread, kind, at, fields, evidence);
   if (Number(thread.chainVersion) !== 1) return;
   if (!/^0x[0-9a-f]{64}$/.test(thread.chainKey) || !/^[0-9a-f]{64}$/.test(thread.chainSalt))
     throw Error("Invalid dispute chain binding");

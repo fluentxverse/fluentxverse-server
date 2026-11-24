@@ -1,0 +1,231 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 1,
+  "number": 3,
+  "sourceDigest": "72cd1c061e3bdcb3fa7f041c817753351fac5a7693096ac72d98904972013f47",
+  "episode": {
+    "title": "A Shared Hobby",
+    "skill": "reading",
+    "intro": [
+      "One afternoon, Emma meets Nao at Kamo House. Nao is from Fukuoka and studies ceramics in Kyoto. Emma sees Nao’s camera. They learn they both like photography. They decide to explore Kyoto together.",
+      "ある日の午後、エマはKamo Houseでナオに会います。ナオは福岡出身で、京都で陶芸を学んでいます。エマはナオのカメラに気づきます。二人とも写真が好きだと分かります。一緒に京都を散策することにします。"
+    ],
+    "goal": [
+      "I can read a short profile and an invitation for key details.",
+      "短いプロフィールと誘いの文を読み、重要な情報を理解できる。"
+    ],
+    "warmup": "What hobby would you enjoy sharing with a new friend?",
+    "words": [
+      [
+        "Emma and Nao have a shared hobby.",
+        "shared hobby",
+        "エマとナオには共通の趣味があります。"
+      ],
+      [
+        "Nao studies ceramics in Kyoto.",
+        "ceramics",
+        "ナオは京都で陶芸を学んでいます。"
+      ],
+      [
+        "She takes photos in her free time.",
+        "free time",
+        "彼女は暇なときに写真を撮ります。"
+      ],
+      [
+        "They want to explore Kyoto together.",
+        "explore",
+        "二人は一緒に京都を散策したいです。"
+      ],
+      [
+        "Meet at the cafe entrance at 10 a.m.",
+        "cafe entrance",
+        "午前10時にカフェの入口で会います。"
+      ],
+      [
+        "Bring your camera and wear comfortable shoes.",
+        "bring your camera",
+        "カメラを持ってきて、歩きやすい靴をはきます。"
+      ]
+    ],
+    "discussion": [
+      "Choose one hobby you can share. Say where you can do it.",
+      "共通でできる趣味を1つ選び、どこでできるか言いましょう。"
+    ],
+    "followup": "What would your friend need to bring?",
+    "tips": [
+      {
+        "rule": [
+          "In a profile, look for hometown, study or job, and hobbies.",
+          "プロフィールでは、出身地、勉強や仕事、趣味を探します。"
+        ],
+        "examples": [
+          [
+            "Nao is from Fukuoka. She studies ceramics.",
+            "ナオは福岡出身です。陶芸を学んでいます。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "In an invitation, find when, where, and what to bring.",
+          "誘いの文では、いつ、どこで、何を持つかを探します。"
+        ],
+        "examples": [
+          [
+            "Meet at the cafe entrance at 10 a.m.",
+            "午前10時にカフェの入口で会いましょう。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Emma reads Nao’s introduction on the residents’ board. Read it and find their shared interest.",
+        "エマは住人用の掲示板でナオの自己紹介を読みます。共通点を見つけましょう。"
+      ],
+      "dialogue": [],
+      "text": "<p><strong>Meet Nao</strong><br>Hi! I'm Nao. I'm from Fukuoka. I moved to Kyoto to study ceramics. I work part-time at a gallery on Saturdays, but I'm free this Saturday. In my free time, I enjoy taking photos of old streets and gardens. I have a small camera, and I like walking around the city. Would anyone like to join me?</p>",
+      "questions": [
+        [
+          "Where is Nao from?",
+          "Fukuoka."
+        ],
+        [
+          "Why did she move to Kyoto?",
+          "To study ceramics."
+        ],
+        [
+          "What hobby does she share with Emma?",
+          "Photography."
+        ],
+        [
+          "Is she working this Saturday?",
+          "No. She is free this Saturday."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Emma and Nao (both / only) enjoy photography.",
+        "both"
+      ],
+      [
+        "Nao moved to Kyoto to (study / studies) ceramics.",
+        "study"
+      ],
+      [
+        "She is from (Fukuoka / a camera).",
+        "Fukuoka"
+      ],
+      [
+        "Meet (at / on) the cafe entrance.",
+        "at"
+      ],
+      [
+        "The walk is (on / at) Saturday.",
+        "on"
+      ],
+      [
+        "Please (bring / brings) your camera.",
+        "bring"
+      ]
+    ],
+    "choices": [
+      [
+        "Profile: \"I enjoy taking photos.\" What is the hobby?",
+        "Photography",
+        "Baking",
+        "A"
+      ],
+      [
+        "Invitation: \"Meet at ten at the cafe.\" Which part is the place?",
+        "At ten",
+        "At the cafe",
+        "B"
+      ],
+      [
+        "Message: \"I usually work on Saturdays, but I am free this Saturday.\" Can she go this Saturday?",
+        "No",
+        "Yes",
+        "B"
+      ],
+      [
+        "Invitation: \"Bring your camera.\" What should you take?",
+        "A camera",
+        "Some ceramics",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Nao sends you a message about your first photo walk. Your tutor is Claire, who wants to hear your plan.",
+        "あなたはエマ役です。ナオから初めての写真散歩についてメッセージが届きます。講師は予定を知りたいクレア役です。"
+      ],
+      "task": [
+        "Read Nao’s invitation. Tell Claire when and where you will meet, where you will go, and what to bring.",
+        "ナオの誘いの文を読み、待ち合わせの日時と場所、行く場所、持ち物をクレアに伝えましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "text": "<p>Hi Emma! Let's take photos this Saturday. Meet me at the Kamo House cafe entrance at 10 a.m. We can walk through some old streets, visit a small temple, and finish at a garden. Bring your camera and wear comfortable shoes. We can stop for lunch at noon. If it rains, let's meet at the cafe anyway and choose another day for the walk. Nao</p>",
+      "title": "Nao's Invitation",
+      "lines": [
+        "Emma, when are you meeting Nao?",
+        "Where will you meet her?",
+        "Where will you go on the walk?",
+        "What do you need to bring?",
+        "What will you do if it rains?"
+      ],
+      "evidence": "Tutor evidence note: The passage says “this Saturday” and “at 10 a.m.” It says “at the Kamo House cafe entrance.” It lists “old streets,” “a small temple,” and “a garden.” It says “Bring your camera” and “wear comfortable shoes.” For rain, it says “meet at the cafe anyway and choose another day.” Ask the student to point to these exact words.",
+      "useful": [
+        "The message says ...",
+        "We are meeting on ... at ...",
+        "We will visit ...",
+        "I need to bring ...",
+        "If it rains, we will ..."
+      ]
+    },
+    "topics": [
+      [
+        "Shared Interests",
+        [
+          "What hobby do you share with a friend?",
+          "Where do you do it?",
+          "What do you do together?"
+        ]
+      ],
+      [
+        "Invitations",
+        [
+          "Who do you invite often?",
+          "What time do you usually choose?",
+          "What do you say when you are busy?"
+        ]
+      ],
+      [
+        "Photography",
+        [
+          "What do you like to take photos of?",
+          "Do you use a phone or a camera?",
+          "Where is a good place for photos in your town?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Take a photo\" means to make a photograph. \"Take a camera\" means to carry a camera somewhere.",
+      "take a photo は写真を撮ることです。take a camera はカメラを持っていくことです。"
+    ],
+    "triviaQuestion": [
+      "Which phrase means to make a photograph: take a photo or take a camera?",
+      "Take a photo."
+    ],
+    "closing": "Emma accepts Nao’s invitation. On Saturday, they go out with their cameras to explore Kyoto."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

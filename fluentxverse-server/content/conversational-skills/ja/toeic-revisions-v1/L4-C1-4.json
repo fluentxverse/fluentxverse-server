@@ -1,0 +1,278 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 1,
+  "number": 4,
+  "sourceDigest": "37c11f121b3e6a985604b092edd8d5222e4d0f10f386def8b3458d6f45d346e9",
+  "episode": {
+    "title": "A Chance to Explain",
+    "skill": "speaking",
+    "intro": [
+      "On Thursday, Leo meets Emma beside the Kamo River. Emma explains how work lunches became personal, and why she hid the second dinner. Leo asks what Emma knew before she made that choice. Emma admits Ren had already shared his feelings, and she should have kept a professional boundary. Leo listens, but he has not decided about the relationship.",
+      "木曜日、レオは鴨川のそばでエマに会います。エマは仕事の昼食が個人的な話になったことと、2回目の夕食を隠した理由を説明します。レオは、その選択の前に何が分かっていたのか尋ねます。エマは、レンがすでに好意を伝えていたこと、仕事の線引きを守るべきだったことを認めます。レオは聞きますが、交際を続けるかはまだ決めていません。"
+    ],
+    "goal": [
+      "I can explain the order of past events and accept my responsibility.",
+      "過去の出来事の順序を説明し、自分の責任を認められる。"
+    ],
+    "warmup": "How can you show which past event happened first?",
+    "words": [
+      [
+        "At first, we only talked about work at lunch.",
+        "At first",
+        "最初は、昼食では仕事の話だけでした。"
+      ],
+      [
+        "Over time, our conversations became personal.",
+        "Over time",
+        "次第に、会話が個人的になりました。"
+      ],
+      [
+        "Ren had already told me he liked me before the Friday dinner.",
+        "had already",
+        "金曜日の夕食の前に、レンはすでに「好きだ」と言っていました。"
+      ],
+      [
+        "I chose to hide the dinner from Leo.",
+        "chose to",
+        "私はレオに夕食を隠すことを選びました。"
+      ],
+      [
+        "Being confused does not excuse my choice.",
+        "does not excuse",
+        "迷っていたことは、私の選択の言い訳にはなりません。"
+      ],
+      [
+        "Leo said he was not sure whether he could trust me.",
+        "whether",
+        "レオは、私を信じられるか分からないと言いました。"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is Leo. Explain what Ren had said before the hidden dinner. Then accept your choice without making excuses.",
+      "あなたはエマ役、講師はレオ役です。隠した夕食の前にレンが何と言ったか説明しましょう。その後、言い訳をせずに自分の選択を認めましょう。"
+    ],
+    "followup": "What can you say to explain a mistake without excusing it?",
+    "tips": [
+      {
+        "rule": [
+          "Use “had already” for the earlier event, then use simple past for the next action.",
+          "先の出来事には “had already” を使い、その次の行動は過去形で言いましょう。"
+        ],
+        "examples": [
+          [
+            "Ren had already told me he liked me, and then I stayed for dinner.",
+            "レンはすでに好意を伝えていて、その後私は夕食に残りました。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Take responsibility with “I chose to …” and “I should have …”. Do not blame another person.",
+          "“I chose to …”“I should have …” で責任を認めましょう。他人のせいにしません。"
+        ],
+        "examples": [
+          [
+            "I chose to hide the dinner. I should have told you the truth.",
+            "私は夕食を隠すことを選びました。真実を言うべきでした。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Leo asks Emma to explain the events in order. Read and practice the conversation.",
+        "レオはエマに、出来事を順番に説明するよう求めます。会話を読んで練習しましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Leo",
+          "Before Friday, what had Ren already told you?"
+        ],
+        [
+          "Emma",
+          "He had already told me he liked me."
+        ],
+        [
+          "Leo",
+          "What did you say to him at that time?"
+        ],
+        [
+          "Emma",
+          "I said we should stay professional."
+        ],
+        [
+          "Leo",
+          "Then why did you stay for another dinner?"
+        ],
+        [
+          "Emma",
+          "Over time, our talks felt personal, and I stayed."
+        ],
+        [
+          "Leo",
+          "Why did you tell me you were working?"
+        ],
+        [
+          "Emma",
+          "I chose to hide the dinner to avoid a hard talk."
+        ],
+        [
+          "Leo",
+          "That does not excuse the choice. I still need time."
+        ],
+        [
+          "Emma",
+          "I understand. I should have been honest earlier."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "What happened before the second dinner?",
+          "Ren had already said he liked Emma, and she said to stay professional."
+        ],
+        [
+          "What choice does Emma accept as her responsibility?",
+          "She chose to hide the dinner and told Leo she was working."
+        ],
+        [
+          "Does Leo decide to continue the relationship now?",
+          "No. He says he still needs time."
+        ],
+        [
+          "Does Emma pressure Leo to decide today?",
+          "No. She says she understands and accepts his time."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Ren had already (told / tell) me how he felt.",
+        "told"
+      ],
+      [
+        "At first, we (talked / talk) about work at lunch.",
+        "talked"
+      ],
+      [
+        "Then I (chose / choose) to hide the dinner.",
+        "chose"
+      ],
+      [
+        "I should have (been / be) honest with Leo.",
+        "been"
+      ],
+      [
+        "Being confused does not (excuse / excuses) my choice.",
+        "excuse"
+      ],
+      [
+        "Leo is not sure whether he (can / could to) trust me.",
+        "can"
+      ]
+    ],
+    "choices": [
+      [
+        "Which happened first in: “He had told me before I agreed to dinner”?",
+        "He told Emma how he felt.",
+        "Emma agreed to dinner.",
+        "A"
+      ],
+      [
+        "Which sentence shows responsibility?",
+        "Ren made the choice for me.",
+        "I chose to hide the dinner.",
+        "B"
+      ],
+      [
+        "Leo says he needs time. What is true?",
+        "He has not decided yet.",
+        "He already forgave everything.",
+        "A"
+      ],
+      [
+        "Which reply avoids pressure?",
+        "You must decide today.",
+        "I understand you need time.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma beside the Kamo River on Thursday. Your tutor is Leo. Ren had already expressed feelings before Friday’s dinner. You said you should stay professional, but you still stayed for dinner and told Leo you were working.",
+        "あなたは木曜日に鴨川のそばにいるエマ役です。講師はレオ役です。金曜日の夕食の前に、レンはすでに好意を伝えていました。あなたは仕事の線引きを話したのに、夕食に残り、レオには仕事中だと言いました。"
+      ],
+      "task": [
+        "Explain the events in order and accept your responsibility. Answer Leo’s questions. If he says he is still unsure, respond respectfully and do not pressure him.",
+        "出来事を順番に説明し、責任を認めましょう。レオの質問に答えましょう。まだ迷っていると言われたら、尊重して返事をし、決断を迫らないでください。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "text": "",
+      "title": "Evidence: Emma Explains the Order",
+      "lines": [
+        "Before Friday, what had Ren already told you?",
+        "What did you say about staying professional?",
+        "Then what did you do next, and why?",
+        "Why did you tell me you were working?",
+        "What should you have done instead?",
+        "Thank you for explaining. I still do not know whether I can trust you."
+      ],
+      "evidence": "Tutor evidence note: The student clearly states the earlier event (Ren had already expressed feelings) before the later action (Emma stayed for dinner and hid it). The student uses responsibility language (I chose to..., I should have...) and does not excuse it. The student respects that Leo is still undecided and does not pressure him.",
+      "useful": [
+        "At first, ...",
+        "Over time, ...",
+        "He had already ...",
+        "Then I chose to ...",
+        "I should have ...",
+        "That does not excuse ..."
+      ]
+    },
+    "topics": [
+      [
+        "Explaining a Sequence",
+        [
+          "What words help you show the order of events?",
+          "How can you check the listener understands the order?",
+          "When is a short summary helpful?"
+        ]
+      ],
+      [
+        "Taking Responsibility",
+        [
+          "What is a polite way to say “It was my fault”?",
+          "What sentence can you use with “I should have …”?",
+          "What action can you take after an apology?"
+        ]
+      ],
+      [
+        "Giving Someone Time",
+        [
+          "How can you reply when someone is unsure?",
+          "What should you avoid saying in that moment?",
+          "How can you suggest a later talk without pressure?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Explain\" and \"excuse\" are different. You can explain why something happened and still say it was wrong.",
+      "explain は理由などを説明すること、excuse は正当化することです。理由を説明しても、間違いを認めることはできます。"
+    ],
+    "triviaQuestion": [
+      "Can you explain a choice and still accept it was wrong?",
+      "Yes."
+    ],
+    "closing": "Leo thanks Emma for explaining, but he is still unsure about trust. Emma goes back to her project, and the tension with Ren is affecting their work."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

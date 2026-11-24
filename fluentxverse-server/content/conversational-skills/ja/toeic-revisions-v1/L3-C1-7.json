@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 1,
+  "number": 7,
+  "sourceDigest": "1eef23c38811d717c35619381ac39f263587e737eeb42b7ad7f2784411f9c5b4",
+  "episode": {
+    "title": "An Unexpected Problem",
+    "skill": "speaking",
+    "intro": [
+      "Two days before the exhibition, the bakery oven breaks. Leo worries about the snacks. Claire suggests the cafe kitchen. Everyone agrees to help Leo finish in time.",
+      "展示会の2日前、パン屋のオーブンが壊れます。レオは軽食を心配します。クレアはカフェのキッチンを提案します。みんなで間に合うように手伝うことにします。"
+    ],
+    "goal": [
+      "I can explain a problem, suggest a solution, and agree on how to help.",
+      "問題を説明し、解決策を提案して、どのように協力するか決められる。"
+    ],
+    "warmup": "What could you do if equipment stopped working before an event?",
+    "words": [
+      [
+        "The bakery's oven is broken.",
+        "is broken",
+        "パン屋のオーブンが壊れています。"
+      ],
+      [
+        "I'm worried about the snacks for the exhibition.",
+        "worried about",
+        "展示会の軽食が心配です。"
+      ],
+      [
+        "We need enough food for visitors.",
+        "enough",
+        "来場者のために十分な食べ物が必要です。"
+      ],
+      [
+        "We could use the cafe kitchen instead.",
+        "instead",
+        "代わりにカフェのキッチンを使えます。"
+      ],
+      [
+        "Could you help me prepare the trays?",
+        "Could you help me",
+        "トレーの準備を手伝ってもらえますか。"
+      ],
+      [
+        "Let's finish by one-thirty to be ready in time.",
+        "finish by",
+        "1時30分までに終えて、間に合うようにしましょう。"
+      ]
+    ],
+    "discussion": [
+      "Your kitchen is not available before a small party. Explain the problem and suggest another plan with your tutor.",
+      "小さなパーティーの前にキッチンが使えません。問題を説明して、講師と別の案を提案しましょう。"
+    ],
+    "followup": "What could you prepare without an oven?",
+    "tips": [
+      {
+        "rule": [
+          "Explain a problem with \"... is broken\" or \"I can't ...\". Suggest a new plan with \"We could ... instead.\"",
+          "\"... is broken\" や \"I can't ...\" で問題を言います。\"We could ... instead.\" で別の案を提案します。"
+        ],
+        "examples": [
+          [
+            "The oven is broken. I can't bake here.",
+            "オーブンが壊れています。ここでは焼けません。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Ask for help with \"Could you ...?\" Confirm time with \"by\" (deadline) and \"at\" (start time).",
+          "\"Could you ...?\" で手伝いを頼みます。by は期限、at は開始時刻です。"
+        ],
+        "examples": [
+          [
+            "Could you help me pack the snacks? Let's finish by 1:30.",
+            "軽食を包むのを手伝ってもらえますか。1時30分までに終えましょう。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "On Friday, Leo tells Claire the oven is broken. They find a plan.",
+        "金曜日、レオがオーブンの故障を伝えます。二人で解決策を見つけます。"
+      ],
+      "roles": [
+        "Claire",
+        "Leo"
+      ],
+      "dialogue": [
+        [
+          "Claire",
+          "Leo, you look worried. What is wrong?"
+        ],
+        [
+          "Leo",
+          "The bakery oven is broken. I can't bake there."
+        ],
+        [
+          "Claire",
+          "We could use the cafe kitchen instead."
+        ],
+        [
+          "Leo",
+          "Does the oven work well?"
+        ],
+        [
+          "Claire",
+          "Yes, it works. You can use it on Sunday morning."
+        ],
+        [
+          "Leo",
+          "Thank you. I still need enough snacks."
+        ],
+        [
+          "Claire",
+          "We can all help. What do you need?"
+        ],
+        [
+          "Leo",
+          "Could you prepare trays? Emma and Nao can pack."
+        ],
+        [
+          "Claire",
+          "Sure. What time should we finish?"
+        ],
+        [
+          "Leo",
+          "By 1:30. Then we can open at 2. Thanks!"
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "What is broken?",
+          "The bakery oven."
+        ],
+        [
+          "What does Claire suggest?",
+          "Use the cafe kitchen."
+        ],
+        [
+          "When should they finish?",
+          "By 1:30."
+        ],
+        [
+          "When does the exhibition open?",
+          "At 2 p.m."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "The oven (is / are) broken.",
+        "is"
+      ],
+      [
+        "I can't (bake / baked) here.",
+        "bake"
+      ],
+      [
+        "We could use the cafe kitchen (instead / enough).",
+        "instead"
+      ],
+      [
+        "Could you (help / helped) me?",
+        "help"
+      ],
+      [
+        "Let's finish (by / at) one-thirty.",
+        "by"
+      ],
+      [
+        "The exhibition starts (at / by) two.",
+        "at"
+      ]
+    ],
+    "choices": [
+      [
+        "You need to explain a problem. What do you say?",
+        "The oven is broken.",
+        "The food is a question.",
+        "A"
+      ],
+      [
+        "You want to suggest another place. What do you say?",
+        "We could use the cafe kitchen instead.",
+        "Nothing can ever change.",
+        "A"
+      ],
+      [
+        "Your friend needs help packing. What do you say?",
+        "I'll help you pack.",
+        "That is never a job.",
+        "A"
+      ],
+      [
+        "You need everything ready before 1:30. What do you say?",
+        "Let's finish by one-thirty.",
+        "Let's begin after two.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Leo in the cafe kitchen on Sunday at 12:30. The pastries are baking, but trays and packing are not finished. Emma can help.",
+        "日曜日の12時30分です。あなたはカフェのキッチンにいるレオ役です。お菓子は焼いていますが、トレー準備と包装が終わっていません。エマが手伝えます。"
+      ],
+      "task": [
+        "Explain what is not finished. Ask Emma for help. Decide who does each job. Confirm the 1:30 deadline. Suggest a simple food idea if pastries are not enough.",
+        "終わっていない作業を説明します。エマに手伝いを頼みます。担当を決めます。1時30分の期限を確認します。足りない時の簡単な食べ物案も言います。"
+      ],
+      "roles": [
+        "Emma",
+        "Leo"
+      ],
+      "text": "",
+      "title": "Sunday Kitchen Help",
+      "lines": [
+        "Hi Leo. What is not finished yet?",
+        "What job do you want me to do first?",
+        "What will you do while I do that?",
+        "What time is our deadline?",
+        "If pastries are not enough, what could we serve instead?",
+        "Can you repeat our plan one more time?"
+      ],
+      "evidence": "Tutor evidence note: Student says what is unfinished (trays/packing), makes a polite request with 'Could you...?', shares jobs, confirms 'by 1:30' and 'at 2', and gives a simple backup food (fruit or sandwiches).",
+      "useful": [
+        "We still need to ...",
+        "The ... is broken.",
+        "Could you help me ...?",
+        "I'll ... and you can ...",
+        "We could ... instead."
+      ]
+    },
+    "topics": [
+      [
+        "SOLVING A PROBLEM",
+        [
+          "What problem do you have sometimes at home?",
+          "Who can you ask for help?",
+          "What is one simple solution?"
+        ]
+      ],
+      [
+        "WORKING TOGETHER",
+        [
+          "Do you like to work with others?",
+          "What job do you do first when you help?",
+          "How do you say thank you?"
+        ]
+      ],
+      [
+        "EVENT FOOD",
+        [
+          "What snacks do you like at events?",
+          "What food is easy to pack?",
+          "What can you make without an oven?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"On time\" means at the planned time. \"In time\" means early enough. You can arrive on time at 2, and finish snacks in time by 1:30.",
+      "on time は予定どおりの時刻、in time は間に合うように早めに、という意味です。2時に on time で到着し、1時30分までに in time で準備できます。"
+    ],
+    "triviaQuestion": [
+      "Which phrase means early enough for the opening: on time or in time?",
+      "In time."
+    ],
+    "closing": "Everyone helps Leo in the cafe kitchen. They finish by 1:30, and the exhibition opens at 2."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

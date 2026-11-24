@@ -1,0 +1,231 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 4,
+  "number": 2,
+  "sourceDigest": "1189aa3b6049de9a512359e0ec7a726022a1bf8603abab3417b4e5b063f211d9",
+  "episode": {
+    "title": "A Plan on Paper",
+    "skill": "listening",
+    "intro": [
+      "At a weekend meeting, five friends name the project Kamo Collective. Emma takes the visual identity, Ren takes promotional materials, Nao contacts artists, and Leo plans the pastry menu. Claire manages the budget and schedule. The next bigger market is planned for Saturday in three weeks, from 10 to 2.",
+      "週末の話し合いで、5人は活動をKamo Collectiveと名付けます。エマは見た目の統一、レンは宣伝物、ナオは作家への連絡、レオはお菓子のメニューを担当します。クレアは予算と日程を管理します。次の拡大版マーケットは3週間後の土曜日、10時から2時までの予定です。"
+    ],
+    "goal": [
+      "I can understand a short project update and confirm responsibilities and deadlines.",
+      "短い計画の連絡を聞き、担当と期限を確認できる。"
+    ],
+    "warmup": "After a meeting, what details do you write down first?",
+    "words": [
+      [
+        "We agreed on the name today.",
+        "agreed on",
+        "今日は名前を決めました。"
+      ],
+      [
+        "Leo is responsible for the pastry menu.",
+        "responsible for",
+        "レオはお菓子のメニューを担当します。"
+      ],
+      [
+        "Emma will create the visual identity for the project.",
+        "visual identity",
+        "エマが見た目の統一感（ビジュアル）を作ります。"
+      ],
+      [
+        "Ren will prepare promotional materials like posters.",
+        "promotional materials",
+        "レンは宣伝物（ポスターなど）を用意します。"
+      ],
+      [
+        "Let’s confirm the deadline before we leave.",
+        "deadline",
+        "帰る前に期限を確認しましょう。"
+      ],
+      [
+        "Please check the draft before you post it.",
+        "draft",
+        "投稿する前に下書きを確認してください。"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is Claire. Confirm your design task and ask how it connects with Ren’s work.",
+      "あなたはエマ役、講師はクレア役です。デザインの担当を確認し、レンの作業とどうつながるか尋ねましょう。"
+    ],
+    "followup": "How can you politely ask someone to repeat a deadline?",
+    "tips": [
+      {
+        "rule": [
+          "Listen for a person’s name + “will” or “responsible for” to match a person and a task.",
+          "人の名前の後の will や responsible for に注目すると、担当が分かります。"
+        ],
+        "examples": [
+          [
+            "Ren will prepare the promotional materials.",
+            "レンが宣伝物を準備します。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Notice order words like “before” and “until” to understand the correct sequence.",
+          "before や until などの順番の言葉で、正しい流れを理解しましょう。"
+        ],
+        "examples": [
+          [
+            "Check the date before you post it.",
+            "投稿する前に日付を確認します。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Listen to Claire’s short summary. Identify the project name, jobs, and the deadline for first ideas.",
+        "クレアの短いまとめを聞き、活動名・担当・最初の案の期限を聞き取りましょう。"
+      ],
+      "dialogue": [],
+      "text": "<p>We have agreed on the name Kamo Collective. Emma will create the visual identity, and Ren will prepare the promotional materials. Nao will contact local artists. Leo will plan the pastry menu, not just make everyone hungry. I will manage the budget and schedule. Please send me your first ideas by Wednesday evening.</p>",
+      "questions": [
+        [
+          "What is the project called?",
+          "Kamo Collective."
+        ],
+        [
+          "What are Emma and Ren responsible for?",
+          "Emma: visual identity. Ren: promotional materials."
+        ],
+        [
+          "What will Nao and Leo do?",
+          "Nao contacts local artists; Leo plans the pastry menu."
+        ],
+        [
+          "When should first ideas reach Claire?",
+          "By Wednesday evening."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "We agreed (on / at) the name.",
+        "on"
+      ],
+      [
+        "Leo is responsible (for / of) the menu.",
+        "for"
+      ],
+      [
+        "Nao will (contact / contacted) local artists.",
+        "contact"
+      ],
+      [
+        "Ren will prepare promotional (materials / material).",
+        "materials"
+      ],
+      [
+        "Please send your ideas (by / until) Wednesday evening.",
+        "by"
+      ],
+      [
+        "Check the draft before (posting / posted) it.",
+        "posting"
+      ]
+    ],
+    "choices": [
+      [
+        "\"Emma will create the visual identity.\" Who will create it?",
+        "Ren",
+        "Emma",
+        "B"
+      ],
+      [
+        "\"Send me your first ideas by Wednesday evening.\" What is Wednesday evening?",
+        "The deadline for first ideas",
+        "The market opening time",
+        "A"
+      ],
+      [
+        "\"Check the date before you post it.\" What comes first?",
+        "Post it",
+        "Check the date",
+        "B"
+      ],
+      [
+        "Which reply confirms a task clearly?",
+        "I will create the visual identity and send ideas by Wednesday.",
+        "Someone will do something soon.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor reads Claire’s new handover message, then plays Ren.",
+        "あなたはエマ役です。講師はクレアの新しい引き継ぎの連絡を読んだ後、レン役になります。"
+      ],
+      "task": [
+        "Listen for the item, the deadline, and what must be checked before posting. Then explain the sequence to Ren.",
+        "作るもの、期限、投稿前に確認が必要なことを聞き取り、レンに順序を説明しましょう。"
+      ],
+      "roles": [
+        "Ren",
+        "Emma"
+      ],
+      "text": "<p>Ren, please prepare the online poster using Emma's approved logo. Send the draft to Emma by Friday at four. Emma will check the market date and opening hours. Do not post it until she confirms those details.</p>",
+      "title": "Claire’s Handover Message",
+      "lines": [
+        "What does Claire want you to prepare?",
+        "Which logo should you use?",
+        "When is the draft due to me?",
+        "What must I check before you post it?",
+        "Can you post it right after you finish the draft?"
+      ],
+      "evidence": "Tutor evidence note: Key points are “online poster,” “approved logo,” “send the draft to Emma by Friday at four,” “Emma checks the market date and opening hours,” and “do not post until she confirms.” The Wednesday deadline is from the earlier summary, not this handover.",
+      "useful": [
+        "She asked you to prepare ...",
+        "Use the approved ...",
+        "The draft is due by ...",
+        "I will check ...",
+        "Please wait until I confirm ..."
+      ]
+    },
+    "topics": [
+      [
+        "Sharing Tasks",
+        [
+          "How do you make a task clear?",
+          "What do you ask if two tasks overlap?",
+          "Who gives final approval in your team?"
+        ]
+      ],
+      [
+        "Handovers",
+        [
+          "What details should a handover include?",
+          "How can you ask to hear one part again?",
+          "What can go wrong if a draft is treated as final?"
+        ]
+      ],
+      [
+        "Team Humour",
+        [
+          "When can a joke help a team?",
+          "How do you return to the task after a joke?",
+          "What is a helpful practical offer?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "A “draft” is not final. It may still need checks before you publish it.",
+      "draft は完成版ではなく、公開前に確認が必要な場合があります。"
+    ],
+    "triviaQuestion": [
+      "Does finishing a draft automatically mean you can publish it?",
+      "No. You may still need a final check."
+    ],
+    "closing": "The team has a name and clear jobs. Claire checks the costs and finds the original advertising plan is too expensive for the event fund."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

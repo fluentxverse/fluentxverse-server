@@ -1,4 +1,5 @@
 import { getDriver } from '../../db/memgraph';
+import { shouldSubmitProfile, PROFILE_REVIEW_FIELDS } from '../../../../shared/profileReview';
 import neo4j from 'neo4j-driver';
 import type { Tutor, TutorProfile, TutorSearchParams, TutorSearchResponse } from './tutor.interface';
 import { NotificationService } from '../notification.services/notification.service';
@@ -8,6 +9,7 @@ import { buildLevelAssessment } from '../assessmentProfile';
 import { tutorProfileQuery } from './tutorProfileQuery';
 import { retiredCredentialStatus } from '../proof.services/legacyProofRetirement';
 import { tutorPublicName, validateTutorNickname } from '../../../../shared/tutorPublicName';
+import { assertProfileCredentialConsent,identityIssuanceMode } from '../tutorIdentity/production';
 
 // Helper to convert Neo4j DateTime to ISO string
 function neo4jDateTimeToISO(dt: any): string | undefined {
@@ -512,11 +514,17 @@ export class TutorService {
       
       // Apply direct updates immediately
       if (Object.keys(directUpdates).length > 0) {
-        if ('nickname' in directUpdates) {
-          let statuses: Record<string, unknown> = {};
-          try { statuses = JSON.parse(record?.get('itemStatuses') || '{}'); } catch {}
-          directUpdates.profileItemStatuses = JSON.stringify({ ...statuses, nickname: { status: 'pending' } });
+        await session.executeWrite(async tx => {
+        const latest=(await tx.run(`MATCH(u:User {id:$userId}) SET u.applicationRevision=coalesce(u.applicationRevision,0)+1 RETURN u`,{userId})).records[0]?.get('u').properties;
+        if (!latest || latest.profileStatus !== profileStatus) throw Error('Profile review status changed. Please retry your changes.');
+        let statuses: Record<string, any> = {};
+        try { statuses = JSON.parse(latest.profileItemStatuses || '{}'); } catch {}
+        let changed = false;
+        for (const [field,value] of Object.entries(directUpdates)) {
+          const item = PROFILE_REVIEW_FIELDS[field];
+          if(item && JSON.stringify(value)!==JSON.stringify(latest[field])) { statuses[item]={status:'pending'};changed=true; }
         }
+        if(changed) directUpdates.profileItemStatuses=JSON.stringify(statuses);
         const setStatements: string[] = [];
         const params: Record<string, any> = { userId };
 
@@ -525,13 +533,14 @@ export class TutorService {
           params[key] = value;
         }
 
-        await session.run(
+        await tx.run(
           `
           MATCH (u:User { id: $userId })
           SET ${setStatements.join(', ')}
           `,
           params
         );
+        });
       }
       
       // If profile is approved, save reviewable changes as pending
@@ -642,8 +651,14 @@ export class TutorService {
     const driver = getDriver();
     const session = driver.session();
     try {
-      // Update profile status and get tutor info
-      const result = await session.run(
+      // Serialize credential consent and profile submission on the same applicant.
+      const result = await session.executeWrite(async tx => {
+          const row=(await tx.run(`MATCH(u:User {id:$userId}) SET u.applicationRevision=coalesce(u.applicationRevision,0)+1
+            WITH u OPTIONAL MATCH(i:TutorIdentity {id:u.identitySubmissionId}) RETURN u,i`,{userId})).records[0];
+          if(!row)throw Error('Tutor not found');
+          if(identityIssuanceMode()==='production') assertProfileCredentialConsent(row.get('u').properties,row.get('i')?.properties);
+          if(!shouldSubmitProfile(row.get('u').properties.profileStatus)) return null;
+        return tx.run(
         `
         MATCH (u:User { id: $userId })
         SET u.profileStatus = 'pending_review',
@@ -651,8 +666,10 @@ export class TutorService {
         RETURN u.firstName as firstName, u.lastName as lastName, u.email as email
         `,
         { userId }
-      );
+        );
+      });
       
+      if (!result) return;
       const record = result.records[0];
       const tutorName = record ? `${record.get('firstName') || ''} ${record.get('lastName') || ''}`.trim() : 'A tutor';
       

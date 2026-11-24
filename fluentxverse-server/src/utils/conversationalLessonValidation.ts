@@ -8,22 +8,42 @@ export function conversationalLessonErrors(lesson: any): string[] {
     if (!Array.isArray(items) || !items.length || items.some(item => !text(item?.[field]))) errors.push(`${label} must contain complete items.`);
   };
   requireText(lesson.goalTextEn, 'English goal');
-  requireText(lesson.goalTextJp, 'Translated goal');
+  const englishOnly = lesson.level >= 6;
+  if (!englishOnly) requireText(lesson.goalTextJp, 'Translated goal');
+  if (englishOnly) {
+    const content = [lesson.goalTextJp, lesson.introductionData, lesson.learnData, lesson.stepBData, lesson.applyData, lesson.exerciseData, lesson.missionData, lesson.missionData2, lesson.missionData3, lesson.feedbackData];
+    if (/[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}]/u.test(JSON.stringify(content))) errors.push(`Level ${lesson.level} content must be English-only.`);
+    if (text(lesson.goalTextJp)) errors.push(`Level ${lesson.level} must not include a translated goal.`);
+  }
   requireItems(lesson.introductionData?.introTexts, 'Introduction', 'text');
   if (!lesson.learnData?.steps?.length) errors.push('Learn needs at least one step.');
   for (const step of lesson.learnData?.steps || []) {
+    if (lesson.level >= 6 && step.pronunciationPart) errors.push('Level 6 onward must not duplicate Step B pronunciation in Learn Part III.');
+    if (englishOnly && (step.stepType !== 'expressions' || step.expressionItems?.length !== 4 || step.vocabularyItems?.length)) errors.push(`Level ${lesson.level} Step A needs exactly four expressions instead of vocabulary.`);
     if (step.stepType === 'vocabulary') requireItems(step.vocabularyItems, 'Vocabulary', 'englishText');
-    else if (step.stepType === 'expressions') requireItems(step.expressionItems, 'Expressions', 'definitionLine');
+    else if (step.stepType === 'expressions') {
+      requireItems(step.expressionItems, 'Expressions', 'definitionLine');
+      if (englishOnly) requireItems(step.expressionItems, 'Expression examples', 'exampleSentence');
+    }
     else errors.push('Select a valid Learn variation.');
   }
   const focus = lesson.stepBData;
   if (focus?.stepType === 'grammar-tip') requireItems(focus.grammarTip?.explanations, 'Grammar explanations', 'ruleText');
-  else if (focus?.stepType === 'pronunciation') requireItems(focus.pronunciation?.phrases, 'Pronunciation phrases', 'phrase');
+  else if (focus?.stepType === 'pronunciation') {
+    requireItems(focus.pronunciation?.phrases, 'Pronunciation phrases', 'phrase');
+    if (lesson.level >= 6) {
+      requireText(focus.pronunciation?.tip, 'Pronunciation tip');
+      requireItems(focus.pronunciation?.phrases, 'Pronunciation guides', 'pronunciationGuide');
+      requireItems(focus.pronunciation?.phrases, 'Pronunciation examples', 'exampleSentence');
+      if (focus.pronunciation?.phrases?.some((item: any) => !/<strong>[^<]+<\/strong>/.test(item.exampleSentence || ''))) errors.push('Pronunciation examples must bold the stressed words or syllables.');
+    }
+  }
   else if (focus?.stepType === 'speak-your-mind') {
     requireText(focus.speakYourMind?.speaker1?.speechBubble, 'First speaker');
     requireText(focus.speakYourMind?.speaker2?.speechBubble, 'Second speaker');
     requireText(focus.speakYourMind?.question, 'Speak Your Mind question');
   } else errors.push('Select and complete a Step B variation.');
+  if (lesson.level >= 6 && lesson.skill !== 'review' && focus?.stepType !== 'pronunciation') errors.push('Level 6 onward uses Step B Pronunciation for natural connected speech.');
   const apply = lesson.applyData;
   if (['speaking', 'reading', 'listening'].includes(lesson.skill) && apply?.activityType !== lesson.skill) errors.push('Apply activity must match the lesson skill.');
   if (apply?.activityType === 'speaking') requireItems(apply.dialogueLines, 'Apply dialogue', 'text');

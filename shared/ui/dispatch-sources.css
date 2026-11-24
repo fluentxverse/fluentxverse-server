@@ -1,0 +1,41 @@
+.dispatch-sources {
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.dispatch-sources-label {
+  display: block;
+  font-weight: 700;
+}
+
+.dispatch-sources p {
+  margin: 0.375rem 0 0;
+  color: inherit;
+}
+
+.dispatch-sources ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem 1rem;
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.dispatch-sources a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.dispatch-sources a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.dispatch-sources a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}

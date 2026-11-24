@@ -15,7 +15,7 @@ const lessons = buildChapter(apiBase);
 for (const lesson of lessons) {
   const errors = conversationalLessonErrors(lesson);
   if (/[\uac00-\ud7af\u1100-\u11ff\u3130-\u318f]/u.test(JSON.stringify(lesson))) errors.push('Unexpected Korean text in Japanese edition.');
-  if (!lesson.introductionData.introTexts.some(t => t.language === 'ja')) errors.push('Missing Japanese introduction.');
+  if (!lesson.introductionData.introTexts.some((t: { language: string }) => t.language === 'ja')) errors.push('Missing Japanese introduction.');
   if (errors.length) throw new Error(`Lesson ${lesson.lessonNumber}: ${errors.join(' ')}`);
 }
 if (lessons.length !== 10 || new Set(lessons.map(l => l.lessonNumber)).size !== 10) throw new Error('Chapter must have ten distinct lesson slots.');

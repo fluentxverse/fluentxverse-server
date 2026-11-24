@@ -6,6 +6,7 @@ import Auth from './routes/auth.route';
 import { tutorEmailFailure } from './services/auth.services/tutorEmailPolicy';
 import { disputeFailure } from './services/studentDispute.policy';
 import { disputeChainRoute } from './routes/disputeChain.route';
+import { lessonRegistryRoute } from './routes/lessonRegistry.route';
 import Tutor from './routes/tutor.route';
 import Schedule from './routes/schedule.route';
 import LessonWorkflow from './routes/lessonWorkflow.route';
@@ -13,6 +14,9 @@ import { startLessonOutcomeQueue } from './services/lessonOutcome/job';
 import LessonPrivacy, { lessonPrivacyFailure } from './routes/lessonPrivacy.route';
 import { startLessonEvidenceRetention } from './services/lessonPrivacy/retention';
 import { adminOperationsRoute } from './routes/adminOperations.route';
+import { tutorRewardsRoute } from './routes/tutorRewards.route';
+import { tutorRewardClaimsRoute } from './routes/tutorRewardClaims.route';
+import { startTutorRewardsMonitor } from './services/tutorRewards/service';
 import { tutorEarningsRoute } from './routes/tutorEarnings.route';
 import { testingChecklistRoute } from './routes/testingChecklist.route';
 import { mailRoute } from './routes/mail.route';
@@ -365,6 +369,8 @@ const app = new Elysia({
   .use(LessonWorkflow)
   .use(LessonPrivacy)
   .use(adminOperationsRoute)
+  .use(tutorRewardsRoute)
+  .use(tutorRewardClaimsRoute)
   .use(tutorEarningsRoute)
   .use(testingChecklistRoute)
   .use(mailRoute)
@@ -382,6 +388,7 @@ const app = new Elysia({
   .use(Notification)
   .use(Inbox)
   .use(disputeChainRoute)
+  .use(lessonRegistryRoute)
   .use(Ticket)
   .use(Lesson)
   .use(Proof)
@@ -472,6 +479,7 @@ httpServer.listen(8767, '0.0.0.0', async () => {
   startCancellationRefundJob();
   startSpeakingWorker();
   startTutorIdentityWorker();
+  startTutorRewardsMonitor();
 
   // Start daily notification retention cleanup (delete read > N days)
   const notificationService = new NotificationService();

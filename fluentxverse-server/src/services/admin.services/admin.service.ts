@@ -10,6 +10,8 @@ import { adminTutorVisibility } from '../../utils/adminTutorVisibility';
 import { invalidateUserTokens } from '../../db/redis';
 import neo4j from 'neo4j-driver';
 import { adminActivityTimestamp, newestActivityFirst } from '../../utils/adminActivityTimestamp';
+import { activityLimit, additionalActivities, mergeActivities } from './activityFeed';
+import { profileReviewProgress, PROFILE_REVIEW_ITEMS } from '../../../../shared/profileReview';
 import { hash, compare } from 'bcrypt-ts';
 import type { 
   DashboardStats, 
@@ -455,13 +457,16 @@ export class AdminService {
     reason?: string,
     reviewerId?: string
   ): Promise<{ profileItemStatuses: any; allApproved: boolean }> {
+    if (!PROFILE_REVIEW_ITEMS.includes(itemKey)) throw Error('Invalid profile review item');
     const driver = getDriver();
     const session = driver.session();
 
     try {
-      // First get current item statuses
-      const getResult = await session.run(`
+      const {currentStatuses,allApproved,hasRejected} = await session.executeWrite(async tx => {
+      // Serialize reviews and submissions on the same applicant before reading.
+      const getResult = await tx.run(`
         MATCH (u:User { id: $tutorId })
+        SET u.applicationRevision=coalesce(u.applicationRevision,0)+1
         RETURN u.profileItemStatuses as itemStatuses, u.nickname as nickname
       `, { tutorId });
 
@@ -488,14 +493,10 @@ export class AdminService {
       };
 
       // Check if all items are approved
-      const allApproved = Object.values(currentStatuses).every(
-        (item: any) => item.status === 'approved'
-      );
+      const allApproved = profileReviewProgress(currentStatuses).allApproved;
 
       // Check if any item is rejected
-      const hasRejected = Object.values(currentStatuses).some(
-        (item: any) => item.status === 'rejected'
-      );
+      const hasRejected = PROFILE_REVIEW_ITEMS.some(key => currentStatuses[key]?.status === 'rejected');
 
       // Determine overall profile status
       let overallStatus = 'pending_review';
@@ -506,7 +507,7 @@ export class AdminService {
       }
 
       // Update the database
-      await session.run(`
+      await tx.run(`
         MATCH (u:User { id: $tutorId })
         SET u.profileItemStatuses = $itemStatuses,
             u.profileStatus = $overallStatus,
@@ -524,6 +525,8 @@ export class AdminService {
         overallStatus,
         decisionId: randomUUID(),
         reviewerId: reviewerId || null
+      });
+      return {currentStatuses,allApproved,hasRejected};
       });
 
       // If overall status changed to approved or rejected, notify the tutor
@@ -644,9 +647,9 @@ export class AdminService {
         'profilePicture': 'Profile Photo',
         'videoIntro': 'Introduction Video',
         'videoIntroUrl': 'Introduction Video',
-        'education': 'Education',
-        'schoolAttended': 'Education',
-        'major': 'Education',
+        'education': 'Qualifications',
+        'schoolAttended': 'Qualifications',
+        'major': 'Qualifications',
         'interests': 'Interests'
       };
       
@@ -989,7 +992,8 @@ export class AdminService {
   /**
    * Get recent activity feed
    */
-  async getRecentActivity(limit: number = 10): Promise<RecentActivity[]> {
+  async getRecentActivity(limit: number = 25, adminId = ''): Promise<RecentActivity[]> {
+    limit = activityLimit(limit);
     const driver = getDriver();
     const session = driver.session();
 
@@ -1026,7 +1030,7 @@ export class AdminService {
         
         activities.push({
           id: record.get('id'),
-          type: 'tutor_registered',
+          type: 'tutor_registered', href: '/tutors',
           message: `New tutor registered: ${firstName} ${lastName}`.trim(),
           timestamp,
           userId: record.get('id')
@@ -1043,7 +1047,7 @@ export class AdminService {
         
         activities.push({
           id: record.get('id'),
-          type: 'student_joined',
+          type: 'student_joined', href: '/students',
           message: `New student: ${firstName} ${lastName}`.trim(),
           timestamp,
           userId: record.get('id')
@@ -1053,7 +1057,7 @@ export class AdminService {
       // Get profile submissions for review
       const profileResult = await session.run(`
         MATCH (u:User)
-        WHERE u.profileStatus = 'pending_review' AND u.profileSubmittedAt IS NOT NULL
+        WHERE u.profileSubmittedAt IS NOT NULL
         RETURN u.id as id, u.firstName as firstName, u.lastName as lastName, u.profileSubmittedAt as timestamp, 'profile_submitted' as type
         ORDER BY u.profileSubmittedAt DESC
         LIMIT $limit
@@ -1069,7 +1073,7 @@ export class AdminService {
         
         activities.push({
           id: `profile_${record.get('id')}`,
-          type: 'profile_submitted',
+          type: 'profile_submitted', href: '/applications',
           message: `Profile submitted for review: ${firstName} ${lastName}`.trim(),
           timestamp,
           userId: record.get('id')
@@ -1079,11 +1083,11 @@ export class AdminService {
       // Include admin-targeted persisted notifications (e.g., pending profile changes, minting)
       const adminNotifResult = await session.run(`
         MATCH (n:Notification)
-        WHERE n.userType = 'admin' AND n.type IN ['profile_change_submitted', 'minting_started', 'minting_success', 'minting_failed']
+        WHERE n.userType = 'admin' AND n.userId IN ['admin', 'all', $adminId]
         RETURN n
         ORDER BY n.timestamp DESC
         LIMIT $limit
-      `, { limit: neo4j.int(limit) });
+      `, { limit: neo4j.int(limit), adminId });
 
       adminNotifResult.records.forEach(record => {
         const n = record.get('n').properties;
@@ -1099,13 +1103,14 @@ export class AdminService {
           type: n.type,
           message: n.message,
           timestamp: adminActivityTimestamp(n.timestamp),
-          userId: data.tutorId || data.userId || n.userId
+          userId: data.tutorId || data.userId || n.userId,
+          href: data.bookingId ? `/lesson-operations/${encodeURIComponent(data.bookingId)}` : String(n.type).includes('profile') ? '/applications' : String(n.type).includes('mint') ? '/tutors' : '/inbox'
         });
       });
 
       // Sort by timestamp and limit
-      activities.sort(newestActivityFirst);
-      return activities.slice(0, limit);
+      activities.push(...await additionalActivities(session, limit));
+      return mergeActivities(activities, limit);
     } finally {
       await session.close();
     }

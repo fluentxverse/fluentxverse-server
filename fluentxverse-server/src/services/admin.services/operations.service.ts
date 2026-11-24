@@ -1,4 +1,5 @@
 import type { ManagedTransaction } from 'neo4j-driver';
+import { captureBooking } from '../lessonRegistry/outbox';
 import { getDriver } from '../../db/memgraph';
 import { query } from '../../db/postgres';
 import { invalidateCache } from '../../db/redis';
@@ -18,6 +19,7 @@ import { getIO } from '../../socket/socket.server';
 import { revokeLessonRoom } from '../../socket/revokeLessonRoom';
 import { mediaObservations } from '../classroomMediaObservation.service';
 import { emitSlotBooked, emitSlotCancelled } from '../../socket/handlers/schedule.handler';
+import { adminIdentityCredentials } from '../tutorIdentity/adminCredential';
 
 async function audit(tx: ManagedTransaction, actorId: string, action: string, subjectId: string, reason: string, before: any, after: any) {
   await tx.run(`CREATE (:AdminOperationsAudit {id: $id, actorId: $actorId, action: $action, subjectId: $subjectId,
@@ -144,6 +146,7 @@ export class AdminOperationsService {
       const notes = role === 'student' ? (await db.run('MATCH (b:Booking {studentId: $id}) MATCH (n:ClassroomMaterialNote {sessionId: b.bookingId}) WHERE n.isUsed = true RETURN n ORDER BY n.updatedAt DESC LIMIT 200', { id })).records.map(r => plainNode(r.get('n').properties)) : [];
       const transactions = permissions.includes('finance') ? (await db.run('MATCH (t:TicketTransaction {studentId: $id}) RETURN t ORDER BY t.createdAt DESC LIMIT 200', { id })).records.map(r => plainNode(r.get('t').properties)) : [];
       return { person: person(row.get('p')), role, lessons, penalties, progress: notes, transactions,
+        identityCredentials: role === 'tutor' ? await adminIdentityCredentials(id, row.get('p').properties.identitySubmissionId || null) : undefined,
         reports: (await lessonIssueReviewService.list()).filter((r: any) => lessons.some(b => b.bookingId === r.bookingId)),
         performance: role === 'tutor' ? await this.metrics(id, 'all') : null };
     } finally { await db.close(); }
@@ -267,6 +270,7 @@ export class AdminOperationsService {
           if (!cancelled.records.length) throw new Error('The lesson has started and cannot be cancelled.');
           after = { status: 'cancelled' };
         }
+        await captureBooking(tx, bookingId, action === 'reschedule' ? 'booking_reschedule' : 'booking_cancel', { actorId, reason });
         await audit(tx, actorId, action, bookingId, reason, b, after);
         for (const [id, role] of [[b.studentId, 'student'], [b.tutorId, 'tutor']]) await lessonNotice(tx, `notes:${bookingId}:${action}:${crypto.randomUUID()}`, id, role, bookingId, action === 'cancel' ? 'Lesson cancelled by support' : 'Lesson rescheduled', reason);
       });

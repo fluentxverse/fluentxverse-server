@@ -5,7 +5,7 @@ export const appArtwork = {
     community: 'community-v1.webp',
     growth: 'growth-v1.webp',
     pay: 'pay-v1.webp',
-    dispatch: 'dispatch-v1.png',
+    dispatch: 'dispatch-v2.png',
     notifications: 'notifications-v1.webp',
     inbox: 'inbox-v1.webp',
     profile: 'profile-v1.webp',

@@ -1,0 +1,275 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 5,
+  "number": 4,
+  "sourceDigest": "0d23c5eed7c7c58baf5626e532b3ef9759e5fd420654a422b801cc1c604551b5",
+  "episode": {
+    "title": "More Than Friends?",
+    "skill": "speaking",
+    "goal": [
+      "I can explain a relationship and make a clear request.",
+      "関係を説明し、希望を明確に伝えられる。"
+    ],
+    "intro": [
+      "Emma and Ren have dinner after finishing their project. Ren says he likes time with her outside work. Emma says she is with Leo and wants contact with Ren to stay about work. On the train home, she thinks about their talk.",
+      "プロジェクトを終えたエマとレンは夕食をとります。レンは仕事以外でも一緒に過ごすのが好きだと言います。エマはレオと付き合っていて、レンとは仕事の関係でいたいと伝えます。帰りの電車で、その会話を考えます。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "I enjoyed dinner.",
+        "enjoyed",
+        "夕食は楽しかったです。"
+      ],
+      [
+        "I need to be clear.",
+        "clear",
+        "はっきり伝える必要があります。"
+      ],
+      [
+        "I am with Leo.",
+        "with",
+        "レオと付き合っています。"
+      ],
+      [
+        "Let’s keep this about work.",
+        "work",
+        "仕事の関係にしましょう。"
+      ],
+      [
+        "I understand.",
+        "understand",
+        "分かりました。"
+      ],
+      [
+        "I need to go home.",
+        "go home",
+        "家に帰る必要があります。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use I feel + feeling to say how you feel.",
+          "I feel ＋気持ちを表す語で、自分の気持ちを伝えます。"
+        ],
+        "examples": [
+          [
+            "I feel worried.",
+            "心配です。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use I do not know to say a detail is unknown.",
+          "I do not know で、分からないことを伝えます。"
+        ],
+        "examples": [
+          [
+            "I do not know her name.",
+            "彼女の名前は分かりません。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "After dinner, Ren tells Emma how he feels. Read the dialogue.",
+        "夕食の後、レンがエマに気持ちを伝えます。会話を読みましょう。"
+      ],
+      "roles": [
+        "Ren",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Ren",
+          "I like seeing you outside work."
+        ],
+        [
+          "Emma",
+          "I enjoyed dinner, but I need to be clear."
+        ],
+        [
+          "Ren",
+          "About Leo?"
+        ],
+        [
+          "Emma",
+          "Yes. I am with him."
+        ],
+        [
+          "Ren",
+          "I wanted to tell you how I feel."
+        ],
+        [
+          "Emma",
+          "Thank you. But I want us to stay coworkers."
+        ],
+        [
+          "Ren",
+          "What do you want to do?"
+        ],
+        [
+          "Emma",
+          "Keep our contact about work."
+        ],
+        [
+          "Ren",
+          "Okay. I understand."
+        ],
+        [
+          "Emma",
+          "Thank you. I need to go back to Kyoto."
+        ]
+      ],
+      "questions": [
+        [
+          "What does Ren say?",
+          "He likes time with Emma outside work."
+        ],
+        [
+          "Who is Emma with?",
+          "Leo."
+        ],
+        [
+          "What does Emma ask for?",
+          "Contact about work."
+        ],
+        [
+          "Does Emma accept a new romance?",
+          "No."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I (feel / feels) worried.",
+        "feel"
+      ],
+      [
+        "She (is / are) upset.",
+        "is"
+      ],
+      [
+        "I do not (know / knows) her name.",
+        "know"
+      ],
+      [
+        "Do you (know / knew) him?",
+        "know"
+      ],
+      [
+        "I am (sorry / sorrow).",
+        "sorry"
+      ],
+      [
+        "Can we (talk / talks)?",
+        "talk"
+      ]
+    ],
+    "choices": [
+      [
+        "What does Ren say?",
+        "He likes time with Emma outside work.",
+        "He is leaving Japan.",
+        "A"
+      ],
+      [
+        "Who is Emma with?",
+        "Daichi.",
+        "Leo.",
+        "B"
+      ],
+      [
+        "What does Emma ask for?",
+        "Contact about work.",
+        "More private dinners.",
+        "A"
+      ],
+      [
+        "Does Emma accept a new romance?",
+        "Yes.",
+        "No.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Ren after the project dinner. Ren has said he likes you. You are with Leo and want your relationship with Ren to stay professional.",
+        "あなたはプロジェクトの夕食後のエマ役、講師はレン役です。レンは好意を伝えています。あなたはレオと付き合っており、レンとは仕事上の関係を保ちたいと考えています。"
+      ],
+      "task": [
+        "Listen to Ren. Explain your relationship with Leo. Say clearly what you want and close politely.",
+        "レンの話を聞きましょう。レオとの関係を説明し、自分の希望を明確に伝えて丁寧に話を終えましょう。"
+      ],
+      "roles": [
+        "Ren",
+        "Emma"
+      ],
+      "lines": [
+        "I like time with you outside work. How do you feel?",
+        "You are with Leo. What do you want our contact to be?",
+        "So we should keep it about work?",
+        "What about Monday’s project meeting?",
+        "Thank you for being clear."
+      ],
+      "evidence": "Acknowledge feeling without implying agreement, state relationship with Leo, request professional contact, confirm normal project meeting and close. Respond to the boundary respectfully as Ren; do not pressure or overturn the student's stated meaning.",
+      "useful": [
+        "Thank you for telling me.",
+        "I am with Leo.",
+        "I want ...",
+        "Let’s keep ...",
+        "I need to go now."
+      ]
+    },
+    "topics": [
+      [
+        "KEEPING IN TOUCH",
+        [
+          "Do you call or send messages?",
+          "When do you call a friend?",
+          "What do you say when you are busy?"
+        ]
+      ],
+      [
+        "CHANGING PLANS",
+        [
+          "What do you say when you are late?",
+          "Who needs to know about a change?",
+          "How do you choose a new time?"
+        ]
+      ],
+      [
+        "LISTENING",
+        [
+          "What helps you listen?",
+          "How do you ask someone to repeat?",
+          "How do you show you understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Let’s be clear” asks people to understand something exactly. It is about meaning, not cleaning or the weather.",
+      "Let’s be clear は、物事をはっきり確認しようという意味です。掃除や天気についての表現ではありません。"
+    ],
+    "triviaQuestion": [
+      "Is “Let’s be clear” about understanding?",
+      "Yes."
+    ],
+    "closing": "Emma returns to Kyoto unsettled. After the checkpoint, a missed dinner with Leo reveals how far apart their routines have become."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

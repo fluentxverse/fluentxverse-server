@@ -32,6 +32,8 @@ const TutorIdentity = new Elysia({ prefix: '/tutor-identity' })
     },
   }))
   .get('/status', async ({ tutor }) => ({ success: true, data: await tutorIdentity.status(await tutor()) }))
+  .post('/wallet-consent', async ({tutor,body}) => ({success:true,data:await tutorIdentity.consentToWallet(await tutor(),body.version)}),
+    {body:t.Object({version:t.String({maxLength:100}),consent:t.Literal(true)})})
   .post('/submit', async ({ tutor, request }) => {
     const tutorId = await tutor();
     if (!identityEnabled()) throw new ApplicationError(503, 'Identity submission is not enabled.');
@@ -46,7 +48,7 @@ const TutorIdentity = new Elysia({ prefix: '/tutor-identity' })
     const form = await new Response(Buffer.concat(chunks), { headers: { 'Content-Type': request.headers.get('content-type') || '' } }).formData();
     const file = form.get('image');
     if (!(file instanceof File)) throw new ApplicationError(400, 'Upload an ID image.');
-    return { success: true, data: await tutorIdentity.submit(tutorId, String(form.get('idType')), String(form.get('birthDate')), form.get('consent') === 'true', file) };
+    return { success: true, data: await tutorIdentity.submit(tutorId, String(form.get('idType')), String(form.get('birthDate')), form.get('consent') === 'true', file, form.get('walletPublicationConsent') === 'true',String(form.get('walletConsentVersion')||'tutor-identity-wallet.v1')) };
   }, { parse: 'none' })
   .get('/admin', async ({ admin }) => { await admin(); return { success: true, data: await tutorIdentity.list() }; })
   .post('/admin/presentation/:interviewId', async ({ admin, params }) => {

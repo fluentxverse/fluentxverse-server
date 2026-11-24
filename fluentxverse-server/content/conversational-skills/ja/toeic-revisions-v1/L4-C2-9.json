@@ -1,0 +1,278 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 2,
+  "number": 9,
+  "sourceDigest": "50f074c7f0a6c99fa3aa107a19b8a70c7c052a1bda052139ef411ef7f8951b6d",
+  "episode": {
+    "title": "A Brighter Tomorrow",
+    "skill": "speaking",
+    "intro": [
+      "The Saturday market is a success. Nao sells several cups, and Leo’s pastries sell out before noon. Claire hopes to hold another market. Emma sends congratulations from Osaka with photos of her completed exhibition designs. That evening, Leo thanks Nao and invites her to dinner next Saturday, clearly calling it a date. She smiles and accepts.",
+      "土曜日のマーケットは成功します。ナオのカップがいくつも売れ、レオのお菓子は正午前に完売します。クレアはまた開きたいと考えています。エマは大阪から、お祝いの連絡と完成した展示会デザインの写真を送ります。その夜、レオはナオに感謝し、次の土曜日の夕食に、デートとしてはっきり誘います。ナオは笑顔で応じます。"
+    ],
+    "goal": [
+      "I can celebrate progress and discuss a possible next step.",
+      "進歩を祝い、次の行動の可能性を話し合える。"
+    ],
+    "warmup": "How can you celebrate one result while thanking the people who helped?",
+    "words": [
+      [
+        "Leo’s pastries sold out before noon.",
+        "sold out",
+        "（商品が）売り切れた、完売した"
+      ],
+      [
+        "Congratulations on the market!",
+        "Congratulations on",
+        "〜おめでとう（成果を祝う言い方）"
+      ],
+      [
+        "Thank you for all your help.",
+        "all your help",
+        "いろいろ手伝ってくれたこと"
+      ],
+      [
+        "We should do this again sometime.",
+        "do this again",
+        "またこれをやろう（提案）"
+      ],
+      [
+        "Would you like to have dinner next Saturday?",
+        "have dinner",
+        "夕食に行く"
+      ],
+      [
+        "Let’s make a reservation for a quiet place.",
+        "make a reservation",
+        "予約する"
+      ]
+    ],
+    "discussion": [
+      "You are Nao. Your tutor is Leo. Share a market highlight, thank him, and respond to his dinner invitation.",
+      "あなたはナオ役、講師はレオ役です。マーケットでうれしかったことを話し、お礼を言って、夕食の誘いに答えましょう。"
+    ],
+    "followup": "How could you confirm whether an invitation is for a date or a group event?",
+    "tips": [
+      {
+        "rule": [
+          "Use “Congratulations on + noun/-ing” to celebrate. Use “Thank you for ...” to say what they did.",
+          "congratulations on＋名詞/動詞-ingで成果を祝います。Thank you for ... で相手がしてくれたことを伝えましょう。"
+        ],
+        "examples": [
+          [
+            "Congratulations on selling your cups!",
+            "カップが売れたんですね。おめでとうございます。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Make the invitation clear, then confirm time and the next action (like booking). “We should do this again” is only a suggestion.",
+          "誘いの内容をはっきり言い、時間と次の行動（予約など）を決めましょう。We should do this again は「提案」で、決定ではありません。"
+        ],
+        "examples": [
+          [
+            "Would you like dinner next Saturday? I mean a date, just us.",
+            "次の土曜日に夕食に行きませんか。二人で、デートとして。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "After the market, Leo and Nao sit outside the cafe. Read their conversation.",
+        "マーケットの後、レオとナオはカフェの外で座って話します。会話を読みましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Nao"
+      ],
+      "dialogue": [
+        [
+          "Leo",
+          "Congratulations on selling your cups. Which moment was your favourite?"
+        ],
+        [
+          "Nao",
+          "A visitor chose a cup as a gift for her mother."
+        ],
+        [
+          "Leo",
+          "That is lovely. My pastries sold out before noon."
+        ],
+        [
+          "Nao",
+          "Our second recipe test was worth it! Thanks for helping with my table."
+        ],
+        [
+          "Leo",
+          "Thank you for helping me too. I am glad I stayed in Kyoto."
+        ],
+        [
+          "Nao",
+          "Claire wants another market. We should do this again."
+        ],
+        [
+          "Leo",
+          "I agree. And would you like dinner next Saturday? A proper date?"
+        ],
+        [
+          "Nao",
+          "I'd love to. I was wondering when you would ask."
+        ],
+        [
+          "Leo",
+          "Then let's choose a place and time tomorrow."
+        ],
+        [
+          "Nao",
+          "It is a plan. But you are not allowed to replace the sugar again."
+        ]
+      ],
+      "questions": [
+        [
+          "What market result does Leo celebrate?",
+          "Nao sold cups, and Leo’s pastries sold out before noon."
+        ],
+        [
+          "Is a second market already booked?",
+          "No. Claire wants one, but it is still a suggestion."
+        ],
+        [
+          "What invitation does Nao accept?",
+          "Dinner next Saturday as a date; they will choose the place and time."
+        ],
+        [
+          "What will they do tomorrow?",
+          "They will choose a place and time for dinner."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Congratulations (on / to) selling your cups.",
+        "on"
+      ],
+      [
+        "The pastries (sold / sell) out before noon.",
+        "sold"
+      ],
+      [
+        "Thank you for (helping / helped) with my table.",
+        "helping"
+      ],
+      [
+        "We should (do / doing) this again.",
+        "do"
+      ],
+      [
+        "Would you like (to have / have) dinner next Saturday?",
+        "to have"
+      ],
+      [
+        "Let’s make a (reservation / reserve).",
+        "reservation"
+      ]
+    ],
+    "choices": [
+      [
+        "Which sentence celebrates a clear result?",
+        "Congratulations on selling your cups!",
+        "Someone did something somewhere.",
+        "A"
+      ],
+      [
+        "\"We should hold another market.\" What is confirmed?",
+        "A second event has a fixed date.",
+        "A suggestion has been made.",
+        "B"
+      ],
+      [
+        "How does Leo make his invitation clear?",
+        "He says it is a date, just the two of them.",
+        "He calls it a team meeting.",
+        "A"
+      ],
+      [
+        "After accepting dinner, what should they agree?",
+        "The time, place, and booking plan.",
+        "The weather for next month.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Nao after the successful market. Your tutor is Leo. You sold several cups, and his pastries sold out before noon. He invites you on a dinner date next Saturday. You are free at 6 p.m. and would prefer a quiet restaurant near the river.",
+        "あなたは成功したマーケットの後のナオ役、講師はレオ役です。あなたのカップがいくつも売れ、レオのお菓子は正午前に完売しました。レオは次の土曜日の夕食デートに誘います。あなたは午後6時に空いていて、川の近くの静かなレストランが希望です。"
+      ],
+      "task": [
+        "Share a specific achievement, thank Leo for his help, and ask about his favourite moment. Accept his date invitation, propose the time and kind of restaurant, and agree who will confirm the booking.",
+        "具体的な成果を話し、手伝いへのお礼を言い、レオにも楽しかったことを尋ねましょう。デートの誘いを受け、時間と希望する店を提案し、予約の確認を誰がするか決めましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Nao"
+      ],
+      "title": "",
+      "lines": [
+        "What was your favourite moment at the market?",
+        "What is one reason you feel happy about today?",
+        "What do you want to thank me for?",
+        "Would you like to have dinner next Saturday as a date?",
+        "What time is good for you?",
+        "What kind of restaurant do you prefer, and where?"
+      ],
+      "evidence": "Grade the student on these points: They mention cup sales or a specific highlight, and also react to pastries selling out. They thank Leo for a clear help. They ask Leo about his favourite moment. They accept the date invitation clearly. They propose 6 p.m. and a quiet restaurant near the river. They agree who will confirm the booking/details tomorrow. Do not treat a second market as booked; it is only a suggestion.",
+      "useful": [
+        "My favourite moment was ...",
+        "Congratulations on ...",
+        "Thank you for ...",
+        "How did you feel when ...?",
+        "I'd love to. Would six work?",
+        "Please send me the details tomorrow."
+      ]
+    },
+    "topics": [
+      [
+        "CELEBRATING RESULTS",
+        [
+          "What small success did you have recently?",
+          "Who helped you, and how?",
+          "How would you say thank you?"
+        ]
+      ],
+      [
+        "FUTURE ARRANGEMENTS",
+        [
+          "What details make a plan clear?",
+          "How do you confirm a reservation?",
+          "What do you say if you need to change the time?"
+        ]
+      ],
+      [
+        "A COMMUNITY EVENT",
+        [
+          "What would you buy at a local market?",
+          "What made the teamwork good today?",
+          "What should they check before the next market?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Sold out\" means no stock or tickets remain for sale. It does not necessarily mean a shop or event has closed.",
+      "sold out は商品やチケットが売り切れたという意味で、店やイベントが閉まったとは限りません。"
+    ],
+    "triviaQuestion": [
+      "If the pastries sell out at eleven, must the whole market close at eleven?",
+      "No. Selling out does not mean the whole market has closed."
+    ],
+    "closing": "The market succeeds, and Emma shares her design achievement from Osaka. Leo and Nao agree on a dinner date next Saturday and will confirm the restaurant. Claire hopes for another market, but no second event is booked yet."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

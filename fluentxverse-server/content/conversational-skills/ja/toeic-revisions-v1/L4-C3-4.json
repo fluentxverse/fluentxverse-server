@@ -1,0 +1,280 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 3,
+  "number": 4,
+  "sourceDigest": "5f2e16b05f310e5e744664c0648230ba6840045a814f95bf3d0d36d26eea7435",
+  "episode": {
+    "title": "The Most Awkward Coffee Ever",
+    "skill": "speaking",
+    "intro": [
+      "The four sit down for coffee. Emma asks about work, and Leo answers very short. Ren asks a follow-up about baking. Nao tells a story about a salty pastry test, and everyone laughs. Leo and Emma say they are glad the other is doing well. The past is not erased, but the talk becomes easier.",
+      "四人はコーヒーを飲みに座ります。エマが仕事のことを聞き、レオはとても短く答えます。レンがパン作りについて関連の質問をします。ナオが塩辛いお菓子の試作の話をして、みんな笑います。レオとエマは、お互いが元気に過ごしていてよかったと言います。過去が消えるわけではありませんが、会話は少し楽になります。"
+    ],
+    "goal": [
+      "I can make small talk, ask follow-up questions, and change the topic naturally.",
+      "世間話をし、関連する質問をし、自然に話題を変えられる。"
+    ],
+    "warmup": "How can a follow-up question help after a very short answer?",
+    "words": [
+      [
+        "How has work been?",
+        "How has work been",
+        "最近、〜はどうですか。"
+      ],
+      [
+        "What do you enjoy making?",
+        "enjoy making",
+        "何を作るのが好きですか。"
+      ],
+      [
+        "That reminds me of our recipe test.",
+        "reminds me of",
+        "それで私たちのレシピの試作を思い出します。"
+      ],
+      [
+        "Speaking of food, have you tried the pastries here?",
+        "Speaking of",
+        "食べ物の話といえば、ここのお菓子は食べましたか。"
+      ],
+      [
+        "I am glad you are doing well.",
+        "I am glad",
+        "元気に過ごしていてよかったです。"
+      ],
+      [
+        "We should get going soon.",
+        "get going",
+        "そろそろ出たほうがよさそうです。"
+      ]
+    ],
+    "discussion": [
+      "You are Leo. Your tutor is Ren. Answer a work question with one detail, and ask one related question back.",
+      "あなたはレオ役、講師はレン役です。仕事の質問に情報を一つ足して答え、関連する質問を一つ返しましょう。"
+    ],
+    "followup": "What phrase could help you move from work to a lighter topic?",
+    "tips": [
+      {
+        "rule": [
+          "Add one detail after a short answer, then ask a related question. “What do you enjoy + -ing?” invites more than yes/no.",
+          "短い答えに情報を一つ足して、関連する質問をしましょう。What do you enjoy + 動詞の-ing形 は、はい・いいえ以上の答えを引き出せます。"
+        ],
+        "examples": [
+          [
+            "Work is good. I am testing a new pastry. How is your project?",
+            "仕事は順調です。新しいお菓子を試作しています。そちらのプロジェクトはどうですか。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use “Speaking of ...” or “That reminds me ...” to connect a new topic. Use “We should get going soon” to end politely.",
+          "Speaking of ... や That reminds me ... で、つながりのある話題に移れます。We should get going soon で、丁寧に会話を終えられます。"
+        ],
+        "examples": [
+          [
+            "Speaking of food, have you tried the pastries here?",
+            "食べ物の話といえば、ここのお菓子は食べましたか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Ren helps the conversation move beyond a short answer. Practice the exchange with your tutor.",
+        "レンが短い答えから会話を広げます。講師と一緒に会話を練習しましょう。"
+      ],
+      "roles": [
+        "Ren",
+        "Leo"
+      ],
+      "dialogue": [
+        [
+          "Ren",
+          "Emma said you work at a bakery. How has work been?"
+        ],
+        [
+          "Leo",
+          "Good. Very good. Lots of bread."
+        ],
+        [
+          "Ren",
+          "What do you enjoy making most?"
+        ],
+        [
+          "Leo",
+          "Apple pastries. I tested a new recipe for the market."
+        ],
+        [
+          "Ren",
+          "Nao mentioned something about too much salt. What happened?"
+        ],
+        [
+          "Leo",
+          "I used salt instead of sugar. We had to start again."
+        ],
+        [
+          "Ren",
+          "That sounds memorable! Did the second batch work?"
+        ],
+        [
+          "Leo",
+          "Yes, thankfully. Speaking of creative work, what do you enjoy designing?"
+        ],
+        [
+          "Ren",
+          "Exhibition posters. I like finding a clear way to tell a story."
+        ],
+        [
+          "Leo",
+          "Then we both spend a lot of time improving our first attempts."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "How does Ren follow up on Leo's short answer?",
+          "He asks what Leo enjoys making most."
+        ],
+        [
+          "What helps everyone laugh?",
+          "The story of using salt instead of sugar."
+        ],
+        [
+          "How does Leo change the topic but keep a connection?",
+          "He links creative work to design work and asks a question."
+        ],
+        [
+          "What does Leo say he tested for the market?",
+          "A new recipe."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "How (has / have) work been?",
+        "has"
+      ],
+      [
+        "I enjoy (making / make) pastries.",
+        "making"
+      ],
+      [
+        "That reminds me (of / at) our recipe test.",
+        "of"
+      ],
+      [
+        "Speaking (of / from) food, have you tried this?",
+        "of"
+      ],
+      [
+        "I am glad you are (doing / do) well.",
+        "doing"
+      ],
+      [
+        "We should (get / getting) going soon.",
+        "get"
+      ]
+    ],
+    "choices": [
+      [
+        "Someone says, “Work is good.” Which follow-up fits?",
+        "What have you enjoyed working on?",
+        "Why is your chair made of wood?",
+        "A"
+      ],
+      [
+        "Which phrase links a new topic to food?",
+        "Meanwhile, the report is due.",
+        "Speaking of food, ...",
+        "B"
+      ],
+      [
+        "What makes small talk an exchange?",
+        "Answer with a detail and ask something back",
+        "Give a long speech without listening",
+        "A"
+      ],
+      [
+        "You agreed to leave by 4:25. What could you say near that time?",
+        "We have to stay for two more hours.",
+        "We should get going soon. It was nice talking.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Leo at the group's short coffee stop. Your tutor is Emma. You are staying in Kyoto and still working at the bakery. You can talk about the successful market or recipe testing. The group needs to leave by 4:25.",
+        "あなたは四人で短くコーヒーを飲んでいるレオ役、講師はエマ役です。京都に残り、パン屋で働き続けています。成功したマーケットや試作の話ができます。みんなで4時25分までに出る予定です。"
+      ],
+      "task": [
+        "Answer Emma's work question with a detail, ask about her design work, and move to a shared lighter topic. Respond politely when she says she is glad you are well, then close the coffee stop on time.",
+        "仕事の質問に情報を足して答え、エマのデザインの仕事も尋ねましょう。つながりのある軽い話題に移り、元気でよかったと言われたら丁寧に返事をして、時間どおりに会話を終えましょう。"
+      ],
+      "roles": [
+        "Emma",
+        "Leo"
+      ],
+      "text": "",
+      "title": "",
+      "lines": [
+        "Leo, how has work been? Have you made anything new?",
+        "What do you enjoy making most at the bakery?",
+        "Speaking of creative work, what would you like to know about my exhibition designs?",
+        "Nao told me about the salt. What happened in that test?",
+        "I am glad you are doing well. How do you feel hearing that?",
+        "It is nearly 4:25. How can we end this politely?"
+      ],
+      "evidence": "Tutor evidence note: The student (as Leo) gives one clear bakery detail (market or recipe test), asks one relevant question about Emma’s design work, changes to a lighter shared topic with “Speaking of … / That reminds me …”, responds politely to “I am glad …”, and ends the chat before 4:25. Goodwill stays friendly and does not restart their relationship or push private history.",
+      "useful": [
+        "Work has been ...",
+        "Recently, I have ...",
+        "What do you enjoy ...?",
+        "Speaking of ...",
+        "I am glad to hear that.",
+        "We should get going soon."
+      ]
+    },
+    "topics": [
+      [
+        "FOLLOW-UP QUESTIONS",
+        [
+          "What could you ask after a short work update?",
+          "How can you show you listened?",
+          "When is it helpful to ask a different question?"
+        ]
+      ],
+      [
+        "CHANGING TOPICS",
+        [
+          "What topics are easy to connect?",
+          "How can you introduce a funny shared memory?",
+          "How do you notice a topic is not working?"
+        ]
+      ],
+      [
+        "ENDING A CHAT",
+        [
+          "How can you mention the time politely?",
+          "What could you thank the group for?",
+          "How can you leave without making a new promise?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Small talk\" means light social conversation, not conversation spoken quietly. A follow-up question can make it meaningful without getting deeply personal. \"How has work been?\" is a common opening.",
+      "small talk は声の小さい会話ではなく、軽い世間話です。関連する質問をすると、深く個人的な話にしなくても会話を広げられます。How has work been? はよくある切り出し方です。"
+    ],
+    "triviaQuestion": [
+      "Does \"small talk\" describe the volume of the speaker's voice?",
+      "No. It describes light social conversation."
+    ],
+    "closing": "The group leaves on time. Leo and Emma exchange goodwill without restarting their relationship. Afterward, Nao and Leo walk by the river and speak honestly about the unexpected meeting."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

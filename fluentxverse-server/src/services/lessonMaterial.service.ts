@@ -13,7 +13,7 @@ import { WORKPLACE_COMMUNICATION_COURSE, parseWorkplaceData, type WorkplaceCommu
 
 export type Skill = 'speaking' | 'listening' | 'reading' | 'writing' | 'review';
 
-export type LevelBadge = 'STARTER' | 'BEGINNER' | 'ELEMENTARY' | 'INTERMEDIATE' | 'ADVANCED' | 'HIGH BEGINNER' | 'HIGH INTERMEDIATE';
+export type LevelBadge = 'STARTER' | 'BEGINNER' | 'ELEMENTARY' | 'INTERMEDIATE' | 'ADVANCED' | 'HIGH BEGINNER' | 'HIGH INTERMEDIATE' | 'TOEIC 785–940';
 
 // Introduction Section Types
 export interface IntroText {
@@ -368,7 +368,8 @@ export interface UpdateHeaderInput {
 /**
  * Map level number to badge
  */
-export function getLevelBadge(level: number): LevelBadge {
+export function getLevelBadge(level: number, course?: string): LevelBadge {
+  if (course === 'conversational-skills' && level === 8) return 'TOEIC 785–940';
   if (level <= 2) return 'STARTER';
   if (level <= 4) return 'BEGINNER';
   if (level <= 6) return 'ELEMENTARY';
@@ -592,7 +593,7 @@ function transformLesson(record: any): LessonMaterial {
     createdAt: props.createdAt,
     updatedAt: props.updatedAt,
     // Computed
-    levelBadge: getLevelBadge(neo4j.isInt(props.level) ? props.level.toNumber() : props.level),
+    levelBadge: getLevelBadge(neo4j.isInt(props.level) ? props.level.toNumber() : props.level, props.course),
     chapterLabel: getChapterLabel(
       neo4j.isInt(props.chapter) ? props.chapter.toNumber() : props.chapter,
       props.chapterName

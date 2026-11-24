@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 3,
+  "number": 3,
+  "sourceDigest": "91d8c761ecf187287568f3a33d059fadec3c134b673a75abfb0793460c1e1c70",
+  "episode": {
+    "title": "A Familiar Face in Gion",
+    "skill": "reading",
+    "intro": [
+      "Leo and Nao leave a cafe in Gion. They see Emma taking photos with Ren. Emma notices them too. Everyone pauses, then says hello. Ren introduces himself. Ren asks if Leo and Nao are on a date. Nao says yes. Emma looks surprised, and it gets quiet.",
+      "レオとナオは祇園のカフェを出ます。レンと一緒に写真を撮っているエマを見かけます。エマも二人に気づきます。少し間があって、あいさつします。レンが自己紹介します。レンがデート中か聞き、ナオは「はい」と答えます。エマは驚いて、少し気まずくなります。"
+    ],
+    "goal": [
+      "I can read a surprise meeting and respond with a clear idea.",
+      "思いがけない出会いを読み、はっきり提案できる。"
+    ],
+    "warmup": "What could you say when you unexpectedly meet someone you know?",
+    "words": [
+      [
+        "Emma said, \"What a surprise!\"",
+        "What a surprise",
+        "驚きました。／なんて偶然。"
+      ],
+      [
+        "Leo said, \"I did not expect to see you here.\"",
+        "did not expect",
+        "〜だとは思いませんでした。"
+      ],
+      [
+        "Emma said, \"Let me introduce Ren.\"",
+        "Let me introduce",
+        "紹介します。"
+      ],
+      [
+        "Nao said, \"We have just left the cafe.\"",
+        "have just left",
+        "ちょうど出たところです。"
+      ],
+      [
+        "Ren asked, \"Are you two on a date?\"",
+        "on a date",
+        "デート中。"
+      ],
+      [
+        "Nao suggested, \"Shall we stop for a short coffee?\"",
+        "Shall we",
+        "〜しませんか（提案）。"
+      ]
+    ],
+    "discussion": [
+      "You are Nao. Your tutor is Emma. Greet her with surprise. Say you are with Leo. Suggest a short talk or coffee.",
+      "あなたはナオ役、講師はエマ役です。驚いた感じであいさつし、レオと一緒だと伝え、短く話す／コーヒーを提案しましょう。"
+    ],
+    "followup": "What would you check before inviting everyone to sit down?",
+    "tips": [
+      {
+        "rule": [
+          "Follow the text. Surprise does not mean anger.",
+          "本文に書かれたことを追いましょう。驚き＝怒り、ではありません。"
+        ],
+        "examples": [
+          [
+            "Emma looks surprised, but she does not object.",
+            "エマは驚きますが、反対はしていません。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use simple frames: introduce, then suggest. Wait for a reply.",
+          "紹介→提案の順に言いましょう。返事を聞いてから決めます。"
+        ],
+        "examples": [
+          [
+            "Let me introduce Ren. Shall we get coffee?",
+            "レンを紹介します。コーヒーにしませんか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read about the meeting in Gion. Notice who is introduced and what is decided.",
+        "祇園での出会いを読みましょう。誰を紹介したか、何が決まったかに注目します。"
+      ],
+      "dialogue": [],
+      "text": "<p>Nao stopped outside the cafe. Across the street, Emma was taking a photograph with Ren beside her. Emma turned and saw Leo and Nao.</p><p>\"Hi! What a surprise,\" Emma said. \"Let me introduce Ren. Ren, this is Leo, and you remember Nao.\"</p><p>\"Nice to meet you,\" Ren said. Leo returned the greeting. Then Ren asked, \"Are you two on a date?\"</p><p>\"Actually, yes,\" Nao replied. Emma looked surprised. There was a short silence, but she did not object.</p><p>Nao suggested a quick coffee. Before choosing a table, they needed to check whether everyone had time.</p>",
+      "questions": [
+        [
+          "Who does Emma introduce?",
+          "Ren."
+        ],
+        [
+          "What does Nao confirm?",
+          "She and Leo are on a date."
+        ],
+        [
+          "Does the passage say Emma objects?",
+          "No. She looks surprised, but she does not object."
+        ],
+        [
+          "Is coffee agreed at the end?",
+          "No. They still need to check everyone's time."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "What (a / an) surprise!",
+        "a"
+      ],
+      [
+        "I did not expect (to see / see) you here.",
+        "to see"
+      ],
+      [
+        "Let me (introduce / introduced) Ren.",
+        "introduce"
+      ],
+      [
+        "We have just (left / leave) the cafe.",
+        "left"
+      ],
+      [
+        "We are (on / at) a date.",
+        "on"
+      ],
+      [
+        "Shall we (stop / stopping) for coffee?",
+        "stop"
+      ]
+    ],
+    "choices": [
+      [
+        "Emma looks surprised. What can you say from the text?",
+        "She is definitely angry.",
+        "She did not expect the news.",
+        "B"
+      ],
+      [
+        "Which sentence introduces someone?",
+        "Ren, this is Leo.",
+        "Ren left the cafe yesterday.",
+        "A"
+      ],
+      [
+        "Nao suggests coffee. What should they do before choosing a table?",
+        "Assume everyone has an hour.",
+        "Check whether everyone has time.",
+        "B"
+      ],
+      [
+        "What does Nao say about herself and Leo?",
+        "They are on a date.",
+        "They are holding a work meeting.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Nao. Your tutor is Leo. It is 4:05 p.m. Read the replies and plan a short coffee stop.",
+        "あなたはナオ役、講師はレオ役です。時刻は午後4時5分です。返信を読み、短いコーヒー休憩を決めましょう。"
+      ],
+      "task": [
+        "Say who agreed, how long you can stay, and where to sit. Then confirm a simple plan with Leo.",
+        "誰が同意したか、どのくらいいられるか、どこに座るかを言いましょう。そのあとレオと簡単な予定を確認します。"
+      ],
+      "roles": [
+        "Leo",
+        "Nao"
+      ],
+      "text": "<p><strong>Emma:</strong> Ren and I can stop for twenty minutes. We need to leave by 4:25. A small table outside would be nice if one is free.</p><p><strong>Ren:</strong> That works for me. I am happy to get coffee with everyone.</p><p><strong>Leo:</strong> I am comfortable with a short stop. Let's keep it relaxed and talk about what we have been doing recently.</p><p><strong>Nao's note:</strong> All four have now agreed to a short coffee. Ask about an outside table; it has not been reserved. Leave by 4:25.</p>",
+      "title": "A Short Coffee Stop - Replies",
+      "lines": [
+        "Nao, have Emma and Ren agreed to coffee now?",
+        "How long can we stay, and when do we need to leave?",
+        "Do we already have an outside table, or do we need to ask?",
+        "What is a relaxed first topic we can talk about?",
+        "If no outside table is free, what should we check before we sit?",
+        "Please confirm our plan in one or two sentences."
+      ],
+      "evidence": "Tutor evidence note: The replies say all four agree. They can stay 20 minutes and must leave by 4:25. An outside table is preferred but not reserved. Leo wants a relaxed talk about recent activities. If the outside table is not free, they should check with everyone before choosing another table. Do not treat Emma’s surprise as anger or assume coffee was already agreed earlier.",
+      "useful": [
+        "The replies say ...",
+        "Everyone has agreed to ...",
+        "We need to leave by ...",
+        "The table is not reserved yet.",
+        "Shall we start by talking about ...?"
+      ]
+    },
+    "topics": [
+      [
+        "Unexpected Meetings",
+        [
+          "What is a polite way to show surprise?",
+          "How do you introduce two people?",
+          "What do you say if you only have ten minutes?"
+        ]
+      ],
+      [
+        "Reading Reactions",
+        [
+          "Why can surprise mean different things?",
+          "What question can you ask instead of guessing?",
+          "How can you avoid speaking for another person?"
+        ]
+      ],
+      [
+        "A Quick Coffee",
+        [
+          "What do you check before you sit down?",
+          "What is an easy first topic?",
+          "How do you politely keep to a leaving time?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Actually\" can gently correct an idea or share unexpected news. In \"Actually, yes,\" it means \"in fact,\" not \"currently.\"",
+      "actually は思い込みをやわらかく直したり、意外な事実を伝えたりします。\"Actually, yes\" は「実は、はい」で、「現在」という意味ではありません。"
+    ],
+    "triviaQuestion": [
+      "In Nao's reply, does \"actually\" mean \"currently\" or an unexpected fact?",
+      "It introduces an unexpected fact."
+    ],
+    "closing": "All four agree to a short coffee and plan to leave by 4:25. It is a little awkward at first, but they are about to laugh together."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

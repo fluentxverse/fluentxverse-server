@@ -1,0 +1,276 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 4,
+  "number": 4,
+  "sourceDigest": "e8ed6ee164213f04cb1cbad48250fac3e13c81f420644d2844141ad60ac6b208",
+  "episode": {
+    "title": "A Day in Uji",
+    "skill": "speaking",
+    "intro": [
+      "The next Saturday, five friends visit Uji for ideas. Claire asks about tea, Nao looks at craft shops, and Leo thinks about matcha pastries. At a fictional tea shop, Leo asks for a small sample for a recipe test. Emma and Ren joke it is not really a date with three friends.",
+      "次の土曜日、5人はアイデア探しに宇治へ行きます。クレアはお茶について聞き、ナオは工芸店を見て、レオは抹茶のお菓子を考えます。架空のお茶屋で、レオは試作用の少量サンプルを尋ねます。エマとレンは、友達3人が一緒だとデートっぽくないねと冗談を言います。"
+    ],
+    "goal": [
+      "I can ask politely about a sample and explain my recipe test.",
+      "サンプルについて丁寧に質問し、試作の目的を説明できる。"
+    ],
+    "warmup": "What questions do you ask before buying a small sample for a new recipe?",
+    "words": [
+      [
+        "Could you tell me the price of this sample?",
+        "Could you tell me",
+        "このサンプルの値段を教えていただけますか。"
+      ],
+      [
+        "I am interested in testing a matcha croissant recipe.",
+        "interested in",
+        "抹茶クロワッサンのレシピを試してみたいです。"
+      ],
+      [
+        "Do you have a small sample for a recipe test?",
+        "small sample",
+        "試作用の小さなサンプルはありますか。"
+      ],
+      [
+        "It costs 500 yen for 20 grams.",
+        "costs",
+        "20グラムで500円です。"
+      ],
+      [
+        "Does it contain added sugar?",
+        "contain added sugar",
+        "砂糖は加えられていますか。"
+      ],
+      [
+        "Could I take the product information and contact details?",
+        "product information",
+        "商品の説明と連絡先をもらえますか。"
+      ]
+    ],
+    "discussion": [
+      "You are Leo. Your tutor is the tea-shop assistant. Explain your idea and ask two questions about a sample.",
+      "あなたはレオ役、講師はお茶の店員役です。アイデアを説明し、サンプルについて2つ質問しましょう。"
+    ],
+    "followup": "Before buying a larger bag, what would you ask?",
+    "tips": [
+      {
+        "rule": [
+          "Use “Could you tell me ...?” to ask politely.",
+          "丁寧に聞くときは “Could you tell me ...?” を使いましょう。"
+        ],
+        "examples": [
+          [
+            "Could you tell me the price of this sample?",
+            "このサンプルの値段を教えていただけますか。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use “I am interested in ...” to explain your purpose.",
+          "目的は “I am interested in ...” で説明できます。"
+        ],
+        "examples": [
+          [
+            "I am interested in testing a recipe with matcha.",
+            "抹茶でレシピを試してみたいです。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "At the fictional shop, Leo asks about a recipe-test sample. Practice the dialogue.",
+        "架空のお店で、レオが試作用サンプルについて聞きます。会話を練習しましょう。"
+      ],
+      "roles": [
+        "Assistant",
+        "Leo"
+      ],
+      "dialogue": [
+        [
+          "Assistant",
+          "Hello. What are you looking for today?"
+        ],
+        [
+          "Leo",
+          "I am interested in making matcha pastries. Could you tell me about this product?"
+        ],
+        [
+          "Assistant",
+          "This sample has matcha and no added sugar."
+        ],
+        [
+          "Leo",
+          "Do you have a small pack for a recipe test?"
+        ],
+        [
+          "Assistant",
+          "Yes. A 20-gram sample costs 500 yen."
+        ],
+        [
+          "Leo",
+          "Thank you. Could I take the product information too?"
+        ],
+        [
+          "Assistant",
+          "Of course. Would you like to order a larger bag now?"
+        ],
+        [
+          "Leo",
+          "Not yet. I would like to test the sample first."
+        ],
+        [
+          "Assistant",
+          "No problem. You can contact us after your test."
+        ],
+        [
+          "Leo",
+          "Great. Could you show me the contact details?"
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "What does Leo want to test?",
+          "A matcha pastry recipe."
+        ],
+        [
+          "How much is the fictional sample?",
+          "500 yen for 20 grams."
+        ],
+        [
+          "Does the sample have added sugar?",
+          "No, it does not."
+        ],
+        [
+          "Does Leo order a larger bag today?",
+          "No. He wants to test first."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Could you tell me (how much this sample costs / how much does this sample cost)?",
+        "how much this sample costs"
+      ],
+      [
+        "I am interested (in / on) testing a new recipe.",
+        "in"
+      ],
+      [
+        "Do you have (a / an) small sample?",
+        "a"
+      ],
+      [
+        "Does it (contain / contains) added sugar?",
+        "contain"
+      ],
+      [
+        "Could I (take / took) the product information?",
+        "take"
+      ],
+      [
+        "I would like to test the sample (first / early).",
+        "first"
+      ]
+    ],
+    "choices": [
+      [
+        "Which sentence is a polite inquiry?",
+        "Could you tell me the price of the sample?",
+        "Tell me the price now.",
+        "A"
+      ],
+      [
+        "Leo wants to test before ordering more. What should he say?",
+        "Not yet. I would like to test a small sample first.",
+        "Yes, I will buy a large bag today.",
+        "A"
+      ],
+      [
+        "Which detail is given in the story?",
+        "A 20-gram sample costs 500 yen.",
+        "All Uji shops sell the same sample price.",
+        "A"
+      ],
+      [
+        "What helps Leo contact the shop later?",
+        "Getting the contact details.",
+        "Guessing the email address later.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Leo at a fictional tea shop in Uji. You want to test matcha croissants, not place a large order today.",
+        "あなたは宇治の架空のお茶屋にいるレオ役です。抹茶クロワッサンを試作したいですが、今日は大量注文はしません。"
+      ],
+      "task": [
+        "Explain your idea. Ask about price, quantity, and added sugar. Request product information and contact details. Confirm you will buy only a small sample today.",
+        "案を説明し、値段・量・砂糖の有無を聞きましょう。商品の説明と連絡先ももらい、今日は少量だけ買うと確認しましょう。"
+      ],
+      "roles": [
+        "Assistant",
+        "Leo"
+      ],
+      "text": "",
+      "title": "",
+      "lines": [
+        "Welcome. What kind of matcha recipe do you want to test?",
+        "Could you tell me what sample size you need?",
+        "What do you want to know about the price and the ingredients?",
+        "Would you like the product information and the contact details?",
+        "Do you want to buy only the small sample today?"
+      ],
+      "evidence": "Tutor evidence note: Student explains matcha croissant/pastry test, asks politely about fictional sample (20g, ¥500) and added sugar, requests product info and contact details, and says they will not order a larger bag today.",
+      "useful": [
+        "I am interested in ...",
+        "Could you tell me ...?",
+        "Do you have a small sample ...?",
+        "Does it contain added sugar?",
+        "Could I take the product information?"
+      ]
+    },
+    "topics": [
+      [
+        "PRODUCT QUESTIONS",
+        [
+          "What details matter before you buy a trial sample?",
+          "How can you make a question more polite?",
+          "What do you ask if the label is unclear?"
+        ]
+      ],
+      [
+        "IDEAS FROM A TRIP",
+        [
+          "What places can give you new ideas?",
+          "What can two people notice differently?",
+          "What do you write down for later?"
+        ]
+      ],
+      [
+        "WORK AND A DAY OUT",
+        [
+          "How do you balance research and relaxation?",
+          "What is a good plan after shopping?",
+          "How do you check if it is a group plan?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Now you're talking!\" can mean \"That idea sounds good,\" not just that someone started speaking.",
+      "“Now you're talking!” は「話し始めた」だけでなく、「それいいね」という意味でも使えます。"
+    ],
+    "triviaQuestion": [
+      "If Leo says \"Now you're talking!\" after an idea, is he approving it?",
+      "Yes. He likes the idea."
+    ],
+    "closing": "Leo buys a small matcha sample, and the group returns with ideas. About two weeks before the planned market, Nao gets an Osaka gallery invitation that conflicts with the Saturday schedule."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

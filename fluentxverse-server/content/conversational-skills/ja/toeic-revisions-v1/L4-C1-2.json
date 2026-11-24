@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 1,
+  "number": 2,
+  "sourceDigest": "fbe75f869bd64a9bb8a5fc55d37ef457c04e3ddf115aab61c62cd745cb0f9e3e",
+  "episode": {
+    "title": "An Uncomfortable Conversation",
+    "skill": "listening",
+    "intro": [
+      "At the Osaka office, Emma tells Ren that Leo learned about the hidden Friday dinner and the false work message. Ren apologizes, but says he still has feelings. Emma says she must take responsibility and keep contact professional.",
+      "大阪のオフィスで、エマはレンに、金曜日の夕食を隠したことと「仕事中」といううその連絡がレオに分かったと伝えます。レンは謝りますが、まだ好意があると言います。エマは責任を持ち、連絡は仕事だけにすると伝えます。"
+    ],
+    "goal": [
+      "I can understand regret, responsibility, and a request to keep contact professional.",
+      "後悔や責任についての話と、仕事上の関係を保つという希望を聞き取れる。"
+    ],
+    "warmup": "What words tell you someone regrets something and wants a work-only rule?",
+    "words": [
+      [
+        "I should have been clearer with you.",
+        "should have",
+        "もっとはっきり伝えるべきでした。"
+      ],
+      [
+        "I shouldn't have ignored that message.",
+        "ignored",
+        "無視した（ignored）。"
+      ],
+      [
+        "I take responsibility for my choice.",
+        "take responsibility",
+        "責任を取る／責任を持つ。"
+      ],
+      [
+        "I need to figure things out before I decide.",
+        "figure things out",
+        "考えを整理する。"
+      ],
+      [
+        "Let's focus on the handover at ten.",
+        "focus on",
+        "〜に集中する。"
+      ],
+      [
+        "Please use the project channel for work questions.",
+        "project channel",
+        "プロジェクト用の連絡先（チャットのチャンネル等）。"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is Ren. Explain one mistake and one rule for future work contact.",
+      "あなたはエマ役、講師はレン役です。過去の間違いを一つと、今後の仕事の連絡ルールを一つ言いましょう。"
+    ],
+    "followup": "How can you say “work only” in a polite way?",
+    "tips": [
+      {
+        "rule": [
+          "Listen for “should have / shouldn’t have” to catch regret about a past action.",
+          "should have / shouldn’t have は「過去の後悔」を表します。"
+        ],
+        "examples": [
+          [
+            "I should have respected your boundary.",
+            "あなたの線引きを尊重するべきでした。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Separate three parts: apology, feeling, and clear work request.",
+          "謝罪／気持ち／仕事の依頼を分けて聞きましょう。"
+        ],
+        "examples": [
+          [
+            "I still have feelings, but please contact me only about the project.",
+            "まだ気持ちはありますが、連絡は仕事だけにしてください。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Listen to Ren’s reply after Emma repeats her boundary. Catch what he regrets and what he agrees to do.",
+        "エマが線引きを言った後のレンの返事を聞きます。後悔している点と、同意した行動を聞き取りましょう。"
+      ],
+      "dialogue": [],
+      "text": "<p>Emma, I understand. I should have respected what you said before the dinner. I am sorry I asked you to stay. I still have feelings for you, but I hear that you do not want a new relationship. For now, I will use the project channel for work questions. Let's finish the handover at ten.</p>",
+      "questions": [
+        [
+          "What is the main purpose of Ren’s reply?",
+          "To accept the boundary, apologize, and confirm work-only contact."
+        ],
+        [
+          "What does he regret?",
+          "Not respecting what Emma said and asking her to stay."
+        ],
+        [
+          "Do his feelings disappear?",
+          "No. He says he still has feelings."
+        ],
+        [
+          "What work plan does he confirm?",
+          "Use the project channel and finish the handover at ten."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I should have (respected / respect) that.",
+        "respected"
+      ],
+      [
+        "I shouldn't have (asked / asking) you to stay.",
+        "asked"
+      ],
+      [
+        "I take responsibility (for / at) my choice.",
+        "for"
+      ],
+      [
+        "I need to (figure / figured) things out.",
+        "figure"
+      ],
+      [
+        "Let's focus (on / to) the handover.",
+        "on"
+      ],
+      [
+        "Please use the project channel (for / since) work questions.",
+        "for"
+      ]
+    ],
+    "choices": [
+      [
+        "\"I still have feelings\"—What does still mean?",
+        "The feelings continue.",
+        "The feelings never existed.",
+        "A"
+      ],
+      [
+        "\"Use only the project channel\"—What is requested?",
+        "Arrange a private dinner.",
+        "Keep contact in the work channel.",
+        "B"
+      ],
+      [
+        "\"I should have respected that\"—What is expressed?",
+        "Regret about a past action.",
+        "Confirmation that everything is fixed.",
+        "A"
+      ],
+      [
+        "Which detail is a work arrangement?",
+        "Emma agreed to date Ren.",
+        "The handover is at ten.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor reads Ren’s follow-up message, then plays Nao in a short call. Explain what Ren agreed to do and your rule for work contact.",
+        "あなたはエマ役です。講師がレンの追加メッセージを読み、その後ナオ役で短い電話をします。レンが同意したことと、仕事連絡のルールを説明しましょう。"
+      ],
+      "task": [
+        "Listen for the channel, the meeting plan, and what Ren will avoid. Then tell Nao the details and say this is not a new relationship.",
+        "連絡先、会議予定、レンが控えることを聞き取り、ナオに伝えます。新しい交際ではない理由も言いましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Emma"
+      ],
+      "text": "<p>I have posted the handover notes in the team channel. Our project meeting is Friday at eleven in the office, with the team lead present. I will not send private invitations. If the client changes the brief, I will post it where the whole team can see it. I know this is about working professionally, not starting a relationship.</p>",
+      "title": "",
+      "lines": [
+        "Emma, what has Ren agreed about work contact?",
+        "Where are the handover notes?",
+        "When is the next project meeting, and who will be there?",
+        "What will he avoid doing from now on?",
+        "If the client changes the brief, what will Ren do?",
+        "Does this message mean you two are starting a relationship? Why or why not?"
+      ],
+      "evidence": "Tutor evidence note: Check these listening details separately: notes in the team channel; meeting Friday at 11 in the office; team lead present; no private invitations; client brief changes posted where the whole team can see. Student must NOT invent reconciliation with Leo or claim the relationship is fixed.",
+      "useful": [
+        "He has agreed to ...",
+        "The notes are in ...",
+        "The meeting is ...",
+        "He will not ...",
+        "That does not mean ..."
+      ]
+    },
+    "topics": [
+      [
+        "Work Contact Rules",
+        [
+          "What should go in a team channel?",
+          "What should stay private?",
+          "How do you ask someone to use one channel?"
+        ]
+      ],
+      [
+        "Owning a Mistake",
+        [
+          "What words show regret?",
+          "How do you say sorry politely?",
+          "What action can you promise next?"
+        ]
+      ],
+      [
+        "Understanding a Reply",
+        [
+          "How do you separate feelings from a plan?",
+          "Which words show a limit, like “only”?",
+          "What would you ask to hear again?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"I hear you\" can mean \"I understand your point,\" not only a sound issue. The next sentence shows if the person accepts the request.",
+      "I hear you は「聞こえる」だけでなく「言いたいことは分かる」という意味にもなります。次の文で、要望を受け入れたか分かります。"
+    ],
+    "triviaQuestion": [
+      "Can “I hear you” mean “I understand”?",
+      "Yes."
+    ],
+    "closing": "Emma and Ren agree to keep contact professional. In Kyoto, Claire and Nao realize they have different ideas about how to support Emma and Leo."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

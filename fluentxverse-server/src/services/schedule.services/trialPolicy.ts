@@ -16,7 +16,7 @@ export function trialCanBeRestored(booking: { paymentMethod?: string; status: st
 }
 export async function assertTrialAllowance(tx: { run: (query: string, params: any) => Promise<any> }, studentId: string, limit?: number) {
   const result = await tx.run(`MATCH (b:Booking {studentId: $studentId, paymentMethod: 'trial'})
-    WHERE coalesce(b.trialRefunded,false)=false AND CASE WHEN b.status = 'cancelled' AND b.cancelledBy IS NOT NULL
+    WHERE b.paymentTransferredTo IS NULL AND coalesce(b.trialRefunded,false)=false AND CASE WHEN b.status = 'cancelled' AND b.cancelledBy IS NOT NULL
       AND (b.cancelledBy <> b.studentId OR b.cancelledAt <= b.slotDateTime - duration('PT1H'))
       THEN false ELSE true END
     RETURN count(b) AS used`, { studentId });

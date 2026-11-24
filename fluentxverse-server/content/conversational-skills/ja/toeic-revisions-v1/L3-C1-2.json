@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 1,
+  "number": 2,
+  "sourceDigest": "5b49cf221f69151d6f62b82db00a8016ba90c051d3bfcf0f23f01baa4cdc959e",
+  "episode": {
+    "title": "The Sunday Cafe",
+    "skill": "listening",
+    "intro": [
+      "On Sunday morning, Emma goes to the cafe downstairs. Claire introduces Leo. Leo helps at the cafe every Sunday. He brings fresh bread from his bakery job. Emma takes a few photos.",
+      "日曜日の朝、エマは階下のカフェに行きます。クレアはレオを紹介します。レオは毎週日曜日にカフェを手伝います。パン屋の仕事先から焼きたてのパンを持ってきます。エマは写真を何枚か撮ります。"
+    ],
+    "goal": [
+      "I can understand a short self-introduction about past and present work.",
+      "過去と今の仕事についての短い自己紹介を聞いて理解できる。"
+    ],
+    "warmup": "What do you want to know about a cafe worker?",
+    "words": [
+      [
+        "I grew up in Bristol.",
+        "grew up in",
+        "ブリストルで育ちました。"
+      ],
+      [
+        "I moved to Kyoto last spring.",
+        "moved to",
+        "去年の春に京都に引っ越しました。"
+      ],
+      [
+        "I used to work in a hotel kitchen.",
+        "used to",
+        "以前はホテルのキッチンで働いていました。"
+      ],
+      [
+        "I got a job at a bakery.",
+        "got a job",
+        "パン屋の仕事が決まりました。"
+      ],
+      [
+        "I help at this cafe every Sunday.",
+        "every Sunday",
+        "毎週日曜日にこのカフェを手伝います。"
+      ],
+      [
+        "I brought some fresh bread today.",
+        "fresh bread",
+        "今日は焼きたてのパンを持ってきました。"
+      ]
+    ],
+    "discussion": [
+      "Say where you grew up and one thing you do every week.",
+      "育った場所と、毎週することを1つ言いましょう。"
+    ],
+    "followup": "Did your weekly routine change?",
+    "tips": [
+      {
+        "rule": [
+          "Listen for past and present words. They tell the time.",
+          "過去と現在の言葉を聞きましょう。いつの話か分かります。"
+        ],
+        "examples": [
+          [
+            "I grew up in Bristol. Now I live in Kyoto.",
+            "ブリストルで育ちました。今は京都に住んでいます。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Listen for because. It gives a reason.",
+          "because に注目しましょう。理由が分かります。"
+        ],
+        "examples": [
+          [
+            "I moved to Kyoto because I got a bakery job.",
+            "パン屋の仕事が決まったので京都に引っ越しました。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Claire introduces Leo to Emma. Listen to Leo. Find his hometown, reason for moving, and Sunday routine.",
+        "クレアがエマにレオを紹介します。レオの話を聞いて、育った場所、引っ越した理由、日曜日の習慣を聞き取りましょう。"
+      ],
+      "text": "<p>Hi, I'm Leo. I grew up in Bristol. I moved to Kyoto last spring because I got a bakery job. I used to work in a hotel kitchen. Now I make bread early in the morning. Every Sunday, I help Claire at this cafe. I brought fresh bread. Please try some!</p>",
+      "questions": [
+        [
+          "Why does Leo introduce himself?",
+          "He is meeting Emma at the cafe."
+        ],
+        [
+          "Where did Leo grow up?",
+          "Bristol."
+        ],
+        [
+          "Why did he move to Kyoto?",
+          "He got a job at a bakery."
+        ],
+        [
+          "When does he help Claire?",
+          "Every Sunday."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Leo (grew / grows) up in Bristol.",
+        "grew"
+      ],
+      [
+        "He moved to Kyoto (because / but) he got a job.",
+        "because"
+      ],
+      [
+        "He used to (work / worked) in a hotel kitchen.",
+        "work"
+      ],
+      [
+        "Now he (makes / made) bread every morning.",
+        "makes"
+      ],
+      [
+        "He helps at the cafe (every / last) Sunday.",
+        "every"
+      ],
+      [
+        "The bread is freshly (baked / bake).",
+        "baked"
+      ]
+    ],
+    "choices": [
+      [
+        "Leo grew up in Bristol, but now lives in Kyoto. Where did he grow up?",
+        "Kyoto",
+        "Bristol",
+        "B"
+      ],
+      [
+        "He moved because he got a bakery job. Why did he move?",
+        "For work",
+        "For a holiday",
+        "A"
+      ],
+      [
+        "He helps Claire every Sunday. Is this a regular activity?",
+        "Yes",
+        "No, it happened only once",
+        "A"
+      ],
+      [
+        "He used to work in a hotel kitchen. When was this?",
+        "In the future",
+        "In the past",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. After trying Leo's bread, you listen as he tells you more. Later, Claire asks you about him. Your tutor reads Leo's message, then plays Claire.",
+        "あなたはエマ役です。レオのパンを食べた後、レオの話をもっと聞きます。その後、クレアがレオについて聞きます。講師はレオの話を読んでから、クレア役になります。"
+      ],
+      "task": [
+        "Listen for Leo's morning routine, favorite bread, and plan for next Sunday. Then answer Claire's questions. You can ask to hear it again.",
+        "レオの朝の習慣、好きなパン、次の日曜日の予定を聞き取りましょう。その後、クレアの質問に答えましょう。もう一度聞いても大丈夫です。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "text": "<p>I start work at six, so I get up at five. I usually cycle to the bakery. My favorite bread has cheese in it. Next Sunday, I want to bring some apple pastries to the cafe. I finish helping Claire at noon. Then I usually take a walk by the river.</p>",
+      "title": "",
+      "lines": [
+        "Emma, what time does Leo start work?",
+        "How does he get to the bakery?",
+        "What bread does he like best?",
+        "What does he want to bring next Sunday?",
+        "What does he usually do after helping me?"
+      ],
+      "evidence": "Tutor evidence note: The correct details are: starts work at six, gets up at five, cycles to the bakery, favorite bread has cheese, wants to bring apple pastries next Sunday, finishes at noon, then takes a walk by the river. Grade meaning first. Minor grammar mistakes are OK. Repeat only the part the student missed.",
+      "useful": [
+        "He starts work at ...",
+        "He gets up at ...",
+        "He usually ...",
+        "His favorite ... is ...",
+        "Could you repeat that part, please?"
+      ]
+    },
+    "topics": [
+      [
+        "Cafe Visits",
+        [
+          "Do you like cafes?",
+          "What do you order at a cafe?",
+          "Who do you go with?"
+        ]
+      ],
+      [
+        "Morning Routines",
+        [
+          "What time do you get up?",
+          "How do you go to work or school?",
+          "What do you do first in the morning?"
+        ]
+      ],
+      [
+        "Favorite Food",
+        [
+          "What bread do you like?",
+          "Do you cook at home?",
+          "What food do you recommend?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Bread\" is usually uncountable. You can say \"some bread,\" \"a slice of bread,\" or \"a loaf of bread.\"",
+      "英語の bread は普通は数えられません。some bread、a slice of bread、a loaf of bread のように言います。"
+    ],
+    "triviaQuestion": [
+      "What do you ask for if you want one thin piece of bread?",
+      "A slice of bread."
+    ],
+    "closing": "Emma enjoys the fresh bread and takes photos at the cafe. A few days later, she meets another resident with a camera."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

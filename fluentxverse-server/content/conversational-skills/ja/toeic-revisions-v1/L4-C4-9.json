@@ -1,0 +1,276 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 4,
+  "number": 9,
+  "sourceDigest": "65b3ca8cccb2033285a57c4829fe56b13921174840150e9fd1282b39dc0d87e7",
+  "episode": {
+    "title": "Doors Are Opening",
+    "skill": "speaking",
+    "intro": [
+      "A week after the market, the five celebrate at Kamo House. More artists are interested, and the Osaka gallery wants Nao’s ceramics for one more month. A cafe owner may rent the kitchen to Leo on some evenings, but hours and costs are not final. Emma also gets news: their agency is shortlisted for a Seoul project. The project and any trip are not confirmed.",
+      "マーケットの1週間後、5人はKamo Houseでお祝いします。参加したい作家が増え、大阪のギャラリーはナオの陶芸作品をもう1か月展示したいです。カフェのオーナーは、夜の一部の時間にレオへキッチンを貸すかもしれませんが、時間と費用は未定です。さらにエマに知らせが届きます。会社がソウルの大きな案件の最終候補に残りました。ただし受注も旅行もまだ確定していません。"
+    ],
+    "goal": [
+      "I can discuss an opportunity and ask what needs checking.",
+      "新しい機会について話し、確認すべきことを尋ねられる。"
+    ],
+    "warmup": "How can you be excited about an opportunity without saying it is guaranteed?",
+    "words": [
+      [
+        "Congratulations on the successful market!",
+        "Congratulations on",
+        "〜おめでとう（祝福の言い方）"
+      ],
+      [
+        "The gallery wants to extend the display for one more month.",
+        "extend the display",
+        "展示を延長する"
+      ],
+      [
+        "Leo has been offered evening kitchen access, but nothing is final.",
+        "has been offered",
+        "提案された／話をもらった"
+      ],
+      [
+        "Our agency has been shortlisted for the Seoul project.",
+        "shortlisted",
+        "最終候補に残った"
+      ],
+      [
+        "We have not won the project yet.",
+        "not won",
+        "まだ〜していない"
+      ],
+      [
+        "I am looking forward to preparing the proposal with you.",
+        "looking forward to",
+        "〜を楽しみにしている"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is Ren. Explain the shortlist news. Say what is not confirmed. Then suggest what to ask the manager next.",
+      "あなたはエマ役、講師はレン役です。最終候補に残った知らせを説明します。未確定の点も伝えます。次に上司へ何を聞くか提案しましょう。"
+    ],
+    "followup": "How would you explain the difference between joining a presentation team and winning the project?",
+    "tips": [
+      {
+        "rule": [
+          "Use “has been offered” and “has been shortlisted” for chances and selection stages. They do not mean a final deal.",
+          "has been offered と has been shortlisted は、機会や選考段階です。確定や受注を意味しません。"
+        ],
+        "examples": [
+          [
+            "Our agency has been shortlisted, but we have not won yet.",
+            "会社は最終候補に残りましたが、まだ受注していません。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Ask for key details before you assume travel: the brief, format, and deadline.",
+          "旅行を決めつける前に、依頼内容（brief）、形式（format）、期限（deadline）を確認します。"
+        ],
+        "examples": [
+          [
+            "Could we ask for the brief and deadline first?",
+            "まず依頼内容と期限を聞けますか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Ren notices Emma reading a message during the celebration. Read their conversation.",
+        "お祝いの席で、エマがメッセージを読んでいることにレンが気付きます。会話を読みましょう。"
+      ],
+      "roles": [
+        "Ren",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Ren",
+          "You look surprised. What does the message say?"
+        ],
+        [
+          "Emma",
+          "Our agency has been shortlisted for a major project in Seoul."
+        ],
+        [
+          "Ren",
+          "Wow. Does that mean we have won it?"
+        ],
+        [
+          "Emma",
+          "Not yet. Our manager wants us on the presentation team."
+        ],
+        [
+          "Ren",
+          "That is exciting. Are we flying there next week?"
+        ],
+        [
+          "Emma",
+          "No trip is booked. We need the brief and presentation details first."
+        ],
+        [
+          "Ren",
+          "Then we should ask about the format and deadline."
+        ],
+        [
+          "Emma",
+          "Yes. We should also ask for the brief."
+        ],
+        [
+          "Ren",
+          "I am looking forward to working on it with you."
+        ],
+        [
+          "Emma",
+          "Me too. Let’s celebrate, but stay accurate."
+        ]
+      ],
+      "questions": [
+        [
+          "What stage has the agency reached?",
+          "It has been shortlisted."
+        ],
+        [
+          "What does the manager want Emma and Ren to do?",
+          "Join the presentation team."
+        ],
+        [
+          "Has the agency won the project?",
+          "No, not yet."
+        ],
+        [
+          "Is a trip booked?",
+          "No. No trip is booked yet."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Our agency has been (shortlisted / shortlist).",
+        "shortlisted"
+      ],
+      [
+        "We have not (won / win) the project yet.",
+        "won"
+      ],
+      [
+        "Leo has been (offered / offer) kitchen access.",
+        "offered"
+      ],
+      [
+        "We are planning (to ask / ask) for the brief.",
+        "to ask"
+      ],
+      [
+        "I am looking forward to (preparing / prepare) the proposal.",
+        "preparing"
+      ],
+      [
+        "No trip (is / are) booked.",
+        "is"
+      ]
+    ],
+    "choices": [
+      [
+        "The agency is shortlisted. Which statement is accurate?",
+        "It is still competing for the project.",
+        "It has already won and signed the final deal.",
+        "A"
+      ],
+      [
+        "Leo is discussing evening kitchen hours and costs. What is confirmed?",
+        "His full bakery shop has opened.",
+        "A possible arrangement is being discussed.",
+        "B"
+      ],
+      [
+        "Which next step fits Emma and Ren’s opportunity?",
+        "Ask for the brief, format, and deadline.",
+        "Buy flights before knowing if travel is needed.",
+        "A"
+      ],
+      [
+        "Which sentence uses “looking forward to” correctly?",
+        "I am looking forward to prepare.",
+        "I am looking forward to preparing the proposal.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma at the celebration. Your tutor is Ren. Your agency is shortlisted for a Seoul project, and your manager wants both of you on the presentation team. The brief, format, and deadline are still needed. No project award or travel booking is confirmed.",
+        "あなたはお祝いの席にいるエマ役、講師はレン役です。会社はソウルの案件の最終候補に残り、上司は二人を提案チームに入れたいです。依頼内容、形式、期限はまだ確認が必要です。受注や旅行の予約は確定していません。"
+      ],
+      "task": [
+        "Share the news clearly. Correct a wrong assumption about winning or travel. Agree on three questions to ask the manager. Say what you are looking forward to doing together.",
+        "知らせを分かりやすく伝えます。受注や旅行についての間違った思い込みを訂正します。上司に聞く質問を3つ決めます。一緒に何をするのが楽しみか言います。"
+      ],
+      "roles": [
+        "Ren",
+        "Emma"
+      ],
+      "title": "",
+      "lines": [
+        "Emma, what did the message say about Seoul?",
+        "Does being shortlisted mean we won the project already?",
+        "Do we know if we need to travel, or is it still unknown?",
+        "What three questions should we ask the manager first?",
+        "What are you looking forward to doing on the proposal with me?"
+      ],
+      "evidence": "Tutor evidence note: Student must say the agency is shortlisted (not the winner), the manager wants Emma and Ren on the presentation team, and travel is not booked/unknown. Student should choose three manager questions from: brief, format, deadline. Use “That does not mean ... yet” and “looking forward to + -ing.” Do not add confirmed flights, a win, or final hours/costs for Leo’s kitchen.",
+      "useful": [
+        "We have been shortlisted for ...",
+        "That does not mean ... yet.",
+        "We still need to confirm ...",
+        "Could we ask about ...?",
+        "I am looking forward to ...ing."
+      ]
+    },
+    "topics": [
+      [
+        "Celebrating Progress",
+        [
+          "What is one thing you would celebrate this week?",
+          "How do you say thank you to your team or friends?",
+          "How do you celebrate without promising a final result?"
+        ]
+      ],
+      [
+        "New Opportunities",
+        [
+          "What details do you ask about a new offer?",
+          "What parts can be “not final”?",
+          "How can you sound excited but careful?"
+        ]
+      ],
+      [
+        "Preparing Together",
+        [
+          "What should a team confirm first?",
+          "How can two people share tasks fairly?",
+          "What makes a work trip truly confirmed?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Doors are opening\" is a metaphor for new opportunities. \"Going places\" can mean becoming successful, not only traveling.",
+      "doors are opening は「新しい機会が開ける」という比喩です。going places は「旅行する」だけでなく「成功していく」という意味もあります。"
+    ],
+    "triviaQuestion": [
+      "Can “She is going places” describe career success without travel?",
+      "Yes. It can mean she is becoming successful."
+    ],
+    "closing": "They celebrate real progress: more artists are interested, the Osaka gallery may extend Nao’s display, and Leo may rent a kitchen some evenings. Emma shares that the agency is shortlisted for a Seoul project, but they have not won it. No trip is booked, so Emma and Ren will ask for the brief, format, and deadline."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 1,
+  "number": 9,
+  "sourceDigest": "8fac5b8c7992c322bfd98c00a375f5c8ac7938f499cccc899e4a75473939919a",
+  "episode": {
+    "title": "A Different Kind of Goodbye",
+    "skill": "speaking",
+    "intro": [
+      "At a cafe on Saturday, Leo says he believes Emma is sorry, but he cannot continue their relationship. Emma feels upset, but she accepts his decision. They thank each other for the good memories and say goodbye. Later, Leo gets an unexpected email from his former manager in Bristol about a new bakery and a possible role.",
+      "土曜日のカフェで、レオはエマが後悔していることは信じるが、交際は続けられないと伝えます。エマはつらいですが、決断を受け止めます。二人は良い思い出に感謝して別れます。その後、レオはブリストルの元店長から、新しいパン屋と仕事の可能性について思いがけないメールを受け取ります。"
+    ],
+    "goal": [
+      "I can accept a hard decision and say thank you politely.",
+      "つらい決断を受け入れ、丁寧に感謝を伝えられる。"
+    ],
+    "warmup": "How can you accept a decision even if you feel sad?",
+    "words": [
+      [
+        "I believe you are sorry, but I cannot continue this relationship.",
+        "believe",
+        "believe＝（相手の気持ちや話を）信じる"
+      ],
+      [
+        "I cannot continue our relationship, even though I care about you.",
+        "continue",
+        "continue＝続ける"
+      ],
+      [
+        "This is painful, but I respect your decision.",
+        "respect your decision",
+        "respect your decision＝相手の決断を尊重する"
+      ],
+      [
+        "Thank you for the good memories in Kyoto.",
+        "good memories",
+        "good memories＝良い思い出"
+      ],
+      [
+        "I wish you well, and I will give you space.",
+        "wish you well",
+        "wish you well＝相手の幸せを願う（今後の連絡の約束ではない）"
+      ],
+      [
+        "A new opportunity has come up, but I have not decided yet.",
+        "come up",
+        "come up＝（話・機会などが）出てくる／生まれる"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is Leo. Respond to his decision without trying to change it. Then say one sincere thank-you.",
+      "あなたはエマ役、講師はレオ役です。決断を変えさせようとせずに返事をし、そのあと心からのお礼を一つ伝えましょう。"
+    ],
+    "followup": "What can you say to close the talk without promising future contact?",
+    "tips": [
+      {
+        "rule": [
+          "Accept the decision first. Do not argue or ask for another chance.",
+          "最初に決断を受け止めましょう。言い争ったり、もう一度チャンスを求めたりしない。"
+        ],
+        "examples": [
+          [
+            "I understand. I will respect your decision.",
+            "わかりました。あなたの決断を尊重します。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Close with thanks and a calm goodbye.",
+          "感謝と落ち着いた別れの言葉で締めましょう。"
+        ],
+        "examples": [
+          [
+            "Thank you for the good memories. Goodbye.",
+            "良い思い出をありがとう。さようなら。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Leo and Emma meet at a cafe on Saturday. Leo has read Emma’s letter. They have a final talk.",
+        "土曜日にカフェで会います。レオはエマの手紙を読みました。二人は最後の会話をします。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Leo",
+          "Thank you for the letter. I believe you are sorry."
+        ],
+        [
+          "Emma",
+          "Thank you for reading it. What is your decision?"
+        ],
+        [
+          "Leo",
+          "I cannot continue our relationship."
+        ],
+        [
+          "Emma",
+          "That hurts, but I understand it is your decision."
+        ],
+        [
+          "Leo",
+          "I need to focus on myself and what comes next."
+        ],
+        [
+          "Emma",
+          "I respect that. I will not ask you to change your mind."
+        ],
+        [
+          "Leo",
+          "We had good times in Kyoto. I am grateful for them."
+        ],
+        [
+          "Emma",
+          "Me too. Thank you for welcoming me in Kyoto."
+        ],
+        [
+          "Leo",
+          "After today, I need distance. I wish you well."
+        ],
+        [
+          "Emma",
+          "I understand. I will give you space. Goodbye, Leo."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "What decision did Leo make?",
+          "He decided he cannot continue the relationship."
+        ],
+        [
+          "Does Emma try to change his mind?",
+          "No, she says she will not ask him to change it."
+        ],
+        [
+          "What does Leo ask for after the meeting?",
+          "He asks for distance and space."
+        ],
+        [
+          "How do they close the conversation politely?",
+          "They say thank you and say goodbye."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I respect your (decision / decide).",
+        "decision"
+      ],
+      [
+        "Thank you (for / of) the good memories.",
+        "for"
+      ],
+      [
+        "I will not ask you (to change / changing) your mind.",
+        "to change"
+      ],
+      [
+        "I wish you (well / goodly).",
+        "well"
+      ],
+      [
+        "A new opportunity has (come / came) up.",
+        "come"
+      ],
+      [
+        "I have not decided (yet / already).",
+        "yet"
+      ]
+    ],
+    "choices": [
+      [
+        "Leo says he cannot continue the relationship. What is confirmed?",
+        "The relationship has ended.",
+        "They will get back together.",
+        "A"
+      ],
+      [
+        "Which reply respects Leo’s decision?",
+        "Please change your mind today.",
+        "This is painful, but I respect your decision.",
+        "B"
+      ],
+      [
+        "What does the later email from Bristol mean?",
+        "It is a chance to talk about a role.",
+        "He already accepted a job there.",
+        "A"
+      ],
+      [
+        "Which goodbye does not ask for future contact?",
+        "Keep messaging me every day.",
+        "Thank you for the memories. I wish you well.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma at the cafe on Saturday at four. Your tutor is Leo. He read your letter and decided not to continue the relationship. He wants distance after this meeting. The later Bristol email has not arrived yet.",
+        "あなたは土曜日の4時にカフェにいるエマ役です。講師はレオ役です。レオは手紙を読み、交際を続けないと決めました。このあと距離を置きたいと思っています。後で届くブリストルのメールは、まだ来ていません。"
+      ],
+      "task": [
+        "Listen, accept his decision, and thank him. Confirm you will give him distance, then say goodbye.",
+        "話を聞き、決断を受け止めて感謝を伝えます。距離を置くことを確認して、別れの言葉を言いましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "text": "",
+      "title": "",
+      "lines": [
+        "How do you respond to my decision in one sentence?",
+        "How do you express your feeling without asking me to change it?",
+        "What is one specific thing you can thank me for?",
+        "How will you respect my request for distance after today?",
+        "How will you close the conversation politely?"
+      ],
+      "evidence": "Tutor evidence note: Student clearly accepts the breakup, expresses sadness without bargaining, thanks for a concrete memory (e.g., Kyoto welcome), agrees to no more messages/letters via Claire and to give distance, and ends with a polite goodbye. Student does not undo the breakup, promise close friendship, or mention the Bristol email (it has not arrived yet).",
+      "useful": [
+        "I hear what you are saying.",
+        "This is painful, but I understand.",
+        "I respect your decision.",
+        "Thank you for ...",
+        "I will give you space.",
+        "I wish you well."
+      ]
+    },
+    "topics": [
+      [
+        "Respectful Endings",
+        [
+          "What can you say when you disagree with a decision?",
+          "What is one thing you can thank someone for?",
+          "How can you say goodbye without promising contact?"
+        ]
+      ],
+      [
+        "New Opportunities",
+        [
+          "What questions do you ask about a new role?",
+          "How do you show interest without saying yes?",
+          "What do you need time to think about?"
+        ]
+      ],
+      [
+        "Looking Forward",
+        [
+          "What is one next step after a hard day?",
+          "What does “not decided yet” clearly say?",
+          "Who can you ask for practical help or advice?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"I wish you well\" shows kindness about the future. It does not promise future contact. \"Keep in touch\" suggests continued contact, so they are different.",
+      "I wish you well は相手のこれからを願う表現で、今後も連絡する約束ではありません。Keep in touch は連絡を続けようという意味なので、同じ別れ方でいつも使えるわけではありません。"
+    ],
+    "triviaQuestion": [
+      "Which expression shows goodwill without promising future contact?",
+      "I wish you well."
+    ],
+    "closing": "Emma and Leo end their relationship respectfully. Later that evening, Leo receives an email from his former manager in Bristol about a new bakery and a possible role. He is interested, but he has not accepted a job or decided to move."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

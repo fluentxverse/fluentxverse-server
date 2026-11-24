@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 4,
+  "number": 8,
+  "sourceDigest": "f02a6d3e61af6c2c8cb81d25dc19845025a41924a1eafe79784c5f7107dfdcf5",
+  "episode": {
+    "title": "The Unexpected Downpour",
+    "skill": "reading",
+    "intro": [
+      "On Sunday morning, heavy rain starts during setup. Only four tables fit inside the cafe. Emma redraws the plan. Ren moves tables. Nao protects ceramics. Leo organises pastries. Claire guides visitors. They share display space instead of bringing every outdoor stall inside.",
+      "日曜日の朝、準備中に大雨が降り始めます。カフェの中にはテーブルが4台しか入りません。エマが計画を描き直し、レンはテーブルを動かします。ナオは陶器を守り、レオはお菓子を整理し、クレアが来場者を案内します。屋外の売り場を全部入れるのではなく、展示場所を共用します。"
+    ],
+    "goal": [
+      "I can read an updated event plan, find what changed, and explain a workable option.",
+      "更新されたイベント計画を読み、変更点を見つけて、実行できる代案を説明できる。"
+    ],
+    "warmup": "When a plan changes, how do you know which notice is the newest?",
+    "words": [
+      [
+        "It is a downpour, so the outdoor plan is cancelled.",
+        "downpour",
+        "大雨なので、屋外の計画は中止です。"
+      ],
+      [
+        "We need an alternative layout inside the cafe.",
+        "alternative layout",
+        "カフェ内の別の配置が必要です。"
+      ],
+      [
+        "Only four display tables fit inside the cafe.",
+        "fit inside",
+        "カフェの中に入る（収まる）"
+      ],
+      [
+        "Please keep the entrance clear for visitors.",
+        "keep the entrance clear",
+        "来場者のために入口を空けてください。"
+      ],
+      [
+        "Vendors will use a shared display section today.",
+        "shared display section",
+        "今日は展示区画を共用します。"
+      ],
+      [
+        "Please follow the latest update on the plan.",
+        "latest update",
+        "計画の最新の案内"
+      ]
+    ],
+    "discussion": [
+      "You are Ren. Your tutor is Claire. Explain why the outdoor plan cannot be used. Then ask what indoor task you should do first.",
+      "あなたはレン役、講師はクレア役です。屋外の計画が使えない理由を説明し、次に最初にする屋内作業を聞きましょう。"
+    ],
+    "followup": "How can you explain a space limit politely, without saying everyone must leave?",
+    "tips": [
+      {
+        "rule": [
+          "Check the time and use the newest update. Do not use an older detail that was replaced.",
+          "時刻を確認して最新の更新を使いましょう。古い情報（変更前）を使わないようにしましょう。"
+        ],
+        "examples": [
+          [
+            "The 9:40 update says the market moves inside.",
+            "9:40の更新では、市場は屋内に移ると言っています。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Look for limits like “only” and “do not.” Use shared space as an option.",
+          "only や do not のような制限表現を探しましょう。共用スペースを代案にしましょう。"
+        ],
+        "examples": [
+          [
+            "Only four tables fit, so vendors share sections.",
+            "4台しか入らないので、出店者は区画を共用します。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read the revised morning plan after the rain starts. These are fictional event instructions.",
+        "雨が降り始めた後の、朝の修正計画を読みましょう。架空のイベントの指示です。"
+      ],
+      "dialogue": [],
+      "text": "<p><strong>Sunday, 9:40 a.m. - Rain Update</strong></p><p>The outdoor layout is cancelled. The market will still open at ten and close at two, inside the cafe. Only four display tables fit. Vendors will share marked display sections; extra stock stays in the dry back room.</p><p><strong>Jobs:</strong> Emma marks the new layout. Ren helps move the tables after the route is clear. Nao brings the ceramics to the shared craft displays. Leo organises pastries at the counter. Claire welcomes visitors through the main entrance.</p><p>Keep the entrance and main aisle clear. Do not move the full outdoor stalls inside. Ask Claire before changing the shared layout.</p>",
+      "questions": [
+        [
+          "Has the whole market been cancelled?",
+          "No. The outdoor layout is cancelled, but the market runs inside from ten to two."
+        ],
+        [
+          "How many display tables fit inside?",
+          "Four."
+        ],
+        [
+          "Where does extra stock go?",
+          "The dry back room."
+        ],
+        [
+          "Who should you ask before changing the shared layout?",
+          "Claire."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Only four tables (fit / fits) inside.",
+        "fit"
+      ],
+      [
+        "We need (an / a) alternative.",
+        "an"
+      ],
+      [
+        "Keep the entrance (clear / clearly).",
+        "clear"
+      ],
+      [
+        "Do not (block / blocked) the aisle.",
+        "block"
+      ],
+      [
+        "Vendors will (share / shared) the displays.",
+        "share"
+      ],
+      [
+        "Follow the (latest / lately) update.",
+        "latest"
+      ]
+    ],
+    "choices": [
+      [
+        "\"Outdoor layout cancelled; market inside.\" What is cancelled?",
+        "The entire event",
+        "The outdoor arrangement",
+        "B"
+      ],
+      [
+        "Only four tables fit. What should vendors do?",
+        "Use shared display sections",
+        "Bring every full outdoor stall inside",
+        "A"
+      ],
+      [
+        "Where should extra stock stay?",
+        "Across the main entrance",
+        "In the dry back room",
+        "B"
+      ],
+      [
+        "Two notices disagree. Which should you use?",
+        "The latest confirmed update",
+        "The older notice because it was printed",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Ren at 11:15 on Sunday. Your tutor is a vendor arriving after the first rain update. Read the new handover and explain the current display, collection, and opening arrangements.",
+        "あなたは日曜日の11時15分に会場にいるレン役、講師は最初の雨の案内の後に到着した出店者役です。新しい引き継ぎを読み、今の展示場所、受け取り、開催について説明しましょう。"
+      ],
+      "task": [
+        "Use the latest information to answer the vendor's questions. Correct old ideas about outdoor stalls and the photo display. Explain who can approve a layout change.",
+        "最新の情報で出店者の質問に答えましょう。屋外の売り場や写真展示について古い思い込みを訂正し、配置変更を承認する人も説明しましょう。"
+      ],
+      "roles": [
+        "Vendor",
+        "Ren"
+      ],
+      "text": "<p><strong>Still current:</strong> The market stays indoors until closing at 2 p.m. Outdoor stalls will not reopen today.</p><p><strong>New display detail:</strong> Photo prints are now on the back wall, not by the window. The craft demonstration begins at noon at shared table A.</p><p><strong>Orders:</strong> Reserved pastry orders can be collected at the counter from 1 p.m. Leo will confirm each order there; a reservation is not proof it has already been paid.</p><p><strong>Space:</strong> Keep the entrance and main aisle clear. Extra stock stays in the dry back room. Ask Claire before moving a shared table; vendors do not each have a separate full-size indoor stall.</p>",
+      "title": "11:15 Handover - Latest Indoor Arrangements",
+      "lines": [
+        "Hello. I saw the old outdoor plan. Can you set up outside now?",
+        "Where are the photo prints now?",
+        "When and where does the craft demonstration start?",
+        "A customer has a pastry reservation. When and where can they collect it?",
+        "Does a reservation mean it is already paid?",
+        "Can you move a shared table by yourself? What must stay clear?"
+      ],
+      "evidence": "Tutor evidence note: Correct answers must match the handover. Market stays indoors until 2 p.m.; outdoor stalls do not reopen. Photo prints are on the back wall (not by the window). Craft demo is at noon at shared table A. Reserved pastries are collected at the counter from 1 p.m.; Leo confirms each order; a reservation is not proof of payment. Claire must approve moving shared tables; keep entrance and main aisle clear; extra stock stays in the dry back room. Do not say the whole event is cancelled and do not invent separate indoor stalls.",
+      "useful": [
+        "The latest update says ...",
+        "That part of the old plan has changed.",
+        "You can find ... at ...",
+        "It starts at ...",
+        "Please check with Claire before ..."
+      ]
+    },
+    "topics": [
+      [
+        "CHANGING PLANS",
+        [
+          "How can you explain what has changed?",
+          "Which details should stay the same?",
+          "How do you check that a notice is current?"
+        ]
+      ],
+      [
+        "LIMITED SPACE",
+        [
+          "What can people share instead of duplicating it?",
+          "How can you explain a limit politely?",
+          "Who should coordinate a layout change?"
+        ]
+      ],
+      [
+        "TEAM SOLUTIONS",
+        [
+          "How can clear jobs reduce confusion?",
+          "What could you ask before moving something?",
+          "What would you improve for the next event?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"The event is still on\" means it is still happening. \"The event is off\" means it is cancelled. These expressions talk about the event, not an electrical switch.",
+      "The event is still on. は「イベントは予定どおり行う」という意味です。The event is off. は「中止」です。ここでの on/off は電気スイッチではありません。"
+    ],
+    "triviaQuestion": [
+      "If the outdoor stalls close but the event continues inside, is the event still on?",
+      "Yes. The event is still happening."
+    ],
+    "closing": "Visitors keep arriving despite the rain. By afternoon, Leo’s matcha pastries sell out and Nao gets new ceramic orders. Claire is happy, but she says next time they need a rain plan from the start."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

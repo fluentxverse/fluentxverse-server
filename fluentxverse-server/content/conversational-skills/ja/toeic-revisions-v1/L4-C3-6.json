@@ -1,0 +1,276 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 3,
+  "number": 6,
+  "sourceDigest": "cdc2147b21f8fb6c825a624ee6ab0c6ea3f944aebebe37db7885f97d8ddc55fe",
+  "episode": {
+    "title": "An Honest Conversation",
+    "skill": "speaking",
+    "intro": [
+      "After coffee, Nao asks Leo how he felt seeing Emma and Ren together. Leo says it felt uncomfortable at first, but he is not angry anymore. Nao worries it may feel complicated because she and Emma are friends. Leo says he wants to be with Nao, not use the relationship to forget Emma. They agree to talk if something worries them.",
+      "コーヒーの後、ナオはレオにエマとレンを一緒に見てどう感じたか聞きます。レオは最初は気まずかったけど、もう怒っていないと言います。ナオは、自分とエマが友達なので複雑にならないか心配します。レオは、エマを忘れるためではなく、ナオと一緒にいたいと言います。二人は、心配なことがあれば話すと決めます。"
+    ],
+    "goal": [
+      "I can describe mixed feelings, ask for reassurance, and respond honestly.",
+      "複雑な気持ちを説明し、安心できる言葉を求め、正直に返事をできる。"
+    ],
+    "warmup": "How can you ask what someone feels without telling them what they must feel?",
+    "words": [
+      [
+        "I felt uncomfortable at first.",
+        "uncomfortable",
+        "最初は気まずく感じました。"
+      ],
+      [
+        "I am not angry anymore.",
+        "anymore",
+        "もう怒っていません。"
+      ],
+      [
+        "Are you comfortable with this plan?",
+        "comfortable with",
+        "この計画に無理はありませんか。"
+      ],
+      [
+        "I want to be with you.",
+        "be with",
+        "あなたと一緒にいたいです。"
+      ],
+      [
+        "Thank you for being honest with me.",
+        "being honest",
+        "正直に話してくれてありがとう。"
+      ],
+      [
+        "Let’s take it one step at a time.",
+        "one step at a time",
+        "一歩ずつ進めていきましょう。"
+      ]
+    ],
+    "discussion": [
+      "You are Nao. Your tutor is Leo. Ask how he felt about the meeting, share one worry, and respond to his answer.",
+      "あなたはナオ役、講師はレオ役です。再会をどう感じたか尋ね、自分の心配を一つ伝え、レオの答えに返事をしましょう。"
+    ],
+    "followup": "What could you agree to do if a similar worry comes up again?",
+    "tips": [
+      {
+        "rule": [
+          "Use “at first” and “now” to show a change in feelings. “Not ... anymore” means the feeling has stopped.",
+          "「at first」「now」で気持ちの変化を言えます。「not ... anymore」は、もうその状態ではない、という意味です。"
+        ],
+        "examples": [
+          [
+            "I felt nervous at first, but now I feel calmer.",
+            "最初は緊張しましたが、今は落ち着いています。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Ask clearly with “Are you comfortable with ...?” Give reassurance with a simple reason.",
+          "「Are you comfortable with ...?」で率直に確認できます。安心させる時は、短い理由を言いましょう。"
+        ],
+        "examples": [
+          [
+            "Are you comfortable dating me when Emma and I are friends?",
+            "エマと私が友達でも、私と付き合うことに無理はありませんか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Practice Leo and Nao’s talk beside the river after the group coffee.",
+        "四人でのコーヒーの後、川のそばで話すレオとナオの会話を練習しましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Nao"
+      ],
+      "dialogue": [
+        [
+          "Leo",
+          "That meeting was unexpected. How are you feeling?"
+        ],
+        [
+          "Nao",
+          "A little nervous. Did seeing Emma and Ren bother you?"
+        ],
+        [
+          "Leo",
+          "A little at first, but I am not angry anymore."
+        ],
+        [
+          "Nao",
+          "Are you okay to talk now, or do you want to just walk?"
+        ],
+        [
+          "Leo",
+          "We can walk. Is there something you want to ask?"
+        ],
+        [
+          "Nao",
+          "Are you comfortable dating me? Emma and I are friends."
+        ],
+        [
+          "Leo",
+          "Yes. I want to be with you, not forget someone else."
+        ],
+        [
+          "Nao",
+          "Thank you for being honest. That helps me."
+        ],
+        [
+          "Leo",
+          "If something worries us, we can talk right away."
+        ],
+        [
+          "Nao",
+          "I agree. Let’s take it one step at a time."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "How did Leo feel at first?",
+          "He felt uncomfortable or bothered."
+        ],
+        [
+          "Is Leo angry now?",
+          "No. He is not angry anymore."
+        ],
+        [
+          "Why does Nao feel worried?",
+          "Because Emma and Nao are friends."
+        ],
+        [
+          "What do they agree to do?",
+          "Talk if something worries them and move step by step."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I felt uncomfortable at (first / firstly).",
+        "first"
+      ],
+      [
+        "I am not angry (anymore / already).",
+        "anymore"
+      ],
+      [
+        "Are you comfortable (with / of) this?",
+        "with"
+      ],
+      [
+        "I want (to be / be) with you.",
+        "to be"
+      ],
+      [
+        "Thank you for (being / be) honest.",
+        "being"
+      ],
+      [
+        "Let’s take it one step (at / in) a time.",
+        "at"
+      ]
+    ],
+    "choices": [
+      [
+        "\"I am not angry anymore.\" What does it mean?",
+        "The anger has stopped.",
+        "He has never been angry.",
+        "A"
+      ],
+      [
+        "Which question asks about feelings without pushing an answer?",
+        "You must be upset, right?",
+        "How did you feel when that happened?",
+        "B"
+      ],
+      [
+        "Which line gives clear reassurance with a reason?",
+        "I want to be with you, and I will tell you if I worry.",
+        "Nothing will ever be difficult again.",
+        "A"
+      ],
+      [
+        "What do Leo and Nao agree to do?",
+        "Never talk about worries.",
+        "Talk honestly and go step by step.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Nao beside the river. Your tutor is Leo. You enjoyed the date, but the unexpected meeting made you worry about how he feels. You and Emma are still friends.",
+        "あなたは川のそばにいるナオ役、講師はレオ役です。デートは楽しかったですが、思いがけない再会でレオの気持ちが気になりました。あなたとエマは今も友達です。"
+      ],
+      "task": [
+        "Ask how Leo felt, share your concern without blaming him, and ask if he is comfortable dating you. Respond to his explanation, and agree on what to do if a worry happens again.",
+        "レオの気持ちを聞き、決め付けずに心配を伝え、付き合うことに無理がないか確認しましょう。説明に返事をして、また心配が出た時の方法を決めましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Nao"
+      ],
+      "text": "",
+      "title": "",
+      "lines": [
+        "How did you feel when you saw Emma and Ren together?",
+        "What is one worry you have, and why?",
+        "Are you comfortable dating me, even though Emma and I are friends?",
+        "Thank you for explaining. What should we do if we feel worried again?",
+        "Do you want to talk more now, or walk for a while?"
+      ],
+      "evidence": "Tutor evidence note: The student asks an open feeling question, shares a concern about the friendship/history without accusing, asks “Are you comfortable with ...?”, responds with thanks/understanding, and agrees to talk again and go step by step. Discomfort does not mean he wants Emma back.",
+      "useful": [
+        "How did you feel about ...?",
+        "I was worried because ...",
+        "Are you comfortable with ...?",
+        "Thank you for explaining.",
+        "If something worries us, we can ..."
+      ]
+    },
+    "topics": [
+      [
+        "Checking Understanding",
+        [
+          "How can you ask before you assume?",
+          "What can you say if you do not understand yet?",
+          "How can you show you listened?"
+        ]
+      ],
+      [
+        "Mixed Feelings",
+        [
+          "What is the difference between nervous and uncomfortable?",
+          "How can a feeling change in one day?",
+          "How can you ask if someone wants to talk?"
+        ]
+      ],
+      [
+        "Moving at a Shared Pace",
+        [
+          "How do you suggest going slowly?",
+          "What can two people agree to check later?",
+          "How can you reassure with a simple reason?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Reassure\" means helping someone feel less worried. It is different from \"assure,\" which often means saying something is true with confidence.",
+      "reassure は相手の不安をやわらげることです。assure は「本当だ」と自信をもって伝える意味でよく使われます。"
+    ],
+    "triviaQuestion": [
+      "Which verb means helping someone feel less worried: reassure or reserve?",
+      "Reassure."
+    ],
+    "closing": "Nao and Leo agree to be honest and take their relationship one step at a time. The next week, Claire invites Emma to contribute photographs to a second weekend market."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

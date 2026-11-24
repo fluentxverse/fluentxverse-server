@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 4,
+  "number": 7,
+  "sourceDigest": "51b1ae0c8a7d2d042e2cd51b387fde8d638931be6c261ef18a3dec112e3a4132",
+  "episode": {
+    "title": "The Big Presentation",
+    "skill": "speaking",
+    "intro": [
+      "Emma and Ren show the Kamo Collective website mock-up and poster. The design connects local creativity, food, and community. The new Sunday date is clear. Ren jokes it looks professional because two designers made it. Leo says they are helping friends, not doing paid work. The team wants clearer mobile text and a stronger date label before approval.",
+      "エマとレンはKamo Collectiveのサイト案（モックアップ）とポスターを見せます。地域の創作・食べ物・つながりをまとめたデザインです。新しい日曜日の日程が目立つようにあります。レンが「デザイナー2人だからプロっぽい」と冗談を言い、レオは有料の仕事ではなく友達の手伝いだと言います。チームは、スマホの文字と日付をもっと分かりやすくしてから承認します。"
+    ],
+    "goal": [
+      "I can explain a proposal, answer questions, and respond to feedback.",
+      "提案を説明し、質問に答え、意見に対応できる。"
+    ],
+    "warmup": "How can you explain one design benefit in one short sentence?",
+    "words": [
+      [
+        "Our proposal is a clear event page for Kamo Collective.",
+        "Our proposal",
+        "私たちの提案は、Kamo Collectiveの分かりやすいイベントページです。"
+      ],
+      [
+        "The main benefit is quick access to the schedule on a phone.",
+        "The main benefit",
+        "主な利点は、スマホで予定をすぐ見られることです。"
+      ],
+      [
+        "This is a mock-up, not the live website.",
+        "mock-up",
+        "これは本番のサイトではなく、完成イメージの案（モックアップ）です。"
+      ],
+      [
+        "Could you clarify the mobile reading concern?",
+        "clarify",
+        "スマホでの読みづらさについて、詳しく教えてもらえますか。"
+      ],
+      [
+        "We can make the date label more readable on phones.",
+        "more readable",
+        "スマホで日付表示をもっと読みやすくできます。"
+      ],
+      [
+        "Please approve the revised version before we post it.",
+        "approve the revised version",
+        "投稿する前に、修正版を承認してください。"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is Claire. Explain one benefit, ask about a concern, and suggest a revision.",
+      "あなたはエマ役、講師はクレア役です。利点を一つ説明し、気になる点を尋ね、修正案を提案しましょう。"
+    ],
+    "followup": "How would you confirm the Sunday date is shown in every version?",
+    "tips": [
+      {
+        "rule": [
+          "Use: Our proposal is ... Then add one reason: The main benefit is ...",
+          "Our proposal is ... で提案を言い、The main benefit is ... で利点を1つ言いましょう。"
+        ],
+        "examples": [
+          [
+            "Our proposal is one page for stalls and workshops.",
+            "提案は、出店とワークショップを1ページにまとめることです。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Clarify feedback before you change the design. Then agree on specific fixes.",
+          "デザインを変える前に意見を確認し、その後で具体的な修正を決めましょう。"
+        ],
+        "examples": [
+          [
+            "Do you mean the date is too small on phones?",
+            "スマホでは日付が小さすぎるという意味ですか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Claire asks questions while Emma shows the design mock-up.",
+        "クレアが質問しながら、エマがデザイン案（モックアップ）を見せます。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Claire",
+          "What is your proposal for the event page?"
+        ],
+        [
+          "Emma",
+          "Our proposal is one clear page for stalls and workshops."
+        ],
+        [
+          "Claire",
+          "What is the main benefit for visitors?"
+        ],
+        [
+          "Emma",
+          "The main benefit is they can find the schedule quickly."
+        ],
+        [
+          "Claire",
+          "Is the market date now Sunday in this mock-up?"
+        ],
+        [
+          "Emma",
+          "Yes, it is Sunday, and it runs from ten to two."
+        ],
+        [
+          "Claire",
+          "On my phone, the date is still small. Could you change it?"
+        ],
+        [
+          "Emma",
+          "Sure. Do you mean the date label needs to be bigger?"
+        ],
+        [
+          "Claire",
+          "Yes, and please put the hours next to the date."
+        ],
+        [
+          "Emma",
+          "Okay. We will update it and send the revised version for approval."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "What is Emma’s proposal?",
+          "One clear page for stalls and workshops."
+        ],
+        [
+          "What is the main benefit?",
+          "Visitors can find the schedule quickly."
+        ],
+        [
+          "What day is the market now?",
+          "Sunday."
+        ],
+        [
+          "What two changes does Claire request?",
+          "A bigger date label and hours next to the date."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Our proposal (is / are) one clear page.",
+        "is"
+      ],
+      [
+        "The main benefit is (that / to) visitors find the schedule quickly.",
+        "that"
+      ],
+      [
+        "Could you (clarify / clarified) that concern?",
+        "clarify"
+      ],
+      [
+        "We can make the date label more (readable / readably).",
+        "readable"
+      ],
+      [
+        "Please approve the (revised / revise) version.",
+        "revised"
+      ],
+      [
+        "We will not post it before the final (check / checked).",
+        "check"
+      ]
+    ],
+    "choices": [
+      [
+        "Which sentence explains a benefit?",
+        "Visitors can find the schedule quickly.",
+        "The page is green.",
+        "A"
+      ],
+      [
+        "Claire says the date is hard to read on a phone. What should Emma do?",
+        "Ask what is hard to read, then revise it.",
+        "Ignore the comment and post it now.",
+        "A"
+      ],
+      [
+        "Which date should be shown on the new materials?",
+        "Sunday",
+        "Saturday",
+        "A"
+      ],
+      [
+        "When should the team post the design?",
+        "After the requested changes and final approval",
+        "Before approval because it is only a mock-up",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma showing the Kamo Collective mock-up. Claire must read the Sunday date and hours clearly on a phone.",
+        "あなたはKamo Collectiveのモックアップを見せるエマ役です。クレアはスマホで日曜日の日付と時間をはっきり読みたいです。"
+      ],
+      "task": [
+        "Explain the proposal and one benefit. Clarify Claire’s phone concern. Agree on two improvements. Confirm the final check and approval before posting.",
+        "提案と利点を説明し、スマホでの問題点を確認し、修正を2つ決め、投稿前の最終確認と承認を約束しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "text": "",
+      "title": "Mock-up Feedback Call",
+      "lines": [
+        "Emma, what is your proposal in one sentence?",
+        "Who will this help, and why?",
+        "Can you confirm the new day and time?",
+        "On my phone, what looks hard to read?",
+        "What two improvements will you make?",
+        "What will happen before you post the revised version?"
+      ],
+      "evidence": "Tutor evidence note: Student states one-page online proposal (stalls + workshops) and one benefit (easy schedule on phone). Student confirms Sunday 10:00–2:00. Student clarifies the concern (date label small; hours hard to see) and agrees to two fixes (bigger Sunday date label + hours beside it). Student confirms process: Ren checks all versions and Claire approves before posting. Conversation stays friendly and is not a paid commission.",
+      "useful": [
+        "Our proposal is ...",
+        "The main benefit is ...",
+        "Do you mean ...?",
+        "We could improve ... by ...",
+        "Before posting, we will ..."
+      ]
+    },
+    "topics": [
+      [
+        "EXPLAINING A BENEFIT",
+        [
+          "What problem does your idea solve?",
+          "How can you explain it in one sentence?",
+          "What simple example can you give?"
+        ]
+      ],
+      [
+        "RESPONDING TO FEEDBACK",
+        [
+          "What should you clarify before you change something?",
+          "How can you say yes politely?",
+          "Who should approve the next version?"
+        ]
+      ],
+      [
+        "DESIGN AND INFORMATION",
+        [
+          "What event details must be easy to find?",
+          "What is often hard to read on a phone?",
+          "Why must every version show the same date?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Pull it off\" means succeed at something difficult. When Claire says \"We can pull this off,\" she shows confidence in the event.",
+      "pull it off は「難しいことをやり遂げる」という意味です。クレアの We can pull this off. はイベント成功への自信です。"
+    ],
+    "triviaQuestion": [
+      "Does \"We can pull this off\" mean succeed or remove a poster?",
+      "It means succeed."
+    ],
+    "closing": "Emma and Ren revise the mobile text and the Sunday date label, and Claire approves the final design. Nao goes to the Saturday gallery opening. On Sunday morning, the team sets up Kamo Collective as heavy rain begins."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

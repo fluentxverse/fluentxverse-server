@@ -1,0 +1,233 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 2,
+  "number": 8,
+  "sourceDigest": "3775a7a8a5d27e1f039338b5b680a5d8ecff84e781006b275d27ca7c95a51cb0",
+  "episode": {
+    "title": "A Special Souvenir",
+    "skill": "reading",
+    "goal": [
+      "I can read a product card and explain a gift order.",
+      "商品カードを読み、贈り物の注文を説明できる。"
+    ],
+    "intro": [
+      "Emma sees a blue cup in a ceramics shop. It is more expensive than she planned, so she leaves it. Leo goes back later and buys it. That evening, he gives Emma the cup. Claire and Nao smile at each other.",
+      "エマは陶芸店で青いカップを見つけます。予算より高いので買わずに帰ります。レオは後で戻って買います。その晩、エマにカップを渡します。クレアとナオは顔を見合わせて笑います。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "The cup costs 2,400 yen.",
+        "costs",
+        "そのカップは2,400円です。"
+      ],
+      [
+        "Wrapping is included.",
+        "included",
+        "包装が含まれます。"
+      ],
+      [
+        "The box costs extra.",
+        "extra",
+        "箱は追加料金です。"
+      ],
+      [
+        "Please hand wash it.",
+        "hand wash",
+        "手洗いしてください。"
+      ],
+      [
+        "Keep the receipt.",
+        "receipt",
+        "レシートを取っておいてください。"
+      ],
+      [
+        "Collect it at the counter.",
+        "collect",
+        "カウンターで受け取ってください。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use How much ...? to ask a price.",
+          "How much ...? で値段を尋ねます。"
+        ],
+        "examples": [
+          [
+            "How much is this?",
+            "これはいくらですか。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use Can I + verb? to ask politely.",
+          "Can I ＋動詞? で丁寧に尋ねます。"
+        ],
+        "examples": [
+          [
+            "Can I pay by card?",
+            "カードで払えますか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read two fictional product cards from the ceramics shop. Compare the cups before deciding which suits a buyer.",
+        "陶芸店の架空の商品カードを二つ読みましょう。購入する人に合うものを決める前に、カップを比較しましょう。"
+      ],
+      "text": "<p><strong>Blue River Cup</strong><br>2,400 yen each | 250 ml<br>Handmade blue ceramic cup<br>Gift wrapping included<br>Hand wash only. Not microwave-safe.</p><p><strong>White Morning Cup</strong><br>1,800 yen each | 300 ml<br>White ceramic cup<br>Gift wrapping: 100 yen extra<br>Dishwasher-safe and microwave-safe.</p><p>Practice shop information. Prices and product rules are fictional.</p>",
+      "questions": [
+        [
+          "Which cup is cheaper?",
+          "The White Morning Cup."
+        ],
+        [
+          "Which cup holds 300 ml?",
+          "The White Morning Cup."
+        ],
+        [
+          "Which cup includes wrapping?",
+          "The Blue River Cup."
+        ],
+        [
+          "Can the blue cup go in a microwave?",
+          "No."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "How (much / many) is this?",
+        "much"
+      ],
+      [
+        "Can I (pay / paid) by card?",
+        "pay"
+      ],
+      [
+        "I would (like / likes) two.",
+        "like"
+      ],
+      [
+        "What is (inside / between) this box?",
+        "inside"
+      ],
+      [
+        "How many cups (do / does) you need?",
+        "do"
+      ],
+      [
+        "Is the bag (free / freely)?",
+        "free"
+      ]
+    ],
+    "choices": [
+      [
+        "Which cup is cheaper?",
+        "The White Morning Cup.",
+        "The Blue River Cup.",
+        "A"
+      ],
+      [
+        "Which cup holds 300 ml?",
+        "The Blue River Cup.",
+        "The White Morning Cup.",
+        "B"
+      ],
+      [
+        "Which cup includes wrapping?",
+        "The Blue River Cup.",
+        "Neither cup.",
+        "A"
+      ],
+      [
+        "Can the blue cup go in a microwave?",
+        "Yes.",
+        "No.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "Leo returns to the shop to buy the cup Emma liked. You are the shop assistant; your tutor is Leo. Read the fictional order and care information, then help him buy a gift.",
+        "レオがエマの気に入ったカップを買うために戻ってきます。あなたは店員役、講師はレオ役です。架空の注文・取り扱い情報を読み、贈り物選びを手伝いましょう。"
+      ],
+      "task": [
+        "Read the order card. Explain the total, wrapping, care, and collection to Leo.",
+        "注文カードを読み、合計、包装、取り扱い、受け取りをレオに説明しましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "the shop assistant"
+      ],
+      "title": "Gift Order - Practice Shop",
+      "text": "<p><strong>Blue River Cup gift order</strong><br>One cup: 2,400 yen, tax included.<br>Paper gift wrapping and a blank message card: included.<br>Gift box: optional, 300 yen extra.<br>Allow 15 minutes for wrapping. Collect at the counter with your receipt.<br>Care: hand wash only. Do not use in a microwave or dishwasher.<br>No delivery service.</p><p>Shop closing time: 6 p.m. These are fictional practice conditions.</p>",
+      "lines": [
+        "How much is one blue cup with paper wrapping?",
+        "Is a card included? Is a box free?",
+        "How much is it with a box?",
+        "When and where can I collect it?",
+        "Can I use a microwave or dishwasher?",
+        "Can you deliver it? What time do you close?"
+      ],
+      "evidence": "2,400 yen with paper/card; box optional +300, total 2,700; 15 minutes/counter/receipt; hand wash, no dishwasher or microwave; no delivery/collect by 6. Student may reread throughout. No real returns policy or product safety claim is implied.",
+      "useful": [
+        "It costs ...",
+        "... is included.",
+        "The box is ... extra.",
+        "Please collect it ...",
+        "Do not use ..."
+      ]
+    },
+    "topics": [
+      [
+        "DAYS OUT",
+        [
+          "Where do you like to go?",
+          "Who do you go with?",
+          "What do you take?"
+        ]
+      ],
+      [
+        "SHOPPING",
+        [
+          "What do you like to buy?",
+          "Do you pay by card?",
+          "What gift would you choose?"
+        ]
+      ],
+      [
+        "TRAVEL PLANS",
+        [
+          "How do you travel?",
+          "What time do you like to start?",
+          "What do you do on a rainy day?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Gift” and “present” can both mean something you give someone. “A gift shop” sells presents, not only gift boxes.",
+      "gift と present は、どちらも贈り物を表せます。gift shop は贈り物を売る店で、箱だけを売る店ではありません。"
+    ],
+    "triviaQuestion": [
+      "Can “gift” and “present” mean the same thing?",
+      "Yes."
+    ],
+    "closing": "That evening Leo gives Emma the blue cup. \"You remembered?\" she asks. \"Of course I did,\" he replies, a little shyly. Claire and Nao share a smile across the table."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

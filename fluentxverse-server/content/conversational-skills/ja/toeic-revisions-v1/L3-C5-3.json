@@ -1,0 +1,233 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 5,
+  "number": 3,
+  "sourceDigest": "35d243bb4a03c07daabd7a9617036cf82918d731f553fbe7fbc755f418a183d4",
+  "episode": {
+    "title": "Working Late",
+    "skill": "reading",
+    "goal": [
+      "I can read changing work times and explain a new plan.",
+      "変更された仕事の時刻を読み、新しい予定を説明できる。"
+    ],
+    "intro": [
+      "Emma and Ren work late on a project. The client wants changes. Leo asks when Emma can meet in Kyoto. Emma needs to give him the latest deadline and explain that her finish time is not certain.",
+      "エマとレンはプロジェクトで残業しています。顧客が変更を求めています。レオは京都でいつ会えるか尋ねます。エマは最新の締め切りを伝え、終了時刻は確定していないと説明する必要があります。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "The client wants a change.",
+        "change",
+        "顧客は変更を求めています。"
+      ],
+      [
+        "The deadline is seven.",
+        "deadline",
+        "締め切りは7時です。"
+      ],
+      [
+        "We may finish at seven-thirty.",
+        "may",
+        "7時30分に終わるかもしれません。"
+      ],
+      [
+        "That is not certain.",
+        "certain",
+        "それは確かではありません。"
+      ],
+      [
+        "I will send an update.",
+        "update",
+        "新しい状況を知らせます。"
+      ],
+      [
+        "I do not know my arrival time.",
+        "arrival time",
+        "到着時刻は分かりません。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use will + verb for a future action.",
+          "will ＋動詞で、これからすることを伝えます。"
+        ],
+        "examples": [
+          [
+            "I will send a message.",
+            "メッセージを送ります。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use before or after to show the order.",
+          "before や after で順番を表します。"
+        ],
+        "examples": [
+          [
+            "I will ask before I decide.",
+            "決める前に尋ねます。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read the project messages and Leo's message. Find the latest information before replying.",
+        "プロジェクトの連絡とレオのメッセージを読みましょう。返事をする前に最新の情報を確認しましょう。"
+      ],
+      "text": "<p><strong>Monday project updates</strong></p><p>4:00 p.m. - Team lead: We expect to finish at six today.</p><p>5:15 p.m. - Team lead: The client needs a new cover. Send the revised files by seven. We may finish around seven thirty, but that is not confirmed.</p><p>5:20 p.m. - Ren: I can check the files while you finish the cover.</p><p>5:25 p.m. - Leo: Are we still meeting in Kyoto at seven? Please let me know before I leave the bakery.</p>",
+      "questions": [
+        [
+          "Why does the plan change?",
+          "The client wants a new cover."
+        ],
+        [
+          "What is the file deadline in Apply?",
+          "Seven."
+        ],
+        [
+          "Is seven-thirty a certain finish?",
+          "No."
+        ],
+        [
+          "When does Leo need an update?",
+          "Before he leaves the bakery."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I will (send / sent) a message.",
+        "send"
+      ],
+      [
+        "She will (help / helps) us.",
+        "help"
+      ],
+      [
+        "We will (meet / met) tomorrow.",
+        "meet"
+      ],
+      [
+        "I will ask (before / between) I decide.",
+        "before"
+      ],
+      [
+        "I will rest (after / among) work.",
+        "after"
+      ],
+      [
+        "Will you (come / came)?",
+        "come"
+      ]
+    ],
+    "choices": [
+      [
+        "Why does the plan change?",
+        "The client wants a new cover.",
+        "The office is closed.",
+        "A"
+      ],
+      [
+        "What is the file deadline in Apply?",
+        "Six.",
+        "Seven.",
+        "B"
+      ],
+      [
+        "Is seven-thirty a certain finish?",
+        "No.",
+        "Yes.",
+        "A"
+      ],
+      [
+        "When does Leo need an update?",
+        "Only next week.",
+        "Before he leaves the bakery.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Leo, calling about tonight's plan. Read the new update card. These times replace the earlier messages.",
+        "あなたはエマ役、講師は今夜の予定について電話してきたレオ役です。新しい連絡カードを読みましょう。このカードの時刻が前の連絡に代わる最新情報です。"
+      ],
+      "task": [
+        "Read the new update. Explain the deadline and possible finish. Tell Leo when you will message again.",
+        "新しい連絡を読み、締め切りと終了見込みを説明しましょう。次に連絡する時刻をレオに伝えましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "title": "Latest Update - Tonight's Plan",
+      "text": "<p><strong>New update, 6:10 p.m.</strong><br>The client wants one more change. File deadline: 8 p.m. Possible finish: about 8:30, not certain. Ren checks images. Emma finishes the cover.</p><p>Emma must cancel the seven p.m. Kyoto meeting. Send Leo another update by 7:30, even if work is not finished. Arrival time in Kyoto is unknown. Check travel after work.</p>",
+      "lines": [
+        "Are we still meeting at seven?",
+        "What changed? When are the files due?",
+        "Will you certainly finish at eight-thirty?",
+        "When will you message again?",
+        "Should I wait at the station?",
+        "Please tell me when you know your travel plan."
+      ],
+      "evidence": "Latest deadline eight, estimated finish eight thirty, update by seven thirty even unfinished. Explain client change; cancel seven meeting, acknowledge inconvenience, do not invent train or arrival times. Agree a practical next step with Leo.",
+      "useful": [
+        "The deadline is ...",
+        "We may finish at ...",
+        "That is not certain.",
+        "I will message by ...",
+        "I do not know ... yet."
+      ]
+    },
+    "topics": [
+      [
+        "KEEPING IN TOUCH",
+        [
+          "Do you call or send messages?",
+          "When do you call a friend?",
+          "What do you say when you are busy?"
+        ]
+      ],
+      [
+        "CHANGING PLANS",
+        [
+          "What do you say when you are late?",
+          "Who needs to know about a change?",
+          "How do you choose a new time?"
+        ]
+      ],
+      [
+        "LISTENING",
+        [
+          "What helps you listen?",
+          "How do you ask someone to repeat?",
+          "How do you show you understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“By seven” means no later than seven. “At seven” gives an exact time. These small words can change a plan.",
+      "by seven は7時までに、at seven は7時に、という意味です。短い語でも予定の意味が変わります。"
+    ],
+    "triviaQuestion": [
+      "Does “by seven” mean no later than seven?",
+      "Yes."
+    ],
+    "closing": "Emma sends Leo a clearer update. After the project is completed, Ren invites her to dinner to celebrate."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

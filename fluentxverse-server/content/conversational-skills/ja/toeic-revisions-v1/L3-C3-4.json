@@ -1,0 +1,275 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 3,
+  "number": 4,
+  "sourceDigest": "f5b7fc59a4bf3314d6a987872517fdb270491100b3245b4ad55b4a95aa660d16",
+  "episode": {
+    "title": "Dinner at Kamo House",
+    "skill": "speaking",
+    "goal": [
+      "I can ask about food amounts and share cooking jobs.",
+      "材料の量を尋ね、料理の分担を決められる。"
+    ],
+    "intro": [
+      "The friends cook dinner after helping at the cafe. Leo wants pasta. Nao prefers rice, and Claire wants vegetables. Emma helps them choose a meal. All four try to be the chef, and everyone laughs.",
+      "カフェを手伝った後、四人は夕食を作ります。レオはパスタ、ナオはご飯、クレアは野菜を希望します。エマは料理を決めるのを手伝います。全員が料理長になろうとするので、みんな笑います。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "I prefer rice.",
+        "prefer",
+        "ご飯のほうが好きです。"
+      ],
+      [
+        "How much pasta?",
+        "How much",
+        "パスタはどのくらいですか。"
+      ],
+      [
+        "How many tomatoes?",
+        "How many",
+        "トマトはいくつですか。"
+      ],
+      [
+        "I can make the sauce.",
+        "sauce",
+        "ソースを作れます。"
+      ],
+      [
+        "Please chop the tomatoes.",
+        "chop",
+        "トマトを切ってください。"
+      ],
+      [
+        "Claire can set the table.",
+        "set the table",
+        "クレアが食卓を準備できます。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use How many for things you can count.",
+          "数えられるものには How many を使います。"
+        ],
+        "examples": [
+          [
+            "How many cups do we need?",
+            "カップはいくつ必要ですか。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use How much for an amount or price.",
+          "量や値段には How much を使います。"
+        ],
+        "examples": [
+          [
+            "How much pasta do we need?",
+            "パスタはどのくらい必要ですか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Leo and Emma turn everyone's suggestions into a dinner plan. Read their conversation.",
+        "レオとエマが、みんなの提案をまとめて夕食の予定を決めます。会話を読みましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Leo",
+          "Pasta for dinner?"
+        ],
+        [
+          "Emma",
+          "Nao prefers rice, but pasta with vegetables is okay."
+        ],
+        [
+          "Leo",
+          "Tomato pasta and salad?"
+        ],
+        [
+          "Emma",
+          "Yes. How much pasta for four?"
+        ],
+        [
+          "Leo",
+          "Four hundred grams."
+        ],
+        [
+          "Emma",
+          "How many tomatoes?"
+        ],
+        [
+          "Leo",
+          "Four. Can you chop them? I’ll make the sauce."
+        ],
+        [
+          "Emma",
+          "Yes. Nao can make salad."
+        ],
+        [
+          "Leo",
+          "And Claire can set the table."
+        ],
+        [
+          "Emma",
+          "Four cooks, one dinner!"
+        ]
+      ],
+      "questions": [
+        [
+          "What meal do they choose?",
+          "Tomato pasta and salad."
+        ],
+        [
+          "How much pasta do they plan to use?",
+          "400 grams."
+        ],
+        [
+          "How many tomatoes?",
+          "Four."
+        ],
+        [
+          "Who makes the salad?",
+          "Nao."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "How (many / much) cups do we need?",
+        "many"
+      ],
+      [
+        "How (much / many) pasta do we need?",
+        "much"
+      ],
+      [
+        "We need four (tomatoes / tomato).",
+        "tomatoes"
+      ],
+      [
+        "How much (is / are) it?",
+        "is"
+      ],
+      [
+        "We have two (menus / menu).",
+        "menus"
+      ],
+      [
+        "Do we have (enough / many) water?",
+        "enough"
+      ]
+    ],
+    "choices": [
+      [
+        "What meal do they choose?",
+        "Tomato pasta and salad.",
+        "Only rice.",
+        "A"
+      ],
+      [
+        "How much pasta do they plan to use?",
+        "Four kilograms.",
+        "400 grams.",
+        "B"
+      ],
+      [
+        "How many tomatoes?",
+        "Four.",
+        "Ten.",
+        "A"
+      ],
+      [
+        "Who makes the salad?",
+        "Claire.",
+        "Nao.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Leo. You are planning dinner for four: pasta with tomato sauce and salad. You have 500 grams of pasta, four tomatoes, and one lettuce. Claire can set the table, and Nao can make the salad.",
+        "あなたはエマ役、講師はレオ役です。四人分のトマトソースのパスタとサラダを計画しています。パスタ500グラム、トマト四つ、レタス一つがあります。クレアは食卓の準備、ナオはサラダ作りができます。"
+      ],
+      "task": [
+        "Check the food amounts. Choose how much to use. Agree on each person’s cooking job.",
+        "材料の量を確認し、使う量を決めましょう。一人ずつの料理の担当を確認しましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "lines": [
+        "Shall we make tomato pasta and salad?",
+        "We have 500 grams of pasta. How much will we use?",
+        "We have four tomatoes. Is that enough?",
+        "I can make sauce. Can you chop the vegetables?",
+        "What can Nao and Claire do?"
+      ],
+      "evidence": "Use how much/how many appropriately, agree on practical quantities from available ingredients, make/respond to a request, confirm four roles. Different sensible pasta quantities are acceptable; this is language practice, not a recipe test.",
+      "useful": [
+        "How much ...?",
+        "How many ...?",
+        "We have ...",
+        "I can ...",
+        "Can you ...?"
+      ]
+    },
+    "topics": [
+      [
+        "DAILY LIFE",
+        [
+          "What time do you start work or study?",
+          "When do you have dinner?",
+          "What do you do on Sundays?"
+        ]
+      ],
+      [
+        "HELPING",
+        [
+          "Who helps you?",
+          "How can you help a friend?",
+          "How do you say thank you?"
+        ]
+      ],
+      [
+        "TALKING TO FRIENDS",
+        [
+          "What do you talk about?",
+          "How do you invite a friend?",
+          "What can you say when you do not understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“From scratch” means starting with basic ingredients. “I made this sauce from scratch” means it was not a ready-made sauce.",
+      "料理の from scratch は、基本の材料から作ることです。I made this sauce from scratch は、市販のソースではなく、一から作ったという意味です。"
+    ],
+    "triviaQuestion": [
+      "Is a sauce “from scratch” ready-made?",
+      "No."
+    ],
+    "closing": "Dinner ends with laughter and a very full table. After the Lesson 5 checkpoint, Emma tells Nao about something she saw at lunch earlier in the week."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

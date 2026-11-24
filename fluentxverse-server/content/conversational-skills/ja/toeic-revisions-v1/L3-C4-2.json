@@ -1,0 +1,231 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 4,
+  "number": 2,
+  "sourceDigest": "fc01c942c9ab793d885da71e1c266c625082ee9191bc168dca073800fc4c8d8a",
+  "episode": {
+    "title": "Leo's New Challenge",
+    "skill": "listening",
+    "goal": [
+      "I can understand a short food update and check the tasting plan.",
+      "食べ物についての短い連絡を聞き、試食の予定を確認できる。"
+    ],
+    "intro": [
+      "Leo’s manager wants a new pastry. It must be easy to serve and not cost too much. Leo’s first batch is too sweet. He asks his friends to taste an apple pastry with less sugar before the manager’s tasting.",
+      "レオの上司は新しい菓子パンを求めています。出しやすく、材料費が高すぎないものです。最初の試作は甘すぎました。レオは砂糖を減らしたリンゴの菓子パンを、上司の試食前に友人たちに食べてもらいます。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "We need a new pastry.",
+        "pastry",
+        "新しい菓子パンが必要です。"
+      ],
+      [
+        "It is too sweet.",
+        "too sweet",
+        "甘すぎます。"
+      ],
+      [
+        "I will use less sugar.",
+        "less sugar",
+        "砂糖を減らします。"
+      ],
+      [
+        "Can you taste it?",
+        "taste",
+        "試食してもらえますか。"
+      ],
+      [
+        "Please send your notes.",
+        "notes",
+        "感想のメモを送ってください。"
+      ],
+      [
+        "The tasting is on Wednesday.",
+        "tasting",
+        "試食は水曜日です。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use will + verb for a future action.",
+          "will ＋動詞で、これからすることを伝えます。"
+        ],
+        "examples": [
+          [
+            "I will send a message.",
+            "メッセージを送ります。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use before or after to show the order.",
+          "before や after で順番を表します。"
+        ],
+        "examples": [
+          [
+            "I will ask before I decide.",
+            "決める前に尋ねます。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Listen to Leo's update about his first pastry test. Identify the problem, the requirements, and what he asks his friends to do.",
+        "レオの最初の試作についての連絡を聞きましょう。問題、条件、友達への依頼を聞き取りましょう。"
+      ],
+      "text": "<p>My manager wants a new pastry. It must be easy to serve and not too expensive to make. My first batch was too sweet. I am trying an apple pastry with less sugar. Can you taste it on Sunday? My manager’s tasting is next Wednesday at three.</p>",
+      "questions": [
+        [
+          "What was wrong with the first batch?",
+          "It was too sweet."
+        ],
+        [
+          "What does the manager want?",
+          "Easy to serve and not too expensive to make."
+        ],
+        [
+          "When will the friends taste it?",
+          "Sunday."
+        ],
+        [
+          "When is the manager’s tasting?",
+          "Wednesday at three."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I will (send / sent) a message.",
+        "send"
+      ],
+      [
+        "She will (help / helps) us.",
+        "help"
+      ],
+      [
+        "We will (meet / met) tomorrow.",
+        "meet"
+      ],
+      [
+        "I will ask (before / between) I decide.",
+        "before"
+      ],
+      [
+        "I will rest (after / among) work.",
+        "after"
+      ],
+      [
+        "Will you (come / came)?",
+        "come"
+      ]
+    ],
+    "choices": [
+      [
+        "What was wrong with the first batch?",
+        "It was too sweet.",
+        "It had no apples.",
+        "A"
+      ],
+      [
+        "What does the manager want?",
+        "Expensive and hard to serve.",
+        "Easy to serve and not too expensive to make.",
+        "B"
+      ],
+      [
+        "When will the friends taste it?",
+        "Sunday.",
+        "Friday.",
+        "A"
+      ],
+      [
+        "When is the manager’s tasting?",
+        "Monday at six.",
+        "Wednesday at three.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor reads Leo's latest message, then plays Claire. You are helping organize the friends' feedback before Leo's manager tries the pastry.",
+        "あなたはエマ役です。講師はレオの最新の連絡を読んでからクレア役になります。店長の試食に向けて、友達の感想をまとめる手伝いをしています。"
+      ],
+      "task": [
+        "Listen for the samples, times, and feedback. Tell Claire what to prepare.",
+        "試食品、時刻、感想の内容を聞き取り、準備することをクレアに伝えましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "text": "<p>I will bring six apple pastries on Sunday at four. Tell me about the sweetness and size, not the packaging. Send your notes by Monday evening. My manager will taste the final batch on Wednesday at three. I must finish the recipe card first.</p>",
+      "lines": [
+        "How many samples? When?",
+        "What two things should we comment on?",
+        "Does he need packaging comments now?",
+        "When must we send the notes?",
+        "When is the manager’s tasting? What must Leo finish first?"
+      ],
+      "evidence": "Six samples/Sunday4; sweetness and size, not packaging; notes by Monday evening; manager Wednesday3; recipe card first. Score recovered information and use repetition where needed.",
+      "useful": [
+        "He will bring ...",
+        "The tasting is ...",
+        "He needs comments on ...",
+        "Send notes by ...",
+        "He must finish ... first."
+      ]
+    },
+    "topics": [
+      [
+        "WORK",
+        [
+          "What work do you enjoy?",
+          "Do you like working with others?",
+          "What would you like to learn?"
+        ]
+      ],
+      [
+        "PLANNING",
+        [
+          "How do you remember a date?",
+          "Who can help with a plan?",
+          "What do you check first?"
+        ]
+      ],
+      [
+        "IDEAS",
+        [
+          "What would you like to make?",
+          "Who can you ask for help?",
+          "How do you say you like an idea?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“A batch” is a group made at one time. A baker can make one batch of six pastries, then another batch later.",
+      "batch は、一度に作るひとまとまりです。パン屋では、一回に六個作り、後でもう一回作ることがあります。"
+    ],
+    "triviaQuestion": [
+      "Is a batch made at one time?",
+      "Yes."
+    ],
+    "closing": "Leo works on his next test. Claire sees how much an activity can bring people together and starts planning weekly workshops at the cafe."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

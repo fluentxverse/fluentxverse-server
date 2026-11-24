@@ -1,0 +1,235 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 5,
+  "number": 8,
+  "sourceDigest": "71ae03fe21de302d0a578a4ffccdb5517ab140d34e104527e989114d5f40427d",
+  "episode": {
+    "title": "The Things We Leave Behind",
+    "skill": "reading",
+    "intro": [
+      "A few days before Emma and Ren leave for a three-month assignment, Claire plans a farewell dinner at Kamo House. Leo cooks, Nao brings a handmade cup, and Claire makes a photo album. Emma and Leo talk calmly outside. They cannot change the past, but they can learn from it and wish each other well.",
+      "エマとレンが3か月の現地勤務に出発する数日前、クレアがKamo Houseで送別の夕食を計画します。レオは料理を作り、ナオは手作りのカップを持ってきて、クレアは写真アルバムを作ります。エマとレオは外で落ち着いて話します。過去は変えられませんが、学び、互いの幸せを願えます。"
+    ],
+    "goal": [
+      "I can read farewell notes and reply with thanks and a clear plan.",
+      "送別のメモを読み、感謝と具体的な予定で返事ができる。"
+    ],
+    "warmup": "What makes a farewell message specific, not only polite?",
+    "words": [
+      [
+        "I am grateful for your support during the project.",
+        "grateful for",
+        "～に感謝している"
+      ],
+      [
+        "Please confirm you can join the first group call.",
+        "confirm",
+        "確認する"
+      ],
+      [
+        "The bakery is still being fitted out, so it is not open yet.",
+        "not open yet",
+        "まだ開いていない"
+      ],
+      [
+        "The opening date is not yet confirmed.",
+        "not yet confirmed",
+        "まだ確定していない"
+      ],
+      [
+        "Use the group chat for small updates between calls.",
+        "small updates",
+        "小さな近況"
+      ],
+      [
+        "This is a temporary assignment, not a permanent goodbye.",
+        "temporary assignment",
+        "一時的な現地勤務"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is Claire. Thank her for one clear memory and suggest how you will keep in touch.",
+      "あなたはエマ役、講師はクレア役です。具体的な思い出を一つ挙げて感謝し、連絡方法を提案しましょう。"
+    ],
+    "followup": "How can you turn “keep in touch” into a realistic plan?",
+    "tips": [
+      {
+        "rule": [
+          "Use “Looking back, …” and “I have learned …” with one specific memory.",
+          "「Looking back, …」「I have learned …」を使い、具体的な思い出を一つ入れましょう。"
+        ],
+        "examples": [
+          [
+            "Looking back, your invitation on my first day helped me a lot.",
+            "振り返ると、初日に誘ってくれたことがとても助けになりました。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use “Please confirm …” and give a clear time, place, and person.",
+          "「Please confirm …」を使い、時間・場所・誰が送るかをはっきり書きましょう。"
+        ],
+        "examples": [
+          [
+            "Please confirm you can join at 8 p.m. in Kyoto. Ren will send the link.",
+            "京都の午後8時に参加できるか確認してください。リンクはレンが送ります。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read three notes for a farewell album. Find each person’s memory, lesson, or hope.",
+        "送別アルバムの3つのメモを読みましょう。思い出、学び、希望を探しましょう。"
+      ],
+      "dialogue": [],
+      "text": "<p><strong>Notes for the farewell album</strong><br><strong>Claire:</strong> I remember inviting Emma downstairs on her first day. Now she helps build projects that bring people together. Looking back, I have learned that welcoming one person can start a bigger story.</p><p><strong>Nao:</strong> Emma noticed my camera before she knew much about my ceramics. Our walks gave me a friend and photos. I am grateful for her encouragement before my gallery presentation. I hope we keep sharing small updates, not only big achievements.</p><p><strong>Emma:</strong> I was not honest when things became difficult. I regret that. I cannot undo that, but I have learned to communicate more clearly. Three months away is not the end of these friendships.</p>",
+      "questions": [
+        [
+          "Who remembers the first invitation downstairs?",
+          "Claire."
+        ],
+        [
+          "What updates does Nao hope to share?",
+          "Small updates as well as big achievements."
+        ],
+        [
+          "What does Emma regret?",
+          "Not being honest sooner."
+        ],
+        [
+          "Is the assignment a permanent goodbye?",
+          "No. It lasts three months."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I am grateful (for / at) your support.",
+        "for"
+      ],
+      [
+        "Please (confirm / decide) you can join the call.",
+        "confirm"
+      ],
+      [
+        "The opening date is not yet (confirmed / confirming).",
+        "confirmed"
+      ],
+      [
+        "The bakery is not open (yet / already).",
+        "yet"
+      ],
+      [
+        "Use the group chat for small (updates / update).",
+        "updates"
+      ],
+      [
+        "This is a (temporary / forever) assignment.",
+        "temporary"
+      ]
+    ],
+    "choices": [
+      [
+        "Who will send the invitation link for the group call?",
+        "Ren",
+        "Leo",
+        "A"
+      ],
+      [
+        "Is Riverbend Bakery already open?",
+        "Yes, it is open now.",
+        "No, it is still being fitted out.",
+        "B"
+      ],
+      [
+        "When is the first group video call (Kyoto time)?",
+        "8 p.m. on the first Sunday after arrival",
+        "8 a.m. every Sunday",
+        "A"
+      ],
+      [
+        "What should they use between calls?",
+        "The group chat for small updates",
+        "Only formal emails for big news",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma at the farewell dinner. Your tutor is Claire. Read the new dinner note, then respond with thanks and a clear plan.",
+        "あなたは送別の夕食にいるエマ役、講師はクレア役です。新しいメモを読んで、感謝と具体的な予定で返事をしましょう。"
+      ],
+      "task": [
+        "Thank two friends for specific things. Say one thing you learned. Confirm the first call plan. Say that the bakery is not open yet.",
+        "二人に具体的に感謝し、学んだことを一つ言いましょう。最初の通話予定を確認し、パン屋はまだ開いていないと伝えましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "text": "<p><strong>Tonight and the next three months</strong><br><strong>Farewell dinner - Claire’s new note</strong><br>Leo has prepared dinner. Riverbend Bakery is still being fitted out, so its opening date is not yet confirmed. He will send photos when it is ready.<br><br>Nao has made Emma a travel cup and is preparing pieces for her upcoming Fukuoka exhibition. Claire has finished the photo album.<br><br>Emma and Ren have accepted the three-month Seoul assignment. They will return to their Japan-based roles afterward.<br><br>First group video call: the first Sunday after arrival, at 8 p.m. in Kyoto. Ren will send the invitation link. Please confirm you can join. Use the group chat for small updates between calls. Later call dates will be agreed separately.</p>",
+      "title": "Tonight and the next three months",
+      "lines": [
+        "Emma, who do you want to thank tonight, and why?",
+        "Can you thank two people with specific details?",
+        "What is one thing you have learned at Kamo House?",
+        "Is Riverbend Bakery open now, or not open yet?",
+        "When is the first group video call, and who sends the link?",
+        "How will we share small updates between calls?"
+      ],
+      "evidence": "Tutor evidence note: Student should use details from the note: bakery not open yet, opening date not confirmed, Leo cooked dinner, Nao made a travel cup and has an upcoming Fukuoka exhibition, Claire finished the album, three-month Seoul assignment then return to Japan-based roles, first call is first Sunday after arrival at 8 p.m. Kyoto time, Ren sends the link, group chat for small updates, later call dates not fixed. Do not say the bakery is already open or the exhibition is already finished.",
+      "useful": [
+        "Looking back, ...",
+        "Thank you for ...",
+        "I am grateful for ...",
+        "I have learned to ...",
+        "Please confirm you can ...",
+        "So our first call is ..."
+      ]
+    },
+    "topics": [
+      [
+        "SAYING THANK YOU",
+        [
+          "What makes a thank-you message specific?",
+          "What small gift can hold a strong memory?",
+          "What is one thing you can write in an album?"
+        ]
+      ],
+      [
+        "KEEPING IN TOUCH",
+        [
+          "What makes a call plan realistic?",
+          "What small update can you share this week?",
+          "How can you suggest a different time politely?"
+        ]
+      ],
+      [
+        "LEARNING FROM EXPERIENCE",
+        [
+          "How can you say sorry without many excuses?",
+          "What can you do differently next time?",
+          "How can friends move forward without changing the past?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Keep in touch” is friendly, but it does not set a time. A plan like “the first Sunday at 8 p.m.” is a real arrangement.",
+      "「Keep in touch」は親しみの表現ですが、時間は決めていません。「最初の日曜日の午後8時」などは具体的な約束です。"
+    ],
+    "triviaQuestion": [
+      "Which words fix a call time, not only a friendly wish?",
+      "The first Sunday after arrival at 8 p.m. in Kyoto."
+    ],
+    "closing": "At the farewell dinner, they share food, a handmade cup, and a photo album. Emma and Leo accept the past and wish each other well. Emma and Ren leave for the three-month assignment with a first group call planned. Leo’s bakery opening and Nao’s exhibition are still ahead."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

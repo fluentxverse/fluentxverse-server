@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 2,
+  "number": 1,
+  "sourceDigest": "a3f0cc7d71e83d3d1e9923ff1d29ac421cf5fc000bc132fff4bedd357b2d04e0",
+  "episode": {
+    "title": "A Weekend Adventure",
+    "skill": "speaking",
+    "intro": [
+      "On Friday evening, Emma studies a Kyoto map at the Kamo House cafe. She wants to explore more of her new city. Claire suggests a weekend outing. Nao will bring her camera, and Leo can join on Saturday. Leo suggests Fushimi Inari, and Emma smiles.",
+      "金曜日の晩、エマはKamo Houseのカフェで京都の地図を見ています。新しく住み始めた街をもっと知りたいと思っています。クレアが週末の外出を提案します。ナオはカメラを持ってきます。レオも土曜日なら参加できます。レオが伏見稲荷を提案し、エマは笑顔になります。"
+    ],
+    "goal": [
+      "I can suggest places to visit and agree on a simple day-trip plan.",
+      "訪れる場所を提案し、簡単な日帰り旅行の予定を決められる。"
+    ],
+    "warmup": "Where would you like to go on a day trip with friends?",
+    "words": [
+      [
+        "Let's explore the city.",
+        "explore",
+        "街を散策しましょう。"
+      ],
+      [
+        "How about a day trip?",
+        "day trip",
+        "日帰り旅行はどうですか。"
+      ],
+      [
+        "Where should we go first?",
+        "go first",
+        "最初にどこへ行きましょうか。"
+      ],
+      [
+        "I'm free on Saturday.",
+        "free on Saturday",
+        "土曜日は空いています。"
+      ],
+      [
+        "We can meet at Kyoto Station.",
+        "meet at",
+        "〜で待ち合わせする。"
+      ],
+      [
+        "That sounds perfect.",
+        "sounds perfect",
+        "それはとてもいいですね。"
+      ]
+    ],
+    "discussion": [
+      "Plan a day out with your tutor. Suggest a place, choose a day, and agree on where to meet.",
+      "講師と一日の外出を計画しましょう。場所を提案し、日程と待ち合わせ場所を決めましょう。"
+    ],
+    "followup": "What would you like to do there first?",
+    "tips": [
+      {
+        "rule": [
+          "Use “How about + place / -ing” to suggest. Use “Where should we...?” to ask for ideas.",
+          "提案は「How about + 場所 / 動詞-ing」を使います。アイデアを聞くときは「Where should we...?」を使います。"
+        ],
+        "examples": [
+          [
+            "How about Fushimi Inari?",
+            "伏見稲荷はどうですか。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Agree, then confirm day, time, and meeting place.",
+          "賛成してから、日程・時間・待ち合わせ場所を確認しましょう。"
+        ],
+        "examples": [
+          [
+            "That sounds good. Let’s meet at Kyoto Station at nine.",
+            "いいですね。9時に京都駅で会いましょう。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Claire and Emma plan an outing with Leo and Nao. Read their conversation.",
+        "クレアとエマが、レオとナオも参加する外出を計画します。二人の会話を読みましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Claire",
+          "You look at that map a lot. Any ideas?"
+        ],
+        [
+          "Emma",
+          "I want to explore Kyoto. Where should we go first?"
+        ],
+        [
+          "Claire",
+          "Leo suggested Fushimi Inari. How about that?"
+        ],
+        [
+          "Emma",
+          "That sounds perfect! Is everyone free on Saturday?"
+        ],
+        [
+          "Claire",
+          "Yes. Nao will bring her camera."
+        ],
+        [
+          "Emma",
+          "Great. What time should we meet?"
+        ],
+        [
+          "Claire",
+          "How about nine at Kyoto Station?"
+        ],
+        [
+          "Emma",
+          "Nine works for me. What should I bring?"
+        ],
+        [
+          "Claire",
+          "Bring water and comfortable shoes."
+        ],
+        [
+          "Emma",
+          "OK. I’m looking forward to it."
+        ]
+      ],
+      "questions": [
+        [
+          "Where will they go?",
+          "Fushimi Inari."
+        ],
+        [
+          "When and where will they meet?",
+          "Saturday at nine, at Kyoto Station."
+        ],
+        [
+          "Who will bring a camera?",
+          "Nao."
+        ],
+        [
+          "What should Emma bring?",
+          "Water and comfortable shoes."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "How about (visiting / visit) Fushimi Inari?",
+        "visiting"
+      ],
+      [
+        "Where (should / are) we go first?",
+        "should"
+      ],
+      [
+        "I'm free (on / at) Saturday.",
+        "on"
+      ],
+      [
+        "Let's meet (at / on) Kyoto Station.",
+        "at"
+      ],
+      [
+        "That (sounds / sound) perfect.",
+        "sounds"
+      ],
+      [
+        "What time should we (meet / meeting)?",
+        "meet"
+      ]
+    ],
+    "choices": [
+      [
+        "You want to suggest going to Fushimi Inari. What do you say?",
+        "How about Fushimi Inari?",
+        "How about went Fushimi Inari?",
+        "A"
+      ],
+      [
+        "You want to check availability. What do you say?",
+        "Are you free on Saturday?",
+        "Are you free the ticket?",
+        "A"
+      ],
+      [
+        "You like your friend's idea. What do you say?",
+        "That sounds perfect.",
+        "That sound perfect.",
+        "A"
+      ],
+      [
+        "You want to confirm the meeting place. What do you say?",
+        "Are we meeting at Kyoto Station?",
+        "Are we meeting nine?",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Leo. The four friends are free on Saturday morning. Plan a visit to Fushimi Inari. Choose a meeting time and an activity.",
+        "あなたはエマ役、講師はレオ役です。四人とも土曜日の午前中は空いています。伏見稲荷への外出を計画しましょう。待ち合わせ時刻と活動を決めましょう。"
+      ],
+      "task": [
+        "Suggest what to do first, ask for Leo's idea, and agree on the meeting place and time. Confirm what to bring.",
+        "最初にすることを提案し、レオの案も聞きましょう。待ち合わせ場所と時刻を決めましょう。持ち物も確認しましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "title": "",
+      "lines": [
+        "Emma, where should we go first at Fushimi Inari?",
+        "How about taking some photos there?",
+        "What time are you free on Saturday?",
+        "Where should we meet?",
+        "What will you bring?"
+      ],
+      "evidence": "Tutor evidence note: The student makes a simple suggestion, asks for Leo’s idea, agrees on Saturday meeting time and Kyoto Station, and confirms what Emma brings (water and comfortable shoes). Do not grade romance or Kyoto knowledge. Keep roles correct: Nao brings her camera.",
+      "useful": [
+        "How about ...?",
+        "Where should we ...?",
+        "Are you free on ...?",
+        "That sounds good.",
+        "Let’s meet at ...",
+        "Just to confirm, ..."
+      ]
+    },
+    "topics": [
+      [
+        "DAY TRIPS",
+        [
+          "Where do you want to go for a day trip?",
+          "Who do you want to go with?",
+          "What do you want to do first?"
+        ]
+      ],
+      [
+        "MAKING PLANS",
+        [
+          "Do you plan early or on the day?",
+          "Where do you like to meet friends?",
+          "What do you do when ideas are different?"
+        ]
+      ],
+      [
+        "EXPLORING A CITY",
+        [
+          "What do you notice in a new city?",
+          "Do you like walking or taking a bus?",
+          "What do you take with you?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "In an invitation, “Are you free?” means you have time. In a notice, “free” can mean no charge. The words around it help you.",
+      "誘いの “Are you free?” は「時間が空いていますか」という意味です。お知らせの “free” は「無料」の意味もあります。周りの言葉で判断します。"
+    ],
+    "triviaQuestion": [
+      "Does “I'm free on Saturday” mean no charge or available?",
+      "Available."
+    ],
+    "closing": "The four friends agree to meet at Kyoto Station on Saturday at nine. They plan to visit Fushimi Inari, and Nao will bring her camera. Claire notices Leo smiling at Emma, but she says nothing."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

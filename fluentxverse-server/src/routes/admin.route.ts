@@ -580,10 +580,13 @@ const Admin = new Elysia({ prefix: '/admin' })
    * Get recent activity feed
    * GET /admin/activity
    */
-  .get('/activity', async ({ query }) => {
+  .get('/activity', async ({ query, cookie, set }) => {
     try {
+      set.headers['Cache-Control'] = 'private, no-store';
+      const admin = await createAdminGuard(cookie, set);
+      if (!admin) return {success:false,error:'Administrator access required'};
       const limit = query.limit ? Number(query.limit) : 10;
-      const activities = await adminService.getRecentActivity(limit);
+      const activities = await adminService.getRecentActivity(limit, admin.userId);
       return {
         success: true,
         data: activities

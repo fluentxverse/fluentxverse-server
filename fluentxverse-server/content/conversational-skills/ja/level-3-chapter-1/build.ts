@@ -1,5 +1,5 @@
 import { specs, type LessonSpec } from './specs';
-import { buildArcLesson } from './lessons-6-9';
+import { buildNewBeginningLesson, storyLessonNumbers, type StoryLessonNumber } from './new-beginning';
 
 const bullets = (items: string[]) => items.map(text => ({ text }));
 const paragraphs = (text: string) => text.split('\n').map(p => `<p>${p}</p>`).join('');
@@ -148,8 +148,8 @@ export function buildChapter(apiBase: string) {
     };
     return lesson;
   });
-  return chapter.map(lesson => lesson.lessonNumber >= 6 && lesson.lessonNumber <= 9
-    ? { ...lesson, ...buildArcLesson(lesson.lessonNumber as 6 | 7 | 8 | 9, lesson, apiBase) }
+  return chapter.map(lesson => storyLessonNumbers.includes(lesson.lessonNumber as StoryLessonNumber)
+    ? { ...lesson, ...buildNewBeginningLesson(lesson.lessonNumber as StoryLessonNumber, {}, apiBase) }
     : lesson);
 }
 

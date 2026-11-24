@@ -1,0 +1,3 @@
+# Machine-local Memgraph snapshots are not source material.
+backups/
+**/backups/

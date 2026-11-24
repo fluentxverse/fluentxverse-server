@@ -1,4 +1,6 @@
 import { getDriver } from '../../db/memgraph';
+import { captureBooking, ensureRegistryOutbox } from '../lessonRegistry/outbox';
+import { attendanceRecoveryEnabled, attendanceRecoveryService } from './attendanceRecovery.service';
 import { lessonNotesStatus } from '../../utils/lessonNotesStatus';
 import { tutorPublicName } from '../../../../shared/tutorPublicName';
 import { nanoid } from 'nanoid';
@@ -341,7 +343,7 @@ export class ScheduleService {
         MATCH (t:User {id: $tutorId})-[:OPENS_SLOT]->(s:TimeSlot)
         WHERE s.slotDate >= $startDate AND s.slotDate <= $endDate
         OPTIONAL MATCH (s)<-[:BOOKS]-(b:Booking)
-        WHERE b.status IN ['confirmed', 'completed'] AND coalesce(b.issueDecision,'') <> 'past'
+        WHERE (b.status IN ['confirmed', 'completed'] OR b.attendanceSource='attendance_deadline') AND coalesce(b.issueDecision,'') <> 'past'
         OPTIONAL MATCH (b)-[:BOOKED_BY]->(student:Student)
         RETURN s, b, student
         ORDER BY s.slotDate, s.slotTime
@@ -563,6 +565,7 @@ export class ScheduleService {
    * Uses atomic update to prevent duplicate bookings
    */
   async bookSlot(input: BookSlotInput): Promise<Booking> {
+    await ensureRegistryOutbox();
     const driver = getDriver();
     const session = driver.session();
     
@@ -808,6 +811,7 @@ export class ScheduleService {
           durationMinutes: $durationMinutes,
           status: 'confirmed',
           attendanceAutoEnforce: true,
+          attendanceRecoveryVersion: $attendanceRecoveryVersion,
           attendanceTutor: CASE WHEN preconfirmed = 'present' THEN 'present' ELSE null END,
           attendanceSource: CASE WHEN preconfirmed = 'present' THEN 'open_slot_confirmation'
             ELSE s.attendanceSource END,
@@ -830,10 +834,12 @@ export class ScheduleService {
           slotDateTime: slotDateTime.toISOString(),
           cutoffAt: new Date(startMs - BOOKING_CUTOFF_MINUTES * 60_000).toISOString(),
           unconfirmedCutoffAt: new Date(startMs - SLOT_OPEN_LEAD_MINUTES * 60_000).toISOString(),
-          durationMinutes: slot.durationMinutes
+          durationMinutes: slot.durationMinutes,
+          attendanceRecoveryVersion: attendanceRecoveryEnabled() ? 1 : null
         }
         );
         if (!result.records.length) throw new Error('Checkout reservation expired before booking could finish');
+        await captureBooking(tx, bookingId, 'booking');
         return result;
       });
       if (!bookingResult.records.length) throw new Error('Checkout reservation expired before booking could finish');
@@ -1022,7 +1028,8 @@ export class ScheduleService {
       const ticketTransaction = booking.privatePassReservationId || booking.paymentMethod === 'trial' ? null : await ticketService.getBookingTransaction(input.bookingId);
 
       // Claim cancellation atomically before any refund, rechecking the clock and status.
-      const cancelled = await session.run(`
+      const cancelled = await session.executeWrite(async tx => {
+        const result = await tx.run(`
         MATCH (b:Booking {bookingId: $bookingId, studentId: $cancelledBy, status: 'confirmed'})-[:BOOKS]->(s:TimeSlot)
         WHERE b.slotDateTime = datetime($scheduledAt) AND datetime() < datetime($cancelUntil)
         SET b.status = 'cancelled', b.cancelledAt = datetime(), b.cancelledBy = $cancelledBy,
@@ -1035,6 +1042,10 @@ export class ScheduleService {
         cancelUntil: new Date(scheduledTime.getTime() - STUDENT_CANCELLATION_CUTOFF_MS).toISOString(),
         scheduledAt: scheduledTime.toISOString(),
         reason: input.reason || 'Student cancelled',
+      });
+        if (result.records.length) await captureBooking(tx, input.bookingId, 'booking_cancel',
+          { actor: input.cancelledBy, reason: input.reason || 'Student cancelled' });
+        return result;
       });
       if (!cancelled.records.length) {
         throw new Error('This lesson can no longer be cancelled. The five-minute cancellation deadline has passed or its booking status has changed.');
@@ -1198,6 +1209,7 @@ export class ScheduleService {
         const match = await tx.run(
           `MATCH (b:Booking {bookingId: $bookingId, tutorId: $tutorId})-[:BOOKS]->(:TimeSlot {status: 'booked'})
            WHERE b.status IN ['confirmed', 'completed']
+             AND b.attendanceTutor = 'present' AND coalesce(b.penaltyCode,'') <> '301'
            RETURN b.slotDateTime AS startsAt, b.durationMinutes AS duration, b.tutorRoomEnteredAt AS enteredAt, b.attendanceSource AS source`,
           { bookingId, tutorId }
         );
@@ -1232,6 +1244,7 @@ export class ScheduleService {
   private async confirmTutorRoomPresence(tx: ManagedTransaction, bookingId: string, tutorId: string, now: Date) {
     await tx.run(`MATCH (b:Booking {bookingId: $bookingId, tutorId: $tutorId})
       WHERE b.status <> 'cancelled' AND coalesce(b.attendanceSource, '') <> 'admin'
+        AND coalesce(b.attendanceSource,'') <> 'attendance_deadline'
         AND b.issueDecision IS NULL
       WITH b, b.penaltyCode AS previousPenalty
       SET b.attendanceTutor = 'present', b.attendanceSource = 'classroom', b.tutorAttendancePolicyVersion = 2,
@@ -1266,6 +1279,7 @@ export class ScheduleService {
       const result = await session.run(`MATCH (b:Booking {bookingId: $bookingId})
         -[:BOOKS]->(:TimeSlot {status: 'booked'})
         WHERE b.status IN ['confirmed', 'completed'] AND
+          ($role <> 'tutor' OR (b.attendanceTutor='present' AND coalesce(b.penaltyCode,'')<>'301')) AND
           (($role = 'tutor' AND b.tutorId = $userId) OR ($role = 'student' AND b.studentId = $userId))
         RETURN b.slotDateTime AS startsAt, b.durationMinutes AS duration`, { bookingId, userId, role });
       const record = result.records[0];
@@ -1670,6 +1684,7 @@ export class ScheduleService {
         return changedBooked;
       });
       if (changedBookedAttendance) await this.checkAndApplyAutoBlock(tutorId, true);
+      if (status === 'absent') for (const id of bookingIds) await attendanceRecoveryService.recover(id);
     } finally {
       await session.close();
     }
@@ -2498,6 +2513,8 @@ export class ScheduleService {
           booking.bookingId AS bookingId,
           booking.status AS status,
           booking.paymentMethod AS paymentMethod,
+          booking.replacementBookingId AS replacementBookingId,
+          booking.replacementFor AS replacementFor,
           booking.bookedAt AS bookedAt,
           booking.slotDateTime AS slotDateTime,
           booking.durationMinutes AS durationMinutes,
@@ -2640,6 +2657,8 @@ export class ScheduleService {
         tutorAvatar: record.get('tutorAvatar'),
         tutorBio: record.get('tutorBio'),
         paymentMethod: record.get('paymentMethod') || 'erc1155',
+        replacementBookingId: record.get('replacementBookingId'),
+        replacementFor: record.get('replacementFor'),
         hourlyRate: record.get('hourlyRate')?.toNumber?.() || record.get('hourlyRate'),
         slotDate,
         slotTime,

@@ -1,0 +1,275 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 2,
+  "number": 7,
+  "sourceDigest": "ed81293947a8e83367cb54554869be5626f6e141f38f56750938722244793c35",
+  "episode": {
+    "title": "Rain at Kiyomizu-dera",
+    "skill": "speaking",
+    "goal": [
+      "I can explain a weather problem and choose a new plan.",
+      "天気による問題を説明し、新しい予定を決められる。"
+    ],
+    "intro": [
+      "Emma, Nao, and Leo visit Kiyomizu-dera. After their visit, it starts raining. Emma has no umbrella. Leo offers to share his small umbrella. Nao waits in a ceramics shop. Emma and Leo laugh and plan where to go.",
+      "エマ、ナオ、レオは清水寺を訪れます。見学後、雨が降り始めます。エマは傘がありません。レオは小さな傘を一緒に使おうと申し出ます。ナオは陶芸店で待っています。エマとレオは笑いながら行き先を考えます。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "It is raining.",
+        "raining",
+        "雨が降っています。"
+      ],
+      [
+        "I forgot my umbrella.",
+        "forgot",
+        "傘を忘れました。"
+      ],
+      [
+        "We can share mine.",
+        "share",
+        "私のものを一緒に使えます。"
+      ],
+      [
+        "Let’s go inside.",
+        "inside",
+        "中へ入りましょう。"
+      ],
+      [
+        "Nao is waiting.",
+        "waiting",
+        "ナオが待っています。"
+      ],
+      [
+        "We can walk later.",
+        "later",
+        "後で歩けます。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use can + verb to offer help.",
+          "can ＋動詞で、手伝えることを伝えます。"
+        ],
+        "examples": [
+          [
+            "I can help you.",
+            "お手伝いできます。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use Let’s + verb to suggest an action.",
+          "Let’s ＋動詞で行動を提案します。"
+        ],
+        "examples": [
+          [
+            "Let’s check the time.",
+            "時刻を確認しましょう。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Leo and Emma decide what to do when rain interrupts their walk. Read their conversation.",
+        "雨で散策を中断したレオとエマが、どうするか話し合います。会話を読みましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Leo",
+          "It is raining. Do you have an umbrella?"
+        ],
+        [
+          "Emma",
+          "No. I forgot mine."
+        ],
+        [
+          "Leo",
+          "We can share mine."
+        ],
+        [
+          "Emma",
+          "Thank you. It is small!"
+        ],
+        [
+          "Leo",
+          "Where shall we go?"
+        ],
+        [
+          "Emma",
+          "Where is Nao?"
+        ],
+        [
+          "Leo",
+          "In that ceramics shop."
+        ],
+        [
+          "Emma",
+          "Let’s join her."
+        ],
+        [
+          "Leo",
+          "Yes. We can walk again when the rain stops."
+        ],
+        [
+          "Emma",
+          "Good. I want to see the cups."
+        ]
+      ],
+      "questions": [
+        [
+          "What did Emma forget?",
+          "Her umbrella."
+        ],
+        [
+          "Where is Nao?",
+          "In a ceramics shop."
+        ],
+        [
+          "What do Emma and Leo decide?",
+          "Join Nao."
+        ],
+        [
+          "When can they walk again?",
+          "When the rain stops."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I can (help / helps) you.",
+        "help"
+      ],
+      [
+        "Let’s (check / checked) the time.",
+        "check"
+      ],
+      [
+        "Can you (come / comes) too?",
+        "come"
+      ],
+      [
+        "We can (meet / meets) here.",
+        "meet"
+      ],
+      [
+        "Let’s (ask / asked) first.",
+        "ask"
+      ],
+      [
+        "I can (bring / brings) it.",
+        "bring"
+      ]
+    ],
+    "choices": [
+      [
+        "What did Emma forget?",
+        "Her umbrella.",
+        "Her lunch.",
+        "A"
+      ],
+      [
+        "Where is Nao?",
+        "At the station.",
+        "In a ceramics shop.",
+        "B"
+      ],
+      [
+        "What do Emma and Leo decide?",
+        "Join Nao.",
+        "Stay outside all day.",
+        "A"
+      ],
+      [
+        "When can they walk again?",
+        "Only next month.",
+        "When the rain stops.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Rain has interrupted the walk. Nao is waiting in a ceramics shop five minutes away in this fictional practice setting. A cafe is two minutes away. Your tutor is Leo.",
+        "あなたはエマ役です。雨で散策を中断しました。この架空の練習設定では、ナオは5分先の陶芸店で待っています。カフェは2分先です。講師はレオ役です。"
+      ],
+      "task": [
+        "Say what you need. Choose a place. Tell Nao your plan. Make a plan for more rain.",
+        "必要なことを伝えましょう。行き先を決め、ナオに連絡し、雨が続く場合の予定も考えましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "lines": [
+        "Emma, what do you need?",
+        "We can share my umbrella. Is that okay?",
+        "The cafe is two minutes away. Nao’s shop is five minutes away. Where shall we go?",
+        "How will we tell Nao?",
+        "What can we do if it keeps raining?"
+      ],
+      "evidence": "State need/weather problem, respond to offer, agree on destination and communication with Nao, and provide a sensible weather backup. Assess the weather problem, destination, and backup plan.",
+      "useful": [
+        "It is raining.",
+        "I need ...",
+        "Thank you.",
+        "Let’s go to ...",
+        "We can ..."
+      ]
+    },
+    "topics": [
+      [
+        "DAYS OUT",
+        [
+          "Where do you like to go?",
+          "Who do you go with?",
+          "What do you take?"
+        ]
+      ],
+      [
+        "SHOPPING",
+        [
+          "What do you like to buy?",
+          "Do you pay by card?",
+          "What gift would you choose?"
+        ]
+      ],
+      [
+        "TRAVEL PLANS",
+        [
+          "How do you travel?",
+          "What time do you like to start?",
+          "What do you do on a rainy day?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“A rain check” can mean doing an activity another time. You can ask for one even on a sunny day.",
+      "a rain check は、予定を別の機会にすることを表せます。晴れている日にも使えます。"
+    ],
+    "triviaQuestion": [
+      "Is “a rain check” only for rainy days?",
+      "No."
+    ],
+    "closing": "They catch up with Nao in the ceramics shop. Emma notices a blue cup that would be perfect for her morning coffee."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

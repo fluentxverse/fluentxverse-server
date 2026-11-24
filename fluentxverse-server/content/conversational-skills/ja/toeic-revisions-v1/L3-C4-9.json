@@ -1,0 +1,274 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 4,
+  "number": 9,
+  "sourceDigest": "1d5b34e88880cef44b862cede887202b881b68a4372982bbd8d273a8c37a6650",
+  "episode": {
+    "title": "The Decision",
+    "skill": "speaking",
+    "goal": [
+      "I can explain a concern and ask about a work plan.",
+      "心配を説明し、働き方について尋ねられる。"
+    ],
+    "intro": [
+      "Emma tells Leo about the Osaka offer. He supports her work but says he will miss her. Emma asks the agency about two office days and three workdays in Kyoto. The recruiter will consider it. Emma must wait for the final answer.",
+      "エマは大阪の仕事の話をレオに伝えます。レオは仕事を応援しますが、寂しくなると言います。エマは週2日の出社と週3日の京都勤務を会社に尋ねます。採用担当者は検討します。エマは最終回答を待つ必要があります。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "I got a job offer.",
+        "offer",
+        "仕事の提示を受けました。"
+      ],
+      [
+        "I feel excited.",
+        "excited",
+        "わくわくしています。"
+      ],
+      [
+        "I will miss you.",
+        "miss",
+        "会えなくなると寂しいです。"
+      ],
+      [
+        "Can I work from Kyoto?",
+        "work from",
+        "京都から勤務できますか。"
+      ],
+      [
+        "When can I get an answer?",
+        "answer",
+        "いつ回答をもらえますか。"
+      ],
+      [
+        "It is not agreed yet.",
+        "yet",
+        "まだ合意されていません。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use will + verb for a future action.",
+          "will ＋動詞で、これからすることを伝えます。"
+        ],
+        "examples": [
+          [
+            "I will send a message.",
+            "メッセージを送ります。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use before or after to show the order.",
+          "before や after で順番を表します。"
+        ],
+        "examples": [
+          [
+            "I will ask before I decide.",
+            "決める前に尋ねます。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Emma tells Leo about the offer before contacting the agency. Read their conversation.",
+        "会社に連絡する前に、エマがレオにオファーを話します。会話を読みましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Leo",
+          "Emma, what is on your mind?"
+        ],
+        [
+          "Emma",
+          "The Osaka job offer. I like the projects and pay."
+        ],
+        [
+          "Leo",
+          "How do you feel?"
+        ],
+        [
+          "Emma",
+          "Excited, but worried about leaving Kyoto."
+        ],
+        [
+          "Leo",
+          "I will miss you. I support your work."
+        ],
+        [
+          "Emma",
+          "Thank you. Maybe I can work from Kyoto too."
+        ],
+        [
+          "Leo",
+          "Can you ask about that?"
+        ],
+        [
+          "Emma",
+          "Yes. Two office days and three days in Kyoto."
+        ],
+        [
+          "Leo",
+          "Let’s talk after their answer."
+        ],
+        [
+          "Emma",
+          "Yes. I will ask first."
+        ]
+      ],
+      "questions": [
+        [
+          "What does Emma like?",
+          "The projects and pay."
+        ],
+        [
+          "What worries her?",
+          "Leaving Kyoto."
+        ],
+        [
+          "What will she request?",
+          "Two office days and three Kyoto workdays."
+        ],
+        [
+          "Is it approved?",
+          "No."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I will (send / sent) a message.",
+        "send"
+      ],
+      [
+        "She will (help / helps) us.",
+        "help"
+      ],
+      [
+        "We will (meet / met) tomorrow.",
+        "meet"
+      ],
+      [
+        "I will ask (before / between) I decide.",
+        "before"
+      ],
+      [
+        "I will rest (after / among) work.",
+        "after"
+      ],
+      [
+        "Will you (come / came)?",
+        "come"
+      ]
+    ],
+    "choices": [
+      [
+        "What does Emma like?",
+        "The projects and pay.",
+        "Only the travel.",
+        "A"
+      ],
+      [
+        "What worries her?",
+        "Choosing snacks.",
+        "Leaving Kyoto.",
+        "B"
+      ],
+      [
+        "What will she request?",
+        "Two office days and three Kyoto workdays.",
+        "Five days in Seoul.",
+        "A"
+      ],
+      [
+        "Is it approved?",
+        "Yes.",
+        "No.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. First, your tutor is Leo as you discuss the Osaka offer. Then your tutor becomes the agency recruiter for a phone call. You want to request two office days in Osaka and three days working from Kyoto. The offer still requires five office days.",
+        "あなたはエマ役です。まず講師はレオ役として大阪のオファーを話し合います。次に、電話の場面で会社の採用担当者役になります。大阪への出社2日と京都からの勤務3日を希望していますが、提示された条件はまだ週5日出社です。"
+      ],
+      "task": [
+        "Tell Leo your hope and worry. Then ask the recruiter about your plan and when to expect an answer.",
+        "レオに希望と心配を伝えましょう。次に採用担当者に働き方の案と回答の時期を尋ねましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "lines": [
+        "What do you like about the job?",
+        "What worries you?",
+        "I support your work. What will you ask the agency?",
+        "Can we talk after their answer?"
+      ],
+      "evidence": "Round1: share benefit/concern and hybrid proposal. Round2: polite request2office/3Kyoto, clarify review timeline and pending status. Do not claim permission, job acceptance, or relocation. The recruiter can review the request but cannot approve it in this lesson.",
+      "useful": [
+        "I like ...",
+        "I am worried about ...",
+        "Can I work ...?",
+        "When can I get an answer?",
+        "It is not agreed yet."
+      ]
+    },
+    "topics": [
+      [
+        "WORK",
+        [
+          "What work do you enjoy?",
+          "Do you like working with others?",
+          "What would you like to learn?"
+        ]
+      ],
+      [
+        "PLANNING",
+        [
+          "How do you remember a date?",
+          "Who can help with a plan?",
+          "What do you check first?"
+        ]
+      ],
+      [
+        "IDEAS",
+        [
+          "What would you like to make?",
+          "Who can you ask for help?",
+          "How do you say you like an idea?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Pending” means waiting for a decision. A pending request is not a yes or a no yet.",
+      "pending は決定を待っている状態です。pending の依頼は、まだ承認でも却下でもありません。"
+    ],
+    "triviaQuestion": [
+      "Is a pending request already approved?",
+      "No."
+    ],
+    "closing": "The recruiter agrees to consider Emma's hybrid request, but the final answer has not arrived. Emma has not accepted or declined the job. She and Leo wait for news as Chapter 5 opens with plans, changes, and new beginnings."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

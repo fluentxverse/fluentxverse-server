@@ -1,0 +1,279 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 5,
+  "number": 7,
+  "sourceDigest": "afdd6e19a6532452922bccc7d85138737ae48afd8569ccadc40e2c40323c9b18",
+  "episode": {
+    "title": "The Future of Kamo House",
+    "skill": "speaking",
+    "intro": [
+      "Another cafe owner asks Claire to run bigger events with Kamo Collective. More visitors sound exciting, but Claire does not want Kamo House to lose its small, welcoming feeling. Nao suggests a trial, not a permanent change. Claire meets the owner to plan one joint workshop while keeping Kamo House independent.",
+      "別のカフェのオーナーが、クレアにKamo Collectiveと大きなイベントを開こうと持ちかけます。来場者が増えるのは魅力的ですが、Kamo Houseの小さく温かな雰囲気は失いたくありません。ナオは恒久的な変更ではなく「試しに一度」を提案します。クレアはオーナーと会い、Kamo Houseは独立したまま、合同ワークショップを検討します。"
+    ],
+    "goal": [
+      "I can suggest a small trial and check the conditions.",
+      "小さな試行を提案し、条件を確認できる。"
+    ],
+    "warmup": "How can you say yes to a partnership idea, but protect what matters?",
+    "words": [
+      [
+        "We received a partnership proposal from another cafe.",
+        "partnership proposal",
+        "別のカフェから提携の提案を受けました。"
+      ],
+      [
+        "My concern is that a large event may feel crowded.",
+        "My concern is",
+        "私の懸念は…です（心配なのは…です）。"
+      ],
+      [
+        "I would prefer one small trial workshop first.",
+        "I would prefer",
+        "私は…のほうが希望です。"
+      ],
+      [
+        "Kamo House wants to stay independent.",
+        "stay independent",
+        "独立した運営を続ける。"
+      ],
+      [
+        "Could we agree on a limit of twelve participants?",
+        "agree on a limit",
+        "上限（制限）を決めて合意する。"
+      ],
+      [
+        "Before we announce it, let’s review the date, costs, and responsibilities.",
+        "announce it",
+        "告知する。"
+      ]
+    ],
+    "discussion": [
+      "You are Claire. Your tutor is the other cafe owner. Welcome the idea, share a concern, and suggest a small trial with clear conditions.",
+      "あなたはクレア役です。講師は相手のカフェのオーナー役です。提案を歓迎し、懸念を丁寧に伝え、条件を決めた小さな試行を提案しましょう。"
+    ],
+    "followup": "What condition would you want in writing before you announce the event?",
+    "tips": [
+      {
+        "rule": [
+          "Use “My concern is ...” to be polite. Then offer a next step with “I would prefer ...” or “Could we ...?”",
+          "「My concern is ...」で丁寧に懸念を伝えます。その後「I would prefer ...」や「Could we ...?」で次の提案をします。"
+        ],
+        "examples": [
+          [
+            "My concern is losing our welcoming atmosphere.",
+            "懸念は、温かな雰囲気が失われることです。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Say clearly: trial first, then review. Repeat: “We stay independent.”",
+          "「まず試しに一度、その後に振り返り」とはっきり言いましょう。「独立したまま」も言い直すと安全です。"
+        ],
+        "examples": [
+          [
+            "I would prefer to review the trial first. We stay independent.",
+            "まず試行を振り返りたいです。私たちは独立したままです。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Claire discusses the first joint event with the other cafe owner. Practice the conversation.",
+        "クレアが相手のカフェのオーナーと、最初の合同イベントを話し合います。会話を練習しましょう。"
+      ],
+      "roles": [
+        "Cafe owner",
+        "Claire"
+      ],
+      "dialogue": [
+        [
+          "Cafe owner",
+          "Could we run a large creative event together?"
+        ],
+        [
+          "Claire",
+          "I like the idea, but my concern is losing our welcoming atmosphere."
+        ],
+        [
+          "Cafe owner",
+          "I understand. What would you prefer?"
+        ],
+        [
+          "Claire",
+          "I would prefer one trial pottery workshop for twelve people, at your cafe."
+        ],
+        [
+          "Cafe owner",
+          "Okay. We can provide the space and handle bookings."
+        ],
+        [
+          "Claire",
+          "Great. Nao can lead it, only if we agree on her fee first."
+        ],
+        [
+          "Cafe owner",
+          "That sounds fair. Should we plan more dates now?"
+        ],
+        [
+          "Claire",
+          "I would prefer to review the trial first. Our regular activities stay independent."
+        ],
+        [
+          "Cafe owner",
+          "Agreed. I will send the proposed date, costs, and responsibilities in writing."
+        ],
+        [
+          "Claire",
+          "Thank you. We can announce it after both sides approve those details."
+        ]
+      ],
+      "questions": [
+        [
+          "What trial does Claire propose?",
+          "One pottery workshop for twelve people at the other cafe."
+        ],
+        [
+          "What will the other cafe handle?",
+          "The space and the bookings."
+        ],
+        [
+          "What must they agree on before they announce it?",
+          "The date, costs, and responsibilities in writing."
+        ],
+        [
+          "Does Claire agree to a permanent change now?",
+          "No. She wants one trial and a review first."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "My concern (is / are) the event size.",
+        "is"
+      ],
+      [
+        "I would prefer (to review / reviewing) the trial first.",
+        "to review"
+      ],
+      [
+        "Could we agree (on / at) a participant limit?",
+        "on"
+      ],
+      [
+        "We agree (to check / checking) the costs before we announce it.",
+        "to check"
+      ],
+      [
+        "Our regular activities stay (independent / independently).",
+        "independent"
+      ],
+      [
+        "We can announce it after both sides (approve / approves) the details.",
+        "approve"
+      ]
+    ],
+    "choices": [
+      [
+        "Which line shares a concern politely?",
+        "This idea is bad.",
+        "I like the idea, but my concern is crowding.",
+        "B"
+      ],
+      [
+        "What do they agree to do first?",
+        "One trial workshop, then review.",
+        "A permanent monthly event plan now.",
+        "A"
+      ],
+      [
+        "When can they announce the event?",
+        "After both sides approve the details.",
+        "Before they discuss the fee.",
+        "A"
+      ],
+      [
+        "Which phrase is correct?",
+        "Could we agree on a limit of twelve participants?",
+        "Could we agree at a limit of twelve participants?",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Claire. You are meeting the other cafe owner. You want one trial pottery workshop for twelve participants at their cafe. They can provide the space and handle bookings. Nao can lead it if her fee is agreed. The date, costs, and written responsibilities are not final.",
+        "あなたはクレアです。相手のカフェのオーナーと会っています。相手の店で12人向けの陶芸ワークショップを「一度だけ試したい」です。相手は会場と予約を担当できます。ナオは講師料に合意できれば指導できます。日程・費用・書面での役割分担はまだ未確定です。"
+      ],
+      "task": [
+        "Protect Kamo House’s welcoming atmosphere. Propose a small trial with clear responsibilities. Agree on what to confirm in writing before you announce it. Say clearly that Kamo House stays independent and future events need a review.",
+        "Kamo Houseの温かな雰囲気を守りましょう。小さな試行と役割分担を提案し、告知前に書面で確認する点に合意しましょう。Kamo Houseは独立したまま、今後のイベントは振り返り後に決めると明確に言いましょう。"
+      ],
+      "roles": [
+        "Cafe owner",
+        "Claire"
+      ],
+      "title": "",
+      "lines": [
+        "Claire, what do you like about this partnership idea?",
+        "What is your main concern about a large event?",
+        "What trial would you prefer, and how many participants?",
+        "We can provide the space and handle bookings. What can Nao do, and what do we need to agree first?",
+        "Before we announce it, what details should we confirm in writing?",
+        "Can we agree to review the trial before planning any future events?",
+        "How can we keep Kamo House’s regular activities independent?"
+      ],
+      "evidence": "Tutor evidence note: Student should propose one trial pottery workshop for 12 at the other cafe (not 50 and not permanent). Student should state a concern about atmosphere/crowding, confirm: other cafe handles space and bookings; Nao leads if her fee is agreed. Student should say date/costs/responsibilities must be approved in writing before announcing. Student should repeat Kamo House stays independent and future events depend on reviewing the trial.",
+      "useful": [
+        "I like the idea, but my concern is ...",
+        "I would prefer ...",
+        "Could we agree on ...?",
+        "We can ... only if ...",
+        "Before we announce it, we should ...",
+        "So we have agreed to ..."
+      ]
+    },
+    "topics": [
+      [
+        "WORKING TOGETHER",
+        [
+          "What can each partner provide?",
+          "What should be written down clearly?",
+          "How can you avoid misunderstandings?"
+        ]
+      ],
+      [
+        "POLITE DISAGREEMENT",
+        [
+          "How can you show respect first?",
+          "What is a good counterproposal?",
+          "How can you check agreement at the end?"
+        ]
+      ],
+      [
+        "KEEPING A COMMUNITY",
+        [
+          "What makes a small event welcoming?",
+          "What might change if it gets bigger?",
+          "How can a trial test a new idea?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"I see your point\" shows you understand a reason. It does not always mean you agree. Claire can say, \"I see your point about reaching more people. However, I would prefer a small trial.\"",
+      "「I see your point」は相手の理由を理解したと示す表現で、必ずしも賛成ではありません。クレアは「より多くの人に届く点は分かります。ただ、小さな試行を希望します」と続けられます。"
+    ],
+    "triviaQuestion": [
+      "Does \"I see your point\" always mean \"I agree\"?",
+      "No. It can show understanding before a different proposal."
+    ],
+    "closing": "Claire and the other cafe owner agree on one limited joint workshop. Kamo House stays independent, and they will approve the date, costs, and responsibilities in writing before announcing it."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

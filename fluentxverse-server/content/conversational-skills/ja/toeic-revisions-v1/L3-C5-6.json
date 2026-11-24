@@ -1,0 +1,275 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 5,
+  "number": 6,
+  "sourceDigest": "960a9691c27e03df770ea07fa875185695f603f5e9b09518619450bbfa9e09ec",
+  "episode": {
+    "title": "A Broken Promise",
+    "skill": "speaking",
+    "goal": [
+      "I can apologise for a missed plan and explain what I will change.",
+      "約束を守れなかったことを謝り、改善することを伝えられる。"
+    ],
+    "intro": [
+      "Emma works an extra Thursday in Osaka. Leo makes her favorite dinner at Kamo House. Emma goes to a work gathering and forgets to tell him. She calls late. Leo is disappointed. Claire finds him alone after the food is cold.",
+      "エマは木曜日も追加で大阪勤務です。レオは約束どおりKamo Houseで好物の夕食を作ります。エマは職場の集まりに行き、連絡を忘れます。電話したときには遅く、レオは失望しています。料理が冷めた後、クレアは一人のレオを見つけます。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "I missed our dinner.",
+        "missed",
+        "夕食の約束を守れませんでした。"
+      ],
+      [
+        "I forgot to call.",
+        "forgot",
+        "電話するのを忘れました。"
+      ],
+      [
+        "I am sorry.",
+        "sorry",
+        "ごめんなさい。"
+      ],
+      [
+        "You waited for me.",
+        "waited",
+        "私を待ってくれていました。"
+      ],
+      [
+        "I feel disappointed.",
+        "disappointed",
+        "がっかりしています。"
+      ],
+      [
+        "I will call before plans change.",
+        "before",
+        "予定が変わる前に電話します。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use the past form to say what happened.",
+          "過去形で、起きたことを伝えます。"
+        ],
+        "examples": [
+          [
+            "I worked yesterday.",
+            "昨日働きました。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use did not + verb to say what did not happen.",
+          "did not ＋動詞で、しなかったことを伝えます。"
+        ],
+        "examples": [
+          [
+            "I did not call.",
+            "電話しませんでした。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Emma calls Leo after missing their Thursday dinner. Read their conversation.",
+        "木曜日の夕食の約束を守れなかったエマが、レオに電話します。会話を読みましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Leo",
+          "Emma, I made dinner and waited."
+        ],
+        [
+          "Emma",
+          "I am sorry. I went to a work gathering."
+        ],
+        [
+          "Leo",
+          "Why did you not call?"
+        ],
+        [
+          "Emma",
+          "I forgot. That was wrong."
+        ],
+        [
+          "Leo",
+          "We had a plan. It is not just the food."
+        ],
+        [
+          "Emma",
+          "I know. You worked hard for me."
+        ],
+        [
+          "Leo",
+          "I do not want another dinner plan tonight."
+        ],
+        [
+          "Emma",
+          "I understand. We can talk later."
+        ],
+        [
+          "Leo",
+          "Please call before changing our plans."
+        ],
+        [
+          "Emma",
+          "I will. I am sorry I left you waiting."
+        ]
+      ],
+      "questions": [
+        [
+          "Why is Leo upset?",
+          "Emma missed dinner and did not call."
+        ],
+        [
+          "Where did Emma go?",
+          "A work gathering."
+        ],
+        [
+          "What will Emma change?",
+          "Call before plans change."
+        ],
+        [
+          "Does Leo want another dinner plan now?",
+          "No."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I (worked / work) yesterday.",
+        "worked"
+      ],
+      [
+        "I did not (call / called).",
+        "call"
+      ],
+      [
+        "Did you (ask / asked) her?",
+        "ask"
+      ],
+      [
+        "We (were / was) busy yesterday.",
+        "were"
+      ],
+      [
+        "She (was / were) at work.",
+        "was"
+      ],
+      [
+        "I (sent / send) the message yesterday.",
+        "sent"
+      ]
+    ],
+    "choices": [
+      [
+        "Why is Leo upset?",
+        "Emma missed dinner and did not call.",
+        "He dislikes the recipe.",
+        "A"
+      ],
+      [
+        "Where did Emma go?",
+        "A gallery in Seoul.",
+        "A work gathering.",
+        "B"
+      ],
+      [
+        "What will Emma change?",
+        "Call before plans change.",
+        "Stop calling anyone.",
+        "A"
+      ],
+      [
+        "Does Leo want another dinner plan now?",
+        "Yes.",
+        "No.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma, calling Leo after missing Thursday's dinner. Your tutor is Leo. He cooked for you and waited without an update. You attended a work gathering instead and did not contact him.",
+        "あなたは木曜日の夕食の約束を守れず、レオに電話しているエマ役です。講師はレオ役です。レオは料理を作り、連絡のないまま待っていました。あなたは仕事後の集まりに参加し、連絡しませんでした。"
+      ],
+      "task": [
+        "Explain what happened. Thank Leo for his effort. Apologise, offer a clear change, and accept that he needs time.",
+        "起きたことを説明しましょう。レオの努力に感謝し、謝り、具体的な改善を伝えましょう。時間が必要だという気持ちを受け止めましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "lines": [
+        "Where were you? We had a dinner plan.",
+        "I cooked and waited. Why did you not call?",
+        "What was wrong with that?",
+        "What will you do when a plan changes?",
+        "I need time. Can we talk another day?"
+      ],
+      "evidence": "Admit gathering and missed call, acknowledge waiting/preparation, should have called, specific advance-update plan, accept later conversation. Leo need not forgive or arrange another date during the task. Assess communication rather than a forced reconciliation.",
+      "useful": [
+        "I went to ...",
+        "I did not ...",
+        "I am sorry.",
+        "I will call before ...",
+        "We can talk later."
+      ]
+    },
+    "topics": [
+      [
+        "KEEPING IN TOUCH",
+        [
+          "Do you call or send messages?",
+          "When do you call a friend?",
+          "What do you say when you are busy?"
+        ]
+      ],
+      [
+        "CHANGING PLANS",
+        [
+          "What do you say when you are late?",
+          "Who needs to know about a change?",
+          "How do you choose a new time?"
+        ]
+      ],
+      [
+        "LISTENING",
+        [
+          "What helps you listen?",
+          "How do you ask someone to repeat?",
+          "How do you show you understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Sorry to keep you waiting” is an apology for a delay. Naming the problem makes the apology clearer.",
+      "Sorry to keep you waiting は、待たせたことを謝る表現です。何について謝っているかを伝えると分かりやすくなります。"
+    ],
+    "triviaQuestion": [
+      "Is this an apology for making someone wait?",
+      "Yes."
+    ],
+    "closing": "Claire listens to Leo without trying to solve everything for him. The next evening, Emma makes another choice that she will regret."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "chainId": 42161,
+  "contract": "0x21e09faf72db719cbf9a801d8878a850823d10d1",
+  "projectId": "2a798002-7ed3-4e98-853e-62306479b9da",
+  "operator": "0xc67f2499aef7ce2b2e8c2f0cf3f5f0d1583757f1",
+  "policyHash": "0x18a65d4e461f681c8d79db08edb3acf75a4494d16c16d2751d7c13642d841144",
+  "artifactSHA256": "5949381fde24c8f1a8fbe9b6fab300cf54e41ef3172705fd904fed1d4b6a05d4",
+  "feedUrl": "https://api.fluentxverse.com/internal/lesson-registry/events",
+  "epoch": "registry-production-20261104-v1"
+}

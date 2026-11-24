@@ -188,7 +188,7 @@ export class StudentDisputeService {
 						"Lesson already has a financial reservation; contact support",
 					);
 				const t = {
-					...enrollDispute(),
+					...enrollDispute(b),
 					id: crypto.randomUUID(),
 					bookingId,
 					tutorId: b.tutorId,
@@ -716,7 +716,7 @@ export class StudentDisputeService {
 			}
 			// Automatic full-lesson no-shows refund even when no student report exists.
 			await s.run(`MATCH(p:DisputePolicyActivation {id:'student-disputes-v1'}),(b:Booking)
-        WHERE b.penaltyCode='301' AND b.refundApprovedBy IS NULL AND b.penaltyTimestamp >= datetime(p.activatedAt)
+        WHERE b.penaltyCode='301' AND b.paymentTransferredTo IS NULL AND b.refundApprovedBy IS NULL AND b.penaltyTimestamp >= datetime(p.activatedAt)
         SET b.refundApprovedBy='system',b.refundApprovalReason='TA-301 lesson refund',b.cancellationRefundVersion=1,
           b.refundStatus=CASE WHEN coalesce(b.refunded,false) THEN 'completed' WHEN b.refundStatus='review' THEN 'review' ELSE 'pending' END`);
 			const backlog = await s.run(

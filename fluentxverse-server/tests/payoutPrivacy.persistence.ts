@@ -19,9 +19,13 @@ import { signAuthToken } from "../src/utils/jwt";
 if (process.env.PAYOUT_PRIVACY_TEST_URI !== "bolt://127.0.0.1:17699")
   throw Error("Use only the empty disposable privacy graph on port 17699");
 process.env.JWT_SECRET = "synthetic-privacy-tests-not-production";
-const { preparePrivatePayout, payoutPolicyHash } = await import(
-  "../../../budol/gmr-engine/scripts/payout-private-authorization.mjs"
-);
+// Engine is a separate checkout; allow the integration runner to select its location.
+const authorizationModule = process.env.PAYOUT_AUTHORIZATION_MODULE || new URL(
+  '../../../gmr-engine/gmr-engine/scripts/payout-private-authorization.mjs', import.meta.url,
+).href;
+const { preparePrivatePayout, payoutPolicyHash } = await import(authorizationModule);
+if (typeof preparePrivatePayout !== 'function' || typeof payoutPolicyHash !== 'string')
+  throw Error('Invalid payout authorization module');
 await initDriver(process.env.PAYOUT_PRIVACY_TEST_URI, "", "", 1);
 const db = getDriver().session(),
   seed = randomBytes(32),

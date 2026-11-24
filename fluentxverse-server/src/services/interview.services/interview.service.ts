@@ -518,6 +518,26 @@ export class InterviewService {
       });
       if (!saved.records.length) throw new ApplicationError(409, 'Interview is no longer reviewable');
 
+      if (identityEnabled()) {
+        const identity = await currentIdentity(tx, data.tutorId);
+        if (identity?.status === 'verified' && identity.interviewId === data.slotId) {
+          if (data.result === 'pass') {
+            // The pass and credential eligibility commit atomically under the applicant lock.
+            await tx.run(`MERGE(j:TutorIdentityCredential {id:$id})
+              ON CREATE SET j.tutorId=$tutorId,j.createdAt=$at,j.expiresAt=0,j.revoked=false,j.policy='tutor-identity.v1',j.status='awaiting_interview_pass'
+              WITH j WHERE j.status IN ['awaiting_interview_pass','awaiting_configuration','cancelled'] AND j.revoked=false
+              SET j.status='awaiting_configuration',j.interviewId=$slotId,j.interviewPassedAt=$at`,
+              { id: identity.id, tutorId: data.tutorId, slotId: data.slotId, at: completedAt });
+            await tx.run(`MATCH(i:TutorIdentity {id:$id}) OPTIONAL MATCH(j:TutorIdentityCredential {id:$id})
+              SET i.credentialStatus=coalesce(j.credentialDisplayStatus,'awaiting_credential_configuration')`, { id: identity.id });
+          } else {
+            await tx.run(`MATCH(j:TutorIdentityCredential {id:$id}) WHERE j.status IN ['awaiting_configuration','awaiting_interview_pass']
+              SET j.status='cancelled',j.cancelledAt=$at REMOVE j.interviewPassedAt`, { id: identity.id, at: completedAt });
+            await tx.run(`MATCH(i:TutorIdentity {id:$id}) SET i.credentialStatus='awaiting_interview_pass'`, { id: identity.id });
+          }
+        }
+      }
+
       // If passed, update tutor certification status
       if (data.result === 'pass') {
         await tx.run(`

@@ -35,16 +35,28 @@ test('identity lifecycle persists gates, races, expiry, cancellation, no-show, m
     expect((await db.run('MATCH(n) RETURN count(n) AS n')).records[0]!.get('n').toNumber()).toBe(0); owned = true;
     await ensureTutorIdentitySchema(); await ensureTutorIdentitySchema();
     await db.run(`CREATE(:User {id:'identity-tutor',role:'tutor',email:'identity@example.invalid',verifiedEmail:true,verifiedEmailAddress:'identity@example.invalid',
-      writtenExamPassed:true,speakingExamPassed:true}),(:User {id:'not-ready',role:'tutor'})`);
+      writtenExamPassed:true,speakingExamPassed:true,firstName:'Test',middleName:'Middle',lastName:'Applicant',suffix:'Jr.',
+      birthDate:'2000-01-01',addressLine:'12 Example Street',cityName:'Example City',country:'Philippines'}),(:User {id:'not-ready',role:'tutor'})`);
+    await expect(tutorIdentity.submit('identity-tutor','national','2000-01-01',true,file(),true)).rejects.toThrow('wallet');
+    await db.run('MATCH(u:User {id:$id}) SET u.smartWalletAddress=$wallet', { id:'identity-tutor',
+      wallet:{smartAccountAddress:'0x'+'a'.repeat(40),address:'0x'+'a'.repeat(40),userId:'identity-tutor'} });
     await expect(tutorIdentity.submit('identity-tutor', 'national', '2010-01-01', true, file())).rejects.toThrow('18');
     await expect(tutorIdentity.submit('identity-tutor', 'unsupported', '2000-01-01', true, file())).rejects.toThrow();
     await expect(tutorIdentity.submit('not-ready', 'national', '2000-01-01', true, file())).rejects.toThrow();
     const tomorrow = new Date(Date.now() + 86400_000 + 8 * 3600_000).toISOString().slice(0, 10);
     const [slot] = await interviews.createSlots([{ date: tomorrow, time: '2:00 PM' }]);
     await expect(interviews.bookSlot(slot!.id, 'identity-tutor')).rejects.toThrow('ID');
-    const outcomes = await Promise.allSettled([tutorIdentity.submit('identity-tutor', 'national', '2000-01-01', true, file()), tutorIdentity.submit('identity-tutor', 'national', '2000-01-01', true, file())]);
+    const outcomes = await Promise.allSettled([tutorIdentity.submit('identity-tutor', 'national', '2000-01-01', true, file(),true), tutorIdentity.submit('identity-tutor', 'national', '2000-01-01', true, file(),true)]);
+    if (outcomes.every(o => o.status === 'rejected')) throw new Error(outcomes.map(o => String((o as PromiseRejectedResult).reason)).join('\n'));
     expect(outcomes.filter(o => o.status === 'fulfilled').length).toBe(1);
     const id = (await state()).id;
+    const review=(await tutorIdentity.list()).find(r=>r?.id===id)!;
+    expect(review.applicant).toEqual({fullName:'Test Middle Applicant Jr.',birthDate:'2000-01-01',address:'12 Example Street, Example City, Philippines'});
+    expect('applicant' in (await tutorIdentity.status('identity-tutor')).record!).toBe(false);
+    const consentRecord=(await db.run('MATCH(i:TutorIdentity {id:$id}) RETURN i',{id})).records[0]!.get('i').properties;
+    expect(consentRecord.walletPublicationConsent).toBe(true);
+    expect(consentRecord.walletConsentAddress).toBe('0x'+'a'.repeat(40));
+    expect(consentRecord.walletConsentVersion).toBe('tutor-identity-wallet.v1');
     await expect(db.executeRead(tx => assertTutorApplicationApproved(tx, 'identity-tutor'))).rejects.toThrow();
     await expect(tutorIdentity.review(id, 'staff', 'accept', 'Readable', false)).rejects.toThrow('18');
     await tutorIdentity.review(id, 'staff', 'accept', 'Readable, adult document checked', true);
@@ -101,10 +113,17 @@ test('identity lifecycle persists gates, races, expiry, cancellation, no-show, m
     await tutorIdentity.review(current, 'staff', 'match', 'Same document, face and adult age verified live', true, slot!.id);
     expect((await state()).status).toBe('verified');
     await expect(tutorIdentity.review(current, 'staff', 'match', 'Duplicate', true, slot!.id)).rejects.toThrow();
-    expect((await db.run('MATCH(j:TutorIdentityCredential) RETURN count(j) AS n')).records[0]!.get('n').toNumber()).toBe(1);
-    const credential = (await db.run('MATCH(j:TutorIdentityCredential) RETURN j')).records[0]!.get('j').properties;
-    expect(Number(credential.expiresAt)).toBe(0); expect(credential.status).toBe('awaiting_configuration');
+    expect((await state()).credentialStatus).toBe('awaiting_interview_pass');
+    expect((await db.run('MATCH(j:TutorIdentityCredential) RETURN count(j) AS n')).records[0]!.get('n').toNumber()).toBe(0);
+    await interviews.saveInterviewResult({ slotId: slot!.id, tutorId: 'identity-tutor', result: 'fail', rubricScores: { grammar: 1, fluency: 1, pronunciation: 1, vocabulary: 1, professionalism: 1 }, notes: 'Teaching fail', timestamps: [], adminId: 'staff' });
+    expect((await db.run('MATCH(j:TutorIdentityCredential) RETURN count(j) AS n')).records[0]!.get('n').toNumber()).toBe(0);
     await interviews.saveInterviewResult({ slotId: slot!.id, tutorId: 'identity-tutor', result: 'pass', rubricScores: { grammar: 4, fluency: 4, pronunciation: 4, vocabulary: 4, professionalism: 4 }, notes: 'Teaching pass', timestamps: [], adminId: 'staff' });
+    const credential = (await db.run('MATCH(j:TutorIdentityCredential) RETURN j')).records[0]!.get('j').properties;
+    expect(Number(credential.expiresAt)).toBe(0); expect(credential.status).toBe('awaiting_configuration'); expect(credential.interviewId).toBe(slot!.id); expect(credential.interviewPassedAt).toBeTruthy();
+    await interviews.saveInterviewResult({ slotId: slot!.id, tutorId: 'identity-tutor', result: 'fail', rubricScores: { grammar: 1, fluency: 1, pronunciation: 1, vocabulary: 1, professionalism: 1 }, notes: 'Corrected to fail', timestamps: [], adminId: 'staff' });
+    expect((await db.run('MATCH(j:TutorIdentityCredential) RETURN j.status AS status')).records[0]!.get('status')).toBe('cancelled');
+    await interviews.saveInterviewResult({ slotId: slot!.id, tutorId: 'identity-tutor', result: 'pass', rubricScores: { grammar: 4, fluency: 4, pronunciation: 4, vocabulary: 4, professionalism: 4 }, notes: 'Teaching pass', timestamps: [], adminId: 'staff' });
+    expect((await db.run('MATCH(j:TutorIdentityCredential) RETURN count(j) AS n')).records[0]!.get('n').toNumber()).toBe(1);
     await db.run(`MATCH(u:User {id:'identity-tutor'}) SET u.profileStatus='approved'`);
     await db.executeRead(tx => assertTutorApplicationApproved(tx, 'identity-tutor'));
     expect((await state()).deleteAt).toBe(nextManilaMidnight(Date.now()));

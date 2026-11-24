@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 1,
+  "number": 6,
+  "sourceDigest": "f821a155fd811d680559c544ce999e6b1f4dd91c94e6af01ef4195a2025216ae",
+  "episode": {
+    "title": "An Interesting Idea",
+    "skill": "speaking",
+    "intro": [
+      "One evening, Claire suggests a small art exhibition at the cafe. Emma offers to show her Kyoto photos. Nao wants to bring her ceramic pieces, and Leo volunteers to prepare snacks. They start planning their first event together.",
+      "ある晩、クレアがカフェで小さなアート展をしようと提案します。エマは京都の写真を展示すると言います。ナオは陶芸作品を持ってきたいと言い、レオは軽食を用意すると引き受けます。みんなで初めてのイベント計画を始めます。"
+    ],
+    "goal": [
+      "I can suggest an activity and offer to help with a shared plan.",
+      "活動を提案し、みんなの計画のために手伝えることを申し出られる。"
+    ],
+    "warmup": "What could you contribute to a small event with friends?",
+    "words": [
+      [
+        "Let's organize an exhibition at the cafe.",
+        "organize an exhibition",
+        "カフェで展示会を開きましょう。"
+      ],
+      [
+        "We can display our photos on the wall.",
+        "display our photos",
+        "写真を壁に展示できます。"
+      ],
+      [
+        "Nao can bring her ceramic pieces.",
+        "bring her ceramic pieces",
+        "ナオは陶芸作品を持ってこられます。"
+      ],
+      [
+        "Leo will prepare snacks for visitors.",
+        "prepare snacks",
+        "レオが来客用の軽食を用意します。"
+      ],
+      [
+        "I can make a poster for the event.",
+        "make a poster",
+        "イベントのポスターを作れます。"
+      ],
+      [
+        "Let's invite the neighbors.",
+        "invite the neighbors",
+        "近所の人たちを招待しましょう。"
+      ]
+    ],
+    "discussion": [
+      "Plan a small event with your tutor. Suggest one activity. Offer one thing you can do.",
+      "講師と小さなイベントを計画しましょう。活動を一つ提案し、自分にできることを一つ申し出ましょう。"
+    ],
+    "followup": "Who else could help?",
+    "tips": [
+      {
+        "rule": [
+          "Use Let's + verb or Why don't we + verb? to suggest a shared activity.",
+          "Let's＋動詞、または Why don't we＋動詞? で一緒にすることを提案できます。"
+        ],
+        "examples": [
+          [
+            "Let's have an exhibition at the cafe.",
+            "カフェで展示会を開きましょう。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use I can ... to offer help. Use I'll ... to volunteer for a task.",
+          "I can ... で手伝えること、I'll ... で作業を引き受けられます。"
+        ],
+        "examples": [
+          [
+            "I can design the poster.",
+            "ポスターのデザインができます。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Claire shares her exhibition idea with Emma. Practice the conversation.",
+        "クレアがエマに展示会のアイデアを話します。会話を練習しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Claire",
+          "I have an idea. Let’s have an exhibition."
+        ],
+        [
+          "Emma",
+          "What can we show?"
+        ],
+        [
+          "Claire",
+          "Your Kyoto photos. Nao offered her ceramics too."
+        ],
+        [
+          "Emma",
+          "Great. Leo will prepare snacks."
+        ],
+        [
+          "Claire",
+          "Yes. What can you do?"
+        ],
+        [
+          "Emma",
+          "I can make a poster and choose photos."
+        ],
+        [
+          "Claire",
+          "Let’s hold it on Sunday, two to four."
+        ],
+        [
+          "Emma",
+          "Good. Who can we invite?"
+        ],
+        [
+          "Claire",
+          "Our neighbors. Can you help?"
+        ],
+        [
+          "Emma",
+          "Yes. I can invite them."
+        ]
+      ],
+      "questions": [
+        [
+          "What does Claire suggest?",
+          "A small art exhibition at the cafe."
+        ],
+        [
+          "What will Emma and Nao display?",
+          "Emma's Kyoto photos and Nao's ceramics."
+        ],
+        [
+          "What will Leo do?",
+          "He will prepare snacks."
+        ],
+        [
+          "When is the exhibition?",
+          "On Sunday, from 2 to 4."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Let's (have / having) an exhibition.",
+        "have"
+      ],
+      [
+        "Why don't we (invite / invited) the neighbors?",
+        "invite"
+      ],
+      [
+        "I can (design / designs) a poster.",
+        "design"
+      ],
+      [
+        "I'll (prepare / prepared) snacks.",
+        "prepare"
+      ],
+      [
+        "Nao can bring (her / she) ceramics.",
+        "her"
+      ],
+      [
+        "The exhibition is (from / by) two to four.",
+        "from"
+      ]
+    ],
+    "choices": [
+      [
+        "You want to suggest an activity. What do you say?",
+        "Why don't we have an exhibition?",
+        "Why exhibition yesterday?",
+        "A"
+      ],
+      [
+        "You want to offer help with a poster. What do you say?",
+        "I can design it.",
+        "Someone must guess.",
+        "A"
+      ],
+      [
+        "A friend offers to help. What do you say?",
+        "That would be great. Thank you.",
+        "You cannot speak now.",
+        "A"
+      ],
+      [
+        "You want to confirm your task. What do you say?",
+        "I'll choose the photos. Is that right?",
+        "Maybe no one has a task.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Claire wants to hold the cafe exhibition on Sunday, from 2 to 4 p.m. Nao will bring ceramics, and Leo will prepare snacks. Your tutor is Claire. You still need to choose photographs, make a poster, and invite people.",
+        "あなたはエマ役です。クレアは日曜日の午後2時から4時までカフェで展示会を開きたいです。ナオは陶芸作品を持ってきて、レオは軽食を用意します。講師はクレア役です。あなたは写真選び、ポスター作り、招待がまだ必要です。"
+      ],
+      "task": [
+        "Suggest what to display and who to invite. Offer to do two tasks. Ask Claire what she will do. Then confirm the time and your jobs.",
+        "展示するものと招待する人を提案しましょう。作業を二つ引き受けましょう。クレアが何をするか聞きましょう。最後に時間と自分の担当を確認しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "title": "",
+      "lines": [
+        "Emma, what should we display at the cafe?",
+        "Who should we invite to the exhibition?",
+        "What two tasks can you do for the event?",
+        "What will you ask me to do, as Claire?",
+        "Can you confirm the time and your jobs?"
+      ],
+      "evidence": "Tutor note: The student should (1) make at least one suggestion (Let's/Why don't we), (2) offer two practical tasks (I can/I'll), (3) ask Claire what she will do, and (4) clearly confirm Sunday 2–4 p.m. Accept any workable display/invite ideas that fit the cafe exhibition plan.",
+      "useful": [
+        "Let's ...",
+        "Why don't we ...?",
+        "I can ...",
+        "I'll ...",
+        "Just to confirm, it's ...",
+        "What will you do?"
+      ]
+    },
+    "topics": [
+      [
+        "PLANNING TOGETHER",
+        [
+          "What event do you want to plan?",
+          "Who do you want to invite?",
+          "What can you do to help?"
+        ]
+      ],
+      [
+        "SHARING YOUR WORK",
+        [
+          "What do you want to show?",
+          "How do you choose your best work?",
+          "Are you nervous to show it?"
+        ]
+      ],
+      [
+        "OFFERING HELP",
+        [
+          "What are you good at?",
+          "How do you say you can help?",
+          "What help do you want from friends?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Let's ...\" includes the speaker in a suggestion. \"Why don't we ...?\" can also be a friendly suggestion.",
+      "「Let's ...」は話し手も一緒にする提案です。「Why don't we ...?」も、やさしい提案として使えます。"
+    ],
+    "triviaQuestion": [
+      "Is \"Why don't we invite our neighbors?\" a suggestion or a complaint here?",
+      "A suggestion."
+    ],
+    "closing": "The friends agree on their jobs. Two days before the exhibition, Leo arrives with a problem at the bakery."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

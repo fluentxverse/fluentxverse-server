@@ -8,6 +8,7 @@ import { createAdminGuard, createAnyAuthGuard, createStudentGuard, createTutorGu
 import { addAvailableCheckpoints, checkpointIdPattern, checkpointLessonService, studentCheckpointLesson } from '../services/checkpointLesson.service';
 import { ScheduleService } from '../services/schedule.services/schedule.service';
 import { parseWorkplaceData } from '../../../shared/workplaceCommunication';
+import { isLessonChapterAllowed } from '../../../shared/conversationalCurriculum';
 
 const scheduleService = new ScheduleService();
 
@@ -38,6 +39,11 @@ export const lessonMaterialRoutes = new Elysia({ prefix: '/lesson-materials' })
       if (!adminPayload) {
         return { success: false, error: 'Unauthorized' };
       }
+
+      if (!isLessonChapterAllowed(body.course, body.level, body.chapter)) {
+        set.status = 400;
+        return { success: false, error: 'Chapter is outside the supported range for this course and level.' };
+      }
       
       try {
         const lesson = await lessonMaterialService.create({
@@ -66,7 +72,7 @@ export const lessonMaterialRoutes = new Elysia({ prefix: '/lesson-materials' })
       body: t.Object({
         course: t.String(),
         level: t.Number({ minimum: 1, maximum: 10 }),
-        chapter: t.Number({ minimum: 1, maximum: 5 }),
+        chapter: t.Integer({ minimum: 1, maximum: 5 }),
         lessonNumber: t.Number({ minimum: 1, maximum: 10 }),
         skill: t.Union([t.Literal('speaking'), t.Literal('listening'), t.Literal('reading'), t.Literal('review')]),
         chapterName: t.Optional(t.String()),
@@ -710,6 +716,11 @@ export const lessonMaterialRoutes = new Elysia({ prefix: '/lesson-materials' })
         return { success: false, error: 'Unauthorized' };
       }
 
+      if (!isLessonChapterAllowed(params.course, Number(params.level), Number(params.chapter))) {
+        set.status = 400;
+        return { success: false, error: 'Chapter is outside the supported range for this course and level.' };
+      }
+
       try {
         await lessonMaterialService.saveChapterMeta(
           params.course,
@@ -847,6 +858,12 @@ export const lessonMaterialRoutes = new Elysia({ prefix: '/lesson-materials' })
         return { success: false, error: 'Unauthorized' };
       }
 
+      if (body.chapters.some(chapter => !isLessonChapterAllowed(params.course, Number(params.level), chapter.chapter))
+        || new Set(body.chapters.map(chapter => chapter.chapter)).size !== body.chapters.length) {
+        set.status = 400;
+        return { success: false, error: 'Chapters must be unique and within the supported range for this course and level.' };
+      }
+
       try {
         await lessonMaterialService.saveCourseStructure(
           params.course,
@@ -867,10 +884,10 @@ export const lessonMaterialRoutes = new Elysia({ prefix: '/lesson-materials' })
       body: t.Object({
         mainTopic: t.String(),
         chapters: t.Array(t.Object({
-          chapter: t.Number(),
+          chapter: t.Integer({ minimum: 1, maximum: 5 }),
           theme: t.String(),
           name: t.String(),
-        })),
+        }), { maxItems: 5 }),
       }),
       detail: {
         tags: ['Lesson Materials'],

@@ -1,0 +1,275 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 2,
+  "number": 9,
+  "sourceDigest": "00076e70c119020fa362546b04b603a9fed0593aa2cb07df93d64eb147a404b0",
+  "episode": {
+    "title": "An Evening by the River",
+    "skill": "speaking",
+    "goal": [
+      "I can accept an invitation and check the meeting plan.",
+      "誘いに応じ、待ち合わせの予定を確認できる。"
+    ],
+    "intro": [
+      "The friends walk beside the Kamo River. Claire and Nao walk ahead and discuss a cafe event. Emma and Leo remember their trips. Leo asks Emma to go out again, just with him. Emma smiles and says yes.",
+      "四人は鴨川のそばを歩きます。クレアとナオは先を歩き、カフェのイベントについて話します。エマとレオは外出の思い出を語ります。レオはエマを二人だけの外出に誘います。エマは笑顔で応じます。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "Would you like coffee?",
+        "Would you like",
+        "コーヒーはいかがですか。"
+      ],
+      [
+        "I would love to.",
+        "would love to",
+        "ぜひそうしたいです。"
+      ],
+      [
+        "Are you free on Saturday?",
+        "free",
+        "土曜日は空いていますか。"
+      ],
+      [
+        "Let’s meet at two.",
+        "meet",
+        "2時に会いましょう。"
+      ],
+      [
+        "How about the garden?",
+        "How about",
+        "庭園はどうですか。"
+      ],
+      [
+        "That sounds good.",
+        "sounds good",
+        "いいですね。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use can + verb to offer help.",
+          "can ＋動詞で、手伝えることを伝えます。"
+        ],
+        "examples": [
+          [
+            "I can help you.",
+            "お手伝いできます。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use Let’s + verb to suggest an action.",
+          "Let’s ＋動詞で行動を提案します。"
+        ],
+        "examples": [
+          [
+            "Let’s check the time.",
+            "時刻を確認しましょう。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Leo and Emma talk as they walk behind Claire and Nao. Read their conversation.",
+        "クレアとナオの後ろを歩きながら、レオとエマが話します。二人の会話を読みましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Leo",
+          "What is your favorite place here?"
+        ],
+        [
+          "Emma",
+          "I like all our trips."
+        ],
+        [
+          "Leo",
+          "Would you like another outing?"
+        ],
+        [
+          "Emma",
+          "Yes. Just the two of us?"
+        ],
+        [
+          "Leo",
+          "Yes. How about a garden and coffee?"
+        ],
+        [
+          "Emma",
+          "I would love to. Saturday afternoon?"
+        ],
+        [
+          "Leo",
+          "Yes. Let’s meet at two."
+        ],
+        [
+          "Emma",
+          "At the cafe?"
+        ],
+        [
+          "Leo",
+          "Yes. Is that okay?"
+        ],
+        [
+          "Emma",
+          "Perfect. See you then."
+        ]
+      ],
+      "questions": [
+        [
+          "Who will go on the next outing?",
+          "Emma and Leo."
+        ],
+        [
+          "What do they plan?",
+          "A garden and coffee."
+        ],
+        [
+          "When will they meet?",
+          "Saturday at two."
+        ],
+        [
+          "Where will they meet?",
+          "At the cafe."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I can (help / helps) you.",
+        "help"
+      ],
+      [
+        "Let’s (check / checked) the time.",
+        "check"
+      ],
+      [
+        "Can you (come / comes) too?",
+        "come"
+      ],
+      [
+        "We can (meet / meets) here.",
+        "meet"
+      ],
+      [
+        "Let’s (ask / asked) first.",
+        "ask"
+      ],
+      [
+        "I can (bring / brings) it.",
+        "bring"
+      ]
+    ],
+    "choices": [
+      [
+        "Who will go on the next outing?",
+        "Emma and Leo.",
+        "Only Claire.",
+        "A"
+      ],
+      [
+        "What do they plan?",
+        "A work interview.",
+        "A garden and coffee.",
+        "B"
+      ],
+      [
+        "When will they meet?",
+        "Saturday at two.",
+        "Monday at ten.",
+        "A"
+      ],
+      [
+        "Where will they meet?",
+        "At an airport.",
+        "At the cafe.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Leo. You are planning another outing together.",
+        "あなたはエマ役、講師はレオ役です。二人で次の外出を計画しています。"
+      ],
+      "task": [
+        "Answer Leo’s invitation. Agree on an activity, day, time, and place.",
+        "レオの誘いに返事をし、活動、曜日、時刻、場所を決めましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "lines": [
+        "Would you like to visit a garden and get coffee?",
+        "Is Saturday morning okay?",
+        "What time is better for you?",
+        "Where shall we meet?",
+        "Can we check our plan?"
+      ],
+      "evidence": "Respond to the invitation, clarify the details or suggest a different time, and confirm the plan.",
+      "useful": [
+        "I would love to.",
+        "I am free ...",
+        "How about ...?",
+        "Is ... okay?",
+        "Let’s meet ..."
+      ]
+    },
+    "topics": [
+      [
+        "DAYS OUT",
+        [
+          "Where do you like to go?",
+          "Who do you go with?",
+          "What do you take?"
+        ]
+      ],
+      [
+        "SHOPPING",
+        [
+          "What do you like to buy?",
+          "Do you pay by card?",
+          "What gift would you choose?"
+        ]
+      ],
+      [
+        "TRAVEL PLANS",
+        [
+          "How do you travel?",
+          "What time do you like to start?",
+          "What do you do on a rainy day?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“It’s a date” can mean “our plan is agreed.” It does not always mean a romantic date. The situation tells you.",
+      "It’s a date は「それで決まり」という意味でも使います。必ず恋愛のデートとは限らず、場面で意味が分かります。"
+    ],
+    "triviaQuestion": [
+      "Does “It’s a date” always mean romance?",
+      "No. It can mean the plan is agreed."
+    ],
+    "closing": "In the story, Emma accepts Leo's invitation. Kyoto feels like the beginning of something special. Lesson 10 reviews the practical language from Lessons 6-9."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

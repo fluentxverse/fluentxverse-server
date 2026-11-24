@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 1,
+  "number": 6,
+  "sourceDigest": "565675e17c4878a18063e54d1116d5b4d1bcd201d4fe885292ee6aaa51a9f9f7",
+  "episode": {
+    "title": "Trouble at Work",
+    "skill": "speaking",
+    "intro": [
+      "At Friday’s team meeting, Emma and Ren disagree about a client’s request. Their messages have been short and unclear, so the project is suffering. Emma suggests checking the written brief, dividing the work, and keeping feedback in the shared channel. Ren agrees to put the client’s needs first.",
+      "金曜日のチーム会議で、エマとレンは顧客の依頼について意見が分かれます。連絡が短く分かりにくくなり、仕事に影響が出ています。エマは書面の指示を確認し、作業を分担し、意見は共有の連絡先に書くことを提案します。レンも顧客の要望を優先することに同意します。"
+    ],
+    "goal": [
+      "I can disagree politely and agree on tasks, deadlines, and communication.",
+      "丁寧に反対し、担当・期限・連絡方法を決められる。"
+    ],
+    "warmup": "How can you bring a disagreement back to the task, not the people?",
+    "words": [
+      [
+        "Let’s check the brief before we change anything.",
+        "check the brief",
+        "何かを変える前に、依頼内容（brief）を確認しましょう。"
+      ],
+      [
+        "The client requested a larger title.",
+        "requested",
+        "顧客は〜を依頼しました。"
+      ],
+      [
+        "I see it differently, because the brief says to keep the colors.",
+        "I see it differently",
+        "私は少し考えが違います。"
+      ],
+      [
+        "Can we divide the tasks so we move faster?",
+        "divide the tasks",
+        "作業を分担できますか。"
+      ],
+      [
+        "Let’s confirm the deadline with the team lead.",
+        "confirm the deadline",
+        "締め切りを確認しましょう。"
+      ],
+      [
+        "Please keep feedback in the shared channel.",
+        "shared channel",
+        "意見は共有の連絡先（チャット等）に書いてください。"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is Ren. Disagree politely about a design change. Then suggest checking the client’s brief and making a clear plan.",
+      "あなたはエマ役、講師はレン役です。デザイン変更に丁寧に反対し、その後で顧客の指示確認と明確な計画を提案しましょう。"
+    ],
+    "followup": "How would you agree on who does what next, and by what time?",
+    "tips": [
+      {
+        "rule": [
+          "Disagree about the task, not the person. Use: I see it differently. / The brief says ...",
+          "人ではなく内容に対して反対します。I see it differently. / The brief says ... を使いましょう。"
+        ],
+        "examples": [
+          [
+            "I see it differently. The brief asks for a larger title.",
+            "私は少し考えが違います。指示はタイトルを大きくすることです。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Make the next step clear: owner + deadline + place for feedback.",
+          "次の行動を明確にします：担当 + 期限 + 意見を書く場所。"
+        ],
+        "examples": [
+          [
+            "I’ll update the title. Could you check the images by three?",
+            "私がタイトルを直します。3時までに画像を確認してもらえますか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Emma and Ren reset their work plan after a tense meeting. Read the dialogue.",
+        "気まずい会議の後、エマとレンが仕事の予定を立て直します。会話を読みましょう。"
+      ],
+      "roles": [
+        "Ren",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Ren",
+          "I think the whole poster needs a new color."
+        ],
+        [
+          "Emma",
+          "I see it differently. The client only asked for a larger title."
+        ],
+        [
+          "Ren",
+          "Our messages have been confusing lately."
+        ],
+        [
+          "Emma",
+          "I agree. We should focus on the project, not feelings."
+        ],
+        [
+          "Ren",
+          "What would make the next step clearer?"
+        ],
+        [
+          "Emma",
+          "Let’s check the brief and divide the tasks. I can update the title."
+        ],
+        [
+          "Ren",
+          "I’ll check the images. When should we finish?"
+        ],
+        [
+          "Emma",
+          "By three. Then the team lead can review the complete file."
+        ],
+        [
+          "Ren",
+          "And we’ll keep comments in the shared channel."
+        ],
+        [
+          "Emma",
+          "Agreed. That way everyone can follow the decisions."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "What did the client actually request?",
+          "A larger title, not a new color."
+        ],
+        [
+          "How do Emma and Ren divide the work?",
+          "Emma updates the title; Ren checks the images."
+        ],
+        [
+          "When will they finish the work?",
+          "By three."
+        ],
+        [
+          "Where will they leave feedback?",
+          "In the shared channel."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I see it (differently / different).",
+        "differently"
+      ],
+      [
+        "Could we (check / checking) the brief?",
+        "check"
+      ],
+      [
+        "Let’s divide the (tasks / tasked).",
+        "tasks"
+      ],
+      [
+        "I’ll finish it (by / until from) three.",
+        "by"
+      ],
+      [
+        "Please put feedback (in / over) the shared channel.",
+        "in"
+      ],
+      [
+        "The client (requested / requesting) a larger title.",
+        "requested"
+      ]
+    ],
+    "choices": [
+      [
+        "Which reply disagrees politely?",
+        "I see it differently. Let’s check the brief.",
+        "You always ruin everything.",
+        "A"
+      ],
+      [
+        "What detail is missing from “We’ll finish later”?",
+        "A criticism of the client",
+        "A clear deadline",
+        "B"
+      ],
+      [
+        "Which plan clearly assigns owners?",
+        "I’ll update the title; you check the images.",
+        "Someone should probably do something.",
+        "A"
+      ],
+      [
+        "Why use a shared channel?",
+        "To continue a personal argument in public",
+        "To make work decisions easy to see for the team",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Ren. A new client request asks for the event date below the title and a clearer contact line. Keep the existing colors. You will edit the title area. Ren will check the contact details. The complete draft is due by four for the team lead’s review.",
+        "あなたはエマ役、講師はレン役です。新しい依頼は、タイトルの下にイベントの日付を入れ、問い合わせ先を分かりやすくすることです。色は変えません。あなた（エマ）はタイトル周辺、レンは問い合わせ先を担当します。完成した案はリーダー確認のため4時までに必要です。"
+      ],
+      "task": [
+        "Clarify the request, politely reject a color change, and confirm owners, deadline, and the shared channel for feedback.",
+        "依頼内容を明確にし、色の変更には丁寧に反対し、担当・期限・共有の連絡先を確認しましょう。"
+      ],
+      "roles": [
+        "Ren",
+        "Emma"
+      ],
+      "text": "",
+      "title": "Client Update (Reading)",
+      "lines": [
+        "What does the latest client request ask us to change?",
+        "I hear you, but should we change the colors or keep them?",
+        "Which part will you handle, and what should I check?",
+        "When is the complete draft due for the team lead?",
+        "Where should we write questions and comments?",
+        "Could you summarize our next steps in one or two sentences?"
+      ],
+      "evidence": "Tutor evidence note: The client wants the event date below the title and a clearer contact line. Colors must stay the same. Emma handles the title area; Ren checks contact details. Draft is due by 4:00 p.m. for the team lead. Feedback/questions go in the shared channel. This mission is different from Apply (deadline and requested changes).",
+      "useful": [
+        "The latest request asks for ...",
+        "I see your point, but ...",
+        "We should keep ...",
+        "I’ll handle ... Could you ...?",
+        "The draft is due by ..."
+      ]
+    },
+    "topics": [
+      [
+        "Professional Disagreement",
+        [
+          "How can you disagree without blaming a person?",
+          "What can you say to check the facts?",
+          "When should you ask someone to clarify?"
+        ]
+      ],
+      [
+        "Dividing Work",
+        [
+          "How do you decide who does each task?",
+          "What details should you confirm about a deadline?",
+          "How can you check the whole task is covered?"
+        ]
+      ],
+      [
+        "Useful Feedback",
+        [
+          "What makes feedback clear and helpful?",
+          "Where should a team record decisions?",
+          "How do you respond to an unexpected change?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Feedback\" is usually uncountable: say \"some feedback,\" not \"a feedback.\" For one specific note, say \"a comment\" or \"a suggestion.\" Asking \"Which part should I change?\" makes feedback more actionable.",
+      "feedback は通常数えられず、some feedback と言います。具体的な一件なら a comment や a suggestion が使えます。Which part should I change? と聞くと、意見を次の作業につなげられます。"
+    ],
+    "triviaQuestion": [
+      "Which is natural for one specific note: a comment or a feedback?",
+      "A comment."
+    ],
+    "closing": "Emma and Ren agree on a clear plan and how to communicate. In Kyoto, Leo takes photos on his day off and feels calmer, but he still has not decided his future."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

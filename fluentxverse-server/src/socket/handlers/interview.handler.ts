@@ -16,42 +16,48 @@ export function interviewIdentityPresence(slotId: string) {
   return { bothPresent: Boolean(room?.tutorSocketId && room?.adminSocketId), recording: Boolean(room?.recording) };
 }
 
-export const canJoinInterview = async (roomId: string, role: 'tutor' | 'admin', userId: string) => {
-  if (!/^interview-[a-zA-Z0-9_-]{1,100}$/.test(roomId) || roomId === 'interview-default') return false;
+export const interviewJoinDenial = async (roomId: string, role: 'tutor' | 'admin', userId: string): Promise<string | null> => {
+  const denied = 'You do not have access to this interview.';
+  if (!/^interview-[a-zA-Z0-9_-]{1,100}$/.test(roomId) || roomId === 'interview-default') return denied;
   const session = getDriver().session();
   try {
     if (role === 'admin') {
       const admin = (await session.run('MATCH (a:Admin {id: $userId}) RETURN a', { userId })).records[0]?.get('a')?.properties;
-      if (!admin || !['admin', 'superadmin'].includes(admin.role || 'admin') || !adminCapabilities(admin).includes('operations')) return false;
+      if (!admin || !['admin', 'superadmin'].includes(admin.role || 'admin') || !adminCapabilities(admin).includes('operations')) return denied;
     }
     const result = await session.run(
-      `MATCH (slot:InterviewSlot {id: $slotId, status: 'booked'})
+      `MATCH (slot:InterviewSlot {id: $slotId})
        WHERE $role = 'admin' OR slot.tutorId = $userId
-       WITH slot WHERE slot.mediaClosedAt IS NULL
-       RETURN slot.id AS id, slot.date AS date, slot.time AS time LIMIT 1`,
+       RETURN slot.id AS id, slot.date AS date, slot.time AS time, slot.status AS status, slot.mediaClosedAt AS closed LIMIT 1`,
       { slotId: roomId.slice('interview-'.length), role, userId }
     );
-    if (!result.records.length) return false;
+    if (!result.records.length) return denied;
+    const slot = result.records[0]!;
+    if (slot.get('status') !== 'booked' || slot.get('closed')) return 'This interview is closed or cancelled. Return to interviews to review its status.';
     if (identityEnabled()) {
       const row = result.records[0]!, start = interviewStart(row.get('date'), row.get('time'));
-      if (Date.now() < start - 15 * 60000 || Date.now() >= start + 30 * 60000) return false;
+      if (!Number.isFinite(start)) return 'The interview schedule is invalid. Contact support.';
+      if (Date.now() < start - 15 * 60000) return `This interview opens at ${new Date(start - 15 * 60000).toLocaleString('en-PH', { timeZone: 'Asia/Manila', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })} Manila time, 15 minutes before the scheduled start. Please try again then.`;
+      if (Date.now() >= start + 30 * 60000) return 'The entry window for this interview has ended. Contact the recruitment team to arrange the next steps.';
       const banned = (await session.run('MATCH(u:User {id:$userId}) RETURN u.identityBanned AS banned', { userId })).records[0]?.get('banned');
-      if (banned === true) return false;
+      if (banned === true) return 'Your account cannot join interviews. Contact support.';
     }
-    return true;
+    return null;
   } finally {
     await session.close();
   }
 };
+export const canJoinInterview = async (roomId: string, role: 'tutor' | 'admin', userId: string) => (await interviewJoinDenial(roomId, role, userId)) === null;
 
 export const interviewHandler = (io: TypedServer, socket: TypedSocket) => {
   // Join interview room
   socket.on('interview:join', async (data: { roomId: string; odIuser?: string; role: 'tutor' | 'admin' }) => {
     try {
       const { roomId, role } = data;
-      if (role !== socket.data.userType || (role !== 'tutor' && role !== 'admin') ||
-          !await canJoinInterview(roomId, role, socket.data.userId)) {
-        socket.emit('interview:error', { message: 'You do not have access to this interview' });
+      const denial = role !== socket.data.userType || (role !== 'tutor' && role !== 'admin')
+        ? 'You do not have access to this interview.' : await interviewJoinDenial(roomId, role, socket.data.userId);
+      if (denial) {
+        socket.emit('interview:error', { message: denial });
         return;
       }
 

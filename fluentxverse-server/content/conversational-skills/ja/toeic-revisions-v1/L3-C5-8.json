@@ -1,0 +1,233 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 5,
+  "number": 8,
+  "sourceDigest": "951e611c7f0f0bfbc87a8103d96c8bd03901f7255a7493453557462aabeeef52",
+  "episode": {
+    "title": "Keeping Secrets",
+    "skill": "reading",
+    "goal": [
+      "I can read advice and make an honest conversation plan.",
+      "助言を読み、正直に話すための予定を立てられる。"
+    ],
+    "intro": [
+      "Leo sees that Emma is quiet. She says work made her tired. On Saturday, she tells Nao about the hidden dinner and lie. She fears losing Leo. Nao suggests an honest talk. Ren sends a question about the project handover.",
+      "レオはエマが静かなことに気付きます。エマは仕事で疲れたと言います。土曜日、隠した夕食とうそをナオに話します。エマはレオを失うのが怖いです。ナオは正直に話すよう勧めます。レンは仕事の引き継ぎについて連絡します。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "I am afraid.",
+        "afraid",
+        "怖いです。"
+      ],
+      [
+        "He does not know yet.",
+        "yet",
+        "彼はまだ知りません。"
+      ],
+      [
+        "Tell the truth.",
+        "truth",
+        "本当のことを話してください。"
+      ],
+      [
+        "Choose a quiet time.",
+        "quiet",
+        "落ち着いて話せる時間を選んでください。"
+      ],
+      [
+        "Please listen to him.",
+        "listen",
+        "彼の話を聞いてください。"
+      ],
+      [
+        "Give him time.",
+        "time",
+        "彼に時間をあげてください。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use will + verb for a future action.",
+          "will ＋動詞で、これからすることを伝えます。"
+        ],
+        "examples": [
+          [
+            "I will send a message.",
+            "メッセージを送ります。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use before or after to show the order.",
+          "before や after で順番を表します。"
+        ],
+        "examples": [
+          [
+            "I will ask before I decide.",
+            "決める前に尋ねます。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read Emma's message and Nao's reply. Identify the facts, the worry, and the advice.",
+        "エマのメッセージとナオの返事を読みましょう。事実、不安、助言を区別しましょう。"
+      ],
+      "text": "<p>Emma: I told Leo I was working on Friday. I had dinner with Ren. Leo does not know. I told Ren to keep our contact about work. I am afraid Leo will leave me.</p><p>Nao: You do not know his answer yet. Tell him what happened. Choose a quiet time and listen. Do not ask him to forgive you immediately.</p>",
+      "questions": [
+        [
+          "What did Emma hide?",
+          "Dinner with Ren."
+        ],
+        [
+          "What did she tell Ren?",
+          "Keep contact about work."
+        ],
+        [
+          "Does she know Leo’s decision?",
+          "No."
+        ],
+        [
+          "What does Nao advise?",
+          "Tell the truth and give Leo time."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I will (send / sent) a message.",
+        "send"
+      ],
+      [
+        "She will (help / helps) us.",
+        "help"
+      ],
+      [
+        "We will (meet / met) tomorrow.",
+        "meet"
+      ],
+      [
+        "I will ask (before / between) I decide.",
+        "before"
+      ],
+      [
+        "I will rest (after / among) work.",
+        "after"
+      ],
+      [
+        "Will you (come / came)?",
+        "come"
+      ]
+    ],
+    "choices": [
+      [
+        "What did Emma hide?",
+        "Dinner with Ren.",
+        "An interview.",
+        "A"
+      ],
+      [
+        "What did she tell Ren?",
+        "Plan another dinner.",
+        "Keep contact about work.",
+        "B"
+      ],
+      [
+        "Does she know Leo’s decision?",
+        "No.",
+        "Yes. He decided to leave.",
+        "A"
+      ],
+      [
+        "What does Nao advise?",
+        "Keep lying.",
+        "Tell the truth and give Leo time.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Nao. Read the updated conversation plan and messages. Ask Nao to help you decide what to do next.",
+        "あなたはエマ役、講師はナオ役です。更新した会話の計画とメッセージを読み、次にすることをナオと相談しましょう。"
+      ],
+      "task": [
+        "Say what Leo knows and what is unknown. Check the meeting. Plan an honest talk and a work reply.",
+        "レオが知っていることと不明なことを分けましょう。待ち合わせを確認し、正直な話し合いと仕事の返信を考えましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Emma"
+      ],
+      "title": "Saturday Notes - What Happens Next?",
+      "text": "<p>Leo does not know about Friday’s dinner. Emma said she was working. She has told Ren to keep contact about work.</p><p>Leo will meet Emma at the cafe on Sunday at 6 p.m. His reaction and decision are unknown.</p><p>Nao: Explain the dinner and lie. Do not blame others. Listen and give him time.</p><p>Ren: Can we confirm Monday’s project handover at ten in the office? This is about work, not dinner.</p>",
+      "lines": [
+        "What does Leo know?",
+        "What are you afraid of? Is that certain?",
+        "When and where will you meet?",
+        "What will you explain? Will you blame anyone?",
+        "What will you reply to Ren?",
+        "What if Leo needs time?"
+      ],
+      "evidence": "False work message/dinner unknown to Leo; reaction uncertain; Sunday six cafe; truthful explanation no blame; confirm Monday ten office handover without extending private invitation; allow time. Do not treat forgiveness or breakup as confirmed. Keep reading evidence visible.",
+      "useful": [
+        "He does not know ...",
+        "I am afraid ...",
+        "That is not certain.",
+        "We will meet ...",
+        "I will explain ..."
+      ]
+    },
+    "topics": [
+      [
+        "KEEPING IN TOUCH",
+        [
+          "Do you call or send messages?",
+          "When do you call a friend?",
+          "What do you say when you are busy?"
+        ]
+      ],
+      [
+        "CHANGING PLANS",
+        [
+          "What do you say when you are late?",
+          "Who needs to know about a change?",
+          "How do you choose a new time?"
+        ]
+      ],
+      [
+        "LISTENING",
+        [
+          "What helps you listen?",
+          "How do you ask someone to repeat?",
+          "How do you show you understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Sleep on it” means wait until tomorrow before deciding. It does not mean sleep on a letter or phone.",
+      "sleep on it は、一晩考えてから決めるという意味です。手紙や電話の上で寝ることではありません。"
+    ],
+    "triviaQuestion": [
+      "Does “sleep on it” suggest taking time to decide?",
+      "Yes."
+    ],
+    "closing": "Emma agrees to meet Leo on Sunday, but still delays telling him. A message from Ren makes the hidden dinner impossible to avoid."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

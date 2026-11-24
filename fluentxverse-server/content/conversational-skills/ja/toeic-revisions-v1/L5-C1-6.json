@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 5,
+  "chapter": 1,
+  "number": 6,
+  "sourceDigest": "d988cccd88e9873ecc625f2ca2a7d4c6cbdd084d2cb353ef978ee6ca85e1e881",
+  "episode": {
+    "title": "A Question of Responsibility",
+    "skill": "speaking",
+    "intro": [
+      "The team has two weeks to finish its proposal. Soo-jin will lead design, and Mika will help with the plan. Ethan thinks Daichi will check the financial report, but Daichi wants clear agreement. Mika suggests a shared task list. Everyone needs to check their role.",
+      "チームには提案書を仕上げるまで2週間あります。スジンは制作を率い、ミカは計画を手伝います。イーサンはダイチが財務報告書を確認すると思っていますが、ダイチは明確な合意を求めます。ミカは共有の担当表を提案します。全員が自分の担当を確認する必要があります。"
+    ],
+    "goal": [
+      "I can ask who will do each task and check a deadline.",
+      "誰がそれぞれの仕事をするかを尋ね、期限を確認できる。"
+    ],
+    "warmup": "When you start a project, what task do you usually confirm first?",
+    "words": [
+      [
+        "What is my task?",
+        "task",
+        "私の仕事は何ですか。"
+      ],
+      [
+        "Who will check the costs?",
+        "costs",
+        "誰が費用を確認しますか。"
+      ],
+      [
+        "Let's write a shared list.",
+        "shared",
+        "共有の一覧を作りましょう。"
+      ],
+      [
+        "We have two weeks.",
+        "two weeks",
+        "2週間あります。"
+      ],
+      [
+        "Please check our progress.",
+        "progress",
+        "進み具合を確認してください。"
+      ],
+      [
+        "Let's agree on the roles.",
+        "agree",
+        "役割を決めましょう。"
+      ]
+    ],
+    "discussion": [
+      "Why can assumptions cause problems at work?",
+      "なぜ職場で「思い込み」は問題になりますか？"
+    ],
+    "followup": "What is one simple way to track who does what on your team?",
+    "tips": [
+      {
+        "rule": [
+          "Use Who will ...? to ask about a task.",
+          "Who will ...? で仕事の担当を尋ねましょう。"
+        ],
+        "examples": [
+          [
+            "Who will check the report?",
+            "誰がレポートを確認しますか。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use I can ... to offer help. Then check that everyone agrees.",
+          "I can ... で手伝いを申し出られます。その後、全員が合意したか確認しましょう。"
+        ],
+        "examples": [
+          [
+            "I can write the list. Can everyone check it?",
+            "一覧を作れます。みんなで確認してもらえますか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "It is Monday. The team has two weeks. You need to confirm tasks and avoid confusion.",
+        "月曜日です。チームは2週間しかありません。担当を確認して混乱を防ぐ必要があります。"
+      ],
+      "roles": [
+        "Ethan",
+        "Mika"
+      ],
+      "dialogue": [
+        [
+          "Ethan",
+          "We have two weeks to prepare the proposal."
+        ],
+        [
+          "Mika",
+          "Who will do each task?"
+        ],
+        [
+          "Ethan",
+          "Soo-jin will lead design. You can help with the plan."
+        ],
+        [
+          "Mika",
+          "Who will check the financial report?"
+        ],
+        [
+          "Ethan",
+          "I thought Daichi was doing that."
+        ],
+        [
+          "Mika",
+          "Let's ask him. We can write a shared task list."
+        ],
+        [
+          "Ethan",
+          "Good idea. That will help us check our progress."
+        ],
+        [
+          "Mika",
+          "I can start the list. Can everyone check their role?"
+        ],
+        [
+          "Ethan",
+          "Yes. We should agree before we start."
+        ],
+        [
+          "Mika",
+          "Great. Then everyone will know what to do."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "How much time does the team have?",
+          "Two weeks."
+        ],
+        [
+          "Who will lead design?",
+          "Soo-jin."
+        ],
+        [
+          "What does Mika suggest?",
+          "A shared task list."
+        ],
+        [
+          "Is guessing someone's task enough?",
+          "No. The team should check and agree."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Who will (check / checks) the costs?",
+        "check"
+      ],
+      [
+        "I can (write / writing) the list.",
+        "write"
+      ],
+      [
+        "Soo-jin will (lead / leads) design.",
+        "lead"
+      ],
+      [
+        "We have two (weeks / week).",
+        "weeks"
+      ],
+      [
+        "Let's agree (on / at) the roles.",
+        "on"
+      ],
+      [
+        "Everyone (needs / need) a clear task.",
+        "needs"
+      ]
+    ],
+    "choices": [
+      [
+        "What can stop confusion about tasks?",
+        "A shared list of agreed roles.",
+        "Guessing who is doing each task.",
+        "A"
+      ],
+      [
+        "What should Ethan do about Daichi's role?",
+        "Leave it as a guess.",
+        "Ask him and confirm.",
+        "B"
+      ],
+      [
+        "How long does the team have?",
+        "Two weeks.",
+        "Two months.",
+        "A"
+      ],
+      [
+        "Who suggests the shared list?",
+        "Daichi.",
+        "Mika.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Mika. Your tutor is Ethan. The team has two weeks. Soo-jin will lead design. You will help with the plan. Daichi's report task needs checking.",
+        "あなたはミカ役、講師はイーサン役です。チームには2週間あります。スジンは制作を率い、ミカは計画を手伝います。ダイチのレポートの担当は確認が必要です。"
+      ],
+      "task": [
+        "Ask about the tasks. Offer to write a shared list and check who must agree.",
+        "担当を尋ねましょう。共有の一覧を作ると申し出て、誰の合意が必要か確認しましょう。"
+      ],
+      "roles": [
+        "Ethan",
+        "Mika"
+      ],
+      "text": "",
+      "title": "Team Responsibilities",
+      "lines": [
+        "Mika, we have two weeks. How can we keep track of the tasks?",
+        "Soo-jin will lead design. Can you help with the plan?",
+        "I thought Daichi was checking the report. Is that enough?",
+        "Can you start a shared list?",
+        "Who should check and agree on the list?"
+      ],
+      "evidence": "Two weeks. Soo-jin leads design, Mika helps with the plan, and Daichi's financial-report role must be confirmed. Mika suggests a shared list. Ask everyone to check their role instead of assuming. Keep the tension between Ethan and Daichi unresolved.",
+      "useful": [
+        "Who will ...?",
+        "I can help with ...",
+        "Let's write ...",
+        "Can we check with ...?",
+        "Does everyone agree?"
+      ]
+    },
+    "topics": [
+      [
+        "Clear Roles",
+        [
+          "What role do you often take in a group project?",
+          "What task is easy to misunderstand?",
+          "How do you confirm your task?"
+        ]
+      ],
+      [
+        "Deadlines",
+        [
+          "Do you like strict deadlines? Why?",
+          "What helps you finish on time?",
+          "How do you tell others you need more time?"
+        ]
+      ],
+      [
+        "Team Documents",
+        [
+          "What do you write in a shared document?",
+          "How often do you update it?",
+          "Who should check it each day?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "In many workplaces, a simple RACI chart helps clarify roles: Responsible, Accountable, Consulted, Informed.",
+      "多くの職場では、RACI表で役割を整理します：Responsible（実行担当）、Accountable（最終責任者）、Consulted（相談先）、Informed（共有先）。"
+    ],
+    "triviaQuestion": [
+      "What does the “R” in RACI mean?",
+      "Responsible"
+    ],
+    "closing": "The team agrees on its roles and writes a shared list. Mika helps with the plan, Soo-jin leads design, and Daichi checks the financial report. Ethan and Daichi still seem tense."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "manualReview": "Reviewed and edited for the new friendship-only outline, simple language, explicit roles, fresh reading evidence and consistent keys."
+  }
+}

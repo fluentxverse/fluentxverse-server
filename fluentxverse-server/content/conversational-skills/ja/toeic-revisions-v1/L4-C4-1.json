@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 4,
+  "number": 1,
+  "sourceDigest": "e56c3fe9022769b7e08dacf1234a737327700a25e20d974c54b5b0dda54da6fa",
+  "episode": {
+    "title": "Bigger Dreams",
+    "skill": "speaking",
+    "intro": [
+      "On Monday after the successful market, Claire reviews the results with Leo and Nao. Claire wants the monthly event to grow into a creative community project with food, art, and workshops. Leo jokes about a bonus, then says he wants to plan his own bakery seriously. Nao offers pottery demonstrations. Their dreams become practical questions, not just nice ideas.",
+      "マーケットが成功した後の月曜日、クレアはレオとナオと結果を振り返ります。クレアは毎月のイベントを、食べ物・アート・ワークショップのある地域の活動に育てたいです。レオはボーナスの冗談を言った後、自分のパン屋を真剣に計画したいと言います。ナオは陶芸の実演を申し出ます。三人の夢は、楽しい案から具体的な課題へと変わります。"
+    ],
+    "goal": [
+      "I can describe an ambition, explain why it matters, and choose a realistic first step.",
+      "目標とその理由を話し、実現に向けた現実的な最初の行動を選べる。"
+    ],
+    "warmup": "How can you turn a long-term hope into one small next step?",
+    "words": [
+      [
+        "I hope to open a bakery someday.",
+        "hope to",
+        "いつかパン屋を開きたいです。"
+      ],
+      [
+        "I am considering starting with small pastry orders.",
+        "considering",
+        "（〜することを）考えています／検討しています。"
+      ],
+      [
+        "My goal is to develop my own recipes.",
+        "My goal is to",
+        "私の目標は〜することです。"
+      ],
+      [
+        "Nao can offer pottery demonstrations at the event.",
+        "demonstrations",
+        "実演（デモンストレーション）"
+      ],
+      [
+        "Let’s set a realistic target for next month.",
+        "realistic",
+        "現実的な"
+      ],
+      [
+        "The first step is to make a simple plan.",
+        "The first step is to",
+        "最初の一歩は〜することです。"
+      ]
+    ],
+    "discussion": [
+      "You are Leo. Your tutor is Claire. Describe your bakery ambition, give a reason, and suggest a small first step.",
+      "あなたはレオ役、講師はクレア役です。パン屋を開く目標と理由を話し、最初にできる小さな行動を提案しましょう。"
+    ],
+    "followup": "Which detail do you need before you can turn the idea into an arrangement?",
+    "tips": [
+      {
+        "rule": [
+          "Use “hope to + verb” for a dream. Use “I am considering + -ing” for an option.",
+          "夢は「hope to＋動詞の原形」、検討中の案は「I am considering＋動詞の-ing形」を使います。"
+        ],
+        "examples": [
+          [
+            "I hope to open my own bakery someday.",
+            "いつか自分のパン屋を開きたいです。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Give a reason with “It matters because ...”. Then add a first step with “The first step is to ...”.",
+          "「It matters because ...」で理由を言い、「The first step is to ...」で最初の行動を言いましょう。"
+        ],
+        "examples": [
+          [
+            "It matters because I want to create my own brand.",
+            "自分のブランドを作りたいので、大切です。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Claire asks Leo what his bigger dream would involve. Read their conversation.",
+        "クレアがレオに、夢を実現するには何が必要か尋ねます。会話を読みましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Leo"
+      ],
+      "dialogue": [
+        [
+          "Claire",
+          "The market did well. What would you like to try next?"
+        ],
+        [
+          "Leo",
+          "A bonus would be a lovely start."
+        ],
+        [
+          "Claire",
+          "Nice try. I mean your longer-term goal."
+        ],
+        [
+          "Leo",
+          "I hope to open my own bakery someday."
+        ],
+        [
+          "Claire",
+          "Are you planning to rent a shop immediately?"
+        ],
+        [
+          "Leo",
+          "No. I am considering starting with small pastry orders."
+        ],
+        [
+          "Claire",
+          "What do you need to check first?"
+        ],
+        [
+          "Leo",
+          "Costs, kitchen space, and what customers want."
+        ],
+        [
+          "Claire",
+          "That sounds realistic. Nao could do pottery demonstrations too."
+        ],
+        [
+          "Leo",
+          "Then the first step is a proper plan, not an expensive shop key."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "What is Leo's long-term ambition?",
+          "To open his own bakery."
+        ],
+        [
+          "What smaller option is he considering?",
+          "Starting with small pastry orders."
+        ],
+        [
+          "Has he arranged a shop rental?",
+          "No. He needs to check costs, space, and customer demand first."
+        ],
+        [
+          "What extra activity does Claire mention?",
+          "Nao could do pottery demonstrations."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I hope (to open / opening) a bakery.",
+        "to open"
+      ],
+      [
+        "I am considering (starting / start) small.",
+        "starting"
+      ],
+      [
+        "My goal (is / are) to develop recipes.",
+        "is"
+      ],
+      [
+        "We could (offer / offered) demonstrations.",
+        "offer"
+      ],
+      [
+        "Let’s set a (realistic / realistically) target.",
+        "realistic"
+      ],
+      [
+        "The first step is (to make / make) a plan.",
+        "to make"
+      ]
+    ],
+    "choices": [
+      [
+        "Which describes an ambition, not an arrangement?",
+        "I hope to open a bakery someday.",
+        "I signed a shop lease for Monday.",
+        "A"
+      ],
+      [
+        "Which first step fits Leo’s plan?",
+        "Buy every machine today.",
+        "Check costs and possible kitchen space.",
+        "B"
+      ],
+      [
+        "Which sentence uses “considering” correctly?",
+        "I am considering starting small.",
+        "I am considering start small.",
+        "A"
+      ],
+      [
+        "What was already decided earlier?",
+        "Leo’s bakery is open now.",
+        "The market will become monthly.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Leo at the Monday cafe meeting. Your tutor is Claire. You want to create pastries under your own brand, but you have not rented a kitchen or a shop. You still work at your current bakery. Claire wants the monthly market to include creative activities.",
+        "あなたは月曜日のカフェの話し合いに参加するレオ役、講師はクレア役です。自分のブランドでお菓子を作りたいですが、キッチンも店舗も借りていません。今のパン屋で働き続けています。クレアは毎月のマーケットに創作活動も加えたいと考えています。"
+      ],
+      "task": [
+        "Explain your ambition and why it matters. Suggest a small first step, ask Claire what the community project needs, and offer one contribution without promising a business opening.",
+        "目標と大切に思う理由を伝えましょう。最初の小さな行動を提案し、地域の活動に何が必要かクレアに尋ね、自分ができることを一つ申し出ましょう。開店が決まったとは言わないようにしましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Leo"
+      ],
+      "text": "",
+      "title": "Monday Plan: Small Steps",
+      "lines": [
+        "Leo, what is your longer-term goal for your own brand?",
+        "Why does that goal matter to you?",
+        "What small first step can you take this week?",
+        "What do you need to check before you spend money?",
+        "For the monthly market, what does the project need from you first?",
+        "What can you offer without saying your shop is already decided?"
+      ],
+      "evidence": "Tutor evidence note: Student states Leo’s ambition (own bakery/own brand), gives a simple reason with because, suggests a realistic first step (small orders, check costs/space/demand), asks about the community project needs, and offers one manageable contribution. Student does NOT claim a rented shop, resignation, or a confirmed opening. Monthly market is already decided.",
+      "useful": [
+        "I hope to ...",
+        "I am considering ...",
+        "My goal is to ...",
+        "It matters because ...",
+        "The first step is to ..."
+      ]
+    },
+    "topics": [
+      [
+        "Small First Steps",
+        [
+          "What makes a goal manageable?",
+          "What can you check before spending money?",
+          "Who can give you practical feedback?"
+        ]
+      ],
+      [
+        "Creative Activities",
+        [
+          "What workshop would interest you?",
+          "What can a local maker demonstrate?",
+          "What should visitors know before joining?"
+        ]
+      ],
+      [
+        "Long-Term Ambitions",
+        [
+          "How is a hope different from a firm arrangement?",
+          "How can you explain why a goal matters?",
+          "What could make you change your plan?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Start small\" means begin on a limited scale, not a small object. Leo can start small by testing a few orders before planning a shop. You can “think big” and still “start small.”",
+      "start small は「小さい物を使う」ではなく、「小規模に始める」という意味です。レオなら、店を計画する前に少数の注文で試せます。think big（大きく考える）と start small（小さく始める）は同じ計画にも使えます。"
+    ],
+    "triviaQuestion": [
+      "Can Leo think big and still start small?",
+      "Yes. A long-term ambition can begin with a limited first step."
+    ],
+    "closing": "Claire, Leo, and Nao decide to put their ideas into a shared plan. Emma and Ren will join the weekend planning meeting at Kamo House."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

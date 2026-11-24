@@ -1,0 +1,278 @@
+{
+  "version": "toeic-v1",
+  "level": 5,
+  "chapter": 1,
+  "number": 7,
+  "sourceDigest": "8bfba80e0a9054494af9ff9fa2e807d613a1105280c89257c917205f854a3749",
+  "episode": {
+    "title": "Handle with Care",
+    "skill": "speaking",
+    "intro": [
+      "Mika gets access to confidential project files. She finds two versions of one financial report. Daichi says the newer one is correct, but they must keep old versions too. Later, the older report disappears from the shared folder.",
+      "ミカは機密のプロジェクト資料にアクセスします。彼女は同じ財務レポートが2つあることに気づきます。ダイチは新しい方が正しいと言いますが、古い版も残す必要があります。その後、共有フォルダから古いレポートが消えます。"
+    ],
+    "goal": [
+      "I can ask which report to use and explain a missing file.",
+      "使うレポートを尋ね、見当たらないファイルについて説明できる。"
+    ],
+    "warmup": "When you see two versions of a file, what do you do?",
+    "words": [
+      [
+        "These files are confidential, so please keep them inside the company.",
+        "confidential",
+        "confidential：機密の"
+      ],
+      [
+        "This folder has research reports, budgets, and a proposal draft.",
+        "proposal draft",
+        "proposal draft：提案書の下書き"
+      ],
+      [
+        "I found two versions of the same financial report.",
+        "two versions",
+        "two versions：2つの版（バージョン）"
+      ],
+      [
+        "Which one is correct, the older one or the newer one?",
+        "Which one is correct",
+        "Which one is correct?：どちらが正しいですか？"
+      ],
+      [
+        "We adjusted several figures after the client's feedback.",
+        "adjusted several figures",
+        "adjusted several figures：数字をいくつか修正した"
+      ],
+      [
+        "We need to preserve previous versions for reference.",
+        "preserve previous versions",
+        "preserve previous versions：以前の版を保存しておく"
+      ]
+    ],
+    "discussion": [
+      "Talk with the tutor: Why do teams keep older versions of documents?",
+      "講師と話しましょう：なぜチームは古い版の資料も残しますか？"
+    ],
+    "followup": "What is a polite way to ask someone to check a file?",
+    "tips": [
+      {
+        "rule": [
+          "Ask clearly when you are not sure.",
+          "よく分からない時は、はっきり質問します。"
+        ],
+        "examples": [
+          [
+            "Which version should I use?",
+            "どのバージョンを使えばいいですか？"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Give a short reason with because.",
+          "becauseで短い理由を言います。"
+        ],
+        "examples": [
+          [
+            "Please do not delete it because we need it for reference.",
+            "参照が必要なので、削除しないでください。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Mika talks with Daichi about two versions of a financial report and what to do next.",
+        "ミカがダイチと、財務レポートの2つの版と次の対応について話します。"
+      ],
+      "roles": [
+        "Daichi",
+        "Mika"
+      ],
+      "dialogue": [
+        [
+          "Daichi",
+          "Hi Mika. How is the file review going?"
+        ],
+        [
+          "Mika",
+          "Hi Daichi. I found two versions of the same financial report."
+        ],
+        [
+          "Daichi",
+          "Good catch. The newer version is correct."
+        ],
+        [
+          "Mika",
+          "Okay. Should we delete the older one?"
+        ],
+        [
+          "Daichi",
+          "Not yet. Please keep it for reference."
+        ],
+        [
+          "Mika",
+          "Understood. We keep old versions because we may need them later."
+        ],
+        [
+          "Daichi",
+          "The client gave us new information, so we changed some numbers."
+        ],
+        [
+          "Mika",
+          "Can you show me which report to use?"
+        ],
+        [
+          "Daichi",
+          "Yes. Use the newer report. Keep the older one for reference."
+        ],
+        [
+          "Mika",
+          "Understood. I will use the new report and keep the old one."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "What did Mika find?",
+          "Two versions of the same financial report."
+        ],
+        [
+          "Which version is correct?",
+          "The newer version."
+        ],
+        [
+          "Should they delete the older version now?",
+          "No. They should keep it for reference."
+        ],
+        [
+          "Why did the figures change?",
+          "Because of the client's latest feedback."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "These documents are (confidential / cheap).",
+        "confidential"
+      ],
+      [
+        "I found (two versions / two lunches) of the report.",
+        "two versions"
+      ],
+      [
+        "Which one is (correct / hungry)?",
+        "correct"
+      ],
+      [
+        "We (adjusted / ignored) several figures after feedback.",
+        "adjusted"
+      ],
+      [
+        "Please (preserve / break) the old version for reference.",
+        "preserve"
+      ],
+      [
+        "Should we (delete / buy) the older file?",
+        "delete"
+      ]
+    ],
+    "choices": [
+      [
+        "Daichi says the correct report is the ____ one.",
+        "newer",
+        "older",
+        "A"
+      ],
+      [
+        "Daichi says, 'Do not delete it ____ we need it for reference.'",
+        "because",
+        "but",
+        "A"
+      ],
+      [
+        "Mika asks Daichi to ____ which file name to use.",
+        "confirm",
+        "cancel",
+        "A"
+      ],
+      [
+        "Later, the older report ____ from the shared folder.",
+        "disappears",
+        "prints",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Mika. You speak to Ethan about a missing older report in the shared folder.",
+        "あなたはミカです。共有フォルダから古いレポートが消えた件を、イーサンに話します。"
+      ],
+      "task": [
+        "Explain what you saw and ask what to do next. Use polite questions.",
+        "見たことを説明し、次にどうするか丁寧に質問してください。"
+      ],
+      "roles": [
+        "Ethan",
+        "Mika"
+      ],
+      "text": "",
+      "title": "Missing Older Report",
+      "lines": [
+        "Mika, what did you notice in the shared folder?",
+        "Which report should we use?",
+        "What did Daichi say about the older report?",
+        "Do you know why it is missing?",
+        "What should we check before deciding what happened?"
+      ],
+      "evidence": "The newer financial report is correct after the client's feedback. Daichi said to keep the older report for reference. Later Mika cannot find it. She does not know who moved it or why. Do not claim it was deleted or leaked.",
+      "useful": [
+        "Which report should I use?",
+        "Should we keep the old one?",
+        "I cannot find ...",
+        "I do not know why ...",
+        "Can we check ...?"
+      ]
+    },
+    "topics": [
+      [
+        "File Versions",
+        [
+          "Do you name files with dates?",
+          "How do you choose the newest version?",
+          "Do you keep old versions? Why?"
+        ]
+      ],
+      [
+        "Confidential Information",
+        [
+          "What information is confidential at work?",
+          "Where should you store confidential files?",
+          "Who can access confidential files?"
+        ]
+      ],
+      [
+        "Asking for Help",
+        [
+          "Who do you ask when you are not sure?",
+          "What is a polite question you use?",
+          "Do you ask by chat, email, or in person?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "Many teams keep a 'version history' so they can see what changed and when.",
+      "多くのチームは「版の履歴」を残し、いつ何が変わったか確認します。"
+    ],
+    "triviaQuestion": [
+      "What is the record of file changes called?",
+      "Version history."
+    ],
+    "closing": "Mika learns the newer report is correct, but the older version should be kept. Later, she notices the older report has disappeared from the shared folder."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

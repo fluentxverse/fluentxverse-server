@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 5,
+  "number": 3,
+  "sourceDigest": "5829167935597aea8b21ab8b637d99af1a6970cff17730c23a4e15336c7d01f2",
+  "episode": {
+    "title": "A Dream Comes True",
+    "skill": "reading",
+    "intro": [
+      "Emma and Ren answer the client’s questions together. Two days later, their agency wins the project. The client also offers a three-month assignment in Seoul. The project award is confirmed, but the assignment needs a separate decision about dates and support.",
+      "エマとレンは一緒に依頼主の質問に答えます。2日後、会社は案件を受注します。依頼主はソウルでの3か月の勤務も提案します。案件の受注は確定ですが、現地勤務は日程や支援を別に確認して決める必要があります。"
+    ],
+    "goal": [
+      "I can read an offer and separate confirmed terms from open questions.",
+      "提案書を読み、確定した条件と未確認の点を分けられる。"
+    ],
+    "warmup": "Why might a project win and an overseas assignment need separate decisions?",
+    "words": [
+      [
+        "Our agency has been selected for the project.",
+        "has been selected",
+        "私たちの会社がその案件に選ばれました。"
+      ],
+      [
+        "The client has offered a three-month assignment in Seoul.",
+        "offered",
+        "依頼主がソウルでの3か月の勤務を提案しました。"
+      ],
+      [
+        "A start date was proposed, but it is not confirmed.",
+        "proposed",
+        "開始日は提案ですが、確定ではありません。"
+      ],
+      [
+        "Accommodation details still need written agreement.",
+        "written agreement",
+        "滞在先の詳細は、まだ書面での合意が必要です。"
+      ],
+      [
+        "Keep receipts for approved local work travel.",
+        "Keep receipts",
+        "承認された出張の領収書を保管してください。"
+      ],
+      [
+        "Local work travel will be reimbursed later.",
+        "be reimbursed",
+        "出張費は後で返金されます。"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is Ren. Say one good point about Seoul, and ask one thing to confirm.",
+      "あなたはエマ役、講師はレン役です。ソウル勤務の良い点を一つ言い、確認したい点を一つ質問しましょう。"
+    ],
+    "followup": "What would you need in writing before making a decision?",
+    "tips": [
+      {
+        "rule": [
+          "Look for status words. “Selected” is confirmed. “Proposed” is not final.",
+          "状況を示す語を見ましょう。「selected」は確定。「proposed」は未確定です。"
+        ],
+        "examples": [
+          [
+            "Our agency has been selected.",
+            "私たちの会社が選ばれました。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Check who pays and what you must do first. Look for “will pay,” “keep receipts,” and deadlines.",
+          "誰が払うか、先に何をするかを確認します。「will pay」「keep receipts」「期限」を見ましょう。"
+        ],
+        "examples": [
+          [
+            "Reply by Tuesday at noon.",
+            "火曜の正午までに返答してください。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read the manager’s message. Find what is confirmed and what still needs agreement.",
+        "上司のメッセージを読みます。確定したことと、まだ合意が必要な点を探しましょう。"
+      ],
+      "dialogue": [],
+      "text": "<p><strong>Client decision - Seoul project</strong><br>Congratulations, Emma and Ren. Our agency has been selected. The client liked your clear concept and practical technical plan.</p><p>The client has also offered you a three-month assignment in Seoul. A start four weeks from today has been proposed. This is not a confirmed start date.</p><p>Accommodation, travel costs and the return arrangement still need written agreement. Do not book the longer stay yet. Your current presentation trip ends as planned tomorrow.</p><p>Please send your questions by Friday at 3 p.m. We will request a written assignment offer before either of you accepts.</p>",
+      "questions": [
+        [
+          "Has the agency won the project?",
+          "Yes. It has been selected."
+        ],
+        [
+          "How long is the proposed assignment?",
+          "Three months."
+        ],
+        [
+          "Is the start date confirmed?",
+          "No. A start in four weeks is only proposed."
+        ],
+        [
+          "What should Emma and Ren do by Friday at three?",
+          "Send their questions."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "We have been (offered / offer) an assignment.",
+        "offered"
+      ],
+      [
+        "If we (accept / accepted), we will work in Seoul.",
+        "accept"
+      ],
+      [
+        "The project decision (is / are) confirmed.",
+        "is"
+      ],
+      [
+        "We are considering (accepting / accept).",
+        "accepting"
+      ],
+      [
+        "Please send questions (by / since) Friday.",
+        "by"
+      ],
+      [
+        "The proposed date has not been (confirmed / confirm).",
+        "confirmed"
+      ]
+    ],
+    "choices": [
+      [
+        "The manager says the agency has been selected. What is confirmed?",
+        "The agency won the project.",
+        "Every travel detail is final.",
+        "A"
+      ],
+      [
+        "Which action follows the first message?",
+        "Book three months of accommodation immediately.",
+        "Send questions and wait for the written offer.",
+        "B"
+      ],
+      [
+        "A start in four weeks is proposed. What does proposed mean?",
+        "Suggested but not yet agreed.",
+        "Already completed.",
+        "A"
+      ],
+      [
+        "Which sentence keeps the offer and acceptance distinct?",
+        "Receiving an offer means we have accepted it.",
+        "We have an offer, but we still need to decide.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Ren. A week later, you get the new written assignment terms below. Read them before you decide together.",
+        "あなたはエマ役、講師はレン役です。1週間後、次の新しい現地勤務条件が書面で届きます。一緒に決める前に読みましょう。"
+      ],
+      "task": [
+        "Explain what changed. Confirm dates, housing, costs, and the return plan. Decide if you accept and how to reply.",
+        "変わった点を説明します。日程・滞在先・費用・帰国後の予定を確認し、受けるか決めて返答方法を言いましょう。"
+      ],
+      "roles": [
+        "Ren",
+        "Emma"
+      ],
+      "text": "<p><strong>Written assignment terms - updated offer</strong><br>Duration: three calendar months, starting three weeks from today. This replaces the earlier proposed start in four weeks from the first message.</p><p>The agency will book and pay for separate furnished apartments and return economy flights. Keep receipts for approved local work travel; it will be reimbursed.</p><p>Emma leads the creative work. Ren leads technical delivery. After the assignment, both return to their existing Japan-based roles.</p><p>Reply by Tuesday at noon. Acceptance is required before bookings are made. The project award is already confirmed; this document concerns the temporary assignment.</p>",
+      "title": "Written assignment terms",
+      "lines": [
+        "Emma, what does the updated offer confirm now?",
+        "What changed about the start date compared with the first message?",
+        "Who will book and pay for the apartments and return flights?",
+        "What do we need to do for local work travel costs?",
+        "After the assignment, do we return to our Japan-based roles?",
+        "Do you want to accept these terms? How should we reply by Tuesday at noon?"
+      ],
+      "evidence": "Tutor evidence note: In the updated written terms (received one week later), the assignment is confirmed in writing: three calendar months starting three weeks from today (replacing the earlier proposed four-week start). The agency books and pays for separate furnished apartments and return economy flights after acceptance. Approved local work travel is reimbursed if receipts are kept. Emma leads creative work; Ren leads technical delivery. Both return to existing Japan-based roles. Reply deadline is Tuesday at noon. Do not add self-funded housing or a permanent move.",
+      "useful": [
+        "The updated offer confirms ...",
+        "Unlike the first message, ...",
+        "The agency will cover ...",
+        "We need to keep ...",
+        "Let’s reply by ..."
+      ]
+    },
+    "topics": [
+      [
+        "Reading Offers",
+        [
+          "Which details should be in writing?",
+          "How do you check what changed in a new version?",
+          "Why is a reply deadline important?"
+        ]
+      ],
+      [
+        "Working Abroad",
+        [
+          "What support would help for a short assignment?",
+          "What would you ask about housing?",
+          "How would you stay in touch with your team?"
+        ]
+      ],
+      [
+        "Deciding Together",
+        [
+          "Which terms should both people check?",
+          "How can you ask a concern politely?",
+          "What makes an acceptance clear?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Cover\" and \"reimburse\" are different. If the agency books and pays, it covers the cost. If you pay first and get money back later, it reimburses you.",
+      "cover と reimburse は支払い方法が違います。会社が予約して直接払うなら cover です。自分が先に払い、後で戻るなら reimburse です。"
+    ],
+    "triviaQuestion": [
+      "If Emma pays an approved work fare first and gets it back later, which word fits?",
+      "Reimburse."
+    ],
+    "closing": "The agency wins the project. After checking the written terms a week later, Emma and Ren accept a temporary three-month Seoul assignment starting in three weeks. The agency arranges housing and return flights, and they return to their Japan-based roles afterward."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

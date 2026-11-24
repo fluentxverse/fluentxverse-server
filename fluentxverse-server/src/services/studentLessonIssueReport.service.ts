@@ -6,6 +6,7 @@ import { getDriver } from '../db/memgraph';
 import { lessonNotice, dispatchLessonNotices } from './lessonWorkflow.service';
 import type { StudentLessonService } from './studentLesson.service';
 import { studentDisputeService } from './studentDispute.service';
+import { ClassroomActivityService } from './classroomActivity.services/classroomActivity.service';
 import { studentTutorIssueLabel, validateStudentTutorIssue } from '../utils/studentTutorIssues';
 
 export type StudentLessonIssueReason = 'connection' | 'audio' | 'hardware' | 'emergency' | 'power' | 'tutor' | 'material' | 'other';
@@ -14,18 +15,25 @@ export function studentIssueReportWindow(startsAt: string, durationMinutes: numb
   const window = lessonReportingWindow(startsAt, durationMinutes, status, now);
   const duringLesson = now < Date.parse(window.endsAt);
   const disconnected = tutorLeftAt !== null && tutorLeftAt >= Date.parse(window.startsAt) && tutorLeftAt <= now;
-  const availableAt = Date.parse(window.startsAt) + 2 * 60000;
-  const reason = window.reason || (duringLesson && now < availableAt ? 'waiting_for_tutor' : null);
+  const availableAt = disconnected ? tutorLeftAt + 60000 : Date.parse(window.startsAt) + 3 * 60000;
+  const reason = window.reason || (duringLesson ? disconnected ? now < availableAt ? 'tutor_disconnected_wait' : null
+    : tutorHasJoined ? 'tutor_joined' : now < availableAt ? 'waiting_for_tutor' : null : null);
   return { startsAt: window.startsAt, lessonEndsAt: window.endsAt, closesAt: window.closesAt,
     serverNow: window.serverNow, eligible: reason === null, reason,
-    availableAt: duringLesson ? new Date(availableAt).toISOString() : null,
+    availableAt: duringLesson && (!tutorHasJoined || disconnected) ? new Date(availableAt).toISOString() : null,
     duringLessonTutorIssue: duringLesson ? disconnected ? 'left_early' as const : 'no_show' as const : null };
 }
 
 export class StudentLessonIssueReportService {
   private schemaReady: Promise<void> | null = null;
+  private activity = new ClassroomActivityService();
   async getReportingWindow(bookingId: string, lesson: Awaited<ReturnType<StudentLessonService['getOwnedLesson']>>, now = Date.now()) {
-    return studentIssueReportWindow(lesson.startsAt, lesson.durationMinutes, lesson.status, now);
+    const window = studentIssueReportWindow(lesson.startsAt, lesson.durationMinutes, lesson.status, now, false);
+    if (['not_started', 'cancelled', 'expired'].includes(window.reason || '') || now >= Date.parse(window.lessonEndsAt)) return window;
+    const start = Date.parse(window.startsAt);
+    const graphEntry = [lesson.tutorRoomAttendedAt, lesson.tutorRoomEnteredAt].some(value => value && Date.parse(value) >= start && Date.parse(value) <= now);
+    const presence = await this.activity.getTutorPresenceForLesson(bookingId, lesson.tutorId, new Date(start), new Date(now));
+    return studentIssueReportWindow(lesson.startsAt, lesson.durationMinutes, lesson.status, now, graphEntry || presence.hasJoined, presence.leftAt);
   }
   async ensureSchema() {
     if (!this.schemaReady) this.schemaReady = query(`CREATE TABLE IF NOT EXISTS student_lesson_issue_reports (

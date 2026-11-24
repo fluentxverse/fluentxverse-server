@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 3,
+  "number": 7,
+  "sourceDigest": "4ad1e38874a963e1dd2cb5b05950df1e6f2bdc2a46d19b861287059011b27884",
+  "episode": {
+    "title": "A Surprise Invitation",
+    "skill": "speaking",
+    "intro": [
+      "Claire plans a second market next Saturday, from 10 to 1, with a small photo exhibition. She invites Emma and says Ren might come too. Nao says all four already met in Gion. Claire is very surprised. Later, Nao calls Emma and offers help for Friday setup. Emma accepts.",
+      "クレアは次の土曜日10時から1時まで、写真展もある2回目のマーケットを計画します。エマを招き、レンも来るかもしれないと言います。ナオが「4人はすでに祇園で会った」と話すと、クレアはとても驚きます。その後、ナオはエマに電話し、金曜の設営を手伝うと申し出ます。エマは受け入れます。"
+    ],
+    "goal": [
+      "I can discuss an invitation, offer practical help, and confirm what is still undecided.",
+      "誘いについて話し、具体的に手伝いを申し出て、まだ決まっていない点を確認できる。"
+    ],
+    "warmup": "What would you confirm before offering to help set up an event?",
+    "words": [
+      [
+        "Would you like to join the exhibition?",
+        "join",
+        "参加する、加わる"
+      ],
+      [
+        "Ren might come too.",
+        "might",
+        "〜かもしれない（確定ではない）"
+      ],
+      [
+        "I heard you are taking part.",
+        "taking part",
+        "参加している"
+      ],
+      [
+        "Would you like some help setting up?",
+        "setting up",
+        "設営する、準備する"
+      ],
+      [
+        "I would really appreciate that.",
+        "appreciate",
+        "感謝する／助かる"
+      ],
+      [
+        "Let's confirm what to bring.",
+        "confirm",
+        "確認する"
+      ]
+    ],
+    "discussion": [
+      "You are Nao. Your tutor is Claire. Ask about Emma’s exhibition, check if Ren is confirmed, and offer one setup task.",
+      "あなたはナオ役、講師はクレア役です。エマの展示について尋ね、レンの参加が確定しているか確認し、設営の作業を一つ申し出ましょう。"
+    ],
+    "followup": "How can you offer help without saying Ren is definitely coming?",
+    "tips": [
+      {
+        "rule": [
+          "Use “Would you like to ...?” to invite. Use “Would you like some help + -ing?” to offer help.",
+          "“Would you like to ...?”で参加を誘い、“Would you like some help + 動詞-ing?”で手伝いを申し出ます。"
+        ],
+        "examples": [
+          [
+            "Would you like to join our next market?",
+            "次のマーケットに参加しませんか。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use “might” for possibility. Then confirm time, task, and what to bring.",
+          "“might”は可能性です。次に、時間・作業・持ち物を確認します。"
+        ],
+        "examples": [
+          [
+            "He might come, but it is not confirmed.",
+            "彼は来るかもしれませんが、確定ではありません。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Claire tells Nao about the invitation. Practice their short talk.",
+        "クレアがナオに招待のことを話します。短い会話を練習しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Nao"
+      ],
+      "dialogue": [
+        [
+          "Claire",
+          "Emma is joining our next market with Kyoto photos."
+        ],
+        [
+          "Nao",
+          "Nice. Is Ren confirmed, or is it not decided?"
+        ],
+        [
+          "Claire",
+          "He might come. It is not confirmed yet."
+        ],
+        [
+          "Nao",
+          "Actually, all four of us met in Gion last Saturday."
+        ],
+        [
+          "Claire",
+          "Really? I am surprised. Would you like to help Emma?"
+        ],
+        [
+          "Nao",
+          "Yes. I am free on Friday from two to four."
+        ],
+        [
+          "Claire",
+          "Great. Could you help with setup and labels?"
+        ],
+        [
+          "Nao",
+          "Sure. What should I bring for the table?"
+        ],
+        [
+          "Claire",
+          "Please bring a pencil and a cloth."
+        ],
+        [
+          "Nao",
+          "Okay. I will call Emma and confirm the details."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "What will Emma show at the market?",
+          "Kyoto photographs."
+        ],
+        [
+          "Is Ren’s attendance confirmed?",
+          "No. He might come."
+        ],
+        [
+          "When is the market open?",
+          "Saturday from ten to one."
+        ],
+        [
+          "When can Nao help set up?",
+          "Friday from two to four."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Would you like (to join / join) the exhibition?",
+        "to join"
+      ],
+      [
+        "Ren might (come / comes) too.",
+        "come"
+      ],
+      [
+        "Would you like some help (setting / set) up?",
+        "setting"
+      ],
+      [
+        "I would really (appreciate / appreciated) that.",
+        "appreciate"
+      ],
+      [
+        "I can help (from / since) two to four on Friday.",
+        "from"
+      ],
+      [
+        "Let's confirm what (to bring / bringing).",
+        "to bring"
+      ]
+    ],
+    "choices": [
+      [
+        "\"Ren might come.\" What is true?",
+        "Ren is definitely attending.",
+        "Ren may attend, but it is not confirmed.",
+        "B"
+      ],
+      [
+        "Which offer is practical?",
+        "I can help set up on Friday from two to four.",
+        "Maybe I will do something sometime.",
+        "A"
+      ],
+      [
+        "After Emma accepts help, what should Nao confirm?",
+        "The time, the task, and what to bring.",
+        "A new name for the market.",
+        "A"
+      ],
+      [
+        "Which sentence politely accepts help?",
+        "I would really appreciate that.",
+        "You must do it alone.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Nao calling Emma. You can help set up on Friday from two to four. The market is Saturday from ten to one. Emma has six framed photographs. Ren may help carry them, but he has not confirmed.",
+        "あなたはエマに電話するナオ役です。金曜日の2時から4時まで設営を手伝えます。マーケットは土曜日10時から1時です。エマは額入りの写真が6点あります。レンも運ぶのを手伝うかもしれませんが、まだ確定していません。"
+      ],
+      "task": [
+        "Offer help, confirm your time, ask what to do and what to bring, and check the plan if Ren cannot come. Then summarize the plan.",
+        "手伝いを申し出て、空いている時間を伝え、作業内容と持ち物を聞き、レンが来られない場合の案も確認しましょう。最後に予定をまとめましょう。"
+      ],
+      "roles": [
+        "Emma",
+        "Nao"
+      ],
+      "text": "",
+      "title": "",
+      "lines": [
+        "Hi Emma. Would you like some help setting up on Friday?",
+        "I am free from two to four. Is that the setup time?",
+        "What would you like me to do with the photos and labels?",
+        "What should I bring for the display table?",
+        "Ren might not come. What can we do if he is unavailable?",
+        "Just to confirm, the market is Saturday from ten to one, right?"
+      ],
+      "evidence": "Tutor evidence note: Student should (1) offer help for Friday 2–4, (2) confirm tasks: arrange six framed photos and labels, (3) confirm materials: Emma brings frames and printed captions; Nao brings a pencil and a cloth, (4) state Ren is possible but not confirmed, and suggest a practical backup (e.g., smaller trips or ask Claire). Keep it as a phone call plan-check.",
+      "useful": [
+        "Would you like some help ...?",
+        "I am free from ... to ...",
+        "What would you like me to do?",
+        "What should I bring?",
+        "Just to confirm, ..."
+      ]
+    },
+    "topics": [
+      [
+        "OFFERING TIME",
+        [
+          "How can you say your available time?",
+          "How can you be clear and specific?",
+          "How can you suggest a different time politely?"
+        ]
+      ],
+      [
+        "GETTING READY",
+        [
+          "What items do you need for a small photo exhibition?",
+          "How can you confirm what to bring?",
+          "What can you do if one helper cannot come?"
+        ]
+      ],
+      [
+        "SURPRISING NEWS",
+        [
+          "How can you show surprise politely?",
+          "What question can you ask to continue the story?",
+          "How do you separate “might” from “confirmed”?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Would you like to help?\" asks the listener to give help. \"Would you like some help?\" offers help to the listener. The word \"some\" changes who will receive the help.",
+      "“Would you like to help?”は相手に手伝ってもらう質問です。“Would you like some help?”は相手を手伝う申し出です。some が入ると、助けを受ける人が変わります。"
+    ],
+    "triviaQuestion": [
+      "Nao wants to offer assistance to Emma. Which is correct: \"Would you like some help?\" or \"Would you like to help?\"",
+      "Would you like some help?"
+    ],
+    "closing": "Nao and Emma agree on Friday setup from two to four for six photographs. Ren later confirms he can carry the frames. The market will open on Saturday from ten to one."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

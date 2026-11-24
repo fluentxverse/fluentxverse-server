@@ -1,0 +1,279 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 5,
+  "number": 1,
+  "sourceDigest": "1ec863e49c4855fb41fb9425413fb65b2752b7e28086eb1a5a60385aefecd7d6",
+  "episode": {
+    "title": "The Opportunity of a Lifetime",
+    "skill": "speaking",
+    "intro": [
+      "The brief is confirmed, and a short trip to Seoul is booked for Emma and Ren. The client has not chosen an agency yet. Before they leave, Claire gathers everyone at Kamo House. Leo brings pastries, and Nao wishes them luck. Emma feels excited, but she worries about client questions.",
+      "提案内容の説明は確認され、エマとレンの短いソウル出張は予約済みです。依頼主はまだ会社を選んでいません。出発前にクレアがKamo Houseにみんなを集めます。レオはお菓子を持ってきて、ナオは二人の成功を願います。エマは楽しみですが、依頼主からの質問が心配です。"
+    ],
+    "goal": [
+      "I can discuss a work opportunity, share a concern, and decide preparation tasks.",
+      "仕事の機会について話し、不安を伝え、準備の分担を決められる。"
+    ],
+    "warmup": "Which preparation task would make a first business trip feel less stressful?",
+    "words": [
+      [
+        "We have been shortlisted for the project.",
+        "shortlisted",
+        "その案件の最終候補に残っています。"
+      ],
+      [
+        "We are expected to explain the concept clearly.",
+        "are expected to",
+        "〜することが求められている。"
+      ],
+      [
+        "I am looking forward to meeting the client.",
+        "looking forward to",
+        "〜を楽しみにしている。"
+      ],
+      [
+        "What if they ask a difficult question?",
+        "What if",
+        "もし〜だったらどうしよう。"
+      ],
+      [
+        "Let’s rehearse our answers before we leave.",
+        "rehearse",
+        "練習する。リハーサルする。"
+      ],
+      [
+        "I will save a backup copy of the file.",
+        "backup copy",
+        "予備のコピー。バックアップ。"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is Ren. Say one thing you expect, one worry, and one preparation task.",
+      "あなたはエマ役、講師はレン役です。期待していることを1つ、不安を1つ、準備ですることを1つ言いましょう。"
+    ],
+    "followup": "How could you respond if you do not know an answer immediately?",
+    "tips": [
+      {
+        "rule": [
+          "Use “We are expected to + verb” for responsibilities. Use “I am looking forward to + noun/-ing” for positive plans.",
+          "「We are expected to＋動詞」で役割・求められていることを言います。「I am looking forward to＋名詞/動詞-ing」で楽しみな予定を言います。"
+        ],
+        "examples": [
+          [
+            "We are expected to explain the concept.",
+            "私たちはコンセプトを説明することが求められています。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use “What if...?” for a possible problem. Answer with a practical action.",
+          "「What if...？」で起こるかもしれない問題を出します。答えは具体的な対応にします。"
+        ],
+        "examples": [
+          [
+            "What if they ask a detail we did not check? We can check and reply later.",
+            "まだ確認していない点を聞かれたら？確認して後で返答できます。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "At Kamo House, Ren checks the trip preparations with Emma. Practice the short dialogue.",
+        "Kamo Houseでレンがエマと出張の準備を確認します。短い会話を練習しましょう。"
+      ],
+      "roles": [
+        "Ren",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Ren",
+          "The brief is confirmed, and our trip is booked. How do you feel?"
+        ],
+        [
+          "Emma",
+          "I feel excited, but what if the client dislikes our idea?"
+        ],
+        [
+          "Ren",
+          "We can explain our reasons and listen to their feedback."
+        ],
+        [
+          "Emma",
+          "What are we expected to cover in the meeting?"
+        ],
+        [
+          "Ren",
+          "You explain the concept. I explain the technical plan."
+        ],
+        [
+          "Emma",
+          "Great. I am looking forward to showing our work."
+        ],
+        [
+          "Ren",
+          "Could you check the file while I check the equipment?"
+        ],
+        [
+          "Emma",
+          "Yes. I will save a backup copy, too."
+        ],
+        [
+          "Ren",
+          "What if they ask something we cannot answer right away?"
+        ],
+        [
+          "Emma",
+          "We can check and reply after the meeting."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "Has the client chosen an agency already?",
+          "No. The agency is still shortlisted."
+        ],
+        [
+          "What will Emma explain?",
+          "The concept."
+        ],
+        [
+          "What will Ren explain?",
+          "The technical plan."
+        ],
+        [
+          "What will they do if they do not know an answer?",
+          "They will check and reply after the meeting."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "We are expected (to explain / explaining) the concept.",
+        "to explain"
+      ],
+      [
+        "I am looking forward to (meeting / meet) the client.",
+        "meeting"
+      ],
+      [
+        "What (if / because) they ask a difficult question?",
+        "if"
+      ],
+      [
+        "Our trip (is / are) booked.",
+        "is"
+      ],
+      [
+        "Let’s (rehearse / rehearsing) the answers.",
+        "rehearse"
+      ],
+      [
+        "We have not (won / win) the project yet.",
+        "won"
+      ]
+    ],
+    "choices": [
+      [
+        "The agency is shortlisted. What is true?",
+        "They are still competing for the project.",
+        "They already won the contract.",
+        "A"
+      ],
+      [
+        "Which phrase shows a responsibility?",
+        "We are expected to explain the concept.",
+        "I am looking forward to the trip.",
+        "A"
+      ],
+      [
+        "Emma does not know a detail. What should she do?",
+        "Check it and reply after the meeting.",
+        "Make up an answer on the spot.",
+        "A"
+      ],
+      [
+        "Which sentence shows positive anticipation?",
+        "I am looking forward to meeting the client.",
+        "I look forward meet the client.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma at Kamo House before the booked Seoul trip. Your tutor is Ren. The brief is confirmed. You will explain the concept, and Ren will explain the technical plan. The agency is shortlisted, not selected.",
+        "あなたはソウル出張前にKamo Houseにいるエマ役です。講師はレン役です。説明内容は確認済みです。あなたはコンセプトを説明し、レンは技術面の計画を説明します。会社は最終候補で、まだ選ばれていません。"
+      ],
+      "task": [
+        "Tell Ren what you look forward to and one concern. Confirm roles, decide who checks the file and equipment, and practice how to answer when you do not know.",
+        "楽しみなことと不安を1つ伝えましょう。役割を確認し、ファイルと機器を誰が確認するか決め、分からない質問への答え方を練習しましょう。"
+      ],
+      "roles": [
+        "Ren",
+        "Emma"
+      ],
+      "text": "",
+      "title": "Trip Prep Note",
+      "lines": [
+        "Emma, what are you looking forward to on this Seoul trip?",
+        "What is one concern you have about the client meeting?",
+        "Can you confirm what you are expected to explain in the meeting?",
+        "How should we split the checks: file and equipment?",
+        "What if the client asks a question we cannot answer right away?",
+        "Have we won the project already, or are we still shortlisted?"
+      ],
+      "evidence": "Tutor evidence note: The student should say Emma explains the concept, Ren explains the technical plan; trip and brief are confirmed; the client has not selected a winner. The student should suggest a clear split for checking the file/equipment, and say they will check and reply later for unknown answers (not invent details).",
+      "useful": [
+        "I am looking forward to ...",
+        "I am excited because ...",
+        "We are expected to ...",
+        "What if ...?",
+        "Could you check ... while I ...?"
+      ]
+    },
+    "topics": [
+      [
+        "Preparing Together",
+        [
+          "What should be on a shared checklist?",
+          "How can two people divide tasks fairly?",
+          "When should you check the equipment?"
+        ]
+      ],
+      [
+        "Work Opportunities",
+        [
+          "What makes a work opportunity exciting?",
+          "What information do you want first?",
+          "How do you prepare for questions?"
+        ]
+      ],
+      [
+        "Encouragement",
+        [
+          "What can you say to a nervous coworker?",
+          "What practical help can you offer?",
+          "How can you celebrate progress before results?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Good luck\" is used before an uncertain event. \"Congratulations\" is used after success. Nao can say \"Good luck\" now and \"Congratulations\" later if they win.",
+      "Good luck は、結果がまだ分からない出来事の前に使います。Congratulations は成功した後に使います。ナオは今は Good luck、受注したら後で Congratulations と言えます。"
+    ],
+    "triviaQuestion": [
+      "Which expression fits before the client has chosen an agency?",
+      "Good luck."
+    ],
+    "closing": "Emma and Ren leave with a booked trip, a confirmed brief, and a clear preparation plan. Their agency is still shortlisted, and the client has not chosen a winner."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

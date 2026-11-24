@@ -1,0 +1,275 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 3,
+  "number": 6,
+  "sourceDigest": "c3f674a32469943c1fd82cd6fe1ef60ec01fcbe9e2c137c99367acea8e9fc291",
+  "episode": {
+    "title": "A Small Misunderstanding",
+    "skill": "speaking",
+    "goal": [
+      "I can say how I feel and ask about something unclear.",
+      "気持ちを伝え、はっきりしないことを尋ねられる。"
+    ],
+    "intro": [
+      "Emma saw Leo having lunch with a woman. They were laughing. Emma thinks they are dating, but the woman is his coworker Aya. Emma is quiet around Leo. Nao asks what is wrong. Emma needs to check, not guess.",
+      "エマはレオが女性と笑いながら昼食を食べるのを見ました。付き合っていると思いますが、その女性は同僚のアヤです。エマはレオに対して口数が少なくなります。ナオが事情を尋ねます。エマは推測せず、確認する必要があります。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "I feel confused.",
+        "confused",
+        "混乱しています。"
+      ],
+      [
+        "I saw them at lunch.",
+        "saw",
+        "昼食のときに二人を見ました。"
+      ],
+      [
+        "They were laughing.",
+        "laughing",
+        "二人は笑っていました。"
+      ],
+      [
+        "I do not know her.",
+        "do not know",
+        "その女性を知りません。"
+      ],
+      [
+        "I thought they were dating.",
+        "thought",
+        "二人は付き合っていると思いました。"
+      ],
+      [
+        "I will ask him.",
+        "ask",
+        "彼に尋ねます。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use I feel + feeling to say how you feel.",
+          "I feel ＋気持ちを表す語で、自分の気持ちを伝えます。"
+        ],
+        "examples": [
+          [
+            "I feel worried.",
+            "心配です。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use I do not know to say a detail is unknown.",
+          "I do not know で、分からないことを伝えます。"
+        ],
+        "examples": [
+          [
+            "I do not know her name.",
+            "彼女の名前は分かりません。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Nao notices Emma is quiet. Read their conversation about the lunch Emma saw.",
+        "ナオはエマが静かなことに気付きます。エマが見た昼食についての会話を読みましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Nao",
+          "Emma, is something wrong?"
+        ],
+        [
+          "Emma",
+          "I saw Leo having lunch with a woman."
+        ],
+        [
+          "Nao",
+          "Do you know her?"
+        ],
+        [
+          "Emma",
+          "No. I thought they were dating."
+        ],
+        [
+          "Nao",
+          "Did Leo say that?"
+        ],
+        [
+          "Emma",
+          "No. They were only laughing."
+        ],
+        [
+          "Nao",
+          "Then you do not know yet."
+        ],
+        [
+          "Emma",
+          "Yes. I feel confused."
+        ],
+        [
+          "Nao",
+          "You can ask him about his day."
+        ],
+        [
+          "Emma",
+          "I will. Guessing does not help."
+        ]
+      ],
+      "questions": [
+        [
+          "What did Emma see?",
+          "Leo having lunch and laughing with a woman."
+        ],
+        [
+          "Does Emma know the woman?",
+          "No."
+        ],
+        [
+          "Did Leo say they were dating?",
+          "No."
+        ],
+        [
+          "What will Emma do?",
+          "Ask Leo."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I (feel / feels) worried.",
+        "feel"
+      ],
+      [
+        "She (is / are) upset.",
+        "is"
+      ],
+      [
+        "I do not (know / knows) her name.",
+        "know"
+      ],
+      [
+        "Do you (know / knew) him?",
+        "know"
+      ],
+      [
+        "I am (sorry / sorrow).",
+        "sorry"
+      ],
+      [
+        "Can we (talk / talks)?",
+        "talk"
+      ]
+    ],
+    "choices": [
+      [
+        "What did Emma see?",
+        "Leo having lunch and laughing with a woman.",
+        "Leo working alone.",
+        "A"
+      ],
+      [
+        "Does Emma know the woman?",
+        "Yes. They are close friends.",
+        "No.",
+        "B"
+      ],
+      [
+        "Did Leo say they were dating?",
+        "No.",
+        "Yes.",
+        "A"
+      ],
+      [
+        "What will Emma do?",
+        "Tell everyone her guess is a fact.",
+        "Ask Leo.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. You saw Leo having lunch and laughing with a woman, but you do not know who she is. Your tutor is Nao, who has noticed you are quiet.",
+        "あなたはエマ役です。レオが女性と笑いながら昼食を食べているのを見ましたが、相手が誰かは知りません。講師は、あなたが静かなことに気付いたナオ役です。"
+      ],
+      "task": [
+        "Say what you saw and how you feel. Say what you do not know. Choose a question for Leo.",
+        "見たことと気持ちを話しましょう。分からないことを伝え、レオに聞く質問を考えましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Emma"
+      ],
+      "lines": [
+        "Emma, what is wrong?",
+        "What did you see?",
+        "Did Leo say who she was?",
+        "He sometimes has lunch with coworkers. What do you want to check?",
+        "What will you ask him?"
+      ],
+      "evidence": "Separate observed lunch from assumed dating, express uncertainty and a feeling, ask a clarifying question, and choose a neutral question for Leo. Do not reveal Aya's role through the tutor before the student has tried the clarification.",
+      "useful": [
+        "I saw ...",
+        "I thought ...",
+        "I feel ...",
+        "I do not know ...",
+        "Can you explain?"
+      ]
+    },
+    "topics": [
+      [
+        "DAILY LIFE",
+        [
+          "What time do you start work or study?",
+          "When do you have dinner?",
+          "What do you do on Sundays?"
+        ]
+      ],
+      [
+        "HELPING",
+        [
+          "Who helps you?",
+          "How can you help a friend?",
+          "How do you say thank you?"
+        ]
+      ],
+      [
+        "TALKING TO FRIENDS",
+        [
+          "What do you talk about?",
+          "How do you invite a friend?",
+          "What can you say when you do not understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Jump to conclusions” means decide too quickly without enough information. It does not mean a real jump.",
+      "jump to conclusions は、情報が十分でないのに早く決め付けることです。実際に跳ぶという意味ではありません。"
+    ],
+    "triviaQuestion": [
+      "Is “jump to conclusions” a real jump?",
+      "No. It means deciding too quickly."
+    ],
+    "closing": "Emma wants to ask Leo, but her work keeps interrupting. Then Nao receives a gallery invitation that brings a different kind of worry to Kamo House."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

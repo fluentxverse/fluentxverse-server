@@ -1,0 +1,276 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 4,
+  "number": 6,
+  "sourceDigest": "94a924d0a5da623d5a7f1b5b94280e0641768d9fa6262c8b2ca96bba54353a0e",
+  "episode": {
+    "title": "The Interview",
+    "skill": "speaking",
+    "goal": [
+      "I can introduce my work and answer simple interview questions.",
+      "自分の仕事を紹介し、簡単な面接の質問に答えられる。"
+    ],
+    "intro": [
+      "Emma goes to Osaka for her interview. She takes her design work and the Kamo House exhibition poster. The interviewer asks about her skills, teamwork, and move to Japan. Emma wants to explain her work clearly.",
+      "エマは面接のため大阪へ行きます。デザインの作品とKamo Houseの展示会のポスターを持っていきます。面接官は技能、協力、来日の理由を尋ねます。エマは仕事を分かりやすく説明したいと思っています。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "I am a graphic designer.",
+        "graphic designer",
+        "グラフィックデザイナーです。"
+      ],
+      [
+        "I designed the poster.",
+        "designed",
+        "ポスターをデザインしました。"
+      ],
+      [
+        "I worked with Claire.",
+        "worked with",
+        "クレアと協力しました。"
+      ],
+      [
+        "We finished before opening.",
+        "finished",
+        "開場前に仕上げました。"
+      ],
+      [
+        "I wanted a new challenge.",
+        "challenge",
+        "新しいことに挑戦したかったです。"
+      ],
+      [
+        "Can I ask a question?",
+        "question",
+        "質問してもよいですか。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use the past form to say what happened.",
+          "過去形で、起きたことを伝えます。"
+        ],
+        "examples": [
+          [
+            "I worked yesterday.",
+            "昨日働きました。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use did not + verb to say what did not happen.",
+          "did not ＋動詞で、しなかったことを伝えます。"
+        ],
+        "examples": [
+          [
+            "I did not call.",
+            "電話しませんでした。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Emma discusses her exhibition design with an interviewer. Read their conversation.",
+        "エマが面接担当者に展示会のデザインについて説明します。会話を読みましょう。"
+      ],
+      "roles": [
+        "Interviewer",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Interviewer",
+          "Please tell me about your work."
+        ],
+        [
+          "Emma",
+          "I design posters and page layouts."
+        ],
+        [
+          "Interviewer",
+          "Can you show me a project?"
+        ],
+        [
+          "Emma",
+          "This is our Kamo House exhibition poster."
+        ],
+        [
+          "Interviewer",
+          "What did you do?"
+        ],
+        [
+          "Emma",
+          "I made the poster and photo display."
+        ],
+        [
+          "Interviewer",
+          "What was the result?"
+        ],
+        [
+          "Emma",
+          "Visitors found the details easily. The organizers liked it."
+        ],
+        [
+          "Interviewer",
+          "Why did you move to Japan?"
+        ],
+        [
+          "Emma",
+          "I wanted a new design challenge. Kyoto gives me ideas."
+        ]
+      ],
+      "questions": [
+        [
+          "What does Emma design?",
+          "Posters and page layouts."
+        ],
+        [
+          "Which project does she show?",
+          "The Kamo House exhibition."
+        ],
+        [
+          "What did she make?",
+          "The poster and photo display."
+        ],
+        [
+          "Why did she move to Japan?",
+          "For a new design challenge."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I (worked / work) yesterday.",
+        "worked"
+      ],
+      [
+        "I did not (call / called).",
+        "call"
+      ],
+      [
+        "Did you (ask / asked) her?",
+        "ask"
+      ],
+      [
+        "We (were / was) busy yesterday.",
+        "were"
+      ],
+      [
+        "She (was / were) at work.",
+        "was"
+      ],
+      [
+        "I (sent / send) the message yesterday.",
+        "sent"
+      ]
+    ],
+    "choices": [
+      [
+        "What does Emma design?",
+        "Posters and page layouts.",
+        "Ceramic cups.",
+        "A"
+      ],
+      [
+        "Which project does she show?",
+        "A new train.",
+        "The Kamo House exhibition.",
+        "B"
+      ],
+      [
+        "What did she make?",
+        "The poster and photo display.",
+        "Only the snacks.",
+        "A"
+      ],
+      [
+        "Why did she move to Japan?",
+        "For a bakery job.",
+        "For a new design challenge.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma at the Osaka agency interview. Your tutor is the interviewer. You designed the Kamo House exhibition poster and photo display, worked with Claire and Nao, and finished the materials before opening. You moved to Japan for a new creative challenge.",
+        "あなたは大阪の会社で面接を受けるエマ役です。講師は面接担当者役です。Kamo Houseの展示会のポスターと写真展示を担当し、クレアとナオと協力して開場前に仕上げました。新しい創作の挑戦を求めて日本へ来ました。"
+      ],
+      "task": [
+        "Introduce your work. Explain your job on the exhibition and its result. Ask one agency question.",
+        "自分の仕事を紹介しましょう。展示会での担当と結果を説明し、会社について一つ質問しましょう。"
+      ],
+      "roles": [
+        "the interviewer",
+        "Emma"
+      ],
+      "lines": [
+        "What design work do you do?",
+        "Can you show me a project?",
+        "What did you do with Claire and Nao?",
+        "Did you finish before opening? What was the result?",
+        "Why did you move to Japan?",
+        "What do you want to ask us?"
+      ],
+      "evidence": "Give concise skill introduction, task/action/result, collaboration detail, motivation and relevant question. Tutor asks one question at a time; do not turn the interview into a memorized speech.",
+      "useful": [
+        "I design ...",
+        "I made ...",
+        "I worked with ...",
+        "We finished ...",
+        "Can I ask about ...?"
+      ]
+    },
+    "topics": [
+      [
+        "WORK",
+        [
+          "What work do you enjoy?",
+          "Do you like working with others?",
+          "What would you like to learn?"
+        ]
+      ],
+      [
+        "PLANNING",
+        [
+          "How do you remember a date?",
+          "Who can help with a plan?",
+          "What do you check first?"
+        ]
+      ],
+      [
+        "IDEAS",
+        [
+          "What would you like to make?",
+          "Who can you ask for help?",
+          "How do you say you like an idea?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "A “strength” in an interview is something you do well. It does not have to mean strong muscles.",
+      "面接での strength は、得意なことや強みです。筋肉の強さとは限りません。"
+    ],
+    "triviaQuestion": [
+      "Can a design skill be a “strength”?",
+      "Yes."
+    ],
+    "closing": "Emma leaves Osaka hopeful, but no offer has been made yet. Back in Kyoto, Leo has one final pastry test before his manager's tasting."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

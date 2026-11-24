@@ -1,0 +1,234 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 2,
+  "number": 2,
+  "sourceDigest": "61b21829dbf6d0a8e0f132603d02063c41511fafee1f02e1cc1c48c7a3627d76",
+  "episode": {
+    "title": "A Walk with Nao",
+    "skill": "listening",
+    "intro": [
+      "On Saturday, Nao takes Leo on a photo walk by the Kamo River. Leo borrows Claire's camera. Nao suggests a lower angle, but Leo takes a photo of his shoes by accident. They laugh, and Leo says he may be better at baking. The relaxed afternoon helps him enjoy Kyoto again.",
+      "土曜日、ナオはレオを鴨川沿いの写真散歩に誘います。レオはクレアのカメラを借ります。ナオに低い位置から撮るよう勧められますが、撮れたのはうっかり自分の靴でした。二人は笑い、レオは写真よりパン作りのほうが向いているかもしれないと言います。のんびりした午後で、レオはまた京都を楽しめるようになります。"
+    ],
+    "goal": [
+      "I can understand a short outing plan and simple suggestions for taking photographs.",
+      "短い外出の予定と、写真を撮るための簡単な助言を聞き取れる。"
+    ],
+    "warmup": "Which details would you listen for before meeting someone for a walk?",
+    "words": [
+      [
+        "Let's go for a photo walk by the river.",
+        "photo walk",
+        "写真を撮りながら散歩"
+      ],
+      [
+        "Could I borrow your camera for today?",
+        "borrow",
+        "借りる"
+      ],
+      [
+        "Try a lower angle to photograph the bridge.",
+        "lower angle",
+        "低い位置（ローアングル）"
+      ],
+      [
+        "Please keep the camera still with both hands.",
+        "still",
+        "動かさないで保つ"
+      ],
+      [
+        "Stand on the wide path, away from the cyclists.",
+        "away from",
+        "〜から離れて"
+      ],
+      [
+        "I took a photo of my shoes by accident.",
+        "by accident",
+        "うっかり／偶然に"
+      ]
+    ],
+    "discussion": [
+      "You are Leo. Your tutor is Nao. Suggest a place to take photos and ask for one simple camera tip.",
+      "あなたはレオ役、講師はナオ役です。写真を撮る場所を提案し、カメラの簡単なコツを1つ聞きましょう。"
+    ],
+    "followup": "How would you ask Nao to repeat a suggestion?",
+    "tips": [
+      {
+        "rule": [
+          "Listen for Let's ... and Why don't we ... ? They often introduce suggestions.",
+          "Let's ... や Why don't we ... ? は提案を出す時によく使われます。"
+        ],
+        "examples": [
+          [
+            "Let's meet at the cafe entrance.",
+            "カフェの入口で会いましょう。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "For short instructions, focus on the action verb: stand, try, hold, keep, do not.",
+          "短い指示は、動作の動詞（stand, try, hold, keep, do not）に注目しましょう。"
+        ],
+        "examples": [
+          [
+            "Hold the camera still with both hands.",
+            "両手でカメラを動かさないで持ってください。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Listen to Nao's short invitation before the walk. Identify the meeting plan and what Leo can borrow.",
+        "散歩の前の、ナオの短い誘いを聞きましょう。待ち合わせの予定と、レオが借りられるものを聞き取りましょう。"
+      ],
+      "dialogue": [],
+      "text": "<p>Hi Leo. Let's meet at the cafe entrance at ten on Saturday. Claire says you can borrow her camera. I prefer the quiet path by the river. We can practise taking photos there. Bring some water. If it rains, let's stay at the cafe and look at photos instead.</p>",
+      "questions": [
+        [
+          "When and where will they meet?",
+          "Saturday at ten, at the cafe entrance."
+        ],
+        [
+          "Whose camera can Leo borrow?",
+          "Claire's camera."
+        ],
+        [
+          "Which path does Nao prefer?",
+          "The quiet path by the river."
+        ],
+        [
+          "What will they do if it rains?",
+          "Stay at the cafe and look at photos."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Let's (meet / meeting) at ten.",
+        "meet"
+      ],
+      [
+        "Why don't we (walk / walking) by the river?",
+        "walk"
+      ],
+      [
+        "Could I (borrow / lend) a camera from Claire?",
+        "borrow"
+      ],
+      [
+        "Keep the camera (still / stillness).",
+        "still"
+      ],
+      [
+        "I prefer the quiet (path / passing).",
+        "path"
+      ],
+      [
+        "I took a photo of my shoes by (accident / accidental).",
+        "accident"
+      ]
+    ],
+    "choices": [
+      [
+        "\"Let's meet at ten, not nine.\" Which time is confirmed?",
+        "Nine",
+        "Ten",
+        "B"
+      ],
+      [
+        "\"Claire can lend you her camera.\" What can Leo do?",
+        "Borrow Claire's camera",
+        "Keep it permanently",
+        "A"
+      ],
+      [
+        "\"Keep the camera still.\" What should Leo do?",
+        "Shake it quickly",
+        "Avoid moving it",
+        "B"
+      ],
+      [
+        "\"If it rains, we will stay at the cafe.\" What changes?",
+        "The activity changes to looking at photos indoors.",
+        "They must walk by the river in the rain.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Leo beside the river. Your tutor reads Nao's camera advice, then plays Claire when you return her camera. Explain the advice and the funny mistake you made.",
+        "あなたは川のそばにいるレオ役です。講師はナオの助言を読んでから、カメラを返すときのクレア役になります。聞いた助言と、うっかりしてしまったことを説明しましょう。"
+      ],
+      "task": [
+        "Listen for where to stand, what to photograph, and how to hold the camera. Tell Claire the details, explain that you photographed your shoes by accident, and say what you enjoyed.",
+        "立つ場所、撮るもの、カメラの持ち方を聞き取りましょう。クレアに内容を伝え、うっかり靴を撮ったことと、楽しかったことを話しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Leo"
+      ],
+      "text": "<p>Stand on the wide path, away from cyclists. Try a lower angle and photograph the bridge. Hold the camera still with both hands. You do not need the flash outside.</p>",
+      "title": "",
+      "lines": [
+        "Where did Nao tell you to stand?",
+        "What did she suggest you photograph?",
+        "How did she tell you to hold the camera?",
+        "Did you need the flash outside?",
+        "What funny photo did you take by accident?",
+        "What did you enjoy about the afternoon?"
+      ],
+      "evidence": "Tutor evidence note: Correct answers mention these listening details: wide path away from cyclists; lower angle; photograph the bridge; hold camera still with both hands; no flash outside. The shoe photo is stated in the task, so do not grade it as hidden listening content. Keep listening evidence separate from grammar accuracy, and allow the learner to ask for repetition.",
+      "useful": [
+        "She suggested ...",
+        "She told me to ...",
+        "I did not need ...",
+        "After that, we ...",
+        "Could you repeat that part?"
+      ]
+    },
+    "topics": [
+      [
+        "TRYING A HOBBY",
+        [
+          "What hobby would you like to try?",
+          "What would you ask a beginner?",
+          "How could you help them enjoy it?"
+        ]
+      ],
+      [
+        "A RELAXING AFTERNOON",
+        [
+          "Would you choose a walk or a cafe?",
+          "What would you bring?",
+          "What would you do if the weather changed?"
+        ]
+      ],
+      [
+        "LEARNING TOGETHER",
+        [
+          "How can you give a short suggestion?",
+          "How can you ask for a demonstration?",
+          "What can you say after a harmless mistake?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "Borrow and lend describe the same temporary exchange from opposite sides. Leo borrows a camera from Claire; Claire lends a camera to Leo. \"Can you borrow me a camera?\" does not mean \"Can you lend me your camera?\"",
+      "borrow と lend は、一時的な貸し借りを反対の立場から表します。レオはクレアから borrow（借りる）し、クレアはレオに lend（貸す）します。「あなたのカメラを貸して」と言うなら Can you lend me your camera? です。"
+    ],
+    "triviaQuestion": [
+      "Leo receives Claire's camera for the afternoon. Does he borrow it or lend it?",
+      "He borrows it."
+    ],
+    "closing": "Leo returns Claire's camera with a bridge photo and a very clear picture of his shoes. Meanwhile, Emma receives encouraging news at the Osaka agency."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

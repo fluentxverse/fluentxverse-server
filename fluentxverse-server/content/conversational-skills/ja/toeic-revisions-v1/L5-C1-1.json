@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 5,
+  "chapter": 1,
+  "number": 1,
+  "sourceDigest": "dee6a9e01052f994e6bcae3912696ae869cac968a31b98cd639c56444dcc9a30",
+  "episode": {
+    "title": "Welcome to Eastbridge",
+    "skill": "speaking",
+    "intro": [
+      "Mika arrives fifteen minutes early at Eastbridge Creative in Tokyo. Ethan welcomes her. Soo-jin leads the design team, and Daichi checks research. Daichi says the deadlines can be hard. Mika feels nervous but excited.",
+      "ミカは東京のEastbridge Creativeに15分早く到着します。イーサンが迎えます。スジンはデザインチームを率い、ダイチは調査を確認します。ダイチは期限が厳しいこともあると言います。ミカは緊張しながらも楽しみにしています。"
+    ],
+    "goal": [
+      "I can introduce my work experience and ask about my new job.",
+      "仕事の経験を紹介し、新しい仕事について質問できる。"
+    ],
+    "warmup": "What do you say when you meet a new coworker?",
+    "words": [
+      [
+        "I worked in Osaka.",
+        "worked",
+        "大阪で働いていました。"
+      ],
+      [
+        "I have work experience.",
+        "experience",
+        "仕事の経験があります。"
+      ],
+      [
+        "What is my role?",
+        "role",
+        "私の役割は何ですか。"
+      ],
+      [
+        "When is the deadline?",
+        "deadline",
+        "期限はいつですか。"
+      ],
+      [
+        "Who can help me?",
+        "help",
+        "誰に助けてもらえますか。"
+      ],
+      [
+        "I am ready to start.",
+        "ready",
+        "始める準備ができています。"
+      ]
+    ],
+    "discussion": [
+      "Talk about your first day at a new place. What made you nervous? What helped you feel welcome?",
+      "新しい場所での初日について話しましょう。何が不安でしたか？何が「歓迎されている」と感じさせましたか？"
+    ],
+    "followup": "What is one polite question you can ask your manager on day one?",
+    "tips": [
+      {
+        "rule": [
+          "Use a simple self-introduction: name + role.",
+          "シンプルな自己紹介を使いましょう：名前＋役割。"
+        ],
+        "examples": [
+          [
+            "Hi, I’m Mika. I’m new to the team.",
+            "こんにちは、ミカです。チームに新しく入りました。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Ask clear questions with: What / Who / When.",
+          "What / Who / When を使って、はっきり質問しましょう。"
+        ],
+        "examples": [
+          [
+            "What are the main deadlines this week?",
+            "今週の主な締め切りは何ですか？"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Mika meets Ethan on her first morning at Eastbridge Creative in Tokyo.",
+        "ミカは東京のEastbridge Creativeで初日の朝にイーサンに会います。"
+      ],
+      "roles": [
+        "Ethan",
+        "Mika"
+      ],
+      "dialogue": [
+        [
+          "Ethan",
+          "Hi, you must be Mika. Welcome to the team."
+        ],
+        [
+          "Mika",
+          "Hi, I’m Mika. Nice to meet you."
+        ],
+        [
+          "Ethan",
+          "I’m Ethan. I’m the project manager."
+        ],
+        [
+          "Mika",
+          "Nice to meet you, Ethan. Thank you for the welcome."
+        ],
+        [
+          "Ethan",
+          "Let me introduce you to Soo-jin, our creative director."
+        ],
+        [
+          "Mika",
+          "Great. I’m looking forward to working with her."
+        ],
+        [
+          "Ethan",
+          "And this is Daichi, our senior analyst."
+        ],
+        [
+          "Mika",
+          "Hello, Daichi. It’s nice to meet you."
+        ],
+        [
+          "Ethan",
+          "We heard good things about your work in Osaka."
+        ],
+        [
+          "Mika",
+          "Thanks. I’m excited to contribute here."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "Where is the office?",
+          "It is in Tokyo."
+        ],
+        [
+          "What is Ethan’s role?",
+          "He is the project manager."
+        ],
+        [
+          "Who is the creative director?",
+          "Soo-jin is the creative director."
+        ],
+        [
+          "What warning does Daichi give?",
+          "He says deadlines can be demanding."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Mika arrived (early / late) on her first day.",
+        "early"
+      ],
+      [
+        "Ethan is the (project manager / designer).",
+        "project manager"
+      ],
+      [
+        "Soo-jin is the (creative director / intern).",
+        "creative director"
+      ],
+      [
+        "Daichi is the (senior analyst / driver).",
+        "senior analyst"
+      ],
+      [
+        "Mika worked in (Osaka / Paris) before.",
+        "Osaka"
+      ],
+      [
+        "Deadlines can be (demanding / easy) here.",
+        "demanding"
+      ]
+    ],
+    "choices": [
+      [
+        "Who welcomes Mika first?",
+        "Ethan",
+        "Daichi",
+        "A"
+      ],
+      [
+        "Where does Mika see large windows?",
+        "In the office",
+        "In a restaurant",
+        "A"
+      ],
+      [
+        "What does Soo-jin say about Mika?",
+        "She heard good things about her work.",
+        "She says Mika is late.",
+        "A"
+      ],
+      [
+        "How does Mika feel inside?",
+        "Nervous but excited",
+        "Angry and bored",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Mika. It is your first day at Eastbridge Creative in Tokyo.",
+        "あなたはミカです。東京のEastbridge Creativeで初日です。"
+      ],
+      "task": [
+        "Introduce yourself and ask about roles and deadlines.",
+        "自己紹介をして、役割と締め切りについて質問してください。"
+      ],
+      "roles": [
+        "Ethan",
+        "Mika"
+      ],
+      "text": "",
+      "title": "First Day Introductions",
+      "lines": [
+        "Hi, you must be Mika. I’m Ethan, the project manager. How are you today?",
+        "Could you introduce yourself in one or two sentences?",
+        "What kind of work did you do in Osaka?",
+        "What do you want to learn in your first week here?",
+        "Do you have any questions about deadlines or schedules?"
+      ],
+      "evidence": "Tutor evidence note: The student should (1) say their name and that they are new, (2) respond politely to welcome, (3) ask at least one clear question about roles or deadlines, and (4) use one reason with because (e.g., 'I’m excited because…').",
+      "useful": [
+        "Nice to meet you. I’m ____.",
+        "I’m new to the team.",
+        "I work as a ____.",
+        "I’m looking forward to ____.",
+        "Could you tell me about ____?"
+      ]
+    },
+    "topics": [
+      [
+        "First Day at Work",
+        [
+          "What do you do first on your first day?",
+          "How do you introduce yourself?",
+          "What makes a first day easier?"
+        ]
+      ],
+      [
+        "Work Roles",
+        [
+          "What does a project manager do?",
+          "What does a creative director do?",
+          "What does an analyst do?"
+        ]
+      ],
+      [
+        "Deadlines",
+        [
+          "Are deadlines strict in your work or school?",
+          "How do you plan your time?",
+          "What do you do when you are busy?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "In Japan, many companies start new employees in April, and people often arrive early on day one.",
+      "日本では多くの会社が4月に新入社員を迎え、初日は早めに到着する人が多いです。"
+    ],
+    "triviaQuestion": [
+      "What is a common month for starting new employees in Japan?",
+      "April"
+    ],
+    "closing": "Mika arrives early, meets Ethan, Soo-jin, and Daichi, and starts her first day feeling nervous but excited."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "manualReview": "Reviewed and edited for the new friendship-only outline, simple language, explicit roles, fresh reading evidence and consistent keys."
+  }
+}

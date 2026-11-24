@@ -1,0 +1,278 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 1,
+  "number": 4,
+  "sourceDigest": "52a0d844286b6f731152fc8440dd3396e4b3e05b5d62dab3f947612428cb5a12",
+  "episode": {
+    "title": "A Walk Through Kyoto",
+    "skill": "speaking",
+    "intro": [
+      "Emma and Nao spend Saturday taking photos around Kyoto. They visit old streets, small temples, and beautiful gardens. Nao shows Emma her favorite places. By the end of the walk, Emma is beginning to feel at home.",
+      "エマとナオは土曜日に京都を巡り、写真を撮ります。古い通りや小さなお寺、美しい庭園を訪れ、ナオがお気に入りの場所を案内します。散歩が終わるころ、エマはここでの暮らしになじみ始めていると感じます。"
+    ],
+    "goal": [
+      "I can talk with a friend about a day out and say what I enjoyed.",
+      "友達と外出した日のことを話し、楽しかったことを伝えられる。"
+    ],
+    "warmup": "Where would you take a friend who was new to your city?",
+    "words": [
+      [
+        "We walked through the old streets.",
+        "walked through",
+        "古い通りを歩きました。"
+      ],
+      [
+        "We visited a small temple.",
+        "visited",
+        "小さなお寺を訪れました。"
+      ],
+      [
+        "I took some photos.",
+        "photos",
+        "写真を何枚か撮りました。"
+      ],
+      [
+        "The garden was peaceful.",
+        "peaceful",
+        "庭園は静かで落ち着いていました。"
+      ],
+      [
+        "That was my favorite place.",
+        "favorite place",
+        "そこが一番お気に入りの場所でした。"
+      ],
+      [
+        "I feel at home here.",
+        "feel at home",
+        "ここではくつろいだ気持ちになります。"
+      ]
+    ],
+    "discussion": [
+      "Tell your tutor about a day out. Say where you went and one thing you enjoyed. Ask about your tutor's day out too.",
+      "外出した日のことを講師に話しましょう。行った場所と楽しかったことを一つ伝え、講師にも尋ねましょう。"
+    ],
+    "followup": "Would you like to go there again?",
+    "tips": [
+      {
+        "rule": [
+          "Use past simple for a finished day out. Some verbs change: go → went; take → took.",
+          "終わった外出について話すときは過去形を使います。go は went、take は took のように変わる動詞もあります。"
+        ],
+        "examples": [
+          [
+            "We went to a garden and took photos.",
+            "庭園に行って写真を撮りました。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Ask: What did you enjoy? Answer: I liked ... because ...",
+          "What did you enjoy? で楽しかったことを尋ねます。I liked ... because ... で理由も伝えましょう。"
+        ],
+        "examples": [
+          [
+            "I liked the garden because it was peaceful.",
+            "静かで落ち着いていたので、その庭園が気に入りました。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "At the end of their walk, Nao and Emma talk about the day. Practice with your tutor.",
+        "散歩の終わりにナオとエマが一日を振り返ります。講師と練習しましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Nao",
+          "Did you enjoy our walk today?"
+        ],
+        [
+          "Emma",
+          "Yes. We saw many beautiful places."
+        ],
+        [
+          "Nao",
+          "Which place did you like best?"
+        ],
+        [
+          "Emma",
+          "I liked the garden because it was peaceful."
+        ],
+        [
+          "Nao",
+          "Did you take many photos there?"
+        ],
+        [
+          "Emma",
+          "Yes. I took a photo of the trees by the pond."
+        ],
+        [
+          "Nao",
+          "Nice. Can I see the photo?"
+        ],
+        [
+          "Emma",
+          "Of course. What was your favorite part?"
+        ],
+        [
+          "Nao",
+          "Walking through the old streets with you."
+        ],
+        [
+          "Emma",
+          "Thank you for showing me around. I feel at home."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "Which place did Emma like best?",
+          "The garden."
+        ],
+        [
+          "Why did she like it?",
+          "Because it was peaceful."
+        ],
+        [
+          "What did she take a photo of?",
+          "The trees by the pond."
+        ],
+        [
+          "How does Emma feel at the end?",
+          "She feels at home."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "We (went / go) to a garden yesterday.",
+        "went"
+      ],
+      [
+        "I (took / take) photos on our walk.",
+        "took"
+      ],
+      [
+        "Which place did you (like / liked) best?",
+        "like"
+      ],
+      [
+        "The garden (was / were) peaceful.",
+        "was"
+      ],
+      [
+        "I liked it (because / but) it was quiet.",
+        "because"
+      ],
+      [
+        "Thank you for (showing / show) me around.",
+        "showing"
+      ]
+    ],
+    "choices": [
+      [
+        "Your friend asks what you enjoyed. Which answer gives a reason?",
+        "The garden, because it was peaceful.",
+        "At ten in the morning.",
+        "A"
+      ],
+      [
+        "You want to ask about a finished walk. What do you say?",
+        "Which place did you like best?",
+        "Which place do you like best?",
+        "A"
+      ],
+      [
+        "Your friend showed you around. What do you say?",
+        "Thank you for showing me around.",
+        "Please lose the map.",
+        "A"
+      ],
+      [
+        "You want to keep the conversation going. What do you say?",
+        "What was your favorite part?",
+        "I am finished now.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. You and Nao have just finished a photo walk through Kyoto. Your tutor is Nao.",
+        "あなたはエマ役です。ナオと京都で写真散歩を終えたところです。講師はナオ役です。"
+      ],
+      "task": [
+        "Talk about where you went, what you photographed, and your favorite place. Give a reason. Ask Nao about her favorite part and thank her.",
+        "行った場所、撮った写真、お気に入りの場所について話しましょう。理由を伝え、ナオにも楽しかったことを尋ね、感謝を伝えましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Emma"
+      ],
+      "text": "",
+      "title": "",
+      "lines": [
+        "Emma, did you enjoy our walk today?",
+        "Where did we go today?",
+        "What did you take photos of?",
+        "Which place did you like best? Why?",
+        "Would you like to visit another place next time?"
+      ],
+      "evidence": "Tutor evidence note: Student uses simple past for the day out (went/visited/took), says a favorite place with a reason (because), asks Nao a related question, and thanks her for showing her around.",
+      "useful": [
+        "We went to ...",
+        "We visited ...",
+        "I took a photo of ...",
+        "I liked ... because ...",
+        "What was your favorite part?"
+      ]
+    },
+    "topics": [
+      [
+        "A DAY OUT",
+        [
+          "Where did you go last weekend?",
+          "Who did you go with?",
+          "What did you enjoy?"
+        ]
+      ],
+      [
+        "FAVORITE PLACES",
+        [
+          "What is your favorite place in your city?",
+          "Why do you like it?",
+          "Do you take photos there?"
+        ]
+      ],
+      [
+        "FEELING AT HOME",
+        [
+          "What helps you feel at home in a new place?",
+          "Do you like quiet places or busy places?",
+          "Who can help a new visitor?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Show someone around\" means to guide a visitor and introduce places. You can say, \"Thanks for showing me around.\"",
+      "show someone around は、訪問者を案内していろいろな場所を紹介するという意味です。案内してもらった後は Thanks for showing me around. とお礼を言えます。"
+    ],
+    "triviaQuestion": [
+      "What could you say after a friend gives you a tour?",
+      "Thanks for showing me around."
+    ],
+    "closing": "Emma feels more comfortable in Kyoto after the walk with Nao."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 5,
+  "number": 2,
+  "sourceDigest": "17b6ad53fda0b5c63b287100cb290fe6ccd13e786f67e0c4cdf6d421a44a48fd",
+  "episode": {
+    "title": "Trouble in Seoul",
+    "skill": "listening",
+    "intro": [
+      "Emma and Ren arrive in Seoul late at night. The hotel has a booking for one room, not two. Emma asks the receptionist for options. The room problem is fixed. In the morning, they notice their presentation adapter is missing, so they need help again before the meeting.",
+      "エマとレンは夜遅くソウルに到着します。ホテルには二部屋ではなく一部屋だけの予約が入っていました。エマは受付に別の方法を確認します。部屋の問題は解決しますが、翌朝、発表用の変換アダプターがないと気付きます。会議の前にまた助けが必要になります。"
+    ],
+    "goal": [
+      "I can understand a short travel update and confirm the help being offered.",
+      "旅行中の短い連絡を聞き、提案されている対応を確認できる。"
+    ],
+    "warmup": "Which details would you confirm when someone offers help with a hotel problem?",
+    "words": [
+      [
+        "There is an error in our reservation.",
+        "reservation",
+        "予約に間違いがあります。"
+      ],
+      [
+        "Would it be possible to check another hotel?",
+        "Would it be possible to",
+        "〜していただくことは可能ですか。"
+      ],
+      [
+        "The hotel will cover the difference.",
+        "cover the difference",
+        "ホテルが差額を負担します。"
+      ],
+      [
+        "We need an adapter for the laptop.",
+        "adapter",
+        "ノートパソコン用の変換アダプター。"
+      ],
+      [
+        "Could we borrow one for the meeting?",
+        "borrow",
+        "（一時的に）借りる。"
+      ],
+      [
+        "Please return it after the meeting.",
+        "return",
+        "返す／返却する。"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is the receptionist. Explain the booking problem and ask for help politely.",
+      "あなたはエマ役、講師は受付係役です。予約の問題を説明し、丁寧に助けを求めましょう。"
+    ],
+    "followup": "Which cost or location detail should you confirm before accepting?",
+    "tips": [
+      {
+        "rule": [
+          "Listen for the problem, the solution, and any cost. Words like “instead” and “cover” change what you do or pay.",
+          "問題・提案された対応・費用を聞き取りましょう。instead や cover で行動や支払いが変わります。"
+        ],
+        "examples": [
+          [
+            "We have one room here, and a second room at our partner hotel.",
+            "こちらに一部屋、もう一部屋は提携ホテルです。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use polite requests like “Would it be possible to…?” or “Could we…?”. Confirm where, when, and how to return borrowed items.",
+          "Would it be possible to…? や Could we…? で丁寧に依頼できます。借りた物は返却の場所・時間・方法も確認しましょう。"
+        ],
+        "examples": [
+          [
+            "Could we borrow an adapter?",
+            "変換アダプターをお借りできますか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Listen to the receptionist’s update about the two rooms. Identify the location, extra cost, and next action.",
+        "二部屋についての受付係の連絡を聞きましょう。場所、追加費用、次にすることを聞き取りましょう。"
+      ],
+      "dialogue": [],
+      "text": "<p>I am sorry about the booking error. We have only one room here tonight. Our partner hotel, five minutes away on foot, has a second room. We will cover the extra room cost. You can choose who stays where. Please collect both confirmation slips at this desk. Tomorrow, meet here at eight before you leave for the client's office.</p>",
+      "questions": [
+        [
+          "What is the update about?",
+          "A solution to the room booking error."
+        ],
+        [
+          "Where is the second room?",
+          "At the partner hotel, five minutes away on foot."
+        ],
+        [
+          "Who pays the extra room cost?",
+          "The hotel."
+        ],
+        [
+          "What should they collect?",
+          "Both confirmation slips at this desk."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Would it be possible (to check / checking) the booking?",
+        "to check"
+      ],
+      [
+        "Could we (borrow / borrowed) an adapter?",
+        "borrow"
+      ],
+      [
+        "The hotel will (cover / covers) the extra cost.",
+        "cover"
+      ],
+      [
+        "The partner hotel is five minutes (away / ago).",
+        "away"
+      ],
+      [
+        "Please return it (after / while) the meeting.",
+        "after"
+      ],
+      [
+        "We should meet (at / on) eight.",
+        "at"
+      ]
+    ],
+    "choices": [
+      [
+        "The receptionist says the hotel will cover the extra cost. What does that mean?",
+        "Emma must pay the additional amount.",
+        "The hotel will pay the additional amount.",
+        "B"
+      ],
+      [
+        "The second room is at a partner hotel. Where should they collect the slips?",
+        "At this reception desk.",
+        "At the partner hotel front desk.",
+        "A"
+      ],
+      [
+        "You need an adapter temporarily. Which request fits?",
+        "Could we borrow an adapter?",
+        "Could we buy an adapter from you right now?",
+        "A"
+      ],
+      [
+        "The receptionist gives clear instructions. What helps most?",
+        "Repeat key details to confirm them.",
+        "Assume the time and place are not important.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma on the morning of the client meeting. Your tutor is Ren. Listen to the receptionist's new message about an adapter, then explain the arrangement to Ren.",
+        "あなたは依頼主との会議の朝のエマ役、講師はレン役です。変換アダプターについての受付係の新しい伝言を聞き、レンに手配を伝えましょう。"
+      ],
+      "task": [
+        "Confirm what you can borrow, where and when to collect it, when to test it, and how to return it. Ask for clarification if needed, then agree who will collect it.",
+        "借りられる物、受け取る場所と時間、動作確認の時間、返却方法を確認しましょう。必要なら聞き直し、誰が受け取るか決めましょう。"
+      ],
+      "roles": [
+        "Ren",
+        "Emma"
+      ],
+      "text": "<p>Good morning, Emma. We found an adapter you can borrow free of charge. Collect it from this reception desk at eight. Please test it with your laptop here before leaving. Your taxi is booked for eight thirty. Return the adapter to this desk after your meeting, before six this evening. If it does not work, tell us immediately so we can call the client.</p>",
+      "title": "",
+      "lines": [
+        "Emma, what did reception say about the adapter?",
+        "Is it free of charge, and where do we collect it?",
+        "Should we test it here before leaving?",
+        "When is our taxi booked for today?",
+        "What is the return deadline for the adapter?",
+        "What should we do if the adapter does not work?"
+      ],
+      "evidence": "Tutor evidence check: Student states the adapter is free to borrow, collected at the same reception desk at 8:00, tested with the laptop there before leaving, taxi is booked for 8:30, return to the same desk after the meeting before 6:00 pm, and report problems immediately so staff can call the client. Student does not mix this with the partner hotel room location or invent buying an adapter.",
+      "useful": [
+        "The receptionist said ...",
+        "We can borrow ... free of charge.",
+        "We should collect it at ...",
+        "We need to test it before ...",
+        "If it does not work, ..."
+      ]
+    },
+    "topics": [
+      [
+        "ASKING FOR HELP",
+        [
+          "How can you explain a problem in one sentence?",
+          "What words make a request polite?",
+          "When do you ask someone to repeat a detail?"
+        ]
+      ],
+      [
+        "TRAVEL CHECKS",
+        [
+          "What items do you put on a travel checklist?",
+          "What booking details do you always confirm?",
+          "How do you check a reservation with a coworker?"
+        ]
+      ],
+      [
+        "BORROWING",
+        [
+          "What do you confirm before borrowing something?",
+          "Why is testing equipment helpful?",
+          "How do you make sure you return it on time?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Borrow\" means you receive something temporarily. \"Lend\" means you give something temporarily. Emma borrows an adapter from the hotel. The hotel lends the adapter to Emma.",
+      "borrow は「借りる」、lend は「貸す」です。エマはホテルからアダプターを borrow し、ホテルはエマにアダプターを lend します。"
+    ],
+    "triviaQuestion": [
+      "Does the hotel borrow or lend the adapter to Emma?",
+      "It lends the adapter to Emma."
+    ],
+    "closing": "The hotel provides a second room nearby with no extra cost. In the morning, Emma and Ren collect and test a free adapter, go to the meeting, and return it before six. The client decision is still pending."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

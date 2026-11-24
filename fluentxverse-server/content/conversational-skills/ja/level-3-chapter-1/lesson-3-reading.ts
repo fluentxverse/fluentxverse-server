@@ -1,4 +1,8 @@
 import { buildLesson2 } from './lesson-2-listening';
+import { buildLesson3LearnParts } from './lesson-3-learn-parts';
+import { buildStepBTutorGuide } from './standardize-tutor-guides';
+import { lesson3Trivia } from './lesson-3-trivia';
+import { buildLesson3Roleplay } from './lesson-3-roleplay';
 
 const assetDirectory = '/lessons/conversational-skills/ja/l3-c1/v1';
 export const lesson3ImageNames = [
@@ -63,6 +67,7 @@ export function buildLesson3(previous: any, apiBase: string) {
           { image: image('lesson3-additional-fee'), englishText: 'The basket has an additional fee.', highlightedWord: 'additional fee', translation: 'かごには追加料金がかかります。' },
           { image: image('lesson3-return-by'), englishText: 'Return the bike by 6 p.m.', highlightedWord: 'return by', translation: '午後6時までに自転車を返却してください。' },
         ],
+        ...buildLesson3LearnParts({ cityBike: image('lesson3-city-bike'), electricBike: image('lesson3-electric-bike'), extras: image('lesson3-additional-fee') }),
         tutorSteps: [
           { instruction: 'Model each phrase and have the learner repeat. Correct only important pronunciation errors.', script: 'Listen first, then say the phrase with me.' },
           { instruction: 'Check the meaning of included, additional fee, and return by.', script: 'Which phrase means there is no extra charge? Which one tells you a deadline?' },
@@ -83,10 +88,10 @@ export function buildLesson3(previous: any, apiBase: string) {
             { sentence: 'A late return costs ¥500 per hour.', translation: '返却が遅れると1時間ごとに500円かかります。' },
           ] },
         ],
-        tutorSteps: [
-          { instruction: 'Read the condition words and ask the learner to read the examples.', script: 'Look for small words that change the price or time limit: up to, by, included, additional, and per.' },
-          { instruction: 'Check the contrast between an included item and an extra charge.', script: 'If the helmet is included but the basket costs ¥200, which one changes the total?' },
-        ],
+        tutorSteps: buildStepBTutorGuide(
+          'I have a question. If the helmet is included but the basket costs ¥200, which one changes the total?',
+          "Accept the student's own wording. Give one brief correction if needed.",
+        ),
       },
     },
     applyData: {
@@ -105,14 +110,13 @@ export function buildLesson3(previous: any, apiBase: string) {
         ] },
       ],
       triviaEnabled: true, triviaDuration: '1 minute',
-      // Kyoto City Official Travel Guide: https://kyoto.travel/en/getting-around/bike/
-      triviaText: 'Kyoto City’s official travel guide lists authorized rental-bike shops and tells cyclists to use designated bicycle parking areas. When you compare rentals, check where you can park and when you must return the bike.',
-      triviaTranslation: '京都市の公式観光ガイドでは、認定レンタサイクル店を紹介し、自転車は指定の駐輪場に停めるよう案内しています。レンタルを比較するときは、返却時間だけでなく、どこに駐輪できるかも確認しましょう。',
+      triviaText: lesson3Trivia.text,
+      triviaTranslation: lesson3Trivia.translation,
       triviaImage: image('lesson3-bike-parking'),
       triviaTutorSteps: [
         { instruction: 'Introduce the trivia.', scripts: bullets(["Let's look at the trivia."]) },
         { instruction: 'Ask the student to read the trivia.', scripts: bullets(['Please read the trivia.']) },
-        { instruction: 'Check understanding and ask a practical question.', questions: [{ question: 'Besides the price, what parking detail should you check when renting a bike?', answer: 'Where designated bicycle parking is available.' }] },
+        { instruction: 'Check understanding and ask a practical question.', questions: [{ question: lesson3Trivia.question, answer: "(student's own answer)" }] },
         { instruction: 'Transition to Exercise.', scripts: bullets(["Great. Let's continue."]) },
       ],
     },
@@ -150,10 +154,7 @@ export function buildLesson3(previous: any, apiBase: string) {
     },
     missionData: {
       sectionNumber: 5, sectionTitle: 'MISSION', missionType: 'reading', challengeNumber: 1, challengeName: 'Challenge 1', duration: '6 minutes',
-      situation: 'Emma and Claire find another bike-rental shop for their Sunday ride. Your tutor is a friend deciding which bike to rent.',
-      situationTranslation: 'エマとクレアは日曜日のサイクリングに向け、別の自転車レンタル店を見つけます。講師はどの自転車を借りるか考えている友人です。',
-      instruction: 'Read the new service list. Then explain the prices and conditions to your friend and help them choose an option for a two-hour ride.',
-      instructionTranslation: '新しいサービス一覧を読みましょう。その後、2時間のサイクリングに適した選択ができるよう、友人に料金と条件を伝えましょう。',
+      ...buildLesson3Roleplay(),
       showGrammarTip: false, grammarTipTitle: '', grammarTipItems: [], image: image('lesson3-challenge-rental'),
       questions: [
         { question: 'Which bike would you choose for a two-hour ride?', hints: [] },
@@ -162,11 +163,6 @@ export function buildLesson3(previous: any, apiBase: string) {
         { question: 'When must a full-day bike be returned?', hints: [] },
       ],
       readingPassage: { title: 'Riverside Cycle Kyoto', showAuthor: false, headerAlignment: 'left', blocks: challengeBlocks, closingQuestion: 'Which option would you recommend for a two-hour ride, and why?' },
-      tutorSteps: [
-        { instruction: 'Set the situation. Ask the learner to read the list aloud.', scripts: bullets(['Please read the service list first. Then help me choose a bike for a two-hour ride. Is it clear?']), tips: bullets(['Correct no more than two or three pronunciation points after the reading.']) },
-        { instruction: 'Start the friend roleplay. The tutor speaks first and follows the learner’s choice.', scripts: bullets(['Hi! I want to rent a bike for two hours. What are my options?']), prompts: bullets(['How much would the electric-assist bike cost with a basket?', 'Is a helmet included?', 'What happens if I return it late?', 'Which bike would you recommend for me, and why?']), tips: bullets(['Two-hour city bike: ¥900. Electric-assist bike with basket: ¥1,800. Helmet is included. Late return: ¥400 per hour. Full-day return deadline: 5 p.m. Follow up naturally; do not read every prompt as a checklist.']) },
-        { instruction: 'Give specific feedback and retry one missed condition.', tips: bullets(['Score mainly on whether the learner locates and explains prices, periods, and extra charges accurately.']) },
-      ],
     },
     missionData2: {
       sectionNumber: 5, sectionTitle: 'MISSION', missionType: 'discussion', challengeNumber: 2, challengeName: 'Challenge 2', duration: '2 minutes', isOptional: true,

@@ -1,0 +1,234 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 1,
+  "number": 8,
+  "sourceDigest": "d98d0fe4e521a7f816b8ebb298e22e26b1ffa7a22c38bfd8534a5ec99efce60c",
+  "episode": {
+    "title": "The Exhibition",
+    "skill": "reading",
+    "intro": [
+      "An exhibition opens at the Kamo House cafe. Visitors see Emma’s Kyoto photos and Nao’s ceramics. Leo’s pastries are popular. Claire welcomes everyone. Read the guide and find times and places.",
+      "Kamo Houseのカフェで展示会が始まります。来場者はエマの京都の写真とナオの陶芸作品を見ます。レオのお菓子も人気です。クレアがみんなを迎えます。案内を読んで時間と場所を確認しましょう。"
+    ],
+    "goal": [
+      "I can read an exhibition guide for times and activities.",
+      "展示会の案内を読んで、時間と活動内容を探せます。"
+    ],
+    "warmup": "What do you check first in an exhibition guide?",
+    "words": [
+      [
+        "Welcome to our exhibition at the cafe.",
+        "exhibition",
+        "カフェでの展示会へようこそ。"
+      ],
+      [
+        "Emma’s photographs are on display by the window.",
+        "on display",
+        "エマの写真が窓の近くに展示されています。"
+      ],
+      [
+        "Nao made ceramic cups and bowls by hand.",
+        "ceramic cups and bowls",
+        "ナオは陶芸のカップとボウルを手作りしました。"
+      ],
+      [
+        "Entry is free, and the talks are free too.",
+        "free",
+        "入場は無料で、トークも無料です。"
+      ],
+      [
+        "Claire welcomes visitors at the entrance at 2:00.",
+        "welcomes visitors",
+        "クレアは2時に入口で来場者を迎えます。"
+      ],
+      [
+        "Please write a comment in the guest book near the exit.",
+        "guest book",
+        "出口の近くのゲストブックに感想を書いてください。"
+      ]
+    ],
+    "discussion": [
+      "Choose an exhibition you want to visit. What information do you look for in the guide?",
+      "行きたい展示会を選びましょう。案内で何の情報を見ますか。"
+    ],
+    "followup": "What question would you like to ask an artist?",
+    "tips": [
+      {
+        "rule": [
+          "Read headings first. Find place, time, and entry.",
+          "まず見出しを読みます。場所、時間、入場を探します。"
+        ],
+        "examples": [
+          [
+            "Kamo House cafe. Sunday, 2-4 p.m.",
+            "Kamo Houseのカフェ。日曜日、2時から4時。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Match each person with their work and time.",
+          "人と作品、時間を結び付けて読みます。"
+        ],
+        "examples": [
+          [
+            "Nao talks at 3:00. Leo serves pastries at 3:30.",
+            "ナオは3時に話します。レオは3時半にお菓子を出します。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read the exhibition guide. Find each friend’s role and the visitor information.",
+        "展示会の案内を読みます。友達それぞれの担当と来場者向け情報を探しましょう。"
+      ],
+      "dialogue": [],
+      "text": "<p><strong>A New View of Kyoto</strong><br>Kamo House cafe<br>Sunday, 2-4 p.m. | Free entry</p><p><strong>Meet the team</strong><br>Emma: photographs of Kyoto's streets and gardens.<br>Nao: handmade ceramic cups and bowls.<br>Leo: homemade pastries for visitors.<br>Claire: your host at the cafe entrance.</p><p>Please look around, enjoy a snack, and write a comment in our guest book.</p>",
+      "questions": [
+        [
+          "Where and when is the exhibition?",
+          "At the Kamo House cafe on Sunday, 2-4 p.m."
+        ],
+        [
+          "Who made the cups and bowls?",
+          "Nao."
+        ],
+        [
+          "Do visitors pay to enter?",
+          "No. Entry is free."
+        ],
+        [
+          "What can visitors write in?",
+          "The guest book."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "The exhibition is open (from / at) two to four.",
+        "from"
+      ],
+      [
+        "Entry is free. Visitors (do / do not) pay to enter.",
+        "do not"
+      ],
+      [
+        "Emma’s (photographs / pastries) show Kyoto streets.",
+        "photographs"
+      ],
+      [
+        "Nao made the ceramic (cups / cameras).",
+        "cups"
+      ],
+      [
+        "The talk starts (at / from) three.",
+        "at"
+      ],
+      [
+        "Leave a (comment / kitchen) in the guest book.",
+        "comment"
+      ]
+    ],
+    "choices": [
+      [
+        "Guide: \"Open 2-4 p.m.\" When does the exhibition close?",
+        "At two",
+        "At four",
+        "B"
+      ],
+      [
+        "Guide: \"Emma: photographs. Nao: ceramics.\" Who made the bowls?",
+        "Nao",
+        "Emma",
+        "A"
+      ],
+      [
+        "Guide: \"Free entry.\" How much must visitors pay to enter?",
+        "800 yen",
+        "Nothing",
+        "B"
+      ],
+      [
+        "Guide: \"Artist talk at 3 p.m.\" When does the talk begin?",
+        "At three",
+        "At four",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma at the exhibition. A visitor has the Sunday program and wants help choosing what to do. Your tutor is the visitor.",
+        "あなたは展示会にいるエマ役です。来場者が日曜プログラムを持っていて、何をするか相談します。講師は来場者役です。"
+      ],
+      "task": [
+        "Read the program. Help the visitor with places, activities, and times. Use the written information as evidence.",
+        "プログラムを読みます。場所、活動、時間を案内します。書かれている情報を根拠に答えましょう。"
+      ],
+      "roles": [
+        "Visitor",
+        "Emma"
+      ],
+      "text": "<p><strong>Sunday program</strong><br>2:00 p.m. - Doors open. Claire welcomes visitors at the entrance.<br>2:30 p.m. - Emma shares the stories behind three photographs by the window.<br>3:00 p.m. - Nao talks about her cups and bowls at the large table.<br>3:30 p.m. - Leo serves the last tray of apple pastries at the counter.<br>4:00 p.m. - Exhibition closes.</p><p>Entry and the talks are free. You do not need to book. Please do not touch the ceramic pieces without asking Nao. Leave your comments in the guest book near the exit.</p>",
+      "title": "Your Afternoon at Kamo House",
+      "lines": [
+        "Hi Emma. I like photos. Where are your photos, and what time do you talk?",
+        "I want to learn about the bowls. Who talks about them, and when?",
+        "Do I need to pay or book for entry and talks?",
+        "I want apple pastries. Where are they, and what time can I get them?",
+        "Can I touch a ceramic cup now?",
+        "Where is the guest book, and what time do you close?"
+      ],
+      "evidence": "Tutor evidence note: Answers must match the program exactly: Claire welcomes at 2:00 at the entrance; Emma talks 2:30 by the window; Nao talks 3:00 at the large table; Leo serves apple pastries 3:30 at the counter; entry and talks are free and no booking; do not touch ceramics without asking Nao; guest book near the exit; closing time is 4:00. Mark reading mistakes separately from grammar mistakes.",
+      "useful": [
+        "The program says ...",
+        "You can find ... at ...",
+        "The talk starts at ...",
+        "You do not need to ...",
+        "Please ask ... first."
+      ]
+    },
+    "topics": [
+      [
+        "VISITING AN EXHIBITION",
+        [
+          "What kind of exhibition do you like?",
+          "Who do you go with?",
+          "What do you check first in the guide?"
+        ]
+      ],
+      [
+        "CREATIVE WORK",
+        [
+          "Do you like making things?",
+          "What do you want to learn?",
+          "Do you like photos or ceramics more?"
+        ]
+      ],
+      [
+        "A WELCOMING EVENT",
+        [
+          "What makes an event friendly?",
+          "What snack do you want at an event?",
+          "How do you say thank you to the team?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "In English, “doors open” means visitors can enter. “Opening hours” means the times a place is open.",
+      "英語の「doors open」は来場者が入れる時刻です。「opening hours」は開いている時間帯です。"
+    ],
+    "triviaQuestion": [
+      "What does “doors open at two” tell a visitor?",
+      "They can enter at two."
+    ],
+    "closing": "Visitors enjoy the photographs, ceramics, and pastries. The four friends feel proud. After closing, they go to the river together."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

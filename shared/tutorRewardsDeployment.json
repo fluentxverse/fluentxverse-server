@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "chainId": 4663,
+  "network": "Robinhood Chain",
+  "rpcUrl": "https://rpc.mainnet.chain.robinhood.com",
+  "explorer": "https://robinhoodchain.blockscout.com",
+  "projectId": "2a798002-7ed3-4e98-853e-62306479b9da",
+  "operator": "0xc67f2499aef7ce2b2e8c2f0cf3f5f0d1583757f1",
+  "contract": "0x90153ced2a37eeba68c68f945653c7959ba0f627",
+  "settlementToken": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+  "settlementSymbol": "USDG",
+  "deploymentNonce": 0,
+  "deployed": true,
+  "deploymentTransaction": "0xaab9d27ad863f93fc231e371aa0195674a911fbd71b149695e1662b6ec1d089d",
+  "deploymentBlock": "105876952",
+  "sourceVerification": "Sourcify match, job cbf5e207-0ecb-4dc7-867e-4ddd76dfd5e4",
+  "note": "Deployment inclusion is confirmed. Always verify canonical receipt, runtime and current finality onchain."
+}

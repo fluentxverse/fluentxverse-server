@@ -1,0 +1,276 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 1,
+  "number": 1,
+  "sourceDigest": "722682001f2c9b999f173439e2d76e88863e7926af408eac6dc974f39c07f780",
+  "episode": {
+    "title": "The Morning After",
+    "skill": "speaking",
+    "intro": [
+      "On Monday morning, Leo is very tired after Sunday’s talk. Emma sent many messages, but Leo did not reply. At the cafe, Claire offers to listen. Leo says he needs some time alone. Nao tells Emma that another apology does not mean Leo is ready to talk.",
+      "日曜日の話し合いの後、月曜日の朝のレオはとても疲れています。エマは何通もメッセージを送りましたが、レオは返事をしていません。カフェでクレアが話を聞くと申し出ますが、レオは少し一人でいたいと言います。ナオはエマに、もう一度謝ってもレオが話す準備ができているとは限らないと伝えます。"
+    ],
+    "goal": [
+      "I can express difficult feelings, offer support, and respect a request for space.",
+      "つらい気持ちを伝え、支えを申し出て、そっとしておいてほしいという希望を尊重できる。"
+    ],
+    "warmup": "How can you offer help without insisting that someone talks?",
+    "words": [
+      [
+        "I feel exhausted today.",
+        "exhausted",
+        "今日はとても疲れています。"
+      ],
+      [
+        "I haven't slept well since last night.",
+        "slept well",
+        "昨夜からよく眠れていません。"
+      ],
+      [
+        "I'm still upset about yesterday.",
+        "upset",
+        "昨日のことで、まだ気持ちが落ち着きません。"
+      ],
+      [
+        "I'm here if you want to talk later.",
+        "here if",
+        "あとで話したくなったら聞きます。"
+      ],
+      [
+        "I need some time alone right now.",
+        "time alone",
+        "今は少し一人でいる時間が必要です。"
+      ],
+      [
+        "Take your time. You do not have to decide today.",
+        "Take your time",
+        "急がなくていいですよ。今日決めなくても大丈夫です。"
+      ]
+    ],
+    "discussion": [
+      "You are Leo. Your tutor is Claire. Say how you feel, respond to her offer, and ask for some time alone.",
+      "あなたはレオ役、講師はクレア役です。気持ちを言い、申し出に返事をして、少し一人でいたいと伝えましょう。"
+    ],
+    "followup": "How can you thank Claire while keeping that boundary?",
+    "tips": [
+      {
+        "rule": [
+          "Use “I feel + adjective” for feelings now. Use “I haven't + past participle” for something not done up to now.",
+          "今の気持ちは「I feel ＋ 形容詞」。今までしていないことは「I haven't ＋ 過去分詞」で言えます。"
+        ],
+        "examples": [
+          [
+            "I feel exhausted. I haven't slept well.",
+            "とても疲れています。よく眠れていません。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Offer help with “I'm here if ...”. Accept space with “Take your time.”",
+          "「I'm here if ...」で支えを申し出ます。「Take your time.」で一人になりたい気持ちを尊重します。"
+        ],
+        "examples": [
+          [
+            "I'm here if you want to talk.",
+            "話したくなったら聞きます。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Claire notices Leo looks tired at the cafe. Practice this short talk.",
+        "カフェでクレアがレオの疲れた様子に気づきます。短い会話を練習しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Leo"
+      ],
+      "dialogue": [
+        [
+          "Claire",
+          "Leo, you look exhausted. Did you sleep at all?"
+        ],
+        [
+          "Leo",
+          "Not much. I kept thinking about what happened."
+        ],
+        [
+          "Claire",
+          "Do you want to sit down and talk?"
+        ],
+        [
+          "Leo",
+          "Thank you, but I am not ready to explain everything again."
+        ],
+        [
+          "Claire",
+          "Okay. What would help this morning?"
+        ],
+        [
+          "Leo",
+          "Some quiet time. I haven't replied to Emma yet."
+        ],
+        [
+          "Claire",
+          "That is fine. You do not have to decide today."
+        ],
+        [
+          "Leo",
+          "Thanks. Could I sit in the back room for a while?"
+        ],
+        [
+          "Claire",
+          "Of course. I'm here if you need anything."
+        ],
+        [
+          "Leo",
+          "Thank you for understanding. I'll come out when I'm ready."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "Why is Leo tired?",
+          "He has not slept much and kept thinking about what happened."
+        ],
+        [
+          "What does Leo ask for?",
+          "Quiet time in the back room."
+        ],
+        [
+          "Does Claire force him to talk now?",
+          "No, she respects his request."
+        ],
+        [
+          "Has Leo decided everything already?",
+          "No, he says he does not have to decide today."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I feel (exhausted / exhaust).",
+        "exhausted"
+      ],
+      [
+        "I haven't (slept / sleep) well.",
+        "slept"
+      ],
+      [
+        "I'm here if you (want / wanting) to talk.",
+        "want"
+      ],
+      [
+        "I need some time (alone / lonely person).",
+        "alone"
+      ],
+      [
+        "I haven't replied (yet / already).",
+        "yet"
+      ],
+      [
+        "Thank you (for / to) understanding.",
+        "for"
+      ]
+    ],
+    "choices": [
+      [
+        "Someone says they are not ready to talk. Which response fits?",
+        "Take your time. I'm here if you need me.",
+        "Tell me everything right now.",
+        "A"
+      ],
+      [
+        "What does \"I haven't replied yet\" mean?",
+        "Leo already sent a full reply.",
+        "No reply has been sent up to now.",
+        "B"
+      ],
+      [
+        "Which reply politely asks for space?",
+        "I appreciate your help, but I need some time alone.",
+        "You must solve everything for me today.",
+        "A"
+      ],
+      [
+        "What has Leo decided at this point?",
+        "He accepted a Bristol job.",
+        "He needs time; he has not decided everything yet.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Leo at Kamo House on Monday morning. Your tutor is Claire. You barely slept, you have not answered Emma's messages, and you want a quiet break in the back room before you decide when to talk.",
+        "あなたは月曜日の朝、Kamo Houseにいるレオ役です。講師はクレア役です。ほとんど眠れず、エマのメッセージに返事をしていません。話す時間を決める前に、奥の部屋で静かに休みたいです。"
+      ],
+      "task": [
+        "Tell Claire how you feel. Respond to her offer, ask clearly for space, and agree on a simple way to ask for help later.",
+        "気持ちを伝えましょう。申し出に返事をし、はっきり一人の時間をお願いして、あとで助けが必要な時の合図を決めましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Leo"
+      ],
+      "text": "",
+      "title": "",
+      "lines": [
+        "Good morning, Leo. How are you feeling today?",
+        "Did you manage to sleep or reply to Emma?",
+        "Would you like to talk now, or do you need quiet time?",
+        "What do you need from me while you rest?",
+        "How will you let me know when you are ready to come out or need help?"
+      ],
+      "evidence": "Tutor evidence note: The student says (1) a feeling like exhausted/upset, (2) they haven't slept well and haven't replied to Emma yet, (3) thanks Claire and asks for quiet time/back room, (4) says they will talk later or will let Claire know. Claire does not push for an explanation or a decision.",
+      "useful": [
+        "I feel ...",
+        "I haven't ... yet.",
+        "Thank you, but ...",
+        "I need some time alone.",
+        "Could I use the back room for a while?"
+      ]
+    },
+    "topics": [
+      [
+        "Offering Support",
+        [
+          "What can you say to offer to listen?",
+          "How can you ask what the person wants?",
+          "What can you say if they want quiet?"
+        ]
+      ],
+      [
+        "Taking a Break",
+        [
+          "What helps you after a tiring day?",
+          "How do you ask for a short break?",
+          "How do you say when you will be available again?"
+        ]
+      ],
+      [
+        "Clear Requests",
+        [
+          "What makes a request specific?",
+          "How can you thank someone while saying no?",
+          "What simple follow-up can you agree on?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Alone\" means without other people. \"Lonely\" means feeling sad because you lack connection. You can be alone and not feel lonely.",
+      "alone は他の人がいない状態です。lonely はつながりがなく寂しい気持ちです。一人でも寂しくないこともあります。"
+    ],
+    "triviaQuestion": [
+      "Which describes a situation rather than necessarily a sad feeling: alone or lonely?",
+      "Alone."
+    ],
+    "closing": "Claire gives Leo quiet time. Nao advises Emma to stop sending repeated messages and respect his space. Emma goes to Osaka for the project handover and a difficult conversation with Ren."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

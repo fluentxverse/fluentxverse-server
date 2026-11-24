@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 1,
+  "number": 8,
+  "sourceDigest": "fc3d4c36e2c8476e40f47ed7876c3f8321248b371c4a889304805deab5fd4a33",
+  "episode": {
+    "title": "The Decision",
+    "skill": "reading",
+    "intro": [
+      "Emma tells Ren she cares, but she will not start a relationship. She wants only professional contact. That night, she writes Leo a letter. She admits the hidden dinner and the false message. She does not ask for forgiveness. Claire will pass it on only after checking Leo wants it.",
+      "エマはレンに、気持ちはあるが交際は始めないと言います。連絡は仕事だけにします。その夜、レオに手紙を書きます。隠した夕食とうそを認めます。許しは求めません。クレアは、レオが受け取りたいか確認してから渡します。"
+    ],
+    "goal": [
+      "I can read a decision and an apology without mistaking them for a request.",
+      "決意と謝罪を読み、依頼と間違えずに理解できる。"
+    ],
+    "warmup": "What words show a clear decision in a message?",
+    "words": [
+      [
+        "I have made my decision.",
+        "made my decision",
+        "決めました（決意しました）。"
+      ],
+      [
+        "I intend to keep things professional.",
+        "intend to",
+        "〜するつもりです。"
+      ],
+      [
+        "I take responsibility for what I did.",
+        "take responsibility",
+        "責任を取ります／責任を持ちます。"
+      ],
+      [
+        "I am not asking for forgiveness.",
+        "asking for forgiveness",
+        "許しを求めること。"
+      ],
+      [
+        "There is no need to reply.",
+        "no need to reply",
+        "返事は不要です。"
+      ],
+      [
+        "Please ask before passing it on.",
+        "passing it on",
+        "（人に）渡す／伝えること。"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is Claire. Explain why you wrote the letter. Ask Claire to check if Leo wants to receive it.",
+      "あなたはエマ役、講師はクレア役です。なぜ手紙を書いたか説明し、レオが受け取りたいか確認してもらいましょう。"
+    ],
+    "followup": "How can you say clearly that the reader does not need to reply?",
+    "tips": [
+      {
+        "rule": [
+          "Use clear intention words: “I intend to …” or “I will not …”. Feelings are not the same as agreement.",
+          "意思は「I intend to ...」「I will not ...」で明確にします。気持ちと同意は別です。"
+        ],
+        "examples": [
+          [
+            "I care about you, but I will not start a relationship.",
+            "あなたを大切に思っていますが、交際は始めません。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "In an apology, look for: the action, responsibility, and next step. If it says “no reply,” do not add a demand.",
+          "謝罪では、行動・責任・次の対応を見ます。「返事不要」なら要求を足しません。"
+        ],
+        "examples": [
+          [
+            "You do not need to reply. I will respect your decision.",
+            "返事は不要です。あなたの決めたことを尊重します。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read Emma’s note to Ren and her letter to Leo. Find her intentions in each.",
+        "エマのレンへのメモと、レオへの手紙を読みます。それぞれの意思を確認しましょう。"
+      ],
+      "dialogue": [],
+      "text": "<p><strong>Emma to Ren</strong><br>I care about you, but I will not start a relationship. I intend to keep our contact professional. Please use the team channel and discuss project decisions at work.</p><p><strong>Emma’s letter to Leo</strong><br>I hid Friday’s dinner and told you I was working. That was my choice, and it hurt you. I should have been honest. I am sorry. I am not asking you to forgive me or continue our relationship. You do not need to reply. I will respect your decision.</p>",
+      "questions": [
+        [
+          "What does Emma decide about Ren?",
+          "She will not start a relationship and will keep contact professional."
+        ],
+        [
+          "What actions does she name in the letter?",
+          "She hid the dinner and said she was working."
+        ],
+        [
+          "Does she ask Leo to forgive her or continue the relationship?",
+          "No."
+        ],
+        [
+          "Is a reply required?",
+          "No, she says there is no need to reply."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I intend (to keep / keeping) contact professional.",
+        "to keep"
+      ],
+      [
+        "I am not asking (for / to) forgiveness.",
+        "for"
+      ],
+      [
+        "There is no need (to reply / replying).",
+        "to reply"
+      ],
+      [
+        "I take responsibility for what I (did / done).",
+        "did"
+      ],
+      [
+        "Please ask before (passing / pass) it on.",
+        "passing"
+      ],
+      [
+        "I will (respect / respecting) your decision.",
+        "respect"
+      ]
+    ],
+    "choices": [
+      [
+        "\"I will not start a relationship.\" What is the main meaning?",
+        "She is making a clear decision.",
+        "She is asking for permission.",
+        "A"
+      ],
+      [
+        "\"You do not need to reply.\" What does this mean?",
+        "A reply is not required.",
+        "A reply must arrive today.",
+        "A"
+      ],
+      [
+        "What does Emma say about forgiveness?",
+        "She asks Leo to forgive her now.",
+        "She is not asking for forgiveness.",
+        "B"
+      ],
+      [
+        "Before Claire passes on the letter, what should she do first?",
+        "Check if Leo wants to receive it.",
+        "Share it with the whole team.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Claire. Your tutor is Emma. Read Leo’s reply and Claire’s notes. Explain what Leo agreed to and what is still not decided.",
+        "あなたはクレア役、講師はエマ役です。レオの返事とクレアのメモを読み、同意したことと、まだ決まっていないことを説明しましょう。"
+      ],
+      "task": [
+        "Confirm permission to pass on the letter, the meeting time and place, and the limit of Leo’s agreement. Correct Emma gently if she thinks meeting means getting back together.",
+        "手紙を渡す許可、会う日時と場所、同意の範囲を確認します。会う＝復縁だとエマが思ったら、やさしく訂正しましょう。"
+      ],
+      "roles": [
+        "Emma",
+        "Claire"
+      ],
+      "text": "<p><strong>Leo to Claire</strong><br>Yes, you can give me Emma’s letter. I will read it when I am ready. Please do not ask me to reply immediately.</p><p><strong>Later message, after reading</strong><br>I can meet Emma at the cafe on Saturday at four. I want to explain my decision myself. Agreeing to meet does not mean we are getting back together.</p><p><strong>Claire’s notes</strong><br>Pass on the letter with permission. Confirm Saturday at four, cafe. Do not promise forgiveness or announce Leo’s decision for him. Let him speak directly.</p>",
+      "title": "Letter Delivery - Leo’s Actual Reply",
+      "lines": [
+        "Claire, did Leo give permission for you to give him my letter?",
+        "Did he promise to reply right away?",
+        "When and where did he agree to meet me?",
+        "Does agreeing to meet mean we are getting back together?",
+        "Should you tell me his decision now, or should I hear it from him?",
+        "What should you be careful not to promise for Leo?"
+      ],
+      "evidence": "Tutor evidence check: Leo says Claire can give him the letter; he will read it when ready; he asks not to be pushed to reply immediately; he can meet Saturday at four at the cafe; meeting does not mean they will get back together; Leo wants to explain his decision himself. Claire’s notes say: confirm details, do not promise forgiveness, and do not announce Leo’s decision for him.",
+      "useful": [
+        "He has agreed to ...",
+        "He has not promised ...",
+        "The message says ...",
+        "That does not mean ...",
+        "Let me confirm ..."
+      ]
+    },
+    "topics": [
+      [
+        "Clear Intentions",
+        [
+          "What words show a firm decision?",
+          "How are feelings different from intentions?",
+          "What question can stop a wrong assumption?"
+        ]
+      ],
+      [
+        "Writing an Apology",
+        [
+          "What action should an apology name?",
+          "How can you show responsibility?",
+          "How can you say a reply is not needed?"
+        ]
+      ],
+      [
+        "Delivering a Message",
+        [
+          "What permission should you check first?",
+          "How can you keep the exact meaning?",
+          "What should you not promise for someone else?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Forgive\" and \"forget\" are different. Forgiving does not mean you lose the memory. Also, accepting an apology does not always mean continuing a relationship.",
+      "forgive と forget は別です。許すことは、記憶が消えることではありません。また、謝罪を受け入れても、交際の継続に必ずしも同意するとは限りません。"
+    ],
+    "triviaQuestion": [
+      "Does accepting an apology automatically mean agreeing to continue a relationship?",
+      "No."
+    ],
+    "closing": "Claire gives Leo the letter after he agrees. He reads it and agrees to meet Emma at a cafe on Saturday at four to explain his decision himself."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

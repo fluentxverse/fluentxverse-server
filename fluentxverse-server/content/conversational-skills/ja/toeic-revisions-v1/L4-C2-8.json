@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 2,
+  "number": 8,
+  "sourceDigest": "edea225bc43de6bac174248de249f41b963ee0ba82db049ebd93e4e1b203bc65",
+  "episode": {
+    "title": "A Decision About Bristol",
+    "skill": "reading",
+    "intro": [
+      "Leo thinks about both cities and makes a choice. He thanks his former manager and says no to the Bristol role. He wants to grow his skills in Kyoto. One day, he hopes to open a small bakery. Claire and Nao feel happy for him.",
+      "レオは二つの街について考え、決断します。元店長に感謝し、ブリストルの仕事は断ります。京都で技術を伸ばしたいです。いつか小さなパン屋を開く希望もあります。クレアとナオも喜びます。"
+    ],
+    "goal": [
+      "I can distinguish an offer, a deadline, and a final decision in work messages.",
+      "仕事の連絡を読み、オファー、返答期限、最終的な決断を区別できる。"
+    ],
+    "warmup": "Which words show a final decision in a message?",
+    "words": [
+      [
+        "I have decided to stay in Kyoto.",
+        "have decided",
+        "決断しました（京都に残ると決めました）。"
+      ],
+      [
+        "Thank you for the opportunity to work in Bristol.",
+        "opportunity",
+        "機会（チャンス）。"
+      ],
+      [
+        "I need to decline the offer.",
+        "decline the offer",
+        "オファーを辞退する。"
+      ],
+      [
+        "Please reply by Friday.",
+        "by Friday",
+        "金曜日までに（期限）。"
+      ],
+      [
+        "I want to develop my skills at my current bakery.",
+        "develop my skills",
+        "技術を伸ばす。"
+      ],
+      [
+        "I hope to open a small bakery someday.",
+        "someday",
+        "いつか（日時は未定）。"
+      ]
+    ],
+    "discussion": [
+      "You are Leo. Your tutor is your former manager. Thank him, say your decision clearly, and give two reasons for staying in Kyoto.",
+      "あなたはレオ役、講師は元店長役です。感謝し、決断をはっきり伝え、京都に残る理由を2つ言いましょう。"
+    ],
+    "followup": "How can you talk about a long-term hope without saying it is confirmed?",
+    "tips": [
+      {
+        "rule": [
+          "\"I have decided to ...\" shows a final decision. \"I hope to ...\" shows a hope, not a plan.",
+          "I have decided to ... は決断。I hope to ... は希望で、確定ではありません。"
+        ],
+        "examples": [
+          [
+            "I have decided to stay in Kyoto.",
+            "京都に残ると決めました。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "\"By Friday\" is a reply deadline. It is not a start date.",
+          "by Friday は返答の期限で、開始日ではありません。"
+        ],
+        "examples": [
+          [
+            "Please reply by Friday.",
+            "金曜日までに返事をください。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read the messages. Identify Leo’s decision and the deadline.",
+        "メッセージを読みます。レオの決断と期限を確認しましょう。"
+      ],
+      "dialogue": [],
+      "text": "<p><strong>Former manager to Leo</strong><br>We would love you to help open the Bristol bakery. Please let me know by Friday whether you accept. We can discuss the starting date after that.</p><p><strong>Leo's confirmation after the call</strong><br>Thank you for the opportunity. As we discussed, I have decided to stay in Kyoto, so I need to decline the role. I want to develop my skills at my current bakery and build my life here. I hope to open a small bakery someday, but I have not made a business plan yet. I appreciate your support.</p><p><strong>Manager's reply</strong><br>I understand. I wish you success in Kyoto. Thank you for telling me clearly.</p>",
+      "questions": [
+        [
+          "What is Friday the deadline for?",
+          "Telling the manager whether Leo accepts the offer."
+        ],
+        [
+          "Has a starting date been agreed?",
+          "No. It will be discussed after acceptance."
+        ],
+        [
+          "What has Leo decided?",
+          "He will stay in Kyoto and decline the Bristol role."
+        ],
+        [
+          "Has Leo arranged to open his own bakery?",
+          "No. It is only a hope. He has no business plan yet."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I have decided (to stay / staying) in Kyoto.",
+        "to stay"
+      ],
+      [
+        "Thank you (for / since) the opportunity.",
+        "for"
+      ],
+      [
+        "I need to (decline / declined) the offer.",
+        "decline"
+      ],
+      [
+        "Please reply (by / since) Friday.",
+        "by"
+      ],
+      [
+        "I want to develop (my / me) skills.",
+        "my"
+      ],
+      [
+        "I hope (to open / open) a bakery someday.",
+        "to open"
+      ]
+    ],
+    "choices": [
+      [
+        "\"I have decided to stay and decline the role.\" What is confirmed?",
+        "Leo has accepted the Bristol job.",
+        "Leo will stay in Kyoto.",
+        "B"
+      ],
+      [
+        "\"Reply by Friday; discuss the start later.\" What is Friday?",
+        "The response deadline",
+        "The confirmed opening date",
+        "A"
+      ],
+      [
+        "\"I hope to open a bakery someday.\" What is true?",
+        "A shop opening next Monday is confirmed.",
+        "A long-term hope is expressed.",
+        "B"
+      ],
+      [
+        "Which reason comes from Leo's reply?",
+        "He wants to develop his skills at his current bakery.",
+        "He has already bought a new shop.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Leo. Your tutor is Claire. Read the follow-up messages after you decline Bristol. Explain what is confirmed and correct a rumor.",
+        "あなたはレオです。講師はクレアです。ブリストルを断った後の連絡を読み、確定したことを説明し、うわさを訂正しましょう。"
+      ],
+      "task": [
+        "Confirm the tray times, the return deadline, and the meeting plan next week. Separate your hope from an unconfirmed shop opening.",
+        "トレーの受け取り時間、返却期限、来週の打ち合わせ予定を確認します。希望と未確定の開店を分けて説明しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Leo"
+      ],
+      "text": "<p><strong>Current bakery manager</strong><br>You can collect two display trays on Friday after 5 p.m. Please return them on Monday before noon. Your small pastry stall is approved for Saturday's market.</p><p><strong>Next week</strong><br>Come to the bakery on Wednesday at 3 p.m. We can discuss how you could develop a seasonal recipe. This is a planning meeting, not permission to open a separate shop.</p><p><strong>Leo to the market group</strong><br>I am staying in Kyoto, but I have not rented a shop or set an opening date. Opening my own bakery is a future hope. For now, I am preparing for Saturday and continuing my current job.</p>",
+      "title": "After the Decision - Confirmed and Unconfirmed",
+      "lines": [
+        "When can you collect the trays, and how many trays are there?",
+        "When do you need to return the trays?",
+        "Is your pastry stall approved for Saturday’s market?",
+        "What time is your meeting next Wednesday, and what is it about?",
+        "Someone said you will open your own shop next week. Is that confirmed?",
+        "Please tell me one thing that is definite and one thing that is only a hope."
+      ],
+      "evidence": "Tutor evidence note: The text says two trays can be collected Friday after 5 p.m. and returned Monday before noon. The Saturday pastry stall is approved. The Wednesday 3 p.m. meeting is about developing a seasonal recipe and is only planning, not permission to open a separate shop. Leo has not rented a shop or set an opening date, and he will continue his current job. Do not mix this Friday tray pickup with the separate Bristol reply deadline from earlier.",
+      "useful": [
+        "The message confirms ...",
+        "We can collect ... after ...",
+        "We must return ... before ...",
+        "The meeting is about ...",
+        "That is not confirmed."
+      ]
+    },
+    "topics": [
+      [
+        "Saying No Politely",
+        [
+          "How can you thank someone before you say no?",
+          "What is a clear sentence to decline an offer?",
+          "What reason can you give in one short sentence?"
+        ]
+      ],
+      [
+        "Plans and Hopes",
+        [
+          "What is one next step toward a goal?",
+          "How is a hope different from a confirmed plan?",
+          "What do you need before you open a shop?"
+        ]
+      ],
+      [
+        "Checking Messages",
+        [
+          "Which words show a deadline?",
+          "How can you check a rumor politely?",
+          "Why should you separate different Friday tasks?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"By Friday\" and \"on Friday\" are different. \"By Friday\" is a deadline. You can often do it earlier. \"On Friday\" happens that day. If time is important, ask for the exact time.",
+      "by Friday と on Friday は違います。by Friday は期限で、多くの場合それより前でもOKです。on Friday はその日に行われます。時刻が大事なら、正確な時間も聞きましょう。"
+    ],
+    "triviaQuestion": [
+      "Can Leo usually send a reply on Thursday if it is due by Friday?",
+      "Yes. Thursday is before the deadline."
+    ],
+    "closing": "Leo declines the Bristol role and stays in Kyoto. His current bakery approves his Saturday market stall and will lend two trays. Opening his own bakery is still only a future hope."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

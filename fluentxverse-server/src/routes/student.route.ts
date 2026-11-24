@@ -936,6 +936,32 @@ const Student = new Elysia({ name: "student" })
    * Update student's lesson preferences
    * PUT /student/preferences
    */
+  .get('/student/replacement-preference', async ({ cookie, set }) => {
+    const payload=await verifyAuthToken(String(cookie.studentAuth?.value||''));
+    if(!payload || payload.role!=='student'){set.status=401;return {success:false,error:'Not authenticated'};}
+    const db=getDriver().session();
+    try {
+      const row=(await db.run('MATCH(s:Student {id:$id}) RETURN coalesce(s.autoReplaceTutor,false) AS enabled',{id:payload.userId})).records[0];
+      if(!row){set.status=404;return {success:false,error:'Student not found'};}
+      return {success:true,data:{enabled:row.get('enabled')===true}};
+    } finally {await db.close();}
+  })
+  .put('/student/replacement-preference', async ({ cookie, body, set }) => {
+    const payload=await verifyAuthToken(String(cookie.studentAuth?.value||''));
+    if(!payload || payload.role!=='student'){set.status=401;return {success:false,error:'Not authenticated'};}
+    const db=getDriver().session();
+    try {
+      const result=await db.executeWrite(async tx=>{
+        const row=await tx.run(`MATCH(s:Student {id:$id}) SET s.bookingWriteVersion=coalesce(s.bookingWriteVersion,0)+1,
+          s.autoReplaceTutor=$enabled,s.replacementPreferenceUpdatedAt=datetime() RETURN s.id AS id`,{id:payload.userId,enabled:body.enabled});
+        if(row.records.length) await tx.run(`CREATE(:StudentPreferenceAudit {id:$auditId,studentId:$id,
+          preference:'autoReplaceTutor',enabled:$enabled,createdAt:datetime()})`,{auditId:nanoid(16),id:payload.userId,enabled:body.enabled});
+        return row.records.length;
+      });
+      if(!result){set.status=404;return {success:false,error:'Student not found'};}
+      return {success:true,data:{enabled:body.enabled}};
+    } finally {await db.close();}
+  },{body:t.Object({enabled:t.Boolean()})})
   .put('/student/preferences', async ({ body, cookie, set }) => {
     
     try {

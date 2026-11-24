@@ -1,3 +1,6 @@
+import { buildLesson2LearnParts } from './lesson-2-learn-parts';
+import { lesson2Trivia } from './lesson-2-trivia';
+
 const assetDirectory = '/lessons/conversational-skills/ja/l3-c1/v1';
 export const lesson2ImageNames = [
   'lesson2-grew-up',
@@ -13,6 +16,17 @@ export const lesson2ImageNames = [
 const goal = 'I can understand a housemate\'s background, reason for moving, and current routine in a voice message.';
 const goalJa = 'ハウスメイトの音声メッセージを聞き、出身地、引っ越した理由、今の日課を理解できる。';
 const bullets = (texts: string[]) => texts.map(text => ({ text }));
+
+export const lesson2UsefulLanguage = {
+  showGrammarTip: true,
+  grammarTipTitle: 'Useful language',
+  grammarTipItems: [
+    'She grew up in ...',
+    'She moved to Kyoto because ...',
+    'She used to ..., but now she ...',
+    "On Sunday, she'd like to ...",
+  ],
+};
 
 const applyScript = `<p>Hi Emma, it's Leo from Kamo House. Claire said you moved in this week, so I wanted to say hello. I grew up in Bristol, but I moved to Kyoto last spring because I got a job at a small bakery. I used to work in a hotel kitchen. Now I make bread early in the morning, and I help Claire at the cafe downstairs on Sundays. I heard you enjoy photography. Maybe you can show me some of your pictures when we meet.</p>`;
 
@@ -54,6 +68,7 @@ export function buildLesson2(previous: any, apiBase: string) {
           { image: image('lesson2-looking-forward'), englishText: 'I\'m looking forward to meeting you.', highlightedWord: 'looking forward to', translation: 'あなたに会えるのを楽しみにしています。' },
           { image: image('lesson2-getting-to-know'), englishText: 'I\'m getting to know the neighborhood.', highlightedWord: 'getting to know', translation: '近所のことを少しずつ知っているところです。' },
         ],
+        ...buildLesson2LearnParts({ background: image('lesson2-grew-up'), routine: image('lesson2-on-weekends'), plans: image('lesson2-looking-forward') }),
         tutorSteps: [
           { instruction: 'Model each phrase. Ask the learner to repeat and connect the picture to its meaning.', script: 'Listen first, then say it with me.' },
           { instruction: 'Check before versus now with two examples.', script: 'Which phrase tells us about the past? Which phrase tells us about a regular activity now?', tip: 'Accept grew up in or moved here for the past; work part-time or on weekends for a current routine.' },
@@ -112,15 +127,13 @@ export function buildLesson2(previous: any, apiBase: string) {
       ],
       triviaEnabled: true,
       triviaDuration: '1 minute',
-      // Kyoto City Official Travel Guide describes machiya used as both homes and shops, including renovated cafes.
-      // https://kyoto.travel/en/see-and-do/manjicafe.html
-      triviaText: 'In Kyoto, some traditional machiya townhouses were both homes and workplaces. Some have been renovated as cafes. Kamo House is fictional, but its cafe downstairs and rooms upstairs echo that local pattern.',
-      triviaTranslation: '京都の伝統的な京町家には、住まいと仕事場を兼ねた建物があります。カフェに改装された町家もあります。Kamo Houseは架空の場所ですが、階下にカフェ、階上に住まいがある設定はその地域の特徴を思わせます。',
-      triviaImage: image('lesson2-machiya-cafe'),
+      triviaText: lesson2Trivia.text,
+      triviaTranslation: lesson2Trivia.translation,
+      triviaImage: image('lesson2-apply-message'),
       triviaTutorSteps: [
         { instruction: 'Introduce the trivia.', scripts: bullets(['Let\'s look at the trivia.']) },
         { instruction: 'Ask the learner to read the trivia aloud or silently.', scripts: bullets(['Please read the trivia.']) },
-        { instruction: 'Check understanding, then ask one question.', questions: [{ question: 'What part of Kamo House reminds you of a machiya?', answer: 'The cafe downstairs and the living rooms upstairs.' }] },
+        { instruction: 'Check understanding, then ask one question.', questions: [{ question: lesson2Trivia.question, answer: "(student's own answer)" }] },
         { instruction: 'Transition to the next section.', scripts: bullets(['Great. Let\'s continue.']) },
       ],
     },
@@ -186,9 +199,7 @@ export function buildLesson2(previous: any, apiBase: string) {
       situationTranslation: '新しい住人ナオからKamo Houseに音声メッセージが届きました。エマがそれを聞きます。階下で忙しいクレアに、ナオの話を伝えましょう。',
       instruction: 'Listen to Nao\'s message. Then tell Claire where Nao grew up, why she moved to Kyoto, what changed in her work, and what she hopes to do on Sunday.',
       instructionTranslation: 'ナオのメッセージを聞きましょう。その後、出身地、京都に引っ越した理由、仕事の変化、日曜日にしたいことをクレアに伝えましょう。',
-      showGrammarTip: false,
-      grammarTipTitle: '',
-      grammarTipItems: [],
+      ...lesson2UsefulLanguage,
       image: image('lesson2-challenge-message'),
       questions: [
         { question: 'Where did Nao grow up?', hints: [] },

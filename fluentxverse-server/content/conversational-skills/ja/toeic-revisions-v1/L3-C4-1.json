@@ -1,0 +1,275 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 4,
+  "number": 1,
+  "sourceDigest": "e30c7d3d7063cead424a843ca199083d6002166bfee783e816ce385d2664d4ad",
+  "episode": {
+    "title": "A Message from Osaka",
+    "skill": "speaking",
+    "goal": [
+      "I can explain an interview invitation and ask about a job.",
+      "面接の招待を説明し、仕事について尋ねられる。"
+    ],
+    "intro": [
+      "An Osaka design agency likes Emma’s work and invites her for an interview. She likes its bigger projects but worries about a different city. Claire tells her to ask questions first. An interview is not a promise to move.",
+      "大阪のデザイン会社がエマの作品を気に入り、面接に招待します。エマは大きな仕事に興味がありますが、別の街に移ることが心配です。クレアはまず質問するよう勧めます。面接は引っ越しの約束ではありません。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "They liked my work.",
+        "liked",
+        "私の作品を気に入ってくれました。"
+      ],
+      [
+        "I have an interview.",
+        "interview",
+        "面接があります。"
+      ],
+      [
+        "What is the job?",
+        "job",
+        "どんな仕事ですか。"
+      ],
+      [
+        "Where will I work?",
+        "Where",
+        "どこで働きますか。"
+      ],
+      [
+        "I will bring my portfolio.",
+        "portfolio",
+        "作品集を持っていきます。"
+      ],
+      [
+        "I have not decided yet.",
+        "yet",
+        "まだ決めていません。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use will + verb for a future action.",
+          "will ＋動詞で、これからすることを伝えます。"
+        ],
+        "examples": [
+          [
+            "I will send a message.",
+            "メッセージを送ります。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use before or after to show the order.",
+          "before や after で順番を表します。"
+        ],
+        "examples": [
+          [
+            "I will ask before I decide.",
+            "決める前に尋ねます。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Claire asks Emma about the agency's message. Read their conversation.",
+        "クレアがエマに会社からの連絡について尋ねます。会話を読みましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Claire",
+          "Is that good news, Emma?"
+        ],
+        [
+          "Emma",
+          "An Osaka agency wants to interview me."
+        ],
+        [
+          "Claire",
+          "What do you like about it?"
+        ],
+        [
+          "Emma",
+          "The bigger projects. I need more information."
+        ],
+        [
+          "Claire",
+          "What will you ask?"
+        ],
+        [
+          "Emma",
+          "About the team, projects, and workplace."
+        ],
+        [
+          "Claire",
+          "When is the interview?"
+        ],
+        [
+          "Emma",
+          "Next Tuesday at ten. I will go."
+        ],
+        [
+          "Claire",
+          "That does not mean you must move."
+        ],
+        [
+          "Emma",
+          "Right. I will prepare my portfolio first."
+        ]
+      ],
+      "questions": [
+        [
+          "What does the agency invite Emma to?",
+          "An interview."
+        ],
+        [
+          "When is it?",
+          "Next Tuesday at ten."
+        ],
+        [
+          "What will Emma prepare?",
+          "Her portfolio."
+        ],
+        [
+          "Has she decided to move?",
+          "No."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I will (send / sent) a message.",
+        "send"
+      ],
+      [
+        "She will (help / helps) us.",
+        "help"
+      ],
+      [
+        "We will (meet / met) tomorrow.",
+        "meet"
+      ],
+      [
+        "I will ask (before / between) I decide.",
+        "before"
+      ],
+      [
+        "I will rest (after / among) work.",
+        "after"
+      ],
+      [
+        "Will you (come / came)?",
+        "come"
+      ]
+    ],
+    "choices": [
+      [
+        "What does the agency invite Emma to?",
+        "An interview.",
+        "A wedding.",
+        "A"
+      ],
+      [
+        "When is it?",
+        "Friday at six.",
+        "Next Tuesday at ten.",
+        "B"
+      ],
+      [
+        "What will Emma prepare?",
+        "Her portfolio.",
+        "A restaurant menu.",
+        "A"
+      ],
+      [
+        "Has she decided to move?",
+        "Yes.",
+        "No.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Claire. An Osaka design agency has invited you for an interview next Tuesday at 10 a.m. You want larger projects, but need to know about the team and work location.",
+        "あなたはエマ役、講師はクレア役です。大阪のデザイン会社から、次の火曜日午前10時の面接に招待されました。大きな仕事に興味がありますが、チームや勤務場所について知る必要があります。"
+      ],
+      "task": [
+        "Explain the invitation. Ask two job questions. Check the interview time and what to bring.",
+        "招待を説明しましょう。仕事について二つ質問し、面接の時刻と持ち物を確認しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "lines": [
+        "What did the agency say?",
+        "What interests you?",
+        "What two things do you want to ask?",
+        "Is Tuesday at ten okay?",
+        "What will you bring?"
+      ],
+      "evidence": "Explain interview invitation rather than job offer, give an interest, identify two relevant questions, confirm Tuesday10 and portfolio preparation. Do not imply Emma has accepted a job or agreed to move.",
+      "useful": [
+        "They invited me to ...",
+        "I like ...",
+        "I want to ask about ...",
+        "The interview is ...",
+        "I will bring ..."
+      ]
+    },
+    "topics": [
+      [
+        "WORK",
+        [
+          "What work do you enjoy?",
+          "Do you like working with others?",
+          "What would you like to learn?"
+        ]
+      ],
+      [
+        "PLANNING",
+        [
+          "How do you remember a date?",
+          "Who can help with a plan?",
+          "What do you check first?"
+        ]
+      ],
+      [
+        "IDEAS",
+        [
+          "What would you like to make?",
+          "Who can you ask for help?",
+          "How do you say you like an idea?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Portfolio” means a collection of your work. A designer can show pictures of finished projects, not only a list of jobs.",
+      "portfolio は作品をまとめたものです。デザイナーは職歴だけでなく、完成した制作物の写真などを見せられます。"
+    ],
+    "triviaQuestion": [
+      "Can a portfolio show your design work?",
+      "Yes."
+    ],
+    "closing": "Emma confirms the interview and starts choosing portfolio pieces. At the bakery, Leo receives a challenge of his own: create a pastry for the regular menu."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

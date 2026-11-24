@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 3,
+  "number": 3,
+  "sourceDigest": "cc33319e939255777fbe9fe492f73f14678c3bdb85dd45a7a70910c58db47ef0",
+  "episode": {
+    "title": "Trouble at the Cafe",
+    "skill": "reading",
+    "goal": [
+      "I can read a task card and ask for help.",
+      "担当カードを読み、手伝いを頼める。"
+    ],
+    "intro": [
+      "The cafe is busy, and one helper is away. Claire asks Emma and Nao for help. They want to help but do not know the jobs. Claire writes a task card. She will take orders, make hot drinks, and handle payments.",
+      "カフェが忙しいのに、手伝う人が一人いません。クレアはエマとナオに助けを求めます。二人は手伝いたいものの、仕事の手順を知りません。クレアは担当カードを書きます。注文、温かい飲み物、支払いはクレアが担当します。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "Please clear the cups.",
+        "clear",
+        "カップを片付けてください。"
+      ],
+      [
+        "Wipe the table.",
+        "wipe",
+        "テーブルを拭いてください。"
+      ],
+      [
+        "Bring some water.",
+        "bring",
+        "水を持ってきてください。"
+      ],
+      [
+        "Refill the jug.",
+        "refill",
+        "水差しに水を補充してください。"
+      ],
+      [
+        "Claire takes orders.",
+        "takes orders",
+        "クレアが注文を取ります。"
+      ],
+      [
+        "Can you help with payments?",
+        "payments",
+        "会計を手伝ってもらえますか。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use a verb first to give a short instruction.",
+          "動詞から始めて、短い指示を伝えます。"
+        ],
+        "examples": [
+          [
+            "Check the note.",
+            "メモを確認してください。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use Do not + verb for something to avoid.",
+          "Do not ＋動詞で、してはいけないことを伝えます。"
+        ],
+        "examples": [
+          [
+            "Do not use this one.",
+            "こちらは使わないでください。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read Claire's helper card. Find the jobs Emma and Nao can do and the tasks Claire keeps.",
+        "クレアの手伝い用カードを読みましょう。エマとナオができる仕事と、クレアが担当する仕事を確認しましょう。"
+      ],
+      "text": "<p><strong>Afternoon helper card</strong><br>Emma: clear empty cups and wipe tables after customers leave.<br>Nao: bring water to the tables and refill the water jug.<br>Claire: take orders, make hot drinks, and handle payments.</p><p>Check the table number before carrying water. Do not take hot drinks from the counter. If a customer asks about ingredients, ask Claire first.</p>",
+      "questions": [
+        [
+          "Who clears tables?",
+          "Emma."
+        ],
+        [
+          "What does Nao refill?",
+          "The water jug."
+        ],
+        [
+          "Who handles hot drinks and payments?",
+          "Claire."
+        ],
+        [
+          "Who can answer about ingredients?",
+          "Claire."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Please (check / checked) the note.",
+        "check"
+      ],
+      [
+        "Do not (use / used) this one.",
+        "use"
+      ],
+      [
+        "(Read / Reads) it first.",
+        "Read"
+      ],
+      [
+        "Can you (help / helps) me?",
+        "help"
+      ],
+      [
+        "Please (wait / waited) here.",
+        "wait"
+      ],
+      [
+        "We need (to / for) check.",
+        "to"
+      ]
+    ],
+    "choices": [
+      [
+        "Who clears tables?",
+        "Emma.",
+        "Claire.",
+        "A"
+      ],
+      [
+        "What does Nao refill?",
+        "A paint box.",
+        "The water jug.",
+        "B"
+      ],
+      [
+        "Who handles hot drinks and payments?",
+        "Claire.",
+        "Nao.",
+        "A"
+      ],
+      [
+        "Who can answer about ingredients?",
+        "Only a customer.",
+        "Claire.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma helping Claire at the cafe. Your tutor is Claire. Read the updated shift card and help her decide what to do next.",
+        "あなたはカフェでクレアを手伝っているエマ役です。講師はクレア役です。更新された担当カードを読み、次に何をするかクレアと確認しましょう。"
+      ],
+      "task": [
+        "Read the new card. Explain your jobs in order. Ask Claire to handle the payment.",
+        "新しいカードを読み、自分の仕事を順番に説明しましょう。会計はクレアに頼みましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "title": "Next Jobs - 3:30 p.m.",
+      "text": "<p><strong>Emma</strong><br>1. Clear the empty cups at table 4.<br>2. Wipe table 4 with the clean blue cloth.<br>3. Put two menus on table 4.</p><p><strong>Nao</strong><br>Bring water to table 2, then refill the jug.</p><p><strong>Claire</strong><br>Take table 2's order and handle all payments.<br>Table 1 wants to pay now. Ask Claire to help.<br>The green cloth is for the counter, not the tables.</p>",
+      "lines": [
+        "Which table will you help with?",
+        "What do you do before putting out the menus?",
+        "Which cloth do you use?",
+        "What is Nao doing?",
+        "Table one wants to pay. Who can help?"
+      ],
+      "evidence": "Emma table4 clear cups/wipe blue cloth/two menus; Nao water table2/refill; payment table1 Claire. Read card evidence and make a polite request for Claire to handle payment.",
+      "useful": [
+        "The card says ...",
+        "First, I ...",
+        "Then, I ...",
+        "Can you help with ...?",
+        "Is that right?"
+      ]
+    },
+    "topics": [
+      [
+        "DAILY LIFE",
+        [
+          "What time do you start work or study?",
+          "When do you have dinner?",
+          "What do you do on Sundays?"
+        ]
+      ],
+      [
+        "HELPING",
+        [
+          "Who helps you?",
+          "How can you help a friend?",
+          "How do you say thank you?"
+        ]
+      ],
+      [
+        "TALKING TO FRIENDS",
+        [
+          "What do you talk about?",
+          "How do you invite a friend?",
+          "What can you say when you do not understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "In a cafe, “a table for two” means seats for two people. It does not mean you want to buy a table.",
+      "カフェで a table for two と言うと、二人分の席という意味です。テーブルを買いたいのではありません。"
+    ],
+    "triviaQuestion": [
+      "Does “a table for two” mean two seats?",
+      "Yes."
+    ],
+    "closing": "With clear jobs and a few helpful questions, they get through the rush. Claire thanks them and suggests cooking dinner together at Kamo House."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

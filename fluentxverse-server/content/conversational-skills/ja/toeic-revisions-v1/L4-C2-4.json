@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 2,
+  "number": 4,
+  "sourceDigest": "8daa273c1f9b1f392a606d460d790aee9218e7112550760683f4a262f42239ac",
+  "episode": {
+    "title": "Claire's Brilliant Idea",
+    "skill": "speaking",
+    "intro": [
+      "On Sunday, Claire proposes a weekend market at Kamo House. Local artists could sell their work. Nao could display ceramics. Leo could bring pastries with his bakery’s permission. Claire will organise decorations and posters. Emma cannot attend the planning meeting, so Claire will ask her separately about artwork.",
+      "日曜日、クレアはKamo Houseで週末マーケットを提案します。地域の作家が作品を販売できます。ナオは陶芸作品を展示できます。レオはパン屋の許可が取れたらお菓子を持ってこられます。クレアは飾り付けとポスターを担当します。エマは打ち合わせに参加できないので、クレアが作品の参加について別で確認します。"
+    ],
+    "goal": [
+      "I can propose an event and confirm who will help.",
+      "イベントを提案し、誰が手伝うか確認できる。"
+    ],
+    "warmup": "What jobs would need to be shared before a small market?",
+    "words": [
+      [
+        "What if we organise a market at Kamo House?",
+        "What if",
+        "〜するのはどうでしょう（提案）。"
+      ],
+      [
+        "Local artists could sell their work there.",
+        "local artists",
+        "地域の作家。"
+      ],
+      [
+        "I can display my ceramics on a table.",
+        "display",
+        "展示する。"
+      ],
+      [
+        "I will handle the posters and decorations.",
+        "handle",
+        "担当する。"
+      ],
+      [
+        "Leo needs permission from his manager first.",
+        "permission",
+        "許可。"
+      ],
+      [
+        "Let’s confirm our responsibilities before we announce it.",
+        "responsibilities",
+        "担当（役割分担）。"
+      ]
+    ],
+    "discussion": [
+      "You are Nao. Your tutor is Claire. Respond to the market proposal, offer one task, and ask who will handle another task.",
+      "あなたはナオ役です。講師はクレア役です。マーケットの提案に返事をして、作業を1つ引き受け、別の作業の担当者を尋ねましょう。"
+    ],
+    "followup": "What should you check before announcing someone else’s participation?",
+    "tips": [
+      {
+        "rule": [
+          "Use “What if we …?” or “How about + -ing” to propose. Use “could” when it is possible but not confirmed.",
+          "提案は「What if we …?」「How about ＋ -ing」を使います。可能だが未確定のときは「could」を使います。"
+        ],
+        "examples": [
+          [
+            "What if we organise a weekend market?",
+            "週末マーケットを開くのはどうでしょう。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Offer a clear job with “I can … / I will …”. Do not assume another person will help.",
+          "「I can … / I will …」で具体的に申し出ます。他の人が手伝うと決めつけないで確認します。"
+        ],
+        "examples": [
+          [
+            "I can make price labels. Who will arrange the tables?",
+            "値札を作れます。テーブルは誰が並べますか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Claire shares her market idea with Nao at the planning meeting.",
+        "打ち合わせで、クレアがナオにマーケットの案を伝えます。"
+      ],
+      "roles": [
+        "Claire",
+        "Nao"
+      ],
+      "dialogue": [
+        [
+          "Claire",
+          "What if we organise a weekend market here?"
+        ],
+        [
+          "Nao",
+          "That sounds good. Local artists could sell their work."
+        ],
+        [
+          "Claire",
+          "Would you like to display your ceramics too?"
+        ],
+        [
+          "Nao",
+          "Yes. I can bring cups and make clear price labels."
+        ],
+        [
+          "Claire",
+          "Great. Leo will ask his manager for permission to sell pastries."
+        ],
+        [
+          "Nao",
+          "Who will handle the posters and decorations?"
+        ],
+        [
+          "Claire",
+          "I will handle them. Emma cannot join this meeting."
+        ],
+        [
+          "Nao",
+          "Could you ask Emma if she wants to contribute artwork?"
+        ],
+        [
+          "Claire",
+          "Yes. I will ask her separately, and I will not assume she is free."
+        ],
+        [
+          "Nao",
+          "Perfect. Let’s confirm our responsibilities first."
+        ]
+      ],
+      "questions": [
+        [
+          "What will Nao bring?",
+          "Cups."
+        ],
+        [
+          "What will Nao make?",
+          "Clear price labels."
+        ],
+        [
+          "What does Leo need first?",
+          "Permission from his manager."
+        ],
+        [
+          "Is Emma’s artwork confirmed?",
+          "No. Claire will ask her separately."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "What if we (organise / organising) a market?",
+        "organise"
+      ],
+      [
+        "How about (inviting / invite) local artists?",
+        "inviting"
+      ],
+      [
+        "I can (bring / bringing) my cups.",
+        "bring"
+      ],
+      [
+        "Who will (handle / handled) the posters?",
+        "handle"
+      ],
+      [
+        "We need permission (first / one).",
+        "first"
+      ],
+      [
+        "Let’s confirm our (responsibilities / responsible).",
+        "responsibilities"
+      ]
+    ],
+    "choices": [
+      [
+        "Which sentence proposes an idea?",
+        "What if we hold a market?",
+        "We held a market last year.",
+        "A"
+      ],
+      [
+        "Leo has not spoken to his manager yet. What is correct?",
+        "His bakery has definitely agreed.",
+        "He still needs permission.",
+        "B"
+      ],
+      [
+        "Which offer is specific?",
+        "I can prepare price labels for my cups.",
+        "Someone should do something.",
+        "A"
+      ],
+      [
+        "How should Claire include Emma?",
+        "Print Emma’s name without asking.",
+        "Ask whether she wants to contribute artwork.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Nao at the planning meeting. The market is planned for next Saturday, from 10 a.m. to 1 p.m. You can bring ceramic cups and price labels. Tables must be arranged, posters prepared, and Leo’s pastry stall needs approval from his manager.",
+        "あなたは打ち合わせに参加するナオ役です。マーケットは次の土曜日、午前10時から午後1時の予定です。あなたは陶器のカップと値札を用意できます。テーブルの配置、ポスターの準備、そしてレオの店長の許可が必要です。"
+      ],
+      "task": [
+        "Respond to the plan, offer two tasks, and ask Claire to confirm tables and posters. Check what is still not confirmed. Then summarise the time and responsibilities.",
+        "計画に返事をして、作業を2つ引き受け、テーブルとポスターについてクレアに確認しましょう。未確定の点も確認し、最後に時間と担当をまとめましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Nao"
+      ],
+      "title": "Confirming Jobs for the Market",
+      "lines": [
+        "Nao, does next Saturday from 10 a.m. to 1 p.m. work for you?",
+        "What two tasks can you take, and why?",
+        "Could you ask me who will handle the tables and who will handle the posters?",
+        "What is still not confirmed about Leo’s pastries?",
+        "Emma is not here today. How can we invite her without promising her help?",
+        "Please summarise the time and each person’s responsibilities."
+      ],
+      "evidence": "Tutor evidence note: The student should mention next Saturday 10 a.m.–1 p.m., offer two tasks (cups + price labels), confirm Claire handles posters/decorations, note Leo still needs manager permission, and say Emma is not confirmed because Claire will ask her separately.",
+      "useful": [
+        "That sounds good.",
+        "I can ...",
+        "I will ...",
+        "Could you confirm ...?",
+        "Who will handle ...?"
+      ]
+    },
+    "topics": [
+      [
+        "PLANNING AN EVENT",
+        [
+          "What would attract visitors?",
+          "Which jobs need one clear person?",
+          "What should you confirm before advertising?"
+        ]
+      ],
+      [
+        "OFFERING HELP",
+        [
+          "What task could you offer?",
+          "How can you say you are busy politely?",
+          "What questions should you ask the organiser?"
+        ]
+      ],
+      [
+        "CLEAR INVITATIONS",
+        [
+          "How can you invite someone without assuming yes?",
+          "What details should an invitation include?",
+          "What can you say if someone is unavailable?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "A stall is a small selling space at a market. “Set up a stall” means preparing that space, not opening a permanent shop.",
+      "stall はマーケットの小さな売り場です。「set up a stall」は常設の店を開くのではなく、売り場を準備するという意味です。"
+    ],
+    "triviaQuestion": [
+      "Does “set up a market stall” mean opening a permanent shop?",
+      "No. It means preparing a selling space at the market."
+    ],
+    "closing": "They plan the Saturday market from 10 a.m. to 1 p.m. Claire handles posters and decorations and asks Emma separately about artwork. Leo still needs his manager’s permission for the pastry stall."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

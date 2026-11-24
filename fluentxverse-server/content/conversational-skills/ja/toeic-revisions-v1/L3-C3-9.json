@@ -1,0 +1,276 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 3,
+  "number": 9,
+  "sourceDigest": "909a05e262cbc8ea6210923ecf2ba63177fc1fc6411158c7692dae885968ef1f",
+  "episode": {
+    "title": "Something Worth Celebrating",
+    "skill": "speaking",
+    "goal": [
+      "I can celebrate a success, say thank you, and make a plan.",
+      "成功を祝い、お礼を言い、予定を決められる。"
+    ],
+    "intro": [
+      "Nao’s exhibition goes well. She answers a visitor’s question about her cups. Claire holds a celebration at Kamo House. Leo brings snacks, and Emma makes a photo card. After the party, Leo clearly asks Emma on another date.",
+      "ナオの展示会は成功します。ナオはカップについて来場者の質問に答えられます。クレアはKamo Houseでお祝いを開きます。レオは軽食、エマは写真のカードを用意します。会の後、レオははっきり次のデートにエマを誘います。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "Congratulations on the exhibition!",
+        "Congratulations",
+        "展示会、おめでとうございます。"
+      ],
+      [
+        "You did well.",
+        "did well",
+        "よくできましたね。"
+      ],
+      [
+        "Thank you for helping.",
+        "helping",
+        "手伝ってくれてありがとう。"
+      ],
+      [
+        "I feel more confident.",
+        "confident",
+        "前より自信があります。"
+      ],
+      [
+        "What will you do next?",
+        "next",
+        "次は何をしますか。"
+      ],
+      [
+        "Let’s celebrate.",
+        "celebrate",
+        "お祝いしましょう。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use will + verb for a future action.",
+          "will ＋動詞で、これからすることを伝えます。"
+        ],
+        "examples": [
+          [
+            "I will send a message.",
+            "メッセージを送ります。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use before or after to show the order.",
+          "before や after で順番を表します。"
+        ],
+        "examples": [
+          [
+            "I will ask before I decide.",
+            "決める前に尋ねます。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "At the celebration, Nao thanks Emma. Read their conversation.",
+        "お祝いの席で、ナオがエマに感謝を伝えます。会話を読みましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Nao",
+          "So many visitors came!"
+        ],
+        [
+          "Emma",
+          "Congratulations! You explained your work well."
+        ],
+        [
+          "Nao",
+          "Your practice helped. Thank you."
+        ],
+        [
+          "Emma",
+          "What was your favorite moment?"
+        ],
+        [
+          "Nao",
+          "I answered a question about the blue glaze."
+        ],
+        [
+          "Emma",
+          "You were worried about that."
+        ],
+        [
+          "Nao",
+          "Yes. Now I feel more confident."
+        ],
+        [
+          "Emma",
+          "What will you do next?"
+        ],
+        [
+          "Nao",
+          "Make more cups. First, enjoy the party!"
+        ],
+        [
+          "Emma",
+          "Good plan. Let’s celebrate."
+        ]
+      ],
+      "questions": [
+        [
+          "What went well?",
+          "Nao’s exhibition."
+        ],
+        [
+          "What help does Nao thank Emma for?",
+          "Practice."
+        ],
+        [
+          "What question did Nao answer?",
+          "A question about the blue glaze."
+        ],
+        [
+          "What does Nao want to make next?",
+          "More cups."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I will (send / sent) a message.",
+        "send"
+      ],
+      [
+        "She will (help / helps) us.",
+        "help"
+      ],
+      [
+        "We will (meet / met) tomorrow.",
+        "meet"
+      ],
+      [
+        "I will ask (before / between) I decide.",
+        "before"
+      ],
+      [
+        "I will rest (after / among) work.",
+        "after"
+      ],
+      [
+        "Will you (come / came)?",
+        "come"
+      ]
+    ],
+    "choices": [
+      [
+        "What went well?",
+        "Nao’s exhibition.",
+        "An interview in Osaka.",
+        "A"
+      ],
+      [
+        "What help does Nao thank Emma for?",
+        "A train ticket.",
+        "Practice.",
+        "B"
+      ],
+      [
+        "What question did Nao answer?",
+        "A question about the blue glaze.",
+        "A question about a lost umbrella.",
+        "A"
+      ],
+      [
+        "What does Nao want to make next?",
+        "A new cafe.",
+        "More cups.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma after Nao's celebration at Kamo House. Your tutor is Leo. You both helped Nao, and Leo wants to invite you on another date. You are free next Sunday after 5 p.m.",
+        "あなたはKamo Houseでナオのお祝いを終えたエマ役です。講師はレオ役です。二人ともナオを手伝い、レオは次のデートに誘おうとしています。あなたは次の日曜日の午後5時以降に空いています。"
+      ],
+      "task": [
+        "Talk about Nao’s success. Thank Leo. Answer his invitation and check the time and place.",
+        "ナオの成功を話し、レオにお礼を言いましょう。誘いに返事をし、時刻と場所を確認しましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "lines": [
+        "What did you enjoy at Nao’s exhibition?",
+        "Thank you for helping her.",
+        "Would you like dinner next Sunday?",
+        "Is four okay?",
+        "You are free after five. What time and place are better?",
+        "Can we check the plan?"
+      ],
+      "evidence": "Congratulate/discuss Nao's achievement, thank Leo for a specific contribution, respond to the invitation, correct4 to after5, and confirm a clear day/time/place. Focus on warm, clear dialogue.",
+      "useful": [
+        "Congratulations!",
+        "I enjoyed ...",
+        "Thank you for ...",
+        "I am free after ...",
+        "Let’s meet ..."
+      ]
+    },
+    "topics": [
+      [
+        "DAILY LIFE",
+        [
+          "What time do you start work or study?",
+          "When do you have dinner?",
+          "What do you do on Sundays?"
+        ]
+      ],
+      [
+        "HELPING",
+        [
+          "Who helps you?",
+          "How can you help a friend?",
+          "How do you say thank you?"
+        ]
+      ],
+      [
+        "TALKING TO FRIENDS",
+        [
+          "What do you talk about?",
+          "How do you invite a friend?",
+          "What can you say when you do not understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Well done” means you did something well. At a celebration, it is praise. It is not an instruction to cook food.",
+      "Well done は、よくできたことを褒める表現です。お祝いの場では、料理をよく焼く指示ではありません。"
+    ],
+    "triviaQuestion": [
+      "Is “Well done!” praise at a celebration?",
+      "Yes."
+    ],
+    "closing": "Nao feels ready for her next creative challenge, Claire sees what the cafe community can do, and Emma and Leo finally make a clear date plan. Lesson 10 reviews the language from Lessons 6-9."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

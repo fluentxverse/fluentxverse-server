@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 3,
+  "number": 2,
+  "sourceDigest": "a281b858ad22bb6b2ca738cedca019c4cb356551aec5e25b5ef792ff88fb89b7",
+  "episode": {
+    "title": "A Busy Monday",
+    "skill": "listening",
+    "goal": [
+      "I can understand a short work update and choose a meeting time.",
+      "短い仕事の連絡を聞き取り、会う時刻を決められる。"
+    ],
+    "intro": [
+      "Emma gets an urgent design job on Monday. Leo is also busy at the bakery. Their messages arrive when the other person is working. They need to explain their schedules and find a time to meet.",
+      "月曜日、エマに急ぎのデザインの仕事が入ります。レオもパン屋で忙しくなります。相手が仕事中のときにメッセージが届いてしまいます。二人は予定を説明し、会える時間を探す必要があります。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "I usually finish at two.",
+        "usually",
+        "普段は2時に終わります。"
+      ],
+      [
+        "Today I finish at five.",
+        "finish",
+        "今日は5時に終わります。"
+      ],
+      [
+        "We have a large order.",
+        "order",
+        "大きな注文があります。"
+      ],
+      [
+        "I cannot meet at three.",
+        "cannot",
+        "3時には会えません。"
+      ],
+      [
+        "The deadline is Wednesday.",
+        "deadline",
+        "締め切りは水曜日です。"
+      ],
+      [
+        "Six is okay for me.",
+        "okay",
+        "6時で大丈夫です。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use will + verb for a future action.",
+          "will ＋動詞で、これからすることを伝えます。"
+        ],
+        "examples": [
+          [
+            "I will send a message.",
+            "メッセージを送ります。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use before or after to show the order.",
+          "before や after で順番を表します。"
+        ],
+        "examples": [
+          [
+            "I will ask before I decide.",
+            "決める前に尋ねます。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Emma listens to Leo's Monday update. Find his usual routine, today's change, and his suggestion.",
+        "エマがレオの月曜日の連絡を聞きます。普段の習慣、今日の変更、提案を聞き取りましょう。"
+      ],
+      "text": "<p>I usually finish at two. Today I work until five because we have a large bread order. I cannot meet at three. Can we have dinner at six? Your design deadline is Wednesday. We can choose another day if you are busy too.</p>",
+      "questions": [
+        [
+          "When does Leo usually finish?",
+          "At two."
+        ],
+        [
+          "Why can he not meet at three?",
+          "He works until five for a large order."
+        ],
+        [
+          "What time does he suggest?",
+          "Six."
+        ],
+        [
+          "When is Emma’s deadline?",
+          "Wednesday."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I will (send / sent) a message.",
+        "send"
+      ],
+      [
+        "She will (help / helps) us.",
+        "help"
+      ],
+      [
+        "We will (meet / met) tomorrow.",
+        "meet"
+      ],
+      [
+        "I will ask (before / between) I decide.",
+        "before"
+      ],
+      [
+        "I will rest (after / among) work.",
+        "after"
+      ],
+      [
+        "Will you (come / came)?",
+        "come"
+      ]
+    ],
+    "choices": [
+      [
+        "When does Leo usually finish?",
+        "At two.",
+        "At six.",
+        "A"
+      ],
+      [
+        "Why can he not meet at three?",
+        "He is on holiday.",
+        "He works until five for a large order.",
+        "B"
+      ],
+      [
+        "What time does he suggest?",
+        "Six.",
+        "Ten in the morning.",
+        "A"
+      ],
+      [
+        "When is Emma’s deadline?",
+        "Sunday.",
+        "Wednesday.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. You asked Claire to listen to a message from Leo while you worked. Your tutor reads Leo's update, then plays Claire. Your own project keeps you busy until 6:30 p.m.",
+        "あなたはエマ役です。仕事中に届いたレオのメッセージをクレアに確認してもらいました。講師はレオの連絡を読んでからクレア役になります。あなたの仕事は午後6時30分までかかります。"
+      ],
+      "task": [
+        "Listen to Leo’s times. Compare them with your schedule. Tell Claire when you can meet and what to reply.",
+        "レオの予定を聞き、自分の予定と比べましょう。会える時間と返信内容をクレアに伝えましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "text": "<p>My extra order is finished. Today I finish at five-thirty. I need half an hour to clean up, so I am free after six. Can we meet at the Kamo House cafe at seven? Or I am free on Tuesday after four. Please tell me.</p>",
+      "lines": [
+        "When does Leo finish work?",
+        "When is he free after cleaning?",
+        "Where and when does he suggest?",
+        "You finish at six-thirty. Is seven okay?",
+        "What other time is he free?",
+        "What shall we tell him?"
+      ],
+      "evidence": "Finish 5:30, ready after 6, suggests cafe 7, Emma finishes 6:30 so 7 works; alternative Tuesday after 4. Assess details recovered and a compatible reply, not exact wording.",
+      "useful": [
+        "He finishes at ...",
+        "He is free after ...",
+        "I work until ...",
+        "Seven is okay.",
+        "Please tell him ..."
+      ]
+    },
+    "topics": [
+      [
+        "DAILY LIFE",
+        [
+          "What time do you start work or study?",
+          "When do you have dinner?",
+          "What do you do on Sundays?"
+        ]
+      ],
+      [
+        "HELPING",
+        [
+          "Who helps you?",
+          "How can you help a friend?",
+          "How do you say thank you?"
+        ]
+      ],
+      [
+        "TALKING TO FRIENDS",
+        [
+          "What do you talk about?",
+          "How do you invite a friend?",
+          "What can you say when you do not understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“I’m tied up” can mean “I’m busy.” It does not mean a person is using a rope. At work, it often means someone cannot talk now.",
+      "I’m tied up は「忙しくて手が離せない」という意味でも使います。ひもで縛られているとは限りません。仕事では、今は話せないことを表す場合があります。"
+    ],
+    "triviaQuestion": [
+      "Can “tied up” mean busy?",
+      "Yes."
+    ],
+    "closing": "They manage a short dinner after work. The next afternoon, Emma finds Claire facing a crowded cafe with one helper absent."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

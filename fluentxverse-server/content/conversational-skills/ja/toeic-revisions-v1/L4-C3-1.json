@@ -1,0 +1,278 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 3,
+  "number": 1,
+  "sourceDigest": "5d7d47757b9af083800a9621129ff2df1b7e314e8dac99012da46037e8c1abe4",
+  "episode": {
+    "title": "The First Real Date",
+    "skill": "speaking",
+    "intro": [
+      "On Saturday after the market, Leo arrives 15 minutes early for a 6:00 dinner with Nao. He booked a quiet restaurant near the river. They have spent a lot of time together, but tonight feels different. During dinner, Leo knocks over his water. Nao gives him a napkin, and Leo says he is nervous. They both smile.",
+      "マーケットの翌週の土曜日、レオはナオとの6時の夕食に15分早く着きます。川の近くの静かなレストランを予約しました。一緒に過ごした時間は多いですが、今夜はいつもと違います。食事中、レオは水をこぼします。ナオがナプキンを渡し、レオが緊張していると言うと、二人は笑顔になります。"
+    ],
+    "goal": [
+      "I can confirm an arrangement, give a compliment, and say I feel nervous.",
+      "予定を確認し、相手を褒め、緊張していると言えます。"
+    ],
+    "warmup": "What could you say to help someone relax at the start of an outing?",
+    "words": [
+      [
+        "I booked a table for six.",
+        "booked a table",
+        "席を予約しました（6時に）。"
+      ],
+      [
+        "You look lovely today.",
+        "look lovely",
+        "今日とてもすてきですね。"
+      ],
+      [
+        "I am a little nervous because this feels different.",
+        "a little nervous",
+        "少し緊張しています（いつもと違うので）。"
+      ],
+      [
+        "This dinner feels different from our usual time together.",
+        "feels different",
+        "いつもと違う感じがします。"
+      ],
+      [
+        "Sorry, I knocked over my glass.",
+        "knocked over",
+        "倒してしまいました。"
+      ],
+      [
+        "Could you pass me a napkin, please?",
+        "pass me a napkin",
+        "ナプキンを取ってもらえますか。"
+      ]
+    ],
+    "discussion": [
+      "You are Leo. Your tutor is Nao. Confirm the booking, give a sincere compliment, and explain why you arrived early.",
+      "あなたはレオ役、講師はナオ役です。予約を確認し、相手を心から褒め、早く着いた理由を説明しましょう。"
+    ],
+    "followup": "How could you respond naturally if you made a small mistake?",
+    "tips": [
+      {
+        "rule": [
+          "Use a clear time to confirm plans: for six, at 6:00, at 5:45.",
+          "予定確認は時間をはっきり言いましょう：for six、at 6:00、at 5:45。"
+        ],
+        "examples": [
+          [
+            "I booked our table for six.",
+            "6時に席を予約しました。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Say feelings simply with a reason: I feel / I am ... because ...",
+          "気持ちは I feel / I am ... because ... でシンプルに理由も言いましょう。"
+        ],
+        "examples": [
+          [
+            "I am a little nervous because this is our first dinner date.",
+            "初めての夕食デートなので、少し緊張しています。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Nao arrives at the restaurant and finds Leo waiting. Practice their short conversation.",
+        "ナオがレストランに着くと、レオが待っています。短い会話を練習しましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Leo"
+      ],
+      "dialogue": [
+        [
+          "Nao",
+          "Hi Leo. You are early. Have you been waiting long?"
+        ],
+        [
+          "Leo",
+          "Only fifteen minutes. I arrived at 5:45."
+        ],
+        [
+          "Nao",
+          "Thanks. Is our table booked for six?"
+        ],
+        [
+          "Leo",
+          "Yes, I booked a quiet table near the river."
+        ],
+        [
+          "Nao",
+          "Great. You look happy, but maybe a little nervous."
+        ],
+        [
+          "Leo",
+          "I am nervous because this feels different."
+        ],
+        [
+          "Nao",
+          "It is okay. Oh, you spilled some water."
+        ],
+        [
+          "Leo",
+          "Sorry, I knocked over my glass."
+        ],
+        [
+          "Nao",
+          "No problem. Here is a napkin. Shall we look at the menu?"
+        ],
+        [
+          "Leo",
+          "Yes, please. What do you want to eat tonight?"
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "What time is the booking?",
+          "It is for six o'clock."
+        ],
+        [
+          "When did Leo arrive?",
+          "He arrived at 5:45."
+        ],
+        [
+          "What accident happens?",
+          "Leo knocks over his water."
+        ],
+        [
+          "How does Nao help?",
+          "She gives him a napkin and continues the dinner."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I (booked / booking) a table for six.",
+        "booked"
+      ],
+      [
+        "I arrived (early / earlying) because I did not want to be late.",
+        "early"
+      ],
+      [
+        "You (look / looks) lovely today.",
+        "look"
+      ],
+      [
+        "I am (nervous / nervously) because this feels different.",
+        "nervous"
+      ],
+      [
+        "Sorry, I knocked (over / under) my glass.",
+        "over"
+      ],
+      [
+        "Could you (pass / passed) me a napkin, please?",
+        "pass"
+      ]
+    ],
+    "choices": [
+      [
+        "The booking is at six. Leo arrives fifteen minutes early. When does he arrive?",
+        "At 5:45",
+        "At 6:15",
+        "A"
+      ],
+      [
+        "Which line is a compliment?",
+        "You look lovely.",
+        "I spilled water.",
+        "A"
+      ],
+      [
+        "Which line gives a feeling with a reason?",
+        "I am nervous because this feels different.",
+        "The menu is on the table.",
+        "A"
+      ],
+      [
+        "Leo spills water. Which response keeps the mood calm?",
+        "Here is a napkin. Shall we look at the menu?",
+        "We must stop dinner now.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Leo at the restaurant. Your tutor is Nao. Your booking is for six, and you arrived at 5:45. You feel nervous about the first dinner date. A small water spill just happened, but the evening can continue.",
+        "あなたはレストランにいるレオ役、講師はナオ役です。予約は6時で、5時45分に着きました。初めての夕食デートに緊張しています。水を少しこぼしましたが、食事は続けられます。"
+      ],
+      "task": [
+        "Confirm the booking, give a compliment, and explain your feeling. Apologize for the spill, ask for a napkin, and ask Nao one question to enjoy dinner.",
+        "予約を確認し、相手を褒め、自分の気持ちを伝えましょう。こぼしたことを謝り、ナプキンを頼み、食事を楽しむための質問を1つしましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Leo"
+      ],
+      "text": "",
+      "title": "",
+      "lines": [
+        "Hi Leo. You are early. What time did you arrive?",
+        "Is our table booked for six?",
+        "You look a little nervous. How do you feel, and why?",
+        "Oh no, the water spilled. What should we do now?",
+        "What do you want to eat tonight?",
+        "What do you want to talk about during dinner?"
+      ],
+      "evidence": "Tutor evidence note: Student says booking is for six and arrival is 5:45. Student gives one sincere compliment (e.g., 'You look lovely'). Student states nervous feeling with a simple reason. Student apologizes for the spill, asks for a napkin, and asks one dinner-friendly question. Turns alternate and the dinner continues calmly.",
+      "useful": [
+        "I booked ... for ...",
+        "I arrived at ...",
+        "You look ...",
+        "I feel ... because ...",
+        "Sorry, I knocked over ...",
+        "Could you pass me ...?"
+      ]
+    },
+    "topics": [
+      [
+        "A Good First Impression",
+        [
+          "What makes a greeting warm?",
+          "What is a simple compliment you can give?",
+          "What question can you ask after hello?"
+        ]
+      ],
+      [
+        "Small Accidents",
+        [
+          "How do you say sorry in a simple way?",
+          "What help can you ask for at a restaurant?",
+          "How can you help someone relax after a mistake?"
+        ]
+      ],
+      [
+        "Shared Memories",
+        [
+          "What is a good memory you share with a friend?",
+          "How can you ask about a favorite moment?",
+          "What activity do you want to do next time?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"A quarter to six\" means 5:45. \"A quarter past six\" means 6:15. The words \"to\" and \"past\" change the time.",
+      "a quarter to six は5:45です。a quarter past six は6:15です。to と past で時刻が変わります。"
+    ],
+    "triviaQuestion": [
+      "Which is earlier: a quarter to six or a quarter past six?",
+      "A quarter to six."
+    ],
+    "closing": "After the small spill, the dinner becomes relaxed and they continue with the menu. The next week, Emma and Ren talk about dating openly while staying professional at work."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

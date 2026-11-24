@@ -1,0 +1,276 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 5,
+  "number": 9,
+  "sourceDigest": "da68e0119c638c5105d346b294ca6dbd4aba5be63e251cebd58f5c65b9701b5b",
+  "episode": {
+    "title": "The Truth Comes Out",
+    "skill": "speaking",
+    "goal": [
+      "I can tell the truth, apologise, and respect a request for time.",
+      "本当のことを話して謝り、時間が欲しいという希望を尊重できる。"
+    ],
+    "intro": [
+      "At the cafe on Sunday, Leo sees Ren’s message about Friday’s dinner on Emma’s phone. Emma admits the dinner, lie, and confused feelings. Leo is hurt and asks for time. He leaves. They have not made a final decision about their relationship.",
+      "日曜日のカフェで、レオはエマの電話に届いたレンの金曜の夕食についてのメッセージを見ます。エマは夕食、うそ、迷う気持ちを認めます。レオは傷つき、時間が欲しいと言って帰ります。関係についての最終的な決断はまだです。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "I was not working.",
+        "not working",
+        "仕事中ではありませんでした。"
+      ],
+      [
+        "I hid the dinner.",
+        "hid",
+        "夕食のことを隠しました。"
+      ],
+      [
+        "That was my choice.",
+        "choice",
+        "それは自分の選択でした。"
+      ],
+      [
+        "I understand why you are hurt.",
+        "hurt",
+        "傷ついた理由は分かります。"
+      ],
+      [
+        "I need some time.",
+        "time",
+        "時間が必要です。"
+      ],
+      [
+        "I will give you space.",
+        "space",
+        "そっとしておきます。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use the past form to say what happened.",
+          "過去形で、起きたことを伝えます。"
+        ],
+        "examples": [
+          [
+            "I worked yesterday.",
+            "昨日働きました。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use did not + verb to say what did not happen.",
+          "did not ＋動詞で、しなかったことを伝えます。"
+        ],
+        "examples": [
+          [
+            "I did not call.",
+            "電話しませんでした。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Leo has seen Ren's message about Friday's dinner. Read the conversation.",
+        "レオは金曜日の夕食についてのレンのメッセージを見ました。会話を読みましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Leo",
+          "What dinner? You said you were working."
+        ],
+        [
+          "Emma",
+          "I was not. I had dinner with Ren and hid it."
+        ],
+        [
+          "Leo",
+          "Was it only about work?"
+        ],
+        [
+          "Emma",
+          "No. He likes me. I liked being with him."
+        ],
+        [
+          "Leo",
+          "You let me believe you were at work."
+        ],
+        [
+          "Emma",
+          "Yes. That was wrong. I am sorry."
+        ],
+        [
+          "Leo",
+          "I trusted you."
+        ],
+        [
+          "Emma",
+          "I understand why you are hurt."
+        ],
+        [
+          "Leo",
+          "I need time. I am leaving."
+        ],
+        [
+          "Emma",
+          "I will give you space. We can talk later."
+        ]
+      ],
+      "questions": [
+        [
+          "What does Emma admit?",
+          "The private dinner and false work message."
+        ],
+        [
+          "Does she blame Leo?",
+          "No."
+        ],
+        [
+          "What does Leo ask for?",
+          "Time and space."
+        ],
+        [
+          "Is their final relationship decision known?",
+          "No."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I (worked / work) yesterday.",
+        "worked"
+      ],
+      [
+        "I did not (call / called).",
+        "call"
+      ],
+      [
+        "Did you (ask / asked) her?",
+        "ask"
+      ],
+      [
+        "We (were / was) busy yesterday.",
+        "were"
+      ],
+      [
+        "She (was / were) at work.",
+        "was"
+      ],
+      [
+        "I (sent / send) the message yesterday.",
+        "sent"
+      ]
+    ],
+    "choices": [
+      [
+        "What does Emma admit?",
+        "The private dinner and false work message.",
+        "Only a late train.",
+        "A"
+      ],
+      [
+        "Does she blame Leo?",
+        "Yes.",
+        "No.",
+        "B"
+      ],
+      [
+        "What does Leo ask for?",
+        "Time and space.",
+        "Another dinner tonight.",
+        "A"
+      ],
+      [
+        "Is their final relationship decision known?",
+        "Yes.",
+        "No.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma at the cafe on Sunday at six. Your tutor is Leo. He has seen Ren's message about Friday's dinner. You told Leo you were working, but stayed for a private dinner with Ren after Ren had expressed feelings for you. You felt drawn to Ren and hid the evening.",
+        "あなたは日曜日の6時にカフェにいるエマ役、講師はレオ役です。レオは金曜日の夕食についてのレンのメッセージを見ました。好意を伝えてきたレンと二人で夕食を取ったのに、レオには仕事中だと伝えました。レンに心が引かれ、その夜のことを隠していました。"
+      ],
+      "task": [
+        "Answer honestly. Explain your actions without blame. Apologise and give Leo time.",
+        "正直に答えましょう。人のせいにせず自分の行動を説明し、謝ってレオに時間をあげましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "lines": [
+        "Were you working on Friday?",
+        "Why did you hide the dinner?",
+        "Does Ren like you? How do you feel?",
+        "Do you understand why this hurts?",
+        "I need time. I do not want to decide tonight.",
+        "I am leaving. Please give me space."
+      ],
+      "evidence": "Directly admit dinner and false message, acknowledge attraction/confusion and choice to hide it, apologize without blame, accept time/space. End unresolved: no forced forgiveness, final breakup, or reconciliation. Do not add physical intimacy or unprovided events. Score honest, clear language and listening to the response, not dramatic performance.",
+      "useful": [
+        "I was not ...",
+        "I hid ...",
+        "That was wrong.",
+        "I am sorry.",
+        "I will give you time."
+      ]
+    },
+    "topics": [
+      [
+        "KEEPING IN TOUCH",
+        [
+          "Do you call or send messages?",
+          "When do you call a friend?",
+          "What do you say when you are busy?"
+        ]
+      ],
+      [
+        "CHANGING PLANS",
+        [
+          "What do you say when you are late?",
+          "Who needs to know about a change?",
+          "How do you choose a new time?"
+        ]
+      ],
+      [
+        "LISTENING",
+        [
+          "What helps you listen?",
+          "How do you ask someone to repeat?",
+          "How do you show you understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Give someone space” can mean let them have time alone. You do not need to move furniture or find a bigger room.",
+      "give someone space は、一人で考える時間をあげるという意味でも使います。家具を動かしたり広い部屋を探したりする必要はありません。"
+    ],
+    "triviaQuestion": [
+      "Can “give me space” ask for time alone?",
+      "Yes."
+    ],
+    "closing": "Leo leaves the cafe to think. Emma stays with the consequences of hiding the dinner. She has admitted the truth, but trust has not been repaired and neither has made a final decision about the relationship."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

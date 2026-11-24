@@ -1,10 +1,12 @@
-export type WorkClass = 'general' | 'search' | 'auth' | 'privy' | 'upload' | 'assessment' | 'ai' | 'proof' | 'publicProof';
+export type WorkClass = 'general' | 'search' | 'auth' | 'privy' | 'upload' | 'assessment' | 'ai' | 'proof' | 'publicProof' | 'identityMetadata';
 export interface WorkPolicy { category: WorkClass; maxBytes: number; roles?: readonly string[]; accountLimit: number; globalLimit: number }
 const MiB = 1024 * 1024;
 
 export function requestPolicy(path: string, method: string, contentType = ''): WorkPolicy {
   path = path.replace(/\/+$/, '') || '/';
   const general: WorkPolicy = { category: 'general', maxBytes: 10 * MiB, accountLimit: 1200, globalLimit: 6000 };
+  if (['GET', 'HEAD'].includes(method) && /^\/proof\/tutor-identity\/(?:metadata|test-metadata)(?:\/|$)/.test(path))
+    return { category: 'identityMetadata', maxBytes: 0, accountLimit: 60, globalLimit: 600 };
   if (method === 'GET' && path === '/tutor/search') return { category: 'search', maxBytes: 0, accountLimit: 300, globalLimit: 1200 };
   if (['GET', 'HEAD', 'OPTIONS'].includes(method)) return general;
   if (/^\/tutor\/email-verification\/(send|confirm)$/.test(path)) return { category: 'auth', maxBytes: 4096, accountLimit: 30, globalLimit: 300 };

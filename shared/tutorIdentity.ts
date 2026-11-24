@@ -26,6 +26,9 @@ export interface TutorIdentityRecord {
   reason?: string; deleteAt?: string; deletedAt?: string; verifiedAt?: string;
   credentialStatus?: string; name?: string;
 }
+export interface TutorIdentityReviewRecord extends TutorIdentityRecord {
+  applicant?: { fullName: string; birthDate: string; address: string };
+}
 export function nextManilaMidnight(now: number) {
   const offset = 8 * 3600_000;
   return new Date((Math.floor((now + offset) / 86400_000) + 1) * 86400_000 - offset).toISOString();

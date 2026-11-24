@@ -1,0 +1,231 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 1,
+  "number": 3,
+  "sourceDigest": "46f40dd8bd8725faeab30d08e7ff50ae58e8cf319a4e8984d7dbf6da8d5f3494",
+  "episode": {
+    "title": "Different Opinions",
+    "skill": "reading",
+    "intro": [
+      "Claire thinks Emma should give a clear apology and try to fix the relationship. Nao agrees honesty is important, but says Leo needs time. While they prepare the cafe, they talk about how to help. They agree they should not decide for their friends.",
+      "クレアは、エマがはっきり謝って関係を直す努力をするべきだと考えます。ナオも正直さは大切だと思いますが、レオには時間が必要だと言います。カフェの準備をしながら、どう助けるか話します。友達の代わりに決めない点で一致します。"
+    ],
+    "goal": [
+      "I can compare opinions, find reasons, and make a respectful shared plan.",
+      "意見と理由を比べ、相手を尊重した共通の計画を立てられる。"
+    ],
+    "warmup": "How can you disagree politely and still respect the other person’s reason?",
+    "words": [
+      [
+        "I see your point, but we should ask first.",
+        "see your point",
+        "言いたいことは分かります（でも…）。"
+      ],
+      [
+        "However, Leo needs time to decide.",
+        "However",
+        "でも／しかし"
+      ],
+      [
+        "Although Emma apologized, Leo is still hurt.",
+        "Although",
+        "〜だけれども（両方の事実を言う）"
+      ],
+      [
+        "We have one goal in common.",
+        "in common",
+        "共通して"
+      ],
+      [
+        "Let’s avoid making decisions for them.",
+        "avoid",
+        "避ける"
+      ],
+      [
+        "We can agree on a shared plan.",
+        "agree on",
+        "〜について意見が一致する"
+      ]
+    ],
+    "discussion": [
+      "You are Claire. Your tutor is Nao. Give one reason for your opinion. Recognize Nao’s concern. Then find one point you both agree on.",
+      "あなたはクレア役、講師はナオ役です。意見の理由を1つ言いましょう。ナオの心配も認めましょう。そして一致する点を1つ見つけましょう。"
+    ],
+    "followup": "What can you do to support both friends without deciding for them?",
+    "tips": [
+      {
+        "rule": [
+          "Separate each person’s opinion and reason. Use although to show contrast, and keep both facts true.",
+          "話し手ごとの意見と理由を分けましょう。although は対比を表しますが、どちらの事実も否定しません。"
+        ],
+        "examples": [
+          [
+            "Although Emma apologized, Leo is still hurt.",
+            "エマは謝りましたが、レオはまだ傷ついています。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use polite disagreement: “I see your point, but ...”. Then suggest a shared action.",
+          "丁寧な反対は「I see your point, but ...」。その後で共通の行動を提案しましょう。"
+        ],
+        "examples": [
+          [
+            "I see your point, but we should ask before arranging a meeting.",
+            "言いたいことは分かりますが、会う予定を決める前に聞くべきです。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read Claire and Nao’s notes. Compare their reasons and their final agreement.",
+        "クレアとナオのメモを読みましょう。理由と最後の合意を比べましょう。"
+      ],
+      "dialogue": [],
+      "text": "<p><strong>Claire’s view</strong><br>Emma should explain properly and show that she is sorry. A clear apology could help because Leo needs the truth. I first thought we should arrange a meeting.</p><p><strong>Nao’s view</strong><br>Although Emma has apologized, Leo is still hurt. He needs time. We should not arrange a meeting unless both agree.</p><p><strong>What we agreed</strong><br>Offer to listen to each friend. Ask before passing on a message. Do not invite them to a surprise meeting or promise that they will get back together.</p>",
+      "questions": [
+        [
+          "Why does Claire value an apology?",
+          "Because Leo needs the truth and a clear explanation."
+        ],
+        [
+          "Why does Nao oppose a meeting without agreement?",
+          "Because Leo is still hurt and needs time."
+        ],
+        [
+          "Did they keep Claire’s first meeting idea?",
+          "No. They agreed to ask first."
+        ],
+        [
+          "What action do both support?",
+          "They will listen, ask before sharing messages, and not decide for friends."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Although she (apologized / apologizing), he is still hurt.",
+        "apologized"
+      ],
+      [
+        "I see your (point / pointed).",
+        "point"
+      ],
+      [
+        "We should ask before (arranging / arrange) a meeting.",
+        "arranging"
+      ],
+      [
+        "Let’s avoid (deciding / decide) for them.",
+        "deciding"
+      ],
+      [
+        "We can agree (on / to with) one thing.",
+        "on"
+      ],
+      [
+        "He needs time. (However / Because of that he), we can still offer support.",
+        "However"
+      ]
+    ],
+    "choices": [
+      [
+        "Claire first suggests a meeting. What is the final agreement?",
+        "Arrange a surprise meeting.",
+        "Ask both friends before arranging anything.",
+        "B"
+      ],
+      [
+        "Which sentence keeps both facts true?",
+        "Although she apologized, he is still hurt.",
+        "Her apology proves he is no longer hurt.",
+        "A"
+      ],
+      [
+        "Which reply is polite and shows respect first?",
+        "That idea is stupid.",
+        "I see your point, but he has asked for time.",
+        "B"
+      ],
+      [
+        "In their final plan, what does support mean?",
+        "Listen and respect the friend’s decision.",
+        "Choose the relationship outcome for them.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Claire. Your tutor is Nao. Read a new proposal for Friday’s cafe gathering and Leo’s reply. Decide how to change the plan without pressuring either friend.",
+        "あなたはクレア役、講師はナオ役です。金曜日のカフェの集まりの提案と、レオの返事を読みます。どちらにも無理をさせないように計画を変えます。"
+      ],
+      "task": [
+        "Compare the proposal and Leo’s request. Explain one concern, disagree politely with an unsuitable idea, and agree on a revised action based on the messages.",
+        "提案とレオの希望を比べます。心配を1つ言い、合わない案には丁寧に反対し、メッセージを根拠に変更案で一致します。"
+      ],
+      "roles": [
+        "Nao",
+        "Claire"
+      ],
+      "text": "<p><strong>Initial proposal</strong><br>Invite Emma and Leo to the same table on Friday at seven. Perhaps a relaxed meal would help them talk.</p><p><strong>Leo’s reply</strong><br>Thanks for thinking of me. I do not want a group meal with Emma this week. Please do not surprise me with one. I can help prepare the cafe before six, then I want to leave.</p><p><strong>Emma’s message</strong><br>I am not attending the meal. Please ask me before sharing my private messages.</p><p><strong>Decision needed</strong><br>Keep the ordinary gathering separate from the relationship discussion. Confirm Leo’s preparation time and ask before passing on any personal message.</p>",
+      "title": "Friday Gathering - A Proposal and a Reply",
+      "lines": [
+        "Claire, do you still think we should invite them to the same table?",
+        "What does Leo agree to do on Friday, and what time limit does he give?",
+        "Although a meal sounds relaxed, what risk is there for Leo?",
+        "What should we do before sharing Emma’s private messages?",
+        "So what revised plan can we agree on for Friday?"
+      ],
+      "evidence": "Tutor evidence note: The text says do not invite them to the same table at seven. Leo will help prepare the cafe before six and then leave. Emma will not attend the meal and asks permission before sharing her private messages. The decision is to keep the gathering separate and confirm times/permission.",
+      "useful": [
+        "The message says ...",
+        "Although ..., ...",
+        "I see your point, but ...",
+        "He has only agreed to ...",
+        "We should ask before ..."
+      ]
+    },
+    "topics": [
+      [
+        "Different views",
+        [
+          "How do you explain your reason in one sentence?",
+          "What phrase helps you disagree politely?",
+          "How do you find one point in common?"
+        ]
+      ],
+      [
+        "Planning with others",
+        [
+          "What should you ask before making a plan for someone?",
+          "How can you check what a person really agreed to?",
+          "What do you do if someone says no?"
+        ]
+      ],
+      [
+        "Passing on messages",
+        [
+          "When should you ask before sharing a message?",
+          "How can you confirm the exact words?",
+          "What can you say if you do not have permission?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Agree with someone\" means you share an opinion. \"Agree to do something\" means you accept an action. \"Agree on a time\" means you decide the time together.",
+      "agree with someone は意見への賛成、agree to do something は行動への同意、agree on a time は時刻について一致することです。"
+    ],
+    "triviaQuestion": [
+      "Which phrase confirms an action: agree to help or agree with an opinion?",
+      "Agree to help."
+    ],
+    "closing": "Claire and Nao support both friends without planning a surprise meeting. After several days, Leo agrees to meet Emma by the river and hear her explanation."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

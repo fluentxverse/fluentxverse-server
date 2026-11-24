@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 3,
+  "number": 8,
+  "sourceDigest": "cf3b470c2ad31cd28b869e9415698d09e4152dcefad749aa4c05f719e3cd48db",
+  "episode": {
+    "title": "An Unexpected Apology",
+    "skill": "reading",
+    "goal": [
+      "I can read messages, understand an apology, and check the final meeting time.",
+      "メッセージを読み、謝罪と最終的な待ち合わせ時刻を理解できる。"
+    ],
+    "intro": [
+      "Leo asks why Emma is avoiding him. Emma explains the lunch she saw. Aya is his bakery coworker, not his girlfriend. Emma says sorry for guessing instead of asking. They agree to talk when something is unclear.",
+      "レオは、なぜ避けるのかエマに尋ねます。エマは見かけた昼食について説明します。アヤは恋人ではなく、パン屋の同僚です。エマは確認せずに決め付けたことを謝ります。二人は不明なことがあれば話すと決めます。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "I am sorry.",
+        "sorry",
+        "ごめんなさい。"
+      ],
+      [
+        "She is my coworker.",
+        "coworker",
+        "彼女は同僚です。"
+      ],
+      [
+        "We discussed an order.",
+        "discussed",
+        "注文について話しました。"
+      ],
+      [
+        "Thanks for explaining.",
+        "explaining",
+        "説明してくれてありがとう。"
+      ],
+      [
+        "I will ask next time.",
+        "next time",
+        "次は尋ねます。"
+      ],
+      [
+        "We agreed on six-thirty.",
+        "agreed",
+        "6時30分に決めました。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use the past form to say what happened.",
+          "過去形で、起きたことを伝えます。"
+        ],
+        "examples": [
+          [
+            "I worked yesterday.",
+            "昨日働きました。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use did not + verb to say what did not happen.",
+          "did not ＋動詞で、しなかったことを伝えます。"
+        ],
+        "examples": [
+          [
+            "I did not call.",
+            "電話しませんでした。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read Emma and Leo's conversation after they finish helping Nao. Identify what caused the misunderstanding and how they resolve it.",
+        "ナオの準備を手伝った後のエマとレオの会話を読みましょう。誤解の原因と解決の仕方を確認しましょう。"
+      ],
+      "text": "<p>Leo: Why are you avoiding me?</p><p>Emma: I saw you having lunch with a woman. I thought you were dating.</p><p>Leo: Aya? She is my bakery coworker. We discussed an order.</p><p>Emma: I am sorry. I did not ask you.</p><p>Leo: Thank you for telling me.</p><p>Emma: Next time, I will ask, not guess.</p><p>Leo: Good. I want us to talk.</p>",
+      "questions": [
+        [
+          "Who is Aya?",
+          "Leo’s bakery coworker."
+        ],
+        [
+          "What was the lunch about?",
+          "A bakery order."
+        ],
+        [
+          "What does Emma apologise for?",
+          "Guessing and not asking."
+        ],
+        [
+          "What will she do next time?",
+          "Ask."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I (worked / work) yesterday.",
+        "worked"
+      ],
+      [
+        "I did not (call / called).",
+        "call"
+      ],
+      [
+        "Did you (ask / asked) her?",
+        "ask"
+      ],
+      [
+        "We (were / was) busy yesterday.",
+        "were"
+      ],
+      [
+        "She (was / were) at work.",
+        "was"
+      ],
+      [
+        "I (sent / send) the message yesterday.",
+        "sent"
+      ]
+    ],
+    "choices": [
+      [
+        "Who is Aya?",
+        "Leo’s bakery coworker.",
+        "Leo’s girlfriend.",
+        "A"
+      ],
+      [
+        "What was the lunch about?",
+        "A holiday booking.",
+        "A bakery order.",
+        "B"
+      ],
+      [
+        "What does Emma apologise for?",
+        "Guessing and not asking.",
+        "Being a coworker.",
+        "A"
+      ],
+      [
+        "What will she do next time?",
+        "Keep guessing.",
+        "Ask.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Leo. After your conversation, you exchange short messages to confirm what you understood and make a new plan. Read the messages before speaking.",
+        "あなたはエマ役、講師はレオ役です。話し合いの後、理解したことと新しい予定を確認する短いメッセージを交わします。話す前にメッセージを読みましょう。"
+      ],
+      "task": [
+        "Read the messages. Explain Aya’s role. Say sorry. Confirm the final time and place.",
+        "メッセージを読み、アヤとの関係を説明しましょう。謝り、最終的な時刻と場所を確認しましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "title": "Clearing Things Up",
+      "text": "<p>Leo, Thursday, 8:00 p.m.: Aya is my coworker. Monday’s lunch was about a bakery order. Meet outside the gallery on Saturday at 5:30?</p><p>Emma, 8:05: Sorry I guessed. The exhibition ends at five. I will help Nao pack until six. Kamo House at 6:30 instead?</p><p>Leo, 8:07: Yes. Kamo House, Saturday at 6:30. I will help Claire prepare a celebration first.</p>",
+      "lines": [
+        "What do you know about Aya and the lunch?",
+        "What can we do next time something is unclear?",
+        "Why is five-thirty too early?",
+        "Where and when are we meeting now?",
+        "What will I help Claire prepare?"
+      ],
+      "evidence": "Aya coworker/lunch bakery order; Emma apologizes/ask before assuming; packing with Nao until6; final Kamo House Saturday6:30, not outside gallery5:30; Leo helps Claire prepare celebration. Keep the messages visible and check final agreement rather than first suggestion.",
+      "useful": [
+        "She is ...",
+        "I am sorry.",
+        "Thanks for explaining.",
+        "We will meet ...",
+        "Next time, I will ..."
+      ]
+    },
+    "topics": [
+      [
+        "DAILY LIFE",
+        [
+          "What time do you start work or study?",
+          "When do you have dinner?",
+          "What do you do on Sundays?"
+        ]
+      ],
+      [
+        "HELPING",
+        [
+          "Who helps you?",
+          "How can you help a friend?",
+          "How do you say thank you?"
+        ]
+      ],
+      [
+        "TALKING TO FRIENDS",
+        [
+          "What do you talk about?",
+          "How do you invite a friend?",
+          "What can you say when you do not understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Clear the air” means talk about a problem so people understand each other better. It is not about opening a window.",
+      "clear the air は、問題について話して誤解や気まずさを解くという意味です。窓を開けることではありません。"
+    ],
+    "triviaQuestion": [
+      "Can talking help “clear the air”?",
+      "Yes."
+    ],
+    "closing": "The misunderstanding is cleared up. Emma and Leo agree to talk instead of guess. On Saturday, everyone can focus on Nao's gallery exhibition and the celebration afterward."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

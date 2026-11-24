@@ -1,0 +1,233 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 4,
+  "number": 8,
+  "sourceDigest": "95cfc7bc10fb2e40aef07082590ae908ea3e5603a8389acffd55c79a64bb844e",
+  "episode": {
+    "title": "A Choice to Make",
+    "skill": "reading",
+    "goal": [
+      "I can read a job offer and compare two choices.",
+      "求人条件を読み、二つの選択肢を比較できる。"
+    ],
+    "intro": [
+      "The Osaka agency offers Emma a job with higher fixed pay and bigger projects. She must work in Osaka every weekday. She worries about leaving Kyoto, her friends, and Leo. Claire and Nao help her compare the choices. Working from Kyoto is not approved yet.",
+      "大阪の会社がエマに、高い固定給と大きな案件の仕事を提示します。平日は毎日大阪勤務です。エマは京都、友人、レオから離れることを心配します。クレアとナオが選択肢の比較を手伝います。京都からの勤務はまだ認められていません。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "The salary is fixed.",
+        "salary",
+        "給料は固定です。"
+      ],
+      [
+        "My hours are flexible.",
+        "flexible",
+        "時間に融通が利きます。"
+      ],
+      [
+        "I work in the office.",
+        "office",
+        "事務所で働きます。"
+      ],
+      [
+        "Please reply by Monday.",
+        "reply",
+        "月曜日までに返事をしてください。"
+      ],
+      [
+        "I have a question about the offer.",
+        "offer",
+        "提示条件について質問があります。"
+      ],
+      [
+        "That is only a suggestion.",
+        "suggestion",
+        "それは提案にすぎません。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use will + verb for a future action.",
+          "will ＋動詞で、これからすることを伝えます。"
+        ],
+        "examples": [
+          [
+            "I will send a message.",
+            "メッセージを送ります。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use before or after to show the order.",
+          "before や after で順番を表します。"
+        ],
+        "examples": [
+          [
+            "I will ask before I decide.",
+            "決める前に尋ねます。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read Emma's comparison notes. Identify the confirmed conditions and the questions she still needs to ask.",
+        "エマの比較メモを読み、確定している条件と、まだ尋ねる必要があることを確認しましょう。"
+      ],
+      "text": "<p><strong>Stay freelance in Kyoto</strong><br>Flexible hours and familiar clients.<br>Stay near Kamo House, friends, and Leo.<br>Income varies; Emma finds her own projects.</p><p><strong>Accept the Osaka agency role</strong><br>Higher fixed salary and larger team projects.<br>Current offer: work at the Osaka office Monday to Friday.<br>Less control over hours; a move or a different travel routine would be needed.</p><p><strong>Question to ask</strong><br>Could some days be worked from Kyoto? This is only Emma's idea. The agency has not approved hybrid work.</p>",
+      "questions": [
+        [
+          "Which job has higher fixed pay?",
+          "The Osaka agency job."
+        ],
+        [
+          "Which has flexible hours?",
+          "Freelance work in Kyoto."
+        ],
+        [
+          "Where is the agency work Monday to Friday?",
+          "In Osaka."
+        ],
+        [
+          "Is work from Kyoto approved?",
+          "No."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I will (send / sent) a message.",
+        "send"
+      ],
+      [
+        "She will (help / helps) us.",
+        "help"
+      ],
+      [
+        "We will (meet / met) tomorrow.",
+        "meet"
+      ],
+      [
+        "I will ask (before / between) I decide.",
+        "before"
+      ],
+      [
+        "I will rest (after / among) work.",
+        "after"
+      ],
+      [
+        "Will you (come / came)?",
+        "come"
+      ]
+    ],
+    "choices": [
+      [
+        "Which job has higher fixed pay?",
+        "The Osaka agency job.",
+        "Freelance work.",
+        "A"
+      ],
+      [
+        "Which has flexible hours?",
+        "Only the Osaka job.",
+        "Freelance work in Kyoto.",
+        "B"
+      ],
+      [
+        "Where is the agency work Monday to Friday?",
+        "In Osaka.",
+        "At Kamo House.",
+        "A"
+      ],
+      [
+        "Is work from Kyoto approved?",
+        "Yes.",
+        "No.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Claire. Read the agency's offer summary and Nao's note before discussing your next step.",
+        "あなたはエマ役、講師はクレア役です。会社のオファーの要点とナオのメモを読んでから、次の行動を話し合いましょう。"
+      ],
+      "task": [
+        "Compare the jobs. Give one good point and one worry. Check the reply time and what to ask.",
+        "仕事を比べ、よい点と心配な点を一つずつ伝えましょう。返事の期限と質問することを確認しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "title": "Offer Summary and Advice",
+      "text": "<p><strong>Agency offer</strong><br>Graphic designer. Osaka office, Monday-Friday. Fixed monthly salary, higher than Emma’s current average freelance income. Start: first Monday next month. Reply by Monday at 5 p.m. Ask the recruiter about conditions before replying.</p><p><strong>Nao’s note</strong><br>Ask about two Osaka office days and three workdays in Kyoto. This is my suggestion, not an agreed condition.</p>",
+      "lines": [
+        "What do you like about the offer?",
+        "What worries you about five office days?",
+        "When must you reply? When is the start?",
+        "What does Nao suggest?",
+        "Has the agency agreed?",
+        "What will you ask before deciding?"
+      ],
+      "evidence": "Higher fixedpay/largerprojects; OsakaMonFri concern; replyMonday5/proposedfirstMondaynextmonth; Nao suggests2office3Kyoto not approved; askrecruiter and discussLeo beforedeciding. Keep text visible; no personal career advice is being evaluated.",
+      "useful": [
+        "The offer says ...",
+        "I like ...",
+        "I am worried about ...",
+        "I must reply by ...",
+        "Can I ask about ...?"
+      ]
+    },
+    "topics": [
+      [
+        "WORK",
+        [
+          "What work do you enjoy?",
+          "Do you like working with others?",
+          "What would you like to learn?"
+        ]
+      ],
+      [
+        "PLANNING",
+        [
+          "How do you remember a date?",
+          "Who can help with a plan?",
+          "What do you check first?"
+        ]
+      ],
+      [
+        "IDEAS",
+        [
+          "What would you like to make?",
+          "Who can you ask for help?",
+          "How do you say you like an idea?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“An offer” is not the same as accepting. A person can ask questions about a job offer before saying yes.",
+      "offer（提示）があっても、受け入れたことにはなりません。承諾する前に条件を質問できます。"
+    ],
+    "triviaQuestion": [
+      "Does a job offer mean you already said yes?",
+      "No."
+    ],
+    "closing": "Claire and Nao help Emma organize her thoughts. She realizes she needs an honest conversation with Leo and a direct question for the agency before making her decision."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

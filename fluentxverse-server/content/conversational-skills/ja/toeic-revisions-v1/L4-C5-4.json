@@ -1,0 +1,278 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 5,
+  "number": 4,
+  "sourceDigest": "afe69cdbbce86489c226969cfac8cba08aeaf1c5f2a647ab38efe43737c53613",
+  "episode": {
+    "title": "A Trip to Fukuoka",
+    "skill": "speaking",
+    "intro": [
+      "Leo and Nao take a trip to Fukuoka. Leo meets Nao’s parents for the first time. He wants to make a good impression, but Nao reminds him he burned rice last week. After dinner, Nao gets an invitation to show her ceramics at a Fukuoka gallery.",
+      "レオとナオは福岡へ旅行します。レオはナオの両親に初めて会います。良い印象を与えたいですが、ナオに先週ご飯を焦がしたことを言われます。夕食後、ナオに福岡のギャラリーから陶芸作品の展示の招待が届きます。"
+    ],
+    "goal": [
+      "I can greet a host and talk about my work and plans.",
+      "迎えてくれた人に挨拶し、仕事と計画を話せる。"
+    ],
+    "warmup": "What question can help a guest join a family dinner conversation?",
+    "words": [
+      [
+        "Thank you for having me. May I help with anything?",
+        "having me",
+        "お招きいただきありがとうございます（having me＝客として迎えること）。何かお手伝いしましょうか。"
+      ],
+      [
+        "It is a pleasure to meet you. I am Leo.",
+        "a pleasure",
+        "お会いできてうれしいです（a pleasure）。レオです。"
+      ],
+      [
+        "I grew up in Bristol, but I live in Kyoto now.",
+        "grew up",
+        "ブリストルで育ちました（grew up）が、今は京都に住んでいます。"
+      ],
+      [
+        "I am hoping to open my own bakery in Kyoto.",
+        "hoping to",
+        "京都で自分のパン屋を開きたいと思っています（hoping to）。"
+      ],
+      [
+        "I am still learning to cook rice well.",
+        "still learning",
+        "ご飯を上手に炊くのはまだ練習中です（still learning）。"
+      ],
+      [
+        "Nao received an invitation from a Fukuoka gallery.",
+        "invitation",
+        "ナオは福岡のギャラリーから招待（invitation）を受け取りました。"
+      ]
+    ],
+    "discussion": [
+      "You are Leo. Your tutor is Nao’s mother. Introduce yourself, then ask about tonight’s meal.",
+      "あなたはレオ役、講師はナオの母親役です。自己紹介をして、今夜の食事について質問しましょう。"
+    ],
+    "followup": "How can you say you are still learning, and then continue the conversation?",
+    "tips": [
+      {
+        "rule": [
+          "Use “Thank you for having me.” Then ask one simple question to continue.",
+          "「Thank you for having me.」でお礼を言い、その後に簡単な質問を1つして会話を続けましょう。"
+        ],
+        "examples": [
+          [
+            "Thank you for having me. What is this dish called?",
+            "お招きいただきありがとうございます。これは何という料理ですか。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use “I’m still learning” with a light reason. Then ask for advice.",
+          "「I’m still learning」を軽い理由と一緒に使い、アドバイスを求めましょう。"
+        ],
+        "examples": [
+          [
+            "I’m still learning to cook rice because I don’t cook often. Any tips?",
+            "あまり料理しないので、ご飯を炊くのはまだ練習中です。コツはありますか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "At dinner, Nao’s mother talks with Leo. Practise this conversation.",
+        "夕食で、ナオの母親がレオと話します。この会話を練習しましょう。"
+      ],
+      "roles": [
+        "Nao's mother",
+        "Leo"
+      ],
+      "dialogue": [
+        [
+          "Nao's mother",
+          "Welcome, Leo. Is this your first visit to Fukuoka?"
+        ],
+        [
+          "Leo",
+          "Yes, it is. It is a pleasure to meet you. Thank you for having me."
+        ],
+        [
+          "Nao's mother",
+          "Nao said you work at a bakery. What are your plans?"
+        ],
+        [
+          "Leo",
+          "I am hoping to open my own small bakery in Kyoto."
+        ],
+        [
+          "Nao's mother",
+          "That sounds exciting. Do you cook at home too?"
+        ],
+        [
+          "Leo",
+          "Sometimes, but I am still learning. I burned the rice last week."
+        ],
+        [
+          "Nao's mother",
+          "That is okay. You can practise with us next time!"
+        ],
+        [
+          "Leo",
+          "Thank you. Do you often cook together as a family?"
+        ],
+        [
+          "Nao's mother",
+          "Yes, especially when Nao visits. Please try the soup."
+        ],
+        [
+          "Leo",
+          "It is delicious. Could you tell me what is in the soup?"
+        ]
+      ],
+      "questions": [
+        [
+          "Where does Leo hope to open his bakery?",
+          "In Kyoto."
+        ],
+        [
+          "What mistake does Leo mention?",
+          "He burned the rice last week."
+        ],
+        [
+          "What does Leo ask to keep the talk going?",
+          "He asks about cooking together and what is in the soup."
+        ],
+        [
+          "What invitation does Nao receive after dinner?",
+          "An invitation to show her ceramics at a Fukuoka gallery."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Thank you for (having / have) me.",
+        "having"
+      ],
+      [
+        "It is a pleasure (to meet / meeting) you.",
+        "to meet"
+      ],
+      [
+        "I (grew / grow) up in Bristol.",
+        "grew"
+      ],
+      [
+        "I am hoping (to open / opening) my own bakery.",
+        "to open"
+      ],
+      [
+        "I am still (learning / learn) to cook rice.",
+        "learning"
+      ],
+      [
+        "Could you tell me what is (in / at) the soup?",
+        "in"
+      ]
+    ],
+    "choices": [
+      [
+        "You arrive at a family dinner. What should you say first?",
+        "Thank you for having me.",
+        "Thank you for owning me.",
+        "A"
+      ],
+      [
+        "You want to talk about a future plan. What fits best?",
+        "I am hoping to open a bakery.",
+        "My bakery is already open.",
+        "A"
+      ],
+      [
+        "You want to sound polite and keep talking after a mistake. What fits?",
+        "I’m still learning. Could you show me?",
+        "I can never cook, so I will stop talking.",
+        "A"
+      ],
+      [
+        "You like the soup and want details. What should you ask?",
+        "Could you tell me what is in this soup?",
+        "Why is every family the same?",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Leo at dinner in Fukuoka. Your tutor is Nao’s mother. You work at a bakery in Kyoto. You grew up in Bristol. You hope to open your own shop. You are still learning to cook rice well.",
+        "あなたは福岡で夕食をするレオ役です。講師はナオの母親役です。京都のパン屋で働いています。ブリストルで育ちました。自分の店を開きたいです。ご飯を上手に炊くのはまだ練習中です。"
+      ],
+      "task": [
+        "Thank your host, share your background and plan, respond lightly about the rice, and ask about the meal. Suggest something you can learn together next visit.",
+        "お礼を言い、経歴と計画を話し、ご飯の話には軽く答え、食事について質問しましょう。次の訪問で一緒に学べることも提案しましょう。"
+      ],
+      "roles": [
+        "Nao's mother",
+        "Leo"
+      ],
+      "title": "",
+      "lines": [
+        "Welcome, Leo. How are you enjoying Fukuoka so far?",
+        "Where did you grow up, and where do you live now?",
+        "You work at a bakery in Kyoto. What is your plan for the future?",
+        "Nao said you burned rice last week. What happened?",
+        "What would you like to ask about tonight’s meal?",
+        "If you visit again, what would you like to learn together?"
+      ],
+      "evidence": "Tutor evidence note: Student thanks the host, says he grew up in Bristol, works at a Kyoto bakery, hopes to open his own shop (not open yet), responds lightly about burned rice, asks at least one meal question, and suggests cooking practice next visit. Do not say Nao already showed ceramics; it is an invitation for the future.",
+      "useful": [
+        "Thank you for having me.",
+        "It is a pleasure to meet you.",
+        "I grew up in ...",
+        "I am hoping to ...",
+        "I am still learning to ...",
+        "Could you tell me about ...?"
+      ]
+    },
+    "topics": [
+      [
+        "BEING A GUEST",
+        [
+          "How do you thank a host?",
+          "What question can you ask about the meal?",
+          "How can you offer to help after dinner?"
+        ]
+      ],
+      [
+        "LEARNING TO COOK",
+        [
+          "What small cooking mistake have you made before?",
+          "What can you ask a better cook?",
+          "What cooking skill do you want to practise first?"
+        ]
+      ],
+      [
+        "VISITING AGAIN",
+        [
+          "How do you respond to an invitation?",
+          "What details do you confirm later?",
+          "What would you like to do on your next visit?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "In “Thank you for having me,” “having” means welcoming you as a guest, not owning you.",
+      "「Thank you for having me」の「having」は「所有する」ではなく、「客として迎える」という意味です。"
+    ],
+    "triviaQuestion": [
+      "If Leo and Nao thank their hosts together, which word can replace “me”?",
+      "Us."
+    ],
+    "closing": "Leo enjoys meeting Nao’s parents and talks openly about learning to cook. Nao receives a gallery invitation in Fukuoka and will confirm the details later. They return to Kyoto, and Leo keeps looking for a bakery space."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

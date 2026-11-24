@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 2,
+  "number": 6,
+  "sourceDigest": "bc61ddee87669bc7a677f6f26f06c13e55d7e12148d9773a3c975b458f4d770a",
+  "episode": {
+    "title": "The Great Pastry Disaster",
+    "skill": "speaking",
+    "intro": [
+      "Before the market, Leo and Nao test a pastry recipe in the cafe kitchen. Leo measures salt instead of sugar by accident. After a small taste, he checks the containers and finds the mistake. Nao gets water, and they both laugh. They set the salty batch aside, label the ingredients clearly, and start again. The second batch is delicious.",
+      "マーケットの前に、レオとナオはカフェのキッチンでお菓子の試作をします。レオは砂糖の代わりに塩を量ってしまいました。少し味見して容器を確認し、間違いに気付きます。ナオは水を取り、二人は笑います。失敗した分はよけ、材料に分かりやすくラベルを付け、やり直します。二回目はおいしくできました。"
+    ],
+    "goal": [
+      "I can explain a cooking mistake and choose a better plan.",
+      "料理の失敗を説明し、よりよい計画を選べる。"
+    ],
+    "warmup": "How can clear labels help when two people cook together?",
+    "words": [
+      [
+        "First, measure the ingredients.",
+        "measure",
+        "まず材料を量ります。"
+      ],
+      [
+        "Then mix the flour and butter.",
+        "mix",
+        "次に小麦粉とバターを混ぜます。"
+      ],
+      [
+        "I used salt instead of sugar.",
+        "instead of",
+        "砂糖の代わりに塩を使ってしまいました。"
+      ],
+      [
+        "This batch is too salty.",
+        "batch",
+        "この分（今回作った分）は塩辛すぎます。"
+      ],
+      [
+        "Let's label the containers clearly.",
+        "label the containers",
+        "容器に分かりやすくラベルを付けましょう。"
+      ],
+      [
+        "We can start again with fresh ingredients.",
+        "start again",
+        "新しい材料で最初からやり直せます。"
+      ]
+    ],
+    "discussion": [
+      "You are Leo. Your tutor is Nao. Explain the mistake. Suggest two steps before you try again.",
+      "あなたはレオ役、講師はナオ役です。間違いを説明し、やり直す前にすることを2つ提案しましょう。"
+    ],
+    "followup": "How can you check an instruction before beginning?",
+    "tips": [
+      {
+        "rule": [
+          "Use First, Then, and Finally to give steps in order.",
+          "First、Then、Finally を使って順番に手順を言いましょう。"
+        ],
+        "examples": [
+          [
+            "First, check the labels. Then measure the ingredients.",
+            "まずラベルを確認して、次に材料を量ります。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use past simple to explain the mistake. Use “instead of + noun”. Use “Let’s ...” to suggest a next action.",
+          "間違いは過去形で説明します。instead of＋名詞 を使います。Let’s ... で次の行動を提案します。"
+        ],
+        "examples": [
+          [
+            "I used salt instead of sugar. Let’s set this batch aside.",
+            "砂糖の代わりに塩を使ってしまいました。この分はよけましょう。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Nao sees Leo’s surprised face after they taste the test batch. Read the short conversation.",
+        "試作品を食べた後、ナオはレオの驚いた顔に気付きます。短い会話を読みましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Leo"
+      ],
+      "dialogue": [
+        [
+          "Nao",
+          "Leo, why are you looking at the pastry like that?"
+        ],
+        [
+          "Leo",
+          "It is too salty. Something went wrong."
+        ],
+        [
+          "Nao",
+          "Did we miss a step in the recipe?"
+        ],
+        [
+          "Leo",
+          "No. I used salt instead of sugar by accident."
+        ],
+        [
+          "Nao",
+          "That explains it. Please pass me some water."
+        ],
+        [
+          "Leo",
+          "Sorry. Let’s set this batch aside and start again."
+        ],
+        [
+          "Nao",
+          "What should we do first?"
+        ],
+        [
+          "Leo",
+          "First, label the containers. Then check the ingredients together."
+        ],
+        [
+          "Nao",
+          "And after that, we follow the recipe again?"
+        ],
+        [
+          "Leo",
+          "Exactly. This time, the sugar gets a big label."
+        ]
+      ],
+      "questions": [
+        [
+          "What mistake did Leo make?",
+          "He used salt instead of sugar."
+        ],
+        [
+          "How does the pastry taste?",
+          "It tastes too salty."
+        ],
+        [
+          "What will they do with the failed batch?",
+          "They will set it aside."
+        ],
+        [
+          "What will they do before trying again?",
+          "They will label the containers and check the ingredients together."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "First, (measure / measured) the ingredients.",
+        "measure"
+      ],
+      [
+        "Then (mix / mixing) the flour and butter.",
+        "mix"
+      ],
+      [
+        "I (used / use) salt by accident.",
+        "used"
+      ],
+      [
+        "I used salt instead (of / from) sugar.",
+        "of"
+      ],
+      [
+        "This batch is too (salty / salt).",
+        "salty"
+      ],
+      [
+        "Let’s (start / started) again.",
+        "start"
+      ]
+    ],
+    "choices": [
+      [
+        "Which sentence explains the mistake clearly?",
+        "I used salt instead of sugar.",
+        "Something happened.",
+        "A"
+      ],
+      [
+        "What is the best next step for the failed batch?",
+        "Set it aside and make a new batch.",
+        "Sell it anyway.",
+        "A"
+      ],
+      [
+        "Which phrase shows the final step?",
+        "Finally, check the tray.",
+        "Then, check the tray.",
+        "A"
+      ],
+      [
+        "How can they avoid the same mistake next time?",
+        "Label the containers and check ingredients together.",
+        "Remove all labels.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Leo in the cafe kitchen. Your tutor is Nao. The first test batch is too salty, so you will not use it. You have fresh ingredients and the recipe. Before trying again, you need clear labels and a second check of the ingredients.",
+        "あなたはカフェのキッチンにいるレオ役です。講師はナオ役です。最初の試作品は塩辛すぎるので使いません。新しい材料とレシピがあります。やり直す前に、分かりやすいラベルと材料の再確認が必要です。"
+      ],
+      "task": [
+        "Explain your mistake without blaming Nao. Decide who will label and who will check ingredients. Give three short steps in order, and confirm you will only use a successful new batch.",
+        "ナオのせいにせず自分の間違いを説明しましょう。ラベル係と材料確認係を決めましょう。順番に短い手順を3つ言い、うまくできた新しい分だけを使うと確認しましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Leo"
+      ],
+      "title": "Tutor evidence note",
+      "lines": [
+        "Leo, what happened with the first batch?",
+        "Can you tell me the mistake without blaming me?",
+        "Who will label the containers, you or me?",
+        "What will we check together before mixing?",
+        "Tell me three steps: first, then, and finally.",
+        "How will we decide if the new batch is good enough?"
+      ],
+      "evidence": "Grade on: Leo says he used salt instead of sugar; he says the salty batch will be set aside/not used; he clearly divides jobs (label vs check); he gives 3 ordered steps (First/Then/Finally) like label/check/measure/mix/prepare tray; he avoids exact quantities or baking times; he confirms only a successful new batch will be used.",
+      "useful": [
+        "I accidentally used ...",
+        "I used ... instead of ...",
+        "Let’s set this batch aside.",
+        "I will ... Could you ...?",
+        "First ... Then ... Finally ..."
+      ]
+    },
+    "topics": [
+      [
+        "Small Mistakes",
+        [
+          "How can you explain what went wrong?",
+          "What would you check before trying again?",
+          "How can you prevent the same mistake?"
+        ]
+      ],
+      [
+        "Cooking Together",
+        [
+          "How can you divide two kitchen tasks?",
+          "What makes an instruction clear?",
+          "How can you check you heard correctly?"
+        ]
+      ],
+      [
+        "A Second Attempt",
+        [
+          "When do you restart instead of fixing it?",
+          "How can you encourage your partner?",
+          "What should you test before sharing food?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "A recipe tells you how to make food. A receipt is proof you paid. The words look similar, but they are different.",
+      "recipe は作り方です。receipt は支払いの記録（レシート）です。つづりは似ていますが意味は違います。"
+    ],
+    "triviaQuestion": [
+      "Which tells you how to make pastries: a recipe or a receipt?",
+      "A recipe."
+    ],
+    "closing": "They label the containers and try again. The second test batch is delicious."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

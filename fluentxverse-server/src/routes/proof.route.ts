@@ -9,9 +9,20 @@ import { generateLocalTutorCertificationProof } from '../services/proof.services
 import { submitTutorCertificationProofToZkVerify } from '../services/proof.services/zkVerifySubmit.service';
 import { refreshJwtCookie, verifyAuthToken } from '../utils/jwt';
 import { claimStudentLessonProof, getPublicStudentLessonProof, listStudentLessonProofs } from '../services/proof.services/studentLessonProof.service';
+import { publicTestIdentityMetadata, publicProductionIdentityMetadata } from '../services/tutorIdentity/metadata';
 
 const Proof = new Elysia({ prefix: '/proof' })
   .onRequest(({ set }) => { set.headers['cache-control'] = 'no-store'; })
+  .get('/tutor-identity/metadata/:collection/:id', async ({params,set}) => {
+    const metadata=await publicProductionIdentityMetadata(params.collection,params.id);
+    if(!metadata){set.status=404;return {error:'Credential not found'};}
+    return new Response(metadata,{headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});
+  })
+  .get('/tutor-identity/test-metadata/:id', async ({params,set}) => {
+    const metadata=await publicTestIdentityMetadata(params.id);
+    if(!metadata){set.status=404;return {error:'Test credential not found'};}
+    return new Response(metadata,{headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});
+  })
   .get('/student-lessons/public/:commitment', async ({ params, set }) => {
     if (!/^\d{1,78}$/.test(params.commitment)) {
       set.status = 400;

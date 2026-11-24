@@ -6,6 +6,7 @@ import {
 	type DisputeActor,
 } from "../services/studentDispute.service";
 import { getDriver } from "../db/memgraph";
+import { createAdminGuard } from '../middleware/auth.middleware';
 import {
 	lessonIssueImageStorage,
 	sanitizeIssueImage,
@@ -16,11 +17,9 @@ import {
 	isAllowedStudentRequest,
 } from "../config/cors";
 
-async function actor(cookie: any, mode?: string): Promise<DisputeActor | null> {
+async function actor(cookie: any, mode?: string, set?: any): Promise<DisputeActor | null> {
 	if (mode === "admin") {
-		const a =
-			cookie.adminAuth?.value &&
-			(await verifyAdminToken(String(cookie.adminAuth.value)));
+		const a = await createAdminGuard(cookie, set || {}, 'support');
 		if (!a) return null;
 		const s = getDriver().session();
 		try {
@@ -51,8 +50,8 @@ const route = new Elysia({ prefix: "/disputes" })
 	.onRequest(({ set }) => {
 		set.headers["Cache-Control"] = "private, no-store";
 	})
-	.derive(async ({ cookie, query }) => {
-		const user = await actor(cookie, query.as);
+	.derive(async ({ cookie, query, set }) => {
+		const user = await actor(cookie, query.as, set);
 		return { user };
 	})
 	.onBeforeHandle(({ user, request, set }) => {

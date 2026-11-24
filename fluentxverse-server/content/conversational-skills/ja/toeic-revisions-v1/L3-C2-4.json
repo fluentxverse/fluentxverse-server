@@ -1,0 +1,275 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 2,
+  "number": 4,
+  "sourceDigest": "8a7d5ac21981c93ddded1ab52e712d8025af8f18db67b809492be2047c8f638a",
+  "episode": {
+    "title": "A Taste of Kyoto",
+    "skill": "speaking",
+    "goal": [
+      "I can ask a price and buy two sweets.",
+      "値段を尋ね、お菓子を二つ買える。"
+    ],
+    "intro": [
+      "The friends visit Nishiki Market on Claire’s day off. Nao wants sweets. Leo looks at baked goods. Emma buys two sweets and gives one to Leo. She wants to thank him for his bread. Claire tells Nao that Emma and Leo are getting closer.",
+      "クレアの休日、四人は錦市場へ行きます。ナオは甘いものを探し、レオは焼き菓子を見ます。エマはお菓子を二つ買い、パンのお礼に一つをレオに渡します。クレアは二人の距離が近づいているとナオに話します。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "How much is it?",
+        "How much",
+        "いくらですか。"
+      ],
+      [
+        "It is 300 yen each.",
+        "each",
+        "一個300円です。"
+      ],
+      [
+        "What is inside?",
+        "inside",
+        "中には何が入っていますか。"
+      ],
+      [
+        "I would like two.",
+        "would like",
+        "二つください。"
+      ],
+      [
+        "Can I pay by card?",
+        "pay by card",
+        "カードで払えますか。"
+      ],
+      [
+        "Can I have a bag?",
+        "bag",
+        "袋をもらえますか。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use How much ...? to ask a price.",
+          "How much ...? で値段を尋ねます。"
+        ],
+        "examples": [
+          [
+            "How much is this?",
+            "これはいくらですか。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use Can I + verb? to ask politely.",
+          "Can I ＋動詞? で丁寧に尋ねます。"
+        ],
+        "examples": [
+          [
+            "Can I pay by card?",
+            "カードで払えますか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read Emma's conversation with a market seller. Prices and payment rules are fictional practice details.",
+        "エマと市場の店員の会話を読みましょう。値段や支払い方法は練習用の架空の設定です。"
+      ],
+      "roles": [
+        "Seller",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Seller",
+          "Would you like a sweet?"
+        ],
+        [
+          "Emma",
+          "How much is one?"
+        ],
+        [
+          "Seller",
+          "It is 300 yen."
+        ],
+        [
+          "Emma",
+          "What is inside?"
+        ],
+        [
+          "Seller",
+          "Sweet red bean paste."
+        ],
+        [
+          "Emma",
+          "Two, please."
+        ],
+        [
+          "Seller",
+          "That is 600 yen. A bag?"
+        ],
+        [
+          "Emma",
+          "Yes, please. Can I pay by card?"
+        ],
+        [
+          "Seller",
+          "Sorry. Cash only."
+        ],
+        [
+          "Emma",
+          "Here you are. Thank you."
+        ]
+      ],
+      "questions": [
+        [
+          "How much is one sweet?",
+          "300 yen."
+        ],
+        [
+          "How many does Emma buy?",
+          "Two."
+        ],
+        [
+          "What is the total?",
+          "600 yen."
+        ],
+        [
+          "Can she pay by card here?",
+          "No. Cash only."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "How (much / many) is this?",
+        "much"
+      ],
+      [
+        "Can I (pay / paid) by card?",
+        "pay"
+      ],
+      [
+        "I would (like / likes) two.",
+        "like"
+      ],
+      [
+        "What is (inside / between) this box?",
+        "inside"
+      ],
+      [
+        "How many cups (do / does) you need?",
+        "do"
+      ],
+      [
+        "Is the bag (free / freely)?",
+        "free"
+      ]
+    ],
+    "choices": [
+      [
+        "How much is one sweet?",
+        "300 yen.",
+        "600 yen.",
+        "A"
+      ],
+      [
+        "How many does Emma buy?",
+        "Three.",
+        "Two.",
+        "B"
+      ],
+      [
+        "What is the total?",
+        "600 yen.",
+        "300 yen.",
+        "A"
+      ],
+      [
+        "Can she pay by card here?",
+        "Yes. Cards only.",
+        "No. Cash only.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma at a fictional market stall. Red-bean sweets cost 250 yen each; sesame sweets cost 300 yen each. You want two pieces to share. Your tutor is the seller. The stall accepts cash and cards; a bag is free.",
+        "あなたは架空の市場の店にいるエマ役です。あんこのお菓子は一個250円、ごまのお菓子は一個300円です。分け合うために二個買います。講師は店員役です。現金とカードが使え、袋は無料です。"
+      ],
+      "task": [
+        "Ask what is inside and the price. Buy two sweets. Check the total, payment, and bag.",
+        "中身と値段を尋ねましょう。二個買い、合計、支払い方法、袋を確認しましょう。"
+      ],
+      "roles": [
+        "the seller",
+        "Emma"
+      ],
+      "lines": [
+        "Hello. What would you like?",
+        "Red-bean sweets are 250 yen each. Sesame sweets are 300 yen each.",
+        "Which two would you like?",
+        "Would you like a free bag?",
+        "We take cash and cards. How will you pay?"
+      ],
+      "evidence": "Student asks a price/content question, orders two pieces and confirms a correct total: 500, 550 or 600 yen depending on choice. Acknowledge bag/payment.",
+      "useful": [
+        "How much is ...?",
+        "What is inside?",
+        "Two, please.",
+        "Is that ... yen?",
+        "Can I pay by card?"
+      ]
+    },
+    "topics": [
+      [
+        "DAYS OUT",
+        [
+          "Where do you like to go?",
+          "Who do you go with?",
+          "What do you take?"
+        ]
+      ],
+      [
+        "SHOPPING",
+        [
+          "What do you like to buy?",
+          "Do you pay by card?",
+          "What gift would you choose?"
+        ]
+      ],
+      [
+        "TRAVEL PLANS",
+        [
+          "How do you travel?",
+          "What time do you like to start?",
+          "What do you do on a rainy day?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“On the house” means free, not on a roof. A shop may say, “This sweet is on the house.”",
+      "on the house は「屋根の上」ではなく「店のおごりで」という意味です。This sweet is on the house. は、このお菓子は無料です、ということです。"
+    ],
+    "triviaQuestion": [
+      "Is a sweet “on the house” free?",
+      "Yes."
+    ],
+    "closing": "Emma offers Leo the second sweet: \"You always bring us bread.\" He is pleased. After the Lesson 5 checkpoint, Nao plans a photography trip to Arashiyama."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

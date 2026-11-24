@@ -1,0 +1,17 @@
+{
+  "chainId": 4663,
+  "network": "robinhood-mainnet",
+  "source": "https://github.com/dromos-labs/metadex-slipstream-public/blob/main/deployment-addresses/cl-robinhood.json",
+  "factory": "0xc63d7338c178e805c544b8f897066bd3bbcbe136",
+  "router": "0x9ee35bf1bd69a03c6f0393582030fce8bb93d418",
+  "quoter": "0x1ddfec5058180c207f55bb77d95acdd0d8227868",
+  "adapter": "0x6f7f6dd424ac5ed441808288fb094eb0574bf6f2",
+  "assets": [
+    {
+      "token": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+      "feed": "0x25cbb57f2dccc478889a232a64fcee210fffd972",
+      "tokens": ["0x5fc5360d0400a0fd4f2af552add042d716f1d168", "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec"],
+      "tickSpacings": [10]
+    }
+  ]
+}

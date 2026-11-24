@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 5,
+  "chapter": 1,
+  "number": 8,
+  "sourceDigest": "8ecce36721bf1afcd1e328820859985586d0f0fb3d617c4549d395dd7650a651",
+  "episode": {
+    "title": "A Difficult Conversation",
+    "skill": "reading",
+    "intro": [
+      "Mika hears part of Ethan and Daichi’s argument at the office. She misses Ethan’s final answer. The next day, she asks Soo-jin about it. Soo-jin says they sometimes disagree. She asks Mika not to guess from half a conversation. The subject of the argument is still unknown.",
+      "ミカは会社でイーサンとダイチの口論の一部を耳にします。イーサンの最後の返事は聞こえません。翌日、ミカはスジンに尋ねます。スジンは二人の意見が合わないこともあると言い、会話の一部だけで決め付けないよう伝えます。口論の話題はまだ分かりません。"
+    ],
+    "goal": [
+      "I can read a short work conversation and say what is still unknown.",
+      "短い職場の会話を読み、まだ分からないことを伝えられる。"
+    ],
+    "warmup": "Have you ever heard only part of a conversation at work or school?",
+    "words": [
+      [
+        "Mika overheard Ethan and Daichi in the meeting room.",
+        "overheard",
+        "立ち聞きした（偶然聞いた）"
+      ],
+      [
+        "Daichi said, “We agreed this would remain internal.”",
+        "remain internal",
+        "社内だけにする／外に出さない"
+      ],
+      [
+        "Ethan replied, “And it has.”",
+        "replied",
+        "返事した"
+      ],
+      [
+        "Daichi asked, “Then why was I asked about it this morning?”",
+        "asked about it",
+        "それについて聞かれた"
+      ],
+      [
+        "Soo-jin hesitated before answering.",
+        "hesitated",
+        "ためらった"
+      ],
+      [
+        "Soo-jin said, “We shouldn’t make assumptions based on half a conversation.”",
+        "make assumptions",
+        "決めつける"
+      ]
+    ],
+    "discussion": [
+      "Why is it risky to talk about a problem when you only heard part of it?",
+      "一部しか聞いていない時に問題の話をするのは、なぜ危険ですか？"
+    ],
+    "followup": "What is one polite question you can ask when you are not sure?",
+    "tips": [
+      {
+        "rule": [
+          "Use soft questions when you are not sure.",
+          "よくわからない時は、やわらかい質問を使いましょう。"
+        ],
+        "examples": [
+          [
+            "Could you clarify what happened?",
+            "何が起きたか、確認してもいいですか？"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Say what you know, and say what you do not know.",
+          "わかることと、わからないことを分けて言いましょう。"
+        ],
+        "examples": [
+          [
+            "I heard part of it, but I’m not sure about the details.",
+            "一部は聞きましたが、詳しいことはわかりません。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "You talk with a coworker after you heard an argument.",
+        "口論を聞いた後で、同僚と話します。"
+      ],
+      "dialogue": [],
+      "text": "<p>Mika hears part of an argument.</p><p>Daichi says, 'We agreed this would stay inside the company.' Ethan says, 'And it has.' Daichi asks, 'Then why did someone ask me about it this morning?'</p><p>Mika does not hear Ethan's answer. Daichi leaves.</p><p>The next day, Mika asks Soo-jin if something is wrong. Soo-jin says they have had disagreements. This does not prove a serious problem. She says they should ask only if it affects their work. Mika still wonders what the argument was about.</p>",
+      "questions": [
+        [
+          "What did Mika hear?",
+          "Part of an argument."
+        ],
+        [
+          "Did she hear Ethan's answer to the last question?",
+          "No."
+        ],
+        [
+          "Does she know what 'it' means?",
+          "No."
+        ],
+        [
+          "What does Soo-jin say?",
+          "Do not guess from half a conversation. Ask if it affects their work."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Mika (overheard / explained) the argument by accident.",
+        "overheard"
+      ],
+      [
+        "Daichi wanted it to (remain internal / go public).",
+        "remain internal"
+      ],
+      [
+        "Ethan (replied / ignored) to Daichi’s comment.",
+        "replied"
+      ],
+      [
+        "Mika heard only (half / all) of the conversation.",
+        "half"
+      ],
+      [
+        "Soo-jin (hesitated / shouted) before she answered.",
+        "hesitated"
+      ],
+      [
+        "Soo-jin said, “Don’t (assume / announce) things too fast.”",
+        "assume"
+      ]
+    ],
+    "choices": [
+      [
+        "Did Daichi walk out at the end?",
+        "Yes, he walked out.",
+        "No, he stayed and talked.",
+        "A"
+      ],
+      [
+        "Did Mika hear the whole argument?",
+        "Yes, she heard everything.",
+        "No, she heard only part.",
+        "B"
+      ],
+      [
+        "What did Soo-jin say about disagreements?",
+        "They always mean something serious.",
+        "They do not necessarily mean something serious.",
+        "B"
+      ],
+      [
+        "Should Mika ask them right away, according to Soo-jin?",
+        "Yes, ask right away.",
+        "No, not unless it affects their work.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Mika. You talk to Soo-jin after you overheard an argument.",
+        "あなたはミカです。口論を立ち聞きした後で、スジンに話します。"
+      ],
+      "task": [
+        "Say what the note tells you to do. Give one fact and one thing you do not know.",
+        "メモに書かれた仕事を話しましょう。事実と分からないことを一つずつ伝えましょう。"
+      ],
+      "roles": [
+        "Soo-jin",
+        "Mika"
+      ],
+      "text": "<p><strong>Work note from Soo-jin</strong></p><p>Your task has not changed. Use the newer financial report for your slides. Ask Daichi if you cannot find a number.</p><p>Bring your slides to room B at three this afternoon. We will check them together.</p><p>I do not know what the argument was about. Do not repeat a guess as a fact.</p>",
+      "title": "Soo-jin's new work note",
+      "lines": [
+        "Mika, which report should you use?",
+        "Who can help if a number is missing?",
+        "When and where will we check the slides?",
+        "Do we know what the argument was about?",
+        "What can you say without guessing?"
+      ],
+      "evidence": "Use the newer report. Ask Daichi about missing numbers. Meet in room B at three this afternoon. The subject of the argument is unknown. Do not claim that either colleague shared the files outside the company.",
+      "useful": [
+        "The note says ...",
+        "We need to ...",
+        "We will meet at ...",
+        "I do not know ...",
+        "Can we check ...?"
+      ]
+    },
+    "topics": [
+      [
+        "Office communication",
+        [
+          "When is it okay to ask a question at work?",
+          "What is a polite way to ask for clarification?",
+          "What can happen when people misunderstand a message?"
+        ]
+      ],
+      [
+        "Keeping information private",
+        [
+          "What kind of information should stay internal?",
+          "Why do companies keep some topics internal?",
+          "How can you avoid sharing rumors?"
+        ]
+      ],
+      [
+        "Staying calm under pressure",
+        [
+          "What helps you stay calm at work?",
+          "How do deadlines change people’s behavior?",
+          "What do you do when coworkers disagree?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "In many offices, meeting rooms have glass walls, but voices can still be unclear.",
+      "多くのオフィスでは会議室がガラス張りでも、声ははっきり聞こえないことがあります。"
+    ],
+    "triviaQuestion": [
+      "What does “overhear” mean?",
+      "To hear something by accident."
+    ],
+    "closing": "Mika still does not know what the argument was about, so she decides not to assume anything."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "manualReview": "Reviewed and edited for the new friendship-only outline, simple language, explicit roles, fresh reading evidence and consistent keys."
+  }
+}

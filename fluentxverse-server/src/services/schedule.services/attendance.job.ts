@@ -1,4 +1,5 @@
 import { ScheduleService } from './schedule.service';
+import { attendanceRecoveryService } from './attendanceRecovery.service';
 import { lessonWorkflowService, dispatchLessonNotices } from '../lessonWorkflow.service';
 import { StudentLessonIssueReportService } from '../studentLessonIssueReport.service';
 import { LessonTroubleReportService } from '../lessonTroubleReport.service';
@@ -47,6 +48,7 @@ export function startAttendanceJob(): void {
         seeded = true;
       }
       const unbooked = await scheduleService.reconcileMissedOpenSlotAttendance();
+      await attendanceRecoveryService.reconcile();
       if (unbooked) console.info(`Marked ${unbooked} unconfirmed open slot(s) absent with TA-302`);
       const roomMissed = await scheduleService.reconcileMissedTutorRoomEntry();
       if (roomMissed) console.info(`Marked ${roomMissed} booked lesson(s) absent after no entry during the scheduled lesson`);

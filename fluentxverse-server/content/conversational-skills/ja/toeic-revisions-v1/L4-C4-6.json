@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 4,
+  "number": 6,
+  "sourceDigest": "554c46f69f5d8f8a506410ac797846c15ef587ab4de2dffc5213092e87c7a5ea",
+  "episode": {
+    "title": "A Scheduling Disaster",
+    "skill": "speaking",
+    "intro": [
+      "Two weeks before the market, Nao gets an invitation to a ceramics opening in Osaka. It is on the same Saturday as the market. Claire checks if everyone can change to Sunday. The team and the table supplier say yes. Nao can help with Sunday setup, and the market stays 10 to 2.",
+      "マーケットの約2週間前、ナオは大阪の陶芸展オープニングに招待されます。同じ土曜日で重なります。クレアは日曜日に変更できるか確認します。チームとテーブル業者はOKです。ナオは日曜の設営を手伝え、マーケット時間は10時〜2時のままです。"
+    ],
+    "goal": [
+      "I can explain a schedule conflict, suggest a change, and confirm the new plan.",
+      "予定の重なりを説明し、変更を提案し、新しい予定を確認できる。"
+    ],
+    "warmup": "What do you check before you change a date?",
+    "words": [
+      [
+        "Unfortunately, the dates clash.",
+        "clash",
+        "残念ながら、日程が重なっています。"
+      ],
+      [
+        "I promised to help at the market.",
+        "promised",
+        "マーケットを手伝うと約束しました。"
+      ],
+      [
+        "Would it be possible to move it to Sunday?",
+        "Would it be possible",
+        "日曜日に移すことはできますか。"
+      ],
+      [
+        "Could we reschedule for Sunday?",
+        "reschedule",
+        "日曜日に変更できますか。"
+      ],
+      [
+        "The team and the table supplier can manage Sunday.",
+        "table supplier",
+        "テーブルの業者（レンタル会社）"
+      ],
+      [
+        "Let’s send everyone the revised schedule.",
+        "revised schedule",
+        "変更後の予定"
+      ]
+    ],
+    "discussion": [
+      "You are Nao. Your tutor is Claire. Explain the Osaka gallery conflict, suggest Sunday, and say when you can help.",
+      "あなたはナオ役、講師はクレア役です。大阪ギャラリーの予定との重なりを説明し、日曜日を提案して、いつ手伝えるか言いましょう。"
+    ],
+    "followup": "Who should get the final revised schedule?",
+    "tips": [
+      {
+        "rule": [
+          "Explain the conflict first, then make a polite request.",
+          "先に重なりを説明してから、丁寧にお願いしましょう。"
+        ],
+        "examples": [
+          [
+            "Unfortunately, the gallery opening clashes with the market.",
+            "残念ながら、ギャラリーのオープニングとマーケットが重なっています。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Confirm the new day, hours, and your arrival time separately.",
+          "新しい曜日・時間・自分の到着時間を分けて確認しましょう。"
+        ],
+        "examples": [
+          [
+            "I can arrive at nine on Sunday. We can still open at ten.",
+            "日曜日は9時に着けます。10時オープンは変えずにできます。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Claire calls Nao to check the date change. Practice this short call.",
+        "日程変更を確認するため、クレアがナオに電話します。短い通話を練習しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Nao"
+      ],
+      "dialogue": [
+        [
+          "Claire",
+          "Nao, what is the problem with Saturday?"
+        ],
+        [
+          "Nao",
+          "A gallery invited me to an opening in Osaka at noon."
+        ],
+        [
+          "Claire",
+          "So it clashes with our market from ten to two."
+        ],
+        [
+          "Nao",
+          "Yes. Would it be possible to move the market to Sunday?"
+        ],
+        [
+          "Claire",
+          "I checked the team and the table supplier. Sunday is possible."
+        ],
+        [
+          "Nao",
+          "Great. I can arrive at nine for setup."
+        ],
+        [
+          "Claire",
+          "Perfect. We will still open at ten and finish at two."
+        ],
+        [
+          "Nao",
+          "After you confirm, should I tell the artists?"
+        ],
+        [
+          "Claire",
+          "Yes. Ren will update the poster, and I will send the final schedule."
+        ],
+        [
+          "Nao",
+          "Thank you. I can keep my promise and take the gallery opportunity."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "What is Nao’s conflict?",
+          "She has a gallery opening at noon on Saturday."
+        ],
+        [
+          "What day is the market moved to?",
+          "Sunday."
+        ],
+        [
+          "When can Nao arrive?",
+          "At nine."
+        ],
+        [
+          "What are the market hours after the change?",
+          "Ten to two."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Unfortunately, the dates (clash / clashes).",
+        "clash"
+      ],
+      [
+        "I promised (to help / help) at the market.",
+        "to help"
+      ],
+      [
+        "Would it be possible (to move / moving) the event?",
+        "to move"
+      ],
+      [
+        "Could we reschedule (for / since) Sunday?",
+        "for"
+      ],
+      [
+        "I can arrive (at / in) nine.",
+        "at"
+      ],
+      [
+        "Please send the (revised / revise) schedule.",
+        "revised"
+      ]
+    ],
+    "choices": [
+      [
+        "Which sentence explains the conflict clearly?",
+        "The gallery opens Saturday at noon, during our market.",
+        "Saturday is a word I know.",
+        "A"
+      ],
+      [
+        "The event changes to Sunday but keeps its hours. Which update is correct?",
+        "Saturday, ten to two",
+        "Sunday, ten to two",
+        "B"
+      ],
+      [
+        "Who should receive the revised schedule?",
+        "Artists, helpers, and relevant suppliers",
+        "Only someone who never planned to attend",
+        "A"
+      ],
+      [
+        "What should happen before saying the change is final?",
+        "Publish a guess and hope everyone agrees",
+        "Confirm the venue, team, and supplier arrangements",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Nao calling Claire. Your tutor is Claire. Your Osaka gallery opening is Saturday at noon, during the planned Saturday market from ten to two. You can help on Sunday from nine. Claire checked the venue, team, and table supplier for Sunday, but she has not sent the final announcement yet.",
+        "あなたはクレアに電話するナオ役、講師はクレア役です。大阪のギャラリーのオープニングは土曜日の正午で、10時〜2時のマーケットと重なります。日曜日は9時から手伝えます。クレアは会場・チーム・テーブル業者が日曜日に対応できると確認しましたが、最終案内はまだ送っていません。"
+      ],
+      "task": [
+        "Explain the conflict and request Sunday politely. Confirm your Sunday arrival time and the market hours. Offer to tell the artists after approval. Check who will update public information.",
+        "重なりを説明し、日曜日への変更を丁寧に頼みましょう。日曜の到着時間とマーケット時間を確認しましょう。承認後に作家へ連絡すると申し出て、公開情報を直す人も確認しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Nao"
+      ],
+      "text": "",
+      "title": "",
+      "lines": [
+        "What exactly clashes with our Saturday plan?",
+        "Would you like to move the market to Sunday?",
+        "If we do Sunday, what time can you arrive for setup?",
+        "Can we keep the market hours from ten to two?",
+        "After my final confirmation, who will update the poster and schedule?",
+        "What will you tell the artists, and when will you tell them?"
+      ],
+      "evidence": "Tutor evidence note: Student must keep these facts: Osaka gallery opening is Saturday at noon; market was Saturday 10–2; propose moving market to Sunday; Claire already checked venue/team/table supplier can do Sunday but has not announced yet; Nao can arrive Sunday at 9 for setup; market stays 10–2; Ren updates the poster; Claire sends final schedule; Nao tells the artists after confirmation. Do not say there are markets on both days or that Nao cancels the gallery.",
+      "useful": [
+        "Unfortunately, ... clashes with ...",
+        "Would it be possible to ...?",
+        "Could we move ... to ...?",
+        "I can help from ...",
+        "Once you confirm, I will ..."
+      ]
+    },
+    "topics": [
+      [
+        "Schedule Conflicts",
+        [
+          "What details help explain a clash?",
+          "How do you ask for a change politely?",
+          "What compromise can you offer?"
+        ]
+      ],
+      [
+        "Informing a Group",
+        [
+          "Who needs the new schedule?",
+          "What old information must be corrected?",
+          "How can you check everyone understood?"
+        ]
+      ],
+      [
+        "Two Opportunities",
+        [
+          "Why do both commitments matter?",
+          "What help makes both possible?",
+          "How do you thank people for adjusting?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Reschedule for Sunday\" means the new day is Sunday. \"Postpone until Sunday\" means it moved later to Sunday. Reschedule can mean earlier or later.",
+      "reschedule for Sunday は新しい日が日曜日だという意味です。postpone until Sunday は日曜日まで延期するという意味です。reschedule は前倒し・後ろ倒しの両方に使えます。"
+    ],
+    "triviaQuestion": [
+      "Can \"reschedule\" mean moving an appointment earlier?",
+      "Yes. It can mean earlier or later."
+    ],
+    "closing": "Claire confirms the market will move to Sunday from ten to two. Ren updates the poster, Claire sends the final schedule, and Nao informs the artists."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "version": "toeic-v1",
+  "level": 5,
+  "chapter": 1,
+  "number": 2,
+  "sourceDigest": "8cbf2584656fdc5fe268c84f6801708c10eca10cbac61c65946d70babbf68b5e",
+  "episode": {
+    "title": "The Big Announcement",
+    "skill": "listening",
+    "intro": [
+      "The team has a chance to plan an international hotel campaign. The hotel wants more guests from other countries and a high-quality image. Mika listens to Ethan’s message and checks the goal. The agency has not won the project yet.",
+      "チームに国際的なホテルの広告を企画する機会が来ます。ホテルは高級な印象を保ちながら海外の宿泊客を増やしたいと考えています。ミカはイーサンの連絡を聞き、目標を確認します。会社はまだ案件を獲得していません。"
+    ],
+    "goal": [
+      "I can understand a short project message and check the main goal.",
+      "短い業務連絡を聞き、主な目標を確認できる。"
+    ],
+    "warmup": "When you do not understand a goal at work, what question do you ask?",
+    "words": [
+      [
+        "Eastbridge is competing for a new contract.",
+        "competing for",
+        "契約を取るために競争している"
+      ],
+      [
+        "If we win, it could be our biggest project this year.",
+        "biggest project this year",
+        "今年最大のプロジェクト"
+      ],
+      [
+        "Soo-jin shared several creative ideas in the meeting.",
+        "creative ideas",
+        "クリエイティブなアイデア"
+      ],
+      [
+        "Daichi talked about the market research.",
+        "market research",
+        "市場調査"
+      ],
+      [
+        "Mika asked, “What is the client’s main objective?”",
+        "main objective",
+        "主な目的"
+      ],
+      [
+        "The client wants a premium image, so the plan must fit that.",
+        "premium image",
+        "高級なイメージ"
+      ]
+    ],
+    "discussion": [
+      "What is the client trying to do, and what is one risk?",
+      "クライアントは何をしたいですか。リスクは1つ何ですか。"
+    ],
+    "followup": "What is one clarifying question you can ask in the next meeting?",
+    "tips": [
+      {
+        "rule": [
+          "Ask one clear question with “What / Why / How.”",
+          "「What / Why / How」で1つのはっきりした質問をします。"
+        ],
+        "examples": [
+          [
+            "What is the main objective?",
+            "主な目的は何ですか。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Repeat the goal in your own words to confirm.",
+          "目的を自分の言葉で言い換えて確認します。"
+        ],
+        "examples": [
+          [
+            "So, we want to attract international travelers, right?",
+            "つまり、海外旅行者を増やしたいのですね。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Listen to Ethan's short message about the hotel project.",
+        "ホテル案件についてのイーサンの短い連絡を聞きましょう。"
+      ],
+      "dialogue": [],
+      "text": "<p>We are making a plan for an international hotel company. It wants more guests from other countries. It also wants to keep its high-quality image. Soo-jin will lead the design. Daichi will check the research. Mika, please read the project note today. We have not won the job yet.</p>",
+      "questions": [
+        [
+          "Who is the client?",
+          "An international hotel company."
+        ],
+        [
+          "What kind of guests does it want?",
+          "More guests from other countries."
+        ],
+        [
+          "Who will check the research?",
+          "Daichi."
+        ],
+        [
+          "Have we won the job?",
+          "No."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Eastbridge is (competing / relaxing) for a new contract.",
+        "competing"
+      ],
+      [
+        "If we win, it could be our (biggest / smallest) project this year.",
+        "biggest"
+      ],
+      [
+        "Soo-jin shares (creative / careless) ideas.",
+        "creative"
+      ],
+      [
+        "Daichi talks about (market / weather) research.",
+        "market"
+      ],
+      [
+        "Mika asks about the main (objective / vacation).",
+        "objective"
+      ],
+      [
+        "The client wants to keep a (premium / messy) image.",
+        "premium"
+      ]
+    ],
+    "choices": [
+      [
+        "Who is the project manager in this meeting?",
+        "Ethan",
+        "Daichi",
+        "A"
+      ],
+      [
+        "What company is the client?",
+        "An international hotel company",
+        "A local coffee shop",
+        "A"
+      ],
+      [
+        "What does the client want to increase?",
+        "International travelers",
+        "Office space",
+        "A"
+      ],
+      [
+        "What else must the client maintain?",
+        "A premium image",
+        "A low price image",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Mika from Osaka, a new team member at Eastbridge in Tokyo. You are in a morning meeting.",
+        "あなたは大阪出身のMikaです。東京のEastbridgeの新しいメンバーです。朝の会議にいます。"
+      ],
+      "task": [
+        "Say what you need to do and when. Ask one question about the task.",
+        "することと期限を伝え、仕事について質問を一つしましょう。"
+      ],
+      "roles": [
+        "Ethan",
+        "Mika"
+      ],
+      "text": "<p>Please read the project note today. Bring one ad idea tomorrow at ten. Ask Soo-jin about the design. Daichi can help with the research. We will compare ideas at the meeting. We have not chosen a final plan.</p>",
+      "title": "",
+      "lines": [
+        "Mika, what do you need to read today?",
+        "What should you bring to the meeting?",
+        "When is the meeting?",
+        "Who can help with design and research?",
+        "Have we chosen the plan already?"
+      ],
+      "evidence": "Read the project note today. Bring one ad idea tomorrow at ten. Soo-jin helps with design; Daichi helps with research. A final plan has not been chosen. Check understanding of this new message, not memory of Apply.",
+      "useful": [
+        "We need to ...",
+        "The goal is ...",
+        "The meeting is at ...",
+        "Who can help with ...?",
+        "Do you mean ...?"
+      ]
+    },
+    "topics": [
+      [
+        "Meetings",
+        [
+          "What do you usually do in a morning meeting?",
+          "What makes a meeting easy to follow?",
+          "What question do you often ask?"
+        ]
+      ],
+      [
+        "Travel and Hotels",
+        [
+          "What do international travelers want from a hotel?",
+          "What is important: price or comfort?",
+          "What hotel service do you use most?"
+        ]
+      ],
+      [
+        "Work Projects",
+        [
+          "What is a “big project” for you?",
+          "How do you start a new project?",
+          "Who do you ask for help at work?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "In marketing, a “target audience” is the main group you want to reach.",
+      "マーケティングで「target audience」は、主に届けたい人のグループです。"
+    ],
+    "triviaQuestion": [
+      "What does “target audience” mean?",
+      "The main group you want to reach."
+    ],
+    "closing": "Mika feels encouraged because her first major project at Eastbridge has begun."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

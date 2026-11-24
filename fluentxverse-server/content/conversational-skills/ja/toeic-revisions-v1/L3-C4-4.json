@@ -1,0 +1,276 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 4,
+  "number": 4,
+  "sourceDigest": "90ea7d71622c444a34237a357cfd005f7cf196fed3bdc4b0c9693e116889f41e",
+  "episode": {
+    "title": "The First Customer",
+    "skill": "speaking",
+    "goal": [
+      "I can confirm a cup order, its price, and delivery time.",
+      "カップの注文、値段、配達までの期間を確認できる。"
+    ],
+    "intro": [
+      "A visitor wants to buy Nao’s handmade cups. It is her first direct order. The customer wants special colors and fast delivery. Nao must check the price and explain how much time she needs.",
+      "展示会の来場者がナオの手作りのカップを買いたいと言います。初めての直接注文です。顧客は色を指定し、早い配達を希望します。ナオは値段を確認し、必要な日数を説明します。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "I would like eight cups.",
+        "would like",
+        "カップを八個お願いします。"
+      ],
+      [
+        "Which colors?",
+        "colors",
+        "何色ですか。"
+      ],
+      [
+        "I need three weeks.",
+        "three weeks",
+        "3週間必要です。"
+      ],
+      [
+        "Delivery is included.",
+        "included",
+        "配達料は含まれています。"
+      ],
+      [
+        "The box is 500 yen extra.",
+        "extra",
+        "箱は追加で500円です。"
+      ],
+      [
+        "I will confirm the order.",
+        "confirm",
+        "注文を確認します。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use How much ...? to ask a price.",
+          "How much ...? で値段を尋ねます。"
+        ],
+        "examples": [
+          [
+            "How much is this?",
+            "これはいくらですか。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use Can I + verb? to ask politely.",
+          "Can I ＋動詞? で丁寧に尋ねます。"
+        ],
+        "examples": [
+          [
+            "Can I pay by card?",
+            "カードで払えますか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Nao discusses her first order with a customer. Read their conversation. The order details belong to the story.",
+        "ナオが顧客と初めての注文を相談します。会話を読みましょう。注文内容は物語の設定です。"
+      ],
+      "roles": [
+        "Customer",
+        "Nao"
+      ],
+      "dialogue": [
+        [
+          "Customer",
+          "Can I order eight cups?"
+        ],
+        [
+          "Nao",
+          "Yes. They are 1,200 yen each."
+        ],
+        [
+          "Customer",
+          "Four blue and four white. Next week?"
+        ],
+        [
+          "Nao",
+          "Sorry. I need three weeks."
+        ],
+        [
+          "Customer",
+          "What is the total?"
+        ],
+        [
+          "Nao",
+          "9,600 yen. Kyoto delivery is included."
+        ],
+        [
+          "Customer",
+          "Can I have one gift box?"
+        ],
+        [
+          "Nao",
+          "Yes. 500 yen extra. Total: 10,100 yen."
+        ],
+        [
+          "Customer",
+          "Please send the order details."
+        ],
+        [
+          "Nao",
+          "I will send the colors, total, and date today."
+        ]
+      ],
+      "questions": [
+        [
+          "How many cups does the customer order?",
+          "Eight."
+        ],
+        [
+          "What colors?",
+          "Four blue and four white."
+        ],
+        [
+          "How long does Nao need?",
+          "Three weeks."
+        ],
+        [
+          "What is the total with one box?",
+          "10,100 yen."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "How (much / many) is this?",
+        "much"
+      ],
+      [
+        "Can I (pay / paid) by card?",
+        "pay"
+      ],
+      [
+        "I would (like / likes) two.",
+        "like"
+      ],
+      [
+        "What is (inside / between) this box?",
+        "inside"
+      ],
+      [
+        "How many cups (do / does) you need?",
+        "do"
+      ],
+      [
+        "Is the bag (free / freely)?",
+        "free"
+      ]
+    ],
+    "choices": [
+      [
+        "How many cups does the customer order?",
+        "Eight.",
+        "Six.",
+        "A"
+      ],
+      [
+        "What colors?",
+        "Eight red cups.",
+        "Four blue and four white.",
+        "B"
+      ],
+      [
+        "How long does Nao need?",
+        "Three weeks.",
+        "One week.",
+        "A"
+      ],
+      [
+        "What is the total with one box?",
+        "9,600 yen.",
+        "10,100 yen.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Nao. Your tutor is your first customer. Cups cost 1,200 yen each. You can make blue or white cups, need three weeks for six cups, and include delivery to the customer's Kyoto address. A single gift box costs 500 yen extra.",
+        "あなたはナオ役、講師は初めての顧客役です。カップは一個1,200円で、青か白にできます。六個の製作には3週間必要で、京都の指定住所への配達は料金に含まれます。セット用の箱は一つ500円追加です。"
+      ],
+      "task": [
+        "Confirm six cups and colors. Explain the time, delivery, and total with a gift box.",
+        "六個のカップと色を確認しましょう。必要な期間、配達、箱を付けた合計を説明しましょう。"
+      ],
+      "roles": [
+        "the customer",
+        "Nao"
+      ],
+      "lines": [
+        "Can I order three blue and three white cups?",
+        "Can you deliver in one week?",
+        "How much are six cups?",
+        "How much with one 500-yen box?",
+        "Is Kyoto delivery included?",
+        "Can you confirm the order?"
+      ],
+      "evidence": "Six/three each; explain cannot promise1week and propose3; cup total7200/box500/final7700; delivery included. Close with clear quantity/colors/timing/price, not a promise to meet an impossible deadline.",
+      "useful": [
+        "They are ... each.",
+        "I need ... weeks.",
+        "Delivery is included.",
+        "The box costs ... extra.",
+        "The total is ..."
+      ]
+    },
+    "topics": [
+      [
+        "WORK",
+        [
+          "What work do you enjoy?",
+          "Do you like working with others?",
+          "What would you like to learn?"
+        ]
+      ],
+      [
+        "PLANNING",
+        [
+          "How do you remember a date?",
+          "Who can help with a plan?",
+          "What do you check first?"
+        ]
+      ],
+      [
+        "IDEAS",
+        [
+          "What would you like to make?",
+          "Who can you ask for help?",
+          "How do you say you like an idea?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Lead time” is the time from an order to when it is ready. Handmade products often need time before delivery.",
+      "lead time は、注文から完成するまでの期間です。手作りの商品は、配達までに制作の時間が必要なことがあります。"
+    ],
+    "triviaQuestion": [
+      "Can “lead time” mean time needed to prepare an order?",
+      "Yes."
+    ],
+    "closing": "Nao sends her first written order confirmation. After the Lesson 5 checkpoint, Emma travels to Osaka with a carefully prepared portfolio for her interview."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

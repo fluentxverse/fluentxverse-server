@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 1,
+  "number": 9,
+  "sourceDigest": "ba58b0fbbb0887ee7cb36b2c7f9b5b4c3504129225d3a68c84ad222dcab8d3d9",
+  "episode": {
+    "title": "A Place to Call Home",
+    "skill": "speaking",
+    "intro": [
+      "After the exhibition, Emma sits by the Kamo River with her friends. They talk about the day and their next plans. Emma feels Kyoto is not just a new city now. It feels like home.",
+      "展示会の後、エマは友達と鴨川のそばに座ります。みんなで今日のことと次の予定を話します。エマは京都がもう「新しい街」だけではないと感じます。ここは「自分の居場所」だと感じます。"
+    ],
+    "goal": [
+      "I can share a memorable moment, say my feelings, and talk about a future plan.",
+      "心に残った出来事、気持ち、これからの予定を話せる。"
+    ],
+    "warmup": "What makes a place feel like home to you?",
+    "words": [
+      [
+        "I am proud of our work.",
+        "proud of",
+        "私は私たちの仕事を誇りに思います。"
+      ],
+      [
+        "That was a special memory for me.",
+        "special memory",
+        "それは私にとって特別な思い出でした。"
+      ],
+      [
+        "I felt nervous at first.",
+        "at first",
+        "最初は緊張しました。"
+      ],
+      [
+        "Now I feel I belong here.",
+        "belong here",
+        "今はここが自分の居場所だと感じます。"
+      ],
+      [
+        "Thank you for your support.",
+        "your support",
+        "支えてくれてありがとう。"
+      ],
+      [
+        "I am looking forward to our next project.",
+        "looking forward to",
+        "次の企画を楽しみにしています。"
+      ]
+    ],
+    "discussion": [
+      "Talk about a time someone made you feel welcome. How did you feel? Then ask your tutor about a similar time.",
+      "誰かに温かく迎えてもらった経験を話しましょう。どんな気持ちでしたか。次に、講師にも似た経験があるか聞きましょう。"
+    ],
+    "followup": "How could you make someone else feel welcome?",
+    "tips": [
+      {
+        "rule": [
+          "Use: I felt ... at first, but now I feel .... Use because for a reason.",
+          "I felt ... at first, but now I feel ... を使いましょう。理由は because で言いましょう。"
+        ],
+        "examples": [
+          [
+            "I felt nervous at first, but now I feel happy.",
+            "最初は緊張しましたが、今はうれしいです。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use: I'd like to + verb. Then ask a simple question.",
+          "I'd like to + 動詞 を使いましょう。次に簡単な質問をしましょう。"
+        ],
+        "examples": [
+          [
+            "I'd like to take more photos. How about you?",
+            "もっと写真を撮りたいです。あなたはどうですか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "By the river, Claire asks Emma how she feels after the exhibition.",
+        "川のそばで、クレアが展示会の後のエマの気持ちを聞きます。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Claire",
+          "How do you feel after today, Emma?"
+        ],
+        [
+          "Emma",
+          "I feel happy. I was nervous at first."
+        ],
+        [
+          "Claire",
+          "Why were you nervous at first?"
+        ],
+        [
+          "Emma",
+          "Because it was my first exhibition."
+        ],
+        [
+          "Claire",
+          "What was your favorite moment today?"
+        ],
+        [
+          "Emma",
+          "A visitor said my photos helped her."
+        ],
+        [
+          "Claire",
+          "I am proud of our work. What would you like next?"
+        ],
+        [
+          "Emma",
+          "I'd like to take more photos with Nao."
+        ],
+        [
+          "Claire",
+          "That sounds great. Kyoto feels special now, right?"
+        ],
+        [
+          "Emma",
+          "Yes. Kyoto feels like home now."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "How did Emma feel at first?",
+          "She felt nervous."
+        ],
+        [
+          "Why was she nervous?",
+          "Because it was her first exhibition."
+        ],
+        [
+          "What was her favorite moment?",
+          "A visitor said her photos helped her."
+        ],
+        [
+          "What would Emma like to do next?",
+          "She would like to take more photos with Nao."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I (felt / feel) nervous at first yesterday.",
+        "felt"
+      ],
+      [
+        "Now I (feel / felt) at home here.",
+        "feel"
+      ],
+      [
+        "I'm proud (of / at) our work.",
+        "of"
+      ],
+      [
+        "Thank you for (helping / help) me.",
+        "helping"
+      ],
+      [
+        "I'd like to (take / taking) more photos.",
+        "take"
+      ],
+      [
+        "I feel welcome (because / before) I have friends here.",
+        "because"
+      ]
+    ],
+    "choices": [
+      [
+        "A friend asks about your feelings. What do you say?",
+        "I felt nervous, but now I feel happy.",
+        "The counter is at three.",
+        "A"
+      ],
+      [
+        "A friend shares a future plan. How can you show interest?",
+        "No answer exists.",
+        "That sounds great. What would you like to do first?",
+        "B"
+      ],
+      [
+        "You want to thank a friend. What do you say?",
+        "Thank you for your support.",
+        "You should guess my feelings.",
+        "A"
+      ],
+      [
+        "You want to join a future project. What do you say?",
+        "Yesterday is a place.",
+        "I'd love to help again.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma beside the river after the exhibition. Your tutor is Nao. You have time to talk about the event and what you would like to do next.",
+        "あなたは展示会の後、川のそばにいるエマ役です。講師はナオ役です。イベントのことと、次にしたいことを話す時間があります。"
+      ],
+      "task": [
+        "Share one memorable moment and how your feelings changed. Thank Nao, ask about her experience, and choose one next activity together.",
+        "心に残った出来事を一つ言い、気持ちの変化を伝えましょう。ナオに感謝し、ナオの経験も聞いて、次に一緒にすることを一つ決めましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Emma"
+      ],
+      "text": "",
+      "title": "",
+      "lines": [
+        "Emma, what moment will you remember from today?",
+        "How did you feel at first, and how do you feel now?",
+        "Can you thank me for something I did?",
+        "What question do you want to ask about my ceramics experience?",
+        "What would you like to do together next?",
+        "When can we do it?"
+      ],
+      "evidence": "Tutor evidence note: Student shares one clear moment, uses simple feeling change (at first/now) with a reason, thanks Nao, asks one related question about Nao's ceramics, and agrees on one realistic next activity and time.",
+      "useful": [
+        "My favorite moment was ...",
+        "I felt ... at first, but now I feel ...",
+        "Thank you for ...",
+        "How did you feel about ...?",
+        "I'd like to ..."
+      ]
+    },
+    "topics": [
+      [
+        "Special Memories",
+        [
+          "What is a happy memory with a friend?",
+          "Why is it special?",
+          "Do you want to do it again?"
+        ]
+      ],
+      [
+        "Belonging",
+        [
+          "What helps you feel at home?",
+          "Who makes you feel welcome?",
+          "How can you welcome someone new?"
+        ]
+      ],
+      [
+        "Future Plans",
+        [
+          "What would you like to try next?",
+          "Who would you like to do it with?",
+          "What is one small first step?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"House\" is a building. \"Home\" can also mean a place where you feel safe and connected to people.",
+      "house は建物です。home は安心できて、人とのつながりを感じる場所の意味もあります。"
+    ],
+    "triviaQuestion": [
+      "Why does Emma call Kyoto home?",
+      "She feels comfortable and connected to her friends there."
+    ],
+    "closing": "Emma sits by the river with her friends and feels Kyoto is home now."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

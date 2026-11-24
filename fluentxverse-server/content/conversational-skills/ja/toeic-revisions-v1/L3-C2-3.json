@@ -1,0 +1,234 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 2,
+  "number": 3,
+  "sourceDigest": "c8a3fa8b85336e1c67bb2a413dd5932e68b3ef9b0b0c3581214bdcd7ccc9e6a5",
+  "episode": {
+    "title": "Lost in Gion",
+    "skill": "reading",
+    "intro": [
+      "A few days later, Emma and Leo walk in Gion after his shift. Emma stops to take photos. They make a wrong turn. They ask a shopkeeper how to get to Yasaka Shrine. Emma thinks getting lost is OK with good company.",
+      "数日後、エマとレオはレオの仕事の後に祇園を歩きます。エマは写真を撮るために立ち止まります。二人は道を間違えます。八坂神社への行き方を店の人に聞きます。エマは、気の合う人と一緒なら迷ってもいいと思います。"
+    ],
+    "goal": [
+      "I can read simple directions and use landmarks to find a meeting place.",
+      "簡単な道順を読み、目印を使って待ち合わせ場所を見つけられる。"
+    ],
+    "warmup": "What landmarks help you remember a route?",
+    "words": [
+      [
+        "Please go straight to the next street.",
+        "go straight",
+        "次の通りまでまっすぐ進んでください。"
+      ],
+      [
+        "Turn left at the corner.",
+        "turn left",
+        "角で左に曲がってください。"
+      ],
+      [
+        "Turn right at the bookshop.",
+        "turn right at",
+        "本屋で右に曲がってください。"
+      ],
+      [
+        "Walk past the flower shop.",
+        "walk past",
+        "花屋を通り過ぎてください。"
+      ],
+      [
+        "The cafe is opposite the park.",
+        "opposite",
+        "カフェは公園の向かいにあります。"
+      ],
+      [
+        "The cafe is beside the bakery.",
+        "beside",
+        "カフェはパン屋の隣にあります。"
+      ]
+    ],
+    "discussion": [
+      "Imagine a small neighborhood. Give two directions from a station to a cafe. Add one landmark.",
+      "小さな街を想像しましょう。駅からカフェまで、2つの道順を言ってください。目印も1つ入れましょう。"
+    ],
+    "followup": "How would you check the direction if you were unsure?",
+    "tips": [
+      {
+        "rule": [
+          "Read direction words in order. \"At\" shows the turning point. \"Past\" means go beyond something.",
+          "道順は順番に読みましょう。at は曲がる場所です。past は「通り過ぎる」です。"
+        ],
+        "examples": [
+          [
+            "Go straight. Turn left at the corner.",
+            "まっすぐ進んで、角で左に曲がってください。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "\"Beside\" means next to. \"Opposite\" means across from.",
+          "beside は「隣」、opposite は「向かい」です。"
+        ],
+        "examples": [
+          [
+            "The cafe is beside the bakery and opposite the park.",
+            "カフェはパン屋の隣で、公園の向かいです。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "A shopkeeper writes a short route for Emma and Leo. Read the practice directions. They are not a real guide to Gion.",
+        "店の人がエマとレオに短い道順を書きます。練習用の道順を読みましょう。実際の祇園の案内ではありません。"
+      ],
+      "text": "<p><strong>A note from the shopkeeper - practice route</strong><br>Start at this souvenir shop. Go straight to the next street. Turn left at the corner. Walk past a small tea shop. You will see the shrine entrance on your right, opposite a small park. If you reach the bridge, you have walked too far.</p>",
+      "questions": [
+        [
+          "Where should they turn left?",
+          "At the corner."
+        ],
+        [
+          "What should they walk past?",
+          "A small tea shop."
+        ],
+        [
+          "Which side is the entrance on?",
+          "On their right, opposite the park."
+        ],
+        [
+          "What does reaching the bridge mean?",
+          "They have walked too far."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Go (straight / straightly) to the next street.",
+        "straight"
+      ],
+      [
+        "Turn left (at / on) the corner.",
+        "at"
+      ],
+      [
+        "Walk (past / passed) the tea shop.",
+        "past"
+      ],
+      [
+        "The cafe is (opposite / inside) the park.",
+        "opposite"
+      ],
+      [
+        "The cafe is (beside / under) the bakery.",
+        "beside"
+      ],
+      [
+        "The entrance is on (your / you) right.",
+        "your"
+      ]
+    ],
+    "choices": [
+      [
+        "\"Turn left at the bakery.\" Where do you turn?",
+        "At the bakery",
+        "Before the station",
+        "A"
+      ],
+      [
+        "\"The shop is opposite the park.\" Where is it?",
+        "Inside the park",
+        "Across from the park",
+        "B"
+      ],
+      [
+        "\"Walk past the cafe.\" Should you stop inside it?",
+        "Yes",
+        "No, continue beyond it",
+        "B"
+      ],
+      [
+        "\"If you reach the bridge, you have gone too far.\" What should you do at the bridge?",
+        "Check the route and go back",
+        "Keep going farther",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Nao sends you a message about meeting at a small cafe after the walk. Your tutor is Leo. Use the practice route in the message.",
+        "あなたはエマ役です。散策の後に小さなカフェで会おうとナオからメッセージが来ます。講師はレオ役です。メッセージの練習用ルートを使いましょう。"
+      ],
+      "task": [
+        "Read the message. Explain the route to Leo. Use landmarks. Confirm the meeting time.",
+        "メッセージを読みましょう。レオに道順を説明しましょう。目印を使いましょう。待ち合わせ時刻を確認しましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "text": "<p><strong>Practice route</strong><br>Hi Emma! Let's meet at Green Leaf Cafe at 5 p.m. From the practice map's shrine entrance, go straight to the bookshop. Turn right there. Walk past the flower shop. The cafe is on your left, beside the bakery and opposite the park. Do not cross the bridge. I will wait inside. Nao</p>",
+      "title": "Nao's Meeting Message",
+      "lines": [
+        "Emma, where are we meeting Nao, and when?",
+        "From the shrine entrance, where do we go first?",
+        "Where do we turn right?",
+        "What do we walk past after that?",
+        "Where is the cafe? Use two landmarks.",
+        "Do we cross the bridge?",
+        "Will Nao wait inside or outside?"
+      ],
+      "evidence": "Tutor evidence note: The student should point to written proof in the message: Green Leaf Cafe, 5 p.m., right at the bookshop, past the flower shop, cafe on the left beside the bakery opposite the park, do not cross the bridge, Nao waits inside.",
+      "useful": [
+        "The message says ...",
+        "First, go ...",
+        "Then turn ... at ...",
+        "It is beside / opposite ...",
+        "We are meeting at ... at ..."
+      ]
+    },
+    "topics": [
+      [
+        "FINDING YOUR WAY",
+        [
+          "Do you use maps or ask people?",
+          "What makes directions easy to follow?",
+          "What do you say when you are lost?"
+        ]
+      ],
+      [
+        "GOOD COMPANY",
+        [
+          "Who do you enjoy walking with?",
+          "What do you talk about on a walk?",
+          "Do you like detours sometimes?"
+        ]
+      ],
+      [
+        "CITY WALKS",
+        [
+          "What do you notice when you walk?",
+          "Where do you stop for photos?",
+          "What kind of shop do you like to visit?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"On your right\" depends on the way you face. \"To the right of the shop\" is about two places. A landmark makes \"turn right\" clearer.",
+      "on your right は向きで変わる「あなたの右側」です。to the right of the shop は2つの場所の位置関係です。目印があると turn right が分かりやすいです。"
+    ],
+    "triviaQuestion": [
+      "Which is clearer for a visitor: \"Turn right\" or \"Turn right at the bookshop\"?",
+      "Turn right at the bookshop."
+    ],
+    "closing": "Emma and Leo find their way. Emma says getting lost is not so bad with good company. Later, Claire invites everyone to Nishiki Market on her day off."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

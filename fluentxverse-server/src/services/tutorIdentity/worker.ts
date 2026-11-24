@@ -6,6 +6,7 @@ import type { MailDraft } from '../../../../shared/mail';
 import { logger } from '../../utils/logger';
 import { ensureTutorIdentitySchema } from './schema';
 import { cleanupIdentityImageTemps } from './storage';
+import { startIdentityIssuanceWorker } from './issuanceWorker';
 
 export async function deliverIdentityNotices() {
   const s = getDriver().session(), now = new Date().toISOString();
@@ -40,6 +41,7 @@ export async function deliverIdentityNotices() {
 }
 export function startTutorIdentityWorker() {
   if (!identityEnabled()) return;
+  startIdentityIssuanceWorker();
   let running = false;
   let ready = false;
   const tick = async () => {

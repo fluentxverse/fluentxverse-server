@@ -1,0 +1,233 @@
+{
+  "version": "toeic-v1",
+  "level": 5,
+  "chapter": 1,
+  "number": 3,
+  "sourceDigest": "72132f3157a86879aa5b51b5dd3c51f428df3188f9393876e9ae81162f7fbc83",
+  "episode": {
+    "title": "Different Ways of Thinking",
+    "skill": "reading",
+    "intro": [
+      "Mika joins a team meeting in Tokyo. They talk about a new travel campaign. People have different ideas, so they must talk politely.",
+      "ミカは東京でチーム会議に参加します。新しい旅行キャンペーンについて話します。意見が違うので、ていねいに話す必要があります。"
+    ],
+    "goal": [
+      "I can read different opinions and explain an idea with a simple reason.",
+      "異なる意見を読み、簡単な理由を付けて案を説明できる。"
+    ],
+    "warmup": "When you disagree at work, what do you say first?",
+    "words": [
+      [
+        "I think this idea can work.",
+        "I think",
+        "この案はうまくいくと思います。"
+      ],
+      [
+        "I see your point.",
+        "point",
+        "お考えは分かります。"
+      ],
+      [
+        "These guests bring more income.",
+        "income",
+        "この客層はより多くの収入につながります。"
+      ],
+      [
+        "Let's compare both groups.",
+        "compare",
+        "両方の層を比べましょう。"
+      ],
+      [
+        "We need the same hotel style.",
+        "style",
+        "同じホテルのスタイルが必要です。"
+      ],
+      [
+        "We need more information.",
+        "information",
+        "もっと情報が必要です。"
+      ]
+    ],
+    "discussion": [
+      "Why was Mika’s idea helpful in the meeting?",
+      "なぜミカのアイデアは会議で役に立ちましたか？"
+    ],
+    "followup": "In your job or school, what data do you want to see before you decide?",
+    "tips": [
+      {
+        "rule": [
+          "Use I think ... because ... to give an opinion and a reason.",
+          "I think ... because ... で意見と理由を伝えましょう。"
+        ],
+        "examples": [
+          [
+            "I think this photo is good because it shows the rooms.",
+            "部屋が写っているので、この写真がよいと思います。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Read each person's idea. Use I see your point, but ... to add another idea.",
+          "それぞれの案を読みましょう。I see your point, but ... で別の案を加えられます。"
+        ],
+        "examples": [
+          [
+            "I see your point, but we can compare both groups.",
+            "お考えは分かりますが、両方の層を比べられます。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "You and your tutor talk about the meeting story and check understanding.",
+        "講師と会議のストーリーについて話し、内容を確認します。"
+      ],
+      "dialogue": [],
+      "text": "<p><strong>Ethan:</strong> Younger travellers use social media. We can reach them there. Some may return for future trips.</p><p><strong>Daichi:</strong> The client's research says business guests bring more income. We should not forget them.</p><p><strong>Mika:</strong> Could we make one message for each group?</p><p><strong>Soo-jin:</strong> That may work. Both messages need the same hotel style. Let's check the information before choosing.</p><p>After the meeting, Ethan tells Mika she did well. The team has not chosen a final plan.</p>",
+      "questions": [
+        [
+          "Which guests does Ethan suggest?",
+          "Younger travellers."
+        ],
+        [
+          "Why does Daichi focus on business guests?",
+          "They bring more income in the client's research."
+        ],
+        [
+          "What does Mika suggest?",
+          "One message for each group."
+        ],
+        [
+          "What must stay the same?",
+          "The hotel style."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I (think / thinking) the photo is good.",
+        "think"
+      ],
+      [
+        "It is clear (because / before) it shows the rooms.",
+        "because"
+      ],
+      [
+        "Could we (make / making) two messages?",
+        "make"
+      ],
+      [
+        "Both messages (need / needs) the same style.",
+        "need"
+      ],
+      [
+        "Let's compare them before (choosing / choose).",
+        "choosing"
+      ],
+      [
+        "We need more (information / informations).",
+        "information"
+      ]
+    ],
+    "choices": [
+      [
+        "Which guests does Ethan suggest?",
+        "Younger travellers.",
+        "Only business guests.",
+        "A"
+      ],
+      [
+        "What does Daichi use to support his idea?",
+        "A guess.",
+        "The client's research.",
+        "B"
+      ],
+      [
+        "What does Soo-jin want?",
+        "The same hotel style in both messages.",
+        "Two different hotel names.",
+        "A"
+      ],
+      [
+        "What is the next step?",
+        "Publish without a check.",
+        "Check more information before choosing.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Mika from Osaka, a new team member at Eastbridge in Tokyo.",
+        "あなたは大阪出身で、東京のイーストブリッジに入ったばかりのミカです。"
+      ],
+      "task": [
+        "Say what can stay and what needs changing. Give one reason and ask a question.",
+        "変えなくてよい点と直す点を伝えましょう。理由を一つ話し、質問を一つしましょう。"
+      ],
+      "roles": [
+        "Soo-jin",
+        "Mika"
+      ],
+      "text": "<p><strong>Review note</strong></p><p>Both messages use the same hotel colours. Keep them.</p><p>The younger-traveller message has a clear photo. The business-traveller message needs a shorter headline.</p><p>Mika, please shorten that headline. Ethan will check costs. Daichi will check the research.</p><p>Bring the updates to Soo-jin at three. Do not publish the ads yet.</p>",
+      "title": "Review note",
+      "lines": [
+        "Mika, what can we keep in both messages?",
+        "Which headline needs work?",
+        "Why can a short headline help?",
+        "Who will check costs and research?",
+        "When should we meet?",
+        "Can we publish now?"
+      ],
+      "evidence": "Keep the hotel colours. Shorten the business headline. Ethan checks costs, Daichi checks research, and updates go to Soo-jin at three. No publication yet. Accept a short reason, such as easier to read.",
+      "useful": [
+        "I think ...",
+        "We can keep ...",
+        "We need to change ...",
+        "It helps because ...",
+        "Who will check ...?"
+      ]
+    },
+    "topics": [
+      [
+        "Sharing Opinions at Work",
+        [
+          "Do you like to speak first in meetings?",
+          "What helps you explain your opinion clearly?",
+          "How do you show respect when you disagree?"
+        ]
+      ],
+      [
+        "Target Customers",
+        [
+          "Who spends more money, in your experience?",
+          "Do you prefer younger or older customers for a product?",
+          "What is one good way to reach customers?"
+        ]
+      ],
+      [
+        "Using Data",
+        [
+          "What data is important in your job or school?",
+          "When do you decide without data?",
+          "How do you check if data is reliable?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "Many marketing teams use A/B testing to compare two message ideas.",
+      "多くのマーケティングチームはA/Bテストで2つのメッセージ案を比較します。"
+    ],
+    "triviaQuestion": [
+      "What does A/B testing compare?",
+      "Two versions, like message A and message B."
+    ],
+    "closing": "The team did not decide yet. Daichi wants to check the data, and Ethan tells Mika she did well."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "manualReview": "Reviewed and edited for the new friendship-only outline, simple language, explicit roles, fresh reading evidence and consistent keys."
+  }
+}

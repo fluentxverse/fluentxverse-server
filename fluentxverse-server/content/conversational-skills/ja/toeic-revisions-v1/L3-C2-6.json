@@ -1,0 +1,275 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 2,
+  "number": 6,
+  "sourceDigest": "7c1a928feb4cb92d34ac389ca4c84cb1f27aa411b5ff527156ae4e68671edc71",
+  "episode": {
+    "title": "The Bamboo Forest",
+    "skill": "speaking",
+    "goal": [
+      "I can describe a place and ask for a photo.",
+      "場所を説明し、写真撮影を頼める。"
+    ],
+    "intro": [
+      "Nao plans a photo trip to Arashiyama. Emma likes the tall bamboo. Nao suggests different angles for photos. Leo takes a picture of Emma under the bamboo. Later, Emma saves her favorite picture.",
+      "ナオが嵐山への写真撮影の外出を計画します。エマは高い竹を気に入ります。ナオは違う角度から撮ることを提案します。レオは竹の下にいるエマを撮ります。後でエマはお気に入りの一枚を保存します。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "The bamboo is tall.",
+        "tall",
+        "竹は高いです。"
+      ],
+      [
+        "There is a path.",
+        "path",
+        "道があります。"
+      ],
+      [
+        "The light is nice.",
+        "light",
+        "光がきれいです。"
+      ],
+      [
+        "Can you take a photo?",
+        "take a photo",
+        "写真を撮ってもらえますか。"
+      ],
+      [
+        "Please include the path.",
+        "include",
+        "道も入れてください。"
+      ],
+      [
+        "Can I see it?",
+        "see",
+        "見てもよいですか。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use There is for one thing and There are for two or more.",
+          "一つには There is、二つ以上には There are を使います。"
+        ],
+        "examples": [
+          [
+            "There is a path.",
+            "道があります。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use Can you + verb? to ask for help.",
+          "Can you ＋動詞? で手伝いを頼みます。"
+        ],
+        "examples": [
+          [
+            "Can you take a photo?",
+            "写真を撮ってもらえますか。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Leo offers to photograph Emma on their walk. Read their conversation.",
+        "散策中、レオがエマの写真を撮ると申し出ます。二人の会話を読みましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Leo",
+          "Would you like a photo here?"
+        ],
+        [
+          "Emma",
+          "Yes. The bamboo is so tall."
+        ],
+        [
+          "Leo",
+          "Where will you stand?"
+        ],
+        [
+          "Emma",
+          "Here. Please include the path."
+        ],
+        [
+          "Leo",
+          "Move a little to your left."
+        ],
+        [
+          "Emma",
+          "Here? Is the light okay?"
+        ],
+        [
+          "Leo",
+          "Yes. Ready? Smile!"
+        ],
+        [
+          "Emma",
+          "Thank you. Can I see it?"
+        ],
+        [
+          "Leo",
+          "Of course. Here it is."
+        ],
+        [
+          "Emma",
+          "I like it. Thank you."
+        ]
+      ],
+      "questions": [
+        [
+          "What does Emma like?",
+          "The tall bamboo."
+        ],
+        [
+          "What does she want in the photo?",
+          "The path."
+        ],
+        [
+          "Who takes her photo?",
+          "Leo."
+        ],
+        [
+          "What does Emma ask afterward?",
+          "Can I see it?"
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "There (is / are) a path.",
+        "is"
+      ],
+      [
+        "There (are / is) two trees.",
+        "are"
+      ],
+      [
+        "Can you (take / took) a photo?",
+        "take"
+      ],
+      [
+        "The trees (are / is) tall.",
+        "are"
+      ],
+      [
+        "Please (stand / stood) here.",
+        "stand"
+      ],
+      [
+        "Can I (see / saw) it?",
+        "see"
+      ]
+    ],
+    "choices": [
+      [
+        "What does Emma like?",
+        "The tall bamboo.",
+        "A new car.",
+        "A"
+      ],
+      [
+        "What does she want in the photo?",
+        "A kitchen.",
+        "The path.",
+        "B"
+      ],
+      [
+        "Who takes her photo?",
+        "Leo.",
+        "Claire.",
+        "A"
+      ],
+      [
+        "What does Emma ask afterward?",
+        "Can I buy a ticket?",
+        "Can I see it?",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma on a photo walk in Arashiyama. Your tutor is Leo. Tall bamboo lines the path, and sunlight comes through the leaves.",
+        "あなたは嵐山で写真散歩中のエマ役、講師はレオ役です。道の両側には高い竹があり、葉の間から光が差しています。"
+      ],
+      "task": [
+        "Describe two things. Ask for a photo. Say where to stand and what to include. Ask to see it.",
+        "二つのものを説明しましょう。写真を頼み、立つ場所と入れたいものを伝え、写真を見せてもらいましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "lines": [
+        "Emma, what do you like here?",
+        "Would you like a photo?",
+        "Where will you stand? What should I include?",
+        "Can you stand closer to the path?",
+        "Here is the photo. Do you like it?"
+      ],
+      "evidence": "Use two descriptive details, a polite photo request, a clear position/framing request, and a response. Agree on a safe spot without blocking the path or entering restricted areas.",
+      "useful": [
+        "There is ...",
+        "The ... is ...",
+        "Can you take a photo?",
+        "Please include ...",
+        "Can I see it?"
+      ]
+    },
+    "topics": [
+      [
+        "DAYS OUT",
+        [
+          "Where do you like to go?",
+          "Who do you go with?",
+          "What do you take?"
+        ]
+      ],
+      [
+        "SHOPPING",
+        [
+          "What do you like to buy?",
+          "Do you pay by card?",
+          "What gift would you choose?"
+        ]
+      ],
+      [
+        "TRAVEL PLANS",
+        [
+          "How do you travel?",
+          "What time do you like to start?",
+          "What do you do on a rainy day?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "In English photos, people often say “cheese.” It helps make a smiling mouth. It is not a request for food.",
+      "英語で写真を撮るとき、cheese と言うことがあります。笑顔の口の形を作りやすくするためで、食べ物を頼んでいるのではありません。"
+    ],
+    "triviaQuestion": [
+      "Does “say cheese” ask for food here?",
+      "No. It is for the photo."
+    ],
+    "closing": "Emma finds several pictures Leo took of her and saves her favorite. On another cloudy afternoon, she, Leo, and Nao visit Kiyomizu-dera together."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

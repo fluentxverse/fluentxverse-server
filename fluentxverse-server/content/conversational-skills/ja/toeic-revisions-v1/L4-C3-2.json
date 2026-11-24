@@ -1,0 +1,234 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 3,
+  "number": 2,
+  "sourceDigest": "143430f3f1d843bb1fea9b7953dd0fbdea8dde54a5f68f60045bcd3ad7b0e428",
+  "episode": {
+    "title": "A Second Chance in Osaka",
+    "skill": "listening",
+    "intro": [
+      "After the breakup, Emma and Ren keep work contact professional. Little by little, they rebuild trust. Now they decide to try dating again. Emma says honesty matters, and work must stay separate. Emma wants a small photo exhibition in Kyoto. Ren suggests visiting Kyoto together next Saturday.",
+      "別れの後、エマとレンは仕事上のやり取りをきちんと続け、少しずつ信頼を取り戻します。今度はもう一度、交際してみると決めます。エマは正直さが大切で、仕事は分けるべきだと言います。エマは京都で小さな写真展をしたいです。レンは次の土曜日に一緒に京都へ行こうと提案します。"
+    ],
+    "goal": [
+      "I can understand a short message about expectations and a new weekend arrangement.",
+      "互いに望むことと、新しい週末の予定についての短い連絡を聞き取れる。"
+    ],
+    "warmup": "What details show a confirmed plan, not just an idea?",
+    "words": [
+      [
+        "Let's start fresh and talk calmly.",
+        "start fresh",
+        "新たな気持ちで始める"
+      ],
+      [
+        "We should be honest with each other.",
+        "be honest",
+        "正直でいる"
+      ],
+      [
+        "Let's keep work and dating separate.",
+        "separate",
+        "〜を分けて考える"
+      ],
+      [
+        "Please talk openly if you feel worried.",
+        "talk openly",
+        "率直に話す"
+      ],
+      [
+        "I intend to organise a small photo exhibition.",
+        "intend to",
+        "〜するつもりだ"
+      ],
+      [
+        "Let's choose a clear meeting place in Gion.",
+        "meeting place",
+        "待ち合わせ場所"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Tell Ren two expectations for dating. Then suggest one place to visit in Kyoto.",
+      "あなたはエマです。レンに、交際で大切にしたいことを2つ言いましょう。その後、京都で行きたい場所を1つ提案しましょう。"
+    ],
+    "followup": "How can you check you both understood the same time and place?",
+    "tips": [
+      {
+        "rule": [
+          "Listen for “If ...” plus the action that comes after it.",
+          "「If ...」の後に来る行動（すること）まで聞き取りましょう。"
+        ],
+        "examples": [
+          [
+            "If we date, let's be honest.",
+            "交際するなら、正直でいましょう。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Separate a wish from a confirmed plan. A confirmed plan often has a day, time, and place.",
+          "希望と確定した予定を分けましょう。確定した予定には曜日・時間・場所がよく出ます。"
+        ],
+        "examples": [
+          [
+            "I want to organise an exhibition. / We will meet Saturday at two.",
+            "展示会をしたい。／土曜の2時に会います。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Listen to Ren's short message. Find what he agrees to and what he suggests.",
+        "レンの短いメッセージを聞きましょう。同意したことと提案したことを見つけましょう。"
+      ],
+      "dialogue": [],
+      "text": "<p>Emma, I would like us to start fresh too. If we date, let's be honest and keep work decisions in our team meetings. I would enjoy seeing your favourite places in Kyoto next Saturday. Your photo exhibition sounds exciting, but we do not need to plan it all during our date. Shall we choose a meeting place tomorrow?</p>",
+      "questions": [
+        [
+          "What two expectations does Ren agree with?",
+          "Be honest and keep work decisions in team meetings."
+        ],
+        [
+          "When does he suggest visiting Kyoto?",
+          "Next Saturday."
+        ],
+        [
+          "Is planning the whole exhibition the purpose of the date?",
+          "No."
+        ],
+        [
+          "What still needs choosing?",
+          "The meeting place."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "If we (date / dates), let's be honest.",
+        "date"
+      ],
+      [
+        "Let's keep work (separate / separation).",
+        "separate"
+      ],
+      [
+        "We should talk (openly / open).",
+        "openly"
+      ],
+      [
+        "I intend (to organise / organising) an exhibition.",
+        "to organise"
+      ],
+      [
+        "We have (agreed / agree) to meet at two.",
+        "agreed"
+      ],
+      [
+        "Please message me if the plan (changes / change).",
+        "changes"
+      ]
+    ],
+    "choices": [
+      [
+        "\"If we date, let's be honest.\" What is expected?",
+        "Honest communication",
+        "Keeping secrets about plans",
+        "A"
+      ],
+      [
+        "\"I want to organise an exhibition.\" What is this?",
+        "A confirmed schedule",
+        "An intention",
+        "B"
+      ],
+      [
+        "Which detail sounds like a confirmed meeting?",
+        "Saturday at two in Gion",
+        "Maybe someday in Kyoto",
+        "A"
+      ],
+      [
+        "\"Keep work decisions in team meetings.\" What does it mean?",
+        "Decide work during the date",
+        "Decide work with the team later",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor reads Ren's follow-up message, then plays Claire on a short call. Tell Claire the confirmed Kyoto plan and how you and Ren will keep work separate.",
+        "あなたはエマです。講師はレンの追加メッセージを読み、その後短い電話でクレア役になります。確定した京都の予定と、仕事を分ける方法をクレアに伝えましょう。"
+      ],
+      "task": [
+        "Listen for the day, time, meeting point, and what to bring. Explain what will happen if Ren is delayed. Also say this date is not an exhibition planning meeting.",
+        "曜日、時間、待ち合わせ場所、持ち物を聞き取りましょう。レンが遅れる場合の対応も説明しましょう。また、これは展示会の打ち合わせではないと言いましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "text": "<p>Saturday at two is confirmed. Let's meet outside the small cafe with the green awning in Gion. Bring your camera; I would like to see the streets you photograph. If my train is delayed, I will message you before our meeting time. We can leave work decisions for Monday's team meeting.</p>",
+      "title": "",
+      "lines": [
+        "Emma, when are you meeting Ren in Kyoto?",
+        "Where will you meet, and how can you recognise the cafe?",
+        "What will you bring, and why?",
+        "What will Ren do if his train is delayed?",
+        "Is this date for planning the whole exhibition?",
+        "When will you discuss work decisions?"
+      ],
+      "evidence": "Tutor evidence note: Check these listening facts: Saturday at two; outside a small cafe with a green awning in Gion; bring a camera to photograph streets; he will message before the meeting time if delayed; it is a date, not exhibition planning; work decisions are for Monday's team meeting. Grade facts separately from small grammar errors. The cafe description is fictional practice evidence, not a real venue recommendation.",
+      "useful": [
+        "We have agreed to meet ...",
+        "Let's meet outside ...",
+        "I will bring ... because ...",
+        "If he is delayed, he will message me ...",
+        "This is not a work meeting."
+      ]
+    },
+    "topics": [
+      [
+        "Clear Expectations",
+        [
+          "What is important to you when you date someone?",
+          "How can you ask about the other person's expectations?",
+          "What can you say when a plan changes?"
+        ]
+      ],
+      [
+        "Work and Free Time",
+        [
+          "How can you keep work topics for work time?",
+          "What do you like to do on a day off?",
+          "How can you change the topic politely?"
+        ]
+      ],
+      [
+        "Meeting Someone",
+        [
+          "What details make a meeting place clear?",
+          "What should you do if you are late?",
+          "How can you confirm a plan in one sentence?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Start fresh\" means make a new beginning. It does not mean you forget the past. You can start fresh and still explain expectations.",
+      "start fresh は「新たに始める」という意味です。過去を忘れるという意味ではありません。新しく始めても、望むことは伝えられます。"
+    ],
+    "triviaQuestion": [
+      "Does \"start fresh\" mean pretending the past never happened?",
+      "No. It means making a new beginning."
+    ],
+    "closing": "Emma and Ren agree to be honest and keep work separate. They confirm Saturday at two in Gion. Later that day, they unexpectedly cross Leo and Nao on their second date."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

@@ -1,0 +1,279 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 2,
+  "number": 1,
+  "sourceDigest": "8f96af93baf5c1072107abcca92fe0199cccd014e6dbb6f52e4adec85b18d0d4",
+  "episode": {
+    "title": "An Offer from Home",
+    "skill": "speaking",
+    "intro": [
+      "A few weeks after the breakup, Leo thinks about an email from his former manager in Bristol. The manager wants Leo to help open a new bakery. At Kamo House, Claire says to list advantages and disadvantages. Nao says he should choose what he really wants. Leo jokes that she sounds like his mother, and they laugh.",
+      "別れから数週間後、レオはブリストルの元店長からのメールを考えています。新しいパン屋の開店を手伝ってほしいという話です。Kamo Houseで、クレアは利点と欠点を書き出そうと言います。ナオは、本当に望むことを選んでほしいと言います。レオが「母みたいだね」と冗談を言い、二人は笑います。"
+    ],
+    "goal": [
+      "I can compare two options and say what I still need to know.",
+      "2つの選択肢を比べて、まだ知る必要があることを言えます。"
+    ],
+    "warmup": "What would you want to know before accepting a new job?",
+    "words": [
+      [
+        "I got a job offer by email.",
+        "job offer",
+        "メールで仕事のオファーをもらいました。"
+      ],
+      [
+        "This could be a good opportunity for me.",
+        "good opportunity",
+        "これは私にとって良い機会かもしれません。"
+      ],
+      [
+        "One advantage is being near my family.",
+        "One advantage is",
+        "利点の一つは家族の近くにいられることです。"
+      ],
+      [
+        "However, one disadvantage is leaving my friends.",
+        "one disadvantage",
+        "しかし、欠点の一つは友達と離れることです。"
+      ],
+      [
+        "I have not decided yet.",
+        "have not decided yet",
+        "まだ決めていません。"
+      ],
+      [
+        "I need to ask about my responsibilities and the starting date.",
+        "responsibilities",
+        "担当業務／開始日について聞く必要があります。"
+      ]
+    ],
+    "discussion": [
+      "You are Leo. Your tutor is Claire. Say one advantage of Bristol and one reason to stay in Kyoto. Then say what you still need to know.",
+      "あなたはレオ役、講師はクレア役です。ブリストルの利点を1つ、京都に残る理由を1つ言いましょう。最後に、まだ知る必要があることを言いましょう。"
+    ],
+    "followup": "What could you ask your former manager before deciding?",
+    "tips": [
+      {
+        "rule": [
+          "Use could or might + base verb to show a possibility. It is not a decision.",
+          "可能性を表すには could / might ＋ 動詞の原形を使います。決定ではありません。"
+        ],
+        "examples": [
+          [
+            "I could help open the bakery.",
+            "パン屋の開店を手伝えるかもしれません。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Compare with One advantage is ... and However, ... . Use I have not decided yet to keep it open.",
+          "One advantage is ... と However, ... で比べます。まだ決めない時は I have not decided yet を使います。"
+        ],
+        "examples": [
+          [
+            "One advantage is family. However, I would miss my friends.",
+            "利点は家族です。でも友達が恋しくなります。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "At a cafe, Claire asks Leo about the Bristol offer. Practice the conversation.",
+        "カフェでクレアがレオにブリストルのオファーについて聞きます。会話を練習しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Leo"
+      ],
+      "dialogue": [
+        [
+          "Claire",
+          "Your old manager wrote to you. What is the offer?"
+        ],
+        [
+          "Leo",
+          "He wants me to help open a bakery in Bristol."
+        ],
+        [
+          "Claire",
+          "That sounds exciting. Why are you interested?"
+        ],
+        [
+          "Leo",
+          "One advantage is being near my family."
+        ],
+        [
+          "Claire",
+          "What is a reason to stay in Kyoto?"
+        ],
+        [
+          "Leo",
+          "I would miss my friends and the life I built here."
+        ],
+        [
+          "Claire",
+          "What is one disadvantage of Bristol for you?"
+        ],
+        [
+          "Leo",
+          "I might feel lonely at first, away from my friends here."
+        ],
+        [
+          "Claire",
+          "What do you still need to ask the manager?"
+        ],
+        [
+          "Leo",
+          "I have not decided yet. I need to ask about responsibilities and the starting date."
+        ]
+      ],
+      "text": "",
+      "questions": [
+        [
+          "What would Leo help do in Bristol?",
+          "He would help open a new bakery."
+        ],
+        [
+          "What is one advantage of Bristol for Leo?",
+          "He could be near his family."
+        ],
+        [
+          "What would he miss about Kyoto?",
+          "His friends and the life he built there."
+        ],
+        [
+          "What does Leo still need to know?",
+          "His responsibilities and the starting date."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "It could (be / being) a good opportunity.",
+        "be"
+      ],
+      [
+        "I might (stay / stays) in Kyoto.",
+        "stay"
+      ],
+      [
+        "One advantage (is / are) being near my family.",
+        "is"
+      ],
+      [
+        "However, I would miss (my friends / to my friends).",
+        "my friends"
+      ],
+      [
+        "I have not decided (yet / already).",
+        "yet"
+      ],
+      [
+        "I need to ask (about / of) my responsibilities.",
+        "about"
+      ]
+    ],
+    "choices": [
+      [
+        "\"I might return to Bristol.\" What is confirmed?",
+        "Returning is only a possibility.",
+        "Leo has already moved.",
+        "A"
+      ],
+      [
+        "Which question is about the job details?",
+        "What would my responsibilities be?",
+        "Do you like Bristol?",
+        "A"
+      ],
+      [
+        "Which sentence compares both sides?",
+        "One advantage is family. However, I would miss Kyoto.",
+        "Bristol is perfect. No problem.",
+        "A"
+      ],
+      [
+        "What is a good next step before deciding?",
+        "Ask the manager questions and compare options.",
+        "Accept today without details.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Leo at the cafe. Your tutor is Claire. The Bristol job could bring you closer to your family. Kyoto gives you friends and experience at your current bakery. You do not know the full responsibilities or the starting date yet.",
+        "あなたはカフェにいるレオ役、講師はクレア役です。ブリストルの仕事なら家族の近くに住めます。京都には友達がいて、今のパン屋で経験を積めます。詳しい担当業務や開始日は、まだ分かりません。"
+      ],
+      "task": [
+        "Compare the two options, share one concern, and say what you will ask the manager. Do not make a final decision today.",
+        "2つの選択肢を比べ、心配なことを1つ言いましょう。元店長に何を聞くかも言い、今日は最終決定をしないで話しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Leo"
+      ],
+      "text": "",
+      "title": "Leo Thinks About the Offer",
+      "lines": [
+        "What could be one advantage of Bristol for you?",
+        "What do you value about your life in Kyoto?",
+        "What is one concern you have right now?",
+        "What will you ask the manager about the role?",
+        "What will you do next before you decide?"
+      ],
+      "evidence": "Tutor evidence note: The learner compares Bristol (family/job opportunity) with Kyoto (friends/current bakery experience), states at least one concern, asks for responsibilities and starting date, and clearly says they have not decided yet.",
+      "useful": [
+        "One advantage is ...",
+        "However, ...",
+        "I could ...",
+        "I might ...",
+        "I have not decided yet.",
+        "I need to ask about ..."
+      ]
+    },
+    "topics": [
+      [
+        "CHOOSING A JOB",
+        [
+          "What information matters before you accept a job?",
+          "How do you compare two job options?",
+          "Who can you ask for advice?"
+        ]
+      ],
+      [
+        "HOME AND COMMUNITY",
+        [
+          "What makes a place feel like home?",
+          "What could be difficult about moving?",
+          "How can you stay connected with friends?"
+        ]
+      ],
+      [
+        "TAKING TIME TO DECIDE",
+        [
+          "How do you show interest without saying yes?",
+          "What question would you ask first?",
+          "How do you say you need more time?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "In \"weigh your options,\" weigh means compare choices carefully. Another phrase is \"sleep on it,\" which means wait until the next day before deciding.",
+      "weigh your options の weigh は「選択肢をよく比べる」という意味です。sleep on it は「一晩考えてから決める」という意味です。"
+    ],
+    "triviaQuestion": [
+      "If Claire says \"Sleep on it,\" is she asking Leo to decide immediately?",
+      "No. She suggests waiting and thinking before deciding."
+    ],
+    "closing": "Leo asks his former manager for more information and keeps the choice open. Nao invites him on a Saturday photo walk for a break."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

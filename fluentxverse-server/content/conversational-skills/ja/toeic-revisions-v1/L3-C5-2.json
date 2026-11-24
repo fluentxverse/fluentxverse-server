@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 5,
+  "number": 2,
+  "sourceDigest": "97402310f7f87862d4fdffd3de187e68a837cc76d5a60a5391cfacc371b67c0f",
+  "episode": {
+    "title": "Lunch with Ren",
+    "skill": "listening",
+    "goal": [
+      "I can understand someone’s interests and a place recommendation.",
+      "相手の趣味と、おすすめの場所を聞き取れる。"
+    ],
+    "intro": [
+      "Emma has lunch with Ren on Friday. Both like photography, art, and design. Ren makes her laugh. That evening, Emma tells Leo about the team, but she talks a lot about Ren.",
+      "金曜日、エマはレンと昼食をとります。二人とも写真、アート、デザインが好きです。レンの話にエマは笑います。その晩、エマはレオに職場の話をしますが、レンの話が多くなります。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "I studied design.",
+        "studied",
+        "デザインを勉強しました。"
+      ],
+      [
+        "My hobby is photography.",
+        "hobby",
+        "趣味は写真です。"
+      ],
+      [
+        "A friend lent me a camera.",
+        "lent",
+        "友人がカメラを貸してくれました。"
+      ],
+      [
+        "I like old buildings.",
+        "buildings",
+        "古い建物が好きです。"
+      ],
+      [
+        "I enjoy poster exhibitions.",
+        "exhibitions",
+        "ポスターの展示会を楽しみます。"
+      ],
+      [
+        "The gallery closes at six.",
+        "closes",
+        "ギャラリーは6時に閉まります。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use the past form to say what happened.",
+          "過去形で、起きたことを伝えます。"
+        ],
+        "examples": [
+          [
+            "I worked yesterday.",
+            "昨日働きました。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use did not + verb to say what did not happen.",
+          "did not ＋動詞で、しなかったことを伝えます。"
+        ],
+        "examples": [
+          [
+            "I did not call.",
+            "電話しませんでした。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Listen to Ren talking over lunch. Find his interests and how one of them began.",
+        "昼食中のレンの話を聞きましょう。興味があることと、そのきっかけを聞き取りましょう。"
+      ],
+      "text": "<p>I studied design at university. A friend lent me a camera. I started taking photos of old buildings. I still enjoy that. I also like small art galleries and poster exhibitions. You take photos too, Emma? What do you like photographing?</p>",
+      "questions": [
+        [
+          "What did Ren study?",
+          "Design."
+        ],
+        [
+          "Who lent him a camera?",
+          "A friend."
+        ],
+        [
+          "What does he photograph?",
+          "Old buildings."
+        ],
+        [
+          "What exhibitions does he like?",
+          "Poster exhibitions."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I (worked / work) yesterday.",
+        "worked"
+      ],
+      [
+        "I did not (call / called).",
+        "call"
+      ],
+      [
+        "Did you (ask / asked) her?",
+        "ask"
+      ],
+      [
+        "We (were / was) busy yesterday.",
+        "were"
+      ],
+      [
+        "She (was / were) at work.",
+        "was"
+      ],
+      [
+        "I (sent / send) the message yesterday.",
+        "sent"
+      ]
+    ],
+    "choices": [
+      [
+        "What did Ren study?",
+        "Design.",
+        "Baking.",
+        "A"
+      ],
+      [
+        "Who lent him a camera?",
+        "His manager.",
+        "A friend.",
+        "B"
+      ],
+      [
+        "What does he photograph?",
+        "Old buildings.",
+        "Only food.",
+        "A"
+      ],
+      [
+        "What exhibitions does he like?",
+        "Car exhibitions.",
+        "Poster exhibitions.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor reads Ren's short voice message, then plays Leo during an evening call. Tell Leo what you learned about Ren, then return his question about your own week.",
+        "あなたはエマ役です。講師はレンの短い音声メッセージを読んでから、夜の電話でレオ役になります。レンについて分かったことを伝え、自分の一週間についての質問にも答えましょう。"
+      ],
+      "task": [
+        "Listen for the place, location, and reason. Tell Leo. Say what you think of Ren.",
+        "場所、位置、理由を聞き取り、レオに伝えましょう。レンについての印象も話しましょう。"
+      ],
+      "roles": [
+        "Leo",
+        "Emma"
+      ],
+      "text": "<p>The place I mentioned is Paper Room, a small gallery beside our office. It is not a restaurant. There is a poster exhibition this month. I like the simple colors. It closes at six. Lunchtime is good for a visit. Ask me about it on Monday.</p>",
+      "lines": [
+        "How was lunch?",
+        "What place did Ren recommend? Where is it?",
+        "Why does he like it?",
+        "When is a good time to visit? Why?",
+        "What do you think of Ren?",
+        "How is your first week?"
+      ],
+      "evidence": "Paper Room is a gallery beside office, poster exhibition, simple colors, closes six so lunchtime. Describe Ren with a supported impression, not an invented invitation or confirmed romantic interest. Ask for replay if needed.",
+      "useful": [
+        "He likes ...",
+        "The place is called ...",
+        "It is beside ...",
+        "It closes at ...",
+        "I think he is ..."
+      ]
+    },
+    "topics": [
+      [
+        "KEEPING IN TOUCH",
+        [
+          "Do you call or send messages?",
+          "When do you call a friend?",
+          "What do you say when you are busy?"
+        ]
+      ],
+      [
+        "CHANGING PLANS",
+        [
+          "What do you say when you are late?",
+          "Who needs to know about a change?",
+          "How do you choose a new time?"
+        ]
+      ],
+      [
+        "LISTENING",
+        [
+          "What helps you listen?",
+          "How do you ask someone to repeat?",
+          "How do you show you understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Photography” is taking pictures. A “photograph” is one picture. You can shorten “photograph” to “photo.”",
+      "photography は写真撮影、a photograph は一枚の写真です。photograph は photo と短く言えます。"
+    ],
+    "triviaQuestion": [
+      "Can you call a photograph a photo?",
+      "Yes."
+    ],
+    "closing": "Emma and Ren find more to talk about. A new project soon keeps them at the office later than expected."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

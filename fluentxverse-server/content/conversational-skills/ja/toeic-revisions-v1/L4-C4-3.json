@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 4,
+  "number": 3,
+  "sourceDigest": "9bebe3e081a31543a4601aca2e4667774d4b0b3f0a1286354759414f5613991e",
+  "episode": {
+    "title": "Money Matters",
+    "skill": "reading",
+    "intro": [
+      "Extra tables, decorations, and advertising cost more than Claire expected. Emma suggests online promotion instead of hundreds of printed posters. Nao proposes a vendor fee, but it is not agreed yet. Ren suggests advance pastry orders to estimate demand. They need a budget based on confirmed money, not hoped-for sales.",
+      "追加のテーブル、飾り付け、宣伝の費用は、クレアの予想以上でした。エマは大量の印刷ポスターの代わりにオンライン宣伝を提案します。ナオは出店料を提案しますが、まだ決まっていません。レンはお菓子の事前注文で需要を見積もる案を出します。必要なのは、期待する売上ではなく、確定した資金に基づく予算です。"
+    ],
+    "goal": [
+      "I can compare a simple event budget, calculate a balance, and discuss a lower-cost alternative.",
+      "簡単なイベント予算を比べ、残額を計算し、費用を抑える案を相談できる。"
+    ],
+    "warmup": "Why should a plan separate confirmed money from possible sales later?",
+    "words": [
+      [
+        "Our budget is forty thousand yen.",
+        "budget",
+        "予算は4万円です。"
+      ],
+      [
+        "The total exceeds the budget.",
+        "exceeds",
+        "合計が予算を超えています。"
+      ],
+      [
+        "We could reduce advertising costs.",
+        "reduce",
+        "宣伝費を減らせそうです。"
+      ],
+      [
+        "Let's use online promotion instead of printed posters.",
+        "instead of",
+        "印刷ポスターの代わりにオンライン宣伝を使いましょう。"
+      ],
+      [
+        "We need to keep a reserve.",
+        "reserve",
+        "予備費を残す必要があります。"
+      ],
+      [
+        "Advance orders can help estimate demand.",
+        "estimate demand",
+        "事前注文で需要を見積もれます。"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is Claire. Suggest one lower-cost option. Also say what you will keep in the budget.",
+      "あなたはエマ役、講師はクレア役です。費用を抑える案を一つ提案し、予算に残したいものも言いましょう。"
+    ],
+    "followup": "How would you explain that a proposed fee is not confirmed money yet?",
+    "tips": [
+      {
+        "rule": [
+          "Read the fund, each cost, and the total separately. Subtract confirmed costs from the fund.",
+          "使える資金、各費用、合計を分けて読みましょう。確定した費用を資金から引きましょう。"
+        ],
+        "examples": [
+          [
+            "The fund is ¥40,000. Costs of ¥46,000 mean a ¥6,000 shortfall.",
+            "資金は4万円です。費用が4万6千円なら、6千円不足します。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use instead of to suggest a substitution. Keep proposed fees and unpaid orders separate.",
+          "instead of で代案を出します。提案中の料金や未払いの注文は分けましょう。"
+        ],
+        "examples": [
+          [
+            "We can use online promotion instead of printed posters.",
+            "印刷ポスターの代わりにオンライン宣伝を使えます。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read Claire’s two budget options. Compare totals and the balance.",
+        "クレアの二つの予算案を読みましょう。合計と残額を比べましょう。"
+      ],
+      "dialogue": [],
+      "text": "<p><strong>Confirmed event fund: ¥40,000</strong></p><p><strong>Original plan</strong><br>Extra tables: ¥18,000<br>Decorations: ¥8,000<br>Printed advertising: ¥20,000<br>Total: ¥46,000. Shortfall: ¥6,000.</p><p><strong>Lower-cost option</strong><br>Keep the same tables and decorations. Replace printed advertising with online promotion costing ¥8,000.<br>New total: ¥34,000. Reserve: ¥6,000.</p><p>A vendor fee is only a proposal. No fee has been collected. Advance pastry orders may help estimate demand; do not count unpaid orders as money already available.</p>",
+      "questions": [
+        [
+          "How much confirmed money is available?",
+          "¥40,000."
+        ],
+        [
+          "How far over budget is the original plan?",
+          "¥6,000."
+        ],
+        [
+          "What changes in the lower-cost option?",
+          "Printed advertising is replaced by online promotion costing ¥8,000."
+        ],
+        [
+          "What remains after the lower-cost plan?",
+          "¥6,000 in reserve."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "The total (exceeds / exceed) our budget.",
+        "exceeds"
+      ],
+      [
+        "We could (reduce / reduced) advertising costs.",
+        "reduce"
+      ],
+      [
+        "Use online promotion instead (of / from) printed posters.",
+        "of"
+      ],
+      [
+        "We need (to keep / keep) a reserve.",
+        "to keep"
+      ],
+      [
+        "The fee has not been agreed (yet / ago).",
+        "yet"
+      ],
+      [
+        "Advance orders help us (estimate / estimated) demand.",
+        "estimate"
+      ]
+    ],
+    "choices": [
+      [
+        "You have ¥40,000 and costs of ¥46,000. What is the shortfall?",
+        "¥6,000",
+        "¥86,000",
+        "A"
+      ],
+      [
+        "The revised costs are ¥34,000. What remains from ¥40,000?",
+        "¥4,000",
+        "¥6,000",
+        "B"
+      ],
+      [
+        "Which income can be counted as already available?",
+        "The confirmed event fund",
+        "An unapproved vendor fee",
+        "A"
+      ],
+      [
+        "What do unpaid advance orders mainly help with here?",
+        "Guaranteeing profit before any costs",
+        "Estimating likely demand",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Claire. Read the revised quote and budget. Help choose a plan without using the reserve twice.",
+        "あなたはエマ役、講師はクレア役です。修正見積もりと予算を読み、予備費を重複して使わないように相談しましょう。"
+      ],
+      "task": [
+        "Confirm the new total, the remaining reserve, and what the table quote includes. Explain why proposed fees and unpaid orders cannot be added to confirmed money yet.",
+        "新しい合計、予備費の残額、テーブル見積もりに含まれるものを確認しましょう。提案中の出店料や未払いの注文を、まだ確定資金に加えられない理由も説明しましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "text": "<p><strong>Confirmed fund:</strong> ¥40,000. No extra income has been received.</p><p><strong>New costs</strong><br>Table rental, including delivery: ¥16,000<br>Reusable decorations: ¥6,000<br>Online promotion: ¥8,000<br>Weather covers for stock: ¥5,000<br>Total: ¥35,000. Reserve: ¥5,000.</p><p><strong>Still proposals:</strong> Vendor fees need agreement. Thirty pastry portions have been requested, but no payment has arrived. Those requests help Leo plan quantities, not increase today's cash.</p><p>Delivery is already included in the table quote. Do not add a second delivery charge or treat the reserve as extra income.</p>",
+      "title": "Revised Quote - Money We Can Actually Use",
+      "lines": [
+        "Emma, what is the new total, including the weather covers?",
+        "How much of our confirmed fund remains after these costs?",
+        "Do we need to add a separate delivery charge for the tables?",
+        "Can we count the proposed vendor fees as money we have now?",
+        "What can the unpaid pastry requests tell Leo?",
+        "Please summarise the plan and the amount we should keep unspent."
+      ],
+      "evidence": "Tutor evidence note: Total is ¥35,000 (16,000 + 6,000 + 8,000 + 5,000). Reserve is ¥5,000 from ¥40,000. Table quote includes delivery, so do not add another delivery charge. Vendor fees are not agreed and not received. 30 pastry requests are unpaid, so they only help estimate demand, not increase confirmed cash. Do not treat the reserve as extra income or spend it twice.",
+      "useful": [
+        "The revised total is ...",
+        "That leaves ... in reserve.",
+        "Delivery is already included.",
+        "We have not received ... yet.",
+        "The requests help estimate ..."
+      ]
+    },
+    "topics": [
+      [
+        "Comparing Costs",
+        [
+          "What numbers do you check first in a quote?",
+          "How can you see if delivery is included?",
+          "Which cheaper option would you suggest?"
+        ]
+      ],
+      [
+        "Keeping a Reserve",
+        [
+          "Why does an event need a reserve?",
+          "What problem happens if you spend all money?",
+          "How do you explain the remaining balance?"
+        ]
+      ],
+      [
+        "Demand and Income",
+        [
+          "What can advance interest tell a seller?",
+          "How is a request different from a payment?",
+          "What would you confirm before counting new income?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "Revenue and profit are different. Revenue is money from sales. Profit is what remains after costs.",
+      "revenue（売上）とprofit（利益）は違います。売上は販売で入るお金で、利益は費用を引いた後に残るお金です。"
+    ],
+    "triviaQuestion": [
+      "Is all sales revenue automatically profit?",
+      "No. You must subtract relevant costs."
+    ],
+    "closing": "They choose a realistic budget and keep a reserve. They plan a Saturday visit to Uji for tea and crafts."
+  },
+  "review": {
+    "approved": true,
+    "issues": []
+  }
+}

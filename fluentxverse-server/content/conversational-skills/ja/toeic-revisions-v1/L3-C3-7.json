@@ -1,0 +1,276 @@
+{
+  "version": "toeic-v1",
+  "level": 3,
+  "chapter": 3,
+  "number": 7,
+  "sourceDigest": "9f623dfe7d0c2dfa3a5de762926f24fcfcb365ff2366e25b2f4ada87a339760e",
+  "episode": {
+    "title": "Nao's Big Opportunity",
+    "skill": "speaking",
+    "goal": [
+      "I can congratulate a friend and offer useful help.",
+      "友人を祝福し、役立つ手伝いを申し出られる。"
+    ],
+    "intro": [
+      "A gallery chooses Nao’s cups for an exhibition. She is happy but nervous about talking to visitors. Emma offers to help with labels and practice. Claire and Leo also find ways to help.",
+      "ギャラリーが展示会にナオのカップを選びます。ナオはうれしいものの、来場者と話すことに緊張しています。エマは説明カードと練習を手伝います。クレアとレオも協力できることを見つけます。"
+    ],
+    "warmup": "What can you say in this situation?",
+    "words": [
+      [
+        "Congratulations!",
+        "Congratulations",
+        "おめでとうございます。"
+      ],
+      [
+        "I feel nervous.",
+        "nervous",
+        "緊張しています。"
+      ],
+      [
+        "What worries you?",
+        "worries",
+        "何が心配ですか。"
+      ],
+      [
+        "Let’s practise.",
+        "practise",
+        "練習しましょう。"
+      ],
+      [
+        "I can make the labels.",
+        "labels",
+        "説明カードを作れます。"
+      ],
+      [
+        "We can meet on Thursday.",
+        "Thursday",
+        "木曜日に会えます。"
+      ]
+    ],
+    "discussion": [
+      "II. Use two of the new expressions to talk about this situation.",
+      "この場面について、新しい表現を二つ使って話しましょう。"
+    ],
+    "followup": "What question can you ask next?",
+    "tips": [
+      {
+        "rule": [
+          "Use can + verb to offer help.",
+          "can ＋動詞で、手伝えることを伝えます。"
+        ],
+        "examples": [
+          [
+            "I can help you.",
+            "お手伝いできます。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use Let’s + verb to suggest an action.",
+          "Let’s ＋動詞で行動を提案します。"
+        ],
+        "examples": [
+          [
+            "Let’s check the time.",
+            "時刻を確認しましょう。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Nao shares her gallery news with Emma. Read their conversation.",
+        "ナオがエマにギャラリーからの知らせを伝えます。会話を読みましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Nao",
+          "The gallery chose my cups!"
+        ],
+        [
+          "Emma",
+          "Congratulations!"
+        ],
+        [
+          "Nao",
+          "I am nervous about talking to visitors."
+        ],
+        [
+          "Emma",
+          "What worries you?"
+        ],
+        [
+          "Nao",
+          "Explaining the blue glaze."
+        ],
+        [
+          "Emma",
+          "We can practise. I can make labels too."
+        ],
+        [
+          "Nao",
+          "Do you have time?"
+        ],
+        [
+          "Emma",
+          "I finish work on Wednesday. Thursday evening is okay."
+        ],
+        [
+          "Nao",
+          "Thank you. I feel better."
+        ],
+        [
+          "Emma",
+          "Let’s do it together."
+        ]
+      ],
+      "questions": [
+        [
+          "What did the gallery choose?",
+          "Nao’s cups."
+        ],
+        [
+          "What worries Nao?",
+          "Explaining the blue glaze to visitors."
+        ],
+        [
+          "What does Emma offer?",
+          "Practice and labels."
+        ],
+        [
+          "When can they practise?",
+          "Thursday evening."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I can (help / helps) you.",
+        "help"
+      ],
+      [
+        "Let’s (check / checked) the time.",
+        "check"
+      ],
+      [
+        "Can you (come / comes) too?",
+        "come"
+      ],
+      [
+        "We can (meet / meets) here.",
+        "meet"
+      ],
+      [
+        "Let’s (ask / asked) first.",
+        "ask"
+      ],
+      [
+        "I can (bring / brings) it.",
+        "bring"
+      ]
+    ],
+    "choices": [
+      [
+        "What did the gallery choose?",
+        "Nao’s cups.",
+        "Leo’s bread.",
+        "A"
+      ],
+      [
+        "What worries Nao?",
+        "Buying a train ticket.",
+        "Explaining the blue glaze to visitors.",
+        "B"
+      ],
+      [
+        "What does Emma offer?",
+        "Practice and labels.",
+        "A new job in Osaka.",
+        "A"
+      ],
+      [
+        "When can they practise?",
+        "Wednesday morning.",
+        "Thursday evening.",
+        "B"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Nao. The gallery exhibition opens on Saturday. Nao needs labels for six pieces and practice answering visitor questions. You are free on Thursday after 6 p.m.; Claire can check the labels on Friday.",
+        "あなたはエマ役、講師はナオ役です。ギャラリーの展示会は土曜日に始まります。ナオには六作品の説明カードと、来場者の質問に答える練習が必要です。あなたは木曜日の午後6時以降に空いていて、クレアは金曜日にカードを確認できます。"
+      ],
+      "task": [
+        "Congratulate Nao. Ask about her worry. Offer help with six labels and practice. Check the time.",
+        "ナオを祝福しましょう。心配なことを尋ね、六作品のカードと練習を手伝い、時刻を確認しましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Emma"
+      ],
+      "lines": [
+        "Emma, I am happy but nervous.",
+        "Can you help me explain the cups?",
+        "Can you help with six labels?",
+        "Are you free on Thursday after six?",
+        "Who can check the labels on Friday?",
+        "What shall we do first?"
+      ],
+      "evidence": "Acknowledge the achievement, identify a specific worry, encourage with a practical action, agree on Thursday after6 and Claire Friday, and plan six labels. Keep support concrete rather than only saying do not worry.",
+      "useful": [
+        "Congratulations!",
+        "What worries you?",
+        "I can help with ...",
+        "Let’s practise ...",
+        "I am free after ..."
+      ]
+    },
+    "topics": [
+      [
+        "DAILY LIFE",
+        [
+          "What time do you start work or study?",
+          "When do you have dinner?",
+          "What do you do on Sundays?"
+        ]
+      ],
+      [
+        "HELPING",
+        [
+          "Who helps you?",
+          "How can you help a friend?",
+          "How do you say thank you?"
+        ]
+      ],
+      [
+        "TALKING TO FRIENDS",
+        [
+          "What do you talk about?",
+          "How do you invite a friend?",
+          "What can you say when you do not understand?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Fingers crossed” means you hope for good luck. A friend may say it before your exhibition or interview.",
+      "Fingers crossed は、幸運を願う表現です。展示会や面接の前に友人が言うこともあります。"
+    ],
+    "triviaQuestion": [
+      "Does “fingers crossed” wish you good luck?",
+      "Yes."
+    ],
+    "closing": "Emma helps Nao rehearse and finishes the labels. While they prepare, Leo notices that Emma is still avoiding him and decides to ask her directly."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

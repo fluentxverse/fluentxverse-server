@@ -1,0 +1,277 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 5,
+  "number": 9,
+  "sourceDigest": "c5857c8030d4e0c710cebb5b6ebb83ccc88154c7833dfb79700c0a7611b4522e",
+  "episode": {
+    "title": "Where We Belong",
+    "skill": "speaking",
+    "intro": [
+      "Three months later, Emma and Ren finish the Seoul assignment and return to Japan. Riverbend Bakery is ready for its official opening. Emma and Ren surprise Leo at the celebration. Nao shows her ceramic cups, and Claire brings flowers. Later, the five friends take a photo by the river with Emma’s tripod. Back at Kamo House, a new resident waits with a suitcase.",
+      "3か月後、エマとレンはソウルでの勤務を終えて日本に戻ります。Riverbend Bakeryは正式な開店を迎えます。エマとレンはお祝いに現れてレオを驚かせます。ナオは陶器のカップを並べ、クレアは花を持ってきます。その後、5人は川でエマの三脚を使って写真を撮ります。Kamo Houseに戻ると、スーツケースを持った新しい住人が待っています。"
+    ],
+    "goal": [
+      "I can celebrate, thank a friend, and welcome a new resident.",
+      "お祝いと友人への感謝を伝え、新しい住人を迎えられる。"
+    ],
+    "warmup": "How can a celebration also help a newcomer feel included?",
+    "words": [
+      [
+        "Congratulations on opening the bakery!",
+        "Congratulations on",
+        "（店の開店などを）おめでとうございます"
+      ],
+      [
+        "Your help made it easier. Thank you.",
+        "Your help",
+        "あなたの助けで楽になりました。ありがとう。"
+      ],
+      [
+        "We have completed the assignment.",
+        "completed",
+        "（仕事・任務を）終えた"
+      ],
+      [
+        "I never imagined this on my first day.",
+        "never imagined",
+        "想像もしなかった"
+      ],
+      [
+        "Let’s set the camera timer.",
+        "camera timer",
+        "カメラのタイマー"
+      ],
+      [
+        "Would you like to join us?",
+        "join us",
+        "私たちと一緒に参加する"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is Claire. Celebrate Leo’s opening, share one change, and thank someone who helped.",
+      "あなたはエマ役、講師はクレア役です。レオの開店を祝い、変わったことを1つ話し、助けてくれた人に感謝しましょう。"
+    ],
+    "followup": "What could you say to someone arriving at Kamo House for the first time?",
+    "tips": [
+      {
+        "rule": [
+          "Use “Congratulations on + noun / -ing” to celebrate. When you say thank you, name the help.",
+          "「Congratulations on + 名詞 / 動詞-ing」でお祝いできます。感謝するときは、どんな助けかを言いましょう。"
+        ],
+        "examples": [
+          [
+            "Congratulations on opening Riverbend Bakery!",
+            "Riverbend Bakeryの開店、おめでとうございます。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use Thank you for + -ing to name the help you received.",
+          "Thank you for ＋動詞-ing で、何をしてもらったか伝えて感謝します。"
+        ],
+        "examples": [
+          [
+            "Thank you for welcoming me to Kamo House.",
+            "Kamo Houseで温かく迎えてくれてありがとう。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "At Riverbend Bakery’s opening, Claire welcomes Emma back. Read their conversation.",
+        "Riverbend Bakeryの開店祝いで、クレアがエマの帰国を歓迎します。会話を読みましょう。"
+      ],
+      "roles": [
+        "Claire",
+        "Emma"
+      ],
+      "dialogue": [
+        [
+          "Claire",
+          "Emma! I thought you and Ren were still in Seoul."
+        ],
+        [
+          "Emma",
+          "We completed the assignment yesterday. We came for Leo’s opening."
+        ],
+        [
+          "Claire",
+          "He could not believe it when you walked in."
+        ],
+        [
+          "Emma",
+          "Me too. I remember when the bakery was only his dream."
+        ],
+        [
+          "Claire",
+          "Nao is showing her ceramic cups. Another exhibition is coming."
+        ],
+        [
+          "Emma",
+          "That is great. Everyone has grown."
+        ],
+        [
+          "Claire",
+          "We are finalising the trial details for the joint workshop."
+        ],
+        [
+          "Emma",
+          "You helped me settle at Kamo House. Thank you for your welcome."
+        ],
+        [
+          "Claire",
+          "Let’s celebrate with a group photo by the river."
+        ],
+        [
+          "Emma",
+          "Good idea. This time I brought a tripod!"
+        ]
+      ],
+      "questions": [
+        [
+          "Why are Emma and Ren back?",
+          "They completed the three-month assignment and returned for the opening."
+        ],
+        [
+          "What is ready now?",
+          "Riverbend Bakery has its official opening."
+        ],
+        [
+          "What does Nao display?",
+          "Her ceramic cups."
+        ],
+        [
+          "What does Emma thank Claire for?",
+          "Welcoming her and helping her settle in."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Congratulations on (opening / open) the bakery.",
+        "opening"
+      ],
+      [
+        "We have (completed / complete) the assignment.",
+        "completed"
+      ],
+      [
+        "Your help (made / make) it easier.",
+        "made"
+      ],
+      [
+        "Thank you for (welcoming / welcome) me.",
+        "welcoming"
+      ],
+      [
+        "Would you like (to join / joining) us?",
+        "to join"
+      ],
+      [
+        "I never (imagined / imagining) this on my first day.",
+        "imagined"
+      ]
+    ],
+    "choices": [
+      [
+        "Which milestone is happening now?",
+        "Riverbend Bakery’s official opening.",
+        "The first Seoul shortlist announcement.",
+        "A"
+      ],
+      [
+        "What does “Your help made it easier. Thank you.” express?",
+        "A demand for payment.",
+        "Gratitude for support.",
+        "B"
+      ],
+      [
+        "A new resident is waiting outside. Which response is welcoming?",
+        "Welcome. Would you like to come inside?",
+        "You should already know everyone.",
+        "A"
+      ],
+      [
+        "What helps the group photo include everyone?",
+        "A tripod and the camera timer.",
+        "Only quick selfies.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma, back from the completed three-month Seoul assignment. Your tutor is Claire. After Leo’s bakery opening and the river photo, you return to Kamo House. A new resident is outside with a suitcase and asks if this is the right address.",
+        "あなたは3か月のソウル勤務を終えて戻ったエマ役です。講師はクレア役です。レオの開店祝いと川での写真の後、Kamo Houseに戻ると、スーツケースを持つ新しい住人が「ここで合っていますか」と聞きます。"
+      ],
+      "task": [
+        "Celebrate the opening, share one achievement, and thank Claire for one specific memory. Then greet the new resident, introduce yourself, and invite them inside.",
+        "開店を祝い、成果を1つ言い、具体的な思い出でクレアに感謝します。その後、新しい住人にあいさつし、自己紹介して中へ誘いましょう。"
+      ],
+      "roles": [
+        "Claire, then the new resident",
+        "Emma"
+      ],
+      "title": "Welcome Back and Welcome In",
+      "lines": [
+        "How did it feel to see Riverbend Bakery’s official opening today?",
+        "What achievement can you share from the three-month Seoul assignment?",
+        "What is one specific memory you want to thank me for?",
+        "We are finalising the joint workshop trial details, and our programme will stay independent. What do you think?",
+        "I see a new resident outside with a suitcase. What will you say to welcome them?",
+        "Please introduce yourself and invite the new resident inside."
+      ],
+      "evidence": "Tutor evidence note: Student keeps the plot facts (three-month Seoul assignment completed; official opening now; Nao’s ceramic cups and another exhibition coming; joint workshop is a trial and the programme stays independent). Student uses a clear congratulations line, one specific thank-you memory, and a welcoming invitation to the new resident.",
+      "useful": [
+        "Congratulations on ...",
+        "We have completed ...",
+        "Thank you for helping me ...",
+        "I never imagined ...",
+        "Would you like to ...?"
+      ]
+    },
+    "topics": [
+      [
+        "Celebrating Milestones",
+        [
+          "How can you say congratulations at work or in daily life?",
+          "What specific help could you thank someone for?",
+          "How can you include everyone in a celebration?"
+        ]
+      ],
+      [
+        "Finding a Home",
+        [
+          "What makes a new place feel safe?",
+          "How can friends stay close across cities?",
+          "What small routine helps a shared house feel friendly?"
+        ]
+      ],
+      [
+        "Welcoming Someone",
+        [
+          "What can you say to a nervous newcomer?",
+          "How can you introduce two people politely?",
+          "What invitation is easy to accept?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "“Make yourself at home” means “Please feel comfortable as a guest.” It does not mean “Move in.” At Kamo House, it sounds funny because the guest can become a resident.",
+      "「Make yourself at home」は「くつろいでください」という意味で、「引っ越してきて」という意味ではありません。Kamo Houseでは、客が住人になるので少し面白く聞こえます。"
+    ],
+    "triviaQuestion": [
+      "If Claire says “Make yourself at home” to a dinner guest, is she offering a rental contract?",
+      "No. She is inviting them to feel comfortable."
+    ],
+    "closing": "Emma and Ren finish the three-month Seoul assignment and return to Japan for Riverbend Bakery’s official opening. The friends take a river photo, then they welcome a new resident at Kamo House."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 3,
+  "number": 8,
+  "sourceDigest": "0cdb1a760625051d8673ec1d5784b74ba81bcd042e33e868a96d2d641c199566",
+  "episode": {
+    "title": "Old Friends, New Beginnings",
+    "skill": "reading",
+    "intro": [
+      "On Friday, Nao helps Emma set up photos while Ren carries frames. Emma says she was surprised in Gion, but she is happy for Nao and Leo. Nao feared Emma was upset. They talk, apologize, and choose to stay friends. Leo and Ren laugh while fixing a crooked photo.",
+      "金曜日、レンが額を運ぶ間、ナオはエマの写真の設営を手伝います。エマは祇園で驚いたけれど、ナオとレオのことをうれしく思うと言います。ナオはエマが怒っていると心配していました。二人は話して謝り、友達でいることを選びます。レオとレンは曲がった写真を直しながら笑います。"
+    ],
+    "goal": [
+      "I can read a work message and check facts before guessing.",
+      "仕事の連絡を読み、推測する前に事実を確認できる。"
+    ],
+    "warmup": "How can a short explanation change a misunderstanding?",
+    "words": [
+      [
+        "I was worried you were upset with me.",
+        "worried",
+        "心配していました（あなたが私に怒っているのではと）。"
+      ],
+      [
+        "Emma said she was surprised, but not angry.",
+        "surprised",
+        "驚いた（怒ったのではない）。"
+      ],
+      [
+        "I am happy for you and Leo.",
+        "happy for",
+        "（相手の良いことを）うれしく思う。"
+      ],
+      [
+        "I cannot change the past.",
+        "change the past",
+        "過去を変える。"
+      ],
+      [
+        "I am sorry I did not explain sooner.",
+        "explain sooner",
+        "もっと早く説明する。"
+      ],
+      [
+        "I value our friendship.",
+        "value",
+        "大切にする。"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is Nao. Explain why you looked surprised, say sorry, and say you value the friendship.",
+      "あなたはエマ役です。講師はナオ役です。驚いた理由を説明し、謝って、友情を大切にしていると伝えましょう。"
+    ],
+    "followup": "After a sincere talk, what shared action can you do next?",
+    "tips": [
+      {
+        "rule": [
+          "I was worried that ... is a concern. It is not proof. Check the other person’s real reason.",
+          "I was worried that ... は心配です。証拠ではありません。相手の本当の理由を確認しましょう。"
+        ],
+        "examples": [
+          [
+            "Nao was worried that Emma was upset.",
+            "ナオはエマが怒っているのではと心配していました。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Use I am sorry + sentence to name your action. Use I value ... to show appreciation. Then confirm the next step.",
+          "I am sorry + 文 で自分の行動を具体的に謝れます。I value ... で大切に思うことを伝えます。そのあと次の行動を確認しましょう。"
+        ],
+        "examples": [
+          [
+            "I am sorry I did not explain sooner. I value our friendship.",
+            "もっと早く説明しなくてごめんなさい。私たちの友情を大切にしています。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read the Friday setup scene. Find Nao’s worry and Emma’s real message.",
+        "金曜日の設営の場面を読みましょう。ナオの心配と、エマの本当の気持ちを見つけましょう。"
+      ],
+      "text": "<p>While Leo and Ren carried the last frame, Emma spoke quietly to Nao.</p><p>\"I was surprised in Gion,\" Emma said, \"but I am happy for you and Leo. I made mistakes before, and I cannot change them. I do not want them to keep hurting our friendship.\"</p><p>\"I was worried you were upset with me,\" Nao replied.</p><p>\"I am sorry I did not explain sooner. I value our friendship,\" Emma said.</p><p>\"You are still my friend,\" Nao answered. They returned to the display. Across the room, Ren asked if the large photograph was straight. \"Not even close,\" Leo said, and both men laughed.</p>",
+      "questions": [
+        [
+          "What had Nao worried about?",
+          "She worried Emma was upset with her."
+        ],
+        [
+          "What does Emma say about Nao and Leo?",
+          "She says she is happy for them."
+        ],
+        [
+          "Can Emma change the past?",
+          "No, she says she cannot change it."
+        ],
+        [
+          "What do they do after talking?",
+          "They return to preparing the display."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "I was worried (that / to) you were upset.",
+        "that"
+      ],
+      [
+        "I am happy (for / of) you and Leo.",
+        "for"
+      ],
+      [
+        "I cannot (change / changed) the past.",
+        "change"
+      ],
+      [
+        "I am sorry I did not (explain / explained) sooner.",
+        "explain"
+      ],
+      [
+        "I (value / valuable) our friendship.",
+        "value"
+      ],
+      [
+        "Let’s finish the display (together / togetherness).",
+        "together"
+      ]
+    ],
+    "choices": [
+      [
+        "Nao feared Emma was upset. Is that the same as a fact?",
+        "Yes, a worry is always a fact.",
+        "No, it is only a concern until Emma explains.",
+        "B"
+      ],
+      [
+        "Which sentence is a clear apology for an action?",
+        "I am sorry I did not explain sooner.",
+        "I do not care about this.",
+        "A"
+      ],
+      [
+        "What do Emma and Nao choose to continue?",
+        "Their friendship and the setup work",
+        "A fight about the past every day",
+        "A"
+      ],
+      [
+        "How do Leo and Ren react to the crooked photograph?",
+        "They laugh while working on it.",
+        "They stop the whole market.",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is Nao. Later on Friday, read Nao’s note and the setup update. Clear the misunderstanding and confirm the next tasks.",
+        "あなたはエマです。講師はナオです。金曜日のあとで、ナオのメモと設営の更新を読みます。誤解を解いて、次の作業を確認しましょう。"
+      ],
+      "task": [
+        "Explain your wrong assumption, apologize, and thank Nao. Confirm the caption fix, today’s finish time, and Saturday’s talk time and place.",
+        "自分の決め付けを説明して謝り、ナオに感謝しましょう。キャプション修正、今日の終了時刻、土曜トークの時間と場所を確認しましょう。"
+      ],
+      "roles": [
+        "Nao",
+        "Emma"
+      ],
+      "text": "<p><strong>Nao to Emma</strong><br>When I was quiet earlier, I was checking the photo order, not avoiding you. I am glad we talked. I would like us to keep making things together.</p><p><strong>Emma's draft reply</strong><br>I thought you were uncomfortable around me. I am sorry I guessed instead of asking. Thank you for helping with my exhibition.</p><p><strong>Claire's update</strong><br>The last caption says Bristol, but the photograph shows Kyoto. Emma will correct it; Nao will check the photo order. Finish the display by four today. Emma's short photo talk is confirmed for Saturday at 11:30 a.m., by the front window. The market runs from ten to one.</p>",
+      "title": "Friday Setup - Final Messages",
+      "lines": [
+        "Emma, why was I quiet earlier, according to my note?",
+        "What did you assume about me, and what do you want to say now?",
+        "What will you correct in the last caption?",
+        "What will I check, and what time do we finish today?",
+        "When and where is your photo talk on Saturday?"
+      ],
+      "evidence": "Tutor evidence note: Correct answers must match the texts. Nao was quiet because she was checking photo order, not avoiding Emma. Emma assumed Nao felt uncomfortable and apologizes for guessing instead of asking, and thanks Nao for help. Claire says the last caption is wrong: it says Bristol but the photo shows Kyoto; Emma corrects it and Nao checks order. Finish by 4 today. Talk is Saturday 11:30 a.m. by the front window. Market runs 10 to 1.",
+      "useful": [
+        "Your note says ...",
+        "I thought ..., but ...",
+        "I am sorry I assumed ...",
+        "Thank you for ...",
+        "The talk is confirmed for ..."
+      ]
+    },
+    "topics": [
+      [
+        "Clearing Up a Guess",
+        [
+          "When do you guess instead of asking?",
+          "What question can you ask to check?",
+          "How do you correct yourself politely?"
+        ]
+      ],
+      [
+        "Sincere Apologies",
+        [
+          "What action should you name in an apology?",
+          "How can you say thank you after sorry?",
+          "What is a good next step after a talk?"
+        ]
+      ],
+      [
+        "Working as Friends",
+        [
+          "How can friends share a task fairly?",
+          "What can you say when something looks wrong?",
+          "How can a small joke help during work?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "\"Happy for you\" means you share someone’s good news. \"Happy with you\" often means you feel satisfied with the person or being with them.",
+      "happy for you は相手の良い知らせを一緒に喜ぶ表現です。happy with you はその相手や一緒にいることへの満足を表すことが多いです。"
+    ],
+    "triviaQuestion": [
+      "Which is natural for congratulating a friend: \"happy for you\" or \"happy with you\"?",
+      "Happy for you."
+    ],
+    "closing": "Emma and Nao clear up the misunderstanding, stay friends, and continue the display setup. Leo and Ren keep working and laughing. The Saturday market and Emma’s 11:30 photo talk are confirmed."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}

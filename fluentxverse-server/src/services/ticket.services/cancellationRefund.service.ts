@@ -20,7 +20,7 @@ export class CancellationRefundService {
     try {
       const intent = await db.executeWrite(async tx => {
         const locked = await tx.run(`MATCH (b:Booking {bookingId: $bookingId})
-          WHERE b.status = 'cancelled' OR (b.refundApprovedBy IS NOT NULL AND b.status IN ['confirmed', 'completed'])
+          WHERE b.paymentTransferredTo IS NULL AND (b.status = 'cancelled' OR (b.refundApprovedBy IS NOT NULL AND b.status IN ['confirmed', 'completed']))
           SET b.refundWriteVersion = coalesce(b.refundWriteVersion, 0) + 1 RETURN b`, { bookingId });
         const b = locked.records[0]?.get('b').properties;
         if (!b) throw new Error('A refund requires a cancelled booking');
@@ -292,7 +292,7 @@ export class CancellationRefundService {
   async reconcile(bookingIds?: string[]) {
     const db = getDriver().session();
     try {
-      const result = await db.run(`MATCH (b:Booking) WHERE (b.status = 'cancelled' OR b.refundApprovedBy IS NOT NULL) AND coalesce(b.refunded, false) = false
+      const result = await db.run(`MATCH (b:Booking) WHERE b.paymentTransferredTo IS NULL AND (b.status = 'cancelled' OR b.refundApprovedBy IS NOT NULL) AND coalesce(b.refunded, false) = false
         AND coalesce(b.refundStatus, '') IN ['', 'pending'] AND ($ids IS NULL OR b.bookingId IN $ids)
         AND ($ids IS NOT NULL OR b.testFixture IS NULL)
         OPTIONAL MATCH (r:TicketTransaction {id: 'cancellation-refund-' + b.bookingId})

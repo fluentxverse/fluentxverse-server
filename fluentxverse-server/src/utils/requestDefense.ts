@@ -6,7 +6,7 @@ import { requestLimiter, type FixedWindowLimiter } from './atomicRateLimit';
 import { edgeProtected, requestPolicy, type WorkClass } from '../../../shared/requestDefense';
 
 const MAX_BUFFERED_BYTES = 128 * 1024 * 1024;
-const CLASS_CONCURRENCY: Partial<Record<WorkClass, number>> = { upload: 1, proof: 1, ai: 2, assessment: 2, publicProof: 2 };
+const CLASS_CONCURRENCY: Partial<Record<WorkClass, number>> = { upload: 1, proof: 1, ai: 2, assessment: 2, publicProof: 2, identityMetadata: 4 };
 class Rejection extends Error { constructor(readonly status: number, message: string, readonly retryAfter?: number) { super(message); } }
 
 export function trustedClientIP(request: Request, trustCloudflare: boolean) {
@@ -93,7 +93,9 @@ export class RequestDefense {
       };
       await consume('all', 'origin:global', 6000);
       await consume(ip, 'origin:network', 3000);
-      const actor = await this.actor(normalized, policy.roles);
+      // Public metadata is always limited by trusted client IP. Rotating valid
+      // login cookies must not create fresh quotas or add JWT work to this route.
+      const actor = policy.category === 'identityMetadata' ? null : await this.actor(normalized, policy.roles);
       if (policy.roles && (!actor || !policy.roles.includes(actor.role || ''))) throw new Rejection(actor ? 403 : 401, actor ? 'This account cannot perform this operation.' : 'Authentication required.');
       if (policy.category !== 'general') {
         await consume('all', 'origin:global:' + policy.category, policy.globalLimit);

@@ -1,0 +1,233 @@
+{
+  "version": "toeic-v1",
+  "level": 4,
+  "chapter": 2,
+  "number": 3,
+  "sourceDigest": "22ff43d84921d240a4dc240ba443309bc8ab3338c4ee741d7fcb047e9eb80b79",
+  "episode": {
+    "title": "Emma's Fresh Start",
+    "skill": "reading",
+    "intro": [
+      "At the Osaka agency, Emma is asked to lead a design project for a local art exhibition. She feels nervous but proud. In a team meeting, Ren praises her proposal, and they stay professional. That evening, Emma calls Claire and says she is starting to feel confident again.",
+      "大阪の制作会社で、エマは地域のアート展のデザイン担当リーダーを任されます。緊張しますが、誇らしくも感じます。チーム会議でレンが提案をほめ、二人は仕事の関係を保ちます。その夜、エマはクレアに電話し、また自信が戻ってきたと話します。"
+    ],
+    "goal": [
+      "I can read project feedback, find what is finished, and confirm the next tasks.",
+      "プロジェクトの講評を読み、終わったことと次の作業を確認できる。"
+    ],
+    "warmup": "What makes feedback useful for the next version of a design?",
+    "words": [
+      [
+        "Emma has completed a strong first proposal.",
+        "has completed",
+        "エマは強い最初の提案書を仕上げました。"
+      ],
+      [
+        "She will lead the design work for the exhibition.",
+        "lead the design work",
+        "展示会のデザイン作業を率いる。"
+      ],
+      [
+        "The layout is clear and easy to read.",
+        "layout is clear",
+        "レイアウトが分かりやすい。"
+      ],
+      [
+        "Please make the exhibition date larger.",
+        "make the exhibition date larger",
+        "展示会の日付を大きくする。"
+      ],
+      [
+        "The final poster has not been approved yet.",
+        "has not been approved yet",
+        "最終ポスターはまだ承認されていない。"
+      ],
+      [
+        "I appreciate your feedback and I will revise the date line.",
+        "appreciate your feedback",
+        "ご意見ありがとうございます（講評に感謝します）。"
+      ]
+    ],
+    "discussion": [
+      "You are Emma. Your tutor is your manager. Say what you finished, respond to feedback, and ask what to revise next.",
+      "あなたはエマ役、講師は上司役です。終えた作業を伝え、講評に返事をし、次に何を修正するか尋ねましょう。"
+    ],
+    "followup": "How can you confirm a deadline without guessing?",
+    "tips": [
+      {
+        "rule": [
+          "Use have/has + past participle to say a finished result connected to now.",
+          "have/has＋過去分詞で「今につながる完了」を言えます。"
+        ],
+        "examples": [
+          [
+            "Emma has completed the first proposal.",
+            "エマは最初の提案書を仕上げました。"
+          ]
+        ]
+      },
+      {
+        "rule": [
+          "Separate praise, a change request, and approval. Praise is not final approval.",
+          "ほめ言葉、修正依頼、承認を分けましょう。ほめられても最終承認とは限りません。"
+        ],
+        "examples": [
+          [
+            "The layout is clear, but please enlarge the date.",
+            "レイアウトは分かりやすいですが、日付を大きくしてください。"
+          ]
+        ]
+      }
+    ],
+    "apply": {
+      "situation": [
+        "Read the team feedback on Emma's exhibition proposal. Find the achievement and the remaining change.",
+        "エマの展示会の提案へのチームの講評を読みましょう。成果と残っている修正を見つけましょう。"
+      ],
+      "dialogue": [],
+      "text": "<p><strong>Exhibition design - team feedback</strong></p><p><strong>Manager:</strong> Emma has completed a strong first proposal. The layout is clear, and she will lead the design work. Please make the exhibition date larger before sending the next version on Thursday.</p><p><strong>Ren:</strong> The colours work well with the artwork. I suggest keeping them. I can check the image sizes after Emma revises the date line.</p><p><strong>Emma:</strong> Thank you. I appreciate your feedback. I will revise the date line and share the next version with the team. The final poster has not been approved yet.</p>",
+      "questions": [
+        [
+          "What has Emma completed?",
+          "A strong first proposal."
+        ],
+        [
+          "What needs to change?",
+          "The exhibition date needs to be larger."
+        ],
+        [
+          "What does Ren suggest keeping?",
+          "The colours."
+        ],
+        [
+          "Has the final poster been approved?",
+          "No."
+        ]
+      ]
+    },
+    "choose": [
+      [
+        "Emma has (completed / complete) the proposal.",
+        "completed"
+      ],
+      [
+        "She will (lead / leading) the project.",
+        "lead"
+      ],
+      [
+        "I appreciate your (feedback / feedbacks).",
+        "feedback"
+      ],
+      [
+        "Please make the date (larger / more larger).",
+        "larger"
+      ],
+      [
+        "The final poster has not been approved (yet / already).",
+        "yet"
+      ],
+      [
+        "I will share it (with / at) the team.",
+        "with"
+      ]
+    ],
+    "choices": [
+      [
+        "\"Strong first proposal; final approval pending.\" What is finished?",
+        "The entire exhibition",
+        "The first proposal",
+        "B"
+      ],
+      [
+        "\"Keep the colours, enlarge the date.\" What should change?",
+        "The size of the date",
+        "Every colour",
+        "A"
+      ],
+      [
+        "Which reply acknowledges feedback and a next action?",
+        "There is no more work to do.",
+        "Thank you. I will revise the date line.",
+        "B"
+      ],
+      [
+        "What should Emma check before printing?",
+        "Whether the final version is approved",
+        "Whether the team likes coffee",
+        "A"
+      ]
+    ],
+    "mission": {
+      "situation": [
+        "You are Emma. Your tutor is your manager. Read the updated client brief and reply before the team sends the artwork to print. These are new instructions for the next version.",
+        "あなたはエマ役、講師は上司役です。更新された依頼内容を読み、チームが印刷に回す前に返事をしましょう。次の版に向けた新しい指示です。"
+      ],
+      "task": [
+        "Confirm what is already approved, the two new changes, who checks the revision, and the deadline. Explain why the team cannot print immediately.",
+        "承認済みの点、新しい修正二つ、修正版を確認する人、期限を確認しましょう。すぐに印刷できない理由も説明しましょう。"
+      ],
+      "roles": [
+        "your manager",
+        "Emma"
+      ],
+      "text": "<p><strong>Client Update - Next Version</strong></p><p><strong>Approved:</strong> The client has approved the colours and the larger date. Keep both.</p><p><strong>New changes:</strong> Add the exhibition address below the map. Replace the old artist photo with the new image in the team folder.</p><p><strong>Review:</strong> Emma sends the revision by Friday at 2 p.m. Ren checks the image resolution. The manager then asks the client for final approval.</p><p><strong>Printing:</strong> Do not send files to the printer until the client has approved the complete revised poster.</p>",
+      "title": "Client Update - Next Version",
+      "lines": [
+        "Emma, which parts has the client already approved?",
+        "What are the two new changes for the next version?",
+        "When will you send the revision, and what will Ren check?",
+        "Can we print right away after Ren checks the image resolution?",
+        "Who asks the client for final approval, and what is the next step?"
+      ],
+      "evidence": "Tutor evidence note: The brief says colours and the larger date are approved. New changes are: add the address below the map and replace the old artist photo with the new image in the team folder. Emma sends the revision by Friday at 2 p.m. Ren checks image resolution. The manager asks the client for final approval. Do not send to the printer until the client approves the complete revised poster. The earlier Thursday deadline is replaced by this Friday 2 p.m. deadline.",
+      "useful": [
+        "The client has approved ...",
+        "We still need to ...",
+        "The new image is in ...",
+        "I will send it by ...",
+        "We cannot print until ..."
+      ]
+    },
+    "topics": [
+      [
+        "USEFUL FEEDBACK",
+        [
+          "What makes feedback specific?",
+          "How do you say thank you for a suggestion?",
+          "What do you ask if a comment is unclear?"
+        ]
+      ],
+      [
+        "COMPLETED AND PENDING",
+        [
+          "How do you say a task is finished?",
+          "How do you say something is not finished yet?",
+          "Why is it important to confirm approval?"
+        ]
+      ],
+      [
+        "BUILDING CONFIDENCE",
+        [
+          "What small win can you notice at work?",
+          "Who can give you practical feedback?",
+          "What is one realistic next goal?"
+        ]
+      ]
+    ],
+    "trivia": [
+      "In English, \"feedback\" is usually uncountable. Say \"some feedback\" or \"two pieces of feedback,\" not \"two feedbacks.\" Also, positive feedback does not always mean final approval.",
+      "英語の feedback は通常、数えられない名詞です。some feedback や two pieces of feedback と言い、two feedbacks とは通常言いません。また、良い講評でも最終承認とは限りません。"
+    ],
+    "triviaQuestion": [
+      "Which is natural: \"two feedbacks\" or \"two pieces of feedback\"?",
+      "Two pieces of feedback."
+    ],
+    "closing": "Emma leads the revision and shares the update with Claire. In Kyoto, Claire starts planning a weekend market at Kamo House."
+  },
+  "review": {
+    "approved": true,
+    "issues": [],
+    "method": "direct-editorial",
+    "note": "Edited locally against the existing story. No model API calls."
+  }
+}
